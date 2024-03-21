@@ -115,7 +115,7 @@ $_ZZN5folly19shared_mutex_detail21getMaxDeferredReadersEvE5cache = comdat any
 define linkonce_odr void @_ZN5folly36IOThreadPoolDeadlockDetectorObserverD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly36IOThreadPoolDeadlockDetectorObserverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly36IOThreadPoolDeadlockDetectorObserverE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %detectors_ = getelementptr inbounds %"class.folly::IOThreadPoolDeadlockDetectorObserver", ptr %this, i64 0, i32 3
   %mutex_.i = getelementptr inbounds %"class.folly::IOThreadPoolDeadlockDetectorObserver", ptr %this, i64 0, i32 3, i32 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i) #15
@@ -204,7 +204,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 define linkonce_odr void @_ZN5folly36IOThreadPoolDeadlockDetectorObserverD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %state.i.i.i = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly36IOThreadPoolDeadlockDetectorObserverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly36IOThreadPoolDeadlockDetectorObserverE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %detectors_.i = getelementptr inbounds %"class.folly::IOThreadPoolDeadlockDetectorObserver", ptr %this, i64 0, i32 3
   %mutex_.i.i = getelementptr inbounds %"class.folly::IOThreadPoolDeadlockDetectorObserver", ptr %this, i64 0, i32 3, i32 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %state.i.i.i) #15
@@ -456,7 +456,7 @@ lpad3:                                            ; preds = %invoke.cont
 define void @_ZN5folly36IOThreadPoolDeadlockDetectorObserverC2EPNS_23DeadlockDetectorFactoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef %deadlockDetectorFactory, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %name) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly36IOThreadPoolDeadlockDetectorObserverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly36IOThreadPoolDeadlockDetectorObserverE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %name_ = getelementptr inbounds %"class.folly::IOThreadPoolDeadlockDetectorObserver", ptr %this, i64 0, i32 1
   %0 = getelementptr inbounds %"class.folly::IOThreadPoolDeadlockDetectorObserver", ptr %this, i64 0, i32 1, i32 2
   store ptr %0, ptr %name_, align 8, !tbaa !54

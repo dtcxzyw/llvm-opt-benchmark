@@ -264,7 +264,7 @@ entry:
   store ptr %localScaling, ptr %localScaling.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV28btScaledBvhTriangleMeshShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV28btScaledBvhTriangleMeshShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_localScaling = getelementptr inbounds %class.btScaledBvhTriangleMeshShape, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %localScaling.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_localScaling, ptr align 4 %0, i64 16, i1 false)
@@ -750,7 +750,7 @@ entry:
   store ptr %localScaling, ptr %localScaling.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btTriangleCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btScaledTriangleCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btScaledTriangleCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_originalCallback = getelementptr inbounds %class.btScaledTriangleCallback, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %originalCallback.addr, align 8
   store ptr %0, ptr %m_originalCallback, align 8
@@ -2220,7 +2220,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btTriangleCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btTriangleCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

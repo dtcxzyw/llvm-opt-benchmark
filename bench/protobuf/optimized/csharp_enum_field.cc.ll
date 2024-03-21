@@ -145,7 +145,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN6google8protobuf8compiler6csharp18EnumFieldGeneratorC2EPKNS0_15FieldDescriptorEiPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef %descriptor, i32 noundef %presenceIndex, ptr noundef %options) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8compiler6csharp23PrimitiveFieldGeneratorC2EPKNS0_15FieldDescriptorEiPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef %descriptor, i32 noundef %presenceIndex, ptr noundef %options)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp18EnumFieldGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp18EnumFieldGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -344,7 +344,7 @@ declare void @_ZN6google8protobuf8compiler6csharp18FieldGeneratorBase17AddDeprec
 define hidden void @_ZN6google8protobuf8compiler6csharp23EnumOneofFieldGeneratorC2EPKNS0_15FieldDescriptorEiPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef %descriptor, i32 noundef %presenceIndex, ptr noundef %options) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN6google8protobuf8compiler6csharp28PrimitiveOneofFieldGeneratorC2EPKNS0_15FieldDescriptorEiPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef %descriptor, i32 noundef %presenceIndex, ptr noundef %options)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp23EnumOneofFieldGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp23EnumOneofFieldGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

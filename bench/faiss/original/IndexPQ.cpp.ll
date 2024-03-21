@@ -1086,7 +1086,7 @@ define linkonce_odr void @_ZN5faiss19MultiIndexQuantizerD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss19MultiIndexQuantizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss19MultiIndexQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::MultiIndexQuantizer", ptr %3, i32 0, i32 1
   call void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %4) #15
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #15
@@ -1738,7 +1738,7 @@ define linkonce_odr void @_ZN5faiss7IndexPQD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss7IndexPQE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss7IndexPQE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::IndexPQ", ptr %3, i32 0, i32 4
   call void @_ZN5faiss18PolysemousTrainingD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #15
   %5 = getelementptr inbounds %"struct.faiss::IndexPQ", ptr %3, i32 0, i32 1
@@ -2903,7 +2903,7 @@ define linkonce_odr void @_ZN5faiss20MultiIndexQuantizer2D2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss20MultiIndexQuantizer2E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss20MultiIndexQuantizer2E, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::MultiIndexQuantizer2", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIPN5faiss5IndexESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   call void @_ZN5faiss19MultiIndexQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %3) #15
@@ -3511,7 +3511,7 @@ define void @_ZN5faiss7IndexPQC2EimmNS_10MetricTypeE(ptr noundef nonnull align 8
   %15 = sext i32 %14 to i64
   %16 = load i32, ptr %10, align 4
   call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %13, i64 noundef 0, i64 noundef %15, i32 noundef %16)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss7IndexPQE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss7IndexPQE, i32 0, i32 0, i32 2), ptr %13, align 8
   %17 = getelementptr inbounds %"struct.faiss::IndexPQ", ptr %13, i32 0, i32 1
   %18 = load i32, ptr %7, align 4
   %19 = sext i32 %18 to i64
@@ -3592,7 +3592,7 @@ define linkonce_odr void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 12
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   %5 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 11
@@ -3610,7 +3610,7 @@ define linkonce_odr void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #15
@@ -4003,7 +4003,7 @@ define void @_ZN5faiss7IndexPQC2Ev(ptr noundef nonnull align 8 dereferenceable(3
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss14IndexFlatCodesC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss7IndexPQE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss7IndexPQE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::IndexPQ", ptr %5, i32 0, i32 1
   invoke void @_ZN5faiss16ProductQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6)
           to label %7 unwind label %25
@@ -4097,7 +4097,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder
   %12 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %11, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %10, i64 noundef %13)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::PQDistanceComputer", ptr %7, i32 0, i32 4
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds %"struct.faiss::IndexPQ", ptr %15, i32 0, i32 1
@@ -4209,7 +4209,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder
   %12 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %11, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %10, i64 noundef %13)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::PQDistanceComputer.8", ptr %7, i32 0, i32 4
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds %"struct.faiss::IndexPQ", ptr %15, i32 0, i32 1
@@ -4321,7 +4321,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoder
   %12 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %11, i32 0, i32 1
   %13 = load i64, ptr %12, align 8
   call void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %10, i64 noundef %13)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::PQDistanceComputer.9", ptr %7, i32 0, i32 4
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds %"struct.faiss::IndexPQ", ptr %15, i32 0, i32 1
@@ -4439,7 +4439,7 @@ define linkonce_odr void @_ZN5faiss25FlatCodesDistanceComputerC2EPKhm(ptr nounde
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5faiss16DistanceComputerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss25FlatCodesDistanceComputerE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss25FlatCodesDistanceComputerE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.faiss::FlatCodesDistanceComputer", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -4821,7 +4821,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_10PQDecoder8EEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::PQDistanceComputer", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   call void @_ZN5faiss25FlatCodesDistanceComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
@@ -4882,7 +4882,7 @@ define linkonce_odr void @_ZN5faiss16DistanceComputerC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss16DistanceComputerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss16DistanceComputerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5790,7 +5790,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #15
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
@@ -6120,7 +6120,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_11PQDecoder16EEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::PQDistanceComputer.8", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   call void @_ZN5faiss25FlatCodesDistanceComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
@@ -6489,7 +6489,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoder
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_118PQDistanceComputerINS_16PQDecoderGenericEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::PQDistanceComputer.9", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   call void @_ZN5faiss25FlatCodesDistanceComputerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #15
@@ -14184,7 +14184,7 @@ define void @_ZN5faiss19MultiIndexQuantizerC2Eimm(ptr noundef nonnull align 8 de
   %12 = load i32, ptr %6, align 4
   %13 = sext i32 %12 to i64
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %11, i64 noundef %13, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss19MultiIndexQuantizerE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss19MultiIndexQuantizerE, i32 0, i32 0, i32 2), ptr %11, align 8
   %14 = getelementptr inbounds %"struct.faiss::MultiIndexQuantizer", ptr %11, i32 0, i32 1
   %15 = load i32, ptr %6, align 4
   %16 = sext i32 %15 to i64
@@ -14232,7 +14232,7 @@ define linkonce_odr void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnul
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
   %9 = load i64, ptr %5, align 8
   %10 = trunc i64 %9 to i32
@@ -20455,7 +20455,7 @@ define void @_ZN5faiss20MultiIndexQuantizer2C2EimmPPNS_5IndexE(ptr noundef nonnu
   %18 = load i64, ptr %8, align 8
   %19 = load i64, ptr %9, align 8
   call void @_ZN5faiss19MultiIndexQuantizerC2Eimm(ptr noundef nonnull align 8 dereferenceable(248) %16, i32 noundef %17, i64 noundef %18, i64 noundef %19)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss20MultiIndexQuantizer2E, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss20MultiIndexQuantizer2E, i32 0, i32 0, i32 2), ptr %16, align 8
   %20 = getelementptr inbounds %"struct.faiss::MultiIndexQuantizer2", ptr %16, i32 0, i32 1
   call void @_ZNSt6vectorIPN5faiss5IndexESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #15
   %21 = getelementptr inbounds %"struct.faiss::MultiIndexQuantizer2", ptr %16, i32 0, i32 1
@@ -21623,7 +21623,7 @@ define void @_ZN5faiss20MultiIndexQuantizer2C2EimPNS_5IndexES2_(ptr noundef nonn
   %16 = load i32, ptr %7, align 4
   %17 = load i64, ptr %8, align 8
   call void @_ZN5faiss19MultiIndexQuantizerC2Eimm(ptr noundef nonnull align 8 dereferenceable(248) %15, i32 noundef %16, i64 noundef 2, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss20MultiIndexQuantizer2E, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss20MultiIndexQuantizer2E, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"struct.faiss::MultiIndexQuantizer2", ptr %15, i32 0, i32 1
   call void @_ZNSt6vectorIPN5faiss5IndexESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #15
   br label %19

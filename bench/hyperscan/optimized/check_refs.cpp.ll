@@ -75,7 +75,7 @@ entry:
   %vis = alloca %"class.ue2::ReferenceVisitor", align 8
   %conv = zext i32 %groupIndices to i64
   call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %vis)
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue216ReferenceVisitorE, i64 0, inrange i32 0, i64 2), ptr %vis, align 8
+  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue216ReferenceVisitorE, i64 0, i32 0, i64 2), ptr %vis, align 8
   %num_ids.i = getelementptr inbounds i8, ptr %vis, i64 8
   store i64 %conv, ptr %num_ids.i, align 8
   %names.i = getelementptr inbounds i8, ptr %vis, i64 16
@@ -299,7 +299,7 @@ ehcleanup.thread6:                                ; preds = %invoke.cont11
   br label %cleanup.action
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #8
           to label %unreachable unwind label %ehcleanup
 
@@ -449,7 +449,7 @@ ehcleanup.thread6:                                ; preds = %invoke.cont11
   br label %cleanup.action
 
 invoke.cont13:                                    ; preds = %invoke.cont11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #8
           to label %unreachable unwind label %ehcleanup
 

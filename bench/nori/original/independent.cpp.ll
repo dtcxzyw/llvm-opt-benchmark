@@ -490,7 +490,7 @@ define linkonce_odr hidden void @_ZN4nori11IndependentC2ERKNS_12PropertyListE(pt
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN4nori7SamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4nori11IndependentE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4nori11IndependentE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.nori::Independent", ptr %10, i32 0, i32 1
   invoke void @_ZN5pcg32C2Ev(ptr noundef nonnull align 8 dereferenceable(16) %11)
           to label %12 unwind label %19
@@ -631,7 +631,7 @@ define linkonce_odr hidden void @_ZN4nori7SamplerC2Ev(ptr noundef nonnull align 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4nori7SamplerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4nori7SamplerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -887,7 +887,7 @@ define linkonce_odr hidden void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2882,7 +2882,7 @@ define linkonce_odr hidden void @_ZN4nori11IndependentC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN4nori7SamplerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4nori11IndependentE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4nori11IndependentE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nori::Independent", ptr %5, i32 0, i32 1
   invoke void @_ZN5pcg32C2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %7 unwind label %8

@@ -1124,7 +1124,7 @@ entry:
   store i64 %worker_id, ptr %worker_id.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_121WorkerFinishedRequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_121WorkerFinishedRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %worker_id_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WorkerFinishedRequest", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %worker_id.addr, align 8
   store i64 %0, ptr %worker_id_, align 8
@@ -1240,7 +1240,7 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120WorkerStartedRequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120WorkerStartedRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %id_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WorkerStartedRequest", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %id.addr, align 8
   store i64 %0, ptr %id_, align 8
@@ -2124,7 +2124,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector7RequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector7RequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2536,7 +2536,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120WorkerStartedRequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector12_GLOBAL__N_120WorkerStartedRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %info_ = getelementptr inbounds %"class.node::inspector::(anonymous namespace)::WorkerStartedRequest", ptr %this1, i32 0, i32 2
   call void @_ZN4node9inspector10WorkerInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %info_) #10
   call void @_ZN4node9inspector7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10

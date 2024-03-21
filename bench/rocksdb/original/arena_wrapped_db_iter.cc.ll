@@ -2417,7 +2417,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb8IteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %db_iter_ = getelementptr inbounds %"class.rocksdb::ArenaWrappedDBIter", ptr %this1, i32 0, i32 1
   store ptr null, ptr %db_iter_, align 8
   %arena_ = getelementptr inbounds %"class.rocksdb::ArenaWrappedDBIter", ptr %this1, i32 0, i32 2
@@ -2532,7 +2532,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN7rocksdb18ArenaWrappedDBIterE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %db_iter_ = getelementptr inbounds %"class.rocksdb::ArenaWrappedDBIter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %db_iter_, align 8
   %cmp = icmp ne ptr %0, null
@@ -7883,7 +7883,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb8IteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

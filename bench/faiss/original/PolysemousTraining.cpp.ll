@@ -1668,7 +1668,7 @@ define linkonce_odr void @_ZN5faiss27ReproduceDistancesObjectiveD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss27ReproduceDistancesObjectiveE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss27ReproduceDistancesObjectiveE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   %5 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %3, i32 0, i32 2
@@ -2514,7 +2514,7 @@ define void @_ZN5faiss27SimulatedAnnealingOptimizerC2EPNS_20PermutationObjective
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   %13 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %13, i64 40, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5faiss27SimulatedAnnealingOptimizerE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5faiss27SimulatedAnnealingOptimizerE, i32 0, i32 0, i32 2), ptr %11, align 8
   %14 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %11, i32 0, i32 2
   %15 = load ptr, ptr %5, align 8
   store ptr %15, ptr %14, align 8
@@ -2660,7 +2660,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
@@ -2680,7 +2680,7 @@ define void @_ZN5faiss27SimulatedAnnealingOptimizerD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5faiss27SimulatedAnnealingOptimizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5faiss27SimulatedAnnealingOptimizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::SimulatedAnnealingOptimizer", ptr %3, i32 0, i32 5
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -3273,7 +3273,7 @@ define void @_ZN5faiss27ReproduceDistancesObjectiveC2EiPKdS2_d(ptr noundef nonnu
   store double %4, ptr %10, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN5faiss20PermutationObjectiveC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss27ReproduceDistancesObjectiveE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss27ReproduceDistancesObjectiveE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"struct.faiss::ReproduceDistancesObjective", ptr %13, i32 0, i32 1
   %15 = load double, ptr %10, align 8
   store double %15, ptr %14, align 8
@@ -3319,7 +3319,7 @@ define linkonce_odr void @_ZN5faiss20PermutationObjectiveC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20PermutationObjectiveE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20PermutationObjectiveE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5365,7 +5365,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveC2Ei
   store double %3, ptr %8, align 8
   %13 = load ptr, ptr %5, align 8
   call void @_ZN5faiss20PermutationObjectiveC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %13, i32 0, i32 1
   %15 = load i32, ptr %6, align 4
   store i32 %15, ptr %14, align 4
@@ -5596,7 +5596,7 @@ define internal void @_ZN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveD2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_129ReproduceWithHammingObjectiveE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   %5 = getelementptr inbounds %"struct.faiss::(anonymous namespace)::ReproduceWithHammingObjective", ptr %3, i32 0, i32 3
@@ -8416,7 +8416,7 @@ define linkonce_odr void @_ZN5faiss13RankingScore2C2EiiiPKjS2_PKf(ptr noundef no
   store ptr %6, ptr %14, align 8
   %17 = load ptr, ptr %8, align 8
   call void @_ZN5faiss14Score3ComputerIfdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %17) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss13RankingScore2E, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss13RankingScore2E, i32 0, i32 0, i32 2), ptr %17, align 8
   %18 = getelementptr inbounds %"struct.faiss::RankingScore2", ptr %17, i32 0, i32 1
   %19 = load i32, ptr %9, align 4
   store i32 %19, ptr %18, align 8
@@ -10607,7 +10607,7 @@ define linkonce_odr void @_ZN5faiss14Score3ComputerIfdEC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss20PermutationObjectiveC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14Score3ComputerIfdEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14Score3ComputerIfdEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   ret void
@@ -10964,7 +10964,7 @@ define linkonce_odr void @_ZN5faiss14Score3ComputerIfdED2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14Score3ComputerIfdEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14Score3ComputerIfdEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::Score3Computer", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   call void @_ZN5faiss20PermutationObjectiveD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #11

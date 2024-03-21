@@ -1545,7 +1545,7 @@ define dso_local void @_ZN4GameC2Ev(ptr noundef nonnull align 8 dereferenceable(
   %32 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %0, i8 0, i64 49, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(60) %30, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15LogOutputBuffer, i64 0, inrange i32 0, i64 2), ptr %32, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15LogOutputBuffer, i64 0, i32 0, i64 2), ptr %32, align 8, !tbaa !15
   %33 = getelementptr inbounds i8, ptr %0, i64 120
   %34 = getelementptr inbounds i8, ptr %0, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %33, i8 0, i64 120, i1 false)
@@ -4060,7 +4060,7 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI6GameUISt14default_deleteI
 define linkonce_odr dso_local void @_ZN15LogOutputBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::_Deque_iterator", align 16
   %3 = alloca %"struct.std::_Deque_iterator", align 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15LogOutputBuffer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15LogOutputBuffer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %4 = getelementptr inbounds i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8, !tbaa !106
   %6 = invoke noundef zeroext i8 @_ZN6Logger12removeOutputEP10ILogOutput(ptr noundef nonnull align 8 dereferenceable(272) %5, ptr noundef nonnull %0)
@@ -5252,7 +5252,7 @@ define dso_local void @_ZN4GameD2Ev(ptr noundef nonnull align 8 dereferenceable(
 534:                                              ; preds = %533, %499
   store ptr null, ptr %500, align 8, !tbaa !17
   %535 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15LogOutputBuffer, i64 0, inrange i32 0, i64 2), ptr %535, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15LogOutputBuffer, i64 0, i32 0, i64 2), ptr %535, align 8, !tbaa !15
   %536 = getelementptr inbounds i8, ptr %0, i64 240
   %537 = load ptr, ptr %536, align 8, !tbaa !106
   %538 = invoke noundef zeroext i8 @_ZN6Logger12removeOutputEP10ILogOutput(ptr noundef nonnull align 8 dereferenceable(272) %537, ptr noundef nonnull %535)
@@ -5695,7 +5695,7 @@ define dso_local noundef zeroext i1 @_ZN4Game4initERKNSt7__cxx1112basic_stringIc
   %39 = getelementptr inbounds i8, ptr %0, i64 80
   store ptr %38, ptr %39, align 8, !tbaa !130
   %40 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #40
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %40, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %40, align 8, !tbaa !15
   %41 = getelementptr inbounds i8, ptr %40, i64 8
   %42 = getelementptr inbounds i8, ptr %40, i64 16
   %43 = getelementptr inbounds i8, ptr %40, i64 32
@@ -6003,7 +6003,7 @@ define dso_local noundef zeroext i1 @_ZN4Game12createClientERK13GameStartData(pt
   %170 = call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #40
   %171 = getelementptr inbounds i8, ptr %0, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !117
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV37GameGlobalShaderConstantSetterFactory, i64 0, inrange i32 0, i64 2), ptr %170, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV37GameGlobalShaderConstantSetterFactory, i64 0, i32 0, i64 2), ptr %170, align 8, !tbaa !15
   %173 = getelementptr inbounds i8, ptr %170, i64 8
   store ptr null, ptr %173, align 8, !tbaa !198
   %174 = getelementptr inbounds i8, ptr %170, i64 16
@@ -6018,7 +6018,7 @@ define dso_local noundef zeroext i1 @_ZN4Game12createClientERK13GameStartData(pt
   call void %180(ptr noundef nonnull align 8 dereferenceable(8) %177, ptr noundef nonnull %170)
   %181 = load ptr, ptr %176, align 8, !tbaa !129
   %182 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #40
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30FogShaderConstantSetterFactory, i64 0, inrange i32 0, i64 2), ptr %182, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30FogShaderConstantSetterFactory, i64 0, i32 0, i64 2), ptr %182, align 8, !tbaa !15
   %183 = load ptr, ptr %181, align 8, !tbaa !15
   %184 = getelementptr inbounds i8, ptr %183, i64 64
   %185 = load ptr, ptr %184, align 8
@@ -15637,7 +15637,7 @@ define dso_local void @_ZN4Game13showPauseMenuEv(ptr nocapture noundef nonnull r
           to label %1166 unwind label %1156
 
 1166:                                             ; preds = %1164, %1149
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, inrange i32 0, i64 2), ptr %1136, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, i32 0, i64 2), ptr %1136, align 8, !tbaa !15
   %1167 = getelementptr inbounds i8, ptr %1136, i64 8
   %1168 = getelementptr inbounds i8, ptr %1136, i64 24
   store ptr %1168, ptr %1167, align 8, !tbaa !4
@@ -15716,7 +15716,7 @@ define dso_local void @_ZN4Game13showPauseMenuEv(ptr nocapture noundef nonnull r
   %1200 = getelementptr inbounds i8, ptr %1193, i64 16
   store i64 0, ptr %1200, align 8, !tbaa !14
   store i8 0, ptr %1199, align 1, !tbaa !13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20LocalFormspecHandler, i64 0, inrange i32 0, i64 2), ptr %1193, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20LocalFormspecHandler, i64 0, i32 0, i64 2), ptr %1193, align 8, !tbaa !15
   %1201 = getelementptr inbounds i8, ptr %1193, i64 40
   store ptr null, ptr %1201, align 8, !tbaa !785
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %1198, ptr noundef nonnull align 8 dereferenceable(32) %45)
@@ -15725,7 +15725,7 @@ define dso_local void @_ZN4Game13showPauseMenuEv(ptr nocapture noundef nonnull r
 1202:                                             ; preds = %1194
   %1203 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %1193, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %1193, align 8, !tbaa !15
   %1204 = load ptr, ptr %1198, align 8, !tbaa !11
   %1205 = icmp eq ptr %1204, %1199
   br i1 %1205, label %1206, label %1209
@@ -15847,7 +15847,7 @@ define dso_local void @_ZN4Game13showPauseMenuEv(ptr nocapture noundef nonnull r
   %1266 = getelementptr inbounds i8, ptr %22, i64 %1265
   store ptr %1263, ptr %1266, align 8, !tbaa !15
   %1267 = getelementptr inbounds i8, ptr %22, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %1267, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %1267, align 8, !tbaa !15
   %1268 = getelementptr inbounds i8, ptr %22, i64 80
   %1269 = load ptr, ptr %1268, align 8, !tbaa !11
   %1270 = getelementptr inbounds i8, ptr %22, i64 96
@@ -15866,7 +15866,7 @@ define dso_local void @_ZN4Game13showPauseMenuEv(ptr nocapture noundef nonnull r
   br label %1277
 
 1277:                                             ; preds = %1276, %1272
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %1267, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %1267, align 8, !tbaa !15
   %1278 = getelementptr inbounds i8, ptr %22, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1278) #38
   %1279 = getelementptr inbounds i8, ptr %22, i64 112
@@ -16809,7 +16809,7 @@ define dso_local noundef zeroext i1 @_ZN4Game9initSoundEv(ptr nocapture noundef 
   %64 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #40, !noalias !881
   %65 = getelementptr inbounds i8, ptr %64, i64 32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %65, i8 0, i64 16, i1 false), !noalias !881
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SoundFallbackPathProvider, i64 0, inrange i32 0, i64 2), ptr %64, align 8, !tbaa !15, !noalias !881
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SoundFallbackPathProvider, i64 0, i32 0, i64 2), ptr %64, align 8, !tbaa !15, !noalias !881
   %66 = getelementptr inbounds i8, ptr %64, i64 8
   %67 = getelementptr inbounds i8, ptr %64, i64 56
   store ptr %67, ptr %66, align 8, !tbaa !884, !noalias !881
@@ -17147,7 +17147,7 @@ define dso_local noundef zeroext i1 @_ZN4Game9initSoundEv(ptr nocapture noundef 
   store i32 1, ptr %259, align 8, !tbaa !892, !noalias !886
   %260 = getelementptr inbounds i8, ptr %251, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %260, i8 0, i64 24, i1 false), !noalias !886
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV17DummySoundManager, i64 0, inrange i32 0, i64 2), ptr %251, align 8, !tbaa !15, !noalias !886
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV17DummySoundManager, i64 0, i32 0, i64 2), ptr %251, align 8, !tbaa !15, !noalias !886
   %261 = load ptr, ptr %206, align 8, !tbaa !17
   store ptr %251, ptr %206, align 8, !tbaa !17
   %262 = icmp eq ptr %261, null
@@ -20825,7 +20825,7 @@ define dso_local noundef zeroext i1 @_ZN4Game16getServerContentEPb(ptr noundef n
   %430 = load i64, ptr %46, align 8
   %431 = getelementptr inbounds i8, ptr %10, i64 %430
   store ptr %45, ptr %431, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %21, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %21, align 8, !tbaa !15
   %432 = load ptr, ptr %40, align 8, !tbaa !11
   %433 = icmp eq ptr %432, %47
   br i1 %433, label %434, label %437
@@ -20841,7 +20841,7 @@ define dso_local noundef zeroext i1 @_ZN4Game16getServerContentEPb(ptr noundef n
   br label %438
 
 438:                                              ; preds = %437, %434
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %21, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %21, align 8, !tbaa !15
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #38
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %50) #38
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %10) #38
@@ -21487,7 +21487,7 @@ define dso_local void @_ZN4Game15processKeyInputEv(ptr noundef nonnull align 8 d
   store ptr %51, ptr %50, align 8, !tbaa !4
   %52 = getelementptr inbounds i8, ptr %41, i64 176
   store i16 -1, ptr %52, align 8, !tbaa !937
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IDropAction, i64 0, inrange i32 0, i64 2), ptr %41, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IDropAction, i64 0, i32 0, i64 2), ptr %41, align 8, !tbaa !15
   %53 = getelementptr inbounds i8, ptr %41, i64 178
   %54 = zext i1 %40 to i16
   store i16 %54, ptr %53, align 2, !tbaa !938
@@ -23081,7 +23081,7 @@ define dso_local void @_ZN4Game16dropSelectedItemEb(ptr nocapture noundef nonnul
   store ptr %15, ptr %14, align 8, !tbaa !4
   %16 = getelementptr inbounds i8, ptr %3, i64 176
   store i16 -1, ptr %16, align 8, !tbaa !937
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IDropAction, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IDropAction, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !15
   %17 = getelementptr inbounds i8, ptr %3, i64 178
   %18 = zext i1 %1 to i16
   store i16 %18, ptr %17, align 2, !tbaa !938
@@ -23380,7 +23380,7 @@ define dso_local void @_ZN4Game13openInventoryEv(ptr nocapture noundef nonnull r
 54:                                               ; preds = %50, %25, %15
   %55 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
   %56 = load ptr, ptr %4, align 8, !tbaa !117
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV25PlayerInventoryFormSource, i64 0, inrange i32 0, i64 2), ptr %55, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV25PlayerInventoryFormSource, i64 0, i32 0, i64 2), ptr %55, align 8, !tbaa !15
   %57 = getelementptr inbounds i8, ptr %55, i64 8
   store ptr %56, ptr %57, align 8, !tbaa !945
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #38
@@ -23426,7 +23426,7 @@ define dso_local void @_ZN4Game13openInventoryEv(ptr nocapture noundef nonnull r
   br label %177
 
 81:                                               ; preds = %77, %54
-  %82 = phi ptr [ %78, %77 ], [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV25PlayerInventoryFormSource, i64 0, inrange i32 0, i64 2), %54 ]
+  %82 = phi ptr [ %78, %77 ], [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV25PlayerInventoryFormSource, i64 0, i32 0, i64 2), %54 ]
   %83 = getelementptr inbounds i8, ptr %82, i64 16
   %84 = load ptr, ptr %83, align 8
   %85 = invoke noundef nonnull align 8 dereferenceable(32) ptr %84(ptr noundef nonnull align 8 dereferenceable(16) %55)
@@ -23452,7 +23452,7 @@ define dso_local void @_ZN4Game13openInventoryEv(ptr nocapture noundef nonnull r
   %97 = getelementptr inbounds i8, ptr %93, i64 24
   store ptr %97, ptr %96, align 8, !tbaa !4
   %98 = getelementptr inbounds i8, ptr %93, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23TextDestPlayerInventory, i64 0, inrange i32 0, i64 2), ptr %93, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23TextDestPlayerInventory, i64 0, i32 0, i64 2), ptr %93, align 8, !tbaa !15
   %99 = getelementptr inbounds i8, ptr %93, i64 40
   store ptr %95, ptr %99, align 8, !tbaa !948
   store i64 0, ptr %98, align 8, !tbaa !14
@@ -30496,7 +30496,7 @@ define dso_local void @_ZN4Game30handleClientEvent_PlayerDamageEP11ClientEventP1
 54:                                               ; preds = %36, %21
   %55 = tail call noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %25)
   %56 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %56, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %56, align 8, !tbaa !15
   %57 = getelementptr inbounds i8, ptr %56, i64 8
   store i8 4, ptr %57, align 8, !tbaa !1073
   %58 = load ptr, ptr %55, align 8, !tbaa !15
@@ -30598,7 +30598,7 @@ define dso_local void @_ZN4Game30handleClientEvent_ShowFormSpecEP11ClientEventP1
 
 33:                                               ; preds = %3
   %34 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, inrange i32 0, i64 2), ptr %34, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, i32 0, i64 2), ptr %34, align 8, !tbaa !15
   %35 = getelementptr inbounds i8, ptr %34, i64 8
   %36 = getelementptr inbounds i8, ptr %34, i64 24
   store ptr %36, ptr %35, align 8, !tbaa !4
@@ -30653,7 +30653,7 @@ define dso_local void @_ZN4Game30handleClientEvent_ShowFormSpecEP11ClientEventP1
   %60 = getelementptr inbounds i8, ptr %53, i64 16
   store i64 0, ptr %60, align 8, !tbaa !14
   store i8 0, ptr %59, align 1, !tbaa !13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23TextDestPlayerInventory, i64 0, inrange i32 0, i64 2), ptr %53, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23TextDestPlayerInventory, i64 0, i32 0, i64 2), ptr %53, align 8, !tbaa !15
   %61 = getelementptr inbounds i8, ptr %53, i64 40
   store ptr %55, ptr %61, align 8, !tbaa !948
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %58, ptr noundef nonnull align 8 dereferenceable(32) %57)
@@ -30662,7 +30662,7 @@ define dso_local void @_ZN4Game30handleClientEvent_ShowFormSpecEP11ClientEventP1
 62:                                               ; preds = %48
   %63 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %53, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %53, align 8, !tbaa !15
   %64 = load ptr, ptr %58, align 8, !tbaa !11
   %65 = icmp eq ptr %64, %59
   br i1 %65, label %66, label %69
@@ -30776,7 +30776,7 @@ define dso_local void @_ZN4Game35handleClientEvent_ShowLocalFormSpecEP11ClientEv
   %5 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #40
   %6 = getelementptr inbounds i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !15
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   %9 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !4
@@ -30833,7 +30833,7 @@ define dso_local void @_ZN4Game35handleClientEvent_ShowLocalFormSpecEP11ClientEv
   %35 = getelementptr inbounds i8, ptr %28, i64 16
   store i64 0, ptr %35, align 8, !tbaa !14
   store i8 0, ptr %34, align 1, !tbaa !13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20LocalFormspecHandler, i64 0, inrange i32 0, i64 2), ptr %28, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20LocalFormspecHandler, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !15
   %36 = getelementptr inbounds i8, ptr %28, i64 40
   store ptr %32, ptr %36, align 8, !tbaa !785
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %30)
@@ -30842,7 +30842,7 @@ define dso_local void @_ZN4Game35handleClientEvent_ShowLocalFormSpecEP11ClientEv
 37:                                               ; preds = %23
   %38 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %28, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !15
   %39 = load ptr, ptr %33, align 8, !tbaa !11
   %40 = icmp eq ptr %39, %34
   br i1 %40, label %41, label %44
@@ -32949,7 +32949,7 @@ define dso_local void @_ZN4Game17showDeathFormspecEv(ptr nocapture noundef nonnu
 
 71:                                               ; preds = %69, %13, %1
   %72 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, inrange i32 0, i64 2), ptr %72, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, i32 0, i64 2), ptr %72, align 8, !tbaa !15
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   %74 = getelementptr inbounds i8, ptr %72, i64 24
   store ptr %74, ptr %73, align 8, !tbaa !4
@@ -33011,7 +33011,7 @@ define dso_local void @_ZN4Game17showDeathFormspecEv(ptr nocapture noundef nonnu
   %100 = getelementptr inbounds i8, ptr %92, i64 16
   store i64 0, ptr %100, align 8, !tbaa !14
   store i8 0, ptr %99, align 1, !tbaa !13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20LocalFormspecHandler, i64 0, inrange i32 0, i64 2), ptr %92, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20LocalFormspecHandler, i64 0, i32 0, i64 2), ptr %92, align 8, !tbaa !15
   %101 = getelementptr inbounds i8, ptr %92, i64 40
   store ptr %97, ptr %101, align 8, !tbaa !785
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -33020,7 +33020,7 @@ define dso_local void @_ZN4Game17showDeathFormspecEv(ptr nocapture noundef nonnu
 102:                                              ; preds = %87
   %103 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %92, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %92, align 8, !tbaa !15
   %104 = load ptr, ptr %98, align 8, !tbaa !11
   %105 = icmp eq ptr %104, %99
   br i1 %105, label %106, label %109
@@ -37680,7 +37680,7 @@ define dso_local void @_ZN4Game13handleDiggingERK12PointedThingRKN3irr4core8vect
 599:                                              ; preds = %597
   %600 = load i48, ptr %2, align 2, !tbaa.struct !607
   %601 = load i32, ptr %10, align 4, !tbaa.struct !1213
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12NodeDugEvent, i64 0, inrange i32 0, i64 2), ptr %598, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12NodeDugEvent, i64 0, i32 0, i64 2), ptr %598, align 8, !tbaa !15
   %602 = getelementptr inbounds i8, ptr %598, i64 8
   store i48 %600, ptr %602, align 8, !tbaa.struct !607
   %603 = getelementptr inbounds i8, ptr %598, i64 16
@@ -38034,7 +38034,7 @@ define dso_local noundef zeroext i1 @_ZN4Game13nodePlacementERK14ItemDefinitionR
 
 175:                                              ; preds = %171
   %176 = load i48, ptr %3, align 2
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22NodeMetadataFormSource, i64 0, inrange i32 0, i64 2), ptr %170, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22NodeMetadataFormSource, i64 0, i32 0, i64 2), ptr %170, align 8, !tbaa !15
   %177 = getelementptr inbounds i8, ptr %170, i64 8
   store ptr %174, ptr %177, align 8, !tbaa !1231
   %178 = getelementptr inbounds i8, ptr %170, i64 16
@@ -38050,7 +38050,7 @@ define dso_local noundef zeroext i1 @_ZN4Game13nodePlacementERK14ItemDefinitionR
   %184 = getelementptr inbounds i8, ptr %179, i64 16
   store i64 0, ptr %184, align 8, !tbaa !14
   store i8 0, ptr %183, align 1, !tbaa !13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20TextDestNodeMetadata, i64 0, inrange i32 0, i64 2), ptr %179, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20TextDestNodeMetadata, i64 0, i32 0, i64 2), ptr %179, align 8, !tbaa !15
   %185 = getelementptr inbounds i8, ptr %179, i64 40
   store i48 %176, ptr %185, align 8, !tbaa.struct !607
   %186 = getelementptr inbounds i8, ptr %179, i64 48
@@ -43438,7 +43438,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeINSt7__cxx1112basic_stringIcSt11c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12EventManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !405
@@ -43458,7 +43458,7 @@ define linkonce_odr dso_local void @_ZN12EventManagerD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12EventManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !405
@@ -44695,7 +44695,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableINSt7__cxx1112basic_stringI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN37GameGlobalShaderConstantSetterFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV37GameGlobalShaderConstantSetterFactory, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV37GameGlobalShaderConstantSetterFactory, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !1338
   %4 = icmp eq ptr %3, null
@@ -44711,7 +44711,7 @@ define linkonce_odr dso_local void @_ZN37GameGlobalShaderConstantSetterFactoryD2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN37GameGlobalShaderConstantSetterFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV37GameGlobalShaderConstantSetterFactory, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV37GameGlobalShaderConstantSetterFactory, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !1338
   %4 = icmp eq ptr %3, null
@@ -44835,7 +44835,7 @@ define linkonce_odr dso_local void @_ZN30GameGlobalShaderConstantSetterC2EP3SkyP
   %12 = alloca %"class.std::__cxx11::basic_string", align 8
   %13 = alloca %"class.std::__cxx11::basic_string", align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV30GameGlobalShaderConstantSetter, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV30GameGlobalShaderConstantSetter, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %15, align 8, !tbaa !366
   %16 = getelementptr inbounds i8, ptr %0, i64 16
@@ -45546,7 +45546,7 @@ define linkonce_odr dso_local void @_ZN30GameGlobalShaderConstantSetter16setting
 define linkonce_odr dso_local void @_ZN30GameGlobalShaderConstantSetterD2Ev(ptr noundef nonnull align 8 dereferenceable(648) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV30GameGlobalShaderConstantSetter, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV30GameGlobalShaderConstantSetter, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   %5 = getelementptr inbounds i8, ptr %3, i64 8
   %6 = load ptr, ptr @g_settings, align 8, !tbaa !17
@@ -48664,7 +48664,7 @@ define linkonce_odr dso_local void @_ZN11IFormSource11resolveTextERKNSt7__cxx111
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23TextDestPlayerInventoryD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -48969,7 +48969,7 @@ define linkonce_odr dso_local noundef zeroext i8 @_ZNK18SimpleTriggerEvent7getTy
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18FormspecFormSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -48993,7 +48993,7 @@ define linkonce_odr dso_local void @_ZN18FormspecFormSourceD2Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18FormspecFormSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -49024,7 +49024,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20LocalFormspecHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -49666,7 +49666,7 @@ define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1Ev(ptr noundef nonnu
   store float 1.000000e+00, ptr %16, align 8, !tbaa !24
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, inrange i32 0, i64 10), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, i32 0, i64 10), ptr %0, align 8, !tbaa !15
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %18, align 8, !tbaa !580
   %19 = getelementptr inbounds i8, ptr %0, i64 80
@@ -53877,7 +53877,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK9IMetadata13resolve
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TextDestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -53901,7 +53901,7 @@ define linkonce_odr dso_local void @_ZN8TextDestD2Ev(ptr noundef nonnull align 8
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20TextDestNodeMetadataD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -55013,7 +55013,7 @@ declare i64 @wcslen(ptr nocapture noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !1461
   %4 = icmp eq ptr %3, null
@@ -55059,7 +55059,7 @@ define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17DummySoundManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !1461
   %4 = icmp eq ptr %3, null

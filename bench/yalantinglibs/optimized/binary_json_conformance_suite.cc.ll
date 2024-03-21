@@ -1051,7 +1051,7 @@ if.then.i.i13:                                    ; preds = %if.end23
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit18: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i15, %if.then.i.i13
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %effective_test_name) #22
   call void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %response) #22
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, inrange i32 0, i64 2), ptr %setting, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting, i64 104
   %14 = load ptr, ptr %test_name_.i, align 8
   %15 = getelementptr inbounds i8, ptr %setting, i64 120
@@ -1196,7 +1196,7 @@ declare void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %this, align 8
   %test_name_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %test_name_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 120
@@ -1307,7 +1307,7 @@ if.then:                                          ; preds = %invoke.cont3
           to label %invoke.cont6 unwind label %lpad2
 
 invoke.cont6:                                     ; preds = %if.then
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, inrange i32 0, i64 2), ptr %setting2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting2, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting2, i64 104
   %2 = load ptr, ptr %test_name_.i, align 8
   %3 = getelementptr inbounds i8, ptr %setting2, i64 120
@@ -1357,7 +1357,7 @@ lpad2:                                            ; preds = %if.then, %invoke.co
   br label %_ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit26
 
 if.end:                                           ; preds = %_ZN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingD2Ev.exit, %invoke.cont3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, inrange i32 0, i64 2), ptr %setting1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting1, align 8
   %test_name_.i7 = getelementptr inbounds i8, ptr %setting1, i64 104
   %9 = load ptr, ptr %test_name_.i7, align 8
   %10 = getelementptr inbounds i8, ptr %setting1, i64 120
@@ -1459,7 +1459,7 @@ invoke.cont:                                      ; preds = %_ZN12_GLOBAL__N_114
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, inrange i32 0, i64 2), ptr %setting, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting, i64 104
   %2 = load ptr, ptr %test_name_.i, align 8
   %3 = getelementptr inbounds i8, ptr %setting, i64 120
@@ -2649,7 +2649,7 @@ if.then.i.i11:                                    ; preds = %if.end21
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i12, %if.then.i.i11
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %effective_test_name) #22
   call void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %response) #22
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, inrange i32 0, i64 2), ptr %setting, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting, i64 104
   %12 = load ptr, ptr %test_name_.i, align 8
   %13 = getelementptr inbounds i8, ptr %setting, i64 120
@@ -2971,7 +2971,7 @@ if.then.i.i19:                                    ; preds = %if.end42
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit23: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i20, %if.then.i.i19
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %effective_test_name) #22
   call void @_ZN11conformance19ConformanceResponseD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %response) #22
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, inrange i32 0, i64 2), ptr %setting, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuite25ConformanceRequestSettingE, i64 0, i32 0, i64 2), ptr %setting, align 8
   %test_name_.i = getelementptr inbounds i8, ptr %setting, i64 104
   %18 = load ptr, ptr %test_name_.i, align 8
   %19 = getelementptr inbounds i8, ptr %setting, i64 120
@@ -45256,7 +45256,7 @@ eh.resume:                                        ; preds = %ehcleanup90, %ehcle
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf29BinaryAndJsonConformanceSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_url_ = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %type_url_, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 424
@@ -45297,7 +45297,7 @@ _ZNSt10unique_ptrIN6google8protobuf4util12TypeResolverESt14default_deleteIS3_EED
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf29BinaryAndJsonConformanceSuiteD0Ev(ptr noundef nonnull align 8 dereferenceable(440) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf29BinaryAndJsonConformanceSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_url_.i = getelementptr inbounds i8, ptr %this, i64 408
   %0 = load ptr, ptr %type_url_.i, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 424
@@ -46209,7 +46209,7 @@ declare void @_ZN22protobuf_test_messages6proto218TestAllTypesProto2C2EPN6google
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf20ConformanceTestSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf20ConformanceTestSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
   %skipped_ = getelementptr inbounds i8, ptr %this, i64 352
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 368
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

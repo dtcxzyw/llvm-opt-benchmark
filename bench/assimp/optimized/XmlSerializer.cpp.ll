@@ -1263,7 +1263,7 @@ if.end12:                                         ; preds = %if.then3
   %call7 = call i32 @atoi(ptr nocapture noundef %call6) #24
   %mId.i.i = getelementptr inbounds i8, ptr %call5, i64 8
   store i32 %call7, ptr %mId.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF15EmbeddedTextureE, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF15EmbeddedTextureE, i64 0, i32 0, i64 2), ptr %call5, align 8
   %mPath.i = getelementptr inbounds i8, ptr %call5, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mPath.i) #23
   %mContentType.i = getelementptr inbounds i8, ptr %call5, i64 48
@@ -1586,7 +1586,7 @@ if.end4:                                          ; preds = %cond.true.i.i, %if.
   %call5 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #26
   %mId.i.i = getelementptr inbounds i8, ptr %call5, i64 8
   store i32 %id.0.ph, ptr %mId.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF14Texture2DGroupE, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF14Texture2DGroupE, i64 0, i32 0, i64 2), ptr %call5, align 8
   %mTex2dCoords.i = getelementptr inbounds i8, ptr %call5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mTex2dCoords.i, i8 0, i64 24, i1 false)
   %mTexId.i = getelementptr inbounds i8, ptr %call5, i64 40
@@ -2570,7 +2570,7 @@ if.then:                                          ; preds = %invoke.cont4
   %1 = load i32, ptr %id, align 4
   %mId.i.i = getelementptr inbounds i8, ptr %call5, i64 8
   store i32 %1, ptr %mId.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF13BaseMaterialsE, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF13BaseMaterialsE, i64 0, i32 0, i64 2), ptr %call5, align 8
   %mMaterialIndex.i = getelementptr inbounds i8, ptr %call5, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mMaterialIndex.i, i8 0, i64 24, i1 false)
   %2 = load ptr, ptr %node, align 8, !noalias !34
@@ -3770,7 +3770,7 @@ entry:
   %ref.tmp3 = alloca %"class.std::__cxx11::basic_string", align 8
   %mId.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %id, ptr %mId.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF6ObjectE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mMeshes = getelementptr inbounds i8, ptr %this, i64 16
   %mMeshIndex = getelementptr inbounds i8, ptr %this, i64 40
   %mComponents = getelementptr inbounds i8, ptr %this, i64 64
@@ -6551,7 +6551,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6leng
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4D3MF6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF6ObjectE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mName = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mName) #23
   %mComponents = getelementptr inbounds i8, ptr %this, i64 64
@@ -6590,7 +6590,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EED2Ev.exit:           ; preds = %_ZNSt6vectorIjSaIjE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4D3MF6ObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF6ObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF6ObjectE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mName.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mName.i) #23
   %mComponents.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -6652,7 +6652,7 @@ declare double @atof(ptr nocapture noundef) local_unnamed_addr #11
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4D3MF13BaseMaterialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF13BaseMaterialsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF13BaseMaterialsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mMaterialIndex = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mMaterialIndex, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6669,7 +6669,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4D3MF13BaseMaterialsD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF13BaseMaterialsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF13BaseMaterialsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mMaterialIndex.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mMaterialIndex.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6693,7 +6693,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4D3MF15EmbeddedTextureD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF15EmbeddedTextureE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF15EmbeddedTextureE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mBuffer = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %mBuffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6719,7 +6719,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4D3MF15EmbeddedTextureD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF15EmbeddedTextureE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF15EmbeddedTextureE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %mBuffer.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6763,7 +6763,7 @@ declare noundef i32 @_ZN10aiMaterial17AddBinaryPropertyEPKvjPKcjj18aiPropertyTyp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4D3MF14Texture2DGroupD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF14Texture2DGroupE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF14Texture2DGroupE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mTex2dCoords = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mTex2dCoords, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6780,7 +6780,7 @@ _ZNSt6vectorI10aiVector2tIfESaIS1_EED2Ev.exit:    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp4D3MF14Texture2DGroupD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF14Texture2DGroupE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp4D3MF14Texture2DGroupE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mTex2dCoords.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %mTex2dCoords.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

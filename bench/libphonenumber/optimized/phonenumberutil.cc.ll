@@ -637,13 +637,13 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilC2Ev(ptr noundef n
   %11 = alloca %"struct.std::pair.56", align 8
   %12 = alloca %"struct.std::pair.62", align 8
   %13 = alloca %"struct.std::pair.72", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberUtilE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberUtilE, i64 0, i32 0, i64 2), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 8
   %15 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %15, i8 0, i64 16, i1 false)
   %16 = getelementptr inbounds i8, ptr %15, i64 8
   store i32 2, ptr %16, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers10NullLoggerE, i64 0, inrange i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers10NullLoggerE, i64 0, i32 0, i64 2), ptr %15, align 8
   store ptr %15, ptr @_ZN4i18n12phonenumbers6Logger5impl_E, align 8
   store ptr %15, ptr %14, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1378,7 +1378,7 @@ _ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit._crit_edge: ; 
   br label %286
 
 286:                                              ; preds = %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit._crit_edge, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit.thread
-  %287 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers10NullLoggerE, i64 0, inrange i32 0, i64 2), %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit.thread ], [ %.pre132, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit._crit_edge ]
+  %287 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers10NullLoggerE, i64 0, i32 0, i64 2), %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit.thread ], [ %.pre132, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit._crit_edge ]
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn108 = phi { ptr, i32 } [ %78, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit.thread ], [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit._crit_edge ]
   %288 = phi ptr [ %15, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit.thread ], [ %.pr106, %_ZN5boost10scoped_ptrIN4i18n12phonenumbers10MatcherApiEED2Ev.exit._crit_edge ]
   %289 = getelementptr inbounds i8, ptr %287, i64 8
@@ -1694,7 +1694,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers29PhoneNumberRegExpsAn
           to label %141 unwind label %467
 
 141:                                              ; preds = %138
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i64 0, inrange i32 0, i64 2), ptr %140, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i64 0, i32 0, i64 2), ptr %140, align 8
   store ptr %140, ptr %139, align 8
   %142 = getelementptr inbounds i8, ptr %0, i64 200
   %143 = invoke noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
@@ -3502,7 +3502,7 @@ _ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit267: ; preds = %748
   br label %754
 
 754:                                              ; preds = %._crit_edge, %.thread
-  %755 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i64 0, inrange i32 0, i64 2), %.thread ], [ %.pre, %._crit_edge ]
+  %755 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i64 0, i32 0, i64 2), %.thread ], [ %.pre, %._crit_edge ]
   %.pn200.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn269 = phi { ptr, i32 } [ %469, %.thread ], [ %.pn200.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.ph, %._crit_edge ]
   %756 = phi ptr [ %140, %.thread ], [ %.pr, %._crit_edge ]
   %757 = getelementptr inbounds i8, ptr %755, i64 8
@@ -3912,7 +3912,7 @@ _ZN5boost14checked_deleteIN4i18n12phonenumbers29PhoneNumberRegExpsAndMappingsEEE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberUtilE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberUtilE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr %3, align 8

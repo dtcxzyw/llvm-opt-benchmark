@@ -439,7 +439,7 @@ define linkonce_odr void @_ZN5faiss20IndexScalarQuantizerD2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss20IndexScalarQuantizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss20IndexScalarQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::IndexScalarQuantizer", ptr %3, i32 0, i32 1
   call void @_ZN5faiss15ScalarQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #8
   call void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #8
@@ -1004,9 +1004,9 @@ define linkonce_odr void @_ZN5faiss23IndexIVFScalarQuantizerD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"struct.faiss::IndexIVFScalarQuantizer", ptr %3, i32 0, i32 1
   call void @_ZN5faiss15ScalarQuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %5) #8
   call void @_ZN5faiss8IndexIVFD2Ev(ptr noundef nonnull align 8 dereferenceable(257) %3) #8
@@ -1570,7 +1570,7 @@ define void @_ZN5faiss20IndexScalarQuantizerC2EiNS_15ScalarQuantizer13QuantizerT
   %13 = sext i32 %12 to i64
   %14 = load i32, ptr %8, align 4
   call void @_ZN5faiss14IndexFlatCodesC2EmlNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(72) %11, i64 noundef 0, i64 noundef %13, i32 noundef %14)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss20IndexScalarQuantizerE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss20IndexScalarQuantizerE, i32 0, i32 0, i32 2), ptr %11, align 8
   %15 = getelementptr inbounds %"struct.faiss::IndexScalarQuantizer", ptr %11, i32 0, i32 1
   %16 = load i32, ptr %6, align 4
   %17 = sext i32 %16 to i64
@@ -1629,7 +1629,7 @@ define linkonce_odr void @_ZN5faiss14IndexFlatCodesD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5faiss14IndexFlatCodesE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::IndexFlatCodes", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   call void @_ZN5faiss5IndexD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %3) #8
@@ -1860,7 +1860,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
@@ -3705,9 +3705,9 @@ define void @_ZN5faiss23IndexIVFScalarQuantizerC2EPNS_5IndexEmmNS_15ScalarQuanti
   %21 = load i64, ptr %11, align 8
   %22 = load i32, ptr %13, align 4
   call void @_ZN5faiss8IndexIVFC2EPNS_5IndexEmmmNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(257) %18, ptr noundef %19, i64 noundef %20, i64 noundef %21, i64 noundef 0, i32 noundef %22)
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, i32 0, i32 2), ptr %18, align 8
   %23 = getelementptr inbounds i8, ptr %18, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, inrange i32 1, i32 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, i32 1, i32 2), ptr %23, align 8
   %24 = getelementptr inbounds %"struct.faiss::IndexIVFScalarQuantizer", ptr %18, i32 0, i32 1
   %25 = load i64, ptr %10, align 8
   %26 = load i32, ptr %12, align 4
@@ -3766,9 +3766,9 @@ define void @_ZN5faiss23IndexIVFScalarQuantizerC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss8IndexIVFC2Ev(ptr noundef nonnull align 8 dereferenceable(257) %5)
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, inrange i32 1, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr], [6 x ptr] }, ptr @_ZTVN5faiss23IndexIVFScalarQuantizerE, i32 0, i32 1, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %"struct.faiss::IndexIVFScalarQuantizer", ptr %5, i32 0, i32 1
   invoke void @_ZN5faiss15ScalarQuantizerC1Ev(ptr noundef nonnull align 8 dereferenceable(72) %7)
           to label %8 unwind label %10
@@ -6150,7 +6150,7 @@ define linkonce_odr void @_ZN5faiss15ScalarQuantizerD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss15ScalarQuantizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss15ScalarQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::ScalarQuantizer", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   call void @_ZN5faiss9QuantizerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8

@@ -14137,7 +14137,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal17BaseMacroE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::BaseMacroExpander", ptr %3, i32 0, i32 2
   call void @_ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -14159,7 +14159,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal15EqualsCond
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal15EqualsConditionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal15EqualsConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::EqualsCondition", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::EqualsCondition", ptr %3, i32 0, i32 1
@@ -14190,7 +14190,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal15InListCond
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal15InListConditionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal15InListConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::InListCondition", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::InListCondition", ptr %3, i32 0, i32 1
@@ -14214,7 +14214,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal16MatchesCon
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal16MatchesConditionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal16MatchesConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::MatchesCondition", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::MatchesCondition", ptr %3, i32 0, i32 1
@@ -14238,7 +14238,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal17AnyAllOfCo
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17AnyAllOfConditionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17AnyAllOfConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::AnyAllOfCondition", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN19cmCMakePresetsGraph9ConditionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -14260,7 +14260,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal12NotConditi
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal12NotConditionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::NotCondition", ptr %3, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN19cmCMakePresetsGraph9ConditionESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN19cmCMakePresetsGraph9ConditionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -14282,7 +14282,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetD2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %3, i32 0, i32 22
@@ -14320,7 +14320,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph11BuildPresetD2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 9
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %3, i32 0, i32 6
@@ -14355,7 +14355,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 7
   call void @_ZNSt8optionalIN19cmCMakePresetsGraph10TestPreset16ExecutionOptionsEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %4) #3
   %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %3, i32 0, i32 6
@@ -14387,7 +14387,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph13PackagePresetD2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 12
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %3, i32 0, i32 11
@@ -14425,7 +14425,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph14WorkflowPresetD2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #3
@@ -15523,7 +15523,7 @@ define linkonce_odr dso_local void @_ZNSt19bad_optional_accessC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15543,7 +15543,7 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20934,7 +20934,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 9
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8optionalIS5_ESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %3, i32 0, i32 7
@@ -34439,7 +34439,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetC2E
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::ConfigurePreset", ptr %10, i32 0, i32 1
@@ -34648,7 +34648,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds %"class.cmCMakePresetsGraph::Preset", ptr %9, i32 0, i32 1
@@ -36835,7 +36835,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal17BaseMacroE
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal17BaseMacroExpanderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::BaseMacroExpander", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -36872,7 +36872,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal13MacroExpan
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal13MacroExpanderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal13MacroExpanderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -37373,7 +37373,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -38863,7 +38863,7 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph15ConfigurePresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %8, align 8
   store ptr %11, ptr %10, align 8
@@ -41802,7 +41802,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph11BuildPresetC2ERKS0
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::BuildPreset", ptr %10, i32 0, i32 1
@@ -41921,7 +41921,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.483", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -42455,7 +42455,7 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph11BuildPresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.486", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %8, align 8
   store ptr %11, ptr %10, align 8
@@ -43955,7 +43955,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetC2ERKS0_
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::TestPreset", ptr %10, i32 0, i32 1
@@ -44779,7 +44779,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.505", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -45313,7 +45313,7 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph10TestPresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.508", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %8, align 8
   store ptr %11, ptr %10, align 8
@@ -46574,7 +46574,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph13PackagePresetC2ERK
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::PackagePreset", ptr %10, i32 0, i32 1
@@ -47230,7 +47230,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.527", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -47764,7 +47764,7 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph13PackagePresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.530", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %8, align 8
   store ptr %11, ptr %10, align 8
@@ -49169,7 +49169,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph14WorkflowPresetC2ER
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19cmCMakePresetsGraph6PresetC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(216) %7, ptr noundef nonnull align 8 dereferenceable(216) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %10, i32 0, i32 1
@@ -49835,7 +49835,7 @@ define linkonce_odr dso_local void @_ZN27cmCMakePresetsGraphInternal19PresetMacr
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph14WorkflowPresetEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27cmCMakePresetsGraphInternal19PresetMacroExpanderIN19cmCMakePresetsGraph14WorkflowPresetEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.cmCMakePresetsGraphInternal::PresetMacroExpander.551", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -50369,7 +50369,7 @@ define internal void @_ZN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePres
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN27cmCMakePresetsGraphInternal13MacroExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph14WorkflowPresetEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124EnvironmentMacroExpanderIN19cmCMakePresetsGraph14WorkflowPresetEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.(anonymous namespace)::EnvironmentMacroExpander.554", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %8, align 8
   store ptr %11, ptr %10, align 8

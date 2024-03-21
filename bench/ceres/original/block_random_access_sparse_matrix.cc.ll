@@ -1206,7 +1206,7 @@ define hidden void @_ZN5ceres8internal29BlockRandomAccessSparseMatrixC2ERKSt6vec
   store i32 %4, ptr %10, align 4
   %50 = load ptr, ptr %6, align 8
   call void @_ZN5ceres8internal23BlockRandomAccessMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #15
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal29BlockRandomAccessSparseMatrixE, i32 0, inrange i32 0, i32 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal29BlockRandomAccessSparseMatrixE, i32 0, i32 0, i32 2), ptr %50, align 8
   %51 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessSparseMatrix", ptr %50, i32 0, i32 1
   %52 = load ptr, ptr %7, align 8
   invoke void @_ZNSt6vectorIN5ceres8internal5BlockESaIS2_EEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %52)
@@ -1735,7 +1735,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal23BlockRandomAccessMatrixC2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal23BlockRandomAccessMatrixE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal23BlockRandomAccessMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3951,7 +3951,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal29BlockRandomAccessSparseMatr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal29BlockRandomAccessSparseMatrixE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5ceres8internal29BlockRandomAccessSparseMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessSparseMatrix", ptr %3, i32 0, i32 5
   call void @_ZNSt10unique_ptrIN5ceres8internal17BlockSparseMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #15
   %5 = getelementptr inbounds %"class.ceres::internal::BlockRandomAccessSparseMatrix", ptr %3, i32 0, i32 4

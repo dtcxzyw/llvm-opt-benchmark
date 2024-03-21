@@ -2445,7 +2445,7 @@ define linkonce_odr void @_ZN5Yosys11RpcFrontendC2Ev(ptr noundef nonnull align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys11RpcFrontendE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys11RpcFrontendE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %1
@@ -4311,7 +4311,7 @@ define linkonce_odr void @_ZN5Yosys9RpcModuleC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Yosys5RTLIL6ModuleC2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys9RpcModuleE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys9RpcModuleE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.Yosys::RpcModule", ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN5Yosys9RpcServerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   ret void
@@ -7739,7 +7739,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESa
   store ptr %4, ptr %11, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %14, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(56) %15) #3
   %16 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(72) %14) #3
@@ -7926,7 +7926,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -8144,7 +8144,7 @@ define linkonce_odr void @_ZN5Yosys11FdRpcServerC2ERKNSt7__cxx1112basic_stringIc
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %7, align 8
   call void @_ZN5Yosys9RpcServerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys11FdRpcServerE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys11FdRpcServerE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %"struct.Yosys::FdRpcServer", ptr %11, i32 0, i32 1
   %14 = load i32, ptr %8, align 4
   store i32 %14, ptr %13, align 8
@@ -8164,7 +8164,7 @@ define linkonce_odr void @_ZN5Yosys9RpcServerC2ERKNSt7__cxx1112basic_stringIcSt1
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys9RpcServerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys9RpcServerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Yosys::RpcServer", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -8176,7 +8176,7 @@ define linkonce_odr void @_ZN5Yosys11FdRpcServerD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys11FdRpcServerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys11FdRpcServerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.Yosys::FdRpcServer", ptr %3, i32 0, i32 1
   %5 = load i32, ptr %4, align 8
   %6 = invoke i32 @close(i32 noundef %5)
@@ -8429,7 +8429,7 @@ define linkonce_odr void @_ZN5Yosys9RpcServerD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys9RpcServerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys9RpcServerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.Yosys::RpcServer", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   ret void
@@ -9301,7 +9301,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESa
   store ptr %3, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %12, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(56) %13) #3
   %14 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Yosys11FdRpcServerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(72) %12) #3
@@ -12114,7 +12114,7 @@ define linkonce_odr void @_ZN5Yosys9RpcModuleD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys9RpcModuleE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys9RpcModuleE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.Yosys::RpcModule", ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN5Yosys9RpcServerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN5Yosys5RTLIL6ModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %3) #3

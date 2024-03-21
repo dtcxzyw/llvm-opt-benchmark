@@ -467,7 +467,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf8compiler6python12PyiGeneratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %opensource_runtime_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %opensource_runtime_, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -492,7 +492,7 @@ declare void @_ZN6google8protobuf8compiler13CodeGeneratorD2Ev(ptr noundef nonnul
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf8compiler6python12PyiGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %import_map_ = getelementptr inbounds i8, ptr %this, i64 48
   %capacity_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load i64, ptr %capacity_.i.i.i.i.i, align 8
@@ -8698,7 +8698,7 @@ cleanup.done:                                     ; preds = %invoke.cont45
           to label %invoke.cont60 unwind label %lpad51
 
 invoke.cont60:                                    ; preds = %cleanup.done
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf2io24AnnotationProtoCollectorINS0_17GeneratedCodeInfoEEE, i64 0, inrange i32 0, i64 2), ptr %annotation_collector, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf2io24AnnotationProtoCollectorINS0_17GeneratedCodeInfoEEE, i64 0, i32 0, i64 2), ptr %annotation_collector, align 8
   %annotation_proto_.i = getelementptr inbounds i8, ptr %annotation_collector, i64 8
   store ptr %annotations, ptr %annotation_proto_.i, align 8
   %19 = and i8 %annotate_code.0.lcssa, 1

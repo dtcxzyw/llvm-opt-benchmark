@@ -614,7 +614,7 @@ define void @_ZN5folly11ProgramExitC2EiRKNSt7__cxx1112basic_stringIcSt11char_tra
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %msg)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly11ProgramExitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly11ProgramExitE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
   %status_ = getelementptr inbounds %"class.folly::ProgramExit", ptr %this, i64 0, i32 1
   store i32 %status, ptr %status_, align 8, !tbaa !20
   %cmp.not = icmp ne i32 %status, 0
@@ -5106,7 +5106,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
   ret void
 
 lpad:                                             ; preds = %entry
@@ -5142,7 +5142,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZN5folly12BadFormatArgC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #13 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
   ret void
 }
 
@@ -5395,7 +5395,7 @@ entry:
   %ref.tmp = alloca %"class.folly::BadFormatArg", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #32
   call void @_ZNSt16invalid_argumentC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %args)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !18
   invoke void @_ZN5folly15throw_exceptionINS_12BadFormatArgEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #38
           to label %invoke.cont unwind label %lpad
 
@@ -5450,7 +5450,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #14 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
   ret void
 }
 
@@ -5598,7 +5598,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
   ret void
 
 lpad:                                             ; preds = %_ZN5folly12BadFormatArg3strIJPKcEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_5RangeIS3_EEDpRKT_.exit
@@ -6417,7 +6417,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly12BadFormatArgE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
   ret void
 
 lpad:                                             ; preds = %entry
@@ -10692,7 +10692,7 @@ _ZN5boost15program_options6detail7cmdlineD2Ev.exit484: ; preds = %if.then.i.i.i1
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZN5boost15program_options6detail7cmdlineD2Ev.exit484, %if.then54, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost15program_options13variables_mapE, i64 0, inrange i32 0, i64 2), ptr %vm, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost15program_options13variables_mapE, i64 0, i32 0, i64 2), ptr %vm, align 8, !tbaa !18
   %m_required.i = getelementptr inbounds %"class.boost::program_options::variables_map", ptr %vm, i64 0, i32 3
   %_M_parent.i.i.i.i.i = getelementptr inbounds %"class.boost::program_options::variables_map", ptr %vm, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
   %179 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8, !tbaa !68
@@ -11631,7 +11631,7 @@ _ZNSt6vectorIN5boost15program_options12basic_optionIcEESaIS3_EED2Ev.exit: ; pred
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost15program_options13variables_mapD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost15program_options13variables_mapE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost15program_options13variables_mapE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
   %m_required = getelementptr inbounds %"class.boost::program_options::variables_map", ptr %this, i64 0, i32 3
   %_M_parent.i.i.i.i = getelementptr inbounds %"class.boost::program_options::variables_map", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8, !tbaa !68

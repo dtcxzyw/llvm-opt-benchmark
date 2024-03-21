@@ -2052,9 +2052,9 @@ define void @_ZN13PacketDiagramC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %15 = load ptr, ptr %3, align 8
   %16 = load ptr, ptr %4, align 8
   call void @_ZN13QGraphicsViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i32 0, i32 0, i32 2), ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i32 0, inrange i32 1, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i32 0, i32 1, i32 2), ptr %17, align 8
   %18 = getelementptr inbounds %class.PacketDiagram, ptr %15, i32 0, i32 1
   %19 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #16
           to label %20 unwind label %48
@@ -2740,9 +2740,9 @@ define void @_ZN13PacketDiagramD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.PacketDiagram, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -6367,7 +6367,7 @@ define linkonce_odr void @_ZN28FieldInformationGraphicsItemC2EP10field_infoiiPK1
 
 55:                                               ; preds = %6
   call void @_ZN9QPolygonFD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #13
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i32 0, inrange i32 0, i32 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i32 0, i32 0, i32 2), ptr %53, align 8
   %56 = getelementptr inbounds %class.FieldInformationGraphicsItem, ptr %53, i32 0, i32 1
   %57 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #16
           to label %58 unwind label %97
@@ -8883,7 +8883,7 @@ define linkonce_odr void @_ZN28FieldInformationGraphicsItemD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FieldInformationGraphicsItem, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

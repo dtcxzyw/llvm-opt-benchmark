@@ -985,7 +985,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -1038,13 +1038,13 @@ define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112bas
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SerializationError, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SerializationError, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3016,7 +3016,7 @@ define dso_local void @_ZNK14ItemDefinition9serializeERSot(ptr noundef nonnull a
   %212 = getelementptr inbounds i8, ptr %29, i64 %211
   store ptr %209, ptr %212, align 8, !tbaa !29
   %213 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %213, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %213, align 8, !tbaa !29
   %214 = getelementptr inbounds i8, ptr %29, i64 80
   %215 = load ptr, ptr %214, align 8, !tbaa !11
   %216 = getelementptr inbounds i8, ptr %29, i64 96
@@ -3035,7 +3035,7 @@ define dso_local void @_ZNK14ItemDefinition9serializeERSot(ptr noundef nonnull a
   br label %223
 
 223:                                              ; preds = %222, %218
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %213, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %213, align 8, !tbaa !29
   %224 = getelementptr inbounds i8, ptr %29, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %224) #30
   %225 = getelementptr inbounds i8, ptr %29, i64 112
@@ -3989,7 +3989,7 @@ define dso_local void @_ZNK14ItemDefinition9serializeERSot(ptr noundef nonnull a
   %696 = getelementptr inbounds i8, ptr %39, i64 %695
   store ptr %693, ptr %696, align 8, !tbaa !29
   %697 = getelementptr inbounds i8, ptr %39, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %697, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %697, align 8, !tbaa !29
   %698 = getelementptr inbounds i8, ptr %39, i64 80
   %699 = load ptr, ptr %698, align 8, !tbaa !11
   %700 = getelementptr inbounds i8, ptr %39, i64 96
@@ -4008,7 +4008,7 @@ define dso_local void @_ZNK14ItemDefinition9serializeERSot(ptr noundef nonnull a
   br label %707
 
 707:                                              ; preds = %706, %702
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %697, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %697, align 8, !tbaa !29
   %708 = getelementptr inbounds i8, ptr %39, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %708) #30
   %709 = getelementptr inbounds i8, ptr %39, i64 112
@@ -5043,7 +5043,7 @@ define dso_local void @_ZN14ItemDefinition11deSerializeERSit(ptr noundef nonnull
   %381 = getelementptr inbounds i8, ptr %28, i64 %380
   store ptr %378, ptr %381, align 8, !tbaa !29
   %382 = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %382, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %382, align 8, !tbaa !29
   %383 = getelementptr inbounds i8, ptr %28, i64 88
   %384 = load ptr, ptr %383, align 8, !tbaa !11
   %385 = getelementptr inbounds i8, ptr %28, i64 104
@@ -5062,7 +5062,7 @@ define dso_local void @_ZN14ItemDefinition11deSerializeERSit(ptr noundef nonnull
   br label %392
 
 392:                                              ; preds = %391, %387
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %382, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %382, align 8, !tbaa !29
   %393 = getelementptr inbounds i8, ptr %28, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %393) #30
   %394 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -6134,7 +6134,7 @@ define dso_local void @_ZN14ItemDefinition11deSerializeERSit(ptr noundef nonnull
   %907 = getelementptr inbounds i8, ptr %40, i64 %906
   store ptr %904, ptr %907, align 8, !tbaa !29
   %908 = getelementptr inbounds i8, ptr %40, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %908, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %908, align 8, !tbaa !29
   %909 = getelementptr inbounds i8, ptr %40, i64 88
   %910 = load ptr, ptr %909, align 8, !tbaa !11
   %911 = getelementptr inbounds i8, ptr %40, i64 104
@@ -6153,7 +6153,7 @@ define dso_local void @_ZN14ItemDefinition11deSerializeERSit(ptr noundef nonnull
   br label %918
 
 918:                                              ; preds = %917, %913
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %908, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %908, align 8, !tbaa !29
   %919 = getelementptr inbounds i8, ptr %40, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %919) #30
   %920 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -6665,7 +6665,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef nonnull ptr @_Z20createItemDefManagerv() local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %1 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #33
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV15CItemDefManager, i64 0, inrange i32 0, i64 2), ptr %1, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV15CItemDefManager, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %1, i64 16
   store i32 0, ptr %2, align 8, !tbaa !148
   %3 = getelementptr inbounds i8, ptr %1, i64 24
@@ -6757,7 +6757,7 @@ declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNSi4readEPcl(ptr noun
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6790,7 +6790,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13BaseException4whatEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10835,7 +10835,7 @@ define linkonce_odr dso_local void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11cha
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15CItemDefManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV15CItemDefManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV15CItemDefManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !145
@@ -11804,7 +11804,7 @@ define linkonce_odr dso_local void @_ZN15CItemDefManager9serializeERSot(ptr noun
   %101 = load i64, ptr %33, align 8
   %102 = getelementptr inbounds i8, ptr %7, i64 %101
   store ptr %32, ptr %102, align 8, !tbaa !29
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %34, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %34, align 8, !tbaa !29
   %103 = load ptr, ptr %28, align 8, !tbaa !11
   %104 = icmp eq ptr %103, %35
   br i1 %104, label %105, label %108
@@ -11820,7 +11820,7 @@ define linkonce_odr dso_local void @_ZN15CItemDefManager9serializeERSot(ptr noun
   br label %109
 
 109:                                              ; preds = %108, %105
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %34, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %34, align 8, !tbaa !29
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #30
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %38) #30
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %7) #30
@@ -13879,7 +13879,7 @@ define linkonce_odr dso_local void @_ZN15CItemDefManager11deSerializeERSit(ptr n
   %149 = load i64, ptr %46, align 8
   %150 = getelementptr inbounds i8, ptr %9, i64 %149
   store ptr %45, ptr %150, align 8, !tbaa !29
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %47, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %47, align 8, !tbaa !29
   %151 = load ptr, ptr %48, align 8, !tbaa !11
   %152 = icmp eq ptr %151, %49
   br i1 %152, label %153, label %156
@@ -13895,7 +13895,7 @@ define linkonce_odr dso_local void @_ZN15CItemDefManager11deSerializeERSit(ptr n
   br label %157
 
 157:                                              ; preds = %156, %153
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %47, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %47, align 8, !tbaa !29
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #30
   store ptr %52, ptr %9, align 8, !tbaa !29
   %158 = load i64, ptr %54, align 8

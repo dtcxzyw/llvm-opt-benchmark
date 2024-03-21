@@ -1861,7 +1861,7 @@ entry:
   %0 = load ptr, ptr %t1.addr, align 8
   %1 = load ptr, ptr %t2.addr, align 8
   call void @_ZN15binary_tacticalC2EP6tacticS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV17and_then_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV17and_then_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2197,7 +2197,7 @@ entry:
   %0 = load i32, ptr %num.addr, align 4
   %1 = load ptr, ptr %ts.addr, align 8
   call void @_ZN13nary_tacticalC2EjPKP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV16or_else_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV16or_else_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2579,7 +2579,7 @@ entry:
   %0 = load i32, ptr %num.addr, align 4
   %1 = load ptr, ptr %ts.addr, align 8
   call void @_ZN16or_else_tacticalC2EjPKP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12par_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12par_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ex_msg = getelementptr inbounds %class.par_tactical, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ex_msg) #3
   %error_code = getelementptr inbounds %class.par_tactical, ptr %this1, i32 0, i32 2
@@ -2686,7 +2686,7 @@ entry:
   %0 = load ptr, ptr %t1.addr, align 8
   %1 = load ptr, ptr %t2.addr, align 8
   call void @_ZN17and_then_tacticalC2EP6tacticS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21par_and_then_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21par_and_then_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2760,7 +2760,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN14unary_tacticalC2EP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15repeat_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15repeat_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_max_depth = getelementptr inbounds %class.repeat_tactical, ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %max_depth.addr, align 4
   store i32 %1, ptr %m_max_depth, align 8
@@ -2793,7 +2793,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN14unary_tacticalC2EP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV26fail_if_branching_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV26fail_if_branching_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_threshold = getelementptr inbounds %class.fail_if_branching_tactical, ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %threshold.addr, align 4
   store i32 %1, ptr %m_threshold, align 8
@@ -2821,7 +2821,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN14unary_tacticalC2EP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV16cleanup_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV16cleanup_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2851,7 +2851,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN14unary_tacticalC2EP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV16try_for_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV16try_for_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_timeout = getelementptr inbounds %class.try_for_tactical, ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %ts.addr, align 4
   store i32 %1, ptr %m_timeout, align 8
@@ -2886,7 +2886,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN14unary_tacticalC2EP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21using_params_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21using_params_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_params = getelementptr inbounds %class.using_params_tactical, ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %p.addr, align 8
   invoke void @_ZN10params_refC1ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %m_params, ptr noundef nonnull align 8 dereferenceable(8) %1)
@@ -2964,7 +2964,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN14unary_tacticalC2EP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV17annotate_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV17annotate_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_name = getelementptr inbounds %class.annotate_tactical, ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %name.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
@@ -3028,7 +3028,7 @@ entry:
   %0 = load ptr, ptr %t1.addr, align 8
   %1 = load ptr, ptr %t2.addr, align 8
   call void @_ZN15binary_tacticalC2EP6tacticS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13cond_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13cond_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_p = getelementptr inbounds %class.cond_tactical, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %p.addr, align 8
   invoke void @_ZN3refI5probeEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_p, ptr noundef %2)
@@ -3093,7 +3093,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6tacticC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14fail_if_tactic, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14fail_if_tactic, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_p = getelementptr inbounds %class.fail_if_tactic, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %p.addr, align 8
   invoke void @_ZN3refI5probeEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_p, ptr noundef %0)
@@ -3154,7 +3154,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN14unary_tacticalC2EP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21if_no_proofs_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21if_no_proofs_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3179,7 +3179,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN14unary_tacticalC2EP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV26if_no_unsat_cores_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV26if_no_unsat_cores_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3204,7 +3204,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN14unary_tacticalC2EP6tactic(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21if_no_models_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21if_no_models_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3232,7 +3232,7 @@ entry:
   store ptr %t2, ptr %t2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6tacticC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15binary_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15binary_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_t1 = getelementptr inbounds %class.binary_tactical, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %t1.addr, align 8
   invoke void @_ZN3refI6tacticEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_t1, ptr noundef %0)
@@ -4161,7 +4161,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN15user_propagator4coreC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV6tactic, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV6tactic, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ref_count = getelementptr inbounds %class.tactic, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_ref_count, align 8
   ret void
@@ -4210,7 +4210,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15binary_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV15binary_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_t2 = getelementptr inbounds %class.binary_tactical, ptr %this1, i32 0, i32 2
   call void @_ZN3refI6tacticED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_t2) #3
   %m_t1 = getelementptr inbounds %class.binary_tactical, ptr %this1, i32 0, i32 1
@@ -4814,7 +4814,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN15user_propagator4coreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN15user_propagator4coreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5222,7 +5222,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -5235,7 +5235,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -5482,7 +5482,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8957,7 +8957,7 @@ entry:
   store ptr %ts, ptr %ts.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6tacticC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13nary_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13nary_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ts = getelementptr inbounds %class.nary_tactical, ptr %this1, i32 0, i32 1
   invoke void @_ZN15ref_vector_coreI6tactic21ref_unmanaged_wrapperIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_ts)
           to label %invoke.cont unwind label %lpad
@@ -10119,7 +10119,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13nary_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13nary_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ts = getelementptr inbounds %class.nary_tactical, ptr %this1, i32 0, i32 1
   call void @_ZN15ref_vector_coreI6tactic21ref_unmanaged_wrapperIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_ts) #3
   call void @_ZN6tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #3
@@ -10805,7 +10805,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12par_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12par_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ex_msg = getelementptr inbounds %class.par_tactical, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ex_msg) #3
   call void @_ZN16or_else_tacticalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -11772,7 +11772,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16tactic_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16tactic_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.tactic_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -11785,7 +11785,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16tactic_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16tactic_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.tactic_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -12942,7 +12942,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12par_tacticalclERK3refI4goalER11sref_bufferIS5_Lj16EEEUlvE_EEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN12par_tacticalclERK3refI4goalER11sref_bufferIS5_Lj16EEEUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__args.addr, align 8
   invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN12par_tacticalclERK3refI4goalER11sref_bufferIS4_Lj16EEEUlvE_EEEC2IJSB_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -13037,7 +13037,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -17046,7 +17046,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN21par_and_then_tacticalclERK3refI4goalER11sref_bufferIS5_Lj16EEEUlvE_EEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN21par_and_then_tacticalclERK3refI4goalER11sref_bufferIS5_Lj16EEEUlvE_EEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl.78", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__args.addr, align 8
   invoke void @_ZNSt6thread8_InvokerISt5tupleIJZN21par_and_then_tacticalclERK3refI4goalER11sref_bufferIS4_Lj16EEEUlvE_EEEC2IJSB_EEEDpOT_(ptr noundef nonnull align 8 dereferenceable(16) %_M_func, ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -19775,7 +19775,7 @@ entry:
   store ptr %goals, ptr %goals.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN15proof_converterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23subgoal_proof_converter, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23subgoal_proof_converter, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pc = getelementptr inbounds %class.subgoal_proof_converter, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pc.addr, align 8
   invoke void @_ZN3refI15proof_converterEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_pc, ptr noundef %0)
@@ -19869,7 +19869,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9converterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15proof_converter, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15proof_converter, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -19914,7 +19914,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23subgoal_proof_converter, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23subgoal_proof_converter, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_goals = getelementptr inbounds %class.subgoal_proof_converter, ptr %this1, i32 0, i32 2
   call void @_ZN11sref_bufferI4goalLj16EED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %m_goals) #3
   %m_pc = getelementptr inbounds %class.subgoal_proof_converter, ptr %this1, i32 0, i32 1
@@ -20210,7 +20210,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV9converter, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV9converter, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ref_count = getelementptr inbounds %class.converter, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_ref_count, align 8
   ret void
@@ -21334,7 +21334,7 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6tacticC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14unary_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14unary_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_t = getelementptr inbounds %class.unary_tactical, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %t.addr, align 8
   invoke void @_ZN3refI6tacticEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_t, ptr noundef %0)
@@ -21605,7 +21605,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14unary_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14unary_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_t = getelementptr inbounds %class.unary_tactical, ptr %this1, i32 0, i32 1
   call void @_ZN3refI6tacticED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_t) #3
   call void @_ZN6tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #3
@@ -22569,7 +22569,7 @@ entry:
   store ptr %o, ptr %o.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN13event_handlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9cancel_ehI8reslimitE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9cancel_ehI8reslimitE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_canceled = getelementptr inbounds %class.cancel_eh, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_canceled, align 4
   %m_obj = getelementptr inbounds %class.cancel_eh, ptr %this1, i32 0, i32 2
@@ -22589,7 +22589,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9cancel_ehI8reslimitE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9cancel_ehI8reslimitE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_canceled = getelementptr inbounds %class.cancel_eh, ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %m_canceled, align 4
   %tobool = trunc i8 %0 to i1
@@ -22622,7 +22622,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13event_handler, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13event_handler, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_caller_id = getelementptr inbounds %class.event_handler, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_caller_id, align 8
   ret void
@@ -22699,7 +22699,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21using_params_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21using_params_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_params = getelementptr inbounds %class.using_params_tactical, ptr %this1, i32 0, i32 1
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #3
   call void @_ZN14unary_tacticalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -22813,7 +22813,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV17annotate_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV17annotate_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_name = getelementptr inbounds %class.annotate_tactical, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_name) #3
   call void @_ZN14unary_tacticalD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -23064,7 +23064,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13cond_tactical, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13cond_tactical, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_p = getelementptr inbounds %class.cond_tactical, ptr %this1, i32 0, i32 1
   call void @_ZN3refI5probeED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_p) #3
   call void @_ZN15binary_tacticalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -23339,7 +23339,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14fail_if_tactic, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV14fail_if_tactic, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_p = getelementptr inbounds %class.fail_if_tactic, ptr %this1, i32 0, i32 1
   call void @_ZN3refI5probeED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_p) #3
   call void @_ZN6tacticD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #3

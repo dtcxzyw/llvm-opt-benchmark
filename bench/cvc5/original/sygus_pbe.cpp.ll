@@ -1943,7 +1943,7 @@ entry:
   %3 = load ptr, ptr %tds.addr, align 8
   %4 = load ptr, ptr %p.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers11SygusModuleC2ERNS0_3EnvERNS2_16QuantifiersStateERNS2_27QuantifiersInferenceManagerEPNS2_11TermDbSygusEPNS2_15SynthConjectureE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(376) %2, ptr noundef %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers8SygusPbeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers8SygusPbeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_true = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusPbe", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_true)
           to label %invoke.cont unwind label %lpad
@@ -2222,7 +2222,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers8SygusPbeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers8SygusPbeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_enum_to_candidate = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusPbe", ptr %this1, i32 0, i32 6
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEES3_St4lessIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_enum_to_candidate) #3
   %d_candidate_to_enum = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusPbe", ptr %this1, i32 0, i32 5

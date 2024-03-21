@@ -124,13 +124,13 @@ entry:
   %1 = load i32, ptr %tid_.addr, align 4
   %2 = load i32, ptr %sid_.addr, align 4
   call void @_ZN3zmq8dealer_tC2EPNS_5ctx_tEji(ptr noundef nonnull align 8 dereferenceable(1929) %this1, ptr noundef %0, i32 noundef %1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [47 x ptr], [4 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq5req_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [47 x ptr], [4 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq5req_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [47 x ptr], [4 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq5req_tE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [47 x ptr], [4 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq5req_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 1464
-  store ptr getelementptr inbounds ({ [47 x ptr], [4 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq5req_tE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [47 x ptr], [4 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq5req_tE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 1472
-  store ptr getelementptr inbounds ({ [47 x ptr], [4 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq5req_tE, i32 0, inrange i32 3, i32 2), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds ({ [47 x ptr], [4 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq5req_tE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
   %_receiving_reply = getelementptr inbounds %"class.zmq::req_t", ptr %this1, i32 0, i32 1
   store i8 0, ptr %_receiving_reply, align 1
   %_message_begins = getelementptr inbounds %"class.zmq::req_t", ptr %this1, i32 0, i32 2
@@ -1078,11 +1078,11 @@ entry:
   %3 = load ptr, ptr %options_.addr, align 8
   %4 = load ptr, ptr %addr_.addr, align 8
   call void @_ZN3zmq14session_base_tC2EPNS_11io_thread_tEbPNS_13socket_base_tERKNS_9options_tEPNS_9address_tE(ptr noundef nonnull align 8 dereferenceable(1624) %this1, ptr noundef %0, i1 noundef zeroext %tobool, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(1336) %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq13req_session_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq13req_session_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq13req_session_tE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq13req_session_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 1464
-  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq13req_session_tE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr], [7 x ptr], [8 x ptr] }, ptr @_ZTVN3zmq13req_session_tE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %_state = getelementptr inbounds %"class.zmq::req_session_t", ptr %this1, i32 0, i32 1
   store i32 0, ptr %_state, align 8
   ret void

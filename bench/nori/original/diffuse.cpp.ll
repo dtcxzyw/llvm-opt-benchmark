@@ -711,7 +711,7 @@ define linkonce_odr hidden void @_ZN4nori7DiffuseC2ERKNS_12PropertyListE(ptr nou
   store ptr %1, ptr %4, align 8
   %11 = load ptr, ptr %3, align 8
   call void @_ZN4nori4BSDFC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4nori7DiffuseE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4nori7DiffuseE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"class.nori::Diffuse", ptr %11, i32 0, i32 1
   invoke void @_ZN4nori7Color3fC2Ef(ptr noundef nonnull align 4 dereferenceable(12) %12, float noundef 0.000000e+00)
           to label %13 unwind label %20
@@ -854,7 +854,7 @@ define linkonce_odr hidden void @_ZN4nori4BSDFC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4nori4BSDFE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4nori4BSDFE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1167,7 +1167,7 @@ define linkonce_odr hidden void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

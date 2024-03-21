@@ -9414,7 +9414,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal28GraphCyclesTest_NoCycle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i) #23
   %id_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9438,7 +9438,7 @@ _ZN4absl24synchronization_internal15GraphCyclesTestD2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal28GraphCyclesTest_NoCycle_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i.i) #23
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9463,7 +9463,7 @@ _ZN4absl24synchronization_internal28GraphCyclesTest_NoCycle_TestD2Ev.exit: ; pre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal32GraphCyclesTest_SimpleCycle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i) #23
   %id_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9487,7 +9487,7 @@ _ZN4absl24synchronization_internal15GraphCyclesTestD2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal32GraphCyclesTest_SimpleCycle_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i.i) #23
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9512,7 +9512,7 @@ _ZN4absl24synchronization_internal32GraphCyclesTest_SimpleCycle_TestD2Ev.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal34GraphCyclesTest_IndirectCycle_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i) #23
   %id_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9536,7 +9536,7 @@ _ZN4absl24synchronization_internal15GraphCyclesTestD2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal34GraphCyclesTest_IndirectCycle_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i.i) #23
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9561,7 +9561,7 @@ _ZN4absl24synchronization_internal34GraphCyclesTest_IndirectCycle_TestD2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal29GraphCyclesTest_LongPath_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i) #23
   %id_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9585,7 +9585,7 @@ _ZN4absl24synchronization_internal15GraphCyclesTestD2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal29GraphCyclesTest_LongPath_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i.i) #23
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9610,7 +9610,7 @@ _ZN4absl24synchronization_internal29GraphCyclesTest_LongPath_TestD2Ev.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal31GraphCyclesTest_RemoveNode_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i) #23
   %id_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9634,7 +9634,7 @@ _ZN4absl24synchronization_internal15GraphCyclesTestD2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal31GraphCyclesTest_RemoveNode_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i.i) #23
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9659,7 +9659,7 @@ _ZN4absl24synchronization_internal31GraphCyclesTest_RemoveNode_TestD2Ev.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal30GraphCyclesTest_ManyEdges_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i) #23
   %id_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9683,7 +9683,7 @@ _ZN4absl24synchronization_internal15GraphCyclesTestD2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal30GraphCyclesTest_ManyEdges_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_.i.i) #23
   %id_.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -9728,7 +9728,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal31GraphCycles_RandomizedTest_TestE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal31GraphCycles_RandomizedTest_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10757,7 +10757,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal28GraphCyclesTest_NoCycle_TestE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal28GraphCyclesTest_NoCycle_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10773,7 +10773,7 @@ entry:
   %ref.tmp1.i = alloca %"class.absl::log_internal::LogMessageFatal", align 8
   %i = alloca i32, align 4
   tail call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %id_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %0, align 8
@@ -10875,7 +10875,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl24synchronization_internal15GraphCyclesTestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal15GraphCyclesTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %g_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZN4absl24synchronization_internal11GraphCyclesD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %g_) #23
   %id_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -10924,7 +10924,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal32GraphCyclesTest_SimpleCycle_TestE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal32GraphCyclesTest_SimpleCycle_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10968,7 +10968,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal34GraphCyclesTest_IndirectCycle_TestE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal34GraphCyclesTest_IndirectCycle_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10999,7 +10999,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal29GraphCyclesTest_LongPath_TestE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal29GraphCyclesTest_LongPath_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -11030,7 +11030,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal31GraphCyclesTest_RemoveNode_TestE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal31GraphCyclesTest_RemoveNode_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -11061,7 +11061,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal30GraphCyclesTest_ManyEdges_TestE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4absl24synchronization_internal30GraphCyclesTest_ManyEdges_TestE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -14125,7 +14125,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal31GraphCycles_RandomizedTest_TestEEE, i64 0, inrange i32 0, i64 2), ptr %call11.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal31GraphCycles_RandomizedTest_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i, align 8
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef %call.i, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %__cxx_global_var_init.1.exit unwind label %lpad4.i
 
@@ -14204,7 +14204,7 @@ invoke.cont8.i19:                                 ; preds = %invoke.cont6.i17
           to label %invoke.cont10.i unwind label %lpad4.i16
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal28GraphCyclesTest_NoCycle_TestEEE, i64 0, inrange i32 0, i64 2), ptr %call11.i20, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal28GraphCyclesTest_NoCycle_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i20, align 8
   %call15.i21 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl24synchronization_internal15GraphCyclesTestEE6dummy_E, ptr noundef %call7.i15, ptr noundef %call9.i18, ptr noundef nonnull %call11.i20)
           to label %__cxx_global_var_init.35.exit unwind label %lpad4.i16
 
@@ -14277,7 +14277,7 @@ invoke.cont8.i42:                                 ; preds = %invoke.cont6.i40
           to label %invoke.cont10.i44 unwind label %lpad4.i39
 
 invoke.cont10.i44:                                ; preds = %invoke.cont8.i42
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal32GraphCyclesTest_SimpleCycle_TestEEE, i64 0, inrange i32 0, i64 2), ptr %call11.i43, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal32GraphCyclesTest_SimpleCycle_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i43, align 8
   %call15.i45 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl24synchronization_internal15GraphCyclesTestEE6dummy_E, ptr noundef %call7.i38, ptr noundef %call9.i41, ptr noundef nonnull %call11.i43)
           to label %__cxx_global_var_init.38.exit unwind label %lpad4.i39
 
@@ -14350,7 +14350,7 @@ invoke.cont8.i66:                                 ; preds = %invoke.cont6.i64
           to label %invoke.cont10.i68 unwind label %lpad4.i63
 
 invoke.cont10.i68:                                ; preds = %invoke.cont8.i66
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal34GraphCyclesTest_IndirectCycle_TestEEE, i64 0, inrange i32 0, i64 2), ptr %call11.i67, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal34GraphCyclesTest_IndirectCycle_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i67, align 8
   %call15.i69 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.45, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl24synchronization_internal15GraphCyclesTestEE6dummy_E, ptr noundef %call7.i62, ptr noundef %call9.i65, ptr noundef nonnull %call11.i67)
           to label %__cxx_global_var_init.44.exit unwind label %lpad4.i63
 
@@ -14423,7 +14423,7 @@ invoke.cont8.i90:                                 ; preds = %invoke.cont6.i88
           to label %invoke.cont10.i92 unwind label %lpad4.i87
 
 invoke.cont10.i92:                                ; preds = %invoke.cont8.i90
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal29GraphCyclesTest_LongPath_TestEEE, i64 0, inrange i32 0, i64 2), ptr %call11.i91, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal29GraphCyclesTest_LongPath_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i91, align 8
   %call15.i93 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.52, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i70, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl24synchronization_internal15GraphCyclesTestEE6dummy_E, ptr noundef %call7.i86, ptr noundef %call9.i89, ptr noundef nonnull %call11.i91)
           to label %__cxx_global_var_init.51.exit unwind label %lpad4.i87
 
@@ -14496,7 +14496,7 @@ invoke.cont8.i114:                                ; preds = %invoke.cont6.i112
           to label %invoke.cont10.i116 unwind label %lpad4.i111
 
 invoke.cont10.i116:                               ; preds = %invoke.cont8.i114
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal31GraphCyclesTest_RemoveNode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %call11.i115, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal31GraphCyclesTest_RemoveNode_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i115, align 8
   %call15.i117 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.63, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i94, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl24synchronization_internal15GraphCyclesTestEE6dummy_E, ptr noundef %call7.i110, ptr noundef %call9.i113, ptr noundef nonnull %call11.i115)
           to label %__cxx_global_var_init.62.exit unwind label %lpad4.i111
 
@@ -14569,7 +14569,7 @@ invoke.cont8.i138:                                ; preds = %invoke.cont6.i136
           to label %invoke.cont10.i140 unwind label %lpad4.i135
 
 invoke.cont10.i140:                               ; preds = %invoke.cont8.i138
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal30GraphCyclesTest_ManyEdges_TestEEE, i64 0, inrange i32 0, i64 2), ptr %call11.i139, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4absl24synchronization_internal30GraphCyclesTest_ManyEdges_TestEEE, i64 0, i32 0, i64 2), ptr %call11.i139, align 8
   %call15.i141 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.70, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i118, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4absl24synchronization_internal15GraphCyclesTestEE6dummy_E, ptr noundef %call7.i134, ptr noundef %call9.i137, ptr noundef nonnull %call11.i139)
           to label %__cxx_global_var_init.69.exit unwind label %lpad4.i135
 

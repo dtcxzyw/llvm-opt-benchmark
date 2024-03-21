@@ -379,7 +379,7 @@ define dso_local void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 de
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV4Fact, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV4Fact, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.Fact, ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8

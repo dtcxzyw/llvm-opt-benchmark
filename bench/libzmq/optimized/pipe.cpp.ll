@@ -163,7 +163,7 @@ if.then:                                          ; preds = %entry
   br i1 %new.isnull, label %if.then13, label %new.notnull
 
 new.notnull:                                      ; preds = %if.then
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %dbuffer.i = getelementptr inbounds i8, ptr %call, i64 8
   %_back.i.i = getelementptr inbounds i8, ptr %call, i64 136
   store ptr %dbuffer.i, ptr %_back.i.i, align 8
@@ -238,7 +238,7 @@ if.then19:                                        ; preds = %do.end
   br i1 %new.isnull21, label %if.then47, label %new.notnull22
 
 new.notnull22:                                    ; preds = %if.then19
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i64 0, inrange i32 0, i64 2), ptr %call20, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i64 0, i32 0, i64 2), ptr %call20, align 8
   %dbuffer.i20 = getelementptr inbounds i8, ptr %call20, i64 8
   %_back.i.i21 = getelementptr inbounds i8, ptr %call20, i64 136
   store ptr %dbuffer.i20, ptr %_back.i.i21, align 8
@@ -429,7 +429,7 @@ declare void @_ZdlPvRKSt9nothrow_t(ptr noundef, ptr noundef nonnull align 1 dere
 define linkonce_odr void @_ZN3zmq7ypipe_tINS_5msg_tELi256EEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %pv.i.i = alloca ptr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq7ypipe_tINS_5msg_tELi256EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq7ypipe_tINS_5msg_tELi256EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_queue = getelementptr inbounds i8, ptr %this, i64 8
   %_spare_chunk.i = getelementptr inbounds i8, ptr %this, i64 56
   store atomic i64 0, ptr %_spare_chunk.i seq_cst, align 8
@@ -862,10 +862,10 @@ entry:
   %2 = getelementptr inbounds i8, ptr %this, i64 56
   %_array_index.i2 = getelementptr inbounds i8, ptr %this, i64 64
   store i32 -1, ptr %_array_index.i2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i64 0, inrange i32 2, i64 2), ptr %1, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i64 0, inrange i32 3, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i64 0, i32 2, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i64 0, i32 3, i64 2), ptr %2, align 8
   %_in_pipe = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %inpipe_, ptr %_in_pipe, align 8
   %_out_pipe = getelementptr inbounds i8, ptr %this, i64 80
@@ -2103,7 +2103,7 @@ cond.true:                                        ; preds = %if.end
   br i1 %new.isnull, label %if.then15, label %new.notnull
 
 new.notnull:                                      ; preds = %cond.true
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %dbuffer.i = getelementptr inbounds i8, ptr %call, i64 8
   %_back.i.i = getelementptr inbounds i8, ptr %call, i64 136
   store ptr %dbuffer.i, ptr %_back.i.i, align 8

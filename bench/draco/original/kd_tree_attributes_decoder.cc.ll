@@ -3580,7 +3580,7 @@ define void @_ZN5draco23KdTreeAttributesDecoderC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco17AttributesDecoderC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco23KdTreeAttributesDecoderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco23KdTreeAttributesDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::KdTreeAttributesDecoder", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIN5draco30AttributeQuantizationTransformESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %"class.draco::KdTreeAttributesDecoder", ptr %3, i32 0, i32 2
@@ -6441,7 +6441,7 @@ define linkonce_odr void @_ZN5draco30AttributeQuantizationTransformC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco18AttributeTransformC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::AttributeQuantizationTransform", ptr %3, i32 0, i32 1
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.draco::AttributeQuantizationTransform", ptr %3, i32 0, i32 3
@@ -6550,7 +6550,7 @@ define linkonce_odr void @_ZN5draco30AttributeQuantizationTransformD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::AttributeQuantizationTransform", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN5draco18AttributeTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -9712,7 +9712,7 @@ define linkonce_odr void @_ZN5draco23KdTreeAttributesDecoderD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco23KdTreeAttributesDecoderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco23KdTreeAttributesDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::KdTreeAttributesDecoder", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorISt10unique_ptrIN5draco14PointAttributeESt14default_deleteIS2_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %"class.draco::KdTreeAttributesDecoder", ptr %3, i32 0, i32 2
@@ -10531,7 +10531,7 @@ define linkonce_odr void @_ZN5draco18AttributeTransformC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco18AttributeTransformE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco18AttributeTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -11076,7 +11076,7 @@ define linkonce_odr void @_ZN5draco17AttributesDecoderD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco17AttributesDecoderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco17AttributesDecoderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %"class.draco::AttributesDecoder", ptr %3, i32 0, i32 1
@@ -39067,7 +39067,7 @@ define linkonce_odr void @_ZN5draco30AttributeQuantizationTransformC2ERKS0_(ptr 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5draco18AttributeTransformC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.draco::AttributeQuantizationTransform", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.draco::AttributeQuantizationTransform", ptr %10, i32 0, i32 1
@@ -39112,7 +39112,7 @@ define linkonce_odr void @_ZN5draco18AttributeTransformC2ERKS0_(ptr noundef nonn
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco18AttributeTransformE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco18AttributeTransformE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -40007,7 +40007,7 @@ define linkonce_odr void @_ZN5draco30AttributeQuantizationTransformC2EOS0_(ptr n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5draco18AttributeTransformC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5draco30AttributeQuantizationTransformE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.draco::AttributeQuantizationTransform", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.draco::AttributeQuantizationTransform", ptr %8, i32 0, i32 1

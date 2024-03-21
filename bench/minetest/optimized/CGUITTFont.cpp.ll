@@ -313,7 +313,7 @@ $_ZTIN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE = comdat any
 @_ZN3irr3gui10CGUITTFont13shared_plane_E = dso_local global %"struct.irr::scene::SMesh" zeroinitializer, align 8
 @.str = private unnamed_addr constant [2 x i32] [i32 32, i32 0], align 4
 @_ZTVN3irr3gui10CGUITTFontE = dso_local unnamed_addr constant { [29 x ptr], [5 x ptr] } { [29 x ptr] [ptr inttoptr (i64 280 to ptr), ptr null, ptr @_ZTIN3irr3gui10CGUITTFontE, ptr @_ZN3irr3gui10CGUITTFont4drawERKNS_4core6stringIwEERKNS2_4rectIiEENS_5video6SColorEbbPS9_, ptr @_ZNK3irr3gui10CGUITTFont12getDimensionEPKw, ptr @_ZNK3irr3gui10CGUITTFont19getCharacterFromPosEPKwi, ptr @_ZNK3irr3gui8IGUIFont7getTypeEv, ptr @_ZN3irr3gui10CGUITTFont15setKerningWidthEi, ptr @_ZN3irr3gui10CGUITTFont16setKerningHeightEi, ptr @_ZNK3irr3gui10CGUITTFont15getKerningWidthEPKwS3_, ptr @_ZNK3irr3gui10CGUITTFont16getKerningHeightEv, ptr @_ZN3irr3gui10CGUITTFont22setInvisibleCharactersEPKw, ptr @_ZN3irr3gui10CGUITTFontD1Ev, ptr @_ZN3irr3gui10CGUITTFontD0Ev, ptr @_ZN3irr3gui10CGUITTFont16setBatchLoadSizeEj, ptr @_ZN3irr3gui10CGUITTFont21setMaxPageTextureSizeERKNS_4core11dimension2dIjEE, ptr @_ZNK3irr3gui10CGUITTFont11getFontSizeEv, ptr @_ZNK3irr3gui10CGUITTFont13isTransparentEv, ptr @_ZNK3irr3gui10CGUITTFont14useAutoHintingEv, ptr @_ZNK3irr3gui10CGUITTFont10useHintingEv, ptr @_ZNK3irr3gui10CGUITTFont13useMonochromeEv, ptr @_ZN3irr3gui10CGUITTFont15setTransparencyEb, ptr @_ZN3irr3gui10CGUITTFont13setMonochromeEb, ptr @_ZN3irr3gui10CGUITTFont14setFontHintingEbb, ptr @_ZNK3irr3gui10CGUITTFont16getCharDimensionEw, ptr @_ZNK3irr3gui10CGUITTFont15getKerningWidthEDiDi, ptr @_ZN3irr3gui10CGUITTFont21createTextureFromCharERKDi, ptr @_ZNK3irr3gui10CGUITTFont21getPageTextureByIndexERKj, ptr @_ZN3irr3gui10CGUITTFont16addTextSceneNodeEPKwPNS_5scene13ISceneManagerEPNS4_10ISceneNodeERKNS_5video6SColorEb], [5 x ptr] [ptr inttoptr (i64 -280 to ptr), ptr inttoptr (i64 -280 to ptr), ptr @_ZTIN3irr3gui10CGUITTFontE, ptr @_ZTv0_n24_N3irr3gui10CGUITTFontD1Ev, ptr @_ZTv0_n24_N3irr3gui10CGUITTFontD0Ev] }, align 8
-@_ZTTN3irr3gui10CGUITTFontE = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10CGUITTFontE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui10CGUITTFontE0_NS0_8IGUIFontE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui10CGUITTFontE0_NS0_8IGUIFontE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10CGUITTFontE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr3gui10CGUITTFontE = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10CGUITTFontE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui10CGUITTFontE0_NS0_8IGUIFontE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui10CGUITTFontE0_NS0_8IGUIFontE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10CGUITTFontE, i32 0, inrange i32 1, i32 3)], align 8
 @.str.3 = private unnamed_addr constant [11 x i8] c"CGUITTFont\00", align 1
 @.str.5 = private unnamed_addr constant [2 x i8] c" \00", align 1
 @.str.6 = private unnamed_addr constant [4 x i8] c"pt \00", align 1
@@ -390,9 +390,9 @@ define linkonce_odr dso_local void @_ZNSt3mapIN3irr4core6stringIcEEPNS0_3gui10SG
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene5SMeshD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !14
@@ -1618,8 +1618,8 @@ define dso_local void @_ZN3irr3gui10CGUITTFontC1EPNS0_15IGUIEnvironmentE(ptr nou
   store ptr null, ptr %4, align 8, !tbaa !129
   %5 = getelementptr inbounds i8, ptr %0, i64 296
   store i32 1, ptr %5, align 8, !tbaa !18
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10CGUITTFontE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10CGUITTFontE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10CGUITTFontE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10CGUITTFontE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store <4 x i8> <i8 0, i8 1, i8 1, i8 1>, ptr %6, align 8, !tbaa !126
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2472,8 +2472,8 @@ define dso_local noundef zeroext i1 @_ZN3irr3gui10CGUITTFont4loadERKNS_4core6str
   store ptr null, ptr %385, align 8, !tbaa !129
   %386 = getelementptr inbounds i8, ptr %383, i64 48
   store i32 1, ptr %386, align 8, !tbaa !18
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 0, i64 3), ptr %383, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 1, i64 3), ptr %384, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 0, i64 3), ptr %383, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 1, i64 3), ptr %384, align 8, !tbaa !12
   %387 = getelementptr inbounds i8, ptr %383, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %387, i8 0, i64 24, i1 false)
   store ptr %383, ptr %14, align 8, !tbaa !17
@@ -8185,8 +8185,8 @@ define dso_local void @_ZN3irr3gui10CGUITTFont17createSharedPlaneEv(ptr nocaptur
   store ptr null, ptr %28, align 8, !tbaa !129
   %29 = getelementptr inbounds i8, ptr %26, i64 328
   store i32 1, ptr %29, align 8, !tbaa !18
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %26, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %27, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %26, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %27, align 8, !tbaa !12
   %30 = getelementptr inbounds i8, ptr %26, i64 8
   store i32 1, ptr %30, align 8, !tbaa !300
   %31 = getelementptr inbounds i8, ptr %26, i64 12
@@ -10130,9 +10130,9 @@ define linkonce_odr dso_local void @_ZN3irr5scene5SMesh8setDirtyENS0_13E_BUFFER_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene5SMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !14
@@ -10275,9 +10275,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3irr5scene5SMeshD1Ev(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !12
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !14
@@ -10346,9 +10346,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3irr5scene5SMeshD0Ev(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !12
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !14
@@ -10763,9 +10763,9 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui10SGUITTFaceD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !156
   %5 = invoke i32 @FT_Done_Face(ptr noundef %4)
@@ -10794,9 +10794,9 @@ define linkonce_odr dso_local void @_ZN3irr3gui10SGUITTFaceD1Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui10SGUITTFaceD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !156
   %5 = invoke i32 @FT_Done_Face(ptr noundef %4)
@@ -10830,9 +10830,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3irr3gui10SGUITTFaceD1Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !12
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !156
   %9 = invoke i32 @FT_Done_Face(ptr noundef %8)
@@ -10865,9 +10865,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3irr3gui10SGUITTFaceD0Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui10SGUITTFaceE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !12
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !156
   %9 = invoke i32 @FT_Done_Face(ptr noundef %8)
@@ -13657,9 +13657,9 @@ define linkonce_odr dso_local noundef i32 @_ZNK3irr5scene11CMeshBufferINS_5video
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8, !tbaa !419
   %5 = icmp eq ptr %4, null
@@ -13725,9 +13725,9 @@ define linkonce_odr dso_local void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVert
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED0Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8, !tbaa !419
   %5 = icmp eq ptr %4, null
@@ -13798,9 +13798,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3irr5scene11CMeshBufferINS_5video
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 312
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !12
   %7 = getelementptr inbounds i8, ptr %5, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !419
   %9 = icmp eq ptr %8, null
@@ -13870,9 +13870,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3irr5scene11CMeshBufferINS_5video
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 312
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !12
   %7 = getelementptr inbounds i8, ptr %5, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !419
   %9 = icmp eq ptr %8, null
@@ -14235,8 +14235,8 @@ define internal void @_GLOBAL__sub_I_CGUITTFont.cpp() #24 section ".text.startup
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt3mapIN3irr4core6stringIcEEPNS0_3gui10SGUITTFaceESt4lessIS3_ESaISt4pairIKS3_S6_EEED2Ev, ptr nonnull @_ZN3irr3gui10CGUITTFont7c_facesE, ptr nonnull @__dso_handle) #29
   store ptr null, ptr getelementptr inbounds (%"struct.irr::scene::SMesh", ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 0, i32 3, i32 1), align 8, !tbaa !129
   store i32 1, ptr getelementptr inbounds (%"struct.irr::scene::SMesh", ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 0, i32 3, i32 2), align 8, !tbaa !18
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 0, i64 3), ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, inrange i32 1, i64 3), ptr getelementptr inbounds (%"struct.irr::scene::SMesh", ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 0, i32 3, i32 0), align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 0, i64 3), ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene5SMeshE, i64 0, i32 1, i64 3), ptr getelementptr inbounds (%"struct.irr::scene::SMesh", ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 0, i32 3, i32 0), align 8, !tbaa !12
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.irr::scene::SMesh", ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
   store i8 1, ptr getelementptr inbounds (%"struct.irr::scene::SMesh", ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 0, i32 1, i32 1), align 8, !tbaa !338
   store <4 x float> <float -1.000000e+00, float -1.000000e+00, float -1.000000e+00, float 1.000000e+00>, ptr getelementptr inbounds (%"struct.irr::scene::SMesh", ptr @_ZN3irr3gui10CGUITTFont13shared_plane_E, i64 0, i32 2, i32 0, i32 0), align 8, !tbaa !298

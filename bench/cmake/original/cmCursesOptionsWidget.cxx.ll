@@ -178,7 +178,7 @@ define dso_local void @_ZN21cmCursesOptionsWidgetC2Eiiii(ptr noundef nonnull ali
   %16 = load i32, ptr %9, align 4
   %17 = load i32, ptr %10, align 4
   call void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV21cmCursesOptionsWidget, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV21cmCursesOptionsWidget, i32 0, i32 0, i32 2), ptr %13, align 8
   %18 = getelementptr inbounds %class.cmCursesOptionsWidget, ptr %13, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %18) #8
   %19 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 1
@@ -776,7 +776,7 @@ define linkonce_odr dso_local void @_ZN21cmCursesOptionsWidgetD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV21cmCursesOptionsWidget, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV21cmCursesOptionsWidget, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCursesOptionsWidget, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   call void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #8

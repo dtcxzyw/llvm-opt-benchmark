@@ -139,7 +139,7 @@ $_ZTS13MeshLabPlugin = comdat any
 $_ZTI13MeshLabPlugin = comdat any
 
 @_ZTV12FilterCreate = unnamed_addr constant { [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] } { [26 x ptr] [ptr inttoptr (i64 104 to ptr), ptr inttoptr (i64 80 to ptr), ptr null, ptr @_ZTI12FilterCreate, ptr @_ZNK12FilterCreate10metaObjectEv, ptr @_ZN12FilterCreate11qt_metacastEPKc, ptr @_ZN12FilterCreate11qt_metacallEN11QMetaObject4CallEiPPv, ptr @_ZN12FilterCreateD1Ev, ptr @_ZN12FilterCreateD0Ev, ptr @_ZN7QObject5eventEP6QEvent, ptr @_ZN7QObject11eventFilterEPS_P6QEvent, ptr @_ZN7QObject10timerEventEP11QTimerEvent, ptr @_ZN7QObject10childEventEP11QChildEvent, ptr @_ZN7QObject11customEventEP6QEvent, ptr @_ZN7QObject13connectNotifyERK11QMetaMethod, ptr @_ZN7QObject16disconnectNotifyERK11QMetaMethod, ptr @_ZNK12FilterCreate12getMLVersionB5cxx11Ev, ptr @_ZNK12FilterCreate10pluginNameEv, ptr @_ZNK12FilterCreate10filterNameEi, ptr @_ZNK12FilterCreate16pythonFilterNameEi, ptr @_ZNK12FilterCreate10filterInfoEi, ptr @_ZNK12FilterCreate8getClassEPK7QAction, ptr @_ZN12FilterCreate17initParameterListEPK7QActionRK9MeshModel, ptr @_ZN12FilterCreate11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE, ptr @_ZN12FilterCreate24filterScriptFunctionNameEi, ptr @_ZNK12FilterCreate11filterArityEPK7QAction], [27 x ptr] [ptr inttoptr (i64 88 to ptr), ptr inttoptr (i64 64 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTI12FilterCreate, ptr @_ZThn16_N12FilterCreateD1Ev, ptr @_ZThn16_N12FilterCreateD0Ev, ptr @_ZThn16_NK12FilterCreate10filterNameEi, ptr @_ZThn16_NK12FilterCreate16pythonFilterNameEi, ptr @_ZThn16_NK12FilterCreate10filterInfoEi, ptr @_ZThn16_NK12FilterCreate8getClassEPK7QAction, ptr @_ZN12FilterPlugin15getRequirementsEPK7QAction, ptr @_ZNK12FilterPlugin17requiresGLContextEPK7QAction, ptr @_ZNK12FilterPlugin16getPreConditionsEPK7QAction, ptr @_ZNK12FilterPlugin13postConditionEPK7QAction, ptr @_ZThn16_N12FilterCreate17initParameterListEPK7QActionRK9MeshModel, ptr @_ZN12FilterPlugin17initParameterListEPK7QActionRK12MeshDocument, ptr @_ZThn16_N12FilterCreate11applyFilterB5cxx11EPK7QActionRK17RichParameterListR12MeshDocumentRjPFbiPKcE, ptr @_ZThn16_NK12FilterCreate11filterArityEPK7QAction, ptr @_ZNK12FilterPlugin10filterInfoEPK7QAction, ptr @_ZNK12FilterPlugin10filterNameEPK7QAction, ptr @_ZNK12FilterPlugin16pythonFilterNameEPK7QAction, ptr @_ZThn16_N12FilterCreate24filterScriptFunctionNameEi, ptr @_ZNK12FilterPlugin2IDEPK7QAction, ptr @_ZN12FilterPlugin15getFilterActionEi, ptr @_ZN12FilterPlugin15getFilterActionERK7QString, ptr @_ZNK12FilterPlugin7actionsB5cxx11Ev, ptr @_ZNK12FilterPlugin5typesB5cxx11Ev], [11 x ptr] [ptr null, ptr inttoptr (i64 -80 to ptr), ptr inttoptr (i64 -80 to ptr), ptr inttoptr (i64 -80 to ptr), ptr inttoptr (i64 -80 to ptr), ptr @_ZTI12FilterCreate, ptr @_ZTv0_n24_N12FilterCreateD1Ev, ptr @_ZTv0_n24_N12FilterCreateD0Ev, ptr @_ZTv0_n32_NK12FilterCreate12getMLVersionB5cxx11Ev, ptr @_ZTv0_n40_NK12FilterCreate10pluginNameEv, ptr @_ZNK13MeshLabPlugin6vendorEv], [5 x ptr] [ptr inttoptr (i64 -104 to ptr), ptr inttoptr (i64 -104 to ptr), ptr @_ZTI12FilterCreate, ptr @_ZTv0_n24_N12FilterCreateD1Ev, ptr @_ZTv0_n24_N12FilterCreateD0Ev] }, align 8
-@_ZTT12FilterCreate = unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV12FilterCreate, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV12FilterCreate, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV12FilterCreate, i32 0, inrange i32 2, i32 6), ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV12FilterCreate, i32 0, inrange i32 3, i32 3)], align 8
+@_ZTT12FilterCreate = unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV12FilterCreate, i32 0, i32 0, i32 4), ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV12FilterCreate, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV12FilterCreate, i32 0, inrange i32 2, i32 6), ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV12FilterCreate, i32 0, inrange i32 3, i32 3)], align 8
 @_ZTC12FilterCreate16_12FilterPlugin = unnamed_addr constant { [27 x ptr], [11 x ptr], [5 x ptr] } { [27 x ptr] [ptr inttoptr (i64 88 to ptr), ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTI12FilterPlugin, ptr @_ZN12FilterPluginD1Ev, ptr @_ZN12FilterPluginD0Ev, ptr @__cxa_pure_virtual, ptr @_ZNK12FilterPlugin16pythonFilterNameEi, ptr @__cxa_pure_virtual, ptr @_ZNK12FilterPlugin8getClassEPK7QAction, ptr @_ZN12FilterPlugin15getRequirementsEPK7QAction, ptr @_ZNK12FilterPlugin17requiresGLContextEPK7QAction, ptr @_ZNK12FilterPlugin16getPreConditionsEPK7QAction, ptr @_ZNK12FilterPlugin13postConditionEPK7QAction, ptr @_ZN12FilterPlugin17initParameterListEPK7QActionRK9MeshModel, ptr @_ZN12FilterPlugin17initParameterListEPK7QActionRK12MeshDocument, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK12FilterPlugin10filterInfoEPK7QAction, ptr @_ZNK12FilterPlugin10filterNameEPK7QAction, ptr @_ZNK12FilterPlugin16pythonFilterNameEPK7QAction, ptr @_ZN12FilterPlugin24filterScriptFunctionNameEi, ptr @_ZNK12FilterPlugin2IDEPK7QAction, ptr @_ZN12FilterPlugin15getFilterActionEi, ptr @_ZN12FilterPlugin15getFilterActionERK7QString, ptr @_ZNK12FilterPlugin7actionsB5cxx11Ev, ptr @_ZNK12FilterPlugin5typesB5cxx11Ev], [11 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTI12FilterPlugin, ptr @_ZTv0_n24_N12FilterPluginD1Ev, ptr @_ZTv0_n24_N12FilterPluginD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK13MeshLabPlugin6vendorEv], [5 x ptr] [ptr inttoptr (i64 -88 to ptr), ptr inttoptr (i64 -88 to ptr), ptr @_ZTI12FilterPlugin, ptr @_ZTv0_n24_N12FilterPluginD1Ev, ptr @_ZTv0_n24_N12FilterPluginD0Ev] }, align 8
 @_ZTI12FilterPlugin = external constant ptr
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
@@ -466,11 +466,11 @@ define noundef i32 @_ZN12FilterCreate11qt_metacallEN11QMetaObject4CallEiPPv(ptr 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12FilterCreateD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 0, i64 4), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 0, i64 4), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 1, i64 6), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 1, i64 6), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 2, i64 3), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 2, i64 3), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not8.i.i.i.i.i = icmp eq ptr %6, %5
@@ -498,7 +498,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i, %
 
 _ZN12FilterCreateD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #21
   ret void
@@ -507,11 +507,11 @@ _ZN12FilterCreateD2Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12FilterCreateD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 0, i64 4), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 0, i64 4), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 1, i64 6), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 1, i64 6), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 2, i64 3), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 2, i64 3), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %.not8.i.i.i.i.i.i = icmp eq ptr %6, %5
@@ -539,7 +539,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %3, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #21
   tail call void @_ZdlPv(ptr noundef nonnull %0) #22
@@ -623,11 +623,11 @@ define linkonce_odr noundef i32 @_ZNK12FilterCreate11filterArityEPK7QAction(ptr 
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N12FilterCreateD1Ev(ptr noundef %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 0, i64 4), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 0, i64 4), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 1, i64 6), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 1, i64 6), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 2, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 2, i64 3), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not8.i.i.i.i.i.i = icmp eq ptr %5, %4
@@ -656,7 +656,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #21
   ret void
@@ -664,11 +664,11 @@ _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn16_N12FilterCreateD0Ev(ptr noundef %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 0, i64 4), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 0, i64 4), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 1, i64 6), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 1, i64 6), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 88
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 2, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 2, i64 3), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %.not8.i.i.i.i.i.i.i = icmp eq ptr %5, %4
@@ -697,7 +697,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
 _ZN12FilterCreateD0Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i
   %10 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %2, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #21
   tail call void @_ZdlPv(ptr noundef nonnull %10) #22
@@ -730,11 +730,11 @@ define linkonce_odr void @_ZTv0_n24_N12FilterCreateD1Ev(ptr noundef %0) unnamed_
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 0, i64 4), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 0, i64 4), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 1, i64 6), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 1, i64 6), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 2, i64 3), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 2, i64 3), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8
   %.not8.i.i.i.i.i.i = icmp eq ptr %10, %9
@@ -762,7 +762,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 
 _ZN12FilterCreateD1Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #21
   ret void
@@ -775,11 +775,11 @@ define linkonce_odr void @_ZTv0_n24_N12FilterCreateD0Ev(ptr noundef %0) unnamed_
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 0, i64 4), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 0, i64 4), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 1, i64 6), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 1, i64 6), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, inrange i32 2, i64 3), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTC12FilterCreate16_12FilterPlugin, i64 0, i32 2, i64 3), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 56
   %10 = load ptr, ptr %9, align 8
   %.not8.i.i.i.i.i.i.i = icmp eq ptr %10, %9
@@ -807,7 +807,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i:      ; preds = %.lr.ph.i.i.i.i.i.i.
 
 _ZN12FilterCreateD0Ev.exit:                       ; preds = %.lr.ph.i.i.i3.i.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %7, align 8
   %15 = getelementptr inbounds i8, ptr %5, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #21
   tail call void @_ZdlPv(ptr noundef nonnull %5) #22
@@ -1310,7 +1310,7 @@ declare void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #21
   ret void

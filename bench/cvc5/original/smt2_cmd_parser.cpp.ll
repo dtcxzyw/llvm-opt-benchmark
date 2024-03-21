@@ -1963,7 +1963,7 @@ entry:
   store ptr %state, ptr %state.addr, align 8
   store ptr %tparser, ptr %tparser.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_lex = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %lex.addr, align 8
   store ptr %0, ptr %d_lex, align 8
@@ -10923,7 +10923,7 @@ entry:
   store i8 %frombool, ptr %isNext.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser17CheckSynthCommandE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser17CheckSynthCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_isNext = getelementptr inbounds %"class.cvc5::parser::CheckSynthCommand", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %isNext.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -12805,7 +12805,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser11QuitCommandE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser11QuitCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -12826,7 +12826,7 @@ entry:
   store ptr %g, ptr %g.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser16FindSynthCommandE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser16FindSynthCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_fst = getelementptr inbounds %"class.cvc5::parser::FindSynthCommand", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %fst.addr, align 4
   store i32 %0, ptr %d_fst, align 8
@@ -12867,7 +12867,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser20FindSynthNextCommandE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser20FindSynthNextCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_result = getelementptr inbounds %"class.cvc5::parser::FindSynthNextCommand", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc54TermC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_result)
           to label %invoke.cont unwind label %lpad
@@ -13026,7 +13026,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser12ResetCommandE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser12ResetCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13037,7 +13037,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser22ResetAssertionsCommandE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser22ResetAssertionsCommandE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13190,7 +13190,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_table = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc56parser5TokenESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_table) #1
   ret void

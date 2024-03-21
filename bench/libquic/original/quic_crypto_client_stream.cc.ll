@@ -902,9 +902,9 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %session.addr, align 8
   call void @_ZN3net16QuicCryptoStreamC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net26QuicCryptoClientStreamBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net26QuicCryptoClientStreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 384
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net26QuicCryptoClientStreamBaseE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net26QuicCryptoClientStreamBaseE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   ret void
 }
 
@@ -919,7 +919,7 @@ entry:
   store ptr %stream, ptr %stream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net23ChannelIDSourceCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream27ChannelIDSourceCallbackImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream27ChannelIDSourceCallbackImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.net::QuicCryptoClientStream::ChannelIDSourceCallbackImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %stream.addr, align 8
   store ptr %0, ptr %stream_, align 8
@@ -932,7 +932,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net23ChannelIDSourceCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net23ChannelIDSourceCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1244,7 +1244,7 @@ entry:
   store ptr %stream, ptr %stream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net21ProofVerifierCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream25ProofVerifierCallbackImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream25ProofVerifierCallbackImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.net::QuicCryptoClientStream::ProofVerifierCallbackImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %stream.addr, align 8
   store ptr %0, ptr %stream_, align 8
@@ -1257,7 +1257,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net21ProofVerifierCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net21ProofVerifierCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1395,9 +1395,9 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %session.addr, align 8
   call void @_ZN3net26QuicCryptoClientStreamBaseC2EPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(1048) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 384
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %next_state_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 1
   store i32 0, ptr %next_state_, align 8
   %num_client_hellos_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 2
@@ -1767,9 +1767,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 384
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %channel_id_source_callback_ = getelementptr inbounds %"class.net::QuicCryptoClientStream", ptr %this1, i32 0, i32 10
   %0 = load ptr, ptr %channel_id_source_callback_, align 8
   %tobool = icmp ne ptr %0, null
@@ -5698,9 +5698,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 384
-  store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [6 x ptr] }, ptr @_ZTVN3net16QuicCryptoStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %crypto_framer_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this1, i32 0, i32 6
   call void @_ZN3net12CryptoFramerD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %crypto_framer_) #14
   %crypto_negotiated_params_ = getelementptr inbounds %"class.net::QuicCryptoStream", ptr %this1, i32 0, i32 5

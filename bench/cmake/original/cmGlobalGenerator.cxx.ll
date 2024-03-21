@@ -9157,7 +9157,7 @@ define dso_local void @_ZN17cmGlobalGeneratorC2EP5cmake(ptr noundef nonnull alig
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   %10 = getelementptr inbounds %class.cmGlobalGenerator, ptr %8, i32 0, i32 3
@@ -10039,7 +10039,7 @@ define dso_local void @_ZN17cmGlobalGeneratorD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN17cmGlobalGenerator21ClearGeneratorMembersEv(ptr noundef nonnull align 8 dereferenceable(1778) %3)
           to label %4 unwind label %44
 

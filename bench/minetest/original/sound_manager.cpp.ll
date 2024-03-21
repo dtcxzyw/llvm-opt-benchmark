@@ -2457,7 +2457,7 @@ define dso_local void @_ZN5sound18OpenALSoundManager18createPlayingSoundERKNSt7_
   store i32 1, ptr %227, align 8, !tbaa !75, !noalias !122
   %228 = getelementptr inbounds i8, ptr %224, i64 12
   store i32 1, ptr %228, align 4, !tbaa !77, !noalias !122
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound12PlayingSoundESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %224, align 8, !tbaa !63, !noalias !122
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound12PlayingSoundESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %224, align 8, !tbaa !63, !noalias !122
   %229 = getelementptr inbounds i8, ptr %224, i64 16
   invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN5sound12PlayingSoundEJRjSt10shared_ptrINS3_14ISoundDataOpenEERbRfSA_SA_RKSt8optionalISt4pairIN3irr4core8vector3dIfEESG_EERKNS3_12ALExtensionsEEEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %9, ptr noundef nonnull %229, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %13, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(28) %7, ptr noundef nonnull align 1 dereferenceable(1) %226)
           to label %232 unwind label %230, !noalias !122
@@ -3603,7 +3603,7 @@ define dso_local void @_ZN5sound18OpenALSoundManagerC2EPNS_21SoundManagerSinglet
 
 20:                                               ; preds = %19, %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound18OpenALSoundManagerE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !63
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound18OpenALSoundManagerE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !63
   %21 = getelementptr inbounds i8, ptr %0, i64 144
   %22 = load i64, ptr %2, align 8, !tbaa !57
   store i64 %22, ptr %21, align 8, !tbaa !57
@@ -4999,7 +4999,7 @@ define dso_local void @_ZN5sound18OpenALSoundManager20loadSoundFileNoCheckERKNSt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !176)
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !176
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound19SoundDataUnopenFileE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !63, !noalias !176
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound19SoundDataUnopenFileE, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !63, !noalias !176
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !85, !noalias !176
@@ -5127,7 +5127,7 @@ define dso_local void @_ZN5sound18OpenALSoundManager20loadSoundDataNoCheckERKNSt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !179)
   %6 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !179
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound21SoundDataUnopenBufferE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !63, !noalias !179
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound21SoundDataUnopenBufferE, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !63, !noalias !179
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %8, ptr %7, align 8, !tbaa !85, !noalias !179
@@ -5710,7 +5710,7 @@ define dso_local noundef ptr @_ZN5sound18OpenALSoundManager3runEv(ptr noundef no
 
 106:                                              ; preds = %101
   %107 = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %107, align 8, !tbaa !63
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %107, align 8, !tbaa !63
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   store ptr @.str.37, ptr %108, align 8, !tbaa !213
   invoke void @__cxa_throw(ptr nonnull %107, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #29

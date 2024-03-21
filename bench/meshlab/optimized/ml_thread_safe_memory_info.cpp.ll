@@ -154,7 +154,7 @@ define void @_ZN22MLThreadSafeMemoryInfoC2El(ptr noundef nonnull align 8 derefer
   store i64 %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 %1, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22MLThreadSafeMemoryInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22MLThreadSafeMemoryInfo, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN14QReadWriteLockC1ENS_13RecursionModeE(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 1)
   ret void
@@ -169,7 +169,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22MLThreadSafeMemoryInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22MLThreadSafeMemoryInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22MLThreadSafeMemoryInfo, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @_ZN14QReadWriteLockD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #6
   ret void

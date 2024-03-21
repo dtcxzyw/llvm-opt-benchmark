@@ -286,7 +286,7 @@ define void @_ZN7RichIntC2ERK7QStringiS2_S2_bS2_(ptr noundef nonnull align 8 der
 
 27:                                               ; preds = %7
   call void @_ZN8IntValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %15) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV7RichInt, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV7RichInt, i32 0, i32 0, i32 2), ptr %19, align 8
   ret void
 
 28:                                               ; preds = %7
@@ -390,7 +390,7 @@ define linkonce_odr void @_ZN7RichIntC2ERKS_(ptr noundef nonnull align 8 derefer
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV7RichInt, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV7RichInt, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 

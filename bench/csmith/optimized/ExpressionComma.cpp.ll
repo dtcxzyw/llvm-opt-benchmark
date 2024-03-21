@@ -149,7 +149,7 @@ _Z14cast_if_neededP10Expression.exit:             ; preds = %22, %17, %7, %3
           to label %25 unwind label %28
 
 25:                                               ; preds = %_Z14cast_if_neededP10Expression.exit
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, i32 0, i64 2), ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 24
   store ptr %4, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 32
@@ -178,7 +178,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15ExpressionCommaC2ERK10ExpressionS2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -190,7 +190,7 @@ declare void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15ExpressionCommaD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -226,7 +226,7 @@ declare void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15ExpressionCommaD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -283,7 +283,7 @@ define dso_local noundef ptr @_ZNK15ExpressionComma5cloneEv(ptr nocapture nounde
           to label %17 unwind label %20
 
 17:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i64 0, i32 0, i64 2), ptr %2, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %8, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %2, i64 32

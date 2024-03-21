@@ -45,7 +45,7 @@ entry:
   store ptr %slv, ptr %slv.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal8ListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal3smt19ResourceOutListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal3smt19ResourceOutListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_slv = getelementptr inbounds %"class.cvc5::internal::smt::ResourceOutListener", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %slv.addr, align 8
   store ptr %0, ptr %d_slv, align 8

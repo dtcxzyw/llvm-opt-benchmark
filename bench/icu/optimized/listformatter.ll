@@ -615,7 +615,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7513FormattedListC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(20) %this, ptr nocapture noundef nonnull align 8 dereferenceable(20) %src) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
   %fData2 = getelementptr inbounds i8, ptr %src, i64 8
   %0 = load ptr, ptr %fData2, align 8
@@ -632,7 +632,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513FormattedListD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fData = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %0, null
@@ -698,7 +698,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !4
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !4
   %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !4
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
@@ -724,7 +724,7 @@ if.then2:                                         ; preds = %if.end
   %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %fErrorCode, align 8
   store i32 %3, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !7
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !7
   %fUnion2.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !7
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
@@ -754,7 +754,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !10
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !10
   %fUnion2.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !10
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
@@ -780,7 +780,7 @@ if.then2:                                         ; preds = %if.end
   %fErrorCode = getelementptr inbounds i8, ptr %this, i64 16
   %3 = load i32, ptr %fErrorCode, align 8
   store i32 %3, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !13
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !alias.scope !13
   %fUnion2.i.i3 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i.i3, align 8, !alias.scope !13
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %agg.result)
@@ -867,7 +867,7 @@ return:                                           ; preds = %entry, %if.end3, %i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513ListFormatterC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ListFormatterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ListFormatterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owned = getelementptr inbounds i8, ptr %this, i64 8
   %owned2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load ptr, ptr %owned2, align 8
@@ -1452,21 +1452,21 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7513ListFormatter16ListPatternsSinkE, i64 0, inrange i32 0, i64 2), ptr %sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7513ListFormatter16ListPatternsSinkE, i64 0, i32 0, i64 2), ptr %sink, align 8
   %two.i = getelementptr inbounds i8, ptr %sink, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %two.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %two.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %sink, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %start.i = getelementptr inbounds i8, ptr %sink, i64 72
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %start.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %start.i, align 8
   %fUnion2.i4.i = getelementptr inbounds i8, ptr %sink, i64 80
   store i16 2, ptr %fUnion2.i4.i, align 8
   %middle.i = getelementptr inbounds i8, ptr %sink, i64 136
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %middle.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %middle.i, align 8
   %fUnion2.i5.i = getelementptr inbounds i8, ptr %sink, i64 144
   store i16 2, ptr %fUnion2.i5.i, align 8
   %end.i = getelementptr inbounds i8, ptr %sink, i64 200
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %end.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %end.i, align 8
   %fUnion2.i6.i = getelementptr inbounds i8, ptr %sink, i64 208
   store i16 2, ptr %fUnion2.i6.i, align 8
   %aliasedStyle.i = getelementptr inbounds i8, ptr %sink, i64 264
@@ -1565,7 +1565,7 @@ delete.notnull:                                   ; preds = %if.end54
 
 cleanup:                                          ; preds = %if.end54, %invoke.cont22, %delete.notnull, %if.then53, %if.then43
   %retval.0 = phi ptr [ null, %if.then43 ], [ null, %if.then53 ], [ null, %delete.notnull ], [ null, %invoke.cont22 ], [ %call45, %if.end54 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7513ListFormatter16ListPatternsSinkE, i64 0, inrange i32 0, i64 2), ptr %sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7513ListFormatter16ListPatternsSinkE, i64 0, i32 0, i64 2), ptr %sink, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %end.i) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %middle.i) #16
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %start.i) #16
@@ -1612,7 +1612,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6icu_7513ListFormatter16ListPatternsSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(289) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7513ListFormatter16ListPatternsSinkE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7513ListFormatter16ListPatternsSinkE, i64 0, i32 0, i64 2), ptr %this, align 8
   %end = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %end) #16
   %middle = getelementptr inbounds i8, ptr %this, i64 136
@@ -1631,7 +1631,7 @@ declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6icu_7513ListFormatter16ListPatternsSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(289) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7513ListFormatter16ListPatternsSinkE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7513ListFormatter16ListPatternsSinkE, i64 0, i32 0, i64 2), ptr %this, align 8
   %end.i = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %end.i) #16
   %middle.i = getelementptr inbounds i8, ptr %this, i64 136
@@ -1667,7 +1667,7 @@ define linkonce_odr void @_ZN6icu_7518ListFormatInternalC2ERKNS_13UnicodeStringE
 entry:
   %startPattern = getelementptr inbounds i8, ptr %this, i64 8
   %compiledPattern.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %startPattern, ptr noundef nonnull align 8 dereferenceable(64) %start, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -1686,7 +1686,7 @@ lpad.i:                                           ; preds = %entry
 _ZN6icu_7515SimpleFormatterC2ERKNS_13UnicodeStringEiiR10UErrorCode.exit: ; preds = %entry
   %middlePattern = getelementptr inbounds i8, ptr %this, i64 80
   %compiledPattern.i5 = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i5, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i5, align 8
   %fUnion2.i.i6 = getelementptr inbounds i8, ptr %this, i64 96
   store i16 2, ptr %fUnion2.i.i6, align 8
   %call.i7 = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %middlePattern, ptr noundef nonnull align 8 dereferenceable(64) %middle, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -1907,7 +1907,7 @@ return:                                           ; preds = %new.notnull, %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7513ListFormatterC2ERKNS_14ListFormatDataER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(488) %listFormatData, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ListFormatterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ListFormatterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = tail call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 160) #16
   %new.isnull = icmp eq ptr %call, null
   br i1 %new.isnull, label %new.cont, label %new.notnull
@@ -1937,7 +1937,7 @@ entry:
   %startPattern = getelementptr inbounds i8, ptr %this, i64 8
   %startPattern2 = getelementptr inbounds i8, ptr %data, i64 72
   %compiledPattern.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i1.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %startPattern, ptr noundef nonnull align 8 dereferenceable(64) %startPattern2, i32 noundef 0, i32 noundef 2147483647, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -1957,7 +1957,7 @@ _ZN6icu_7515SimpleFormatterC2ERKNS_13UnicodeStringER10UErrorCode.exit: ; preds =
   %middlePattern = getelementptr inbounds i8, ptr %this, i64 80
   %middlePattern3 = getelementptr inbounds i8, ptr %data, i64 136
   %compiledPattern.i9 = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i9, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i9, align 8
   %fUnion2.i.i10 = getelementptr inbounds i8, ptr %this, i64 96
   store i16 2, ptr %fUnion2.i.i10, align 8
   %call.i1.i11 = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %middlePattern, ptr noundef nonnull align 8 dereferenceable(64) %middlePattern3, i32 noundef 0, i32 noundef 2147483647, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -2007,7 +2007,7 @@ ehcleanup:                                        ; preds = %lpad.i12, %lpad4
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7513ListFormatterC2EPKNS_18ListFormatInternalE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %listFormatterInternal) unnamed_addr #10 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ListFormatterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ListFormatterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owned = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %owned, align 8
   %data = getelementptr inbounds i8, ptr %this, i64 16
@@ -2018,7 +2018,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7513ListFormatterD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ListFormatterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ListFormatterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owned = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %owned, align 8
   %isnull = icmp eq ptr %0, null
@@ -2066,7 +2066,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %appendable.i)
   call void @_ZNK6icu_7513ListFormatter20formatStringsToValueEPKNS_13UnicodeStringEiR10UErrorCode(ptr nonnull sret(%"class.icu_75::FormattedList") align 8 %result.i, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %items, i32 noundef %nItems, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7523UnicodeStringAppendableE, i64 0, inrange i32 0, i64 2), ptr %appendable.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7523UnicodeStringAppendableE, i64 0, i32 0, i64 2), ptr %appendable.i, align 8
   %str.i.i = getelementptr inbounds i8, ptr %appendable.i, i64 8
   store ptr %appendTo, ptr %str.i.i, align 8
   %0 = load i32, ptr %errorCode, align 4
@@ -2122,7 +2122,7 @@ entry:
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
   call void @_ZNK6icu_7513ListFormatter20formatStringsToValueEPKNS_13UnicodeStringEiR10UErrorCode(ptr nonnull sret(%"class.icu_75::FormattedList") align 8 %result, ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef %items, i32 noundef %nItems, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7523UnicodeStringAppendableE, i64 0, inrange i32 0, i64 2), ptr %appendable, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7523UnicodeStringAppendableE, i64 0, i32 0, i64 2), ptr %appendable, align 8
   %str.i = getelementptr inbounds i8, ptr %appendable, i64 8
   store ptr %appendTo, ptr %str.i, align 8
   %3 = load i32, ptr %errorCode, align 4
@@ -2257,7 +2257,7 @@ lpad.i:                                           ; preds = %new.notnull.i
 
 cleanup.thread115:                                ; preds = %if.then.i.i, %new.cont.i
   %.ph = phi i32 [ 7, %if.then.i.i ], [ %0, %new.cont.i ]
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %fData.i116 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %fData.i116, align 8
   %fErrorCode.i117 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -2265,10 +2265,10 @@ cleanup.thread115:                                ; preds = %if.then.i.i, %new.c
   br label %return
 
 _ZN6icu_7512_GLOBAL__N_120FormattedListBuilderC2ER10UErrorCode.exit: ; preds = %new.notnull.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517FormattedListDataE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517FormattedListDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %.pre = load i32, ptr %errorCode, align 4
   %cmp.i = icmp slt i32 %.pre, 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %fData.i44 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %fErrorCode.i45 = getelementptr inbounds i8, ptr %agg.result, i64 16
   br i1 %cmp.i, label %cleanup.thread, label %delete.notnull.i.i
@@ -2297,7 +2297,7 @@ if.then9:                                         ; preds = %entry
 invoke.cont17:                                    ; preds = %if.then9
   %4 = load i32, ptr %errorCode, align 4
   %cmp.i46 = icmp slt i32 %4, 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %5 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %6 = getelementptr inbounds i8, ptr %agg.result, i64 16
   br i1 %cmp.i46, label %cleanup28.thread, label %cleanup28
@@ -2340,7 +2340,7 @@ if.then31:                                        ; preds = %entry
   br i1 %cmp.i62, label %if.end, label %if.then38
 
 if.then38:                                        ; preds = %if.then31
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %fData.i64 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %fData.i64, align 8
   %fErrorCode.i65 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -2387,7 +2387,7 @@ invoke.cont47:                                    ; preds = %invoke.cont44
 invoke.cont53:                                    ; preds = %invoke.cont47
   %16 = load i32, ptr %errorCode, align 4
   %cmp.i72 = icmp slt i32 %16, 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %fData.i76 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %fErrorCode.i77 = getelementptr inbounds i8, ptr %agg.result, i64 16
   br i1 %cmp.i72, label %cleanup64.thread, label %if.then57
@@ -2421,7 +2421,7 @@ if.end67:                                         ; preds = %entry
   br i1 %cmp.i83, label %if.end76, label %if.then74
 
 if.then74:                                        ; preds = %if.end67
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %fData.i85 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr null, ptr %fData.i85, align 8
   %fErrorCode.i86 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -2508,7 +2508,7 @@ invoke.cont99:                                    ; preds = %invoke.cont93
 invoke.cont105:                                   ; preds = %invoke.cont99
   %26 = load i32, ptr %errorCode, align 4
   %cmp.i93 = icmp slt i32 %26, 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513FormattedListE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %fData.i97 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %fErrorCode.i98 = getelementptr inbounds i8, ptr %agg.result, i64 16
   br i1 %cmp.i93, label %cleanup116.thread, label %if.then109
@@ -2571,7 +2571,7 @@ if.then.i:                                        ; preds = %new.cont
   br label %if.end
 
 _ZN6icu_7512LocalPointerINS_17FormattedListDataEEC2EPS1_R10UErrorCode.exit: ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517FormattedListDataE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7517FormattedListDataE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr %this, align 8
   %.pre = load i32, ptr %status, align 4
   %1 = icmp sgt i32 %.pre, 0
@@ -3534,10 +3534,10 @@ if.end123:                                        ; preds = %cleanup118.thread, 
   br i1 %new.isnull125, label %return, label %new.notnull126
 
 new.notnull126:                                   ; preds = %if.end123
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, inrange i32 0, i64 2), ptr %call124, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, i32 0, i64 2), ptr %call124, align 8
   %twoPattern.i = getelementptr inbounds i8, ptr %call124, i64 8
   %compiledPattern.i.i = getelementptr inbounds i8, ptr %call124, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i.i, align 8
   %fUnion2.i.i.i = getelementptr inbounds i8, ptr %call124, i64 24
   store i16 2, ptr %fUnion2.i.i.i, align 8
   %call.i.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %twoPattern.i, ptr noundef nonnull align 8 dereferenceable(64) %two, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -3552,7 +3552,7 @@ lpad.i.i:                                         ; preds = %new.notnull126
 invoke.cont.i:                                    ; preds = %new.notnull126
   %endPattern.i = getelementptr inbounds i8, ptr %call124, i64 80
   %compiledPattern.i3.i = getelementptr inbounds i8, ptr %call124, i64 88
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i3.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i3.i, align 8
   %fUnion2.i.i4.i = getelementptr inbounds i8, ptr %call124, i64 96
   store i16 2, ptr %fUnion2.i.i4.i, align 8
   %call.i5.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %endPattern.i, ptr noundef nonnull align 8 dereferenceable(64) %end, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -3667,10 +3667,10 @@ return:                                           ; preds = %_ZNK6icu_7513Unicod
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN6icu_7512_GLOBAL__N_117ContextualHandlerC2EPFbRKNS_13UnicodeStringEES4_S4_S4_S4_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %testFunc, ptr noundef nonnull align 8 dereferenceable(64) %thenTwo, ptr noundef nonnull align 8 dereferenceable(64) %elseTwo, ptr noundef nonnull align 8 dereferenceable(64) %thenEnd, ptr noundef nonnull align 8 dereferenceable(64) %elseEnd, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %twoPattern.i = getelementptr inbounds i8, ptr %this, i64 8
   %compiledPattern.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i.i, align 8
   %fUnion2.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i.i.i, align 8
   %call.i.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %twoPattern.i, ptr noundef nonnull align 8 dereferenceable(64) %elseTwo, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -3685,7 +3685,7 @@ lpad.i.i:                                         ; preds = %entry
 invoke.cont.i:                                    ; preds = %entry
   %endPattern.i = getelementptr inbounds i8, ptr %this, i64 80
   %compiledPattern.i3.i = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i3.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i3.i, align 8
   %fUnion2.i.i4.i = getelementptr inbounds i8, ptr %this, i64 96
   store i16 2, ptr %fUnion2.i.i4.i, align 8
   %call.i5.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %endPattern.i, ptr noundef nonnull align 8 dereferenceable(64) %elseEnd, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -3708,12 +3708,12 @@ ehcleanup.i:                                      ; preds = %lpad.i6.i, %lpad.i.
   br label %common.resume
 
 _ZN6icu_7512_GLOBAL__N_114PatternHandlerC2ERKNS_13UnicodeStringES4_R10UErrorCode.exit: ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117ContextualHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117ContextualHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %test = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %testFunc, ptr %test, align 8
   %thenTwoPattern = getelementptr inbounds i8, ptr %this, i64 160
   %compiledPattern.i = getelementptr inbounds i8, ptr %this, i64 168
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 176
   store i16 2, ptr %fUnion2.i.i, align 8
   %call.i = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %thenTwoPattern, ptr noundef nonnull align 8 dereferenceable(64) %thenTwo, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -3728,7 +3728,7 @@ lpad.i:                                           ; preds = %_ZN6icu_7512_GLOBAL
 invoke.cont:                                      ; preds = %_ZN6icu_7512_GLOBAL__N_114PatternHandlerC2ERKNS_13UnicodeStringES4_R10UErrorCode.exit
   %thenEndPattern = getelementptr inbounds i8, ptr %this, i64 232
   %compiledPattern.i5 = getelementptr inbounds i8, ptr %this, i64 240
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %compiledPattern.i5, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %compiledPattern.i5, align 8
   %fUnion2.i.i6 = getelementptr inbounds i8, ptr %this, i64 248
   store i16 2, ptr %fUnion2.i.i6, align 8
   %call.i7 = invoke noundef signext i8 @_ZN6icu_7515SimpleFormatter27applyPatternMinMaxArgumentsERKNS_13UnicodeStringEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %thenEndPattern, ptr noundef nonnull align 8 dereferenceable(64) %thenEnd, i32 noundef 2, i32 noundef 2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -3852,12 +3852,12 @@ declare noundef signext i8 @_ZNK6icu_7513UnicodeString8doEqualsERKS0_i(ptr nound
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_117ContextualHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117ContextualHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117ContextualHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %thenEndPattern = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %thenEndPattern) #16
   %thenTwoPattern = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %thenTwoPattern) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %endPattern.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %endPattern.i) #16
   %twoPattern.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3869,12 +3869,12 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_117ContextualHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117ContextualHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117ContextualHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %thenEndPattern.i = getelementptr inbounds i8, ptr %this, i64 232
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %thenEndPattern.i) #16
   %thenTwoPattern.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %thenTwoPattern.i) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %endPattern.i.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %endPattern.i.i) #16
   %twoPattern.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -3908,7 +3908,7 @@ invoke.cont:                                      ; preds = %new.notnull
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, i32 0, i64 2), ptr %call, align 8
   %twoPattern.i.i = getelementptr inbounds i8, ptr %call, i64 8
   %compiledPattern.i.i.i = getelementptr inbounds i8, ptr %call, i64 16
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %compiledPattern.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %compiledPattern.i)
@@ -3936,7 +3936,7 @@ ehcleanup.i.i:                                    ; preds = %lpad2.i.i, %lpad.i.
   br label %lpad7.body
 
 _ZN6icu_7512_GLOBAL__N_114PatternHandlerC2ERKNS_15SimpleFormatterES4_.exit.i: ; preds = %invoke.cont.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117ContextualHandlerE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117ContextualHandlerE, i64 0, i32 0, i64 2), ptr %call, align 8
   %test.i = getelementptr inbounds i8, ptr %call, i64 152
   store ptr %0, ptr %test.i, align 8
   %thenTwoPattern.i = getelementptr inbounds i8, ptr %call, i64 160
@@ -4026,7 +4026,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_114PatternHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %endPattern = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %endPattern) #16
   %twoPattern = getelementptr inbounds i8, ptr %this, i64 8
@@ -4038,7 +4038,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6icu_7512_GLOBAL__N_114PatternHandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %endPattern.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZN6icu_7515SimpleFormatterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %endPattern.i) #16
   %twoPattern.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -4056,7 +4056,7 @@ entry:
   br i1 %new.isnull, label %new.cont, label %new.notnull
 
 new.notnull:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_114PatternHandlerE, i64 0, i32 0, i64 2), ptr %call, align 8
   %twoPattern.i = getelementptr inbounds i8, ptr %call, i64 8
   %compiledPattern.i.i = getelementptr inbounds i8, ptr %call, i64 16
   %compiledPattern2.i.i = getelementptr inbounds i8, ptr %this, i64 16

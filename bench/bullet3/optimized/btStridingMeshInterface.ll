@@ -534,7 +534,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN23btStridingMeshInterface23calculateAabbBruteForceER9btVector3S1_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %aabbCallback = alloca %struct.AabbCalculationCallback, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN23btStridingMeshInterface23calculateAabbBruteForceER9btVector3S1_E23AabbCalculationCallback, i64 0, inrange i32 0, i64 2), ptr %aabbCallback, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN23btStridingMeshInterface23calculateAabbBruteForceER9btVector3S1_E23AabbCalculationCallback, i64 0, i32 0, i64 2), ptr %aabbCallback, align 8
   %m_aabbMin.i = getelementptr inbounds i8, ptr %aabbCallback, i64 8
   %m_aabbMax.i = getelementptr inbounds i8, ptr %aabbCallback, i64 24
   store <4 x float> <float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0x43ABC16D60000000, float 0.000000e+00>, ptr %m_aabbMin.i, align 8

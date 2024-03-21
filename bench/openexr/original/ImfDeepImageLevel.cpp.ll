@@ -425,7 +425,7 @@ entry:
   %1 = load i32, ptr %xLevelNumber.addr, align 4
   %2 = load i32, ptr %yLevelNumber.addr, align 4
   call void @_ZN7Imf_3_210ImageLevelC2ERNS_5ImageEii(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(104) %0, i32 noundef %1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_214DeepImageLevelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_214DeepImageLevelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_channels = getelementptr inbounds %"class.Imf_3_2::DeepImageLevel", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN7Imf_3_216DeepImageChannelESt4lessIS5_ESaISt4pairIKS5_S8_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_channels) #3
   %_sampleCounts = getelementptr inbounds %"class.Imf_3_2::DeepImageLevel", ptr %this1, i32 0, i32 2
@@ -557,7 +557,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_214DeepImageLevelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_214DeepImageLevelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 6
   %0 = load ptr, ptr %vfn, align 8

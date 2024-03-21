@@ -103,7 +103,7 @@ entry:
   %d_env.i = getelementptr inbounds i8, ptr %preprocContext, i64 8
   %0 = load ptr, ptr %d_env.i, align 8
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing17PreprocessingPassE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing17PreprocessingPassE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_preprocContext = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %preprocContext, ptr %d_preprocContext, align 8
   %d_name = getelementptr inbounds i8, ptr %this, i64 24
@@ -190,7 +190,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal13preprocessing17PreprocessingPassD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing17PreprocessingPassE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing17PreprocessingPassE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_name = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #9
   ret void

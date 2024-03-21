@@ -149,7 +149,7 @@ $_ZTVN10ClipperLib16clipperExceptionE = comdat any
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN10ClipperLib11ClipperBaseE = hidden constant [28 x i8] c"N10ClipperLib11ClipperBaseE\00", align 1
 @_ZTIN10ClipperLib11ClipperBaseE = hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN10ClipperLib11ClipperBaseE }, align 8
-@_ZTTN10ClipperLib7ClipperE = hidden unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, inrange i32 1, i32 6)], align 8
+@_ZTTN10ClipperLib7ClipperE = hidden unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, inrange i32 1, i32 6)], align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN10ClipperLib7ClipperE = hidden constant [23 x i8] c"N10ClipperLib7ClipperE\00", align 1
 @_ZTIN10ClipperLib7ClipperE = hidden constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN10ClipperLib7ClipperE, i32 0, i32 1, ptr @_ZTIN10ClipperLib11ClipperBaseE, i64 -6141 }, align 8
@@ -282,7 +282,7 @@ if.end:                                           ; preds = %land.lhs.true, %ent
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10ClipperLib8PolyNodeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(80) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Contour = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %Contour, i8 0, i64 61, i1 false)
   ret void
@@ -2280,7 +2280,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN10ClipperLib11ClipperBaseC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10ClipperLib11ClipperBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10ClipperLib11ClipperBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_CurrentLM = getelementptr inbounds i8, ptr %this, i64 8
   %m_edges = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_edges, i8 0, i64 24, i1 false)
@@ -2297,7 +2297,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN10ClipperLib11ClipperBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10ClipperLib11ClipperBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10ClipperLib11ClipperBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_MinimaList.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_MinimaList.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2483,7 +2483,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr hidden void @_ZN10ClipperLib16clipperExceptionC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %description) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.25", align 1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_descr = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #28
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %m_descr)
@@ -2537,7 +2537,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10ClipperLib16clipperExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_descr = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_descr) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #28
@@ -5612,8 +5612,8 @@ entry:
   %m_Scanbeam.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i, i8 0, i64 24, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %m_Joins = getelementptr inbounds i8, ptr %this, i64 8
   %m_Maxima = getelementptr inbounds i8, ptr %this, i64 88
   %_M_prev.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -6491,7 +6491,7 @@ while.end.i:                                      ; preds = %while.body.i, %lor.
 
 _ZN10ClipperLib7Clipper14FixHoleLinkageERNS_6OutRecE.exit: ; preds = %if.end, %land.lhs.true.i, %while.end.i
   %call20 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, inrange i32 0, i64 2), ptr %call20, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, i32 0, i64 2), ptr %call20, align 8
   %Contour.i = getelementptr inbounds i8, ptr %call20, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %Contour.i, i8 0, i64 61, i1 false)
   %31 = load ptr, ptr %_M_finish.i.i, align 8
@@ -18003,7 +18003,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %m_destPolys, i8 0, i64 96, i1 false)
   %0 = getelementptr inbounds i8, ptr %this, i64 168
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, inrange i32 0, i64 2), ptr %m_polyNodes, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, i32 0, i64 2), ptr %m_polyNodes, align 8
   %Contour.i = getelementptr inbounds i8, ptr %this, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %Contour.i, i8 0, i64 61, i1 false)
   store double %miterLimit, ptr %this, align 8
@@ -18113,7 +18113,7 @@ _ZN10ClipperLib13ClipperOffset5ClearEv.exit:      ; preds = %for.end.i, %invoke.
   %m_lowest.i = getelementptr inbounds i8, ptr %this, i64 160
   store i64 -1, ptr %m_lowest.i, align 8
   %m_polyNodes = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, inrange i32 0, i64 2), ptr %m_polyNodes, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, i32 0, i64 2), ptr %m_polyNodes, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %10, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EED2Ev.exit.i, label %if.then.i.i.i.i
 
@@ -18265,7 +18265,7 @@ _ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EE5clearEv.exit: ; preds = %for.end, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10ClipperLib8PolyNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Childs = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %Childs, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -18306,7 +18306,7 @@ entry:
 if.end:                                           ; preds = %entry
   %sub = add nsw i32 %conv, -1
   %call2 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, i32 0, i64 2), ptr %call2, align 8
   %Contour.i = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(61) %Contour.i, i8 0, i64 61, i1 false)
   %m_jointype = getelementptr inbounds i8, ptr %call2, i64 72
@@ -19063,8 +19063,8 @@ _ZNSt6vectorIS_IN10ClipperLib8IntPointESaIS1_EESaIS3_EE5clearEv.exit: ; preds = 
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %clpr, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %clpr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %clpr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %3, align 8
   %m_Joins.i = getelementptr inbounds i8, ptr %clpr, i64 8
   %m_Maxima.i = getelementptr inbounds i8, ptr %clpr, i64 88
   %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %clpr, i64 96
@@ -19340,8 +19340,8 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit28: ; preds = %if.then.i.i.
   br label %if.end52
 
 if.end52:                                         ; preds = %if.then, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit28
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %clpr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %clpr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %3, align 8
   %50 = load ptr, ptr %m_Maxima.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %50, %m_Maxima.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i
@@ -21334,9 +21334,9 @@ for.end460:                                       ; preds = %for.inc458, %for.in
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10ClipperLib7ClipperD1Ev(ptr noundef nonnull align 8 dereferenceable(135) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 136
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %add.ptr.i, align 8
   %m_Maxima.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_Maxima.i, align 8
   %cmp.not4.i.i.i.i = icmp eq ptr %0, %m_Maxima.i
@@ -21457,8 +21457,8 @@ _ZN10ClipperLib8PolyTree5ClearEv.exit:            ; preds = %_ZNSt6vectorIPN10Cl
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %clpr, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %clpr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %clpr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %10, align 8
   %m_Joins.i = getelementptr inbounds i8, ptr %clpr, i64 8
   %m_Maxima.i = getelementptr inbounds i8, ptr %clpr, i64 88
   %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %clpr, i64 96
@@ -21897,8 +21897,8 @@ _ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit122: ; preds = %for.inc, %i
   br label %if.end69
 
 if.end69:                                         ; preds = %if.then, %_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EED2Ev.exit122
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %clpr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %clpr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %10, align 8
   %79 = load ptr, ptr %m_Maxima.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %79, %m_Maxima.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i
@@ -23246,8 +23246,8 @@ entry:
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %m_Joins.i = getelementptr inbounds i8, ptr %c, i64 8
   %m_Maxima.i = getelementptr inbounds i8, ptr %c, i64 88
   %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 96
@@ -23276,8 +23276,8 @@ invoke.cont1:                                     ; preds = %entry
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %invoke.cont1
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %1 = load ptr, ptr %m_Maxima.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %1, %m_Maxima.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i
@@ -23342,8 +23342,8 @@ entry:
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %m_Joins.i = getelementptr inbounds i8, ptr %c, i64 8
   %m_Maxima.i = getelementptr inbounds i8, ptr %c, i64 88
   %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 96
@@ -23396,8 +23396,8 @@ invoke.cont1:                                     ; preds = %call3.i.noexc, %ent
           to label %invoke.cont2 unwind label %lpad.loopexit.split-lp
 
 invoke.cont2:                                     ; preds = %invoke.cont1
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %7 = load ptr, ptr %m_Maxima.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %7, %m_Maxima.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i
@@ -25108,8 +25108,8 @@ entry:
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %m_Joins.i = getelementptr inbounds i8, ptr %c, i64 8
   %m_Maxima.i = getelementptr inbounds i8, ptr %c, i64 88
   %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 96
@@ -25162,8 +25162,8 @@ invoke.cont:                                      ; preds = %call3.i.noexc, %ent
           to label %invoke.cont1 unwind label %lpad.loopexit.split-lp
 
 invoke.cont1:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %7 = load ptr, ptr %m_Maxima.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %7, %m_Maxima.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i
@@ -25283,8 +25283,8 @@ entry:
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %m_Joins.i = getelementptr inbounds i8, ptr %c, i64 8
   %m_Maxima.i = getelementptr inbounds i8, ptr %c, i64 88
   %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 96
@@ -25525,8 +25525,8 @@ for.end:                                          ; preds = %_ZNSt6vectorIS_IN10
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %for.end
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %29 = load ptr, ptr %m_Maxima.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %29, %m_Maxima.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i
@@ -25596,8 +25596,8 @@ entry:
   %m_Scanbeam.i.i = getelementptr inbounds i8, ptr %c, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_Scanbeam.i.i, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %m_CurrentLM.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %m_Joins.i = getelementptr inbounds i8, ptr %c, i64 8
   %m_Maxima.i = getelementptr inbounds i8, ptr %c, i64 88
   %_M_prev.i.i.i.i.i.i = getelementptr inbounds i8, ptr %c, i64 96
@@ -25650,8 +25650,8 @@ invoke.cont:                                      ; preds = %call3.i.noexc, %ent
           to label %invoke.cont1 unwind label %lpad.loopexit.split-lp
 
 invoke.cont1:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %c, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %c, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %0, align 8
   %7 = load ptr, ptr %m_Maxima.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %7, %m_Maxima.i
   br i1 %cmp.not4.i.i.i.i.i, label %_ZNSt7__cxx114listIxSaIxEED2Ev.exit.i.i, label %while.body.i.i.i.i.i
@@ -26403,9 +26403,9 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10ClipperLib7ClipperD0Ev(ptr noundef nonnull align 8 dereferenceable(135) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 136
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %add.ptr.i.i, align 8
   %m_Maxima.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %m_Maxima.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %0, %m_Maxima.i.i
@@ -26461,9 +26461,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 0, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 0, i64 3), ptr %3, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 136
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, inrange i32 1, i64 6), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i64 0, i32 1, i64 6), ptr %add.ptr.i.i, align 8
   %m_Maxima.i.i = getelementptr inbounds i8, ptr %3, i64 88
   %4 = load ptr, ptr %m_Maxima.i.i, align 8
   %cmp.not4.i.i.i.i.i = icmp eq ptr %4, %m_Maxima.i.i
@@ -26525,7 +26525,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10ClipperLib8PolyNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Childs.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %Childs.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -26562,7 +26562,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10ClipperLib16clipperExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_descr.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_descr.i) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #28

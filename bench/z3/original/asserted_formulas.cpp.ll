@@ -3639,13 +3639,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22maximize_bv_sharing_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22maximize_bv_sharing_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %m.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
   %call = call noundef zeroext i1 @_ZNK11ast_manager14proofs_enabledEv(ptr noundef nonnull align 8 dereferenceable(976) %1)
   %m_cfg = getelementptr inbounds %class.maximize_bv_sharing_rw, ptr %this1, i32 0, i32 1
   call void @_ZN12rewriter_tplI19maximize_bv_sharingEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %call, ptr noundef nonnull align 8 dereferenceable(136) %m_cfg)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22maximize_bv_sharing_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22maximize_bv_sharing_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg2 = getelementptr inbounds %class.maximize_bv_sharing_rw, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %m.addr, align 8
   invoke void @_ZN19maximize_bv_sharingC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(136) %m_cfg2, ptr noundef nonnull align 8 dereferenceable(976) %2)
@@ -3707,7 +3707,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.29)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas27reduce_asserted_formulas_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas27reduce_asserted_formulas_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3723,7 +3723,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.30)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas20distribute_forall_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas20distribute_forall_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::distribute_forall_fn", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -3764,7 +3764,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.31)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas20pattern_inference_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas20pattern_inference_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_infer = getelementptr inbounds %"class.asserted_formulas::pattern_inference_fn", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -3806,7 +3806,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.37)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas19refine_inj_axiom_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas19refine_inj_axiom_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3820,7 +3820,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.38)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas17max_bv_sharing_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas17max_bv_sharing_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3836,7 +3836,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.39)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas16elim_term_ite_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas16elim_term_ite_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_elim = getelementptr inbounds %"class.asserted_formulas::elim_term_ite_fn", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -3879,7 +3879,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.40)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas10qe_lite_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas10qe_lite_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::qe_lite_fn", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -3922,7 +3922,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.41)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas23pull_nested_quantifiersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas23pull_nested_quantifiersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::pull_nested_quantifiers", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -3963,7 +3963,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.42)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas25elim_bvs_from_quantifiersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas25elim_bvs_from_quantifiersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::elim_bvs_from_quantifiers", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -4004,7 +4004,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.43)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas27cheap_quant_fourier_motzkinE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas27cheap_quant_fourier_motzkinE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::cheap_quant_fourier_motzkin", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -4045,7 +4045,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.44)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas13apply_bit2intE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas13apply_bit2intE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::apply_bit2int", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -4086,7 +4086,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.45)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas17bv_size_reduce_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas17bv_size_reduce_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sub = getelementptr inbounds %"class.asserted_formulas::bv_size_reduce_fn", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -4127,7 +4127,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.46)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas8lift_iteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas8lift_iteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::lift_ite", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -4168,7 +4168,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.46)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas11ng_lift_iteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas11ng_lift_iteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::ng_lift_ite", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %af.addr, align 8
   %m = getelementptr inbounds %class.asserted_formulas, ptr %1, i32 0, i32 0
@@ -4207,7 +4207,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.47)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas14find_macros_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas14find_macros_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4221,7 +4221,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.49)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas19propagate_values_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas19propagate_values_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4235,7 +4235,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.50)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas10nnf_cnf_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas10nnf_cnf_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4249,7 +4249,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.51)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas21apply_quasi_macros_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas21apply_quasi_macros_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4263,7 +4263,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %af.addr, align 8
   call void @_ZN17asserted_formulas13simplify_fmlsC2ERS_PKc(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(7260) %0, ptr noundef @.str.52)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas18flatten_clauses_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas18flatten_clauses_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4453,7 +4453,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas11ng_lift_iteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas11ng_lift_iteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::ng_lift_ite", ptr %this1, i32 0, i32 1
   call void @_ZN18ng_push_app_ite_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %m_functor) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4466,7 +4466,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas8lift_iteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas8lift_iteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::lift_ite", ptr %this1, i32 0, i32 1
   call void @_ZN15push_app_ite_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %m_functor) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4479,7 +4479,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas17bv_size_reduce_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas17bv_size_reduce_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sub = getelementptr inbounds %"class.asserted_formulas::bv_size_reduce_fn", ptr %this1, i32 0, i32 1
   call void @_ZN17expr_safe_replaceD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %m_sub) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4492,7 +4492,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas13apply_bit2intE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas13apply_bit2intE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::apply_bit2int", ptr %this1, i32 0, i32 1
   call void @_ZN7bit2intD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %m_functor) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4505,7 +4505,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas27cheap_quant_fourier_motzkinE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas27cheap_quant_fourier_motzkinE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::cheap_quant_fourier_motzkin", ptr %this1, i32 0, i32 1
   call void @_ZN14elim_bounds_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(560) %m_functor) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4518,7 +4518,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas25elim_bvs_from_quantifiersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas25elim_bvs_from_quantifiersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::elim_bvs_from_quantifiers", ptr %this1, i32 0, i32 1
   call void @_ZN10bv_elim_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %m_functor) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4531,7 +4531,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas23pull_nested_quantifiersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas23pull_nested_quantifiersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::pull_nested_quantifiers", ptr %this1, i32 0, i32 1
   call void @_ZN17pull_nested_quantD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_functor) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4544,7 +4544,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas10qe_lite_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas10qe_lite_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::qe_lite_fn", ptr %this1, i32 0, i32 1
   call void @_ZN7qe_liteD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_functor) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4557,7 +4557,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas16elim_term_ite_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas16elim_term_ite_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_elim = getelementptr inbounds %"class.asserted_formulas::elim_term_ite_fn", ptr %this1, i32 0, i32 1
   call void @_ZN16elim_term_ite_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(576) %m_elim) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4590,7 +4590,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas20pattern_inference_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas20pattern_inference_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_infer = getelementptr inbounds %"class.asserted_formulas::pattern_inference_fn", ptr %this1, i32 0, i32 1
   call void @_ZN20pattern_inference_rwD2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %m_infer) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4603,7 +4603,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas20distribute_forall_fnE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas20distribute_forall_fnE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_functor = getelementptr inbounds %"class.asserted_formulas::distribute_forall_fn", ptr %this1, i32 0, i32 1
   call void @_ZN17distribute_forallD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %m_functor) #3
   call void @_ZN17asserted_formulas13simplify_fmlsD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -4647,7 +4647,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22maximize_bv_sharing_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22maximize_bv_sharing_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.maximize_bv_sharing_rw, ptr %this1, i32 0, i32 1
   call void @_ZN19maximize_bv_sharingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %m_cfg) #3
   call void @_ZN12rewriter_tplI19maximize_bv_sharingED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this1) #3
@@ -11875,7 +11875,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN16var_shifter_coreC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11var_shifter, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11var_shifter, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_bound = getelementptr inbounds %class.var_shifter, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_bound, align 8
   %m_shift1 = getelementptr inbounds %class.var_shifter, ptr %this1, i32 0, i32 2
@@ -11895,7 +11895,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN16var_shifter_coreC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15inv_var_shifter, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15inv_var_shifter, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11928,7 +11928,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI19maximize_bv_sharingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI19maximize_bv_sharingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shifts = getelementptr inbounds %class.rewriter_tpl, ptr %this1, i32 0, i32 9
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_shifts) #3
   %m_pr2 = getelementptr inbounds %class.rewriter_tpl, ptr %this1, i32 0, i32 8
@@ -11968,7 +11968,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16var_shifter_core, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16var_shifter_core, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -12082,7 +12082,7 @@ entry:
   store ptr %af, ptr %af.addr, align 8
   store ptr %id, ptr %id.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas13simplify_fmlsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17asserted_formulas13simplify_fmlsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %af2 = getelementptr inbounds %"class.asserted_formulas::simplify_fmls", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %af.addr, align 8
   store ptr %0, ptr %af2, align 8
@@ -12885,7 +12885,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN17default_exceptionC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18rewriter_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18rewriter_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13838,7 +13838,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -14269,7 +14269,7 @@ entry:
   %1 = load i8, ptr %proof_gen.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI21pattern_inference_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI21pattern_inference_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.rewriter_tpl.89, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %cfg.addr, align 8
   store ptr %2, ptr %m_cfg, align 8
@@ -14549,7 +14549,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI21pattern_inference_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI21pattern_inference_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shifts = getelementptr inbounds %class.rewriter_tpl.89, ptr %this1, i32 0, i32 9
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_shifts) #3
   %m_pr2 = getelementptr inbounds %class.rewriter_tpl.89, ptr %this1, i32 0, i32 8
@@ -16554,7 +16554,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -16567,7 +16567,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -23846,7 +23846,7 @@ entry:
   %1 = load i8, ptr %proof_gen.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI19maximize_bv_sharingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI19maximize_bv_sharingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.rewriter_tpl, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %cfg.addr, align 8
   store ptr %2, ptr %m_cfg, align 8
@@ -28471,13 +28471,13 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   store ptr %dn, ptr %dn.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16elim_term_ite_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16elim_term_ite_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %m.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
   %call = call noundef zeroext i1 @_ZNK11ast_manager14proofs_enabledEv(ptr noundef nonnull align 8 dereferenceable(976) %1)
   %m_cfg = getelementptr inbounds %class.elim_term_ite_rw, ptr %this1, i32 0, i32 1
   call void @_ZN12rewriter_tplI17elim_term_ite_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %call, ptr noundef nonnull align 8 dereferenceable(40) %m_cfg)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16elim_term_ite_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16elim_term_ite_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg2 = getelementptr inbounds %class.elim_term_ite_rw, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %m.addr, align 8
   %3 = load ptr, ptr %dn.addr, align 8
@@ -28599,7 +28599,7 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   store ptr %d, ptr %d.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17elim_term_ite_cfg, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17elim_term_ite_cfg, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m2 = getelementptr inbounds %class.elim_term_ite_cfg, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m.addr, align 8
   store ptr %0, ptr %m2, align 8
@@ -28639,7 +28639,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16elim_term_ite_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16elim_term_ite_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.elim_term_ite_rw, ptr %this1, i32 0, i32 1
   call void @_ZN17elim_term_ite_cfgD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_cfg) #3
   call void @_ZN12rewriter_tplI17elim_term_ite_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this1) #3
@@ -28663,7 +28663,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI17elim_term_ite_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI17elim_term_ite_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shifts = getelementptr inbounds %class.rewriter_tpl.116, ptr %this1, i32 0, i32 9
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_shifts) #3
   %m_pr2 = getelementptr inbounds %class.rewriter_tpl.116, ptr %this1, i32 0, i32 8
@@ -28699,7 +28699,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17elim_term_ite_cfg, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17elim_term_ite_cfg, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_lim = getelementptr inbounds %class.elim_term_ite_cfg, ptr %this1, i32 0, i32 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_lim) #3
   %m_new_defs = getelementptr inbounds %class.elim_term_ite_cfg, ptr %this1, i32 0, i32 3
@@ -30045,7 +30045,7 @@ entry:
   %1 = load i8, ptr %proof_gen.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI17elim_term_ite_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI17elim_term_ite_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.rewriter_tpl.116, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %cfg.addr, align 8
   store ptr %2, ptr %m_cfg, align 8
@@ -34832,13 +34832,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10bv_elim_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10bv_elim_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %m.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
   %call = call noundef zeroext i1 @_ZNK11ast_manager14proofs_enabledEv(ptr noundef nonnull align 8 dereferenceable(976) %1)
   %m_cfg = getelementptr inbounds %class.bv_elim_rw, ptr %this1, i32 0, i32 1
   call void @_ZN12rewriter_tplI11bv_elim_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %call, ptr noundef nonnull align 8 dereferenceable(8) %m_cfg)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10bv_elim_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10bv_elim_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg2 = getelementptr inbounds %class.bv_elim_rw, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %m.addr, align 8
   invoke void @_ZN11bv_elim_cfgC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(8) %m_cfg2, ptr noundef nonnull align 8 dereferenceable(976) %2)
@@ -34967,7 +34967,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI11bv_elim_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI11bv_elim_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shifts = getelementptr inbounds %class.rewriter_tpl.117, ptr %this1, i32 0, i32 9
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_shifts) #3
   %m_pr2 = getelementptr inbounds %class.rewriter_tpl.117, ptr %this1, i32 0, i32 8
@@ -36321,7 +36321,7 @@ entry:
   %1 = load i8, ptr %proof_gen.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI11bv_elim_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI11bv_elim_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.rewriter_tpl.117, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %cfg.addr, align 8
   store ptr %2, ptr %m_cfg, align 8
@@ -40918,13 +40918,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14elim_bounds_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14elim_bounds_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %m.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
   %call = call noundef zeroext i1 @_ZNK11ast_manager14proofs_enabledEv(ptr noundef nonnull align 8 dereferenceable(976) %1)
   %m_cfg = getelementptr inbounds %class.elim_bounds_rw, ptr %this1, i32 0, i32 1
   call void @_ZN12rewriter_tplI15elim_bounds_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %call, ptr noundef nonnull align 8 dereferenceable(24) %m_cfg)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14elim_bounds_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14elim_bounds_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg2 = getelementptr inbounds %class.elim_bounds_rw, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %m.addr, align 8
   invoke void @_ZN15elim_bounds_cfgC1ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(24) %m_cfg2, ptr noundef nonnull align 8 dereferenceable(976) %2)
@@ -41050,7 +41050,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI15elim_bounds_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI15elim_bounds_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shifts = getelementptr inbounds %class.rewriter_tpl.118, ptr %this1, i32 0, i32 9
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_shifts) #3
   %m_pr2 = getelementptr inbounds %class.rewriter_tpl.118, ptr %this1, i32 0, i32 8
@@ -42404,7 +42404,7 @@ entry:
   %1 = load i8, ptr %proof_gen.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI15elim_bounds_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI15elim_bounds_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.rewriter_tpl.118, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %cfg.addr, align 8
   store ptr %2, ptr %m_cfg, align 8
@@ -47439,13 +47439,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15push_app_ite_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15push_app_ite_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %m.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
   %call = call noundef zeroext i1 @_ZNK11ast_manager14proofs_enabledEv(ptr noundef nonnull align 8 dereferenceable(976) %1)
   %m_cfg = getelementptr inbounds %struct.push_app_ite_rw, ptr %this1, i32 0, i32 1
   call void @_ZN12rewriter_tplI16push_app_ite_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %call, ptr noundef nonnull align 8 dereferenceable(17) %m_cfg)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15push_app_ite_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15push_app_ite_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg2 = getelementptr inbounds %struct.push_app_ite_rw, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %m.addr, align 8
   invoke void @_ZN16push_app_ite_cfgC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(17) %m_cfg2, ptr noundef nonnull align 8 dereferenceable(976) %2)
@@ -47540,7 +47540,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_app_ite_cfg, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16push_app_ite_cfg, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m2 = getelementptr inbounds %struct.push_app_ite_cfg, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m.addr, align 8
   store ptr %0, ptr %m2, align 8
@@ -47578,7 +47578,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI16push_app_ite_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI16push_app_ite_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shifts = getelementptr inbounds %class.rewriter_tpl.126, ptr %this1, i32 0, i32 9
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_shifts) #3
   %m_pr2 = getelementptr inbounds %class.rewriter_tpl.126, ptr %this1, i32 0, i32 8
@@ -48943,7 +48943,7 @@ entry:
   %1 = load i8, ptr %proof_gen.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI16push_app_ite_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI16push_app_ite_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.rewriter_tpl.126, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %cfg.addr, align 8
   store ptr %2, ptr %m_cfg, align 8
@@ -53554,13 +53554,13 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18ng_push_app_ite_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18ng_push_app_ite_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %m.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
   %call = call noundef zeroext i1 @_ZNK11ast_manager14proofs_enabledEv(ptr noundef nonnull align 8 dereferenceable(976) %1)
   %m_cfg = getelementptr inbounds %struct.ng_push_app_ite_rw, ptr %this1, i32 0, i32 1
   call void @_ZN12rewriter_tplI19ng_push_app_ite_cfgEC2ER11ast_managerbRS0_(ptr noundef nonnull align 8 dereferenceable(536) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %call, ptr noundef nonnull align 8 dereferenceable(17) %m_cfg)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18ng_push_app_ite_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18ng_push_app_ite_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg2 = getelementptr inbounds %struct.ng_push_app_ite_rw, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %m.addr, align 8
   invoke void @_ZN19ng_push_app_ite_cfgC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(17) %m_cfg2, ptr noundef nonnull align 8 dereferenceable(976) %2)
@@ -53657,7 +53657,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %m.addr, align 8
   call void @_ZN16push_app_ite_cfgC2ER11ast_manager(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19ng_push_app_ite_cfg, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19ng_push_app_ite_cfg, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -53690,7 +53690,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI19ng_push_app_ite_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI19ng_push_app_ite_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shifts = getelementptr inbounds %class.rewriter_tpl.127, ptr %this1, i32 0, i32 9
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_shifts) #3
   %m_pr2 = getelementptr inbounds %class.rewriter_tpl.127, ptr %this1, i32 0, i32 8
@@ -55057,7 +55057,7 @@ entry:
   %1 = load i8, ptr %proof_gen.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN13rewriter_coreC2ER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI19ng_push_app_ite_cfgE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12rewriter_tplI19ng_push_app_ite_cfgE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.rewriter_tpl.127, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %cfg.addr, align 8
   store ptr %2, ptr %m_cfg, align 8
@@ -60530,7 +60530,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV20pattern_inference_rw, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV20pattern_inference_rw, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cfg = getelementptr inbounds %class.pattern_inference_rw, ptr %this1, i32 0, i32 1
   call void @_ZN21pattern_inference_cfgD2Ev(ptr noundef nonnull align 8 dereferenceable(504) %m_cfg) #3
   call void @_ZN12rewriter_tplI21pattern_inference_cfgED2Ev(ptr noundef nonnull align 8 dereferenceable(536) %this1) #3
@@ -61737,7 +61737,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_decl_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 2
   call void @_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decl_marks) #3
   %m_expr_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 1
@@ -63857,7 +63857,7 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__reason.addr, align 8
   store ptr %0, ptr %_M_reason, align 8
@@ -63880,7 +63880,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

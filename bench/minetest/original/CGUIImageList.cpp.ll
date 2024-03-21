@@ -25,7 +25,7 @@ $_ZTIN3irr17IReferenceCountedE = comdat any
 $_ZTIN3irr3gui13IGUIImageListE = comdat any
 
 @_ZTVN3irr3gui13CGUIImageListE = unnamed_addr constant { [8 x ptr], [5 x ptr] } { [8 x ptr] [ptr inttoptr (i64 48 to ptr), ptr null, ptr @_ZTIN3irr3gui13CGUIImageListE, ptr @_ZN3irr3gui13CGUIImageListD1Ev, ptr @_ZN3irr3gui13CGUIImageListD0Ev, ptr @_ZN3irr3gui13CGUIImageList4drawEiRKNS_4core8vector2dIiEEPKNS2_4rectIiEE, ptr @_ZNK3irr3gui13CGUIImageList13getImageCountEv, ptr @_ZNK3irr3gui13CGUIImageList12getImageSizeEv], [5 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN3irr3gui13CGUIImageListE, ptr @_ZTv0_n24_N3irr3gui13CGUIImageListD1Ev, ptr @_ZTv0_n24_N3irr3gui13CGUIImageListD0Ev] }, align 8
-@_ZTTN3irr3gui13CGUIImageListE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui13CGUIImageListE0_NS0_13IGUIImageListE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui13CGUIImageListE0_NS0_13IGUIImageListE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr3gui13CGUIImageListE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui13CGUIImageListE0_NS0_13IGUIImageListE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui13CGUIImageListE0_NS0_13IGUIImageListE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3irr3gui13CGUIImageListE0_NS0_13IGUIImageListE = unnamed_addr constant { [8 x ptr], [5 x ptr] } { [8 x ptr] [ptr inttoptr (i64 48 to ptr), ptr null, ptr @_ZTIN3irr3gui13IGUIImageListE, ptr @_ZN3irr3gui13IGUIImageListD1Ev, ptr @_ZN3irr3gui13IGUIImageListD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual], [5 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN3irr3gui13IGUIImageListE, ptr @_ZTv0_n24_N3irr3gui13IGUIImageListD1Ev, ptr @_ZTv0_n24_N3irr3gui13IGUIImageListD0Ev] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3irr3gui13IGUIImageListE = linkonce_odr constant [26 x i8] c"N3irr3gui13IGUIImageListE\00", comdat, align 1
@@ -91,8 +91,8 @@ define void @_ZN3irr3gui13CGUIImageListC1EPNS_5video12IVideoDriverE(ptr nocaptur
   store ptr null, ptr %4, align 8, !tbaa !16
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 1, ptr %5, align 8, !tbaa !14
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !6
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -180,9 +180,9 @@ define void @_ZN3irr3gui13CGUIImageListD2Ev(ptr nocapture noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui13CGUIImageListD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = icmp eq ptr %4, null
@@ -242,9 +242,9 @@ define void @_ZTv0_n24_N3irr3gui13CGUIImageListD1Ev(ptr nocapture noundef %0) un
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = icmp eq ptr %8, null
@@ -300,9 +300,9 @@ define void @_ZTv0_n24_N3irr3gui13CGUIImageListD1Ev(ptr nocapture noundef %0) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui13CGUIImageListD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = icmp eq ptr %4, null
@@ -366,9 +366,9 @@ define void @_ZTv0_n24_N3irr3gui13CGUIImageListD0Ev(ptr noundef %0) unnamed_addr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui13CGUIImageListE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = icmp eq ptr %8, null

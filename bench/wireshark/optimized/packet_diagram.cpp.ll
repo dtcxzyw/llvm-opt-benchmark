@@ -213,9 +213,9 @@ define void @_ZN13PacketDiagramC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %9 = alloca %"class.QMetaObject::Connection", align 8
   %10 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN13QGraphicsViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, i32 0, i64 2), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, inrange i32 1, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, i32 1, i64 2), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   %13 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #16
           to label %14 unwind label %40
@@ -694,9 +694,9 @@ declare void @_ZN13QGraphicsViewD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13PacketDiagramD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV13PacketDiagram, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -3490,7 +3490,7 @@ _ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i: ; preds = %31
   br label %_ZN9QPolygonFD2Ev.exit
 
 _ZN9QPolygonFD2Ev.exit:                           ; preds = %31, %_ZN17QArrayDataPointerI7QPointFE5derefEv.exit.i.i.i, %34
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i64 0, i32 0, i64 2), ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 16
   %37 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #16
           to label %38 unwind label %65
@@ -5186,7 +5186,7 @@ declare void @_ZN20QGraphicsPolygonItemD2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN28FieldInformationGraphicsItemD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -5238,7 +5238,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN9QPolygonFD2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN28FieldInformationGraphicsItemD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV28FieldInformationGraphicsItem, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

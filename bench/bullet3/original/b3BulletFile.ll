@@ -218,7 +218,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) %this1, ptr noundef @.str, ptr noundef @.str.1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_softBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 2
   invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies)
           to label %invoke.cont unwind label %lpad
@@ -546,7 +546,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fileName.addr, align 8
   call void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) %this1, ptr noundef %0, ptr noundef @.str.1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_softBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 2
   invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies)
           to label %invoke.cont unwind label %lpad
@@ -733,7 +733,7 @@ entry:
   %0 = load ptr, ptr %memoryBuffer.addr, align 8
   %1 = load i32, ptr %len.addr, align 4
   call void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540) %this1, ptr noundef %0, i32 noundef %1, ptr noundef @.str.1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_softBodies = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 2
   invoke void @_ZN20b3AlignedObjectArrayIPN6bParse13bStructHandleEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies)
           to label %invoke.cont unwind label %lpad
@@ -914,7 +914,7 @@ entry:
   %dataBlock = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse12b3BulletFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_DnaCopy = getelementptr inbounds %"class.bParse::b3BulletFile", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m_DnaCopy, align 8
   %tobool = icmp ne ptr %0, null

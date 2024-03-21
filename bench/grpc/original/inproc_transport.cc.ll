@@ -3680,7 +3680,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %closure_list_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 1
   %head = getelementptr inbounds %struct.grpc_closure_list, ptr %closure_list_, i32 0, i32 0
   store ptr null, ptr %head, align 8
@@ -4178,7 +4178,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
   %0 = load i64, ptr %flags_, align 8
   %or = or i64 %0, 1
@@ -4493,7 +4493,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp12ScopedSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cached_time_ = getelementptr inbounds %"class.grpc_core::ScopedTimeCache", ptr %this1, i32 0, i32 1
   call void @_ZNSt8optionalIN9grpc_core9TimestampEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cached_time_) #3
   ret void
@@ -4554,7 +4554,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp6SourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
   %0 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
   %1 = load ptr, ptr %0, align 8
@@ -4580,7 +4580,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4683,7 +4683,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %previous_, align 8
   %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -5369,9 +5369,9 @@ entry:
   call void @_ZN9grpc_core9TransportC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN9grpc_core15ClientTransportC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocClientTransportE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocClientTransportE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocClientTransportE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocClientTransportE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %server_transport_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::InprocClientTransport", ptr %this1, i32 0, i32 2
   invoke void @_ZN9grpc_core14MakeRefCountedINS_12_GLOBAL__N_121InprocServerTransportEJEEENS_13RefCountedPtrIT_EEDpOT0_(ptr sret(%"class.grpc_core::RefCountedPtr.69") align 8 %server_transport_)
           to label %invoke.cont unwind label %lpad
@@ -5431,7 +5431,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN9grpc_core9TransportE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN9grpc_core9TransportE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5441,7 +5441,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core15ClientTransportE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core15ClientTransportE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5757,7 +5757,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5817,11 +5817,11 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %1 = getelementptr inbounds i8, ptr %this1, i64 24
   call void @_ZN9grpc_core15ServerTransportC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [14 x ptr], [13 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocServerTransportE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [14 x ptr], [13 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocServerTransportE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr], [13 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocServerTransportE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 16
+  store ptr getelementptr inbounds ({ [14 x ptr], [13 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocServerTransportE, i32 0, i32 1, i32 2), ptr %add.ptr, align 16
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr], [13 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocServerTransportE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [13 x ptr], [3 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_121InprocServerTransportE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %state_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::InprocServerTransport", ptr %this1, i32 0, i32 3
   call void @_ZNSt6atomicIN9grpc_core12_GLOBAL__N_121InprocServerTransport15ConnectionStateEEC2ES3_(ptr noundef nonnull align 1 dereferenceable(1) %state_, i8 noundef zeroext 0) #3
   %disconnecting_ = getelementptr inbounds %"class.grpc_core::(anonymous namespace)::InprocServerTransport", ptr %this1, i32 0, i32 4
@@ -5949,7 +5949,7 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19PolymorphicRefCountC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_12_GLOBAL__N_121InprocServerTransportENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core10RefCountedINS_12_GLOBAL__N_121InprocServerTransportENS_19PolymorphicRefCountENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::RefCounted.128", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %initial_refcount.addr, align 8
   %1 = load ptr, ptr %trace.addr, align 8
@@ -5983,7 +5983,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core15ServerTransportE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN9grpc_core15ServerTransportE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6557,7 +6557,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19PolymorphicRefCountE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8601,7 +8601,7 @@ entry:
   %4 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   call void @_ZN9grpc_core5Party11ParticipantC2ESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 %3, ptr %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Party15ParticipantImplINS_14promise_detail6TrySeqINS2_3MapINS2_3SeqINS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverISC_E4NextEvEUlSt8optionalISC_EE_EEEZNS_11CallHandler25PullClientInitialMetadataEvEUlNS_10NextResultISC_EEE_EEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallESK_EUlSC_E_NS_17ImmediateOkStatusEEEEZNS_18CallSpineInterface12SpawnGuardedIST_EEvSt17basic_string_viewIcSt11char_traitsIcEET_EUlN4absl12lts_202308026StatusEE_EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Party15ParticipantImplINS_14promise_detail6TrySeqINS2_3MapINS2_3SeqINS_11pipe_detail4NextISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEEJZNS_12PipeReceiverISC_E4NextEvEUlSt8optionalISC_EE_EEEZNS_11CallHandler25PullClientInitialMetadataEvEUlNS_10NextResultISC_EEE_EEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallESK_EUlSC_E_NS_17ImmediateOkStatusEEEEZNS_18CallSpineInterface12SpawnGuardedIST_EEvSt17basic_string_viewIcSt11char_traitsIcEET_EUlN4absl12lts_202308026StatusEE_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %on_complete_ = getelementptr inbounds %"class.grpc_core::Party::ParticipantImpl", ptr %this1, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %on_complete_, ptr align 8 %on_complete, i64 8, i1 false)
   %started_ = getelementptr inbounds %"class.grpc_core::Party::ParticipantImpl", ptr %this1, i32 0, i32 3
@@ -8642,7 +8642,7 @@ entry:
   store ptr %name.coerce1, ptr %1, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Party11ParticipantE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core5Party11ParticipantE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %handle_ = getelementptr inbounds %"class.grpc_core::Party::Participant", ptr %this1, i32 0, i32 1
   store ptr null, ptr %handle_, align 8
   %name_ = getelementptr inbounds %"class.grpc_core::Party::Participant", ptr %this1, i32 0, i32 2
@@ -25722,7 +25722,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -25744,7 +25744,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -28880,7 +28880,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -28890,7 +28890,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

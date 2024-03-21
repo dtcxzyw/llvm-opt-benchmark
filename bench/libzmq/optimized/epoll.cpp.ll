@@ -44,7 +44,7 @@ $_ZTVN3zmq20worker_poller_base_tE = comdat any
 define void @_ZN3zmq7epoll_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(136) %ctx_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef nonnull align 8 dereferenceable(136) %ctx_)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq7epoll_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq7epoll_tE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_retired = getelementptr inbounds i8, ptr %this, i64 200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_retired, i8 0, i64 24, i1 false)
   %call = tail call i32 @epoll_create1(i32 noundef 524288) #16
@@ -154,7 +154,7 @@ if.then.i.i.i:                                    ; preds = %for.end
   br label %_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EED2Ev.exit: ; preds = %for.end, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_thread_affinity_cpus.i.i = getelementptr inbounds i8, ptr %this, i64 144
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
@@ -669,7 +669,7 @@ declare void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq20worker_poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_thread_affinity_cpus.i = getelementptr inbounds i8, ptr %this, i64 144
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

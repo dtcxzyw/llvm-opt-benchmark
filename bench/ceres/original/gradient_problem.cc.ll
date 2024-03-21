@@ -2317,7 +2317,7 @@ define linkonce_odr hidden void @_ZN5ceres17EuclideanManifoldILin1EEC2Ei(ptr nou
   store i32 %1, ptr %4, align 4
   %9 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8ManifoldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres17EuclideanManifoldILin1EEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres17EuclideanManifoldILin1EEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.ceres::EuclideanManifold", ptr %9, i32 0, i32 1
   %11 = load i32, ptr %4, align 4
   store i32 %11, ptr %10, align 8
@@ -2423,7 +2423,7 @@ define linkonce_odr hidden void @_ZN5ceres8ManifoldC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres8ManifoldE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres8ManifoldE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

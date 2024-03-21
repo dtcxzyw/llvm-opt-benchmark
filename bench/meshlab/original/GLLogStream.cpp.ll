@@ -307,7 +307,7 @@ define void @_ZN11GLLogStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(40
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11GLLogStream, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11GLLogStream, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.GLLogStream, ptr %3, i32 0, i32 1
   store i32 -1, ptr %4, align 8
   %5 = getelementptr inbounds %class.GLLogStream, ptr %3, i32 0, i32 2

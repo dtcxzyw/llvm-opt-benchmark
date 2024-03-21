@@ -71,7 +71,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %options_.addr, align 8
   call void @_ZN3zmq11mechanism_tC2ERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1488) %this1, ptr noundef nonnull align 8 dereferenceable(1336) %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq16mechanism_base_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq16mechanism_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %session = getelementptr inbounds %"class.zmq::mechanism_base_t", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %session_.addr, align 8
   store ptr %1, ptr %session, align 8

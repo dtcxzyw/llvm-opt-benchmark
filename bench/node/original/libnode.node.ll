@@ -17085,7 +17085,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node20InitializationResultC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node24InitializationResultImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node24InitializationResultImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %exit_code_ = getelementptr inbounds %"class.node::InitializationResultImpl", ptr %this1, i32 0, i32 1
   store i32 0, ptr %exit_code_, align 8
   %args_ = getelementptr inbounds %"class.node::InitializationResultImpl", ptr %this1, i32 0, i32 2
@@ -17121,7 +17121,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node20InitializationResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node20InitializationResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -18166,7 +18166,7 @@ entry:
   store ptr %controller, ptr %controller.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v817TracingController18TraceStateObserverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node22NodeTraceStateObserverE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node22NodeTraceStateObserverE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %controller_ = getelementptr inbounds %"class.node::NodeTraceStateObserver", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %controller.addr, align 8
   store ptr %0, ptr %controller_, align 8
@@ -18193,7 +18193,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2v817TracingController18TraceStateObserverE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2v817TracingController18TraceStateObserverE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

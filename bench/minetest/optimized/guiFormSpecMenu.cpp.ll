@@ -648,7 +648,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.14 = private unnamed_addr constant [19 x i8] c"tooltip_show_delay\00", align 1
 @.str.15 = private unnamed_addr constant [24 x i8] c"tooltip_append_itemname\00", align 1
 @_ZTV15GUIFormSpecMenu = dso_local unnamed_addr constant { [45 x ptr], [5 x ptr] } { [45 x ptr] [ptr inttoptr (i64 2232 to ptr), ptr null, ptr @_ZTI15GUIFormSpecMenu, ptr @_ZN15GUIFormSpecMenuD1Ev, ptr @_ZN15GUIFormSpecMenuD0Ev, ptr @_ZN15GUIFormSpecMenu7OnEventERKN3irr6SEventE, ptr @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv, ptr @_ZN3irr3gui11IGUIElement19getElementFromPointERKNS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE, ptr @_ZN3irr3gui11IGUIElement8addChildEPS1_, ptr @_ZN3irr3gui11IGUIElement11removeChildEPS1_, ptr @_ZN3irr3gui11IGUIElement17removeAllChildrenEv, ptr @_ZN3irr3gui11IGUIElement6removeEv, ptr @_ZN12GUIModalMenu4drawEv, ptr @_ZN3irr3gui11IGUIElement12OnPostRenderEj, ptr @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement9isVisibleEv, ptr @_ZNK3irr3gui11IGUIElement14isTrulyVisibleEv, ptr @_ZN3irr3gui11IGUIElement10setVisibleEb, ptr @_ZNK3irr3gui11IGUIElement12isSubElementEv, ptr @_ZN3irr3gui11IGUIElement13setSubElementEb, ptr @_ZNK3irr3gui11IGUIElement9isEnabledEv, ptr @_ZN3irr3gui11IGUIElement10setEnabledEb, ptr @_ZN3irr3gui11IGUIElement7setTextEPKw, ptr @_ZNK3irr3gui11IGUIElement7getTextEv, ptr @_ZN3irr3gui11IGUIElement14setToolTipTextEPKw, ptr @_ZNK3irr3gui11IGUIElement14getToolTipTextEv, ptr @_ZNK3irr3gui11IGUIElement5getIDEv, ptr @_ZN3irr3gui11IGUIElement5setIDEi, ptr @_ZN3irr3gui11IGUIElement12bringToFrontEPS1_, ptr @_ZN3irr3gui11IGUIElement10sendToBackEPS1_, ptr @_ZNK3irr3gui11IGUIElement11getChildrenB5cxx11Ev, ptr @_ZNK3irr3gui11IGUIElement16getElementFromIdEib, ptr @_ZNK3irr3gui11IGUIElement7hasTypeENS0_17EGUI_ELEMENT_TYPEE, ptr @_ZNK3irr3gui11IGUIElement11getTypeNameEv, ptr @_ZNK3irr3gui11IGUIElement7getNameEv, ptr @_ZN3irr3gui11IGUIElement7setNameEPKc, ptr @_ZN3irr3gui11IGUIElement7setNameERKNS_4core6stringIcEE, ptr @_ZN3irr3gui11IGUIElement10acceptsIMEEv, ptr @_ZN15GUIFormSpecMenu13regenerateGuiEN3irr4core8vector2dIjEE, ptr @_ZN15GUIFormSpecMenu8drawMenuEv, ptr @_ZN15GUIFormSpecMenu15preprocessEventERKN3irr6SEventE, ptr @_ZN15GUIFormSpecMenu10pausesGameEv, ptr @_ZN15GUIFormSpecMenu12getLabelByIDB5cxx11Ei, ptr @_ZN15GUIFormSpecMenu11getNameByIDB5cxx11Ei], [5 x ptr] [ptr inttoptr (i64 -2232 to ptr), ptr inttoptr (i64 -2232 to ptr), ptr @_ZTI15GUIFormSpecMenu, ptr @_ZTv0_n24_N15GUIFormSpecMenuD1Ev, ptr @_ZTv0_n24_N15GUIFormSpecMenuD0Ev] }, align 8
-@_ZTT15GUIFormSpecMenu = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_12GUIModalMenu, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_N3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_N3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_12GUIModalMenu, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTT15GUIFormSpecMenu = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_12GUIModalMenu, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_N3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_N3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC15GUIFormSpecMenu0_12GUIModalMenu, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i32 0, inrange i32 1, i32 3)], align 8
 @guiroot = external local_unnamed_addr global ptr, align 8
 @g_menumgr = external global %class.MainMenuManager, align 8
 @errorstream = external thread_local global %class.LogStream, align 8
@@ -852,7 +852,7 @@ $_ZSt19piecewise_construct = comdat any
 @_ZTT17ItemStackMetadata = external unnamed_addr constant [4 x ptr], align 8
 @_ZTVN3irr17IReferenceCountedE = linkonce_odr dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN3irr17IReferenceCountedE, ptr @_ZN3irr17IReferenceCountedD2Ev, ptr @_ZN3irr17IReferenceCountedD0Ev] }, comdat, align 8
 @_ZTVN3irr3gui11IGUIElementE = linkonce_odr dso_local unnamed_addr constant { [39 x ptr], [5 x ptr] } { [39 x ptr] [ptr inttoptr (i64 312 to ptr), ptr null, ptr @_ZTIN3irr3gui11IGUIElementE, ptr @_ZN3irr3gui11IGUIElementD1Ev, ptr @_ZN3irr3gui11IGUIElementD0Ev, ptr @_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE, ptr @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv, ptr @_ZN3irr3gui11IGUIElement19getElementFromPointERKNS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE, ptr @_ZN3irr3gui11IGUIElement8addChildEPS1_, ptr @_ZN3irr3gui11IGUIElement11removeChildEPS1_, ptr @_ZN3irr3gui11IGUIElement17removeAllChildrenEv, ptr @_ZN3irr3gui11IGUIElement6removeEv, ptr @_ZN3irr3gui11IGUIElement4drawEv, ptr @_ZN3irr3gui11IGUIElement12OnPostRenderEj, ptr @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement9isVisibleEv, ptr @_ZNK3irr3gui11IGUIElement14isTrulyVisibleEv, ptr @_ZN3irr3gui11IGUIElement10setVisibleEb, ptr @_ZNK3irr3gui11IGUIElement12isSubElementEv, ptr @_ZN3irr3gui11IGUIElement13setSubElementEb, ptr @_ZNK3irr3gui11IGUIElement9isEnabledEv, ptr @_ZN3irr3gui11IGUIElement10setEnabledEb, ptr @_ZN3irr3gui11IGUIElement7setTextEPKw, ptr @_ZNK3irr3gui11IGUIElement7getTextEv, ptr @_ZN3irr3gui11IGUIElement14setToolTipTextEPKw, ptr @_ZNK3irr3gui11IGUIElement14getToolTipTextEv, ptr @_ZNK3irr3gui11IGUIElement5getIDEv, ptr @_ZN3irr3gui11IGUIElement5setIDEi, ptr @_ZN3irr3gui11IGUIElement12bringToFrontEPS1_, ptr @_ZN3irr3gui11IGUIElement10sendToBackEPS1_, ptr @_ZNK3irr3gui11IGUIElement11getChildrenB5cxx11Ev, ptr @_ZNK3irr3gui11IGUIElement16getElementFromIdEib, ptr @_ZNK3irr3gui11IGUIElement7hasTypeENS0_17EGUI_ELEMENT_TYPEE, ptr @_ZNK3irr3gui11IGUIElement11getTypeNameEv, ptr @_ZNK3irr3gui11IGUIElement7getNameEv, ptr @_ZN3irr3gui11IGUIElement7setNameEPKc, ptr @_ZN3irr3gui11IGUIElement7setNameERKNS_4core6stringIcEE, ptr @_ZN3irr3gui11IGUIElement10acceptsIMEEv], [5 x ptr] [ptr inttoptr (i64 -312 to ptr), ptr inttoptr (i64 -312 to ptr), ptr @_ZTIN3irr3gui11IGUIElementE, ptr @_ZTv0_n24_N3irr3gui11IGUIElementD1Ev, ptr @_ZTv0_n24_N3irr3gui11IGUIElementD0Ev] }, comdat, align 8
-@_ZTTN3irr3gui11IGUIElementE = linkonce_odr dso_local unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN3irr3gui11IGUIElementE = linkonce_odr dso_local unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @.str.192 = private unnamed_addr constant [35 x i8] c"Invalid 2d vector string format: \22\00", align 1
 @.str.193 = private unnamed_addr constant [26 x i8] c"basic_string_view::substr\00", align 1
 @.str.194 = private unnamed_addr constant [49 x i8] c"%s: __pos (which is %zu) > __size (which is %zu)\00", align 1
@@ -2701,14 +2701,14 @@ define dso_local void @_ZN15GUIFormSpecMenuC1EP18JoystickControllerPN3irr3gui11I
   %17 = alloca %"class.std::__cxx11::basic_string", align 8
   %18 = alloca %"class.std::__cxx11::basic_string", align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 2232
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %19, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %19, align 8, !tbaa !12
   %20 = getelementptr inbounds i8, ptr %0, i64 2240
   store ptr null, ptr %20, align 8, !tbaa !230
   %21 = getelementptr inbounds i8, ptr %0, i64 2248
   store i32 1, ptr %21, align 8, !tbaa !232
   tail call void @_ZN12GUIModalMenuC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerb(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTT15GUIFormSpecMenu, i64 0, i64 1), ptr noundef %6, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext %12)
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i64 0, inrange i32 1, i64 3), ptr %19, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV15GUIFormSpecMenu, i64 0, i32 1, i64 3), ptr %19, align 8, !tbaa !12
   %22 = getelementptr inbounds i8, ptr %0, i64 392
   %23 = getelementptr inbounds i8, ptr %0, i64 440
   store ptr %23, ptr %22, align 8, !tbaa !14
@@ -8360,8 +8360,8 @@ define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC1ENS0_17EGUI_ELEMEN
   store ptr null, ptr %8, align 8, !tbaa !230
   %9 = getelementptr inbounds i8, ptr %0, i64 328
   store i32 1, ptr %9, align 8, !tbaa !232
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !12
   %10 = getelementptr inbounds i8, ptr %0, i64 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !254
@@ -65800,7 +65800,7 @@ define dso_local void @_ZN15GUIFormSpecMenu18updateSelectedItemEv(ptr noundef no
   store ptr %266, ptr %265, align 8, !tbaa !148
   %267 = getelementptr inbounds i8, ptr %251, i64 176
   store i16 -1, ptr %267, align 8, !tbaa !683
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, inrange i32 0, i64 2), ptr %251, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, i32 0, i64 2), ptr %251, align 8, !tbaa !12
   %268 = getelementptr inbounds i8, ptr %251, i64 178
   %269 = getelementptr inbounds i8, ptr %251, i64 180
   %270 = getelementptr inbounds i8, ptr %251, i64 184
@@ -66667,7 +66667,7 @@ define linkonce_odr dso_local void @_ZN11IMoveActionC2Ev(ptr noundef nonnull ali
   store i8 0, ptr %21, align 8, !tbaa !149
   %23 = getelementptr inbounds i8, ptr %0, i64 176
   store i16 -1, ptr %23, align 8, !tbaa !683
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %24 = getelementptr inbounds i8, ptr %0, i64 178
   store i16 0, ptr %24, align 2, !tbaa !687
   %25 = getelementptr inbounds i8, ptr %0, i64 180
@@ -72736,7 +72736,7 @@ define dso_local noundef zeroext i1 @_ZN15GUIFormSpecMenu7OnEventERKN3irr6SEvent
   store ptr %1315, ptr %1314, align 8, !tbaa !148
   %1316 = getelementptr inbounds i8, ptr %1299, i64 176
   store i16 -1, ptr %1316, align 8, !tbaa !683
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, inrange i32 0, i64 2), ptr %1299, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, i32 0, i64 2), ptr %1299, align 8, !tbaa !12
   %1317 = getelementptr inbounds i8, ptr %1299, i64 178
   %1318 = getelementptr inbounds i8, ptr %1299, i64 184
   store i32 0, ptr %1318, align 8, !tbaa !684
@@ -73572,7 +73572,7 @@ _ZN9ItemStackaSERKS_.exit:                        ; preds = %.noexc198, %1583
   store ptr %1759, ptr %1758, align 8, !tbaa !148
   %1760 = getelementptr inbounds i8, ptr %1744, i64 176
   store i16 -1, ptr %1760, align 8, !tbaa !683
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, inrange i32 0, i64 2), ptr %1744, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, i32 0, i64 2), ptr %1744, align 8, !tbaa !12
   %1761 = getelementptr inbounds i8, ptr %1744, i64 178
   %1762 = getelementptr inbounds i8, ptr %1744, i64 184
   store i32 0, ptr %1762, align 8, !tbaa !684
@@ -74745,7 +74745,7 @@ _ZN9ItemStackaSERKS_.exit:                        ; preds = %.noexc198, %1583
   store ptr %2378, ptr %2377, align 8, !tbaa !148
   %2379 = getelementptr inbounds i8, ptr %2363, i64 176
   store i16 -1, ptr %2379, align 8, !tbaa !683
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, inrange i32 0, i64 2), ptr %2363, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, i32 0, i64 2), ptr %2363, align 8, !tbaa !12
   %2380 = getelementptr inbounds i8, ptr %2363, i64 178
   %2381 = getelementptr inbounds i8, ptr %2363, i64 184
   store i32 0, ptr %2381, align 8, !tbaa !684
@@ -75312,7 +75312,7 @@ _ZN9ItemStackaSERKS_.exit:                        ; preds = %.noexc198, %1583
   store ptr %2663, ptr %2662, align 8, !tbaa !148
   %2664 = getelementptr inbounds i8, ptr %2648, i64 176
   store i16 -1, ptr %2664, align 8, !tbaa !683
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, inrange i32 0, i64 2), ptr %2648, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IMoveAction, i64 0, i32 0, i64 2), ptr %2648, align 8, !tbaa !12
   %2665 = getelementptr inbounds i8, ptr %2648, i64 178
   %2666 = getelementptr inbounds i8, ptr %2648, i64 184
   store i32 0, ptr %2666, align 8, !tbaa !684
@@ -75896,7 +75896,7 @@ _ZN9LogStreamlsIRA33_KcEER11StreamProxyOT_.exit.thread: ; preds = %.noexc201, %2
   store i8 0, ptr %2972, align 8, !tbaa !149
   %2973 = getelementptr inbounds i8, ptr %2958, i64 176
   store i16 -1, ptr %2973, align 8, !tbaa !683
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IDropAction, i64 0, inrange i32 0, i64 2), ptr %2958, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11IDropAction, i64 0, i32 0, i64 2), ptr %2958, align 8, !tbaa !12
   %2974 = getelementptr inbounds i8, ptr %2958, i64 178
   store i16 %2938, ptr %2974, align 2, !tbaa !874
   %2975 = load ptr, ptr %321, align 8, !tbaa !233
@@ -76022,7 +76022,7 @@ _ZN9ItemStackD2Ev.exit:                           ; preds = %2996, %2999
 
 3034:                                             ; preds = %3032
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3033, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12ICraftAction, i64 0, inrange i32 0, i64 2), ptr %3033, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12ICraftAction, i64 0, i32 0, i64 2), ptr %3033, align 8, !tbaa !12
   %3035 = getelementptr inbounds i8, ptr %3033, i64 8
   %3036 = getelementptr inbounds i8, ptr %3033, i64 16
   %3037 = getelementptr inbounds i8, ptr %3033, i64 24
@@ -79111,7 +79111,7 @@ define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1Ev(ptr noundef nonnu
   store float 1.000000e+00, ptr %16, align 8, !tbaa !20
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, inrange i32 0, i64 10), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, i32 0, i64 10), ptr %0, align 8, !tbaa !12
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %18, align 8, !tbaa !871
   %19 = getelementptr inbounds i8, ptr %0, i64 80
@@ -83626,7 +83626,7 @@ define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1ERKS_(ptr noundef no
   store ptr %15, ptr %6, align 8, !tbaa !182
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_assignIRKSL_NSA_10_AllocNodeISaINSA_10_Hash_nodeIS8_Lb1EEEEEEEEvOT_RKT0_(ptr noundef nonnull align 8 dereferenceable(56) %15, ptr noundef nonnull align 8 dereferenceable(56) %16, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #32
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, inrange i32 0, i64 10), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, i32 0, i64 10), ptr %0, align 8, !tbaa !12
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   %28 = getelementptr inbounds i8, ptr %1, i64 72
   %29 = load i8, ptr %28, align 8, !tbaa !871, !range !185, !noundef !186

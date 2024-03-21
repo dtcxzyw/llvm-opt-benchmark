@@ -686,7 +686,7 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrixC2Eiii(p
   %13 = load i32, ptr %7, align 4
   %14 = load i32, ptr %8, align 4
   call void @_ZN5ceres8internal25CompressedRowSparseMatrixC2Eiii(ptr noundef nonnull align 8 dereferenceable(144) %11, i32 noundef %12, i32 noundef %13, i32 noundef %14)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal32DynamicCompressedRowSparseMatrixE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal32DynamicCompressedRowSparseMatrixE, i32 0, i32 0, i32 2), ptr %11, align 8
   %15 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 1
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   %16 = getelementptr inbounds %"class.ceres::internal::DynamicCompressedRowSparseMatrix", ptr %11, i32 0, i32 2

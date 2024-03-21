@@ -662,7 +662,7 @@ define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerC2ERKNS0_27Comp
   store ptr %2, ptr %6, align 8
   %27 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i32 0, inrange i32 0, i32 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i32 0, i32 0, i32 2), ptr %27, align 8
   %28 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 1
   call void @_ZN5ceres8internal14Preconditioner7OptionsC2EOS2_(ptr noundef nonnull align 8 dereferenceable(72) %28, ptr noundef nonnull align 8 dereferenceable(72) %2) #13
   %29 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %27, i32 0, i32 2
@@ -1041,7 +1041,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal19TypedPreconditionerINS0_17B
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14PreconditionerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5ceres8internal19TypedPreconditionerINS0_17BlockSparseMatrixEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1608,7 +1608,7 @@ define hidden void @_ZN5ceres8internal25SchurJacobiPreconditionerD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5ceres8internal25SchurJacobiPreconditionerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %3, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN5ceres8internal31BlockRandomAccessDiagonalMatrixESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   %5 = getelementptr inbounds %"class.ceres::internal::SchurJacobiPreconditioner", ptr %3, i32 0, i32 2
@@ -2211,7 +2211,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal14PreconditionerC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5ceres8internal14PreconditionerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5ceres8internal14PreconditionerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2239,7 +2239,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

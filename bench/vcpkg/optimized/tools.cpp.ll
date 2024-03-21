@@ -3507,7 +3507,7 @@ _ZN5vcpkg4PathC2ERKS0_.exit14:                    ; preds = %_ZN5vcpkg4PathC2ERK
 
 _ZN5vcpkg4PathC2ERKS0_.exit15:                    ; preds = %_ZN5vcpkg4PathC2ERKS0_.exit14
   %12 = load i32, ptr %6, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg13ToolCacheImplE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg13ToolCacheImplE, i64 0, i32 0, i64 2), ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 16
@@ -5088,7 +5088,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt11regex_errorC2ENSt15regex_constants10error_typeEPKc(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %4, align 8
   ret void
@@ -6408,7 +6408,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cx
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load i32, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -32578,7 +32578,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13CMakeProviderE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13CMakeProviderE, i64 0, i32 0, i64 2), ptr %3, align 8
   %27 = getelementptr inbounds i8, ptr %1, i64 16
   %28 = load ptr, ptr %27, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %28)
@@ -32593,7 +32593,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %31, label %32, label %35
 
 32:                                               ; preds = %29
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg11GitProviderE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg11GitProviderE, i64 0, i32 0, i64 2), ptr %4, align 8
   %33 = getelementptr inbounds i8, ptr %1, i64 16
   %34 = load ptr, ptr %33, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %34)
@@ -32608,7 +32608,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %37, label %38, label %41
 
 38:                                               ; preds = %35
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13NinjaProviderE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13NinjaProviderE, i64 0, i32 0, i64 2), ptr %5, align 8
   %39 = getelementptr inbounds i8, ptr %1, i64 16
   %40 = load ptr, ptr %39, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %40)
@@ -32623,7 +32623,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %43, label %44, label %47
 
 44:                                               ; preds = %41
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg22PowerShellCoreProviderE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg22PowerShellCoreProviderE, i64 0, i32 0, i64 2), ptr %6, align 8
   %45 = getelementptr inbounds i8, ptr %1, i64 16
   %46 = load ptr, ptr %45, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(8) %46)
@@ -32638,7 +32638,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %49, label %50, label %53
 
 50:                                               ; preds = %47
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13NuGetProviderE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13NuGetProviderE, i64 0, i32 0, i64 2), ptr %7, align 8
   %51 = getelementptr inbounds i8, ptr %1, i64 16
   %52 = load ptr, ptr %51, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %52)
@@ -32653,7 +32653,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %55, label %56, label %59
 
 56:                                               ; preds = %53
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13Aria2ProviderE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13Aria2ProviderE, i64 0, i32 0, i64 2), ptr %8, align 8
   %57 = getelementptr inbounds i8, ptr %1, i64 16
   %58 = load ptr, ptr %57, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %58)
@@ -32668,7 +32668,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %61, label %62, label %65
 
 62:                                               ; preds = %59
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12NodeProviderE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12NodeProviderE, i64 0, i32 0, i64 2), ptr %9, align 8
   %63 = getelementptr inbounds i8, ptr %1, i64 16
   %64 = load ptr, ptr %63, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %64)
@@ -32683,7 +32683,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %67, label %68, label %71
 
 68:                                               ; preds = %65
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg24IfwInstallerBaseProviderE, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg24IfwInstallerBaseProviderE, i64 0, i32 0, i64 2), ptr %10, align 8
   %69 = getelementptr inbounds i8, ptr %1, i64 16
   %70 = load ptr, ptr %69, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %70)
@@ -32698,7 +32698,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %73, label %74, label %77
 
 74:                                               ; preds = %71
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12MonoProviderE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12MonoProviderE, i64 0, i32 0, i64 2), ptr %11, align 8
   %75 = getelementptr inbounds i8, ptr %1, i64 16
   %76 = load ptr, ptr %75, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %76)
@@ -32713,7 +32713,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %79, label %80, label %83
 
 80:                                               ; preds = %77
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14GsutilProviderE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14GsutilProviderE, i64 0, i32 0, i64 2), ptr %12, align 8
   %81 = getelementptr inbounds i8, ptr %1, i64 16
   %82 = load ptr, ptr %81, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %82)
@@ -32728,7 +32728,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %85, label %86, label %89
 
 86:                                               ; preds = %83
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14AwsCliProviderE, i64 0, inrange i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14AwsCliProviderE, i64 0, i32 0, i64 2), ptr %13, align 8
   %87 = getelementptr inbounds i8, ptr %1, i64 16
   %88 = load ptr, ptr %87, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %88)
@@ -32743,7 +32743,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %91, label %92, label %95
 
 92:                                               ; preds = %89
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14CosCliProviderE, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14CosCliProviderE, i64 0, i32 0, i64 2), ptr %14, align 8
   %93 = getelementptr inbounds i8, ptr %1, i64 16
   %94 = load ptr, ptr %93, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %94)
@@ -32758,7 +32758,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %95
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg15Python3ProviderE, i64 0, inrange i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg15Python3ProviderE, i64 0, i32 0, i64 2), ptr %15, align 8
   %99 = getelementptr inbounds i8, ptr %1, i64 16
   %100 = load ptr, ptr %99, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %100)
@@ -32773,7 +32773,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   br i1 %103, label %104, label %107
 
 104:                                              ; preds = %101
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg23Python3WithVEnvProviderE, i64 0, inrange i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg23Python3WithVEnvProviderE, i64 0, i32 0, i64 2), ptr %16, align 8
   %105 = getelementptr inbounds i8, ptr %1, i64 16
   %106 = load ptr, ptr %105, align 8
   call void @_ZNK5vcpkg13ToolCacheImpl8get_pathERKNS_12ToolProviderERNS_11MessageSinkE(ptr dead_on_unwind writable sret(%"struct.vcpkg::PathAndVersion") align 8 %0, ptr noundef nonnull align 8 dereferenceable(224) %23, ptr noundef nonnull align 8 dereferenceable(8) %16, ptr noundef nonnull align 8 dereferenceable(8) %106)
@@ -32828,7 +32828,7 @@ define linkonce_odr dso_local void @_ZZNK5vcpkg13ToolCacheImpl20get_tool_pathver
   %.sroa.0.0.copyload = load ptr, ptr %126, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %126, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg19GenericToolProviderE, i64 0, inrange i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg19GenericToolProviderE, i64 0, i32 0, i64 2), ptr %21, align 8
   %127 = getelementptr inbounds i8, ptr %21, i64 8
   store ptr %.sroa.0.0.copyload, ptr %127, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %21, i64 16

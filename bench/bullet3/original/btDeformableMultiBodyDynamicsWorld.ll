@@ -2722,7 +2722,7 @@ entry:
   %2 = load ptr, ptr %constraintSolver.addr, align 8
   %3 = load ptr, ptr %collisionConfiguration.addr, align 8
   call void @_ZN24btMultiBodyDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP27btMultiBodyConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(848) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_deformableBodySolver = getelementptr inbounds %class.btDeformableMultiBodyDynamicsWorld, ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %deformableBodySolver.addr, align 8
   store ptr %4, ptr %m_deformableBodySolver, align 8
@@ -3106,7 +3106,7 @@ entry:
   %0 = load ptr, ptr %solver.addr, align 8
   %1 = load ptr, ptr %dispatcher.addr, align 8
   call void @_ZN36MultiBodyInplaceSolverIslandCallbackC2EP27btMultiBodyConstraintSolverP12btDispatcher(ptr noundef nonnull align 8 dereferenceable(264) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV41DeformableBodyInplaceSolverIslandCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV41DeformableBodyInplaceSolverIslandCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_deformableSolver = getelementptr inbounds %struct.DeformableBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %solver.addr, align 8
   store ptr %2, ptr %m_deformableSolver, align 8
@@ -3156,7 +3156,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr] }, ptr @_ZTV34btDeformableMultiBodyDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_solverDeformableBodyIslandCallback = getelementptr inbounds %class.btDeformableMultiBodyDynamicsWorld, ptr %this1, i32 0, i32 13
   %0 = load ptr, ptr %m_solverDeformableBodyIslandCallback, align 8
   %isnull = icmp eq ptr %0, null
@@ -9167,7 +9167,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11172,7 +11172,7 @@ entry:
   store ptr %dispatcher, ptr %dispatcher.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN25btSimulationIslandManager14IslandCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_solverInfo = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_solverInfo, align 8
   %m_solver = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 2
@@ -11956,7 +11956,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btSimulationIslandManager14IslandCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btSimulationIslandManager14IslandCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -12106,7 +12106,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36MultiBodyInplaceSolverIslandCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_islandAnalyticsData = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 14
   call void @_ZN20btAlignedObjectArrayI21btSolverAnalyticsDataED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_islandAnalyticsData) #4
   %m_multiBodyConstraints = getelementptr inbounds %struct.MultiBodyInplaceSolverIslandCallback, ptr %this1, i32 0, i32 13
@@ -17217,7 +17217,7 @@ entry:
   store ptr %resultCallback, ptr %resultCallback.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23btBroadphaseRayCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN34btDeformableMultiBodyDynamicsWorld29btDeformableSingleRayCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN34btDeformableMultiBodyDynamicsWorld29btDeformableSingleRayCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rayFromWorld = getelementptr inbounds %"struct.btDeformableMultiBodyDynamicsWorld::btDeformableSingleRayCallback", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %rayFromWorld.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_rayFromWorld, ptr align 4 %0, i64 16, i1 false)
@@ -17429,7 +17429,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN24btBroadphaseAabbCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23btBroadphaseRayCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23btBroadphaseRayCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rayDirectionInverse = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_rayDirectionInverse)
           to label %invoke.cont unwind label %lpad
@@ -17564,7 +17564,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btBroadphaseAabbCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btBroadphaseAabbCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

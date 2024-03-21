@@ -95,7 +95,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define internal void @_ZL52InitDefaultsscc_info_PhoneNumber_phonenumber_2eprotov() #3 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str)
   store ptr null, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, inrange i32 0, i64 2), ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
   store i32 0, ptr getelementptr inbounds (%"class.i18n::phonenumbers::PhoneNumberDefaultTypeInternal", ptr @_ZN4i18n12phonenumbers30_PhoneNumber_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 12), align 4
   %1 = load atomic i32, ptr @scc_info_PhoneNumber_phonenumber_2eproto acquire, align 8
@@ -214,7 +214,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumber21InitAsDefaultInstanc
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5ArenaE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 20
@@ -245,7 +245,7 @@ define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2EPN6google8protobuf5
 define dso_local void @_ZN4i18n12phonenumbers11PhoneNumberC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   %6 = load i32, ptr %5, align 8
@@ -2456,7 +2456,7 @@ define dso_local noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4i1
   %4 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr null, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 20
@@ -2489,7 +2489,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %12, %15
   %16 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %0, i64 noundef 72)
   %17 = getelementptr inbounds i8, ptr %16, i64 8
   store ptr %0, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, inrange i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 20
@@ -2522,7 +2522,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK4i18n12phonenumbers11PhoneNumber3
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #16
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr null, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11PhoneNumberE, i64 0, i32 0, i64 2), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 20

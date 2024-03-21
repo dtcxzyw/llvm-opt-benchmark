@@ -575,7 +575,7 @@ entry:
   store i32 %numSolvers, ptr %numSolvers.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_solvers = getelementptr inbounds %class.btConstraintSolverPoolMt, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_solvers)
           to label %invoke.cont unwind label %lpad
@@ -697,7 +697,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV18btConstraintSolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV18btConstraintSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -905,7 +905,7 @@ entry:
   store i32 %numSolvers, ptr %numSolvers.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_solvers = getelementptr inbounds %class.btConstraintSolverPoolMt, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayIN24btConstraintSolverPoolMt12ThreadSolverEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_solvers)
           to label %invoke.cont unwind label %lpad
@@ -958,7 +958,7 @@ entry:
   %solver = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV24btConstraintSolverPoolMt, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
@@ -1170,7 +1170,7 @@ entry:
   %2 = load ptr, ptr %solverPool.addr, align 8
   %3 = load ptr, ptr %collisionConfiguration.addr, align 8
   call void @_ZN23btDiscreteDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP18btConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(508) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTV25btDiscreteDynamicsWorldMt, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTV25btDiscreteDynamicsWorldMt, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ownsIslandManager = getelementptr inbounds %class.btDiscreteDynamicsWorld, ptr %this1, i32 0, i32 10
   %4 = load i8, ptr %m_ownsIslandManager, align 8
   %tobool = trunc i8 %4 to i1
@@ -1568,7 +1568,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26UpdaterUnconstrainedMotion, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26UpdaterUnconstrainedMotion, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1698,7 +1698,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt31UpdaterCreatePredictiveContactsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt31UpdaterCreatePredictiveContactsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1804,7 +1804,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt26UpdaterIntegrateTransformsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25btDiscreteDynamicsWorldMt26UpdaterIntegrateTransformsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1866,7 +1866,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2132,7 +2132,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

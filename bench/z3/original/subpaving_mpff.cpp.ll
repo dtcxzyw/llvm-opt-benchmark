@@ -4822,7 +4822,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %ctx, ptr %ctx.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving9context_tINS_11config_mpffEE13node_selectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving9context_tINS_11config_mpffEE13node_selectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_t<subpaving::config_mpff>::node_selector", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_ctx, align 8
@@ -4848,7 +4848,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %ctx, ptr %ctx.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9subpaving9context_tINS_11config_mpffEE12var_selectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9subpaving9context_tINS_11config_mpffEE12var_selectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_t<subpaving::config_mpff>::var_selector", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_ctx, align 8
@@ -4916,7 +4916,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %ctx, ptr %ctx.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving9context_tINS_11config_mpffEE13node_splitterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving9context_tINS_11config_mpffEE13node_splitterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_t<subpaving::config_mpff>::node_splitter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_ctx, align 8
@@ -5550,7 +5550,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -5563,7 +5563,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -14427,7 +14427,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving16display_var_procE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving16display_var_procE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -14495,7 +14495,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ctx.addr, align 8
   call void @_ZN9subpaving9context_tINS_11config_mpffEE13node_selectorC2EPS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving27breadth_first_node_selectorINS_11config_mpffEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving27breadth_first_node_selectorINS_11config_mpffEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -14539,7 +14539,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ctx.addr, align 8
   call void @_ZN9subpaving9context_tINS_11config_mpffEE12var_selectorC2EPS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9subpaving25round_robing_var_selectorINS_11config_mpffEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9subpaving25round_robing_var_selectorINS_11config_mpffEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_only_non_def = getelementptr inbounds %"class.subpaving::round_robing_var_selector", ptr %this1, i32 0, i32 1
   %1 = load i8, ptr %only_non_def.addr, align 1
   %tobool = trunc i8 %1 to i1
@@ -14590,7 +14590,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ctx.addr, align 8
   call void @_ZN9subpaving9context_tINS_11config_mpffEE13node_splitterC2EPS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving22midpoint_node_splitterINS_11config_mpffEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9subpaving22midpoint_node_splitterINS_11config_mpffEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_left_open = getelementptr inbounds %"class.subpaving::midpoint_node_splitter", ptr %this1, i32 0, i32 1
   %1 = load i8, ptr %left_open.addr, align 1
   %tobool = trunc i8 %1 to i1
@@ -17186,7 +17186,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

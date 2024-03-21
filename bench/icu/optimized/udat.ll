@@ -452,7 +452,7 @@ cond.true:                                        ; preds = %if.end
   br i1 %cmp1.not, label %if.end4.thread, label %if.then3
 
 if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i18 = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i18, align 8
   br label %if.end8
@@ -466,7 +466,7 @@ if.then3:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
@@ -478,7 +478,7 @@ lpad:                                             ; preds = %if.then6
   br label %ehcleanup28
 
 if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, inrange i32 0, i64 2), ptr %fp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, i32 0, i64 2), ptr %fp, align 8
   %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12
@@ -573,7 +573,7 @@ cond.true:                                        ; preds = %if.end
   br i1 %cmp1.not, label %if.end4.thread, label %if.then3
 
 if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i18 = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i18, align 8
   br label %if.end8
@@ -587,7 +587,7 @@ if.then3:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
@@ -599,7 +599,7 @@ lpad:                                             ; preds = %if.then6
   br label %ehcleanup28
 
 if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, inrange i32 0, i64 2), ptr %fp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, i32 0, i64 2), ptr %fp, align 8
   %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12
@@ -687,7 +687,7 @@ cond.true:                                        ; preds = %if.end
   br i1 %cmp1.not, label %if.end4.thread, label %if.then3
 
 if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i11 = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i11, align 8
   br label %if.end8
@@ -701,7 +701,7 @@ if.then3:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
@@ -764,7 +764,7 @@ cond.true:                                        ; preds = %if.end
   br i1 %cmp1.not, label %if.end4.thread, label %if.then3
 
 if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i11 = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i11, align 8
   br label %if.end8
@@ -778,7 +778,7 @@ if.then3:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
@@ -844,7 +844,7 @@ if.end:                                           ; preds = %entry
 invoke.cont:                                      ; preds = %if.end
   %1 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #7, !srcloc !4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, inrange i32 0, i64 2), ptr %pp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %pp, align 8
   %index.i = getelementptr inbounds i8, ptr %pp, i64 8
   %errorIndex.i = getelementptr inbounds i8, ptr %pp, i64 12
   store i32 -1, ptr %errorIndex.i, align 4
@@ -938,7 +938,7 @@ if.end:                                           ; preds = %entry
 invoke.cont:                                      ; preds = %if.end
   %1 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %1) #7, !srcloc !4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, inrange i32 0, i64 2), ptr %pp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %pp, align 8
   %index.i = getelementptr inbounds i8, ptr %pp, i64 8
   %errorIndex.i = getelementptr inbounds i8, ptr %pp, i64 12
   store i32 -1, ptr %errorIndex.i, align 4
@@ -1290,7 +1290,7 @@ cond.true:                                        ; preds = %if.end
   br i1 %cmp1.not, label %if.end4.thread, label %if.then3
 
 if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i18 = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i18, align 8
   br label %if.end8
@@ -1304,7 +1304,7 @@ if.then3:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
@@ -1561,7 +1561,7 @@ sw.bb22:                                          ; preds = %if.end10
   br label %sw.epilog
 
 sw.bb24:                                          ; preds = %if.end10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res1, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %res1, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp25 = icmp eq ptr %result, null
@@ -3362,7 +3362,7 @@ cond.true:                                        ; preds = %if.end
   br i1 %cmp1.not, label %if.end4.thread, label %if.then3
 
 if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %datePattern, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %datePattern, align 8
   %fUnion2.i13 = getelementptr inbounds i8, ptr %datePattern, i64 8
   store i16 2, ptr %fUnion2.i13, align 8
   br label %if.end8
@@ -3376,7 +3376,7 @@ if.then3:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %datePattern, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %datePattern, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %datePattern, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %datePattern, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)
@@ -3453,7 +3453,7 @@ cond.true:                                        ; preds = %if.end
   br i1 %cmp1.not, label %if.end4.thread, label %if.then3
 
 if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %timePattern, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %timePattern, align 8
   %fUnion2.i13 = getelementptr inbounds i8, ptr %timePattern, i64 8
   store i16 2, ptr %fUnion2.i13, align 8
   br label %if.end8
@@ -3467,7 +3467,7 @@ if.then3:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %timePattern, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %timePattern, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %timePattern, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %timePattern, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultLength)

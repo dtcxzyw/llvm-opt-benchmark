@@ -730,7 +730,7 @@ define dso_local void @_ZN15cmTestGeneratorC2EP6cmTestRKSt6vectorINSt7__cxx1112b
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15cmTestGenerator, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15cmTestGenerator, i32 0, i32 0, i32 2), ptr %12, align 8
   %17 = getelementptr inbounds %class.cmTestGenerator, ptr %12, i32 0, i32 3
   %18 = load ptr, ptr %5, align 8
   store ptr %18, ptr %17, align 8

@@ -429,7 +429,7 @@ invoke.cont:                                      ; preds = %_ZNSt10lock_guardIS
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16RandomLocalStateE, i64 0, inrange i32 0, i64 2), ptr %call.i7, align 8, !tbaa !65, !noalias !67
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16RandomLocalStateE, i64 0, i32 0, i64 2), ptr %call.i7, align 8, !tbaa !65, !noalias !67
   %random_engine.i.i = getelementptr inbounds %"struct.duckdb::RandomLocalState", ptr %call.i7, i64 0, i32 1
   %conv.i.i = zext i32 %call3 to i64
   invoke void @_ZN6duckdb12RandomEngineC1El(ptr noundef nonnull align 8 dereferenceable(48) %random_engine.i.i, i64 noundef %conv.i.i)
@@ -664,7 +664,7 @@ declare void @_ZN6duckdb14ScalarFunctionC1ENS_6vectorINS_11LogicalTypeELb1EEES2_
 define void @_ZN6duckdb11SetSeedBindERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr noalias nocapture writeonly sret(%"class.duckdb::unique_ptr.5") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr nocapture nonnull readnone align 8 %bound_function, ptr nocapture nonnull readnone align 8 %arguments) #0 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb15SetseedBindDataESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !76
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb15SetseedBindDataE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !65, !noalias !76
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb15SetseedBindDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !65, !noalias !76
   %context2.i.i = getelementptr inbounds %"struct.duckdb::SetseedBindData", ptr %call.i, i64 0, i32 1
   store ptr %context, ptr %context2.i.i, align 8, !tbaa !12, !noalias !76
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !79
@@ -1124,7 +1124,7 @@ declare void @_ZN6duckdb18FunctionLocalStateD2Ev(ptr noundef nonnull align 8 der
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16RandomLocalStateD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16RandomLocalStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !65
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16RandomLocalStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !65
   %random_engine = getelementptr inbounds %"struct.duckdb::RandomLocalState", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb12RandomEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %random_engine) #15
   tail call void @_ZN6duckdb18FunctionLocalStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
@@ -1134,7 +1134,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16RandomLocalStateD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16RandomLocalStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !65
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16RandomLocalStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !65
   %random_engine.i = getelementptr inbounds %"struct.duckdb::RandomLocalState", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb12RandomEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %random_engine.i) #15
   tail call void @_ZN6duckdb18FunctionLocalStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
@@ -1403,7 +1403,7 @@ declare void @_ZN6duckdb9ExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_trait
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !65
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !65
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !22
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2
@@ -2070,7 +2070,7 @@ _ZNSt10unique_ptrIN6duckdb15SetseedBindDataESt14default_deleteIS1_EED2Ev.exit:
   %context = getelementptr inbounds %"struct.duckdb::SetseedBindData", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %context, align 8, !tbaa !90
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19, !noalias !123
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb15SetseedBindDataE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !65, !noalias !123
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb15SetseedBindDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !65, !noalias !123
   %context2.i.i = getelementptr inbounds %"struct.duckdb::SetseedBindData", ptr %call.i, i64 0, i32 1
   store ptr %0, ptr %context2.i.i, align 8, !tbaa !12, !noalias !123
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !79

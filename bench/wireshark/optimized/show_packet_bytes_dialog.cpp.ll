@@ -352,9 +352,9 @@ define void @_ZN21ShowPacketBytesDialogC2ER7QWidgetR11CaptureFile(ptr noundef no
   %77 = alloca %"class.QMetaObject::Connection", align 8
   %78 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV21ShowPacketBytesDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV21ShowPacketBytesDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV21ShowPacketBytesDialog, i64 0, inrange i32 1, i64 2), ptr %79, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV21ShowPacketBytesDialog, i64 0, i32 1, i64 2), ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 136
   %81 = invoke noalias noundef nonnull dereferenceable(152) ptr @_Znwm(i64 noundef 152) #20
           to label %82 unwind label %500
@@ -2530,9 +2530,9 @@ _ZN7QStringD2Ev.exit43:                           ; preds = %49, %_ZN17QArrayDat
           to label %55 unwind label %253
 
 55:                                               ; preds = %_ZN7QStringD2Ev.exit43
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV23ShowPacketBytesTextEdit, i64 0, inrange i32 0, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV23ShowPacketBytesTextEdit, i64 0, i32 0, i64 2), ptr %54, align 8
   %56 = getelementptr inbounds i8, ptr %54, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV23ShowPacketBytesTextEdit, i64 0, inrange i32 1, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV23ShowPacketBytesTextEdit, i64 0, i32 1, i64 2), ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %54, i64 40
   store i8 1, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %54, i64 41
@@ -2747,7 +2747,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i83:    ; preds = %121
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %127, ptr noundef %128, i32 noundef 0, i32 0)
   %129 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   %130 = getelementptr inbounds i8, ptr %129, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %129, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %129, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %130, align 8
   %131 = getelementptr inbounds i8, ptr %129, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %131, align 4
@@ -2945,9 +2945,9 @@ _ZN7QStringD2Ev.exit121:                          ; preds = %191, %_ZN17QArrayDa
           to label %199 unwind label %357
 
 199:                                              ; preds = %_ZN7QStringD2Ev.exit121
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV12FindLineEdit, i64 0, inrange i32 0, i64 2), ptr %198, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV12FindLineEdit, i64 0, i32 0, i64 2), ptr %198, align 8
   %200 = getelementptr inbounds i8, ptr %198, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV12FindLineEdit, i64 0, inrange i32 1, i64 2), ptr %200, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV12FindLineEdit, i64 0, i32 1, i64 2), ptr %200, align 8
   %201 = getelementptr inbounds i8, ptr %198, i64 40
   store i8 0, ptr %201, align 8
   %202 = getelementptr inbounds i8, ptr %0, i64 120
@@ -4200,9 +4200,9 @@ _ZN17QArrayDataPointerIcED2Ev.exit:               ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -4241,9 +4241,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21ShowPacketBytesDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV21ShowPacketBytesDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV21ShowPacketBytesDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV21ShowPacketBytesDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV21ShowPacketBytesDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -4288,8 +4288,8 @@ _ZN17QArrayDataPointerIcE5derefEv.exit.i.i:       ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN10QByteArrayD2Ev.exit
 
 _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIcE5derefEv.exit.i.i, %17
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 104
   %20 = load ptr, ptr %19, align 8
   %.not.i.i.i.i = icmp eq ptr %20, null

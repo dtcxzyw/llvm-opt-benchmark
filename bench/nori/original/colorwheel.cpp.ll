@@ -137,7 +137,7 @@ define hidden void @_ZN7nanogui10ColorWheelC2EPNS_6WidgetERKNS_5ColorE(ptr nound
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui10ColorWheelE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui10ColorWheelE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.nanogui::ColorWheel", ptr %9, i32 0, i32 4
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.nanogui::ColorWheel", ptr %9, i32 0, i32 5
@@ -2288,7 +2288,7 @@ define linkonce_odr hidden void @_ZN7nanogui10ColorWheelD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui10ColorWheelE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui10ColorWheelE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::ColorWheel", ptr %3, i32 0, i32 5
   call void @_ZNSt8functionIFvRKN7nanogui5ColorEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #11

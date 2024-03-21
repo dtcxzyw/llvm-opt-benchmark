@@ -2430,9 +2430,9 @@ define void @_ZN10PacketListC2EP7QWidget(ptr noundef nonnull align 8 dereference
   %36 = load ptr, ptr %3, align 8
   %37 = load ptr, ptr %4, align 8
   call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef %37)
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i32 0, inrange i32 0, i32 2), ptr %36, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i32 0, i32 0, i32 2), ptr %36, align 8
   %38 = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i32 0, inrange i32 1, i32 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i32 0, i32 1, i32 2), ptr %38, align 8
   %39 = getelementptr inbounds %class.PacketList, ptr %36, i32 0, i32 3
   store ptr null, ptr %39, align 8
   %40 = getelementptr inbounds %class.PacketList, ptr %36, i32 0, i32 4
@@ -3769,7 +3769,7 @@ define linkonce_odr void @_ZN21RelatedPacketDelegateD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.RelatedPacketDelegate, ptr %3, i32 0, i32 1
   call void @_ZN5QHashIi16ft_framenum_typeED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   call void @_ZN19QStyledItemDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #16
@@ -3807,9 +3807,9 @@ define void @_ZN10PacketListD2Ev(ptr noundef nonnull align 8 dereferenceable(464
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.PacketList, ptr %3, i32 0, i32 30
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null

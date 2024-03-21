@@ -1084,7 +1084,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3re26Regexp6WalkerINS_4FragEEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re28CompilerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re28CompilerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %inst_ = getelementptr inbounds %"class.re2::Compiler", ptr %this1, i32 0, i32 7
   invoke void @_ZN3re28PODArrayINS_4Prog4InstEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %inst_)
           to label %invoke.cont unwind label %lpad
@@ -1204,7 +1204,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stack_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 1
   call void @_ZNSt5stackIN3re29WalkStateINS0_4FragEEESt5dequeIS3_SaIS3_EEEC2IS6_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %stack_)
   %stopped_early_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 2
@@ -1461,7 +1461,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re28CompilerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re28CompilerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %prog_ = getelementptr inbounds %"class.re2::Compiler", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %prog_, align 8
   %isnull = icmp eq ptr %0, null
@@ -9070,7 +9070,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerINS_4FragEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN3re26Regexp6WalkerINS_4FragEE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 

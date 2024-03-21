@@ -2001,9 +2001,9 @@ define void @_ZN19WiresharkMainWindowC2EP7QWidget(ptr noundef nonnull align 8 de
   %185 = alloca %class.QString, align 8
   %186 = alloca %class.QString, align 8
   tail call void @_ZN10MainWindowC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(272) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkMainWindow, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkMainWindow, i64 0, i32 0, i64 2), ptr %0, align 8
   %187 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkMainWindow, i64 0, inrange i32 1, i64 2), ptr %187, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkMainWindow, i64 0, i32 1, i64 2), ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %0, i64 272
   %189 = invoke noalias noundef nonnull dereferenceable(2576) ptr @_Znwm(i64 noundef 2576) #26
           to label %190 unwind label %212
@@ -17511,7 +17511,7 @@ _ZN7QStringD2Ev.exit2552:                         ; preds = %3837, %_ZN17QArrayD
 
 3845:                                             ; preds = %3843
   %3846 = getelementptr inbounds i8, ptr %3844, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %3844, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %3844, align 8
   store <4 x i32> <i32 0, i32 40, i32 10, i32 1507328>, ptr %3846, align 8
   %3847 = getelementptr inbounds i8, ptr %3844, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %3847, align 4
@@ -36653,9 +36653,9 @@ declare void @_ZN10MainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(27
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19WiresharkMainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkMainWindow, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkMainWindow, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkMainWindow, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV19WiresharkMainWindow, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 2120
@@ -42427,9 +42427,9 @@ declare void @_ZN13MainStatusBar10showExpertEv(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17CaptureFileDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(572) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFileDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFileDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFileDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFileDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 496
   tail call void @_ZN19PacketRangeGroupBoxD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %3) #25
   %4 = getelementptr inbounds i8, ptr %0, i64 456
@@ -45980,7 +45980,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP7QActionEED2Ev.exit106: ; preds = %._cr
           to label %205 unwind label %223
 
 205:                                              ; preds = %202
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14ColorizeAction, i64 0, inrange i32 0, i64 2), ptr %201, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14ColorizeAction, i64 0, i32 0, i64 2), ptr %201, align 8
   %206 = getelementptr inbounds i8, ptr %201, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %206, i8 0, i64 24, i1 false)
   %207 = getelementptr inbounds i8, ptr %201, i64 40
@@ -46085,7 +46085,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i.i116: ; preds = %_ZN7QStringD
           to label %238 unwind label %257
 
 238:                                              ; preds = %234
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14ColorizeAction, i64 0, inrange i32 0, i64 2), ptr %196, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14ColorizeAction, i64 0, i32 0, i64 2), ptr %196, align 8
   %239 = getelementptr inbounds i8, ptr %196, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %239, i8 0, i64 24, i1 false)
   %240 = getelementptr inbounds i8, ptr %196, i64 40

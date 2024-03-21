@@ -140,7 +140,7 @@ entry:
   %1 = load i32, ptr %compress_format_version.addr, align 4
   %2 = load i64, ptr %max_output_len.addr, align 8
   call void @_ZN7rocksdb17StreamingCompressC2ENS_15CompressionTypeERKNS_18CompressionOptionsEjm(ptr noundef nonnull align 8 dereferenceable(88) %this1, i8 noundef zeroext 7, ptr noundef nonnull align 8 dereferenceable(49) %0, i32 noundef %1, i64 noundef %2)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb21ZSTDStreamingCompressE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb21ZSTDStreamingCompressE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke ptr @ZSTD_createCCtx()
           to label %invoke.cont unwind label %lpad
 
@@ -260,7 +260,7 @@ entry:
   %0 = load i32, ptr %compress_format_version.addr, align 4
   %1 = load i64, ptr %max_output_len.addr, align 8
   call void @_ZN7rocksdb19StreamingUncompressC2ENS_15CompressionTypeEjm(ptr noundef nonnull align 8 dereferenceable(24) %this1, i8 noundef zeroext 7, i32 noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb23ZSTDStreamingUncompressE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb23ZSTDStreamingUncompressE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke ptr @ZSTD_createDCtx()
           to label %invoke.cont unwind label %lpad
 
@@ -622,7 +622,7 @@ entry:
   store i32 %compress_format_version, ptr %compress_format_version.addr, align 4
   store i64 %max_output_len, ptr %max_output_len.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb17StreamingCompressE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb17StreamingCompressE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %compression_type_ = getelementptr inbounds %"class.rocksdb::StreamingCompress", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %compression_type.addr, align 1
   store i8 %0, ptr %compression_type_, align 8
@@ -676,7 +676,7 @@ entry:
   store i32 %compress_format_version, ptr %compress_format_version.addr, align 4
   store i64 %max_output_len, ptr %max_output_len.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb19StreamingUncompressE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb19StreamingUncompressE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %compression_type_ = getelementptr inbounds %"class.rocksdb::StreamingUncompress", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %compression_type.addr, align 1
   store i8 %0, ptr %compression_type_, align 8

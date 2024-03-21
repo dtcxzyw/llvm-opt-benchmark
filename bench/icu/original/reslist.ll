@@ -607,7 +607,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9SResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9SResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fType = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 1
   store i8 -1, ptr %fType, align 8
   %fWritten = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 2
@@ -647,7 +647,7 @@ entry:
   store ptr %comment, ptr %comment.addr, align 8
   store ptr %errorCode, ptr %errorCode.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9SResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9SResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fType = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %type.addr, align 1
   store i8 %0, ptr %fType, align 8
@@ -769,7 +769,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9SResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9SResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fComment = getelementptr inbounds %struct.SResource, ptr %this1, i32 0, i32 9
   invoke void @ustr_deinit(ptr noundef %fComment)
           to label %invoke.cont unwind label %terminate.lpad
@@ -822,7 +822,7 @@ entry:
   %next = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fFirst = getelementptr inbounds %class.ContainerResource, ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %fFirst, align 8
   store ptr %0, ptr %current, align 8
@@ -1250,7 +1250,7 @@ entry:
   %3 = load ptr, ptr %comment.addr, align 8
   %4 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fString = getelementptr inbounds %class.StringBaseResource, ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString)
           to label %invoke.cont unwind label %lpad
@@ -1374,7 +1374,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -1486,7 +1486,7 @@ entry:
   %1 = load i8, ptr %type.addr, align 1
   %2 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef null, i8 noundef signext %1, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fString = getelementptr inbounds %class.StringBaseResource, ptr %this1, i32 0, i32 1
   %3 = load ptr, ptr %value.addr, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fString, ptr noundef nonnull align 8 dereferenceable(64) %3)
@@ -1617,7 +1617,7 @@ entry:
   %0 = load i8, ptr %type.addr, align 1
   %1 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef null, ptr noundef null, i8 noundef signext %0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fString = getelementptr inbounds %class.StringBaseResource, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %value.addr, align 8
   invoke void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef %2)
@@ -1671,7 +1671,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18StringBaseResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fString = getelementptr inbounds %class.StringBaseResource, ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fString) #3
   call void @_ZN9SResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
@@ -1752,7 +1752,7 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 7, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11IntResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11IntResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %4 = load i32, ptr %value.addr, align 4
   %fValue = getelementptr inbounds %class.IntResource, ptr %this1, i32 0, i32 1
   store i32 %4, ptr %fValue, align 8
@@ -1808,7 +1808,7 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 14, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17IntVectorResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17IntVectorResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fCount = getelementptr inbounds %class.IntVectorResource, ptr %this1, i32 0, i32 1
   store i64 0, ptr %fCount, align 8
   %fSize = getelementptr inbounds %class.IntVectorResource, ptr %this1, i32 0, i32 2
@@ -1868,7 +1868,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17IntVectorResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17IntVectorResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fArray = getelementptr inbounds %class.IntVectorResource, ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %fArray, align 8
   %isnull = icmp eq ptr %0, null
@@ -2020,7 +2020,7 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 1, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14BinaryResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14BinaryResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLength = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 1
   %4 = load i32, ptr %length.addr, align 4
   store i32 %4, ptr %fLength, align 8
@@ -2169,7 +2169,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14BinaryResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14BinaryResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fData = getelementptr inbounds %class.BinaryResource, ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %fData, align 8
   %isnull = icmp eq ptr %0, null
@@ -6654,7 +6654,7 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN17ContainerResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 2, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TableResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TableResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fTableType = getelementptr inbounds %class.TableResource, ptr %this1, i32 0, i32 1
   store i8 2, ptr %fTableType, align 8
   %fRoot = getelementptr inbounds %class.TableResource, ptr %this1, i32 0, i32 2
@@ -6830,7 +6830,7 @@ entry:
   %2 = load ptr, ptr %comment.addr, align 8
   %3 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN17ContainerResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 8, ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13ArrayResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13ArrayResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLast = getelementptr inbounds %class.ArrayResource, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fLast, align 8
   ret void
@@ -7015,7 +7015,7 @@ entry:
   %4 = load ptr, ptr %comment.addr, align 8
   %5 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN18StringBaseResourceC2EP7SRBRootPKcaPKDsiPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 0, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fSame = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fSame, align 8
   %fSuffixOffset = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 2
@@ -7208,7 +7208,7 @@ entry:
   %4 = load ptr, ptr %comment.addr, align 8
   %5 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN18StringBaseResourceC2EP7SRBRootPKcaPKDsiPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext 3, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %5)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13AliasResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13AliasResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -7814,7 +7814,7 @@ entry:
   %0 = load ptr, ptr %bundle.addr, align 8
   %1 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN17ContainerResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0, ptr noundef null, i8 noundef signext 2, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18PseudoListResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18PseudoListResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9027,7 +9027,7 @@ entry:
   %1 = load ptr, ptr %value.addr, align 8
   %2 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN18StringBaseResourceC2EP7SRBRootaRKN6icu_7513UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef %0, i8 noundef signext 0, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fSame = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fSame, align 8
   %fSuffixOffset = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 2
@@ -9385,7 +9385,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9395,7 +9395,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9613,7 +9613,7 @@ entry:
   %3 = load ptr, ptr %comment.addr, align 8
   %4 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fCount = getelementptr inbounds %class.ContainerResource, ptr %this1, i32 0, i32 1
   store i32 0, ptr %fCount, align 8
   %fFirst = getelementptr inbounds %class.ContainerResource, ptr %this1, i32 0, i32 2

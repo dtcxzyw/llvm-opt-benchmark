@@ -79,7 +79,7 @@ $_ZNSt6vectorISt10shared_ptrIN19OpenColorIO_v2_4dev15DynamicPropertyEESaIS3_EE17
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev16GpuShaderCreatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16GpuShaderCreatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16GpuShaderCreatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #16
   invoke void @_ZN19OpenColorIO_v2_4dev16GpuShaderCreator4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %call)
           to label %invoke.cont unwind label %lpad
@@ -216,7 +216,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_4dev16GpuShaderCreatorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16GpuShaderCreatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16GpuShaderCreatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl, align 8
   %isnull = icmp eq ptr %0, null
@@ -1911,7 +1911,7 @@ declare void @_ZN19OpenColorIO_v2_4dev20GenericGpuShaderDesc6CreateEv(ptr sret(%
 ; Function Attrs: mustprogress uwtable
 define void @_ZN19OpenColorIO_v2_4dev13GpuShaderDescC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16GpuShaderCreatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16GpuShaderCreatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(472) ptr @_Znwm(i64 noundef 472) #16
   invoke void @_ZN19OpenColorIO_v2_4dev16GpuShaderCreator4ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(472) %call.i)
           to label %_ZN19OpenColorIO_v2_4dev16GpuShaderCreatorC2Ev.exit unwind label %lpad.i
@@ -1925,14 +1925,14 @@ lpad.i:                                           ; preds = %entry
 _ZN19OpenColorIO_v2_4dev16GpuShaderCreatorC2Ev.exit: ; preds = %entry
   %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call.i, ptr %m_impl.i, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev13GpuShaderDescE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev13GpuShaderDescE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN19OpenColorIO_v2_4dev13GpuShaderDescD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16GpuShaderCreatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16GpuShaderCreatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_impl.i, align 8
   %isnull.i = icmp eq ptr %0, null

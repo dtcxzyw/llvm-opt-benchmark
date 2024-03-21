@@ -80,7 +80,7 @@ $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_col
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly10symbolizer21SafeStackTracePrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10symbolizer21SafeStackTracePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10symbolizer21SafeStackTracePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %addresses_.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %addresses_.i, align 8, !tbaa !10
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -180,7 +180,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly10symbolizer21SafeStackTracePrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10symbolizer21SafeStackTracePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10symbolizer21SafeStackTracePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %addresses_ = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %addresses_, align 8, !tbaa !10
   %cmp.not.i = icmp eq ptr %0, null
@@ -260,7 +260,7 @@ _ZNSt10unique_ptrIN5folly10symbolizer10FrameArrayILm100EEESt14default_deleteIS3_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly10symbolizer35UnsafeSelfAllocateStackTracePrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10symbolizer21SafeStackTracePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10symbolizer21SafeStackTracePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %addresses_.i = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %addresses_.i, align 8, !tbaa !10
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -421,7 +421,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly10symbolizer21SafeStackTracePrinterC2Ei(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fd) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10symbolizer21SafeStackTracePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10symbolizer21SafeStackTracePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %fd_ = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %this, i64 0, i32 1
   store i32 %fd, ptr %fd_, align 8, !tbaa !25
   %printer_ = getelementptr inbounds %"class.folly::symbolizer::SafeStackTracePrinter", ptr %this, i64 0, i32 2

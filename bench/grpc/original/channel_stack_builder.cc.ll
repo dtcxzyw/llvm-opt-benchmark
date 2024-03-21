@@ -217,7 +217,7 @@ entry:
   store i32 %type, ptr %type.addr, align 4
   store ptr %channel_args, ptr %channel_args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core19ChannelStackBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.grpc_core::ChannelStackBuilder", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %name.addr, align 8
   store ptr %0, ptr %name_, align 8

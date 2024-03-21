@@ -547,7 +547,7 @@ define dso_local void @_ZN33cmExportInstallAndroidMKGeneratorC2EP24cmInstallExpo
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN28cmExportInstallFileGeneratorC2EP24cmInstallExportGenerator(ptr noundef nonnull align 8 dereferenceable(496) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV33cmExportInstallAndroidMKGenerator, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV33cmExportInstallAndroidMKGenerator, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -1618,7 +1618,7 @@ define linkonce_odr dso_local void @_ZN28cmExportInstallFileGeneratorD2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV28cmExportInstallFileGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV28cmExportInstallFileGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmExportInstallFileGenerator, ptr %3, i32 0, i32 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %class.cmExportInstallFileGenerator, ptr %3, i32 0, i32 3
@@ -1654,7 +1654,7 @@ define linkonce_odr dso_local void @_ZN21cmExportFileGeneratorD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21cmExportFileGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21cmExportFileGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 13
   call void @_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 12

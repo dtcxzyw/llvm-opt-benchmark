@@ -3560,7 +3560,7 @@ define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1Ev(ptr noundef nonnu
   %3 = alloca %"struct.std::__detail::_AllocNode", align 8
   %4 = alloca %"class.std::unordered_map.27", align 8
   %5 = alloca %"class.std::unordered_map.41", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9IMetadata, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9IMetadata, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %6 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT17ItemStackMetadata, i64 0, i64 1), align 8
   store ptr %6, ptr %0, align 8, !tbaa !12
   %7 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT17ItemStackMetadata, i64 0, i64 2), align 8
@@ -3581,7 +3581,7 @@ define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1Ev(ptr noundef nonnu
   store float 1.000000e+00, ptr %16, align 8, !tbaa !70
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, inrange i32 0, i64 10), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, i32 0, i64 10), ptr %0, align 8, !tbaa !12
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %18, align 8, !tbaa !52
   %19 = getelementptr inbounds i8, ptr %0, i64 80

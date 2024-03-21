@@ -3076,9 +3076,9 @@ define void @_ZN6casadi17FeasiblesqpmethodC2ERKNSt7__cxx1112basic_stringIcSt11ch
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN6casadi6NlpsolC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1928) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 1520
-  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %"class.casadi::Feasiblesqpmethod", ptr %9, i32 0, i32 2
   invoke void @_ZN6casadi8FunctionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %14 unwind label %25
@@ -3288,9 +3288,9 @@ define void @_ZN6casadi17FeasiblesqpmethodD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1520
-  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, i32 1, i32 2), ptr %4, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %5 unwind label %12
 
@@ -13357,7 +13357,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -13389,7 +13389,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -40038,9 +40038,9 @@ define void @_ZN6casadi17FeasiblesqpmethodC2ERNS_19DeserializingStreamE(ptr noun
   %81 = load ptr, ptr %3, align 8
   %82 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6NlpsolC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1928) %81, ptr noundef nonnull align 8 dereferenceable(41) %82)
-  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, inrange i32 0, i32 2), ptr %81, align 8
+  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, i32 0, i32 2), ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %81, i64 1520
-  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, inrange i32 1, i32 2), ptr %83, align 8
+  store ptr getelementptr inbounds ({ [121 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi17FeasiblesqpmethodE, i32 0, i32 1, i32 2), ptr %83, align 8
   %84 = getelementptr inbounds %"class.casadi::Feasiblesqpmethod", ptr %81, i32 0, i32 2
   invoke void @_ZN6casadi8FunctionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %84)
           to label %85 unwind label %111
@@ -46402,7 +46402,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

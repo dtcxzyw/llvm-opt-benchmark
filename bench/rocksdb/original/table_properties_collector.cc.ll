@@ -941,7 +941,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31UserKeyTablePropertiesCollectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31UserKeyTablePropertiesCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %collector_ = getelementptr inbounds %"class.rocksdb::UserKeyTablePropertiesCollector", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb24TablePropertiesCollectorESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %collector_) #11
   call void @_ZN7rocksdb19IntTblPropCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11

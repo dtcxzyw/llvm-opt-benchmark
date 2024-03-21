@@ -52,7 +52,7 @@ $__clang_call_terminate = comdat any
 define hidden void @_ZN3ue217ComponentBoundaryC2ENS0_8BoundaryE(ptr noundef nonnull align 8 dereferenceable(72) %this, i32 noundef %bound) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_bound = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %bound, ptr %m_bound, align 8
   %m_newline = getelementptr inbounds i8, ptr %this, i64 20
@@ -68,7 +68,7 @@ declare void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue217ComponentBoundaryD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_last = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_last, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -99,7 +99,7 @@ declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue217ComponentBoundaryD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_last.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %m_last.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -131,7 +131,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue217ComponentBoundaryC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(72) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i64 0, i32 0, i64 2), ptr %this, align 8
   %pos_begin.i = getelementptr inbounds i8, ptr %this, i64 8
   %pos_begin2.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %pos_begin2.i, align 8
@@ -140,7 +140,7 @@ entry:
   %pos_end3.i = getelementptr inbounds i8, ptr %other, i64 12
   %1 = load i32, ptr %pos_end3.i, align 4
   store i32 %1, ptr %pos_end.i, align 4
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue217ComponentBoundaryE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_bound = getelementptr inbounds i8, ptr %this, i64 16
   %m_bound2 = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i32, ptr %m_bound2, align 8
@@ -1259,7 +1259,7 @@ invoke.cont:                                      ; preds = %if.then5
           to label %invoke.cont7 unwind label %ehcleanup
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #16
           to label %unreachable unwind label %ehcleanup
 
@@ -1368,7 +1368,7 @@ invoke.cont:                                      ; preds = %if.then5
           to label %invoke.cont7 unwind label %ehcleanup
 
 invoke.cont7:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #16
           to label %unreachable unwind label %ehcleanup
 

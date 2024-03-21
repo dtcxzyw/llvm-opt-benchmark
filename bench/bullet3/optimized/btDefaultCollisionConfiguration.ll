@@ -186,12 +186,12 @@ $_ZTIN31btConvexPlaneCollisionAlgorithm10CreateFuncE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultCollisionConstructionInfo(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %constructionInfo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31btDefaultCollisionConfiguration, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31btDefaultCollisionConfiguration, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_useEpaPenetrationAlgorithm = getelementptr inbounds i8, ptr %constructionInfo, i64 28
   %0 = load i32, ptr %m_useEpaPenetrationAlgorithm, align 4
   %tobool.not = icmp eq i32 %0, 0
   %call4 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 8, i32 noundef 16)
-  %. = select i1 %tobool.not, ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV33btMinkowskiPenetrationDepthSolver, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30btGjkEpaPenetrationDepthSolver, i64 0, inrange i32 0, i64 2)
+  %. = select i1 %tobool.not, ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV33btMinkowskiPenetrationDepthSolver, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30btGjkEpaPenetrationDepthSolver, i64 0, inrange i32 0, i64 2)
   store ptr %., ptr %call4, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 48
   store ptr %call4, ptr %1, align 8
@@ -203,67 +203,67 @@ entry:
   %call11 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i = getelementptr inbounds i8, ptr %call11, i64 8
   store i8 0, ptr %m_swapped.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN33btConvexConcaveCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN33btConvexConcaveCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call11, align 8
   %m_convexConcaveCreateFunc = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %call11, ptr %m_convexConcaveCreateFunc, align 8
   %call14 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i22 = getelementptr inbounds i8, ptr %call14, i64 8
   store i8 0, ptr %m_swapped.i.i22, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN33btConvexConcaveCollisionAlgorithm17SwappedCreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call14, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN33btConvexConcaveCollisionAlgorithm17SwappedCreateFuncE, i64 0, i32 0, i64 2), ptr %call14, align 8
   %m_swappedConvexConcaveCreateFunc = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %call14, ptr %m_swappedConvexConcaveCreateFunc, align 8
   %call17 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i23 = getelementptr inbounds i8, ptr %call17, i64 8
   store i8 0, ptr %m_swapped.i.i23, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN28btCompoundCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call17, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN28btCompoundCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call17, align 8
   %m_compoundCreateFunc = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %call17, ptr %m_compoundCreateFunc, align 8
   %call20 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i24 = getelementptr inbounds i8, ptr %call20, i64 8
   store i8 0, ptr %m_swapped.i.i24, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN36btCompoundCompoundCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call20, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN36btCompoundCompoundCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call20, align 8
   %m_compoundCompoundCreateFunc = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %call20, ptr %m_compoundCompoundCreateFunc, align 8
   %call23 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i25 = getelementptr inbounds i8, ptr %call23, i64 8
   store i8 0, ptr %m_swapped.i.i25, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN28btCompoundCollisionAlgorithm17SwappedCreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call23, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN28btCompoundCollisionAlgorithm17SwappedCreateFuncE, i64 0, i32 0, i64 2), ptr %call23, align 8
   %m_swappedCompoundCreateFunc = getelementptr inbounds i8, ptr %this, i64 96
   store ptr %call23, ptr %m_swappedCompoundCreateFunc, align 8
   %call26 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i26 = getelementptr inbounds i8, ptr %call26, i64 8
   store i8 0, ptr %m_swapped.i.i26, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN16btEmptyAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call26, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN16btEmptyAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call26, align 8
   %m_emptyCreateFunc = getelementptr inbounds i8, ptr %this, i64 104
   store ptr %call26, ptr %m_emptyCreateFunc, align 8
   %call29 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i27 = getelementptr inbounds i8, ptr %call29, i64 8
   store i8 0, ptr %m_swapped.i.i27, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN32btSphereSphereCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call29, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN32btSphereSphereCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call29, align 8
   %m_sphereSphereCF = getelementptr inbounds i8, ptr %this, i64 112
   store ptr %call29, ptr %m_sphereSphereCF, align 8
   %call32 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i28 = getelementptr inbounds i8, ptr %call32, i64 8
   store i8 0, ptr %m_swapped.i.i28, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN34btSphereTriangleCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call32, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN34btSphereTriangleCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call32, align 8
   %m_sphereTriangleCF = getelementptr inbounds i8, ptr %this, i64 144
   store ptr %call32, ptr %m_sphereTriangleCF, align 8
   %call35 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i29 = getelementptr inbounds i8, ptr %call35, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN34btSphereTriangleCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call35, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN34btSphereTriangleCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call35, align 8
   %m_triangleSphereCF = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %call35, ptr %m_triangleSphereCF, align 8
   store i8 1, ptr %m_swapped.i.i29, align 8
   %call39 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
   %m_swapped.i.i30 = getelementptr inbounds i8, ptr %call39, i64 8
   store i8 0, ptr %m_swapped.i.i30, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN26btBoxBoxCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call39, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN26btBoxBoxCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call39, align 8
   %m_boxBoxCF = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %call39, ptr %m_boxBoxCF, align 8
   %call42 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 24, i32 noundef 16)
   %m_swapped.i.i31 = getelementptr inbounds i8, ptr %call42, i64 8
   store i8 0, ptr %m_swapped.i.i31, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN31btConvexPlaneCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call42, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN31btConvexPlaneCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call42, align 8
   %m_numPerturbationIterations.i = getelementptr inbounds i8, ptr %call42, i64 12
   store i32 1, ptr %m_numPerturbationIterations.i, align 4
   %m_minimumPointsPerturbationThreshold.i = getelementptr inbounds i8, ptr %call42, i64 16
@@ -272,7 +272,7 @@ entry:
   store ptr %call42, ptr %m_convexPlaneCF, align 8
   %call45 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 24, i32 noundef 16)
   %m_swapped.i.i32 = getelementptr inbounds i8, ptr %call45, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN31btConvexPlaneCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN31btConvexPlaneCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call45, align 8
   %m_numPerturbationIterations.i33 = getelementptr inbounds i8, ptr %call45, i64 12
   store i32 1, ptr %m_numPerturbationIterations.i33, align 4
   %m_minimumPointsPerturbationThreshold.i34 = getelementptr inbounds i8, ptr %call45, i64 16
@@ -421,7 +421,7 @@ declare void @_ZN23btConvexConvexAlgorithm10CreateFuncC1EP30btConvexPenetrationD
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31btDefaultCollisionConfiguration, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31btDefaultCollisionConfiguration, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownsCollisionAlgorithmPool = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load i8, ptr %m_ownsCollisionAlgorithmPool, align 8
   %1 = and i8 %0, 1

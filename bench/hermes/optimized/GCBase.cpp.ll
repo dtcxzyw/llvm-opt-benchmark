@@ -302,7 +302,7 @@ entry:
   %ref.tmp2 = alloca %"class.hermes::vm::GCTripwireConfig", align 8
   %ref.tmp4 = alloca %"class.std::random_device", align 8
   %ref.tmp9 = alloca %"class.std::random_device", align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %numFinalizedObjects_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %numFinalizedObjects_, align 8
   %totalAllocatedBytes_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -706,7 +706,7 @@ lor.lhs.false3:                                   ; preds = %entry
   br i1 %tobool.not, label %_ZNKSt8functionIFvRN6hermes2vm17GCTripwireContextEEEclES3_.exit, label %return
 
 _ZNKSt8functionIFvRN6hermes2vm17GCTripwireContextEEEclES3_.exit: ; preds = %lor.lhs.false3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase13checkTripwireEmE3Ctx, i64 0, inrange i32 0, i64 2), ptr %ctx, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase13checkTripwireEmE3Ctx, i64 0, i32 0, i64 2), ptr %ctx, align 8
   store i8 1, ptr %tripwireCalled_, align 4
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 728
   %4 = load ptr, ptr %_M_invoker.i, align 8
@@ -2872,7 +2872,7 @@ entry:
 if.then:                                          ; preds = %entry
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.49, ptr %Fmt.i.i.i, align 8, !alias.scope !31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !31
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !31
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store double %0, ptr %Vals.i.i, align 8, !alias.scope !31
   %call = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #27
@@ -2905,7 +2905,7 @@ if.then5:                                         ; preds = %if.else
   %mul = fmul double %0, 1.000000e+03
   %Fmt.i.i.i8 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr @.str.49, ptr %Fmt.i.i.i8, align 8, !alias.scope !34
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp6, align 8, !alias.scope !34
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp6, align 8, !alias.scope !34
   %Vals.i.i9 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   store double %mul, ptr %Vals.i.i9, align 8, !alias.scope !34
   %call9 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6) #27
@@ -2934,7 +2934,7 @@ if.else11:                                        ; preds = %if.else
   %mul15 = fmul double %0, 1.000000e+06
   %Fmt.i.i.i25 = getelementptr inbounds i8, ptr %ref.tmp12, i64 8
   store ptr @.str.49, ptr %Fmt.i.i.i25, align 8, !alias.scope !37
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp12, align 8, !alias.scope !37
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp12, align 8, !alias.scope !37
   %Vals.i.i26 = getelementptr inbounds i8, ptr %ref.tmp12, i64 16
   store double %mul15, ptr %Vals.i.i26, align 8, !alias.scope !37
   %call16 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp12) #27
@@ -2980,7 +2980,7 @@ if.then:                                          ; preds = %entry
   %div = fmul double %conv, 0x3E10000000000000
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str.53, ptr %Fmt.i.i.i, align 8, !alias.scope !40
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !40
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !40
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store double %div, ptr %Vals.i.i, align 8, !alias.scope !40
   %call = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #27
@@ -2994,7 +2994,7 @@ if.then4:                                         ; preds = %if.else
   %div5 = fmul double %conv, 0x3EB0000000000000
   %Fmt.i.i.i11 = getelementptr inbounds i8, ptr %ref.tmp6, i64 8
   store ptr @.str.54, ptr %Fmt.i.i.i11, align 8, !alias.scope !43
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp6, align 8, !alias.scope !43
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp6, align 8, !alias.scope !43
   %Vals.i.i12 = getelementptr inbounds i8, ptr %ref.tmp6, i64 16
   store double %div5, ptr %Vals.i.i12, align 8, !alias.scope !43
   %call7 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp6) #27
@@ -3008,7 +3008,7 @@ if.then11:                                        ; preds = %if.else8
   %div12 = fmul double %conv, 0x3F50000000000000
   %Fmt.i.i.i13 = getelementptr inbounds i8, ptr %ref.tmp13, i64 8
   store ptr @.str.55, ptr %Fmt.i.i.i13, align 8, !alias.scope !46
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp13, align 8, !alias.scope !46
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJdEEE, i64 0, i32 0, i64 2), ptr %ref.tmp13, align 8, !alias.scope !46
   %Vals.i.i14 = getelementptr inbounds i8, ptr %ref.tmp13, i64 16
   store double %div12, ptr %Vals.i.i14, align 8, !alias.scope !46
   %call14 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp13) #27
@@ -3781,8 +3781,8 @@ entry:
   %pointerBase_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %pointerBase_.i, align 8
   %1 = getelementptr inbounds i8, ptr %rootAcceptor, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i64 0, inrange i32 0, i64 2), ptr %rootAcceptor, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i64 0, inrange i32 1, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i64 0, i32 0, i64 2), ptr %rootAcceptor, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i64 0, i32 1, i64 2), ptr %1, align 8
   %HINT8_MIN.i = getelementptr inbounds i8, ptr %rootAcceptor, i64 16
   store i64 -128, ptr %HINT8_MIN.i, align 8
   %HINT8_MAX.i = getelementptr inbounds i8, ptr %rootAcceptor, i64 24
@@ -3814,8 +3814,8 @@ entry:
   %pointerBase_.i6 = getelementptr inbounds i8, ptr %rootAcceptor, i64 160
   store ptr %0, ptr %pointerBase_.i6, align 8
   %3 = getelementptr inbounds i8, ptr %namedRootAcceptor, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEE, i64 0, inrange i32 0, i64 2), ptr %namedRootAcceptor, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEE, i64 0, i32 0, i64 2), ptr %namedRootAcceptor, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr] }, ptr @_ZTVN6hermes2vm16DroppingAcceptorIZNS0_6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptorEE, i64 0, i32 1, i64 2), ptr %3, align 8
   %acceptor2.i = getelementptr inbounds i8, ptr %namedRootAcceptor, i64 16
   store ptr %rootAcceptor, ptr %acceptor2.i, align 8
   %gcCallbacks_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -3862,8 +3862,8 @@ for.end:                                          ; preds = %for.body, %entry
   call void (ptr, ptr, ...) @_ZN6hermes9hermesLogEPKcS1_z(ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.58, ptr noundef nonnull @.str.60) #27
   %10 = load ptr, ptr %pointerBase_.i, align 8
   %11 = getelementptr inbounds i8, ptr %acceptor, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i64 0, inrange i32 0, i64 2), ptr %acceptor, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i64 0, inrange i32 1, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i64 0, i32 0, i64 2), ptr %acceptor, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [8 x ptr] }, ptr @_ZTVZN6hermes2vm6GCBase20sizeDiagnosticCensusEmE26HeapSizeDiagnosticAcceptor, i64 0, i32 1, i64 2), ptr %11, align 8
   %HINT8_MIN.i9 = getelementptr inbounds i8, ptr %acceptor, i64 16
   store i64 -128, ptr %HINT8_MIN.i9, align 8
   %HINT8_MAX.i10 = getelementptr inbounds i8, ptr %acceptor, i64 24
@@ -3973,7 +3973,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes2vm6GCBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(741) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN6hermes2vm6GCBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 720
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null

@@ -2340,7 +2340,7 @@ define dso_local void @_ZN12Translations15loadTranslationERKNSt7__cxx1112basic_s
   %819 = load i64, ptr %61, align 8
   %820 = getelementptr inbounds i8, ptr %11, i64 %819
   store ptr %60, ptr %820, align 8, !tbaa !46
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 0, inrange i32 0, i64 2), ptr %62, align 8, !tbaa !46
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 0, i32 0, i64 2), ptr %62, align 8, !tbaa !46
   %821 = load ptr, ptr %53, align 8, !tbaa !14
   %822 = icmp eq ptr %821, %63
   br i1 %822, label %823, label %826
@@ -2356,7 +2356,7 @@ define dso_local void @_ZN12Translations15loadTranslationERKNSt7__cxx1112basic_s
   br label %827
 
 827:                                              ; preds = %826, %823
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 0, inrange i32 0, i64 2), ptr %62, align 8, !tbaa !46
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 0, i32 0, i64 2), ptr %62, align 8, !tbaa !46
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %65) #24
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %66) #24
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %11) #24
@@ -2364,7 +2364,7 @@ define dso_local void @_ZN12Translations15loadTranslationERKNSt7__cxx1112basic_s
   %828 = load i64, ptr %61, align 8
   %829 = getelementptr inbounds i8, ptr %10, i64 %828
   store ptr %60, ptr %829, align 8, !tbaa !46
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 0, inrange i32 0, i64 2), ptr %67, align 8, !tbaa !46
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 0, i32 0, i64 2), ptr %67, align 8, !tbaa !46
   %830 = load ptr, ptr %47, align 8, !tbaa !14
   %831 = icmp eq ptr %830, %68
   br i1 %831, label %832, label %835
@@ -2380,7 +2380,7 @@ define dso_local void @_ZN12Translations15loadTranslationERKNSt7__cxx1112basic_s
   br label %836
 
 836:                                              ; preds = %835, %832
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 0, inrange i32 0, i64 2), ptr %67, align 8, !tbaa !46
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 0, i32 0, i64 2), ptr %67, align 8, !tbaa !46
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #24
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %71) #24
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %10) #24
@@ -2537,7 +2537,7 @@ define dso_local void @_ZN12Translations15loadTranslationERKNSt7__cxx1112basic_s
   %903 = getelementptr inbounds i8, ptr %3, i64 %902
   store ptr %900, ptr %903, align 8, !tbaa !46
   %904 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %904, align 8, !tbaa !46
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %904, align 8, !tbaa !46
   %905 = getelementptr inbounds i8, ptr %3, i64 88
   %906 = load ptr, ptr %905, align 8, !tbaa !31
   %907 = getelementptr inbounds i8, ptr %3, i64 104
@@ -2556,7 +2556,7 @@ define dso_local void @_ZN12Translations15loadTranslationERKNSt7__cxx1112basic_s
   br label %914
 
 914:                                              ; preds = %913, %909
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %904, align 8, !tbaa !46
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %904, align 8, !tbaa !46
   %915 = getelementptr inbounds i8, ptr %3, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %915) #24
   %916 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -2784,7 +2784,7 @@ define linkonce_odr dso_local void @_Z9str_splitIcESt6vectorINSt7__cxx1112basic_
   %74 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %73, ptr %74, align 8, !tbaa !46
   %75 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %75, align 8, !tbaa !46
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %75, align 8, !tbaa !46
   %76 = getelementptr inbounds i8, ptr %5, i64 96
   %77 = load ptr, ptr %76, align 8, !tbaa !31
   %78 = getelementptr inbounds i8, ptr %5, i64 112
@@ -2803,7 +2803,7 @@ define linkonce_odr dso_local void @_Z9str_splitIcESt6vectorINSt7__cxx1112basic_
   br label %85
 
 85:                                               ; preds = %84, %80
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %75, align 8, !tbaa !46
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %75, align 8, !tbaa !46
   %86 = getelementptr inbounds i8, ptr %5, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %86) #24
   %87 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8

@@ -7269,7 +7269,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15MyEventReceiverD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15MyEventReceiver, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15MyEventReceiver, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = icmp eq ptr %3, %2
@@ -7437,7 +7437,7 @@ define linkonce_odr dso_local void @_ZN15MyEventReceiverD0Ev(ptr noundef nonnull
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18RandomInputHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(3640) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV18RandomInputHandler, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV18RandomInputHandler, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds i8, ptr %0, i64 3592
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = icmp eq ptr %3, %2
@@ -7469,7 +7469,7 @@ define linkonce_odr dso_local void @_ZN18RandomInputHandlerD2Ev(ptr noundef nonn
   br i1 %18, label %19, label %5, !llvm.loop !90
 
 19:                                               ; preds = %17, %1
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV12InputHandler, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV12InputHandler, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   br label %20
 
 20:                                               ; preds = %33, %19
@@ -7777,7 +7777,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12InputHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(3584) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV12InputHandler, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV12InputHandler, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   br label %2
 
 2:                                                ; preds = %15, %1

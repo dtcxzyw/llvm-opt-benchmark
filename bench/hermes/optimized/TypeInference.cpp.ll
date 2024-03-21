@@ -1810,7 +1810,7 @@ _ZNSt10unique_ptrIN6hermes13TypeInferenceESt14default_deleteIS1_EED2Ev.exit:
   store ptr @.str, ptr %name2.i.i.i.i, align 8, !noalias !16
   %name.sroa.2.0.name2.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i64 13, ptr %name.sroa.2.0.name2.sroa_idx.i.i.i.i, align 8, !noalias !16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes13TypeInferenceE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes13TypeInferenceE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !16
   store ptr %call.i, ptr %agg.result, align 8
   ret void
 }

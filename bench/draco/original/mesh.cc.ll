@@ -762,7 +762,7 @@ define void @_ZN5draco4MeshC2Ev(ptr noundef nonnull align 8 dereferenceable(216)
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5draco10PointCloudC2Ev(ptr noundef nonnull align 8 dereferenceable(164) %5)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco4MeshE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco4MeshE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.draco::Mesh", ptr %5, i32 0, i32 1
   call void @_ZNSt6vectorIN5draco4Mesh13AttributeDataESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   %7 = getelementptr inbounds %"class.draco::Mesh", ptr %5, i32 0, i32 2
@@ -846,7 +846,7 @@ define linkonce_odr void @_ZN5draco10PointCloudD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco10PointCloudE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco10PointCloudE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 3
   %5 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds %"class.std::vector.2", ptr %5, i64 5
@@ -1049,7 +1049,7 @@ define linkonce_odr void @_ZN5draco4MeshD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco4MeshE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco4MeshE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::Mesh", ptr %3, i32 0, i32 2
   call void @_ZN5draco15IndexTypeVectorINS_9IndexTypeIjNS_19FaceIndex_tag_type_EEESt5arrayINS1_IjNS_20PointIndex_tag_type_EEELm3EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %"class.draco::Mesh", ptr %3, i32 0, i32 1

@@ -4462,7 +4462,7 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #11
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this2, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc14BytecodeHasherE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc14BytecodeHasherE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %hash_ = getelementptr inbounds %"class.hermes::hbc::BytecodeHasher", ptr %this2, i32 0, i32 1
   store i32 0, ptr %hash_, align 4
   %useStrings_ = getelementptr inbounds %"class.hermes::hbc::BytecodeHasher", ptr %this2, i32 0, i32 2
@@ -8977,7 +8977,7 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #11
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %funcId_ = getelementptr inbounds %"class.hermes::hbc::JumpTargetsVisitor", ptr %this1, i32 0, i32 1
   store i32 0, ptr %funcId_, align 4
   %bytecodeStart_ = getelementptr inbounds %"class.hermes::hbc::JumpTargetsVisitor", ptr %this1, i32 0, i32 2
@@ -9021,7 +9021,7 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #11
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %jumpTargets_ = getelementptr inbounds %"class.hermes::hbc::PrettyDisassembleVisitor", ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %jumpTargets.addr, align 8
   store ptr %0, ptr %jumpTargets_, align 8
@@ -9230,7 +9230,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %jumpTargets_ = getelementptr inbounds %"class.hermes::hbc::JumpTargetsVisitor", ptr %this1, i32 0, i32 5
   call void @_ZNSt13unordered_mapIPKvjSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %jumpTargets_) #11
   %switchInsts_ = getelementptr inbounds %"class.hermes::hbc::JumpTargetsVisitor", ptr %this1, i32 0, i32 4
@@ -9343,7 +9343,7 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #11
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %os_ = getelementptr inbounds %"class.hermes::hbc::DisassembleVisitor", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %os.addr, align 8
   store ptr %0, ptr %os_, align 8
@@ -9444,7 +9444,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %switchInsts_ = getelementptr inbounds %"class.hermes::hbc::DisassembleVisitor", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %switchInsts_) #11
   call void @_ZN6hermes3hbc15BytecodeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this1) #11
@@ -9508,7 +9508,7 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #11
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %regexStringIDMap_ = getelementptr inbounds %"class.hermes::hbc::RegexStringTableVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt4pairIjjESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %regexStringIDMap_) #11
   %regexStringIDMap_2 = getelementptr inbounds %"class.hermes::hbc::RegexStringTableVisitor", ptr %this1, i32 0, i32 1
@@ -9583,7 +9583,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %regexStringIDMap_ = getelementptr inbounds %"class.hermes::hbc::RegexStringTableVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt4pairIjjESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %regexStringIDMap_) #11
   call void @_ZN6hermes3hbc15BytecodeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this1) #11
@@ -10206,7 +10206,7 @@ entry:
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #11
   call void @_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %agg.tmp)
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #11
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %funcId_ = getelementptr inbounds %"class.hermes::hbc::ObjdumpDisassembleVisitor", ptr %this1, i32 0, i32 1
   store i32 0, ptr %funcId_, align 4
   %funcOffset_ = getelementptr inbounds %"class.hermes::hbc::ObjdumpDisassembleVisitor", ptr %this1, i32 0, i32 2
@@ -11992,7 +11992,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %bcProvider, ptr %bcProvider.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bcProvider_ = getelementptr inbounds %"class.hermes::hbc::BytecodeVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %bcProvider_, ptr noundef nonnull align 8 dereferenceable(16) %bcProvider) #11
   %funcId_ = getelementptr inbounds %"class.hermes::hbc::BytecodeVisitor", ptr %this1, i32 0, i32 2
@@ -12563,7 +12563,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bcProvider_ = getelementptr inbounds %"class.hermes::hbc::BytecodeVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %bcProvider_) #11
   ret void

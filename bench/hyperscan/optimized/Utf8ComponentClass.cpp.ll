@@ -2265,7 +2265,7 @@ declare void @_ZN3ue222getPredefinedCharReachENS_15PredefinedClassERKNS_9ParseMo
 define hidden void @_ZN3ue218UTF8ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull align 1 dereferenceable(6) %mode_in) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN3ue214ComponentClassC2ERKNS_9ParseModeE(ptr noundef nonnull align 8 dereferenceable(29) %this, ptr noundef nonnull align 1 dereferenceable(6) %mode_in)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue218UTF8ComponentClassE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue218UTF8ComponentClassE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -2341,7 +2341,7 @@ entry:
   %__an.i.i.i9 = alloca %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Alloc_node", align 8
   %__an.i.i.i = alloca %"struct.std::_Rb_tree<unsigned char, std::pair<const unsigned char, unsigned int>, std::_Select1st<std::pair<const unsigned char, unsigned int>>, std::less<unsigned char>>::_Alloc_node", align 8
   %__an.i.i.i.i.i.i = alloca %"struct.std::_Rb_tree<boost::icl::closed_interval<unsigned int>, boost::icl::closed_interval<unsigned int>, std::_Identity<boost::icl::closed_interval<unsigned int>>, boost::icl::exclusive_less_than<boost::icl::closed_interval<unsigned int>>>::_Alloc_node", align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i64 0, i32 0, i64 2), ptr %this, align 8
   %pos_begin.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %pos_begin2.i.i = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i32, ptr %pos_begin2.i.i, align 8
@@ -2350,7 +2350,7 @@ entry:
   %pos_end3.i.i = getelementptr inbounds i8, ptr %0, i64 12
   %2 = load i32, ptr %pos_end3.i.i, align 4
   store i32 %2, ptr %pos_end.i.i, align 4
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue214ComponentClassE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue214ComponentClassE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_negate.i = getelementptr inbounds i8, ptr %this, i64 16
   %m_negate2.i = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load i8, ptr %m_negate2.i, align 8
@@ -2373,7 +2373,7 @@ entry:
   %8 = load i8, ptr %finalized8.i, align 4
   %9 = and i8 %8, 1
   store i8 %9, ptr %finalized.i, align 4
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue218UTF8ComponentClassE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue218UTF8ComponentClassE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cps = getelementptr inbounds i8, ptr %this, i64 32
   %10 = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %10, align 8
@@ -2771,10 +2771,10 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue217LocatedParseErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue217LocatedParseErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %finalized = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %finalized, align 8
   %reason = getelementptr inbounds i8, ptr %this, i64 8
@@ -6666,7 +6666,7 @@ nrvo.skipdtor:                                    ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue218UTF8ComponentClassD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue218UTF8ComponentClassE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3ue218UTF8ComponentClassE, i64 0, i32 0, i64 2), ptr %this, align 8
   %tails = getelementptr inbounds i8, ptr %this, i64 160
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

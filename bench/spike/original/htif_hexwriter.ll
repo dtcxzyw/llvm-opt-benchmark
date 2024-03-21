@@ -476,7 +476,7 @@ define void @_ZN16htif_hexwriter_tC2Emmm(ptr noundef nonnull align 8 dereference
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN15chunked_memif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16htif_hexwriter_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16htif_hexwriter_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.htif_hexwriter_t, ptr %9, i32 0, i32 1
   %11 = load i64, ptr %6, align 8
   store i64 %11, ptr %10, align 8
@@ -496,7 +496,7 @@ define linkonce_odr void @_ZN15chunked_memif_tC2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15chunked_memif_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15chunked_memif_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1183,7 +1183,7 @@ define linkonce_odr void @_ZN16htif_hexwriter_tD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16htif_hexwriter_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16htif_hexwriter_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.htif_hexwriter_t, ptr %3, i32 0, i32 4
   call void @_ZNSt3mapImSt6vectorIcSaIcEESt4lessImESaISt4pairIKmS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   call void @_ZN15chunked_memif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3

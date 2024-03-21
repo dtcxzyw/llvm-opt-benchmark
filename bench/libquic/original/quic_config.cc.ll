@@ -762,7 +762,7 @@ entry:
   store i32 %tag, ptr %tag.addr, align 4
   store i32 %presence, ptr %presence.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %tag_ = getelementptr inbounds %"class.net::QuicConfigValue", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %tag.addr, align 4
   store i32 %0, ptr %tag_, align 8
@@ -805,7 +805,7 @@ entry:
   %0 = load i32, ptr %tag.addr, align 4
   %1 = load i32, ptr %presence.addr, align 4
   call void @_ZN3net15QuicConfigValueC2EjNS_18QuicConfigPresenceE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %negotiated_ = getelementptr inbounds %"class.net::QuicNegotiableValue", ptr %this1, i32 0, i32 1
   store i8 0, ptr %negotiated_, align 8
   ret void
@@ -843,7 +843,7 @@ entry:
   %0 = load i32, ptr %tag.addr, align 4
   %1 = load i32, ptr %presence.addr, align 4
   call void @_ZN3net19QuicNegotiableValueC2EjNS_18QuicConfigPresenceE(ptr noundef nonnull align 8 dereferenceable(17) %this1, i32 noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %max_value_ = getelementptr inbounds %"class.net::QuicNegotiableUint32", ptr %this1, i32 0, i32 1
   store i32 0, ptr %max_value_, align 4
   %default_value_ = getelementptr inbounds %"class.net::QuicNegotiableUint32", ptr %this1, i32 0, i32 2
@@ -1276,7 +1276,7 @@ entry:
   %0 = load i32, ptr %tag.addr, align 4
   %1 = load i32, ptr %presence.addr, align 4
   call void @_ZN3net19QuicNegotiableValueC2EjNS_18QuicConfigPresenceE(ptr noundef nonnull align 8 dereferenceable(17) %this1, i32 noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %negotiated_tag_ = getelementptr inbounds %"class.net::QuicNegotiableTag", ptr %this1, i32 0, i32 2
   store i32 0, ptr %negotiated_tag_, align 4
   %possible_values_ = getelementptr inbounds %"class.net::QuicNegotiableTag", ptr %this1, i32 0, i32 3
@@ -1302,7 +1302,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %possible_values_ = getelementptr inbounds %"class.net::QuicNegotiableTag", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %possible_values_) #11
   call void @_ZN3net19QuicNegotiableValueD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this1) #11
@@ -1934,7 +1934,7 @@ entry:
   %0 = load i32, ptr %tag.addr, align 4
   %1 = load i32, ptr %presence.addr, align 4
   call void @_ZN3net15QuicConfigValueC2EjNS_18QuicConfigPresenceE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %has_send_value_ = getelementptr inbounds %"class.net::QuicFixedUint32", ptr %this1, i32 0, i32 2
   store i8 0, ptr %has_send_value_, align 4
   %has_receive_value_ = getelementptr inbounds %"class.net::QuicFixedUint32", ptr %this1, i32 0, i32 5
@@ -2439,7 +2439,7 @@ entry:
   %0 = load i32, ptr %name.addr, align 4
   %1 = load i32, ptr %presence.addr, align 4
   call void @_ZN3net15QuicConfigValueC2EjNS_18QuicConfigPresenceE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %send_values_ = getelementptr inbounds %"class.net::QuicFixedTagVector", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %send_values_) #11
   %has_send_values_ = getelementptr inbounds %"class.net::QuicFixedTagVector", ptr %this1, i32 0, i32 2
@@ -2463,7 +2463,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3net15QuicConfigValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %send_values_ = getelementptr inbounds %"class.net::QuicFixedTagVector", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %send_values_2 = getelementptr inbounds %"class.net::QuicFixedTagVector", ptr %1, i32 0, i32 1
@@ -2533,7 +2533,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %tag_ = getelementptr inbounds %"class.net::QuicConfigValue", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %.addr, align 8
   %tag_2 = getelementptr inbounds %"class.net::QuicConfigValue", ptr %1, i32 0, i32 1
@@ -2623,7 +2623,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %receive_values_ = getelementptr inbounds %"class.net::QuicFixedTagVector", ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %receive_values_) #11
   %send_values_ = getelementptr inbounds %"class.net::QuicFixedTagVector", ptr %this1, i32 0, i32 1
@@ -3171,7 +3171,7 @@ entry:
   %0 = load i32, ptr %tag.addr, align 4
   %1 = load i32, ptr %presence.addr, align 4
   call void @_ZN3net15QuicConfigValueC2EjNS_18QuicConfigPresenceE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %send_value_ = getelementptr inbounds %"class.net::QuicFixedIPEndPoint", ptr %this1, i32 0, i32 1
   invoke void @_ZN3net10IPEndPointC1Ev(ptr noundef nonnull align 8 dereferenceable(26) %send_value_)
           to label %invoke.cont unwind label %lpad
@@ -3230,7 +3230,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %receive_value_ = getelementptr inbounds %"class.net::QuicFixedIPEndPoint", ptr %this1, i32 0, i32 4
   call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %receive_value_) #11
   %send_value_ = getelementptr inbounds %"class.net::QuicFixedIPEndPoint", ptr %this1, i32 0, i32 1
@@ -4284,7 +4284,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3net19QuicNegotiableValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(17) %1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %max_value_ = getelementptr inbounds %"class.net::QuicNegotiableUint32", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %max_value_2 = getelementptr inbounds %"class.net::QuicNegotiableUint32", ptr %2, i32 0, i32 1
@@ -4302,7 +4302,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3net15QuicConfigValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %send_value_ = getelementptr inbounds %"class.net::QuicFixedUint32", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %send_value_2 = getelementptr inbounds %"class.net::QuicFixedUint32", ptr %2, i32 0, i32 1
@@ -4322,7 +4322,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3net15QuicConfigValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %send_value_ = getelementptr inbounds %"class.net::QuicFixedIPEndPoint", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %send_value_2 = getelementptr inbounds %"class.net::QuicFixedIPEndPoint", ptr %2, i32 0, i32 1
@@ -7009,7 +7009,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3net15QuicConfigValueC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %negotiated_ = getelementptr inbounds %"class.net::QuicNegotiableValue", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %negotiated_2 = getelementptr inbounds %"class.net::QuicNegotiableValue", ptr %2, i32 0, i32 1

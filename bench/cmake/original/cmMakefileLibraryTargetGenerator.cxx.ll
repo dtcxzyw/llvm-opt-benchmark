@@ -1365,7 +1365,7 @@ define dso_local void @_ZN32cmMakefileLibraryTargetGeneratorC2EP17cmGeneratorTar
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN25cmMakefileTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(1064) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV32cmMakefileLibraryTargetGenerator, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV32cmMakefileLibraryTargetGenerator, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.cmMakefileLibraryTargetGenerator, ptr %10, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
   %13 = getelementptr inbounds %class.cmMakefileLibraryTargetGenerator, ptr %10, i32 0, i32 2
@@ -1631,7 +1631,7 @@ define dso_local void @_ZN32cmMakefileLibraryTargetGeneratorD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV32cmMakefileLibraryTargetGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV32cmMakefileLibraryTargetGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmMakefileLibraryTargetGenerator, ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmMakefileLibraryTargetGenerator, ptr %3, i32 0, i32 1

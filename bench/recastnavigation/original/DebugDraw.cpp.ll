@@ -3310,7 +3310,7 @@ define void @_ZN13duDisplayListC2Ei(ptr noundef nonnull align 8 dereferenceable(
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
   call void @_ZN11duDebugDrawC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13duDisplayList, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13duDisplayList, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 1
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds %class.duDisplayList, ptr %7, i32 0, i32 2
@@ -3364,7 +3364,7 @@ define linkonce_odr void @_ZN11duDebugDrawC2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV11duDebugDraw, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV11duDebugDraw, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3467,7 +3467,7 @@ define void @_ZN13duDisplayListD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13duDisplayList, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13duDisplayList, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.duDisplayList, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

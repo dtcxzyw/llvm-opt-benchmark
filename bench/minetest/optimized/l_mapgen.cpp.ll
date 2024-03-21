@@ -1052,7 +1052,7 @@ define dso_local noundef ptr @_Z14load_schematicP9lua_StateiPK14NodeDefManagerPS
 
 27:                                               ; preds = %24
   %28 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %28, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !15
   %29 = getelementptr inbounds i8, ptr %28, i64 24
   %30 = getelementptr inbounds i8, ptr %28, i64 40
   store ptr %30, ptr %29, align 8, !tbaa !4
@@ -1066,7 +1066,7 @@ define dso_local noundef ptr @_Z14load_schematicP9lua_StateiPK14NodeDefManagerPS
 33:                                               ; preds = %27
   %34 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %28, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !15
   %35 = load ptr, ptr %29, align 8, !tbaa !11
   %36 = icmp eq ptr %35, %30
   br i1 %36, label %37, label %40
@@ -1090,8 +1090,8 @@ define dso_local noundef ptr @_Z14load_schematicP9lua_StateiPK14NodeDefManagerPS
   br label %41
 
 44:                                               ; preds = %27
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 0, i64 2), ptr %28, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 1, i64 2), ptr %32, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 1, i64 2), ptr %32, align 8, !tbaa !15
   %45 = getelementptr inbounds i8, ptr %28, i64 136
   %46 = getelementptr inbounds i8, ptr %28, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %45, i8 0, i64 34, i1 false)
@@ -1530,7 +1530,7 @@ declare i32 @lua_type(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z23load_schematic_from_defP9lua_StateiPK14NodeDefManagerPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_St4hashISA_ESt8equal_toISA_ESaISt4pairIKSA_SA_EEE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(192) ptr @_Znwm(i64 noundef 192) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !15
   %6 = getelementptr inbounds i8, ptr %5, i64 24
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %7, ptr %6, align 8, !tbaa !4
@@ -1544,7 +1544,7 @@ define dso_local noundef ptr @_Z23load_schematic_from_defP9lua_StateiPK14NodeDef
 10:                                               ; preds = %4
   %11 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !15
   %12 = load ptr, ptr %6, align 8, !tbaa !11
   %13 = icmp eq ptr %12, %7
   br i1 %13, label %14, label %17
@@ -1564,8 +1564,8 @@ define dso_local noundef ptr @_Z23load_schematic_from_defP9lua_StateiPK14NodeDef
   resume { ptr, i32 } %11
 
 19:                                               ; preds = %4
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 1, i64 2), ptr %9, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 1, i64 2), ptr %9, align 8, !tbaa !15
   %20 = getelementptr inbounds i8, ptr %5, i64 136
   %21 = getelementptr inbounds i8, ptr %5, i64 176
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %20, i8 0, i64 34, i1 false)
@@ -2507,7 +2507,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8LuaErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -2560,13 +2560,13 @@ define linkonce_odr dso_local void @_ZN8LuaErrorC2ERKNSt7__cxx1112basic_stringIc
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LuaError, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LuaError, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3262,7 +3262,7 @@ define dso_local noundef ptr @_Z14read_biome_defP9lua_StateiPK14NodeDefManager(p
 30:                                               ; preds = %3
   %31 = tail call noundef i32 @_Z12getenumfieldP9lua_StateiPKcPK10EnumStringi(ptr noundef %0, i32 noundef %1, ptr noundef nonnull @.str.61, ptr noundef nonnull @_ZN12ModApiMapgen19es_BiomeTerrainTypeE, i32 noundef 0)
   %32 = tail call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %32, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %32, align 8, !tbaa !15
   %33 = getelementptr inbounds i8, ptr %32, i64 24
   %34 = getelementptr inbounds i8, ptr %32, i64 40
   store ptr %34, ptr %33, align 8, !tbaa !4
@@ -3276,7 +3276,7 @@ define dso_local noundef ptr @_Z14read_biome_defP9lua_StateiPK14NodeDefManager(p
 37:                                               ; preds = %30
   %38 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %32, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %32, align 8, !tbaa !15
   %39 = load ptr, ptr %33, align 8, !tbaa !11
   %40 = icmp eq ptr %39, %34
   br i1 %40, label %41, label %44
@@ -3300,8 +3300,8 @@ define dso_local noundef ptr @_Z14read_biome_defP9lua_StateiPK14NodeDefManager(p
   br label %45
 
 48:                                               ; preds = %30
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV5Biome, i64 0, inrange i32 0, i64 2), ptr %32, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV5Biome, i64 0, inrange i32 1, i64 2), ptr %36, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV5Biome, i64 0, i32 0, i64 2), ptr %32, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV5Biome, i64 0, i32 1, i64 2), ptr %36, align 8, !tbaa !15
   %49 = getelementptr inbounds i8, ptr %32, i64 152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %50 = getelementptr inbounds i8, ptr %32, i64 190
@@ -6843,7 +6843,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen19l_get_mapgen_paramsEP9lua_State
   %80 = getelementptr inbounds i8, ptr %2, i64 %79
   store ptr %77, ptr %80, align 8, !tbaa !15
   %81 = getelementptr inbounds i8, ptr %2, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %81, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %81, align 8, !tbaa !15
   %82 = getelementptr inbounds i8, ptr %2, i64 88
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = getelementptr inbounds i8, ptr %2, i64 104
@@ -6870,7 +6870,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen19l_get_mapgen_paramsEP9lua_State
   br label %223
 
 93:                                               ; preds = %90, %86
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %81, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %81, align 8, !tbaa !15
   %94 = getelementptr inbounds i8, ptr %2, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %94) #27
   %95 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -10840,7 +10840,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17DecorationManager6createE14Decor
 
 2:                                                ; preds = %1
   %3 = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !15
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -10854,7 +10854,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17DecorationManager6createE14Decor
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !15
   %10 = load ptr, ptr %4, align 8, !tbaa !11
   %11 = icmp eq ptr %10, %5
   br i1 %11, label %12, label %15
@@ -10907,15 +10907,15 @@ define linkonce_odr dso_local noundef ptr @_ZN17DecorationManager6createE14Decor
   store float 1.000000e+00, ptr %34, align 8, !tbaa !65
   %35 = getelementptr inbounds i8, ptr %3, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 1, i64 2), ptr %7, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %7, align 8, !tbaa !15
   %36 = getelementptr inbounds i8, ptr %3, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   br label %73
 
 37:                                               ; preds = %1
   %38 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %38, align 8, !tbaa !15
   %39 = getelementptr inbounds i8, ptr %38, i64 24
   %40 = getelementptr inbounds i8, ptr %38, i64 40
   store ptr %40, ptr %39, align 8, !tbaa !4
@@ -10929,7 +10929,7 @@ define linkonce_odr dso_local noundef ptr @_ZN17DecorationManager6createE14Decor
 43:                                               ; preds = %37
   %44 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %38, align 8, !tbaa !15
   %45 = load ptr, ptr %39, align 8, !tbaa !11
   %46 = icmp eq ptr %45, %40
   br i1 %46, label %47, label %50
@@ -10982,8 +10982,8 @@ define linkonce_odr dso_local noundef ptr @_ZN17DecorationManager6createE14Decor
   store float 1.000000e+00, ptr %69, align 8, !tbaa !65
   %70 = getelementptr inbounds i8, ptr %38, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 1, i64 2), ptr %42, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %38, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %42, align 8, !tbaa !15
   %71 = getelementptr inbounds i8, ptr %38, i64 320
   store ptr null, ptr %71, align 8, !tbaa !236
   %72 = getelementptr inbounds i8, ptr %38, i64 328
@@ -12609,7 +12609,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10OreManager6createE7OreType(i32 n
 
 2:                                                ; preds = %1
   %3 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !15
   %4 = getelementptr inbounds i8, ptr %3, i64 24
   %5 = getelementptr inbounds i8, ptr %3, i64 40
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -12623,7 +12623,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10OreManager6createE7OreType(i32 n
 8:                                                ; preds = %2
   %9 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !15
   %10 = load ptr, ptr %4, align 8, !tbaa !11
   %11 = icmp eq ptr %10, %5
   br i1 %11, label %12, label %15
@@ -12670,13 +12670,13 @@ define linkonce_odr dso_local noundef ptr @_ZN10OreManager6createE7OreType(i32 n
   store float 1.000000e+00, ptr %31, align 8, !tbaa !65
   %32 = getelementptr inbounds i8, ptr %3, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10OreScatter, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10OreScatter, i64 0, inrange i32 1, i64 2), ptr %7, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10OreScatter, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10OreScatter, i64 0, i32 1, i64 2), ptr %7, align 8, !tbaa !15
   br label %209
 
 33:                                               ; preds = %1
   %34 = tail call noalias noundef nonnull dereferenceable(296) ptr @_Znwm(i64 noundef 296) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %34, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %34, align 8, !tbaa !15
   %35 = getelementptr inbounds i8, ptr %34, i64 24
   %36 = getelementptr inbounds i8, ptr %34, i64 40
   store ptr %36, ptr %35, align 8, !tbaa !4
@@ -12690,7 +12690,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10OreManager6createE7OreType(i32 n
 39:                                               ; preds = %33
   %40 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %34, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %34, align 8, !tbaa !15
   %41 = load ptr, ptr %35, align 8, !tbaa !11
   %42 = icmp eq ptr %41, %36
   br i1 %42, label %43, label %46
@@ -12737,13 +12737,13 @@ define linkonce_odr dso_local noundef ptr @_ZN10OreManager6createE7OreType(i32 n
   store float 1.000000e+00, ptr %62, align 8, !tbaa !65
   %63 = getelementptr inbounds i8, ptr %34, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV8OreSheet, i64 0, inrange i32 0, i64 2), ptr %34, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV8OreSheet, i64 0, inrange i32 1, i64 2), ptr %38, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV8OreSheet, i64 0, i32 0, i64 2), ptr %34, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV8OreSheet, i64 0, i32 1, i64 2), ptr %38, align 8, !tbaa !15
   br label %209
 
 64:                                               ; preds = %1
   %65 = tail call noalias noundef nonnull dereferenceable(384) ptr @_Znwm(i64 noundef 384) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %65, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %65, align 8, !tbaa !15
   %66 = getelementptr inbounds i8, ptr %65, i64 24
   %67 = getelementptr inbounds i8, ptr %65, i64 40
   store ptr %67, ptr %66, align 8, !tbaa !4
@@ -12757,7 +12757,7 @@ define linkonce_odr dso_local noundef ptr @_ZN10OreManager6createE7OreType(i32 n
 70:                                               ; preds = %64
   %71 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %65, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %65, align 8, !tbaa !15
   %72 = load ptr, ptr %66, align 8, !tbaa !11
   %73 = icmp eq ptr %72, %67
   br i1 %73, label %74, label %77
@@ -12804,8 +12804,8 @@ _ZN7OrePuffC2Ev.exit:                             ; preds = %64
   store float 1.000000e+00, ptr %92, align 8, !tbaa !65
   %93 = getelementptr inbounds i8, ptr %65, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %93, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OrePuff, i64 0, inrange i32 0, i64 2), ptr %65, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OrePuff, i64 0, inrange i32 1, i64 2), ptr %69, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OrePuff, i64 0, i32 0, i64 2), ptr %65, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OrePuff, i64 0, i32 1, i64 2), ptr %69, align 8, !tbaa !15
   %94 = getelementptr inbounds i8, ptr %65, i64 288
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %94, align 8, !tbaa !188
   %95 = getelementptr inbounds i8, ptr %65, i64 304
@@ -12836,7 +12836,7 @@ _ZN7OrePuffC2Ev.exit:                             ; preds = %64
 
 107:                                              ; preds = %1
   %108 = tail call noalias noundef nonnull dereferenceable(288) ptr @_Znwm(i64 noundef 288) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %108, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %108, align 8, !tbaa !15
   %109 = getelementptr inbounds i8, ptr %108, i64 24
   %110 = getelementptr inbounds i8, ptr %108, i64 40
   store ptr %110, ptr %109, align 8, !tbaa !4
@@ -12850,7 +12850,7 @@ _ZN7OrePuffC2Ev.exit:                             ; preds = %64
 113:                                              ; preds = %107
   %114 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %108, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %108, align 8, !tbaa !15
   %115 = load ptr, ptr %109, align 8, !tbaa !11
   %116 = icmp eq ptr %115, %110
   br i1 %116, label %117, label %120
@@ -12897,13 +12897,13 @@ _ZN7OrePuffC2Ev.exit:                             ; preds = %64
   store float 1.000000e+00, ptr %136, align 8, !tbaa !65
   %137 = getelementptr inbounds i8, ptr %108, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %137, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OreBlob, i64 0, inrange i32 0, i64 2), ptr %108, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OreBlob, i64 0, inrange i32 1, i64 2), ptr %112, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OreBlob, i64 0, i32 0, i64 2), ptr %108, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OreBlob, i64 0, i32 1, i64 2), ptr %112, align 8, !tbaa !15
   br label %209
 
 138:                                              ; preds = %1
   %139 = tail call noalias noundef nonnull dereferenceable(312) ptr @_Znwm(i64 noundef 312) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %139, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %139, align 8, !tbaa !15
   %140 = getelementptr inbounds i8, ptr %139, i64 24
   %141 = getelementptr inbounds i8, ptr %139, i64 40
   store ptr %141, ptr %140, align 8, !tbaa !4
@@ -12917,7 +12917,7 @@ _ZN7OrePuffC2Ev.exit:                             ; preds = %64
 144:                                              ; preds = %138
   %145 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %139, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %139, align 8, !tbaa !15
   %146 = load ptr, ptr %140, align 8, !tbaa !11
   %147 = icmp eq ptr %146, %141
   br i1 %147, label %148, label %151
@@ -12964,8 +12964,8 @@ _ZN7OrePuffC2Ev.exit:                             ; preds = %64
   store float 1.000000e+00, ptr %167, align 8, !tbaa !65
   %168 = getelementptr inbounds i8, ptr %139, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %168, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OreVein, i64 0, inrange i32 0, i64 2), ptr %139, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OreVein, i64 0, inrange i32 1, i64 2), ptr %143, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OreVein, i64 0, i32 0, i64 2), ptr %139, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV7OreVein, i64 0, i32 1, i64 2), ptr %143, align 8, !tbaa !15
   %169 = getelementptr inbounds i8, ptr %139, i64 296
   store ptr null, ptr %169, align 8, !tbaa !271
   %170 = getelementptr inbounds i8, ptr %139, i64 304
@@ -12974,7 +12974,7 @@ _ZN7OrePuffC2Ev.exit:                             ; preds = %64
 
 171:                                              ; preds = %1
   %172 = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %172, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %172, align 8, !tbaa !15
   %173 = getelementptr inbounds i8, ptr %172, i64 24
   %174 = getelementptr inbounds i8, ptr %172, i64 40
   store ptr %174, ptr %173, align 8, !tbaa !4
@@ -12988,7 +12988,7 @@ _ZN7OrePuffC2Ev.exit:                             ; preds = %64
 177:                                              ; preds = %171
   %178 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %172, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %172, align 8, !tbaa !15
   %179 = load ptr, ptr %173, align 8, !tbaa !11
   %180 = icmp eq ptr %179, %174
   br i1 %180, label %181, label %184
@@ -13035,8 +13035,8 @@ _ZN7OrePuffC2Ev.exit:                             ; preds = %64
   store float 1.000000e+00, ptr %200, align 8, !tbaa !65
   %201 = getelementptr inbounds i8, ptr %172, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %201, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10OreStratum, i64 0, inrange i32 0, i64 2), ptr %172, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10OreStratum, i64 0, inrange i32 1, i64 2), ptr %176, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10OreStratum, i64 0, i32 0, i64 2), ptr %172, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10OreStratum, i64 0, i32 1, i64 2), ptr %176, align 8, !tbaa !15
   %202 = getelementptr inbounds i8, ptr %172, i64 288
   store <4 x float> <float 0.000000e+00, float 1.000000e+00, float 2.500000e+02, float 2.500000e+02>, ptr %202, align 4, !tbaa !188
   %203 = getelementptr inbounds i8, ptr %172, i64 304
@@ -13350,7 +13350,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen15l_generate_oresEP9lua_State(ptr
   %44 = phi ptr [ %40, %37 ], [ %42, %41 ]
   %45 = load ptr, ptr %44, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #27
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !15
   %46 = getelementptr inbounds i8, ptr %2, i64 8
   %47 = getelementptr inbounds i8, ptr %2, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %46, i8 0, i64 17, i1 false)
@@ -13613,7 +13613,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen22l_generate_decorationsEP9lua_St
   %44 = phi ptr [ %40, %37 ], [ %42, %41 ]
   %45 = load ptr, ptr %44, align 8, !tbaa !33
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %2) #27
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !15
   %46 = getelementptr inbounds i8, ptr %2, i64 8
   %47 = getelementptr inbounds i8, ptr %2, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %46, i8 0, i64 17, i1 false)
@@ -13968,7 +13968,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen18l_create_schematicEP9lua_State(
   %77 = load ptr, ptr %76, align 8
   %78 = tail call noundef nonnull align 8 dereferenceable(144) ptr %77(ptr noundef nonnull align 8 dereferenceable(112) %74)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %7) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !15
   %79 = getelementptr inbounds i8, ptr %7, i64 24
   %80 = getelementptr inbounds i8, ptr %7, i64 40
   store ptr %80, ptr %79, align 8, !tbaa !4
@@ -13982,7 +13982,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen18l_create_schematicEP9lua_State(
 83:                                               ; preds = %73
   %84 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !15
   %85 = load ptr, ptr %79, align 8, !tbaa !11
   %86 = icmp eq ptr %85, %80
   br i1 %86, label %87, label %90
@@ -14002,8 +14002,8 @@ define dso_local noundef i32 @_ZN12ModApiMapgen18l_create_schematicEP9lua_State(
   resume { ptr, i32 } %92
 
 93:                                               ; preds = %73
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 1, i64 2), ptr %82, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 1, i64 2), ptr %82, align 8, !tbaa !15
   %94 = getelementptr inbounds i8, ptr %7, i64 136
   %95 = getelementptr inbounds i8, ptr %7, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %94, i8 0, i64 34, i1 false)
@@ -16251,7 +16251,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen21l_serialize_schematicEP9lua_Sta
   %194 = getelementptr inbounds i8, ptr %6, i64 %193
   store ptr %191, ptr %194, align 8, !tbaa !15
   %195 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %195, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %195, align 8, !tbaa !15
   %196 = getelementptr inbounds i8, ptr %6, i64 80
   %197 = load ptr, ptr %196, align 8, !tbaa !11
   %198 = getelementptr inbounds i8, ptr %6, i64 96
@@ -16270,7 +16270,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen21l_serialize_schematicEP9lua_Sta
   br label %205
 
 205:                                              ; preds = %204, %200
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %195, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %195, align 8, !tbaa !15
   %206 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %206) #27
   %207 = getelementptr inbounds i8, ptr %6, i64 112
@@ -16850,7 +16850,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen14update_liquidsEP9lua_StateP8MMV
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr %20(ptr noundef nonnull align 8 dereferenceable(8) %17)
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %3) #27
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !15
   %22 = getelementptr inbounds i8, ptr %3, i64 8
   %23 = getelementptr inbounds i8, ptr %3, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %22, i8 0, i64 17, i1 false)
@@ -16939,7 +16939,7 @@ define dso_local noundef i32 @_ZN12ModApiMapgen13calc_lightingEP9lua_StateP8MMVM
 23:                                               ; preds = %17, %14
   %24 = phi ptr [ %16, %14 ], [ %22, %17 ]
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #27
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !15
   %25 = getelementptr inbounds i8, ptr %6, i64 8
   %26 = getelementptr inbounds i8, ptr %6, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %25, i8 0, i64 17, i1 false)
@@ -17008,7 +17008,7 @@ declare void @_ZN6Mapgen12calcLightingEN3irr4core8vector3dIsEES3_S3_S3_b(ptr nou
 define dso_local noundef i32 @_ZN12ModApiMapgen12set_lightingEP9lua_StateP8MMVManipN3irr4core8vector3dIsEES7_h(ptr nocapture noundef readnone %0, ptr noundef %1, i48 %2, i48 %3, i8 noundef zeroext %4) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.Mapgen, align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #27
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !15
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %6, i64 28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %7, i8 0, i64 17, i1 false)
@@ -17168,7 +17168,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8LuaErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17212,7 +17212,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -17359,7 +17359,7 @@ declare void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 40

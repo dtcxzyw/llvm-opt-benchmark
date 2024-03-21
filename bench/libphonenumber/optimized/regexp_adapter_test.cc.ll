@@ -11914,7 +11914,7 @@ _ZN5boost10scoped_ptrIKN4i18n12phonenumbers6RegExpEED2Ev.exit85: ; preds = %193,
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -11932,7 +11932,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -11960,7 +11960,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -11978,7 +11978,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -11997,7 +11997,7 @@ _ZN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestD2Ev.exit: ; p
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12015,7 +12015,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12034,7 +12034,7 @@ _ZN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestD2Ev.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12052,7 +12052,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12071,7 +12071,7 @@ _ZN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestD2Ev.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12089,7 +12089,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12108,7 +12108,7 @@ _ZN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestD2Ev.exit: ; pred
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12126,7 +12126,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12145,7 +12145,7 @@ _ZN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestD2Ev.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12163,7 +12163,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12182,7 +12182,7 @@ _ZN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestD2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12200,7 +12200,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12219,7 +12219,7 @@ _ZN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestD2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12237,7 +12237,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12256,7 +12256,7 @@ _ZN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestD2Ev.exi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12274,7 +12274,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12293,7 +12293,7 @@ _ZN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestD2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12311,7 +12311,7 @@ _ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -12348,7 +12348,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -12368,7 +12368,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers17RegExpAdapterTestC2E
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::allocator", align 1
   tail call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #19
@@ -12398,7 +12398,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %11 unwind label %.body
 
 11:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i64 0, i32 0, i64 2), ptr %10, align 8
   invoke void @_ZN4i18n12phonenumbers17RegExpTestContextC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_21AbstractRegExpFactoryE(ptr noundef nonnull align 8 dereferenceable(80) %5, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull %10)
           to label %12 unwind label %.body
 
@@ -12847,7 +12847,7 @@ declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4i18n12phonenumbers17RegExpAdapterTestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17RegExpAdapterTestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN4i18n12phonenumbers3gtl17STLDeleteElementsISt6vectorIPKNS0_17RegExpTestContextESaIS6_EEEEvPT_(ptr noundef nonnull %2)
   %3 = load ptr, ptr %2, align 8
@@ -13022,7 +13022,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13050,7 +13050,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13078,7 +13078,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13106,7 +13106,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13134,7 +13134,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13162,7 +13162,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13190,7 +13190,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13218,7 +13218,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13246,7 +13246,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -13274,7 +13274,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -14384,7 +14384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %45 unwind label %51
 
 45:                                               ; preds = %43
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestEEE, i64 0, inrange i32 0, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41RegExpAdapterTest_TestConsumeNoMatch_TestEEE, i64 0, i32 0, i64 2), ptr %44, align 8
   %46 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %40, ptr noundef %42, ptr noundef nonnull %44)
           to label %__cxx_global_var_init.1.exit unwind label %51
 
@@ -14463,7 +14463,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4: ;
           to label %64 unwind label %70
 
 64:                                               ; preds = %62
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestEEE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers42RegExpAdapterTest_TestConsumeWithNull_TestEEE, i64 0, i32 0, i64 2), ptr %63, align 8
   %65 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %59, ptr noundef %61, ptr noundef nonnull %63)
           to label %__cxx_global_var_init.14.exit unwind label %70
 
@@ -14536,7 +14536,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9: ;
           to label %83 unwind label %89
 
 83:                                               ; preds = %81
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestEEE, i64 0, inrange i32 0, i64 2), ptr %82, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48RegExpAdapterTest_TestConsumeRetainsMatches_TestEEE, i64 0, i32 0, i64 2), ptr %82, align 8
   %84 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %78, ptr noundef %80, ptr noundef nonnull %82)
           to label %__cxx_global_var_init.21.exit unwind label %89
 
@@ -14609,7 +14609,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15: 
           to label %102 unwind label %108
 
 102:                                              ; preds = %100
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestEEE, i64 0, inrange i32 0, i64 2), ptr %101, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41RegExpAdapterTest_TestFindAndConsume_TestEEE, i64 0, i32 0, i64 2), ptr %101, align 8
   %103 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %97, ptr noundef %99, ptr noundef nonnull %101)
           to label %__cxx_global_var_init.30.exit unwind label %108
 
@@ -14682,7 +14682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21: 
           to label %121 unwind label %127
 
 121:                                              ; preds = %119
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestEEE, i64 0, inrange i32 0, i64 2), ptr %120, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39RegExpAdapterTest_TestPartialMatch_TestEEE, i64 0, i32 0, i64 2), ptr %120, align 8
   %122 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.65, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %116, ptr noundef %118, ptr noundef nonnull %120)
           to label %__cxx_global_var_init.64.exit unwind label %127
 
@@ -14755,7 +14755,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27: 
           to label %140 unwind label %146
 
 140:                                              ; preds = %138
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestEEE, i64 0, inrange i32 0, i64 2), ptr %139, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers36RegExpAdapterTest_TestFullMatch_TestEEE, i64 0, i32 0, i64 2), ptr %139, align 8
   %141 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.79, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %135, ptr noundef %137, ptr noundef nonnull %139)
           to label %__cxx_global_var_init.78.exit unwind label %146
 
@@ -14828,7 +14828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33: 
           to label %159 unwind label %165
 
 159:                                              ; preds = %157
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestEEE, i64 0, inrange i32 0, i64 2), ptr %158, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34RegExpAdapterTest_TestReplace_TestEEE, i64 0, i32 0, i64 2), ptr %158, align 8
   %160 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.85, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %154, ptr noundef %156, ptr noundef nonnull %158)
           to label %__cxx_global_var_init.84.exit unwind label %165
 
@@ -14901,7 +14901,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39: 
           to label %178 unwind label %184
 
 178:                                              ; preds = %176
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestEEE, i64 0, inrange i32 0, i64 2), ptr %177, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43RegExpAdapterTest_TestReplaceWithGroup_TestEEE, i64 0, i32 0, i64 2), ptr %177, align 8
   %179 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.97, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %173, ptr noundef %175, ptr noundef nonnull %177)
           to label %__cxx_global_var_init.96.exit unwind label %184
 
@@ -14974,7 +14974,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45: 
           to label %197 unwind label %203
 
 197:                                              ; preds = %195
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestEEE, i64 0, inrange i32 0, i64 2), ptr %196, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48RegExpAdapterTest_TestReplaceWithDollarSign_TestEEE, i64 0, i32 0, i64 2), ptr %196, align 8
   %198 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.113, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %192, ptr noundef %194, ptr noundef nonnull %196)
           to label %__cxx_global_var_init.112.exit unwind label %203
 
@@ -15047,7 +15047,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i51: 
           to label %216 unwind label %222
 
 216:                                              ; preds = %214
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestEEE, i64 0, inrange i32 0, i64 2), ptr %215, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40RegExpAdapterTest_TestGlobalReplace_TestEEE, i64 0, i32 0, i64 2), ptr %215, align 8
   %217 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.118, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %211, ptr noundef %213, ptr noundef nonnull %215)
           to label %__cxx_global_var_init.117.exit unwind label %222
 
@@ -15120,7 +15120,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i57: 
           to label %235 unwind label %241
 
 235:                                              ; preds = %233
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestEEE, i64 0, inrange i32 0, i64 2), ptr %234, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31RegExpAdapterTest_TestUtf8_TestEEE, i64 0, i32 0, i64 2), ptr %234, align 8
   %236 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.124, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers17RegExpAdapterTestEE6dummy_E, ptr noundef %230, ptr noundef %232, ptr noundef nonnull %234)
           to label %__cxx_global_var_init.123.exit unwind label %241
 

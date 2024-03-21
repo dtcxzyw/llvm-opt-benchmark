@@ -889,7 +889,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -932,7 +932,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14ScanlineHelperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14ScanlineHelperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1328,7 +1328,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper", ptr %this1, i32 0, i32 10
@@ -1707,7 +1707,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -1993,7 +1993,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhtEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.5", ptr %this1, i32 0, i32 10
@@ -2292,7 +2292,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -2578,7 +2578,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhN9Imath_3_14halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.12", ptr %this1, i32 0, i32 10
@@ -2877,7 +2877,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -3111,7 +3111,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIhfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.19", ptr %this1, i32 0, i32 10
@@ -3366,7 +3366,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -3600,7 +3600,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIthEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.21", ptr %this1, i32 0, i32 10
@@ -3855,7 +3855,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -4089,7 +4089,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIttEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.23", ptr %this1, i32 0, i32 10
@@ -4342,7 +4342,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -4576,7 +4576,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItN9Imath_3_14halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.25", ptr %this1, i32 0, i32 10
@@ -4829,7 +4829,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -5063,7 +5063,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperItfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.27", ptr %this1, i32 0, i32 10
@@ -5316,7 +5316,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -5550,7 +5550,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.29", ptr %this1, i32 0, i32 10
@@ -5805,7 +5805,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -6039,7 +6039,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEtEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.31", ptr %this1, i32 0, i32 10
@@ -6292,7 +6292,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -6526,7 +6526,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfES2_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.33", ptr %this1, i32 0, i32 10
@@ -6779,7 +6779,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -7013,7 +7013,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIN9Imath_3_14halfEfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.35", ptr %this1, i32 0, i32 10
@@ -7266,7 +7266,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -7500,7 +7500,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfhEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.37", ptr %this1, i32 0, i32 10
@@ -7755,7 +7755,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -7989,7 +7989,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIftEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorItSaItEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.39", ptr %this1, i32 0, i32 10
@@ -8242,7 +8242,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -8476,7 +8476,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIfN9Imath_3_14halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIN9Imath_3_14halfESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.41", ptr %this1, i32 0, i32 10
@@ -8729,7 +8729,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14ScanlineHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inputBitDepth = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %inputBitDepth.addr, align 4
   store i32 %1, ptr %m_inputBitDepth, align 8
@@ -8963,7 +8963,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev21GenericScanlineHelperIffEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_outBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this1, i32 0, i32 11
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_outBitDepthBuffer) #3
   %m_inBitDepthBuffer = getelementptr inbounds %"class.OpenColorIO_v2_4dev::GenericScanlineHelper.43", ptr %this1, i32 0, i32 10

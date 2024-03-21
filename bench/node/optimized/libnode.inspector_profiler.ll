@@ -339,12 +339,12 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN4node8profiler20V8ProfilerConnectionC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %env) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.std::unique_ptr.298", align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %inspector_agent_.i = getelementptr inbounds i8, ptr %env, i64 2136
   %0 = load ptr, ptr %inspector_agent_.i, align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
   %connection_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %this, ptr %connection_.i.i, align 8, !noalias !5
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -1853,12 +1853,12 @@ do.body34:                                        ; preds = %do.body
 do.end35:                                         ; preds = %do.body
   %call.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21, !noalias !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !25
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !25
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !25
   %session_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %inspector_agent_.i.i.i.i = getelementptr inbounds i8, ptr %env, i64 2136
   %37 = load ptr, ptr %inspector_agent_.i.i.i.i, align 8, !noalias !25
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !28
   %connection_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   store ptr %call.i, ptr %connection_.i.i.i.i.i, align 8, !noalias !28
   store ptr %call.i.i.i.i, ptr %agg.tmp.i.i.i, align 8, !noalias !25
@@ -1891,7 +1891,7 @@ _ZSt11make_uniqueIN4node8profiler20V8CoverageConnectionEJRPNS0_11EnvironmentEEEN
   %env_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 80
   store ptr %env, ptr %env_.i.i.i, align 8, !noalias !25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !25
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !25
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !25
   %session_.i.i = getelementptr inbounds i8, ptr %call.i, i64 88
   store ptr null, ptr %session_.i.i, align 8, !noalias !25
   %ending_.i.i = getelementptr inbounds i8, ptr %call.i, i64 96
@@ -2466,12 +2466,12 @@ do.body70:                                        ; preds = %do.body63
 do.end73:                                         ; preds = %do.body63
   %call.i274 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21, !noalias !47
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i273), !noalias !47
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %call.i274, align 8, !noalias !47
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %call.i274, align 8, !noalias !47
   %session_.i.i.i275 = getelementptr inbounds i8, ptr %call.i274, i64 8
   %inspector_agent_.i.i.i.i276 = getelementptr inbounds i8, ptr %env, i64 2136
   %124 = load ptr, ptr %inspector_agent_.i.i.i.i276, align 8, !noalias !47
   %call.i.i.i.i277 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !50
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i277, align 8, !noalias !50
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i277, align 8, !noalias !50
   %connection_.i.i.i.i.i278 = getelementptr inbounds i8, ptr %call.i.i.i.i277, i64 8
   store ptr %call.i274, ptr %connection_.i.i.i.i.i278, align 8, !noalias !50
   store ptr %call.i.i.i.i277, ptr %agg.tmp.i.i.i273, align 8, !noalias !47
@@ -2504,7 +2504,7 @@ _ZSt11make_uniqueIN4node8profiler23V8CpuProfilerConnectionEJRPNS0_11EnvironmentE
   %env_.i.i.i290 = getelementptr inbounds i8, ptr %call.i274, i64 80
   store ptr %env, ptr %env_.i.i.i290, align 8, !noalias !47
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i273), !noalias !47
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %call.i274, align 8, !noalias !47
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i64 0, i32 0, i64 2), ptr %call.i274, align 8, !noalias !47
   %session_.i.i291 = getelementptr inbounds i8, ptr %call.i274, i64 88
   store ptr null, ptr %session_.i.i291, align 8, !noalias !47
   %ending_.i.i292 = getelementptr inbounds i8, ptr %call.i274, i64 96
@@ -3065,12 +3065,12 @@ if.end8.sink.split.i.i.i.i518:                    ; preds = %_ZN9__gnu_cxx27__ex
 if.end106:                                        ; preds = %if.end8.sink.split.i.i.i.i518, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i515, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i505, %_ZN4node11Environment7optionsEv.exit493, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit481
   %call.i529 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #21, !noalias !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i528), !noalias !68
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %call.i529, align 8, !noalias !68
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %call.i529, align 8, !noalias !68
   %session_.i.i.i530 = getelementptr inbounds i8, ptr %call.i529, i64 8
   %inspector_agent_.i.i.i.i531 = getelementptr inbounds i8, ptr %env, i64 2136
   %210 = load ptr, ptr %inspector_agent_.i.i.i.i531, align 8, !noalias !68
   %call.i.i.i.i532 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #21, !noalias !71
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i532, align 8, !noalias !71
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnection25V8ProfilerSessionDelegateE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i532, align 8, !noalias !71
   %connection_.i.i.i.i.i533 = getelementptr inbounds i8, ptr %call.i.i.i.i532, i64 8
   store ptr %call.i529, ptr %connection_.i.i.i.i.i533, align 8, !noalias !71
   store ptr %call.i.i.i.i532, ptr %agg.tmp.i.i.i528, align 8, !noalias !68
@@ -3103,7 +3103,7 @@ _ZSt11make_uniqueIN4node8profiler24V8HeapProfilerConnectionEJRPNS0_11Environment
   %env_.i.i.i545 = getelementptr inbounds i8, ptr %call.i529, i64 80
   store ptr %env, ptr %env_.i.i.i545, align 8, !noalias !68
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i528), !noalias !68
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %call.i529, align 8, !noalias !68
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i64 0, i32 0, i64 2), ptr %call.i529, align 8, !noalias !68
   %session_.i.i546 = getelementptr inbounds i8, ptr %call.i529, i64 88
   store ptr null, ptr %session_.i.i546, align 8, !noalias !68
   %ending_.i.i547 = getelementptr inbounds i8, ptr %call.i529, i64 96
@@ -3798,7 +3798,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8profiler20V8ProfilerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %profile_ids_ = getelementptr inbounds i8, ptr %this, i64 24
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -3858,7 +3858,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8profiler20V8CoverageConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %session_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3873,7 +3873,7 @@ _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i: ; pre
 
 _ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i
   store ptr null, ptr %session_, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %profile_ids_.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -3924,7 +3924,7 @@ _ZN4node8profiler20V8ProfilerConnectionD2Ev.exit: ; preds = %_ZNSt13unordered_se
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8profiler20V8CoverageConnectionD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8CoverageConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %session_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3939,7 +3939,7 @@ _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i: ; p
 
 _ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i, %entry
   store ptr null, ptr %session_.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %profile_ids_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8
@@ -4006,7 +4006,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8profiler23V8CpuProfilerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %session_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -4021,7 +4021,7 @@ _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i: ; pre
 
 _ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i
   store ptr null, ptr %session_, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %profile_ids_.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -4072,7 +4072,7 @@ _ZN4node8profiler20V8ProfilerConnectionD2Ev.exit: ; preds = %_ZNSt13unordered_se
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8profiler23V8CpuProfilerConnectionD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler23V8CpuProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %session_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -4087,7 +4087,7 @@ _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i: ; p
 
 _ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i, %entry
   store ptr null, ptr %session_.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %profile_ids_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8
@@ -4154,7 +4154,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8profiler24V8HeapProfilerConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %session_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -4169,7 +4169,7 @@ _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i: ; pre
 
 _ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev.exit: ; preds = %entry, %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i
   store ptr null, ptr %session_, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %profile_ids_.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -4220,7 +4220,7 @@ _ZN4node8profiler20V8ProfilerConnectionD2Ev.exit: ; preds = %_ZNSt13unordered_se
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8profiler24V8HeapProfilerConnectionD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler24V8HeapProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %session_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -4235,7 +4235,7 @@ _ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i: ; p
 
 _ZNSt10unique_ptrIN4node9inspector16InspectorSessionESt14default_deleteIS2_EED2Ev.exit.i: ; preds = %_ZNKSt14default_deleteIN4node9inspector16InspectorSessionEEclEPS2_.exit.i.i, %entry
   store ptr null, ptr %session_.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node8profiler20V8ProfilerConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %profile_ids_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %2 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8

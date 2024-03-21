@@ -53,7 +53,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %value, ptr %value.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_semaphore2 = getelementptr inbounds %"class.IlmThread_3_2::Semaphore", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %value.addr, align 4
   %call = call i32 @sem_init(ptr noundef %_semaphore2, i32 noundef 0, i32 noundef %0) #8
@@ -193,7 +193,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_semaphore = getelementptr inbounds %"class.IlmThread_3_2::Semaphore", ptr %this1, i32 0, i32 1
   %call = call i32 @sem_destroy(ptr noundef %_semaphore) #8
   ret void

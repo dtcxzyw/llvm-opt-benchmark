@@ -54,7 +54,7 @@ $_ZTI16btPointCollector = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN15btGjkConvexCastC2EPK13btConvexShapeS2_P22btVoronoiSimplexSolver(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %convexA, ptr noundef %convexB, ptr noundef %simplexSolver) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15btGjkConvexCast, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15btGjkConvexCast, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_simplexSolver = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %simplexSolver, ptr %m_simplexSolver, align 8
   %m_convexA = getelementptr inbounds i8, ptr %this, i64 16
@@ -107,7 +107,7 @@ entry:
   %sub.i48 = fsub float %sub.i, %sub.i31
   %sub8.i51 = fsub float %sub8.i, %sub8.i34
   %sub14.i54 = fsub float %sub14.i, %sub14.i37
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16btPointCollector, i64 0, inrange i32 0, i64 2), ptr %pointCollector, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16btPointCollector, i64 0, i32 0, i64 2), ptr %pointCollector, align 8
   %m_distance.i = getelementptr inbounds i8, ptr %pointCollector, i64 40
   store float 0x43ABC16D60000000, ptr %m_distance.i, align 8
   %m_hasResult.i = getelementptr inbounds i8, ptr %pointCollector, i64 44

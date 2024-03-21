@@ -126,7 +126,7 @@ $_ZN5folly6detail30StaticSingletonManagerWithRtti5debugINS_18threadlocal_detail1
 $_ZZN5folly18threadlocal_detail10StaticMetaIvvE18getThreadEntrySlowEvE20threadEntrySingleton = comdat any
 
 @_ZTVN5folly23QueuedImmediateExecutorE = unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5folly23QueuedImmediateExecutorE, ptr @_ZN5folly23QueuedImmediateExecutorD1Ev, ptr @_ZN5folly23QueuedImmediateExecutorD0Ev, ptr @_ZN5folly23QueuedImmediateExecutor3addENS_8FunctionIFvvEEE, ptr @_ZN5folly8Executor15addWithPriorityENS_8FunctionIFvvEEEa, ptr @_ZNK5folly8Executor16getNumPrioritiesEv, ptr @_ZN5folly8Executor16keepAliveAcquireEv, ptr @_ZN5folly8Executor16keepAliveReleaseEv] }, align 8
-@_ZTTN5folly23QueuedImmediateExecutorE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTCN5folly23QueuedImmediateExecutorE0_NS_18InlineLikeExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTCN5folly23QueuedImmediateExecutorE0_NS_18InlineLikeExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i32 0, inrange i32 0, i32 9)], align 8
+@_ZTTN5folly23QueuedImmediateExecutorE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i32 0, i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTCN5folly23QueuedImmediateExecutorE0_NS_18InlineLikeExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTCN5folly23QueuedImmediateExecutorE0_NS_18InlineLikeExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i32 0, inrange i32 0, i32 9)], align 8
 @_ZTCN5folly23QueuedImmediateExecutorE0_NS_18InlineLikeExecutorE = unnamed_addr constant { [16 x ptr] } { [16 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5folly18InlineLikeExecutorE, ptr @_ZN5folly18InlineLikeExecutorD1Ev, ptr @_ZN5folly18InlineLikeExecutorD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN5folly8Executor15addWithPriorityENS_8FunctionIFvvEEEa, ptr @_ZNK5folly8Executor16getNumPrioritiesEv, ptr @_ZN5folly8Executor16keepAliveAcquireEv, ptr @_ZN5folly8Executor16keepAliveReleaseEv] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly18InlineLikeExecutorE = linkonce_odr constant [29 x i8] c"N5folly18InlineLikeExecutorE\00", comdat, align 1
@@ -189,7 +189,7 @@ declare void @_ZN5folly8Executor16keepAliveReleaseEv(ptr noundef nonnull align 8
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly23QueuedImmediateExecutorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i64 0, inrange i32 0, i64 9), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i64 0, i32 0, i64 9), ptr %this, align 8, !tbaa !7
   %q_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !10
@@ -237,7 +237,7 @@ _ZN5folly23QueuedImmediateExecutorD2Ev.exit:      ; preds = %_ZN5folly18threadlo
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly23QueuedImmediateExecutorD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i64 0, inrange i32 0, i64 9), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i64 0, i32 0, i64 9), ptr %this, align 8, !tbaa !7
   %q_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8, !tbaa !10
@@ -467,7 +467,7 @@ init.check:                                       ; preds = %entry
 
 invoke.cont:                                      ; preds = %init.check
   store i64 4294967295, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly23QueuedImmediateExecutor8instanceEvE8instance, i64 0, i32 0, i32 0, i32 0, i64 8), align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i64 0, inrange i32 0, i64 9), ptr @_ZZN5folly23QueuedImmediateExecutor8instanceEvE8instance, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5folly23QueuedImmediateExecutorE, i64 0, i32 0, i64 9), ptr @_ZZN5folly23QueuedImmediateExecutor8instanceEvE8instance, align 8, !tbaa !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly23QueuedImmediateExecutor8instanceEvE8instance, i64 0, i32 0, i32 0, i32 0, i64 16), i8 0, i64 16, i1 false)
   store ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalISt5queueINS2_8FunctionIFvvEEESt5dequeIS7_SaIS7_EEEvvEC1EvEUlvE_E9_M_invokeERKSt9_Any_data, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly23QueuedImmediateExecutor8instanceEvE8instance, i64 0, i32 0, i32 0, i32 0, i64 40), align 8, !tbaa !48
   store ptr @_ZNSt17_Function_handlerIFPvvEZN5folly11ThreadLocalISt5queueINS2_8FunctionIFvvEEESt5dequeIS7_SaIS7_EEEvvEC1EvEUlvE_E10_M_managerERSt9_Any_dataRKSF_St18_Manager_operation, ptr getelementptr inbounds (%"class.folly::Indestructible", ptr @_ZZN5folly23QueuedImmediateExecutor8instanceEvE8instance, i64 0, i32 0, i32 0, i32 0, i64 32), align 8, !tbaa !10
@@ -1176,7 +1176,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   %_M_code2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !83
@@ -1332,7 +1332,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #26
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa.struct !83
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
@@ -1444,7 +1444,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #30
           to label %invoke.cont unwind label %lpad
 
@@ -1463,7 +1463,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #18 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !7
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #28
   unreachable
 }

@@ -566,7 +566,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net28PrimaryConfigChangedCallbackC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net28PrimaryConfigChangedCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net28PrimaryConfigChangedCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -703,7 +703,7 @@ declare void @_ZN3net23CachedNetworkParametersD1Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net33ValidateClientHelloResultCallbackC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net33ValidateClientHelloResultCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net33ValidateClientHelloResultCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -3215,7 +3215,7 @@ invoke.cont32:                                    ; preds = %if.end
 invoke.cont36:                                    ; preds = %invoke.cont32
   %9 = getelementptr inbounds i8, ptr %call33, i64 88
   store i32 0, ptr %9, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i64 0, inrange i32 0, i64 2), ptr %call33, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i64 0, i32 0, i64 2), ptr %call33, align 8
   %serialized.i = getelementptr inbounds i8, ptr %call33, i64 96
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized.i) #20
   %id.i = getelementptr inbounds i8, ptr %call33, i64 128
@@ -7358,7 +7358,7 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit223: ; preds =
   %59 = load i64, ptr %done_cb, align 8
   store ptr null, ptr %done_cb, align 8
   %frombool.i = zext i1 %cmp71.not to i8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net27EvaluateClientHelloCallbackE, i64 0, inrange i32 0, i64 2), ptr %call90, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net27EvaluateClientHelloCallbackE, i64 0, i32 0, i64 2), ptr %call90, align 8
   %config_.i = getelementptr inbounds i8, ptr %call90, i64 8
   store ptr %this, ptr %config_.i, align 8
   %found_error_.i = getelementptr inbounds i8, ptr %call90, i64 16
@@ -11335,7 +11335,7 @@ invoke.cont133:                                   ; preds = %if.end122
   store ptr null, ptr %proof_source_details, align 8
   %90 = load i64, ptr %done_cb, align 8
   store ptr null, ptr %done_cb, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net35VerifyNonceIsValidAndUniqueCallbackE, i64 0, inrange i32 0, i64 2), ptr %call128, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net35VerifyNonceIsValidAndUniqueCallbackE, i64 0, i32 0, i64 2), ptr %call128, align 8
   %result_.i = getelementptr inbounds i8, ptr %call128, i64 8
   store i64 %88, ptr %result_.i, align 8
   store ptr null, ptr %agg.tmp129, align 8
@@ -12188,7 +12188,7 @@ invoke.cont32:                                    ; preds = %invoke.cont28
   %12 = load i64, ptr %cb, align 8
   %13 = inttoptr i64 %12 to ptr
   store ptr null, ptr %cb, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i64 0, inrange i32 0, i64 2), ptr %call29, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i64 0, i32 0, i64 2), ptr %call29, align 8
   %config_.i = getelementptr inbounds i8, ptr %call29, i64 8
   store ptr %this, ptr %config_.i, align 8
   %version_.i = getelementptr inbounds i8, ptr %call29, i64 16
@@ -12359,7 +12359,7 @@ declare void @_ZN3net22CryptoHandshakeMessageC1EOS0_(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cb_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %cb_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -12386,7 +12386,7 @@ _ZNSt10unique_ptrIN3net44BuildServerConfigUpdateMessageResultCallbackESt14defaul
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cb_.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %cb_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -12414,7 +12414,7 @@ _ZN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallba
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackC2EPKS0_NS_11QuicVersionEPNS_24QuicCompressedCertsCacheEPKNS_14CommonCertSetsERKNS_30QuicCryptoNegotiatedParametersENS_22CryptoHandshakeMessageESt10unique_ptrINS_44BuildServerConfigUpdateMessageResultCallbackESt14default_deleteISF_EE(ptr noundef nonnull align 8 dereferenceable(192) %this, ptr noundef %config, i32 noundef %version, ptr noundef %compressed_certs_cache, ptr noundef %common_cert_sets, ptr noundef nonnull align 8 dereferenceable(433) %params, ptr noundef %message, ptr nocapture noundef %cb) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig49BuildServerConfigUpdateMessageProofSourceCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %config_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %config, ptr %config_, align 8
   %version_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -13141,7 +13141,7 @@ invoke.cont4:
   tail call void @_ZN3net16QuicCryptoConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0)
   %1 = getelementptr inbounds i8, ptr %this, i64 88
   store i32 0, ptr %1, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
   %serialized = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serialized) #20
   %id = getelementptr inbounds i8, ptr %this, i64 128
@@ -13175,7 +13175,7 @@ declare void @_ZN3net16QuicCryptoConfigD2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net22QuicCryptoServerConfig6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicCryptoServerConfig6ConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
   %key_exchanges = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %key_exchanges, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 176
@@ -13411,7 +13411,7 @@ declare void @_ZN4base8internal8LockImpl6UnlockEv(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net27EvaluateClientHelloCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net27EvaluateClientHelloCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net27EvaluateClientHelloCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %done_cb_ = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %done_cb_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -13777,7 +13777,7 @@ _ZN13scoped_refptrIN3net22QuicCryptoServerConfig6ConfigEED2Ev.exit51: ; preds = 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net35VerifyNonceIsValidAndUniqueCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net35VerifyNonceIsValidAndUniqueCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net35VerifyNonceIsValidAndUniqueCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %done_cb_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %done_cb_, align 8
   %cmp.not.i = icmp eq ptr %0, null

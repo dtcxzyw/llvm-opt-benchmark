@@ -426,13 +426,13 @@ $_ZTISt14default_deleteIN5arrow15ResizableBufferEE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN5arrow2io12StdoutStreamE = unnamed_addr constant { [11 x ptr], [15 x ptr] } { [11 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIN5arrow2io12StdoutStreamE, ptr @_ZN5arrow2io12StdoutStreamD1Ev, ptr @_ZN5arrow2io12StdoutStreamD0Ev, ptr @_ZN5arrow2io12StdoutStream5WriteEPKvl, ptr @_ZN5arrow2io8Writable5WriteERKSt10shared_ptrINS_6BufferEE, ptr @_ZN5arrow2io8Writable5FlushEv, ptr @_ZN5arrow2io12StdoutStream5CloseEv, ptr @_ZNK5arrow2io12StdoutStream6closedEv, ptr @_ZNK5arrow2io12StdoutStream4TellEv], [15 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr null, ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5arrow2io12StdoutStreamE, ptr @_ZTv0_n24_N5arrow2io12StdoutStreamD1Ev, ptr @_ZTv0_n24_N5arrow2io12StdoutStreamD0Ev, ptr @_ZTv0_n32_N5arrow2io12StdoutStream5CloseEv, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZN5arrow2io13FileInterface5AbortEv, ptr @_ZTv0_n56_NK5arrow2io12StdoutStream4TellEv, ptr @_ZTv0_n64_NK5arrow2io12StdoutStream6closedEv] }, align 8
-@_ZTTN5arrow2io12StdoutStreamE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StdoutStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12StdoutStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12StdoutStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StdoutStreamE, i32 0, inrange i32 1, i32 8)], align 8
+@_ZTTN5arrow2io12StdoutStreamE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StdoutStreamE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12StdoutStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12StdoutStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StdoutStreamE, i32 0, inrange i32 1, i32 8)], align 8
 @_ZSt4cout = external global %"class.std::basic_ostream", align 8
 @_ZTVN5arrow2io12StderrStreamE = unnamed_addr constant { [11 x ptr], [15 x ptr] } { [11 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIN5arrow2io12StderrStreamE, ptr @_ZN5arrow2io12StderrStreamD1Ev, ptr @_ZN5arrow2io12StderrStreamD0Ev, ptr @_ZN5arrow2io12StderrStream5WriteEPKvl, ptr @_ZN5arrow2io8Writable5WriteERKSt10shared_ptrINS_6BufferEE, ptr @_ZN5arrow2io8Writable5FlushEv, ptr @_ZN5arrow2io12StderrStream5CloseEv, ptr @_ZNK5arrow2io12StderrStream6closedEv, ptr @_ZNK5arrow2io12StderrStream4TellEv], [15 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr null, ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5arrow2io12StderrStreamE, ptr @_ZTv0_n24_N5arrow2io12StderrStreamD1Ev, ptr @_ZTv0_n24_N5arrow2io12StderrStreamD0Ev, ptr @_ZTv0_n32_N5arrow2io12StderrStream5CloseEv, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZN5arrow2io13FileInterface5AbortEv, ptr @_ZTv0_n56_NK5arrow2io12StderrStream4TellEv, ptr @_ZTv0_n64_NK5arrow2io12StderrStream6closedEv] }, align 8
-@_ZTTN5arrow2io12StderrStreamE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StderrStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12StderrStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12StderrStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StderrStreamE, i32 0, inrange i32 1, i32 8)], align 8
+@_ZTTN5arrow2io12StderrStreamE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StderrStreamE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12StderrStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12StderrStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StderrStreamE, i32 0, inrange i32 1, i32 8)], align 8
 @_ZSt4cerr = external global %"class.std::basic_ostream", align 8
 @_ZTVN5arrow2io11StdinStreamE = unnamed_addr constant { [20 x ptr], [15 x ptr] } { [20 x ptr] [ptr null, ptr inttoptr (i64 16 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5arrow2io11StdinStreamE, ptr @_ZN5arrow2io11StdinStreamD1Ev, ptr @_ZN5arrow2io11StdinStreamD0Ev, ptr @_ZN5arrow2io11StdinStream4ReadElPv, ptr @_ZN5arrow2io11StdinStream4ReadEl, ptr @_ZNK5arrow2io8Readable10io_contextEv, ptr @_ZN5arrow2io11InputStream4PeekEl, ptr @_ZNK5arrow2io11InputStream18supports_zero_copyEv, ptr @_ZN5arrow2io11InputStream12ReadMetadataEv, ptr @_ZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextE, ptr @_ZN5arrow2io11StdinStream5CloseEv, ptr @_ZNK5arrow2io11StdinStream6closedEv, ptr @_ZNK5arrow2io11StdinStream4TellEv], [15 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr null, ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5arrow2io11StdinStreamE, ptr @_ZTv0_n24_N5arrow2io11StdinStreamD1Ev, ptr @_ZTv0_n24_N5arrow2io11StdinStreamD0Ev, ptr @_ZTv0_n32_N5arrow2io11StdinStream5CloseEv, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZN5arrow2io13FileInterface5AbortEv, ptr @_ZTv0_n56_NK5arrow2io11StdinStream4TellEv, ptr @_ZTv0_n64_NK5arrow2io11StdinStream6closedEv] }, align 8
-@_ZTTN5arrow2io11StdinStreamE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io11StdinStreamE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io11StdinStreamE0_NS0_11InputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io11StdinStreamE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, inrange i32 0, i32 8)], align 8
+@_ZTTN5arrow2io11StdinStreamE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io11StdinStreamE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io11StdinStreamE0_NS0_11InputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io11StdinStreamE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, inrange i32 0, i32 8)], align 8
 @_ZSt3cin = external global %"class.std::basic_istream", align 8
 @_ZTCN5arrow2io12StdoutStreamE0_NS0_12OutputStreamE = unnamed_addr constant { [8 x ptr], [15 x ptr] } { [8 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIN5arrow2io12OutputStreamE, ptr @_ZN5arrow2io12OutputStreamD1Ev, ptr @_ZN5arrow2io12OutputStreamD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN5arrow2io8Writable5WriteERKSt10shared_ptrINS_6BufferEE, ptr @_ZN5arrow2io8Writable5FlushEv], [15 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5arrow2io12OutputStreamE, ptr @_ZTv0_n24_N5arrow2io12OutputStreamD1Ev, ptr @_ZTv0_n24_N5arrow2io12OutputStreamD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZN5arrow2io13FileInterface5AbortEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
@@ -599,9 +599,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN5arrow2io13FileInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0)
   call void @_ZN5arrow2io12OutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN5arrow2io12StdoutStreamE, i64 0, i64 1)) #3
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StdoutStreamE, i32 0, inrange i32 0, i32 3), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StdoutStreamE, i32 0, i32 0, i32 3), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StdoutStreamE, i32 0, inrange i32 1, i32 8), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StdoutStreamE, i32 0, i32 1, i32 8), ptr %add.ptr, align 8
   %pos_ = getelementptr inbounds %"class.arrow::io::StdoutStream", ptr %this1, i32 0, i32 1
   store i64 0, ptr %pos_, align 8
   %vtable = load ptr, ptr %this1, align 8
@@ -642,7 +642,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZNSt23enable_shared_from_thisIN5arrow2io13FileInterfaceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mode_ = getelementptr inbounds %"class.arrow::io::FileInterface", ptr %this1, i32 0, i32 2
   store i32 0, ptr %mode_, align 8
   ret void
@@ -843,9 +843,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN5arrow2io13FileInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0)
   call void @_ZN5arrow2io12OutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN5arrow2io12StderrStreamE, i64 0, i64 1)) #3
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StderrStreamE, i32 0, inrange i32 0, i32 3), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StderrStreamE, i32 0, i32 0, i32 3), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StderrStreamE, i32 0, inrange i32 1, i32 8), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12StderrStreamE, i32 0, i32 1, i32 8), ptr %add.ptr, align 8
   %pos_ = getelementptr inbounds %"class.arrow::io::StderrStream", ptr %this1, i32 0, i32 1
   store i64 0, ptr %pos_, align 8
   %vtable = load ptr, ptr %this1, align 8
@@ -1090,10 +1090,10 @@ entry:
   call void @_ZN5arrow2io13FileInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0)
   call void @_ZN5arrow2io8ReadableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
   call void @_ZN5arrow2io11InputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN5arrow2io11StdinStreamE, i64 0, i64 1)) #3
-  store ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, inrange i32 0, i32 8), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, i32 0, i32 8), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, inrange i32 1, i32 8), ptr %add.ptr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, inrange i32 0, i32 8), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, i32 1, i32 8), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io11StdinStreamE, i32 0, i32 0, i32 8), ptr %this1, align 8
   %pos_ = getelementptr inbounds %"class.arrow::io::StdinStream", ptr %this1, i32 0, i32 1
   store i64 0, ptr %pos_, align 8
   %vtable = load ptr, ptr %this1, align 8
@@ -1133,7 +1133,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2169,7 +2169,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4108,7 +4108,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
@@ -4121,7 +4121,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

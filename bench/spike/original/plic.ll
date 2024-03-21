@@ -824,9 +824,9 @@ define void @_ZN6plic_tC2EPK7simif_tj(ptr noundef nonnull align 8 dereferenceabl
   call void @_ZN17abstract_device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   call void @_ZN31abstract_interrupt_controller_tC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #3
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTV6plic_t, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTV6plic_t, i32 0, i32 0, i32 2), ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTV6plic_t, i32 0, inrange i32 1, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTV6plic_t, i32 0, i32 1, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds %class.plic_t, ptr %17, i32 0, i32 2
   call void @_ZNSt6vectorI14plic_context_tSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #3
   %21 = getelementptr inbounds %class.plic_t, ptr %17, i32 0, i32 3
@@ -947,7 +947,7 @@ define linkonce_odr void @_ZN17abstract_device_tC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV17abstract_device_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV17abstract_device_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -956,7 +956,7 @@ define linkonce_odr void @_ZN31abstract_interrupt_controller_tC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31abstract_interrupt_controller_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31abstract_interrupt_controller_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3126,7 +3126,7 @@ define linkonce_odr void @_ZN14plic_factory_tC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %12 = load ptr, ptr %2, align 8
   call void @_ZN16device_factory_tC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV14plic_factory_t, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV14plic_factory_t, i32 0, i32 0, i32 2), ptr %12, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %4)
           to label %13 unwind label %31
@@ -3263,9 +3263,9 @@ define linkonce_odr void @_ZN6plic_tD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTV6plic_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTV6plic_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTV6plic_t, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTV6plic_t, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.plic_t, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorI14plic_context_tSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   %6 = getelementptr inbounds i8, ptr %3, i64 8
@@ -4636,7 +4636,7 @@ define linkonce_odr void @_ZN16device_factory_tC2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16device_factory_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16device_factory_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.device_factory_t, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   ret void
@@ -4989,7 +4989,7 @@ define linkonce_odr void @_ZN16device_factory_tD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16device_factory_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16device_factory_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.device_factory_t, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   ret void

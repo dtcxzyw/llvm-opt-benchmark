@@ -31,7 +31,7 @@ $_ZNK6google8protobuf8Duration3NewEPNS0_5ArenaE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN6google8protobuf8DurationE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf8DurationE, ptr @_ZN6google8protobuf8DurationD1Ev, ptr @_ZN6google8protobuf8DurationD0Ev, ptr @_ZNK6google8protobuf8Duration3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf8Duration5ClearEv, ptr @_ZNK6google8protobuf8Duration13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf8Duration12ByteSizeLongEv, ptr @_ZN6google8protobuf8Duration14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf8Duration12GetClassDataEv, ptr @_ZNK6google8protobuf8Duration18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf8Duration11GetMetadataEv] }, align 8
-@_ZN6google8protobuf27_Duration_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8DurationE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon zeroinitializer } } }, align 8
+@_ZN6google8protobuf27_Duration_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8DurationE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon zeroinitializer } } }, align 8
 @_ZN48TableStruct_google_2fprotobuf_2fduration_2eproto7offsetsE = constant [10 x i32] [i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 24], section "protodesc_cold", align 16
 @_ZL62descriptor_table_protodef_google_2fprotobuf_2fduration_2eproto = internal constant [236 x i8] c"\0A\1Egoogle/protobuf/duration.proto\12\0Fgoogle.protobuf\22*\0A\08Duration\12\0F\0A\07seconds\18\01 \01(\03\12\0D\0A\05nanos\18\02 \01(\05B\83\01\0A\13com.google.protobufB\0DDurationProtoP\01Z1google.golang.org/protobuf/types/known/durationpb\F8\01\01\A2\02\03GPB\AA\02\1EGoogle.Protobuf.WellKnownTypesb\06proto3\00", section "protodesc_cold", align 16
 @.str = private unnamed_addr constant [31 x i8] c"google/protobuf/duration.proto\00", align 1
@@ -73,7 +73,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8DurationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8DurationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   ret void
@@ -87,7 +87,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8DurationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8DurationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %from, i64 16

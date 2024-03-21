@@ -28717,9 +28717,9 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(464) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110ZlibStreamE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110ZlibStreamE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110ZlibStreamE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_110ZlibStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %call = call noundef ptr @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE7contextEv(ptr noundef nonnull align 8 dereferenceable(464) %this3)
   %2 = load i32, ptr %mode.addr, align 4
   call void @_ZN4node12_GLOBAL__N_111ZlibContext7SetModeENS0_14node_zlib_modeE(ptr noundef nonnull align 8 dereferenceable(224) %call, i32 noundef %2)
@@ -28750,9 +28750,9 @@ entry:
   %2 = getelementptr inbounds i8, ptr %this3, i64 56
   %3 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef %3, ptr noundef @.str.108)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %init_done_ = getelementptr inbounds %"class.node::(anonymous namespace)::CompressionStream", ptr %this3, i32 0, i32 2
   store i8 0, ptr %init_done_, align 8
   %write_in_progress_ = getelementptr inbounds %"class.node::(anonymous namespace)::CompressionStream", ptr %this3, i32 0, i32 3
@@ -29397,7 +29397,7 @@ entry:
   store ptr %env, ptr %env.addr, align 8
   store ptr %type, ptr %type.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::ThreadPoolWork", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %env.addr, align 8
   store ptr %0, ptr %env_, align 8
@@ -29452,7 +29452,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111ZlibContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111ZlibContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mutex_ = getelementptr inbounds %"class.node::(anonymous namespace)::ZlibContext", ptr %this1, i32 0, i32 1
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_)
   %zlib_init_done_ = getelementptr inbounds %"class.node::(anonymous namespace)::ZlibContext", ptr %this1, i32 0, i32 2
@@ -29486,9 +29486,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -29670,7 +29670,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -30670,7 +30670,7 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -30743,7 +30743,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -34043,7 +34043,7 @@ entry:
   store ptr %retainer, ptr %retainer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %retainer.addr, align 8
   store ptr %0, ptr %retainer_, align 8
@@ -48589,9 +48589,9 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(336) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %call = call noundef ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliEncoderContextEE7contextEv(ptr noundef nonnull align 8 dereferenceable(336) %this3)
   %2 = load i32, ptr %mode.addr, align 4
   call void @_ZN4node12_GLOBAL__N_113BrotliContext7SetModeENS0_14node_zlib_modeE(ptr noundef nonnull align 8 dereferenceable(80) %call, i32 noundef %2)
@@ -48622,9 +48622,9 @@ entry:
   %2 = getelementptr inbounds i8, ptr %this3, i64 56
   %3 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef %3, ptr noundef @.str.108)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %init_done_ = getelementptr inbounds %"class.node::(anonymous namespace)::CompressionStream.415", ptr %this3, i32 0, i32 2
   store i8 0, ptr %init_done_, align 8
   %write_in_progress_ = getelementptr inbounds %"class.node::(anonymous namespace)::CompressionStream.415", ptr %this3, i32 0, i32 3
@@ -49205,7 +49205,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node12_GLOBAL__N_113BrotliContextC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_120BrotliEncoderContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_120BrotliEncoderContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %last_result_ = getelementptr inbounds %"class.node::(anonymous namespace)::BrotliEncoderContext", ptr %this1, i32 0, i32 1
   store i8 0, ptr %last_result_, align 8
   %state_ = getelementptr inbounds %"class.node::(anonymous namespace)::BrotliEncoderContext", ptr %this1, i32 0, i32 2
@@ -49219,9 +49219,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -49366,7 +49366,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113BrotliContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_113BrotliContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mode_ = getelementptr inbounds %"class.node::(anonymous namespace)::BrotliContext", ptr %this1, i32 0, i32 1
   store i32 0, ptr %mode_, align 8
   %next_in_ = getelementptr inbounds %"class.node::(anonymous namespace)::BrotliContext", ptr %this1, i32 0, i32 2
@@ -58972,9 +58972,9 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEC2EPNS_11EnvironmentEN2v85LocalINS6_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(368) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %call = call noundef ptr @_ZN4node12_GLOBAL__N_123BrotliCompressionStreamINS0_20BrotliDecoderContextEE7contextEv(ptr noundef nonnull align 8 dereferenceable(368) %this3)
   %2 = load i32, ptr %mode.addr, align 4
   call void @_ZN4node12_GLOBAL__N_113BrotliContext7SetModeENS0_14node_zlib_modeE(ptr noundef nonnull align 8 dereferenceable(80) %call, i32 noundef %2)
@@ -59005,9 +59005,9 @@ entry:
   %2 = getelementptr inbounds i8, ptr %this3, i64 56
   %3 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc(ptr noundef nonnull align 8 dereferenceable(152) %2, ptr noundef %3, ptr noundef @.str.108)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %init_done_ = getelementptr inbounds %"class.node::(anonymous namespace)::CompressionStream.428", ptr %this3, i32 0, i32 2
   store i8 0, ptr %init_done_, align 8
   %write_in_progress_ = getelementptr inbounds %"class.node::(anonymous namespace)::CompressionStream.428", ptr %this3, i32 0, i32 3
@@ -59574,7 +59574,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node12_GLOBAL__N_113BrotliContextC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_120BrotliDecoderContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_120BrotliDecoderContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %last_result_ = getelementptr inbounds %"class.node::(anonymous namespace)::BrotliDecoderContext", ptr %this1, i32 0, i32 1
   store i32 1, ptr %last_result_, align 8
   %error_ = getelementptr inbounds %"class.node::(anonymous namespace)::BrotliDecoderContext", ptr %this1, i32 0, i32 2
@@ -59592,9 +59592,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry

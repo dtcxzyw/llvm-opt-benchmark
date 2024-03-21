@@ -121,7 +121,7 @@ $_ZTIN3irr5scene10ISceneNodeE = comdat any
 $_ZTIN3irr5scene29IDummyTransformationSceneNodeE = comdat any
 
 @_ZTVN3irr5scene29CDummyTransformationSceneNodeE = unnamed_addr constant { [40 x ptr], [5 x ptr] } { [40 x ptr] [ptr inttoptr (i64 312 to ptr), ptr null, ptr @_ZTIN3irr5scene29CDummyTransformationSceneNodeE, ptr @_ZN3irr5scene29CDummyTransformationSceneNodeD1Ev, ptr @_ZN3irr5scene29CDummyTransformationSceneNodeD0Ev, ptr @_ZN3irr5scene10ISceneNode19OnRegisterSceneNodeEv, ptr @_ZN3irr5scene10ISceneNode9OnAnimateEj, ptr @_ZN3irr5scene29CDummyTransformationSceneNode6renderEv, ptr @_ZNK3irr5scene10ISceneNode7getNameB5cxx11Ev, ptr @_ZN3irr5scene10ISceneNode7setNameERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE, ptr @_ZNK3irr5scene29CDummyTransformationSceneNode14getBoundingBoxEv, ptr @_ZNK3irr5scene10ISceneNode25getTransformedBoundingBoxEv, ptr @_ZNK3irr5scene10ISceneNode30getTransformedBoundingBoxEdgesERNS_4core5arrayINS2_8vector3dIfEEEE, ptr @_ZNK3irr5scene10ISceneNode25getAbsoluteTransformationEv, ptr @_ZNK3irr5scene29CDummyTransformationSceneNode25getRelativeTransformationEv, ptr @_ZNK3irr5scene10ISceneNode9isVisibleEv, ptr @_ZNK3irr5scene10ISceneNode14isTrulyVisibleEv, ptr @_ZN3irr5scene10ISceneNode10setVisibleEb, ptr @_ZNK3irr5scene10ISceneNode5getIDEv, ptr @_ZN3irr5scene10ISceneNode5setIDEi, ptr @_ZN3irr5scene10ISceneNode8addChildEPS1_, ptr @_ZN3irr5scene10ISceneNode11removeChildEPS1_, ptr @_ZN3irr5scene10ISceneNode9removeAllEv, ptr @_ZN3irr5scene10ISceneNode6removeEv, ptr @_ZN3irr5scene10ISceneNode11getMaterialEj, ptr @_ZNK3irr5scene10ISceneNode16getMaterialCountEv, ptr @_ZNK3irr5scene29CDummyTransformationSceneNode8getScaleEv, ptr @_ZN3irr5scene29CDummyTransformationSceneNode8setScaleERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene29CDummyTransformationSceneNode11getRotationEv, ptr @_ZN3irr5scene29CDummyTransformationSceneNode11setRotationERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene29CDummyTransformationSceneNode11getPositionEv, ptr @_ZN3irr5scene29CDummyTransformationSceneNode11setPositionERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode19getAbsolutePositionEv, ptr @_ZN3irr5scene10ISceneNode19setDebugDataVisibleEj, ptr @_ZN3irr5scene10ISceneNode9setParentEPS1_, ptr @_ZN3irr5scene10ISceneNode22updateAbsolutePositionEv, ptr @_ZNK3irr5scene29CDummyTransformationSceneNode7getTypeEv, ptr @_ZN3irr5scene29CDummyTransformationSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE, ptr @_ZNK3irr5scene10ISceneNode15getSceneManagerEv, ptr @_ZN3irr5scene29CDummyTransformationSceneNode31getRelativeTransformationMatrixEv], [5 x ptr] [ptr inttoptr (i64 -312 to ptr), ptr inttoptr (i64 -312 to ptr), ptr @_ZTIN3irr5scene29CDummyTransformationSceneNodeE, ptr @_ZTv0_n24_N3irr5scene29CDummyTransformationSceneNodeD1Ev, ptr @_ZTv0_n24_N3irr5scene29CDummyTransformationSceneNodeD0Ev] }, align 8
-@_ZTTN3irr5scene29CDummyTransformationSceneNodeE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_29IDummyTransformationSceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_29IDummyTransformationSceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr5scene29CDummyTransformationSceneNodeE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_29IDummyTransformationSceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_29IDummyTransformationSceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i32 0, inrange i32 1, i32 3)], align 8
 @.str = private unnamed_addr constant [88 x i8] c"CDummyTransformationSceneNode::getScale() does not contain the relative transformation.\00", align 1
 @.str.1 = private unnamed_addr constant [87 x i8] c"CDummyTransformationSceneNode::setScale() does not affect the relative transformation.\00", align 1
 @.str.2 = private unnamed_addr constant [91 x i8] c"CDummyTransformationSceneNode::getRotation() does not contain the relative transformation.\00", align 1
@@ -252,8 +252,8 @@ define void @_ZN3irr5scene29CDummyTransformationSceneNodeC1EPNS0_10ISceneNodeEPN
   store ptr null, ptr %6, align 8, !tbaa !43
   %7 = getelementptr inbounds i8, ptr %0, i64 328
   store i32 1, ptr %7, align 8, !tbaa !45
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %5, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %8, align 8, !tbaa !6
   %9 = getelementptr inbounds i8, ptr %0, i64 48
@@ -306,12 +306,12 @@ define void @_ZN3irr5scene29CDummyTransformationSceneNodeC1EPNS0_10ISceneNodeEPN
   br label %34
 
 34:                                               ; preds = %29, %4
-  %35 = phi ptr [ getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), %4 ], [ %33, %29 ]
+  %35 = phi ptr [ getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), %4 ], [ %33, %29 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 256
   %37 = load ptr, ptr %36, align 8
   tail call void %37(ptr noundef nonnull align 8 dereferenceable(222) %0) #19
-  store ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i64 0, inrange i32 1, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i64 0, i32 1, i64 3), ptr %5, align 8, !tbaa !3
   %38 = getelementptr inbounds i8, ptr %0, i64 224
   %39 = getelementptr inbounds i8, ptr %0, i64 228
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %39, i8 0, i64 56, i1 false)
@@ -367,8 +367,8 @@ define noundef ptr @_ZN3irr5scene29CDummyTransformationSceneNode5cloneEPNS0_10IS
   store ptr null, ptr %16, align 8, !tbaa !43
   %17 = getelementptr inbounds i8, ptr %12, i64 328
   store i32 1, ptr %17, align 8, !tbaa !45
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %12, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %15, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %15, align 8, !tbaa !3
   %18 = getelementptr inbounds i8, ptr %12, i64 40
   store i8 0, ptr %18, align 8, !tbaa !6
   %19 = getelementptr inbounds i8, ptr %12, i64 48
@@ -421,12 +421,12 @@ define noundef ptr @_ZN3irr5scene29CDummyTransformationSceneNode5cloneEPNS0_10IS
   br label %44
 
 44:                                               ; preds = %39, %3
-  %45 = phi ptr [ getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), %3 ], [ %43, %39 ]
+  %45 = phi ptr [ getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), %3 ], [ %43, %39 ]
   %46 = getelementptr inbounds i8, ptr %45, i64 256
   %47 = load ptr, ptr %46, align 8
   tail call void %47(ptr noundef nonnull align 8 dereferenceable(222) %12) #19
-  store ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i64 0, inrange i32 0, i64 3), ptr %12, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i64 0, inrange i32 1, i64 3), ptr %15, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i64 0, i32 0, i64 3), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [40 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene29CDummyTransformationSceneNodeE, i64 0, i32 1, i64 3), ptr %15, align 8, !tbaa !3
   %48 = getelementptr inbounds i8, ptr %12, i64 224
   %49 = getelementptr inbounds i8, ptr %12, i64 228
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %49, i8 0, i64 56, i1 false)
@@ -1768,9 +1768,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr5scene10ISceneNodeD0Ev(ptr noundef %0) 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene29CDummyTransformationSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = icmp eq ptr %4, %3
@@ -1864,9 +1864,9 @@ define linkonce_odr void @_ZN3irr5scene29CDummyTransformationSceneNodeD1Ev(ptr n
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene29CDummyTransformationSceneNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = icmp eq ptr %4, %3
@@ -1975,9 +1975,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr5scene29CDummyTransformationSceneNodeD1
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 312
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 152
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = icmp eq ptr %8, %7
@@ -2075,9 +2075,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr5scene29CDummyTransformationSceneNodeD0
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 312
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene29CDummyTransformationSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 152
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = icmp eq ptr %8, %7

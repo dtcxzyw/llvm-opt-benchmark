@@ -265,7 +265,7 @@ entry:
   %call3 = call noundef i32 @_ZNK3nla6mon_eq3varEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
   %call4 = call noundef nonnull align 8 dereferenceable(34) ptr @_ZNK3nla7emonicsixEj(ptr noundef nonnull align 8 dereferenceable(216) %call2, i32 noundef %call3)
   call void @_ZN3nla21factorization_factoryC2ERK7svectorIjjEPKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(8) %call, ptr noundef %call4)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nla25factorization_factory_impE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nla25factorization_factory_impE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_core = getelementptr inbounds %"struct.nla::factorization_factory_imp", ptr %this1, i32 0, i32 1
   %3 = load ptr, ptr %s.addr, align 8
   store ptr %3, ptr %m_core, align 8
@@ -366,7 +366,7 @@ entry:
   store ptr %vars, ptr %vars.addr, align 8
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nla21factorization_factoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nla21factorization_factoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_vars = getelementptr inbounds %"struct.nla::factorization_factory", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %vars.addr, align 8
   store ptr %0, ptr %m_vars, align 8

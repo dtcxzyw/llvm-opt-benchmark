@@ -61,7 +61,7 @@ $_ZTIN3irr5video25IMaterialRendererServicesE = comdat any
 $_ZTVN3irr5video25IMaterialRendererServicesE = comdat any
 
 @_ZTVN3irr5video24COpenGL3MaterialRendererE = unnamed_addr constant { [21 x ptr], [14 x ptr], [5 x ptr] } { [21 x ptr] [ptr inttoptr (i64 80 to ptr), ptr null, ptr @_ZTIN3irr5video24COpenGL3MaterialRendererE, ptr @_ZN3irr5video24COpenGL3MaterialRenderer13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE, ptr @_ZN3irr5video24COpenGL3MaterialRenderer8OnRenderEPNS0_25IMaterialRendererServicesENS0_13E_VERTEX_TYPEE, ptr @_ZN3irr5video24COpenGL3MaterialRenderer15OnUnsetMaterialEv, ptr @_ZNK3irr5video24COpenGL3MaterialRenderer13isTransparentEv, ptr @_ZNK3irr5video24COpenGL3MaterialRenderer19getRenderCapabilityEv, ptr @_ZNK3irr5video17IMaterialRenderer28getShaderConstantSetCallBackEv, ptr @_ZN3irr5video24COpenGL3MaterialRendererD1Ev, ptr @_ZN3irr5video24COpenGL3MaterialRendererD0Ev, ptr @_ZN3irr5video24COpenGL3MaterialRenderer20setBasicRenderStatesERKNS0_9SMaterialES4_b, ptr @_ZN3irr5video24COpenGL3MaterialRenderer25getVertexShaderConstantIDEPKc, ptr @_ZN3irr5video24COpenGL3MaterialRenderer24getPixelShaderConstantIDEPKc, ptr @_ZN3irr5video24COpenGL3MaterialRenderer23setVertexShaderConstantEiPKfi, ptr @_ZN3irr5video24COpenGL3MaterialRenderer23setVertexShaderConstantEiPKii, ptr @_ZN3irr5video24COpenGL3MaterialRenderer23setVertexShaderConstantEiPKji, ptr @_ZN3irr5video24COpenGL3MaterialRenderer22setPixelShaderConstantEiPKfi, ptr @_ZN3irr5video24COpenGL3MaterialRenderer22setPixelShaderConstantEiPKii, ptr @_ZN3irr5video24COpenGL3MaterialRenderer22setPixelShaderConstantEiPKji, ptr @_ZN3irr5video24COpenGL3MaterialRenderer14getVideoDriverEv], [14 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3irr5video24COpenGL3MaterialRendererE, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRendererD1Ev, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRendererD0Ev, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer20setBasicRenderStatesERKNS0_9SMaterialES4_b, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer25getVertexShaderConstantIDEPKc, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer23setVertexShaderConstantEiPKfi, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer23setVertexShaderConstantEiPKii, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer23setVertexShaderConstantEiPKji, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer24getPixelShaderConstantIDEPKc, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer22setPixelShaderConstantEiPKfi, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer22setPixelShaderConstantEiPKii, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer22setPixelShaderConstantEiPKji, ptr @_ZThn8_N3irr5video24COpenGL3MaterialRenderer14getVideoDriverEv], [5 x ptr] [ptr inttoptr (i64 -80 to ptr), ptr inttoptr (i64 -80 to ptr), ptr @_ZTIN3irr5video24COpenGL3MaterialRendererE, ptr @_ZTv0_n24_N3irr5video24COpenGL3MaterialRendererD1Ev, ptr @_ZTv0_n24_N3irr5video24COpenGL3MaterialRendererD0Ev] }, align 8
-@_ZTTN3irr5video24COpenGL3MaterialRendererE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video24COpenGL3MaterialRendererE0_NS0_17IMaterialRendererE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video24COpenGL3MaterialRendererE0_NS0_17IMaterialRendererE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i32 0, inrange i32 2, i32 3)], align 8
+@_ZTTN3irr5video24COpenGL3MaterialRendererE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video24COpenGL3MaterialRendererE0_NS0_17IMaterialRendererE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video24COpenGL3MaterialRendererE0_NS0_17IMaterialRendererE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i32 0, inrange i32 2, i32 3)], align 8
 @GL = external local_unnamed_addr global %class.OpenGLProcedures, align 8
 @.str = private unnamed_addr constant [30 x i8] c"GLSL shader failed to compile\00", align 1
 @.str.1 = private unnamed_addr constant [35 x i8] c"GLSL shader program failed to link\00", align 1
@@ -102,7 +102,7 @@ define void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBase
   %16 = getelementptr inbounds i8, ptr %0, i64 %15
   store ptr %13, ptr %16, align 8, !tbaa !3
   %17 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, inrange i32 0, i64 2), ptr %17, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %17, align 8, !tbaa !3
   %18 = load ptr, ptr %1, align 8
   store ptr %18, ptr %0, align 8, !tbaa !3
   %19 = getelementptr inbounds i8, ptr %1, i64 24
@@ -111,7 +111,7 @@ define void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBase
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 %22
   store ptr %20, ptr %23, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, inrange i32 1, i64 2), ptr %17, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %17, align 8, !tbaa !3
   %24 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %2, ptr %24, align 8, !tbaa !6
   %25 = getelementptr inbounds i8, ptr %0, i64 24
@@ -234,9 +234,9 @@ define void @_ZN3irr5video24COpenGL3MaterialRendererC1EPNS0_18COpenGL3DriverBase
   %11 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 1, ptr %11, align 8, !tbaa !24
   %12 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, inrange i32 2, i64 3), ptr %9, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, inrange i32 1, i64 2), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 2, i64 3), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %12, align 8, !tbaa !3
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %13, align 8, !tbaa !6
   %14 = getelementptr inbounds i8, ptr %0, i64 24
@@ -297,7 +297,7 @@ define void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBase
   %13 = getelementptr inbounds i8, ptr %0, i64 %12
   store ptr %10, ptr %13, align 8, !tbaa !3
   %14 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, inrange i32 0, i64 2), ptr %14, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %14, align 8, !tbaa !3
   %15 = load ptr, ptr %1, align 8
   store ptr %15, ptr %0, align 8, !tbaa !3
   %16 = getelementptr inbounds i8, ptr %1, i64 24
@@ -306,7 +306,7 @@ define void @_ZN3irr5video24COpenGL3MaterialRendererC2EPNS0_18COpenGL3DriverBase
   %19 = load i64, ptr %18, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 %19
   store ptr %17, ptr %20, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, inrange i32 1, i64 2), ptr %14, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %14, align 8, !tbaa !3
   %21 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %2, ptr %21, align 8, !tbaa !6
   %22 = getelementptr inbounds i8, ptr %0, i64 24
@@ -362,9 +362,9 @@ define void @_ZN3irr5video24COpenGL3MaterialRendererC1EPNS0_18COpenGL3DriverBase
   %8 = getelementptr inbounds i8, ptr %0, i64 96
   store i32 1, ptr %8, align 8, !tbaa !24
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, inrange i32 2, i64 3), ptr %6, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, inrange i32 1, i64 2), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 2, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %9, align 8, !tbaa !3
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %10, align 8, !tbaa !6
   %11 = getelementptr inbounds i8, ptr %0, i64 24
@@ -425,7 +425,7 @@ define void @_ZN3irr5video24COpenGL3MaterialRendererD2Ev(ptr nocapture noundef n
   %10 = getelementptr inbounds i8, ptr %0, i64 %9
   store ptr %7, ptr %10, align 8, !tbaa !3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, inrange i32 1, i64 2), ptr %11, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [21 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video24COpenGL3MaterialRendererE, i64 0, i32 1, i64 2), ptr %11, align 8, !tbaa !3
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !19
   %14 = icmp eq ptr %13, null

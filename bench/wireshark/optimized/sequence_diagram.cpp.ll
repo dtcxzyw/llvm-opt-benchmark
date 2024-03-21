@@ -150,7 +150,7 @@ define void @_ZN15SequenceDiagramC2EP7QCPAxisS1_S1_(ptr noundef nonnull align 8 
   %15 = alloca %class.QFont, align 8
   %16 = alloca %class.QString, align 8
   tail call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i64 0, i32 0, i64 2), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr %1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 192
@@ -723,7 +723,7 @@ declare void @_ZN20QCPAbstractPlottableD2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15SequenceDiagramD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

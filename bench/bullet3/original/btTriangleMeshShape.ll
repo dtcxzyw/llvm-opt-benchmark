@@ -188,7 +188,7 @@ entry:
   store ptr %meshInterface, ptr %meshInterface.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV19btTriangleMeshShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV19btTriangleMeshShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_localAabbMin = getelementptr inbounds %class.btTriangleMeshShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin)
           to label %invoke.cont unwind label %lpad
@@ -1026,7 +1026,7 @@ entry:
   store ptr %aabbMax, ptr %aabbMax.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN31btInternalTriangleIndexCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK19btTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E16FilteredCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK19btTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E16FilteredCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_callback = getelementptr inbounds %struct.FilteredCallback, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %callback.addr, align 8
   store ptr %0, ptr %m_callback, align 8
@@ -1235,7 +1235,7 @@ entry:
   store ptr %trans, ptr %trans.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btTriangleCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21SupportVertexCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21SupportVertexCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_supportVertexLocal = getelementptr inbounds %class.SupportVertexCallback, ptr %this1, i32 0, i32 1
   store float 0.000000e+00, ptr %ref.tmp, align 4
   store float 0.000000e+00, ptr %ref.tmp2, align 4
@@ -1702,7 +1702,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31btInternalTriangleIndexCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31btInternalTriangleIndexCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2053,7 +2053,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btTriangleCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btTriangleCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

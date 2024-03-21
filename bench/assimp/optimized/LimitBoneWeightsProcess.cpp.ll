@@ -71,7 +71,7 @@ $_ZN6Assimp6Logger13formatMessageIJERjEENSt7__cxx1112basic_stringIcSt11char_trai
 define void @_ZN6Assimp23LimitBoneWeightsProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(29) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #12
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp23LimitBoneWeightsProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp23LimitBoneWeightsProcessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mMaxWeights = getelementptr inbounds i8, ptr %this, i64 24
   store i32 4, ptr %mMaxWeights, align 8
   ret void

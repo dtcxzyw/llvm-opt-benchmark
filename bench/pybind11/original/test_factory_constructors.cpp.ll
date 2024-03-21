@@ -17716,7 +17716,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
@@ -19839,7 +19839,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %5, i32 0, i32 1
   %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #22
           to label %8 unwind label %11
@@ -20016,7 +20016,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -22344,7 +22344,7 @@ define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorERK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -22807,7 +22807,7 @@ define linkonce_odr hidden void @_ZN8pybind1117builtin_exceptionCI2St13runtime_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -23347,7 +23347,7 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN8pybind116detail25
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %7, align 8
@@ -23510,7 +23510,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -58062,7 +58062,7 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -81024,7 +81024,7 @@ define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -81058,7 +81058,7 @@ define linkonce_odr hidden void @_ZN8pybind1117builtin_exceptionCI2St13runtime_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -106010,7 +106010,7 @@ define linkonce_odr hidden void @_ZN8pybind1110type_errorCI2St13runtime_errorEPK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -106190,7 +106190,7 @@ define linkonce_odr hidden void @_ZN8pybind1120reference_cast_errorCI2St13runtim
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -116915,7 +116915,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIP12TestFactory3LN9__gnu_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory3LN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory3LN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -117614,7 +117614,7 @@ define linkonce_odr hidden void @_ZN12TestFactory3C2Ei(ptr noundef nonnull align
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.TestFactory3, ptr %7, i32 0, i32 1
   %9 = load i32, ptr %4, align 4
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %8, i32 noundef %9) #16
@@ -117707,7 +117707,7 @@ define linkonce_odr hidden void @_ZN12TestFactory3D2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedI12TestFactory3JEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %6
 
@@ -118762,7 +118762,7 @@ define linkonce_odr hidden void @_ZN12TestFactory3C2Ev(ptr noundef nonnull align
   %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.TestFactory3, ptr %6, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef @.str.198, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -120860,7 +120860,7 @@ define linkonce_odr hidden void @_ZN12TestFactory3C2ENSt7__cxx1112basic_stringIc
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.TestFactory3, ptr %7, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   %9 = getelementptr inbounds %class.TestFactory3, ptr %7, i32 0, i32 1
@@ -122574,7 +122574,7 @@ define linkonce_odr hidden void @_ZN12TestFactory4C2Ei(ptr noundef nonnull align
   %7 = load ptr, ptr %3, align 8
   %8 = load i32, ptr %4, align 4
   call void @_ZN12TestFactory3C2Ei(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_Z13print_createdI12TestFactory4JRiEEvPT_DpOT0_(ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %9 unwind label %10
 
@@ -122663,7 +122663,7 @@ define linkonce_odr hidden void @_ZN12TestFactory4D2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedI12TestFactory4JEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -124435,7 +124435,7 @@ define linkonce_odr hidden void @_ZN12TestFactory5C2Ei(ptr noundef nonnull align
   %7 = load ptr, ptr %3, align 8
   %8 = load i32, ptr %4, align 4
   call void @_ZN12TestFactory3C2Ei(ptr noundef nonnull align 8 dereferenceable(40) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_Z13print_createdI12TestFactory5JRiEEvPT_DpOT0_(ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %9 unwind label %10
 
@@ -124524,7 +124524,7 @@ define linkonce_odr hidden void @_ZN12TestFactory5D2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedI12TestFactory5JEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -125837,7 +125837,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceI12TestFactory4Sa
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_(ptr noundef nonnull align 8 dereferenceable(40) %9) #16
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #16
@@ -127326,7 +127326,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceI12TestFactory5Sa
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1154", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_(ptr noundef nonnull align 8 dereferenceable(40) %9) #16
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %8) #16
@@ -129779,7 +129779,7 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIP12TestFactory3St14d
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIP12TestFactory3St14default_deleteIS0_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIP12TestFactory3St14default_deleteIS0_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %"class.std::_Sp_counted_deleter.1193", ptr %6, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt19_Sp_counted_deleterIP12TestFactory3St14default_deleteIS0_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_S3_RKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %8, ptr noundef nonnull align 1 dereferenceable(1) %5) #16
@@ -132554,7 +132554,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIP12TestFactory4LN9__gnu_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory4LN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory4LN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1224", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -134710,7 +134710,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIP12TestFactory5LN9__gnu_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory5LN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory5LN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1234", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -136569,7 +136569,7 @@ define linkonce_odr hidden void @_ZN12TestFactory6D2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedI12TestFactory6JEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -136628,7 +136628,7 @@ define linkonce_odr hidden void @_ZN12TestFactory6C2EOS_(ptr noundef nonnull ali
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.TestFactory6, ptr %5, i32 0, i32 2
   store i8 0, ptr %6, align 4
   invoke void @_Z18print_move_createdI12TestFactory6JEEvPT_DpOT0_(ptr noundef %5)
@@ -136668,7 +136668,7 @@ define linkonce_odr hidden void @_ZN5PyTF6C2EO12TestFactory6(ptr noundef nonnull
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN12TestFactory6C2EOS_(ptr noundef nonnull align 8 dereferenceable(13) %7, ptr noundef nonnull align 8 dereferenceable(13) %8) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.TestFactory6, ptr %7, i32 0, i32 2
   store i8 1, ptr %9, align 4
   %10 = getelementptr inbounds %class.TestFactory6, ptr %7, i32 0, i32 1
@@ -136764,7 +136764,7 @@ define linkonce_odr hidden void @_ZN5PyTF6D2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedI5PyTF6JEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -139518,7 +139518,7 @@ define linkonce_odr hidden void @_ZN8pybind1110type_errorCI2St13runtime_errorERK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -141203,7 +141203,7 @@ define linkonce_odr hidden void @_ZN12TestFactory6C2Ei(ptr noundef nonnull align
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.TestFactory6, ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -142209,7 +142209,7 @@ define linkonce_odr hidden void @_ZN5PyTF6C2EOS_(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12TestFactory6C2EOS_(ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(13) %6) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, i32 0, i32 2), ptr %5, align 8
   invoke void @_Z18print_move_createdI5PyTF6JEEvPT_DpOT0_(ptr noundef %5)
           to label %7 unwind label %8
 
@@ -142300,7 +142300,7 @@ define linkonce_odr hidden void @_ZN5PyTF6C2Ei(ptr noundef nonnull align 8 deref
   %7 = load ptr, ptr %3, align 8
   %8 = load i32, ptr %4, align 4
   call void @_ZN12TestFactory6C2Ei(ptr noundef nonnull align 8 dereferenceable(13) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.TestFactory6, ptr %7, i32 0, i32 2
   store i8 1, ptr %9, align 4
   invoke void @_Z13print_createdI5PyTF6JRiEEvPT_DpOT0_(ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -143388,7 +143388,7 @@ define linkonce_odr hidden void @_ZN5PyTF6C2ENSt7__cxx1112basic_stringIcSt11char
   %8 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   %9 = trunc i64 %8 to i32
   call void @_ZN12TestFactory6C2Ei(ptr noundef nonnull align 8 dereferenceable(13) %7, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.TestFactory6, ptr %7, i32 0, i32 2
   store i8 1, ptr %10, align 4
   invoke void @_Z13print_createdI5PyTF6JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_(ptr noundef %7, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -149939,7 +149939,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIP12TestFactory7LN9__gnu_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory7LN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory7LN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1362", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -150818,7 +150818,7 @@ define linkonce_odr hidden void @_ZN12TestFactory7D2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedI12TestFactory7JEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -150869,7 +150869,7 @@ define linkonce_odr hidden void @_ZN5PyTF7D2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedI5PyTF7JEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -150926,7 +150926,7 @@ define linkonce_odr hidden void @_ZN12TestFactory7C2EOS_(ptr noundef nonnull ali
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.TestFactory7, ptr %5, i32 0, i32 2
   store i8 0, ptr %6, align 4
   invoke void @_Z18print_move_createdI12TestFactory7JEEvPT_DpOT0_(ptr noundef %5)
@@ -151151,7 +151151,7 @@ define linkonce_odr hidden void @_ZN12TestFactory7C2Ei(ptr noundef nonnull align
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.TestFactory7, ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -151372,7 +151372,7 @@ define linkonce_odr hidden void @_ZN5PyTF7C2EOS_(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12TestFactory7C2EOS_(ptr noundef nonnull align 8 dereferenceable(13) %5, ptr noundef nonnull align 8 dereferenceable(13) %6) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i32 0, i32 0, i32 2), ptr %5, align 8
   invoke void @_Z18print_move_createdI5PyTF7JEEvPT_DpOT0_(ptr noundef %5)
           to label %7 unwind label %8
 
@@ -151726,7 +151726,7 @@ define linkonce_odr hidden void @_ZN5PyTF7C2Ei(ptr noundef nonnull align 8 deref
   %7 = load ptr, ptr %3, align 8
   %8 = load i32, ptr %4, align 4
   call void @_ZN12TestFactory7C2Ei(ptr noundef nonnull align 8 dereferenceable(13) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.TestFactory7, ptr %7, i32 0, i32 2
   store i8 1, ptr %9, align 4
   invoke void @_Z13print_createdI5PyTF7JRiEEvPT_DpOT0_(ptr noundef %7, ptr noundef nonnull align 4 dereferenceable(4) %4)
@@ -156734,7 +156734,7 @@ define linkonce_odr hidden void @_ZNSt23_Sp_counted_ptr_inplaceI12TestFactory7Sa
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1421", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #16
@@ -157269,7 +157269,7 @@ define linkonce_odr hidden void @_ZNSt15_Sp_counted_ptrIP5PyTF7LN9__gnu_cxx12_Lo
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP5PyTF7LN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP5PyTF7LN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1423", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8

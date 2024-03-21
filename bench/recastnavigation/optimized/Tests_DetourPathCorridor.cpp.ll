@@ -318,7 +318,7 @@ define internal void @_ZL22CATCH2_INTERNAL_TEST_0v() #1 personality ptr @__gxx_p
   store i8 1, ptr %117, align 8, !alias.scope !5
   %118 = getelementptr inbounds i8, ptr %6, i64 9
   store i8 %116, ptr %118, align 1, !alias.scope !5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !5
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !5
   %119 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 %111, ptr %119, align 4, !alias.scope !5
   %120 = getelementptr inbounds i8, ptr %6, i64 16
@@ -430,7 +430,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit:             ; preds = %134, %130, %109
   store i8 1, ptr %161, align 8, !alias.scope !8
   %162 = getelementptr inbounds i8, ptr %13, i64 9
   store i8 %160, ptr %162, align 1, !alias.scope !8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, inrange i32 0, i64 2), ptr %13, align 8, !alias.scope !8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, i32 0, i64 2), ptr %13, align 8, !alias.scope !8
   %163 = getelementptr inbounds i8, ptr %13, i64 12
   store i32 %155, ptr %163, align 4, !alias.scope !8
   %164 = getelementptr inbounds i8, ptr %13, i64 16
@@ -500,10 +500,10 @@ _ZN5Catch16AssertionHandlerD2Ev.exit182:          ; preds = %174, %178
           to label %188 unwind label %167
 
 188:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit182
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, inrange i32 0, i64 2), ptr %18, align 8, !alias.scope !11
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, i32 0, i64 2), ptr %18, align 8, !alias.scope !11
   %189 = getelementptr inbounds i8, ptr %18, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %189) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA1_KjSt8equal_toIvEEE, i64 0, inrange i32 0, i64 2), ptr %18, align 8, !alias.scope !11
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA1_KjSt8equal_toIvEEE, i64 0, i32 0, i64 2), ptr %18, align 8, !alias.scope !11
   %190 = getelementptr inbounds i8, ptr %18, i64 40
   store ptr %14, ptr %190, align 8, !alias.scope !11
   call void @llvm.experimental.noalias.scope.decl(metadata !14)
@@ -515,7 +515,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit182:          ; preds = %174, %178
   store i8 1, ptr %195, align 8, !alias.scope !14
   %196 = getelementptr inbounds i8, ptr %17, i64 9
   store i8 %194, ptr %196, align 1, !alias.scope !14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA1_jNS_8Matchers18RangeEqualsMatcherIRA1_KjSt8equal_toIvEEEEE, i64 0, inrange i32 0, i64 2), ptr %17, align 8, !alias.scope !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA1_jNS_8Matchers18RangeEqualsMatcherIRA1_KjSt8equal_toIvEEEEE, i64 0, i32 0, i64 2), ptr %17, align 8, !alias.scope !14
   %197 = getelementptr inbounds i8, ptr %17, i64 16
   store ptr %10, ptr %197, align 8, !alias.scope !14
   %198 = getelementptr inbounds i8, ptr %17, i64 24
@@ -636,7 +636,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit184:          ; preds = %214, %210, %153
   store i8 1, ptr %241, align 8, !alias.scope !17
   %242 = getelementptr inbounds i8, ptr %25, i64 9
   store i8 %240, ptr %242, align 1, !alias.scope !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, inrange i32 0, i64 2), ptr %25, align 8, !alias.scope !17
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, i32 0, i64 2), ptr %25, align 8, !alias.scope !17
   %243 = getelementptr inbounds i8, ptr %25, i64 12
   store i32 %235, ptr %243, align 4, !alias.scope !17
   %244 = getelementptr inbounds i8, ptr %25, i64 16
@@ -749,7 +749,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit187:          ; preds = %258, %254, %233
   store i8 1, ptr %285, align 8, !alias.scope !20
   %286 = getelementptr inbounds i8, ptr %33, i64 9
   store i8 %284, ptr %286, align 1, !alias.scope !20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, inrange i32 0, i64 2), ptr %33, align 8, !alias.scope !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, i32 0, i64 2), ptr %33, align 8, !alias.scope !20
   %287 = getelementptr inbounds i8, ptr %33, i64 12
   store i32 %279, ptr %287, align 4, !alias.scope !20
   %288 = getelementptr inbounds i8, ptr %33, i64 16
@@ -819,10 +819,10 @@ _ZN5Catch16AssertionHandlerD2Ev.exit190:          ; preds = %298, %302
           to label %312 unwind label %291
 
 312:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit190
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !alias.scope !23
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, i32 0, i64 2), ptr %38, align 8, !alias.scope !23
   %313 = getelementptr inbounds i8, ptr %38, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %313) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !alias.scope !23
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEE, i64 0, i32 0, i64 2), ptr %38, align 8, !alias.scope !23
   %314 = getelementptr inbounds i8, ptr %38, i64 40
   store ptr %34, ptr %314, align 8, !alias.scope !23
   call void @llvm.experimental.noalias.scope.decl(metadata !26)
@@ -846,7 +846,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit190:          ; preds = %298, %302
   store i8 1, ptr %321, align 8, !alias.scope !26
   %322 = getelementptr inbounds i8, ptr %37, i64 9
   store i8 %320, ptr %322, align 1, !alias.scope !26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA2_jNS_8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEEEE, i64 0, inrange i32 0, i64 2), ptr %37, align 8, !alias.scope !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA2_jNS_8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEEEE, i64 0, i32 0, i64 2), ptr %37, align 8, !alias.scope !26
   %323 = getelementptr inbounds i8, ptr %37, i64 16
   store ptr %29, ptr %323, align 8, !alias.scope !26
   %324 = getelementptr inbounds i8, ptr %37, i64 24
@@ -968,7 +968,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit192:          ; preds = %340, %336, %277
   store i8 1, ptr %367, align 8, !alias.scope !31
   %368 = getelementptr inbounds i8, ptr %46, i64 9
   store i8 %366, ptr %368, align 1, !alias.scope !31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, inrange i32 0, i64 2), ptr %46, align 8, !alias.scope !31
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, i32 0, i64 2), ptr %46, align 8, !alias.scope !31
   %369 = getelementptr inbounds i8, ptr %46, i64 12
   store i32 %361, ptr %369, align 4, !alias.scope !31
   %370 = getelementptr inbounds i8, ptr %46, i64 16
@@ -1038,10 +1038,10 @@ _ZN5Catch16AssertionHandlerD2Ev.exit195:          ; preds = %380, %384
           to label %394 unwind label %373
 
 394:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit195
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, inrange i32 0, i64 2), ptr %51, align 8, !alias.scope !34
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, i32 0, i64 2), ptr %51, align 8, !alias.scope !34
   %395 = getelementptr inbounds i8, ptr %51, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %395) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEE, i64 0, inrange i32 0, i64 2), ptr %51, align 8, !alias.scope !34
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEE, i64 0, i32 0, i64 2), ptr %51, align 8, !alias.scope !34
   %396 = getelementptr inbounds i8, ptr %51, i64 40
   store ptr %47, ptr %396, align 8, !alias.scope !34
   call void @llvm.experimental.noalias.scope.decl(metadata !37)
@@ -1065,7 +1065,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit195:          ; preds = %380, %384
   store i8 1, ptr %403, align 8, !alias.scope !37
   %404 = getelementptr inbounds i8, ptr %50, i64 9
   store i8 %402, ptr %404, align 1, !alias.scope !37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA3_jNS_8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEEEE, i64 0, inrange i32 0, i64 2), ptr %50, align 8, !alias.scope !37
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA3_jNS_8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEEEE, i64 0, i32 0, i64 2), ptr %50, align 8, !alias.scope !37
   %405 = getelementptr inbounds i8, ptr %50, i64 16
   store ptr %42, ptr %405, align 8, !alias.scope !37
   %406 = getelementptr inbounds i8, ptr %50, i64 24
@@ -1187,7 +1187,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit203:          ; preds = %422, %418, %359
   store i8 1, ptr %449, align 8, !alias.scope !41
   %450 = getelementptr inbounds i8, ptr %59, i64 9
   store i8 %448, ptr %450, align 1, !alias.scope !41
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, inrange i32 0, i64 2), ptr %59, align 8, !alias.scope !41
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, i32 0, i64 2), ptr %59, align 8, !alias.scope !41
   %451 = getelementptr inbounds i8, ptr %59, i64 12
   store i32 %443, ptr %451, align 4, !alias.scope !41
   %452 = getelementptr inbounds i8, ptr %59, i64 16
@@ -1257,10 +1257,10 @@ _ZN5Catch16AssertionHandlerD2Ev.exit206:          ; preds = %462, %466
           to label %476 unwind label %455
 
 476:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit206
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, inrange i32 0, i64 2), ptr %64, align 8, !alias.scope !44
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, i32 0, i64 2), ptr %64, align 8, !alias.scope !44
   %477 = getelementptr inbounds i8, ptr %64, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %477) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEE, i64 0, inrange i32 0, i64 2), ptr %64, align 8, !alias.scope !44
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEE, i64 0, i32 0, i64 2), ptr %64, align 8, !alias.scope !44
   %478 = getelementptr inbounds i8, ptr %64, i64 40
   store ptr %60, ptr %478, align 8, !alias.scope !44
   call void @llvm.experimental.noalias.scope.decl(metadata !47)
@@ -1284,7 +1284,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit206:          ; preds = %462, %466
   store i8 1, ptr %485, align 8, !alias.scope !47
   %486 = getelementptr inbounds i8, ptr %63, i64 9
   store i8 %484, ptr %486, align 1, !alias.scope !47
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA3_jNS_8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEEEE, i64 0, inrange i32 0, i64 2), ptr %63, align 8, !alias.scope !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA3_jNS_8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEEEE, i64 0, i32 0, i64 2), ptr %63, align 8, !alias.scope !47
   %487 = getelementptr inbounds i8, ptr %63, i64 16
   store ptr %55, ptr %487, align 8, !alias.scope !47
   %488 = getelementptr inbounds i8, ptr %63, i64 24
@@ -1406,7 +1406,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit215:          ; preds = %504, %500, %441
   store i8 1, ptr %531, align 8, !alias.scope !50
   %532 = getelementptr inbounds i8, ptr %72, i64 9
   store i8 %530, ptr %532, align 1, !alias.scope !50
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, inrange i32 0, i64 2), ptr %72, align 8, !alias.scope !50
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, i32 0, i64 2), ptr %72, align 8, !alias.scope !50
   %533 = getelementptr inbounds i8, ptr %72, i64 12
   store i32 %525, ptr %533, align 4, !alias.scope !50
   %534 = getelementptr inbounds i8, ptr %72, i64 16
@@ -1476,10 +1476,10 @@ _ZN5Catch16AssertionHandlerD2Ev.exit218:          ; preds = %544, %548
           to label %558 unwind label %537
 
 558:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit218
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, inrange i32 0, i64 2), ptr %77, align 8, !alias.scope !53
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, i32 0, i64 2), ptr %77, align 8, !alias.scope !53
   %559 = getelementptr inbounds i8, ptr %77, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %559) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEE, i64 0, inrange i32 0, i64 2), ptr %77, align 8, !alias.scope !53
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEE, i64 0, i32 0, i64 2), ptr %77, align 8, !alias.scope !53
   %560 = getelementptr inbounds i8, ptr %77, i64 40
   store ptr %73, ptr %560, align 8, !alias.scope !53
   call void @llvm.experimental.noalias.scope.decl(metadata !56)
@@ -1503,7 +1503,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit218:          ; preds = %544, %548
   store i8 1, ptr %567, align 8, !alias.scope !56
   %568 = getelementptr inbounds i8, ptr %76, i64 9
   store i8 %566, ptr %568, align 1, !alias.scope !56
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA2_jNS_8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEEEE, i64 0, inrange i32 0, i64 2), ptr %76, align 8, !alias.scope !56
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA2_jNS_8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEEEE, i64 0, i32 0, i64 2), ptr %76, align 8, !alias.scope !56
   %569 = getelementptr inbounds i8, ptr %76, i64 16
   store ptr %68, ptr %569, align 8, !alias.scope !56
   %570 = getelementptr inbounds i8, ptr %76, i64 24
@@ -1625,7 +1625,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit227:          ; preds = %586, %582, %523
   store i8 1, ptr %613, align 8, !alias.scope !59
   %614 = getelementptr inbounds i8, ptr %85, i64 9
   store i8 %612, ptr %614, align 1, !alias.scope !59
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, inrange i32 0, i64 2), ptr %85, align 8, !alias.scope !59
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, i32 0, i64 2), ptr %85, align 8, !alias.scope !59
   %615 = getelementptr inbounds i8, ptr %85, i64 12
   store i32 %607, ptr %615, align 4, !alias.scope !59
   %616 = getelementptr inbounds i8, ptr %85, i64 16
@@ -1695,10 +1695,10 @@ _ZN5Catch16AssertionHandlerD2Ev.exit230:          ; preds = %626, %630
           to label %640 unwind label %619
 
 640:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit230
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, inrange i32 0, i64 2), ptr %90, align 8, !alias.scope !62
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, i32 0, i64 2), ptr %90, align 8, !alias.scope !62
   %641 = getelementptr inbounds i8, ptr %90, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %641) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEE, i64 0, inrange i32 0, i64 2), ptr %90, align 8, !alias.scope !62
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEE, i64 0, i32 0, i64 2), ptr %90, align 8, !alias.scope !62
   %642 = getelementptr inbounds i8, ptr %90, i64 40
   store ptr %86, ptr %642, align 8, !alias.scope !62
   call void @llvm.experimental.noalias.scope.decl(metadata !65)
@@ -1722,7 +1722,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit230:          ; preds = %626, %630
   store i8 1, ptr %649, align 8, !alias.scope !65
   %650 = getelementptr inbounds i8, ptr %89, i64 9
   store i8 %648, ptr %650, align 1, !alias.scope !65
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA3_jNS_8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEEEE, i64 0, inrange i32 0, i64 2), ptr %89, align 8, !alias.scope !65
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA3_jNS_8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEEEE, i64 0, i32 0, i64 2), ptr %89, align 8, !alias.scope !65
   %651 = getelementptr inbounds i8, ptr %89, i64 16
   store ptr %81, ptr %651, align 8, !alias.scope !65
   %652 = getelementptr inbounds i8, ptr %89, i64 24
@@ -1844,7 +1844,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit239:          ; preds = %668, %664, %605
   store i8 1, ptr %695, align 8, !alias.scope !68
   %696 = getelementptr inbounds i8, ptr %98, i64 9
   store i8 %694, ptr %696, align 1, !alias.scope !68
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, inrange i32 0, i64 2), ptr %98, align 8, !alias.scope !68
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i64 0, i32 0, i64 2), ptr %98, align 8, !alias.scope !68
   %697 = getelementptr inbounds i8, ptr %98, i64 12
   store i32 %689, ptr %697, align 4, !alias.scope !68
   %698 = getelementptr inbounds i8, ptr %98, i64 16
@@ -1914,10 +1914,10 @@ _ZN5Catch16AssertionHandlerD2Ev.exit242:          ; preds = %708, %712
           to label %722 unwind label %701
 
 722:                                              ; preds = %_ZN5Catch16AssertionHandlerD2Ev.exit242
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, inrange i32 0, i64 2), ptr %103, align 8, !alias.scope !71
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i64 0, i32 0, i64 2), ptr %103, align 8, !alias.scope !71
   %723 = getelementptr inbounds i8, ptr %103, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %723) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEE, i64 0, inrange i32 0, i64 2), ptr %103, align 8, !alias.scope !71
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEE, i64 0, i32 0, i64 2), ptr %103, align 8, !alias.scope !71
   %724 = getelementptr inbounds i8, ptr %103, i64 40
   store ptr %99, ptr %724, align 8, !alias.scope !71
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
@@ -1941,7 +1941,7 @@ _ZN5Catch16AssertionHandlerD2Ev.exit242:          ; preds = %708, %712
   store i8 1, ptr %731, align 8, !alias.scope !74
   %732 = getelementptr inbounds i8, ptr %102, i64 9
   store i8 %730, ptr %732, align 1, !alias.scope !74
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA2_jNS_8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEEEE, i64 0, inrange i32 0, i64 2), ptr %102, align 8, !alias.scope !74
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA2_jNS_8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEEEE, i64 0, i32 0, i64 2), ptr %102, align 8, !alias.scope !74
   %733 = getelementptr inbounds i8, ptr %102, i64 16
   store ptr %94, ptr %733, align 8, !alias.scope !74
   %734 = getelementptr inbounds i8, ptr %102, i64 24

@@ -232,7 +232,7 @@ define void @_ZN4LIEF3ELF7GnuHashC2EjjSt6vectorImSaImEES2_IjSaIjEES6_(ptr nounde
   store ptr %5, ptr %12, align 8
   %13 = load ptr, ptr %7, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF7GnuHashE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF7GnuHashE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %13, i32 0, i32 1
   %15 = load i32, ptr %8, align 4
   store i32 %15, ptr %14, align 8
@@ -1218,7 +1218,7 @@ define linkonce_odr hidden void @_ZN4LIEF3ELF7GnuHashD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF7GnuHashE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF3ELF7GnuHashE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #6
   %5 = getelementptr inbounds %"class.LIEF::ELF::GnuHash", ptr %3, i32 0, i32 4

@@ -18,9 +18,9 @@ module asm ".previous"
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9DragLabelC2E7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6QLabelC2ERK7QStringP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %2, i32 0)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i64 0, inrange i32 1, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i64 0, i32 1, i64 2), ptr %4, align 8
   invoke void @_ZN7QWidget21setAutoFillBackgroundEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)
           to label %5 unwind label %10
 

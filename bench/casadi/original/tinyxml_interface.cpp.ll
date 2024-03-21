@@ -789,9 +789,9 @@ define void @_ZN6casadi16TinyXmlInterfaceC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN6casadi15XmlFileInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi16TinyXmlInterfaceE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi16TinyXmlInterfaceE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi16TinyXmlInterfaceE, i32 0, inrange i32 1, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi16TinyXmlInterfaceE, i32 0, i32 1, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %"class.casadi::TinyXmlInterface", ptr %5, i32 0, i32 1
   invoke void @_ZN8tinyxml211XMLDocumentC1EbNS_10WhitespaceE(ptr noundef nonnull align 8 dereferenceable(776) %7, i1 noundef zeroext true, i32 noundef 0)
           to label %8 unwind label %9
@@ -831,9 +831,9 @@ define void @_ZN6casadi16TinyXmlInterfaceD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi16TinyXmlInterfaceE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi16TinyXmlInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi16TinyXmlInterfaceE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi16TinyXmlInterfaceE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"class.casadi::TinyXmlInterface", ptr %3, i32 0, i32 1
   call void @_ZN8tinyxml211XMLDocumentD1Ev(ptr noundef nonnull align 8 dereferenceable(776) %5) #3
   call void @_ZN6casadi15XmlFileInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
@@ -1760,7 +1760,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -1792,7 +1792,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -3959,7 +3959,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

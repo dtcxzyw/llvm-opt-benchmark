@@ -175,7 +175,7 @@ define void @_ZN7rocksdb17BaseDeltaIteratorC2EPNS_18ColumnFamilyHandleEPNS_8Iter
 invoke.cont:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb17BaseDeltaIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb17BaseDeltaIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %forward_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 1, ptr %forward_, align 8
   %current_at_base_ = getelementptr inbounds i8, ptr %this, i64 41
@@ -6781,7 +6781,7 @@ _ZN7rocksdb6StatusD2Ev.exit12:                    ; preds = %cleanup, %_ZNKSt14d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb17BaseDeltaIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb17BaseDeltaIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb17BaseDeltaIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %columns_ = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %columns_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

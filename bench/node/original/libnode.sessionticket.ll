@@ -916,7 +916,7 @@ entry:
   store ptr %transport_params, ptr %transport_params.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic13SessionTicketE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic13SessionTicketE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ticket_ = getelementptr inbounds %"class.node::quic::SessionTicket", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ticket.addr, align 8
   call void @_ZN4node4quic5StoreC2EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %ticket_, ptr noundef nonnull align 8 dereferenceable(40) %0) #3
@@ -932,7 +932,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -946,7 +946,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN4node14MemoryRetainerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %store_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %store_2 = getelementptr inbounds %"class.node::quic::Store", ptr %2, i32 0, i32 1
@@ -2156,7 +2156,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3875,7 +3875,7 @@ entry:
   store ptr %retainer, ptr %retainer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %retainer.addr, align 8
   store ptr %0, ptr %retainer_, align 8
@@ -4058,7 +4058,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -7662,7 +7662,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic13SessionTicketE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic13SessionTicketE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ticket_ = getelementptr inbounds %"class.node::quic::SessionTicket", ptr %this1, i32 0, i32 1
   call void @_ZN4node4quic5StoreC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %ticket_) #3
   %transport_params_ = getelementptr inbounds %"class.node::quic::SessionTicket", ptr %this1, i32 0, i32 2
@@ -7677,7 +7677,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %store_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN2v812BackingStoreEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %store_) #3
   %length_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 2
@@ -7982,7 +7982,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN4node14MemoryRetainerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic13SessionTicketE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic13SessionTicketE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ticket_ = getelementptr inbounds %"class.node::quic::SessionTicket", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %ticket_2 = getelementptr inbounds %"class.node::quic::SessionTicket", ptr %2, i32 0, i32 1

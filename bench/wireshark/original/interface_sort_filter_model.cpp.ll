@@ -685,7 +685,7 @@ define void @_ZN24InterfaceSortFilterModelC2EP7QObject(ptr noundef nonnull align
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV24InterfaceSortFilterModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV24InterfaceSortFilterModel, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %7, i32 0, i32 6
   call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #12
   %10 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %7, i32 0, i32 7

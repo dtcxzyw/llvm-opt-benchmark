@@ -2371,7 +2371,7 @@ define dso_local void @_ZN19cmCTestBuildHandlerC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN21cmCTestGenericHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19cmCTestBuildHandler, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19cmCTestBuildHandler, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.cmCTestBuildHandler, ptr %6, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
   %8 = getelementptr inbounds %class.cmCTestBuildHandler, ptr %6, i32 0, i32 2
@@ -13849,7 +13849,7 @@ define linkonce_odr dso_local void @_ZN19cmCTestBuildHandlerD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19cmCTestBuildHandler, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19cmCTestBuildHandler, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestBuildHandler, ptr %3, i32 0, i32 38
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmCTestBuildHandler, ptr %3, i32 0, i32 28

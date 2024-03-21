@@ -1845,7 +1845,7 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN10napi_env__C2EN2v85LocalINS0_7ContextEEEi(ptr noundef nonnull align 8 dereferenceable(189) %this3, ptr %1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15node_napi_env__, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15node_napi_env__, i32 0, i32 0, i32 2), ptr %this3, align 8
   %filename = getelementptr inbounds %struct.node_napi_env__, ptr %this3, i32 0, i32 2
   %2 = load ptr, ptr %module_filename.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %2)
@@ -1920,7 +1920,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %module_api_version, ptr %module_api_version.addr, align 4
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10napi_env__, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10napi_env__, i32 0, i32 0, i32 2), ptr %this3, align 8
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %this3, i32 0, i32 1
   store ptr %context, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -8837,7 +8837,7 @@ entry:
   %7 = load ptr, ptr %coerce.dive21, align 8
   call void @_ZN4node13AsyncResourceC2EPN2v87IsolateENS1_5LocalINS1_6ObjectEEEPKcd(ptr noundef nonnull align 8 dereferenceable(40) %this9, ptr noundef %1, ptr %7, ptr noundef %call, double noundef -1.000000e+00)
   call void @_ZN2v86String9Utf8ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_118ThreadSafeFunctionE, i32 0, inrange i32 0, i32 2), ptr %this9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_118ThreadSafeFunctionE, i32 0, i32 0, i32 2), ptr %this9, align 8
   %mutex = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ThreadSafeFunction", ptr %this9, i32 0, i32 1
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex)
   %cond = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ThreadSafeFunction", ptr %this9, i32 0, i32 2
@@ -9656,7 +9656,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15node_napi_env__, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15node_napi_env__, i32 0, i32 0, i32 2), ptr %this1, align 8
   %filename = getelementptr inbounds %struct.node_napi_env__, ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %filename) #3
   call void @_ZN10napi_env__D2Ev(ptr noundef nonnull align 8 dereferenceable(189) %this1) #3
@@ -9682,7 +9682,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6v8impl10RefTrackerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6v8impl10RefTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.v8impl::RefTracker", ptr %this1, i32 0, i32 1
   store ptr null, ptr %next_, align 8
   %prev_ = getelementptr inbounds %"class.v8impl::RefTracker", ptr %this1, i32 0, i32 2
@@ -9753,7 +9753,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10napi_env__, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10napi_env__, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pending_finalizers = getelementptr inbounds %struct.napi_env__, ptr %this1, i32 0, i32 6
   call void @_ZNSt13unordered_setIPN6v8impl10RefTrackerESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %pending_finalizers) #3
   %finalizing_reflist = getelementptr inbounds %struct.napi_env__, ptr %this1, i32 0, i32 5
@@ -15489,7 +15489,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN32napi_async_cleanup_hook_handle__D1EvEUlS2_E_EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN32napi_async_cleanup_hook_handle__D1EvEUlS2_E_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %callback.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %callback_, ptr align 8 %1, i64 8, i1 false)
@@ -15518,7 +15518,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %flags, ptr %flags.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %flags.addr, align 4
   store i32 %0, ptr %flags_, align 8
@@ -15580,7 +15580,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %next_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::Callback", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node13CallbackQueueIvJPNS0_11EnvironmentEEE8CallbackESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %next_) #3
   ret void
@@ -17331,7 +17331,7 @@ entry:
   %2 = load ptr, ptr %finalize_data.addr, align 8
   %3 = load ptr, ptr %finalize_hint.addr, align 8
   call void @_ZN6v8impl9FinalizerC2EP10napi_env__PFvS2_PvS3_ES3_S3_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_115BufferFinalizerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_115BufferFinalizerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %env_, align 8
   call void @_ZN10napi_env__3RefEv(ptr noundef nonnull align 8 dereferenceable(189) %4)
@@ -17352,7 +17352,7 @@ entry:
   store ptr %finalize_data, ptr %finalize_data.addr, align 8
   store ptr %finalize_hint, ptr %finalize_hint.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl9FinalizerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl9FinalizerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %env.addr, align 8
   store ptr %0, ptr %env_, align 8
@@ -17374,7 +17374,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_115BufferFinalizerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_115BufferFinalizerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.v8impl::Finalizer", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %env_, align 8
   call void @_ZN10napi_env__5UnrefEv(ptr noundef nonnull align 8 dereferenceable(189) %0)
@@ -17808,9 +17808,9 @@ entry:
   %9 = load ptr, ptr %env.addr, align 8
   %call19 = call noundef ptr @_ZNK15node_napi_env__8node_envEv(ptr noundef nonnull align 8 dereferenceable(226) %9)
   call void @_ZN4node14ThreadPoolWorkC2EPNS_11EnvironmentEPKc(ptr noundef nonnull align 8 dereferenceable(152) %8, ptr noundef %call19, ptr noundef @.str.39)
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16uvimpl4WorkE, i32 0, inrange i32 0, i32 2), ptr %this6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16uvimpl4WorkE, i32 0, i32 0, i32 2), ptr %this6, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this6, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16uvimpl4WorkE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16uvimpl4WorkE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %_env = getelementptr inbounds %"class.(anonymous namespace)::uvimpl::Work", ptr %this6, i32 0, i32 2
   %10 = load ptr, ptr %env.addr, align 8
   store ptr %10, ptr %_env, align 8
@@ -17854,7 +17854,7 @@ entry:
   store ptr %env, ptr %env.addr, align 8
   store ptr %type, ptr %type.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node14ThreadPoolWorkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::ThreadPoolWork", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %env.addr, align 8
   store ptr %0, ptr %env_, align 8
@@ -20086,7 +20086,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_118ThreadSafeFunctionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6v8impl12_GLOBAL__N_118ThreadSafeFunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %env = getelementptr inbounds %"class.v8impl::(anonymous namespace)::ThreadSafeFunction", ptr %this1, i32 0, i32 12
   %0 = load ptr, ptr %env, align 8
   %isolate = getelementptr inbounds %struct.napi_env__, ptr %0, i32 0, i32 1
@@ -25968,7 +25968,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %flags.addr, align 4
   call void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackC2ENS_13CallbackFlags5FlagsE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EE", i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZN15node_napi_env__16EnqueueFinalizerEPN6v8impl10RefTrackerEE3$_0EE", i32 0, i32 0, i32 2), ptr %this1, align 8
   %callback_ = getelementptr inbounds %"class.node::CallbackQueue<void, node::Environment *>::CallbackImpl.470", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %callback.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %callback_, ptr align 8 %1, i64 8, i1 false)

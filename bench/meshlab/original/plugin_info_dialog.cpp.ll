@@ -5885,9 +5885,9 @@ define void @_ZN16PluginInfoDialogC2EP7QWidget(ptr noundef nonnull align 8 deref
   %14 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %15 = load i32, ptr %14, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %13, i32 %15)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV16PluginInfoDialog, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV16PluginInfoDialog, i32 0, i32 0, i32 2), ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV16PluginInfoDialog, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV16PluginInfoDialog, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.PluginInfoDialog, ptr %12, i32 0, i32 1
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #18
           to label %19 unwind label %60
@@ -8570,9 +8570,9 @@ define void @_ZN16PluginInfoDialogD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV16PluginInfoDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV16PluginInfoDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV16PluginInfoDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV16PluginInfoDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.PluginInfoDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -10590,7 +10590,7 @@ define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull alig
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #3
@@ -10631,7 +10631,7 @@ define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 2
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 1
@@ -10718,7 +10718,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

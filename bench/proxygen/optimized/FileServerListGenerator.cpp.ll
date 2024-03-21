@@ -643,7 +643,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
   %call.i42 = call ptr @__cxa_allocate_exception(i64 noundef 16) #18, !noalias !9
   %call1.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i42, ptr noundef nonnull @_ZTISt16invalid_argument, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkISt16invalid_argumentEEvPv) #18, !noalias !9
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i42, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp72) #18, !noalias !9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i64 0, inrange i32 0, i64 2), ptr %call.i42, align 8, !noalias !9
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i64 0, i32 0, i64 2), ptr %call.i42, align 8, !noalias !9
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp71, ptr noundef nonnull %call.i42) #18
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   invoke void @_ZN8proxygen19ServerListGenerator8Callback14resetGeneratorEPNS0_9GeneratorEb(ptr noundef nonnull align 8 dereferenceable(17) %47, ptr noundef null, i1 noundef zeroext false)
@@ -1431,7 +1431,7 @@ entry:
   store ptr null, ptr %eventBase_.i, align 8
   %groupId_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 -1, ptr %groupId_.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen23FileServerListGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen23FileServerListGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %params_ = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %fileName)
           to label %invoke.cont unwind label %lpad
@@ -1520,8 +1520,8 @@ ehcleanup20:                                      ; preds = %lpad16, %lpad10, %l
 
 ehcleanup21:                                      ; preds = %ehcleanup20, %lpad3, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup20 ], [ %1, %lpad3 ], [ %0, %lpad ]
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %6 = load ptr, ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, inrange i32 0, i64 5), align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %6 = load ptr, ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, i32 0, i64 5), align 8
   invoke void %6(ptr noundef nonnull align 8 dereferenceable(20) %this)
           to label %_ZN8proxygen19ServerListGeneratorD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1554,7 +1554,7 @@ define void @_ZN8proxygen23FileServerListGenerator11listServersEPNS_19ServerList
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21
   %params_ = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen23FileServerListGenerator13FileGeneratorE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen23FileServerListGenerator13FileGeneratorE, i64 0, i32 0, i64 2), ptr %call, align 8
   %params_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %params_, ptr %params_.i, align 8
   %callback_.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -1668,13 +1668,13 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen23FileServerListGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen23FileServerListGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen23FileServerListGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %params_ = getelementptr inbounds i8, ptr %this, i64 24
   %poolName.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %poolName.i) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %params_) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %0 = load ptr, ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, inrange i32 0, i64 5), align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = load ptr, ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, i32 0, i64 5), align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(20) %this)
           to label %_ZN8proxygen19ServerListGeneratorD2Ev.exit unwind label %terminate.lpad.i
 
@@ -1692,13 +1692,13 @@ _ZN8proxygen19ServerListGeneratorD2Ev.exit:       ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen23FileServerListGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen23FileServerListGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen23FileServerListGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %params_.i = getelementptr inbounds i8, ptr %this, i64 24
   %poolName.i.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %poolName.i.i) #18
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %params_.i) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  %0 = load ptr, ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, inrange i32 0, i64 5), align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  %0 = load ptr, ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i64 0, i32 0, i64 5), align 8
   invoke void %0(ptr noundef nonnull align 8 dereferenceable(20) %this)
           to label %_ZN8proxygen23FileServerListGeneratorD2Ev.exit unwind label %terminate.lpad.i.i
 
@@ -1870,7 +1870,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr void @_ZN5folly9TypeErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #5 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9TypeErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9TypeErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -2568,7 +2568,7 @@ entry:
   %ref.tmp = alloca %"class.proxygen::Exception", align 8
   %ref.tmp3 = alloca ptr, align 8
   store ptr %args, ptr %ref.tmp3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %msg_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   invoke void @_ZN5folly2toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJPKcS6_EEENSt9enable_ifIXaasr12IsSomeStringIT_EE5valueoonesZT0_Li1Entsr3std7is_sameISA_19__type_pack_elementIXmisPvDpT0_ELi1EEJvSD_EEEE5valueESA_E4typeEDpRKSC_(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %msg_.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp3, ptr noundef nonnull align 8 dereferenceable(32) %args1)
           to label %_ZN8proxygen9ExceptionC2IJPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpOT_.exit unwind label %lpad.i
@@ -2597,7 +2597,7 @@ invoke.cont:                                      ; preds = %_ZN8proxygen9Except
 lpad:                                             ; preds = %_ZN8proxygen9ExceptionC2IJPKcRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEDpOT_.exit
   %1 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_.i) #18
   br label %common.resume
 }
@@ -2614,7 +2614,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %msg_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_) #18
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #18

@@ -441,7 +441,7 @@ entry:
   %4 = load i8, ptr %disableRaycastAccelerator.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN20btAxisSweep3InternalItEC2ERK9btVector3S3_tttP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i16 noundef zeroext -2, i16 noundef zeroext -1, i16 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12btAxisSweep3, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12btAxisSweep3, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -481,7 +481,7 @@ entry:
   store i8 %frombool, ptr %disableRaycastAccelerator.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btBroadphaseInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_bpHandleMask = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 1
   %0 = load i16, ptr %handleMask.addr, align 2
   store i16 %0, ptr %m_bpHandleMask, align 8
@@ -894,7 +894,7 @@ entry:
   %4 = load i8, ptr %disableRaycastAccelerator.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN20btAxisSweep3InternalIjEC2ERK9btVector3S3_jjjP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i32 noundef -2, i32 noundef 2147483647, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV17bt32BitAxisSweep3, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV17bt32BitAxisSweep3, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -934,7 +934,7 @@ entry:
   store i8 %frombool, ptr %disableRaycastAccelerator.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btBroadphaseInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_bpHandleMask = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %handleMask.addr, align 4
   store i32 %0, ptr %m_bpHandleMask, align 8
@@ -2707,7 +2707,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2758,7 +2758,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN22btOverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_overlappingPairArray = getelementptr inbounds %class.btNullPairCache, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayI16btBroadphasePairEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray)
           to label %invoke.cont unwind label %lpad
@@ -2981,7 +2981,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_raycastAccelerator = getelementptr inbounds %class.btAxisSweep3Internal, ptr %this1, i32 0, i32 16
   %0 = load ptr, ptr %m_raycastAccelerator, align 8
   %tobool = icmp ne ptr %0, null
@@ -3134,7 +3134,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN25btOverlappingPairCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV22btOverlappingPairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV22btOverlappingPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3156,7 +3156,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_overlappingPairArray = getelementptr inbounds %class.btNullPairCache, ptr %this1, i32 0, i32 1
   call void @_ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray) #11
   call void @_ZN22btOverlappingPairCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -3385,7 +3385,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV25btOverlappingPairCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV25btOverlappingPairCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3717,7 +3717,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_raycastAccelerator = getelementptr inbounds %class.btAxisSweep3Internal.0, ptr %this1, i32 0, i32 16
   %0 = load ptr, ptr %m_raycastAccelerator, align 8
   %tobool = icmp ne ptr %0, null

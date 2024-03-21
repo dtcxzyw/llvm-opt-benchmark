@@ -628,9 +628,9 @@ define void @_ZN13IOGraphDialogC2ER7QWidgetR11CaptureFile7QString(ptr noundef no
   %94 = alloca %"class.QMetaObject::Connection", align 8
   %95 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV13IOGraphDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV13IOGraphDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %96 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV13IOGraphDialog, i64 0, inrange i32 1, i64 2), ptr %96, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV13IOGraphDialog, i64 0, i32 1, i64 2), ptr %96, align 8
   %97 = getelementptr inbounds i8, ptr %0, i64 136
   %98 = invoke noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #24
           to label %99 unwind label %280
@@ -4827,7 +4827,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i291:   ; preds = %406
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %413, ptr noundef %414, i32 noundef 0, i32 0)
   %415 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %416 = getelementptr inbounds i8, ptr %415, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %415, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %415, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %416, align 8
   %417 = getelementptr inbounds i8, ptr %415, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %417, align 4
@@ -4934,7 +4934,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i309:   ; preds = %447
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %454, ptr noundef %455, i32 noundef 0, i32 0)
   %456 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %457 = getelementptr inbounds i8, ptr %456, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %456, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %456, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %457, align 8
   %458 = getelementptr inbounds i8, ptr %456, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %458, align 4
@@ -5007,7 +5007,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i321:   ; preds = %477
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %483, ptr noundef %484, i32 noundef 0, i32 0)
   %485 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %486 = getelementptr inbounds i8, ptr %485, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %485, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %485, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %486, align 8
   %487 = getelementptr inbounds i8, ptr %485, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %487, align 4
@@ -5050,7 +5050,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i327:   ; preds = %496
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %502, ptr noundef %503, i32 noundef 0, i32 0)
   %504 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %505 = getelementptr inbounds i8, ptr %504, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %504, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %504, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %505, align 8
   %506 = getelementptr inbounds i8, ptr %504, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %506, align 4
@@ -5093,7 +5093,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i333:   ; preds = %515
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %521, ptr noundef %522, i32 noundef 0, i32 0)
   %523 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %524 = getelementptr inbounds i8, ptr %523, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %523, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %523, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %524, align 8
   %525 = getelementptr inbounds i8, ptr %523, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %525, align 4
@@ -5136,7 +5136,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i339:   ; preds = %534
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %540, ptr noundef %541, i32 noundef 0, i32 0)
   %542 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %543 = getelementptr inbounds i8, ptr %542, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %542, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %542, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %543, align 8
   %544 = getelementptr inbounds i8, ptr %542, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %544, align 4
@@ -5179,7 +5179,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i345:   ; preds = %553
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %559, ptr noundef %560, i32 noundef 0, i32 0)
   %561 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #24
   %562 = getelementptr inbounds i8, ptr %561, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %561, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %561, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %562, align 8
   %563 = getelementptr inbounds i8, ptr %561, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %563, align 4
@@ -7806,9 +7806,9 @@ _ZN17QArrayDataPointerIP7IOGraphED2Ev.exit:       ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(133) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -7847,9 +7847,9 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZN5QListIPvED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13IOGraphDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV13IOGraphDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV13IOGraphDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV13IOGraphDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV13IOGraphDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8
   invoke void @_ZN11CaptureFile11stopLoadingEv(ptr noundef nonnull align 8 dereferenceable(48) %4)
@@ -8018,8 +8018,8 @@ _ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i: ; preds = %_ZN7QStringD2Ev.e
   br label %_ZN5QListIP7IOGraphED2Ev.exit
 
 _ZN5QListIP7IOGraphED2Ev.exit:                    ; preds = %_ZN7QStringD2Ev.exit, %_ZN17QArrayDataPointerIP7IOGraphE5derefEv.exit.i.i, %64
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %66 = getelementptr inbounds i8, ptr %0, i64 104
   %67 = load ptr, ptr %66, align 8
   %.not.i.i.i.i11 = icmp eq ptr %67, null
@@ -19435,7 +19435,7 @@ declare void @_ZN5QFileD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unn
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7IOGraphC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(38000212) %0, ptr noundef %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV7IOGraph, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV7IOGraph, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -20215,7 +20215,7 @@ declare void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7IOGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(38000212) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV7IOGraph, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV7IOGraph, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @remove_tap_listener(ptr noundef nonnull %0)
           to label %2 unwind label %43
 

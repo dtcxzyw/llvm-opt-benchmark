@@ -1372,9 +1372,9 @@ define void @_ZN14InterfaceFrameC2EP7QWidget(ptr noundef nonnull align 8 derefer
   %48 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %49 = load i32, ptr %48, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %46, ptr noundef %47, i32 %49)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i32 0, inrange i32 0, i32 2), ptr %46, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i32 0, i32 0, i32 2), ptr %46, align 8
   %50 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i32 0, inrange i32 1, i32 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i32 0, i32 1, i32 2), ptr %50, align 8
   %51 = getelementptr inbounds %class.InterfaceFrame, ptr %46, i32 0, i32 1
   %52 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #17
           to label %53 unwind label %196
@@ -2433,7 +2433,7 @@ define linkonce_odr void @_ZN17SparkLineDelegateC2EP7QWidget(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV17SparkLineDelegate, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV17SparkLineDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2470,7 +2470,7 @@ define linkonce_odr void @_ZN24InterfaceSortFilterModelD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV24InterfaceSortFilterModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV24InterfaceSortFilterModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %3, i32 0, i32 7
   call void @_ZN5QListI20InterfaceTreeColumnsED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #16
   %5 = getelementptr inbounds %class.InterfaceSortFilterModel, ptr %3, i32 0, i32 6
@@ -2487,9 +2487,9 @@ define void @_ZN14InterfaceFrameD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14InterfaceFrame, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.InterfaceFrame, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

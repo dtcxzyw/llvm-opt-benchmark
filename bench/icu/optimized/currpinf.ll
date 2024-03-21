@@ -58,7 +58,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7518CurrencyPluralInfoC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8
   %fPluralRules = getelementptr inbounds i8, ptr %this, i64 16
   %fLocale = getelementptr inbounds i8, ptr %this, i64 24
@@ -222,7 +222,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7518CurrencyPluralInfoC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8
   %fPluralRules = getelementptr inbounds i8, ptr %this, i64 16
   %fLocale = getelementptr inbounds i8, ptr %this, i64 24
@@ -279,7 +279,7 @@ lpad:                                             ; preds = %call21.i.noexc, %if
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7518CurrencyPluralInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(36) %info) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %fPluralCountToCurrencyUnitPattern, i8 0, i64 28, i1 false)
   %call = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN6icu_7518CurrencyPluralInfoaSERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 8 dereferenceable(36) %info)
@@ -672,7 +672,7 @@ declare noundef ptr @_ZNK6icu_756Locale5cloneEv(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518CurrencyPluralInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %fPluralCountToCurrencyUnitPattern, align 8
   invoke void @_ZN6icu_7518CurrencyPluralInfo10deleteHashEPNS_9HashtableE(ptr nonnull align 8 poison, ptr noundef %0)

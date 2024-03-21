@@ -132,7 +132,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define dso_local void @_ZN18ClientActiveObjectC2EtP6ClientP17ClientEnvironment(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i16 noundef zeroext %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i16 %1, ptr %5, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV18ClientActiveObject, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !9
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV18ClientActiveObject, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !9
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %2, ptr %6, align 8, !tbaa !11
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -142,7 +142,7 @@ define dso_local void @_ZN18ClientActiveObjectC2EtP6ClientP17ClientEnvironment(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN18ClientActiveObjectD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV18ClientActiveObject, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !9
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV18ClientActiveObject, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !9
   ret void
 }
 

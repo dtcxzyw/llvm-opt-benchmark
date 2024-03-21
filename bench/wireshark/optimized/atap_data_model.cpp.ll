@@ -358,7 +358,7 @@ $_ZZN11QMetaTypeIdI13timeline_spanE14qt_metatype_idEvE11metatype_id = comdat any
 define void @_ZN13ATapDataModelC2ENS_13dataModelTypeEi7QStringP7QObject(ptr noundef nonnull align 8 dereferenceable(120) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   tail call void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 88
@@ -481,7 +481,7 @@ declare void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13ATapDataModelD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 59
   %3 = load i8, ptr %2, align 1
   %4 = and i8 %3, 1
@@ -3132,7 +3132,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %15
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %15, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %18
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV17EndpointDataModel, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV17EndpointDataModel, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 
 20:                                               ; preds = %_ZN7QStringC2ERKS_.exit
@@ -5097,7 +5097,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i:      ; preds = %15
   br label %_ZN7QStringD2Ev.exit
 
 _ZN7QStringD2Ev.exit:                             ; preds = %15, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i, %18
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV21ConversationDataModel, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV21ConversationDataModel, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 
 20:                                               ; preds = %_ZN7QStringC2ERKS_.exit

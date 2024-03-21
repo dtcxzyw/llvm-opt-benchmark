@@ -4363,7 +4363,7 @@ define dso_local void @_ZN12EmergeThreadC2EP6Serveri(ptr noundef nonnull align 8
 
 16:                                               ; preds = %15, %12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12EmergeThread, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12EmergeThread, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %17 = getelementptr inbounds i8, ptr %0, i64 144
   store i8 0, ptr %17, align 8, !tbaa !205
   %18 = getelementptr inbounds i8, ptr %0, i64 148
@@ -8497,7 +8497,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12EmergeThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12EmergeThread, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12EmergeThread, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8, !tbaa !220
   %4 = icmp eq ptr %3, null
@@ -8552,7 +8552,7 @@ define linkonce_odr dso_local void @_ZN12EmergeThreadD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12EmergeThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12EmergeThread, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12EmergeThread, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = load ptr, ptr %2, align 8, !tbaa !220
   %4 = icmp eq ptr %3, null

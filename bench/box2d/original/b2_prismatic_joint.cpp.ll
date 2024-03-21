@@ -243,7 +243,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16b2PrismaticJoint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16b2PrismaticJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load ptr, ptr %def.addr, align 8
   %localAnchorA = getelementptr inbounds %struct.b2PrismaticJointDef, ptr %1, i32 0, i32 1
   %m_localAnchorA2 = getelementptr inbounds %class.b2PrismaticJoint, ptr %this1, i32 0, i32 1

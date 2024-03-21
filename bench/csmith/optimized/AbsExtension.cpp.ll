@@ -586,7 +586,7 @@ define dso_local void @_ZN12AbsExtension24OutputFirstFunInvocationERSoP18Functio
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN12AbsExtensionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12AbsExtension, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12AbsExtension, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 

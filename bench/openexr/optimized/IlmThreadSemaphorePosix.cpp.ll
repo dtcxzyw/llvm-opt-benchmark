@@ -31,7 +31,7 @@ define void @_ZN13IlmThread_3_29SemaphoreC2Ej(ptr noundef nonnull align 8 derefe
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_semaphore2 = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call i32 @sem_init(ptr noundef nonnull %_semaphore2, i32 noundef 0, i32 noundef %value) #7
   %tobool.not = icmp eq i32 %call, 0
@@ -104,7 +104,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13IlmThread_3_29SemaphoreD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN13IlmThread_3_29SemaphoreE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_semaphore = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call i32 @sem_destroy(ptr noundef nonnull %_semaphore) #7
   ret void

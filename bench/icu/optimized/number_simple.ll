@@ -549,7 +549,7 @@ new.notnull:                                      ; preds = %if.end
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, i32 0, i64 2), ptr %call1, align 8
   %quantity.i = getelementptr inbounds i8, ptr %call1, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -1010,7 +1010,7 @@ new.notnull:                                      ; preds = %if.end
   %decimal.i = getelementptr inbounds i8, ptr %call2, i64 20
   store i32 0, ptr %decimal.i, align 4
   %currencyAsDecimal.i = getelementptr inbounds i8, ptr %call2, i64 24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %currencyAsDecimal.i, align 8, !alias.scope !7
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %currencyAsDecimal.i, align 8, !alias.scope !7
   %fUnion2.i.i.i = getelementptr inbounds i8, ptr %call2, i64 32
   store i16 2, ptr %fUnion2.i.i.i, align 8, !alias.scope !7
   invoke void @_ZN6icu_7513UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %currencyAsDecimal.i)
@@ -1119,11 +1119,11 @@ new.cont47:                                       ; preds = %new.notnull39, %inv
   %fPatternModifier = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %call37, ptr %fPatternModifier, align 8
   store i32 %groupingStrategy, ptr %this, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, inrange i32 0, i64 2), ptr %patternModifier, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, i32 0, i64 2), ptr %patternModifier, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %patternModifier, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
   %add.ptr2.i = getelementptr inbounds i8, ptr %patternModifier, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, i32 2, i64 2), ptr %add.ptr2.i, align 8
   %currentAffix.i = getelementptr inbounds i8, ptr %patternModifier, i64 328
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix.i) #11
   %fIntlCurrencySymbol.i.i = getelementptr inbounds i8, ptr %patternModifier, i64 240
@@ -1161,7 +1161,7 @@ ehcleanup:                                        ; preds = %lpad42, %lpad35, %l
   br label %ehcleanup48
 
 cleanup:                                          ; preds = %invoke.cont17, %new.cont47
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, inrange i32 0, i64 2), ptr %patternInfo, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, i32 0, i64 2), ptr %patternInfo, align 8
   %rounding.i.i = getelementptr inbounds i8, ptr %patternInfo, i64 296
   call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i.i) #11
   %rounding.i1.i = getelementptr inbounds i8, ptr %patternInfo, i64 128
@@ -1253,9 +1253,9 @@ declare noundef ptr @_ZN6icu_756number4impl5utils18getPatternForStyleERKNS_6Loca
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6icu_756number4impl17ParsedPatternInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %pattern = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %pattern, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %pattern, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %positive = getelementptr inbounds i8, ptr %this, i64 72
@@ -1357,11 +1357,11 @@ declare void @_ZN6icu_756number4impl22MutablePatternModifier24createImmutableFor
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl22MutablePatternModifierD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_756number4impl22MutablePatternModifierE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8
   %currentAffix = getelementptr inbounds i8, ptr %this, i64 328
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %currentAffix) #11
   %fIntlCurrencySymbol.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -1380,7 +1380,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6icu_756number4impl17ParsedPatternInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6icu_756number4impl17ParsedPatternInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %rounding.i = getelementptr inbounds i8, ptr %this, i64 296
   tail call void @_ZN6icu_756number4impl15DecimalQuantityD1Ev(ptr noundef nonnull align 8 dereferenceable(66) %rounding.i) #11
   %rounding.i1 = getelementptr inbounds i8, ptr %this, i64 128
@@ -1453,7 +1453,7 @@ if.then:                                          ; preds = %_ZNK6icu_756number2
 return:                                           ; preds = %if.then6.i, %if.then2.i, %entry, %_ZNK6icu_756number21SimpleNumberFormatter10formatImplEPNS0_4impl20UFormattedNumberDataE17USimpleNumberSignR10UErrorCode.exit, %if.then
   %.sink6 = phi ptr [ %7, %if.then ], [ null, %_ZNK6icu_756number21SimpleNumberFormatter10formatImplEPNS0_4impl20UFormattedNumberDataE17USimpleNumberSignR10UErrorCode.exit ], [ null, %entry ], [ null, %if.then2.i ], [ null, %if.then6.i ]
   %.sink = phi i32 [ 0, %if.then ], [ %.pre, %_ZNK6icu_756number21SimpleNumberFormatter10formatImplEPNS0_4impl20UFormattedNumberDataE17USimpleNumberSignR10UErrorCode.exit ], [ %2, %entry ], [ 1, %if.then2.i ], [ 27, %if.then6.i ]
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number15FormattedNumberE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %8 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %.sink6, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %agg.result, i64 16

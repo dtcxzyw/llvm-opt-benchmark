@@ -14393,7 +14393,7 @@ define internal void @_ZN12_GLOBAL__N_126FeaturePlaceHolderExpanderC2EPKNSt7__cx
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN21cmPlaceholderExpanderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.(anonymous namespace)::FeaturePlaceHolderExpander", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
@@ -28115,7 +28115,7 @@ define linkonce_odr dso_local void @_ZN21cmPlaceholderExpanderC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21cmPlaceholderExpander, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21cmPlaceholderExpander, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

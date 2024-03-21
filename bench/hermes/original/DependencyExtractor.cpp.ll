@@ -9474,7 +9474,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11389,7 +11389,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes5regex4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex8GoalNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex8GoalNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13872,7 +13872,7 @@ entry:
   store ptr %chars, ptr %chars.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes5regex4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %chars_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh11SmallVectorIjLj5EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(36) %chars_, ptr noundef nonnull align 8 dereferenceable(36) %chars)
   %icase_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this1, i32 0, i32 2

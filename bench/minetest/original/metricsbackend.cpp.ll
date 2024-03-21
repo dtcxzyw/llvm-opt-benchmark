@@ -140,9 +140,9 @@ define dso_local void @_ZN14MetricsBackend10addCounterERKNSt7__cxx1112basic_stri
   store i32 1, ptr %8, align 8, !tbaa !7, !noalias !4
   %9 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4, !tbaa !12, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19SimpleMetricCounterSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !13, !noalias !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI19SimpleMetricCounterSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !13, !noalias !4
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19SimpleMetricCounter, i64 0, inrange i32 0, i64 2), ptr %10, align 8, !tbaa !13, !noalias !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19SimpleMetricCounter, i64 0, i32 0, i64 2), ptr %10, align 8, !tbaa !13, !noalias !4
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false), !noalias !4
   store ptr %10, ptr %0, align 8, !tbaa !15
@@ -158,9 +158,9 @@ define dso_local void @_ZN14MetricsBackend8addGaugeERKNSt7__cxx1112basic_stringI
   store i32 1, ptr %8, align 8, !tbaa !7, !noalias !20
   %9 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4, !tbaa !12, !noalias !20
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17SimpleMetricGaugeSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !13, !noalias !20
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17SimpleMetricGaugeSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !13, !noalias !20
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17SimpleMetricGauge, i64 0, inrange i32 0, i64 2), ptr %10, align 8, !tbaa !13, !noalias !20
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17SimpleMetricGauge, i64 0, i32 0, i64 2), ptr %10, align 8, !tbaa !13, !noalias !20
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %11, i8 0, i64 48, i1 false), !noalias !20
   store ptr %10, ptr %0, align 8, !tbaa !23

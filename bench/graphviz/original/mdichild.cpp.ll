@@ -293,9 +293,9 @@ define void @_ZN8MdiChildC2Ev(ptr noundef nonnull align 8 dereferenceable(153) %
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN9QTextEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef null)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, inrange i32 1, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV8MdiChild, i32 0, i32 1, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 3
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #9
   %8 = getelementptr inbounds %class.MdiChild, ptr %5, i32 0, i32 7

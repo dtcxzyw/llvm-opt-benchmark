@@ -590,7 +590,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11btRigidBody, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11btRigidBody, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_constraintRefs = getelementptr inbounds %class.btRigidBody, ptr %this1, i32 0, i32 21
   call void @_ZN20btAlignedObjectArrayIP17btTypedConstraintED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_constraintRefs) #3
   call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this1) #3
@@ -623,7 +623,7 @@ entry:
   store ptr %raycaster, ptr %raycaster.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17btActionInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_forwardWS = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayI9btVector3EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_forwardWS)
           to label %invoke.cont unwind label %lpad
@@ -759,7 +759,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17btActionInterface, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17btActionInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -880,7 +880,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16btRaycastVehicle, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_wheelInfo = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 16
   call void @_ZN20btAlignedObjectArrayI11btWheelInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_wheelInfo) #3
   %m_sideImpulse = getelementptr inbounds %class.btRaycastVehicle, ptr %this1, i32 0, i32 4
@@ -4808,7 +4808,7 @@ entry:
   store ptr %rayToWorld, ptr %rayToWorld.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN16btCollisionWorld17RayResultCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN16btCollisionWorld24ClosestRayResultCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN16btCollisionWorld24ClosestRayResultCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rayFromWorld = getelementptr inbounds %"struct.btCollisionWorld::ClosestRayResultCallback", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %rayFromWorld.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %m_rayFromWorld, ptr align 4 %0, i64 16, i1 false)
@@ -4912,7 +4912,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6228,7 +6228,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN16btCollisionWorld17RayResultCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN16btCollisionWorld17RayResultCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_closestHitFraction = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %this1, i32 0, i32 1
   store float 1.000000e+00, ptr %m_closestHitFraction, align 8
   %m_collisionObject = getelementptr inbounds %"struct.btCollisionWorld::RayResultCallback", ptr %this1, i32 0, i32 3

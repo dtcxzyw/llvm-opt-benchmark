@@ -527,9 +527,9 @@ define void @_ZN8UatFrameC2EP7QWidget(ptr noundef nonnull align 8 dereferenceabl
   %19 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %20 = load i32, ptr %19, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef %18, i32 %20)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV8UatFrame, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV8UatFrame, i32 0, i32 0, i32 2), ptr %17, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV8UatFrame, i32 0, inrange i32 1, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV8UatFrame, i32 0, i32 1, i32 2), ptr %21, align 8
   %22 = getelementptr inbounds %class.UatFrame, ptr %17, i32 0, i32 1
   %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 96) #14
           to label %24 unwind label %92
@@ -1704,9 +1704,9 @@ define void @_ZN8UatFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV8UatFrame, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV8UatFrame, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV8UatFrame, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV8UatFrame, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.UatFrame, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

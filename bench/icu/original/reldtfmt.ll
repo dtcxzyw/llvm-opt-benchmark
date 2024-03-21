@@ -162,7 +162,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7510DateFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) %this1, ptr noundef nonnull align 8 dereferenceable(352) %0)
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN6icu_7518RelativeDateFormatE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN6icu_7518RelativeDateFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fDateTimeFormatter = getelementptr inbounds %"class.icu_75::RelativeDateFormat", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fDateTimeFormatter, align 8
   %fDatePattern = getelementptr inbounds %"class.icu_75::RelativeDateFormat", ptr %this1, i32 0, i32 2
@@ -479,7 +479,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7510DateFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %this1)
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN6icu_7518RelativeDateFormatE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN6icu_7518RelativeDateFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fDateTimeFormatter = getelementptr inbounds %"class.icu_75::RelativeDateFormat", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fDateTimeFormatter, align 8
   %fDatePattern = getelementptr inbounds %"class.icu_75::RelativeDateFormat", ptr %this1, i32 0, i32 2
@@ -837,7 +837,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -1270,7 +1270,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN6icu_7518RelativeDateFormatE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN6icu_7518RelativeDateFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fDateTimeFormatter = getelementptr inbounds %"class.icu_75::RelativeDateFormat", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fDateTimeFormatter, align 8
   %isnull = icmp eq ptr %0, null
@@ -3057,7 +3057,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fField = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %fField, align 8
   %fBeginIndex = getelementptr inbounds %"class.icu_75::FieldPosition", ptr %this1, i32 0, i32 2
@@ -3785,7 +3785,7 @@ entry:
   store i32 %len, ptr %len.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_118RelDateFmtDataSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_118RelDateFmtDataSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fDatesPtr = getelementptr inbounds %"struct.icu_75::(anonymous namespace)::RelDateFmtDataSink", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fDates.addr, align 8
   store ptr %0, ptr %fDatesPtr, align 8
@@ -3901,7 +3901,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3911,7 +3911,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4081,7 +4081,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

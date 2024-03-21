@@ -273,7 +273,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7514NFSubstitutionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7514NFSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %numberFormat = getelementptr inbounds %"class.icu_75::NFSubstitution", ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %numberFormat, align 8
   %isnull = icmp eq ptr %0, null
@@ -957,7 +957,7 @@ entry:
   %2 = load ptr, ptr %description.addr, align 8
   %3 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7524IntegralPartSubstitutionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7524IntegralPartSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1015,7 +1015,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7521NumeratorSubstitutionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7521NumeratorSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %denominator = getelementptr inbounds %"class.icu_75::NumeratorSubstitution", ptr %this1, i32 0, i32 1
   %4 = load double, ptr %_denominator.addr, align 8
   store double %4, ptr %denominator, align 8
@@ -1105,7 +1105,7 @@ entry:
   %2 = load ptr, ptr %description.addr, align 8
   %3 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7522MultiplierSubstitutionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7522MultiplierSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %divisor = getelementptr inbounds %"class.icu_75::MultiplierSubstitution", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %rule.addr, align 8
   %call = invoke noundef i64 @_ZNK6icu_756NFRule10getDivisorEv(ptr noundef nonnull align 8 dereferenceable(112) %4)
@@ -1163,7 +1163,7 @@ entry:
   %2 = load ptr, ptr %description.addr, align 8
   %3 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7525AbsoluteValueSubstitutionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7525AbsoluteValueSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1190,7 +1190,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7514NFSubstitutionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7514NFSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pos = getelementptr inbounds %"class.icu_75::NFSubstitution", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %_pos.addr, align 4
   store i32 %0, ptr %pos, align 8
@@ -1514,7 +1514,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1929,7 +1929,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -2583,7 +2583,7 @@ entry:
   %2 = load ptr, ptr %description.addr, align 8
   %3 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7521SameValueSubstitutionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7521SameValueSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %4 = load ptr, ptr %description.addr, align 8
   invoke void @_ZN6icu_7514ConstChar16PtrC2EPKDs(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp, ptr noundef @_ZL13gEqualsEquals)
           to label %invoke.cont unwind label %lpad
@@ -2762,7 +2762,7 @@ entry:
   %2 = load ptr, ptr %description.addr, align 8
   %3 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7519ModulusSubstitutionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7519ModulusSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %divisor = getelementptr inbounds %"class.icu_75::ModulusSubstitution", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %rule.addr, align 8
   %call = invoke noundef i64 @_ZNK6icu_756NFRule10getDivisorEv(ptr noundef nonnull align 8 dereferenceable(112) %4)
@@ -3177,7 +3177,7 @@ entry:
   %2 = load ptr, ptr %description.addr, align 8
   %3 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_7514NFSubstitutionC2EiPKNS_9NFRuleSetERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7526FractionalPartSubstitutionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6icu_7526FractionalPartSubstitutionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %byDigits = getelementptr inbounds %"class.icu_75::FractionalPartSubstitution", ptr %this1, i32 0, i32 1
   store i8 0, ptr %byDigits, align 8
   %useSpaces = getelementptr inbounds %"class.icu_75::FractionalPartSubstitution", ptr %this1, i32 0, i32 2
@@ -3947,7 +3947,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index = getelementptr inbounds %"class.icu_75::ParsePosition", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %newIndex.addr, align 4
   store i32 %1, ptr %index, align 8
@@ -5552,7 +5552,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

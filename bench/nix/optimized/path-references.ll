@@ -183,7 +183,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3nix15PathRefScanSinkC2EOSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEOSt3mapIS7_NS_9StorePathES9_SaISt4pairIKS7_SE_EEE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN3nix11RefScanSinkC2EOSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(48) %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix15PathRefScanSinkE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix15PathRefScanSinkE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 144
   %5 = getelementptr inbounds i8, ptr %2, i64 16
   %6 = load ptr, ptr %5, align 8
@@ -237,7 +237,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix9StorePathESt
 define linkonce_odr void @_ZN3nix11RefScanSinkC2EOSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.0", align 1
   %4 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix11RefScanSinkE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix11RefScanSinkE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -787,7 +787,7 @@ define void @_ZN3nix17scanForReferencesERKNSt7__cxx1112basic_stringIcSt11char_tr
 
 .noexc:                                           ; preds = %3
   %13 = getelementptr inbounds i8, ptr %7, i64 %12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix7TeeSinkE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !noalias !8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix7TeeSinkE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !8
   %14 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %14, align 8, !noalias !8
   %15 = getelementptr inbounds i8, ptr %6, i64 16
@@ -904,7 +904,7 @@ define void @_ZN3nix17scanForReferencesERNS_4SinkERKNSt7__cxx1112basic_stringIcS
   %5 = alloca %"class.nix::PathRefScanSink", align 8
   %6 = alloca %"struct.nix::TeeSink", align 8
   call void @_ZN3nix15PathRefScanSink9fromPathsERKSt3setINS_9StorePathESt4lessIS2_ESaIS2_EE(ptr dead_on_unwind nonnull writable sret(%"class.nix::PathRefScanSink") align 8 %5, ptr noundef nonnull align 8 dereferenceable(48) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix7TeeSinkE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix7TeeSinkE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %5, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
@@ -941,7 +941,7 @@ define linkonce_odr void @_ZN3nix7TeeSinkD2Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix15PathRefScanSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix15PathRefScanSinkE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix15PathRefScanSinkE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = load ptr, ptr %3, align 8
@@ -956,7 +956,7 @@ define linkonce_odr void @_ZN3nix15PathRefScanSinkD2Ev(ptr noundef nonnull align
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix9StorePathESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix11RefScanSinkE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix11RefScanSinkE, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 104
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 120

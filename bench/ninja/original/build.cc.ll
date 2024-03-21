@@ -9388,7 +9388,7 @@ define internal void @_ZN12_GLOBAL__N_119DryRunCommandRunnerC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN13CommandRunnerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119DryRunCommandRunnerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119DryRunCommandRunnerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.(anonymous namespace)::DryRunCommandRunner", ptr %5, i32 0, i32 1
   invoke void @_ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %6)
           to label %7 unwind label %8
@@ -9424,7 +9424,7 @@ define linkonce_odr dso_local void @_ZN17RealCommandRunnerC2ERK11BuildConfig(ptr
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN13CommandRunnerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #5
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17RealCommandRunner, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17RealCommandRunner, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %struct.RealCommandRunner, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   store ptr %9, ptr %8, align 8
@@ -11980,7 +11980,7 @@ define linkonce_odr dso_local void @_ZN17RealCommandRunnerD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17RealCommandRunner, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17RealCommandRunner, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.RealCommandRunner, ptr %3, i32 0, i32 3
   call void @_ZNSt3mapIPK10SubprocessP4EdgeSt4lessIS2_ESaISt4pairIKS2_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #5
   %5 = getelementptr inbounds %struct.RealCommandRunner, ptr %3, i32 0, i32 2
@@ -14784,7 +14784,7 @@ define linkonce_odr dso_local void @_ZN17ImplicitDepLoaderC2EP5StateP7DepsLogP13
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV17ImplicitDepLoader, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV17ImplicitDepLoader, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %7, align 8
   store ptr %13, ptr %12, align 8
@@ -15298,7 +15298,7 @@ define linkonce_odr dso_local void @_ZN13CommandRunnerC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13CommandRunner, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13CommandRunner, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15307,7 +15307,7 @@ define internal void @_ZN12_GLOBAL__N_119DryRunCommandRunnerD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119DryRunCommandRunnerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119DryRunCommandRunnerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::DryRunCommandRunner", ptr %3, i32 0, i32 1
   call void @_ZNSt5queueIP4EdgeSt5dequeIS1_SaIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #5
   call void @_ZN13CommandRunnerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5

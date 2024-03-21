@@ -673,22 +673,22 @@ _ZSt8_DestroyIPSt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EES5_EvT_S7_R
 
 _ZN12_GLOBAL__N_19TypeInfosD2Ev.exit:             ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3dap8TypeInfoESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit.i.i, %12
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 240)) #16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 200), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 200), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 208)) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 200)) #16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 160), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 160), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 168)) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 160)) #16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 120), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 120), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 128)) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 120)) #16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 80), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 80), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 88)) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 80)) #16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 40), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 40), align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 48)) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 40)) #16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, inrange i32 0, i64 2), ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, i32 0, i64 2), ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 8)) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory) #16
   br label %13
@@ -773,7 +773,7 @@ define internal fastcc void @_ZZN12_GLOBAL__N_19TypeInfos3getEvEN8InstanceC2Ev()
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; preds = %26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, inrange i32 0, i64 2), ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, i32 0, i64 2), ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 8), ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #16
@@ -817,7 +817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17.i: ; preds = %35
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 40), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 40), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 48), ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #16
@@ -861,7 +861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit17.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22.i: ; preds = %44
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 80), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 80), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 88), ptr noundef nonnull align 8 dereferenceable(32) %11) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #16
@@ -905,7 +905,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit22.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit27.i: ; preds = %53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 120), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 120), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 128), ptr noundef nonnull align 8 dereferenceable(32) %13) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #16
@@ -949,7 +949,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit27.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32.i: ; preds = %62
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 160), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 160), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 168), ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %16) #16
@@ -1049,35 +1049,35 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32.i: 
 .body35.i:                                        ; preds = %83, %.body
   %eh.lpad-body36.i = phi { ptr, i32 } [ %84, %83 ], [ %72, %.body ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 160), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 160), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 168)) #16
   call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 160)) #16
   br label %85
 
 85:                                               ; preds = %.body35.i, %.body30.i
   %.pn.i = phi { ptr, i32 } [ %eh.lpad-body36.i, %.body35.i ], [ %eh.lpad-body31.i, %.body30.i ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 120), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 120), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 128)) #16
   call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 120)) #16
   br label %86
 
 86:                                               ; preds = %85, %.body25.i
   %.pn.pn.i = phi { ptr, i32 } [ %.pn.i, %85 ], [ %eh.lpad-body26.i, %.body25.i ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 80), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 80), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 88)) #16
   call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 80)) #16
   br label %87
 
 87:                                               ; preds = %86, %.body20.i
   %.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.i, %86 ], [ %eh.lpad-body21.i, %.body20.i ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 40), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 40), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 48)) #16
   call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 40)) #16
   br label %88
 
 88:                                               ; preds = %87, %.body15.i
   %.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn.pn.pn.i, %87 ], [ %eh.lpad-body16.i, %.body15.i ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, inrange i32 0, i64 2), ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, i32 0, i64 2), ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 8)) #16
   call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory) #16
   br label %89
@@ -1088,11 +1088,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit32.i: 
 
 _ZN12_GLOBAL__N_19TypeInfosC2Ev.exit:             ; preds = %71
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 200), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 200), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 208), ptr noundef nonnull align 8 dereferenceable(32) %17) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #16
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19TypeInfos6NullTIE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 240), align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19TypeInfos6NullTIE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 240), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 248), i8 0, i64 24, i1 false)
   store i64 1, ptr getelementptr inbounds (%"struct.(anonymous namespace)::aligned_storage<280, 8>::type", ptr @_ZZN12_GLOBAL__N_19TypeInfos3getEvE6memory, i64 0, i32 0, i64 272), align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
@@ -1139,7 +1139,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -1148,7 +1148,7 @@ define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoISt13unordered_mapINSt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_6numberEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -1157,7 +1157,7 @@ define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_6numberEED2Ev(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_7integerEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -1166,7 +1166,7 @@ define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_7integerEED2Ev(ptr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -1175,7 +1175,7 @@ define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_7booleanEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -1292,7 +1292,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_7booleanEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7booleanEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -1364,7 +1364,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -1430,7 +1430,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_7integerEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_7integerEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -1494,7 +1494,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_7in
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_6numberEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_6numberEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -1558,7 +1558,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3dap13BasicTypeInfoINS_6nu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3anyESt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_S8_EEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -2103,7 +2103,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_3anyEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16
@@ -2112,7 +2112,7 @@ define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_3anyEED2Ev(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3dap13BasicTypeInfoINS_3anyEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3dap13BasicTypeInfoINS_3anyEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN3dap8TypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #16

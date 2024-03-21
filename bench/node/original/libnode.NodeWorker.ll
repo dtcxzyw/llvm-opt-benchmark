@@ -1823,7 +1823,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker10WorkerInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker10WorkerInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_workerId = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::WorkerInfo", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_workerId) #9
   %m_type = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::WorkerInfo", ptr %this1, i32 0, i32 2
@@ -2384,7 +2384,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker28AttachedToWorkerNotificationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker28AttachedToWorkerNotificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sessionId = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::AttachedToWorkerNotification", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_sessionId) #9
   %m_workerInfo = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::AttachedToWorkerNotification", ptr %this1, i32 0, i32 2
@@ -2761,7 +2761,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotificationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sessionId = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::DetachedFromWorkerNotification", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_sessionId) #9
   ret void
@@ -3010,7 +3010,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotificationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sessionId = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::ReceivedMessageFromWorkerNotification", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_sessionId) #9
   %m_message = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::ReceivedMessageFromWorkerNotification", ptr %this1, i32 0, i32 2
@@ -4710,7 +4710,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %frontendChannel.addr, align 8
   call void @_ZN4node9inspector8protocol14DispatcherBaseC2EPNS1_15FrontendChannelE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker14DispatcherImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker14DispatcherImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_dispatchMap = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::DispatcherImpl", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEMN4node9inspector8protocol10NodeWorker14DispatcherImplEFviRKS5_SC_St10unique_ptrINS8_15DictionaryValueESt14default_deleteISE_EEPNS8_12ErrorSupportEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairISB_SL_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_dispatchMap) #9
   %m_redirects = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::DispatcherImpl", ptr %this1, i32 0, i32 2
@@ -4866,7 +4866,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker14DispatcherImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker14DispatcherImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_redirects = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::DispatcherImpl", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_redirects) #9
   %m_dispatchMap = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::DispatcherImpl", ptr %this1, i32 0, i32 1
@@ -4966,7 +4966,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol12SerializableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol12SerializableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5017,7 +5017,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker10WorkerInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker10WorkerInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_url = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::WorkerInfo", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_url) #9
   %m_title = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::WorkerInfo", ptr %this1, i32 0, i32 3
@@ -5403,7 +5403,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol11StringValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol11StringValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_stringValue = getelementptr inbounds %"class.node::inspector::protocol::StringValue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_stringValue, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -5433,7 +5433,7 @@ entry:
   store i32 %type, ptr %type.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol5ValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol5ValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_type = getelementptr inbounds %"class.node::inspector::protocol::Value", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %type.addr, align 4
   store i32 %0, ptr %m_type, align 8
@@ -5925,7 +5925,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker28AttachedToWorkerNotificationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker28AttachedToWorkerNotificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_workerInfo = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::AttachedToWorkerNotification", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node9inspector8protocol10NodeWorker10WorkerInfoESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_workerInfo) #9
   %m_sessionId = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::AttachedToWorkerNotification", ptr %this1, i32 0, i32 1
@@ -6283,7 +6283,7 @@ entry:
   store i8 %frombool, ptr %value.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = getelementptr inbounds %"class.node::inspector::protocol::FundamentalValue", ptr %this1, i32 0, i32 1
   %1 = load i8, ptr %value.addr, align 1
   %tobool = trunc i8 %1 to i1
@@ -6762,7 +6762,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotificationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker30DetachedFromWorkerNotificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sessionId = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::DetachedFromWorkerNotification", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_sessionId) #9
   call void @_ZN4node9inspector8protocol12SerializableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
@@ -7015,7 +7015,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotificationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol10NodeWorker37ReceivedMessageFromWorkerNotificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_message = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::ReceivedMessageFromWorkerNotification", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_message) #9
   %m_sessionId = getelementptr inbounds %"class.node::inspector::protocol::NodeWorker::ReceivedMessageFromWorkerNotification", ptr %this1, i32 0, i32 1
@@ -7203,7 +7203,7 @@ entry:
   store ptr %notification, ptr %notification.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_jsonNotification = getelementptr inbounds %"class.node::inspector::protocol::InternalRawNotification", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_jsonNotification, ptr noundef nonnull align 8 dereferenceable(32) %notification) #9
   %m_binaryNotification = getelementptr inbounds %"class.node::inspector::protocol::InternalRawNotification", ptr %this1, i32 0, i32 2
@@ -7267,7 +7267,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_binaryNotification = getelementptr inbounds %"class.node::inspector::protocol::InternalRawNotification", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_binaryNotification) #9
   %m_jsonNotification = getelementptr inbounds %"class.node::inspector::protocol::InternalRawNotification", ptr %this1, i32 0, i32 1
@@ -7481,7 +7481,7 @@ entry:
   store ptr %notification, ptr %notification.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol23InternalRawNotificationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_jsonNotification = getelementptr inbounds %"class.node::inspector::protocol::InternalRawNotification", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_jsonNotification) #9
   %m_binaryNotification = getelementptr inbounds %"class.node::inspector::protocol::InternalRawNotification", ptr %this1, i32 0, i32 2

@@ -375,7 +375,7 @@ define internal void @__cxx_global_array_dtor.20(ptr nocapture readnone %0) #4 s
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13MapgenFractalC2EP19MapgenFractalParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(536) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) %0, i32 noundef 5, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13MapgenFractal, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13MapgenFractal, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 484
   %5 = getelementptr inbounds i8, ptr %0, i64 496
   %6 = getelementptr inbounds i8, ptr %0, i64 528
@@ -530,7 +530,7 @@ declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13MapgenFractalD2Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13MapgenFractal, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13MapgenFractal, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = icmp eq ptr %3, null
@@ -562,7 +562,7 @@ declare void @_ZN5NoiseD1Ev(ptr noundef nonnull align 8 dereferenceable(88)) unn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13MapgenFractalD0Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13MapgenFractal, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13MapgenFractal, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 528
   %3 = load ptr, ptr %2, align 8, !tbaa !14
   %4 = icmp eq ptr %3, null
@@ -614,7 +614,7 @@ define dso_local void @_ZN19MapgenFractalParamsC2Ev(ptr noundef nonnull writeonl
   store i16 31007, ptr %11, align 2, !tbaa !68
   %12 = getelementptr inbounds i8, ptr %0, i64 52
   store i8 0, ptr %12, align 4, !tbaa !69
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV19MapgenFractalParams, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV19MapgenFractalParams, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   store float 0x3FB70A3D80000000, ptr %13, align 8, !tbaa !39
   %14 = getelementptr inbounds i8, ptr %0, i64 60

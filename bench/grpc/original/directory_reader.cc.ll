@@ -518,7 +518,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19DirectoryReaderImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19DirectoryReaderImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %directory_path_ = getelementptr inbounds %"class.grpc_core::DirectoryReaderImpl", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %directory_path_) #3
   call void @_ZN9grpc_core15DirectoryReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -803,7 +803,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core15DirectoryReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19DirectoryReaderImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19DirectoryReaderImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %directory_path_ = getelementptr inbounds %"class.grpc_core::DirectoryReaderImpl", ptr %this1, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %directory_path_, ptr noundef nonnull align 8 dereferenceable(16) %directory_path, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -862,7 +862,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core15DirectoryReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core15DirectoryReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

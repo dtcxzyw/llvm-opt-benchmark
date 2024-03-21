@@ -933,7 +933,7 @@ entry:
   %frombool = zext i1 %usePgs to i8
   store i8 %frombool, ptr %usePgs.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17b3PgsJacobiSolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17b3PgsJacobiSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_tmpSolverBodyPool = getelementptr inbounds %class.b3PgsJacobiSolver, ptr %this1, i32 0, i32 1
   call void @_ZN20b3AlignedObjectArrayI12b3SolverBodyEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_tmpSolverBodyPool)
   %m_tmpSolverContactConstraintPool = getelementptr inbounds %class.b3PgsJacobiSolver, ptr %this1, i32 0, i32 2
@@ -1336,7 +1336,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17b3PgsJacobiSolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17b3PgsJacobiSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_deltaAngularVelocities = getelementptr inbounds %class.b3PgsJacobiSolver, ptr %this1, i32 0, i32 13
   call void @_ZN20b3AlignedObjectArrayI9b3Vector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_deltaAngularVelocities) #10
   %m_deltaLinearVelocities = getelementptr inbounds %class.b3PgsJacobiSolver, ptr %this1, i32 0, i32 12

@@ -65,9 +65,9 @@ define void @_ZN18CaptureFilterComboC2EP7QWidgetb(ptr noundef nonnull align 8 de
   %21 = alloca %"class.QMetaObject::Connection", align 8
   %22 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN9QComboBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18CaptureFilterCombo, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18CaptureFilterCombo, i64 0, i32 0, i64 2), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18CaptureFilterCombo, i64 0, inrange i32 1, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18CaptureFilterCombo, i64 0, i32 1, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 40
   store ptr null, ptr %24, align 8
   %25 = invoke noalias noundef nonnull dereferenceable(280) ptr @_Znwm(i64 noundef 280) #9

@@ -874,7 +874,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN7rocksdb11TraceRecord7HandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21TraceExecutionHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21TraceExecutionHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %db_ = getelementptr inbounds %"class.rocksdb::TraceExecutionHandler", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %db.addr, align 8
   store ptr %1, ptr %db_, align 8
@@ -1007,7 +1007,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb11TraceRecord7HandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb11TraceRecord7HandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1309,7 +1309,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21TraceExecutionHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21TraceExecutionHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cf_map_ = getelementptr inbounds %"class.rocksdb::TraceExecutionHandler", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_mapIjPN7rocksdb18ColumnFamilyHandleESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(56) %cf_map_) #13
   %read_opts_ = getelementptr inbounds %"class.rocksdb::TraceExecutionHandler", ptr %this1, i32 0, i32 4

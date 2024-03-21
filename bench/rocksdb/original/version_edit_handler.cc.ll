@@ -6867,7 +6867,7 @@ entry:
   %this4 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %read_options.addr, align 8
   call void @_ZN7rocksdb22VersionEditHandlerBaseC2ERKNS_11ReadOptionsE(ptr noundef nonnull align 8 dereferenceable(72) %this4, ptr noundef nonnull align 8 dereferenceable(154) %0)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb18VersionEditHandlerE, i32 0, inrange i32 0, i32 2), ptr %this4, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb18VersionEditHandlerE, i32 0, i32 0, i32 2), ptr %this4, align 8
   %read_only_ = getelementptr inbounds %"class.rocksdb::VersionEditHandler", ptr %this4, i32 0, i32 1
   %1 = load i8, ptr %read_only.addr, align 1
   %tobool = trunc i8 %1 to i1
@@ -6952,7 +6952,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %read_options, ptr %read_options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %status_ = getelementptr inbounds %"class.rocksdb::VersionEditHandlerBase", ptr %this1, i32 0, i32 1
   call void @_ZN7rocksdb6StatusC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %status_)
   %read_options_ = getelementptr inbounds %"class.rocksdb::VersionEditHandlerBase", ptr %this1, i32 0, i32 2
@@ -12853,7 +12853,7 @@ entry:
   %3 = load ptr, ptr %read_options.addr, align 8
   %4 = load i32, ptr %epoch_number_requirement.addr, align 4
   call void @_ZN7rocksdb18VersionEditHandlerC2EbRKSt6vectorINS_22ColumnFamilyDescriptorESaIS2_EEPNS_10VersionSetEbbRKSt10shared_ptrINS_8IOTracerEERKNS_11ReadOptionsENS_22EpochNumberRequirementE(ptr noundef nonnull align 8 dereferenceable(1008) %this1, i1 noundef zeroext %tobool, ptr noundef nonnull align 8 dereferenceable(24) %column_families, ptr noundef %1, i1 noundef zeroext true, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(154) %3, i32 noundef %4)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb29VersionEditHandlerPointInTimeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb29VersionEditHandlerPointInTimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %versions_ = getelementptr inbounds %"class.rocksdb::VersionEditHandlerPointInTime", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapIjPN7rocksdb7VersionESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %versions_) #3
   ret void
@@ -12945,7 +12945,7 @@ entry:
   %elem = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb29VersionEditHandlerPointInTimeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb29VersionEditHandlerPointInTimeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %versions_ = getelementptr inbounds %"class.rocksdb::VersionEditHandlerPointInTime", ptr %this1, i32 0, i32 1
   store ptr %versions_, ptr %__range1, align 8
   %0 = load ptr, ptr %__range1, align 8
@@ -15615,7 +15615,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb25ListColumnFamiliesHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb25ListColumnFamiliesHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %column_family_names_ = getelementptr inbounds %"class.rocksdb::ListColumnFamiliesHandler", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIjNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIjESaISt4pairIKjS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %column_family_names_) #3
   call void @_ZN7rocksdb22VersionEditHandlerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -15683,7 +15683,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb18VersionEditHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb18VersionEditHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cfds_to_mark_no_udt_ = getelementptr inbounds %"class.rocksdb::VersionEditHandler", ptr %this1, i32 0, i32 17
   call void @_ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %cfds_to_mark_no_udt_) #3
   %cf_to_cmp_names_ = getelementptr inbounds %"class.rocksdb::VersionEditHandler", ptr %this1, i32 0, i32 15
@@ -15738,7 +15738,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb14ManifestTailerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb14ManifestTailerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cfds_changed_ = getelementptr inbounds %"class.rocksdb::ManifestTailer", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_setIPN7rocksdb16ColumnFamilyDataESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %cfds_changed_) #3
   call void @_ZN7rocksdb29VersionEditHandlerPointInTimeD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this1) #3
@@ -18867,7 +18867,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb22VersionEditHandlerBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %read_buffer_ = getelementptr inbounds %"class.rocksdb::VersionEditHandlerBase", ptr %this1, i32 0, i32 3
   call void @_ZN7rocksdb21AtomicGroupReadBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %read_buffer_) #3
   %status_ = getelementptr inbounds %"class.rocksdb::VersionEditHandlerBase", ptr %this1, i32 0, i32 1

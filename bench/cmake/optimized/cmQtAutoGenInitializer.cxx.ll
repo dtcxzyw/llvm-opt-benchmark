@@ -16341,7 +16341,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   store i32 1, ptr %212, align 8, !noalias !688
   %213 = getelementptr inbounds i8, ptr %210, i64 12
   store i32 1, ptr %213, align 4, !noalias !688
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %210, align 8, !noalias !688
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %210, align 8, !noalias !688
   %214 = getelementptr inbounds i8, ptr %210, i64 16
   %215 = getelementptr inbounds i8, ptr %210, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %214, i8 0, i64 64, i1 false), !noalias !688
@@ -16523,7 +16523,7 @@ _ZNSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEED2Ev.exit: ; preds = %_ZNSt1
   store i32 1, ptr %295, align 8, !noalias !691
   %296 = getelementptr inbounds i8, ptr %293, i64 12
   store i32 1, ptr %296, align 4, !noalias !691
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %293, align 8, !noalias !691
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %293, align 8, !noalias !691
   %297 = getelementptr inbounds i8, ptr %293, i64 16
   %298 = getelementptr inbounds i8, ptr %293, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %297, i8 0, i64 64, i1 false), !noalias !691
@@ -16833,7 +16833,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
   store i32 1, ptr %429, align 8, !noalias !703
   %430 = getelementptr inbounds i8, ptr %427, i64 12
   store i32 1, ptr %430, align 4, !noalias !703
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %427, align 8, !noalias !703
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %427, align 8, !noalias !703
   %431 = getelementptr inbounds i8, ptr %427, i64 16
   %432 = getelementptr inbounds i8, ptr %427, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %431, i8 0, i64 64, i1 false), !noalias !703
@@ -17015,7 +17015,7 @@ _ZNSt10shared_ptrIN11cmQtAutoGen16CompilerFeaturesEED2Ev.exit173: ; preds = %_ZN
   store i32 1, ptr %512, align 8, !noalias !706
   %513 = getelementptr inbounds i8, ptr %510, i64 12
   store i32 1, ptr %513, align 4, !noalias !706
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %510, align 8, !noalias !706
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN11cmQtAutoGen16CompilerFeaturesESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %510, align 8, !noalias !706
   %514 = getelementptr inbounds i8, ptr %510, i64 16
   %515 = getelementptr inbounds i8, ptr %510, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %514, i8 0, i64 64, i1 false), !noalias !706

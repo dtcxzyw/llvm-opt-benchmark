@@ -4995,7 +4995,7 @@ if.then.i.i29:                                    ; preds = %_ZNSt6vectorIN6duck
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !76
   %state_size13 = getelementptr inbounds %"class.duckdb::AggregateFunction", ptr %this, i64 0, i32 2
   store ptr %state_size, ptr %state_size13, align 8, !tbaa !319
   %initialize14 = getelementptr inbounds %"class.duckdb::AggregateFunction", ptr %this, i64 0, i32 3
@@ -5560,7 +5560,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !76
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !142
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2
@@ -9725,7 +9725,7 @@ define linkonce_odr void @_ZN6duckdb23SortedAggregateBindDataC2ERKS0_(ptr nounde
 entry:
   %ref.tmp = alloca %"class.duckdb::unique_ptr.13", align 8
   %ref.tmp30 = alloca %"struct.duckdb::BoundOrderByNode", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb23SortedAggregateBindDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb23SortedAggregateBindDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !76
   %buffer_manager = getelementptr inbounds %"struct.duckdb::SortedAggregateBindData", ptr %this, i64 0, i32 1
   %buffer_manager2 = getelementptr inbounds %"struct.duckdb::SortedAggregateBindData", ptr %other, i64 0, i32 1
   %0 = load ptr, ptr %buffer_manager2, align 8, !tbaa !197
@@ -9736,7 +9736,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %function, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %function, align 8, !tbaa !76
   %state_size.i = getelementptr inbounds %"struct.duckdb::SortedAggregateBindData", ptr %this, i64 0, i32 2, i32 2
   %state_size2.i = getelementptr inbounds %"struct.duckdb::SortedAggregateBindData", ptr %other, i64 0, i32 2, i32 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i, i64 105, i1 false)
@@ -10071,7 +10071,7 @@ if.end28:                                         ; preds = %if.else23, %if.else
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb23SortedAggregateBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb23SortedAggregateBindDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb23SortedAggregateBindDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !76
   %sort_types = getelementptr inbounds %"struct.duckdb::SortedAggregateBindData", ptr %this, i64 0, i32 6
   %0 = load ptr, ptr %sort_types, align 8, !tbaa !127
   %_M_finish.i = getelementptr inbounds %"struct.duckdb::SortedAggregateBindData", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -10424,7 +10424,7 @@ cleanup37:                                        ; preds = %for.body, %for.cond
 define linkonce_odr void @_ZN6duckdb18BaseScalarFunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(170) %this, ptr noundef nonnull align 8 dereferenceable(170) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !76
   %arguments.i = getelementptr inbounds %"class.duckdb::SimpleFunction", ptr %this, i64 0, i32 1
   %arguments2.i = getelementptr inbounds %"class.duckdb::SimpleFunction", ptr %0, i64 0, i32 1
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %arguments.i, ptr noundef nonnull align 8 dereferenceable(24) %arguments2.i)
@@ -10473,7 +10473,7 @@ ehcleanup9.i:                                     ; preds = %ehcleanup.i, %lpad.
   br label %common.resume
 
 _ZN6duckdb14SimpleFunctionC2ERKS0_.exit:          ; preds = %invoke.cont5.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb18BaseScalarFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb18BaseScalarFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !76
   %return_type = getelementptr inbounds %"class.duckdb::BaseScalarFunction", ptr %this, i64 0, i32 1
   %return_type2 = getelementptr inbounds %"class.duckdb::BaseScalarFunction", ptr %0, i64 0, i32 1
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %return_type, ptr noundef nonnull align 8 dereferenceable(24) %return_type2)
@@ -10511,7 +10511,7 @@ define linkonce_odr void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 
 entry:
   %__dnew.i.i6 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb8FunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb8FunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !76
   %name = getelementptr inbounds %"class.duckdb::Function", ptr %this, i64 0, i32 1
   %name2 = getelementptr inbounds %"class.duckdb::Function", ptr %0, i64 0, i32 1
   %1 = getelementptr inbounds %"class.duckdb::Function", ptr %this, i64 0, i32 1, i32 2
@@ -11859,7 +11859,7 @@ _ZNSt10_HashtableISt17reference_wrapperIN6duckdb10ExpressionEES3_SaIS3_ENSt8__de
 define linkonce_odr void @_ZN6duckdb23SortedAggregateBindDataC2ERNS_13ClientContextERNS_24BoundAggregateExpressionE(ptr noundef nonnull align 8 dereferenceable(401) %this, ptr noundef nonnull align 8 dereferenceable(592) %context, ptr noundef nonnull align 8 dereferenceable(424) %expr) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.duckdb::BoundOrderByNode", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb23SortedAggregateBindDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb23SortedAggregateBindDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !76
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6duckdb13BufferManager16GetBufferManagerERNS_13ClientContextE(ptr noundef nonnull align 8 dereferenceable(592) %context)
           to label %invoke.cont unwind label %lpad
 
@@ -11872,7 +11872,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %function, align 8, !tbaa !76
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %function, align 8, !tbaa !76
   %state_size.i = getelementptr inbounds %"struct.duckdb::SortedAggregateBindData", ptr %this, i64 0, i32 2, i32 2
   %state_size2.i = getelementptr inbounds %"class.duckdb::BoundAggregateExpression", ptr %expr, i64 0, i32 1, i32 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i, i64 105, i1 false)

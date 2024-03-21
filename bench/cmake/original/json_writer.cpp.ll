@@ -1577,7 +1577,7 @@ define dso_local void @_ZN4Json10FastWriterC2Ev(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4Json6WriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10FastWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10FastWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Json::FastWriter", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
   %5 = getelementptr inbounds %"class.Json::FastWriter", ptr %3, i32 0, i32 2
@@ -1594,7 +1594,7 @@ define linkonce_odr dso_local void @_ZN4Json6WriterC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json6WriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json6WriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2140,7 +2140,7 @@ define dso_local void @_ZN4Json12StyledWriterC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4Json6WriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json12StyledWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json12StyledWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Json::StyledWriter", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
   %5 = getelementptr inbounds %"class.Json::StyledWriter", ptr %3, i32 0, i32 2
@@ -5221,7 +5221,7 @@ define dso_local void @_ZN4Json23BuiltStyledStreamWriterC2ENSt7__cxx1112basic_st
   store i32 %9, ptr %20, align 4
   %23 = load ptr, ptr %11, align 8
   call void @_ZN4Json12StreamWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %23)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json23BuiltStyledStreamWriterE, i32 0, inrange i32 0, i32 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json23BuiltStyledStreamWriterE, i32 0, i32 0, i32 2), ptr %23, align 8
   %24 = getelementptr inbounds %"struct.Json::BuiltStyledStreamWriter", ptr %23, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #9
   %25 = getelementptr inbounds %"struct.Json::BuiltStyledStreamWriter", ptr %23, i32 0, i32 2
@@ -5281,7 +5281,7 @@ define dso_local void @_ZN4Json12StreamWriterC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json12StreamWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json12StreamWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Json::StreamWriter", ptr %3, i32 0, i32 1
   store ptr null, ptr %4, align 8
   ret void
@@ -6718,7 +6718,7 @@ define dso_local void @_ZN4Json19StreamWriterBuilderC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN4Json12StreamWriter7FactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json19StreamWriterBuilderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json19StreamWriterBuilderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Json::StreamWriterBuilder", ptr %5, i32 0, i32 1
   invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 0)
           to label %7 unwind label %10
@@ -6767,7 +6767,7 @@ define linkonce_odr dso_local void @_ZN4Json12StreamWriter7FactoryC2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json12StreamWriter7FactoryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json12StreamWriter7FactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6949,7 +6949,7 @@ define dso_local void @_ZN4Json19StreamWriterBuilderD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json19StreamWriterBuilderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json19StreamWriterBuilderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Json::StreamWriterBuilder", ptr %3, i32 0, i32 1
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #9
   call void @_ZN4Json12StreamWriter7FactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
@@ -8317,7 +8317,7 @@ define linkonce_odr dso_local void @_ZN4Json10FastWriterD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10FastWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10FastWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Json::FastWriter", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
   call void @_ZN4Json6WriterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
@@ -8339,7 +8339,7 @@ define linkonce_odr dso_local void @_ZN4Json12StyledWriterD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json12StyledWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json12StyledWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Json::StyledWriter", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
   %5 = getelementptr inbounds %"class.Json::StyledWriter", ptr %3, i32 0, i32 2
@@ -8365,7 +8365,7 @@ define linkonce_odr dso_local void @_ZN4Json23BuiltStyledStreamWriterD2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json23BuiltStyledStreamWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json23BuiltStyledStreamWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.Json::BuiltStyledStreamWriter", ptr %3, i32 0, i32 10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #9
   %5 = getelementptr inbounds %"struct.Json::BuiltStyledStreamWriter", ptr %3, i32 0, i32 9

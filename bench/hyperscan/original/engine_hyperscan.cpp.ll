@@ -204,7 +204,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN15EngineHSContextC2EPK11hs_database(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %db) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15EngineHSContext, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15EngineHSContext, i64 0, i32 0, i64 2), ptr %this, align 8
   %scratch = getelementptr inbounds %class.EngineHSContext, ptr %this, i64 0, i32 1
   store ptr null, ptr %scratch, align 8
   %call = invoke i32 @hs_alloc_scratch(ptr noundef %db, ptr noundef nonnull %scratch)
@@ -230,7 +230,7 @@ declare void @_ZN13EngineContextD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15EngineHSContextD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15EngineHSContext, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15EngineHSContext, i64 0, i32 0, i64 2), ptr %this, align 8
   %scratch = getelementptr inbounds %class.EngineHSContext, ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %scratch, align 8
   %call = invoke i32 @hs_free_scratch(ptr noundef %0)
@@ -264,7 +264,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15EngineHSContextD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15EngineHSContext, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15EngineHSContext, i64 0, i32 0, i64 2), ptr %this, align 8
   %scratch.i = getelementptr inbounds %class.EngineHSContext, ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %scratch.i, align 8
   %call.i = invoke i32 @hs_free_scratch(ptr noundef %0)
@@ -307,7 +307,7 @@ entry:
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
 define hidden void @_ZN15EngineHyperscanC2EP11hs_database14CompileHSStats(ptr noundef nonnull align 16 dereferenceable(192) %this, ptr noundef %db_in, ptr noundef %cs) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15EngineHyperscan, i64 0, inrange i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15EngineHyperscan, i64 0, i32 0, i64 2), ptr %this, align 16
   %db = getelementptr inbounds %class.EngineHyperscan, ptr %this, i64 0, i32 1
   store ptr %db_in, ptr %db, align 8
   %compile_stats = getelementptr inbounds %class.EngineHyperscan, ptr %this, i64 0, i32 2
@@ -414,7 +414,7 @@ _ZN14CompileHSStatsC2EOS_.exit:                   ; preds = %if.else.i19.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN15EngineHyperscanD2Ev(ptr noundef nonnull align 16 dereferenceable(192) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15EngineHyperscan, i64 0, inrange i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15EngineHyperscan, i64 0, i32 0, i64 2), ptr %this, align 16
   %db = getelementptr inbounds %class.EngineHyperscan, ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %db, align 8
   invoke void @_Z12release_hugeP11hs_database(ptr noundef %0)
@@ -564,7 +564,7 @@ entry:
   %db = getelementptr inbounds %class.EngineHyperscan, ptr %this, i64 0, i32 1
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #29, !noalias !5
   %0 = load ptr, ptr %db, align 8, !noalias !5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15EngineHSContext, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15EngineHSContext, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
   %scratch.i.i = getelementptr inbounds %class.EngineHSContext, ptr %call.i, i64 0, i32 1
   store ptr null, ptr %scratch.i.i, align 8, !noalias !5
   %call.i.i = invoke i32 @hs_alloc_scratch(ptr noundef %0, ptr noundef nonnull %scratch.i.i)
@@ -707,7 +707,7 @@ define hidden void @_ZNK15EngineHyperscan10streamOpenER13EngineContextj(ptr noal
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29, !noalias !10
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i, i8 0, i64 16, i1 false), !noalias !10
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14EngineHSStream, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !10
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14EngineHSStream, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !10
   %id.i.i = getelementptr inbounds %class.EngineHSStream, ptr %call.i, i64 0, i32 1
   store i64 0, ptr %id.i.i, align 8
   %ctx2 = getelementptr inbounds %class.EngineHSStream, ptr %call.i, i64 0, i32 2
@@ -1149,7 +1149,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %add.ptr.i.i = getelementptr inbounds i8, ptr %crc, i64 %vbase.offset.i.i
   store ptr %16, ptr %add.ptr.i.i, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %crc, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %crc, i64 0, i32 1, i32 2
   %17 = load ptr, ptr %_M_string.i.i.i, align 8
   %18 = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %crc, i64 0, i32 1, i32 2, i32 2
@@ -1168,7 +1168,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %crc, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #26
   %20 = getelementptr inbounds i8, ptr %crc, i64 112
@@ -3423,7 +3423,7 @@ invoke.cont38.i:                                  ; preds = %if.else.i.i126.i, %
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %oss.i, i64 %vbase.offset.i.i.i
   store ptr %44, ptr %add.ptr.i.i.i, align 8, !noalias !37
   %_M_stringbuf.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %oss.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !noalias !37
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !noalias !37
   %_M_string.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %oss.i, i64 0, i32 1, i32 2
   %45 = load ptr, ptr %_M_string.i.i.i.i, align 8, !noalias !37
   %46 = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %oss.i, i64 0, i32 1, i32 2, i32 2
@@ -3442,7 +3442,7 @@ if.then.i.i.i.i.i130.i:                           ; preds = %invoke.cont38.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i: ; preds = %if.then.i.i.i.i.i130.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !noalias !37
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !noalias !37
   %_M_buf_locale.i.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %oss.i, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i.i) #26
   %48 = getelementptr inbounds i8, ptr %oss.i, i64 112
@@ -3469,7 +3469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.
   %add.ptr.i.i135.i = getelementptr inbounds i8, ptr %info_oss.i, i64 %vbase.offset.i.i134.i
   store ptr %44, ptr %add.ptr.i.i135.i, align 8, !noalias !37
   %_M_stringbuf.i.i136.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %info_oss.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i136.i, align 8, !noalias !37
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i136.i, align 8, !noalias !37
   %_M_string.i.i.i137.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %info_oss.i, i64 0, i32 1, i32 2
   %51 = load ptr, ptr %_M_string.i.i.i137.i, align 8, !noalias !37
   %52 = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %info_oss.i, i64 0, i32 1, i32 2, i32 2
@@ -3540,7 +3540,7 @@ ehcleanup42.i:                                    ; preds = %ehcleanup41.i, %lpa
   br label %ehcleanup
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i.i.i139.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i141.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i136.i, align 8, !noalias !37
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i136.i, align 8, !noalias !37
   %_M_buf_locale.i.i.i.i140.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %info_oss.i, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i140.i) #26
   %59 = getelementptr inbounds i8, ptr %info_oss.i, i64 112
@@ -3627,7 +3627,7 @@ invoke.cont10:                                    ; preds = %if.else.i.i32, %if.
   %add.ptr.i.i36 = getelementptr inbounds i8, ptr %oss, i64 %vbase.offset.i.i35
   store ptr %44, ptr %add.ptr.i.i36, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %oss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i37 = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %oss, i64 0, i32 1, i32 2
   %71 = load ptr, ptr %_M_string.i.i.i37, align 8
   %72 = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %oss, i64 0, i32 1, i32 2, i32 2
@@ -3646,7 +3646,7 @@ if.then.i.i.i.i.i39:                              ; preds = %invoke.cont10
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i39, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i40
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_ostringstream", ptr %oss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #26
   %74 = getelementptr inbounds i8, ptr %oss, i64 112
@@ -3888,7 +3888,7 @@ _ZN14CompileHSStatsC2EOS_.exit:                   ; preds = %if.else.i19.i, %if.
   %expressionCount.i = getelementptr inbounds %struct.CompileHSStats, ptr %agg.tmp, i64 0, i32 3
   %expressionCount5.i = getelementptr inbounds %struct.CompileHSStats, ptr %args1, i64 0, i32 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(68) %expressionCount.i, ptr noundef nonnull align 16 dereferenceable(68) %expressionCount5.i, i64 68, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15EngineHyperscan, i64 0, inrange i32 0, i64 2), ptr %call, align 16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15EngineHyperscan, i64 0, i32 0, i64 2), ptr %call, align 16
   %db.i = getelementptr inbounds %class.EngineHyperscan, ptr %call, i64 0, i32 1
   store ptr %0, ptr %db.i, align 8
   %compile_stats.i = getelementptr inbounds %class.EngineHyperscan, ptr %call, i64 0, i32 2

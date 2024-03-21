@@ -380,7 +380,7 @@ define dso_local void @_ZN19cmCPackRPMGeneratorC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16cmCPackGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360) %3)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackRPMGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackRPMGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

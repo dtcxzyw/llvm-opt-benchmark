@@ -23,7 +23,7 @@ $_ZNK3ue217ComponentSequence11getChildrenEv = comdat any
 define hidden void @_ZN3ue218ComponentAssertionC2ENS0_9DirectionENS0_5SenseE(ptr noundef nonnull align 8 dereferenceable(96) %this, i32 noundef %dir, i32 noundef %sense) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3ue217ComponentSequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue218ComponentAssertionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue218ComponentAssertionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_dir = getelementptr inbounds i8, ptr %this, i64 88
   store i32 %dir, ptr %m_dir, align 8
   %m_sense = getelementptr inbounds i8, ptr %this, i64 92
@@ -62,7 +62,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue218ComponentAssertionE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue218ComponentAssertionE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_dir.i = getelementptr inbounds i8, ptr %call, i64 88
   %m_dir2.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load i64, ptr %m_dir2.i, align 8

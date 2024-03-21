@@ -732,7 +732,7 @@ define void @_ZN9PrefsItemC2EP11pref_moduleP10preferencePS_(ptr noundef nonnull 
   %16 = load ptr, ptr %5, align 8
   %17 = load ptr, ptr %8, align 8
   call void @_ZN19ModelHelperTreeItemI9PrefsItemEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9PrefsItem, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9PrefsItem, i32 0, i32 0, i32 2), ptr %16, align 8
   %18 = getelementptr inbounds %class.PrefsItem, ptr %16, i32 0, i32 1
   %19 = load ptr, ptr %7, align 8
   store ptr %19, ptr %18, align 8
@@ -888,7 +888,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI9PrefsItemEC2EPS0_(ptr nounde
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI9PrefsItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI9PrefsItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -983,7 +983,7 @@ define void @_ZN9PrefsItemC2E7QStringPS_(ptr noundef nonnull align 8 dereference
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZN19ModelHelperTreeItemI9PrefsItemEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9PrefsItem, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9PrefsItem, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.PrefsItem, ptr %7, i32 0, i32 1
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds %class.PrefsItem, ptr %7, i32 0, i32 2
@@ -1014,7 +1014,7 @@ define void @_ZN9PrefsItemD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9PrefsItem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9PrefsItem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.PrefsItem, ptr %3, i32 0, i32 3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   call void @_ZN19ModelHelperTreeItemI9PrefsItemED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #11
@@ -1228,7 +1228,7 @@ define void @_ZN10PrefsModelC2EP7QObject(ptr noundef nonnull align 8 dereference
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV10PrefsModel, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV10PrefsModel, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.PrefsModel, ptr %9, i32 0, i32 1
   %12 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #13
           to label %13 unwind label %17
@@ -1792,7 +1792,7 @@ define void @_ZN10PrefsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(24)
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV10PrefsModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV10PrefsModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.PrefsModel, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -3059,7 +3059,7 @@ define void @_ZN18AdvancedPrefsModelC2EP7QObject(ptr noundef nonnull align 8 der
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV18AdvancedPrefsModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV18AdvancedPrefsModel, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.AdvancedPrefsModel, ptr %7, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
   %10 = getelementptr inbounds %class.AdvancedPrefsModel, ptr %7, i32 0, i32 2
@@ -5674,7 +5674,7 @@ define void @_ZN16ModulePrefsModelC2EP7QObject(ptr noundef nonnull align 8 deref
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ModulePrefsModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ModulePrefsModel, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.ModulePrefsModel, ptr %7, i32 0, i32 1
   invoke void @_ZN10PrefsModel12typeToStringEi(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, i32 noundef 256)
           to label %10 unwind label %11
@@ -6197,7 +6197,7 @@ define linkonce_odr void @_ZN16ModulePrefsModelD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ModulePrefsModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ModulePrefsModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ModulePrefsModel, ptr %3, i32 0, i32 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   call void @_ZN21QSortFilterProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #11
@@ -7488,7 +7488,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI9PrefsItemED2Ev(ptr noundef n
   %4 = alloca %class.QVariant, align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI9PrefsItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI9PrefsItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   store i32 0, ptr %3, align 4
   br label %6
 

@@ -569,9 +569,9 @@ define void @_ZN14SyntaxLineEditC2EP7QWidget(ptr noundef nonnull align 8 derefer
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 1, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.SyntaxLineEdit, ptr %7, i32 0, i32 1
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds %class.SyntaxLineEdit, ptr %7, i32 0, i32 2

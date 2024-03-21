@@ -325,7 +325,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net21HpackDecoderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net12HpackDecoderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net12HpackDecoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_table_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this1, i32 0, i32 1
   invoke void @_ZN3net16HpackHeaderTableC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %header_table_)
           to label %invoke.cont unwind label %lpad
@@ -392,7 +392,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net21HpackDecoderInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net21HpackDecoderInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -417,7 +417,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net12HpackDecoderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net12HpackDecoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this1, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_buffer_) #9
   %key_buffer_ = getelementptr inbounds %"class.net::HpackDecoder", ptr %this1, i32 0, i32 4

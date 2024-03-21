@@ -602,7 +602,7 @@ define void @_ZN10FloatValueC2Ef(ptr noundef nonnull align 8 dereferenceable(12)
   store float %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5ValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV10FloatValue, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV10FloatValue, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.FloatValue, ptr %5, i32 0, i32 1
   %7 = load float, ptr %4, align 4
   store float %7, ptr %6, align 8
@@ -614,7 +614,7 @@ define linkonce_odr void @_ZN5ValueC2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -698,7 +698,7 @@ define linkonce_odr void @_ZN10FloatValueC2ERKS_(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ValueC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV10FloatValue, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV10FloatValue, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.FloatValue, ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %class.FloatValue, ptr %8, i32 0, i32 1
@@ -714,7 +714,7 @@ define linkonce_odr void @_ZN5ValueC2ERKS_(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 

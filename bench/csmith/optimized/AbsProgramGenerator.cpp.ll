@@ -255,7 +255,7 @@ define dso_local noundef ptr @_ZN19AbsProgramGenerator11GetInstanceEv() local_un
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN19AbsProgramGeneratorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19AbsProgramGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19AbsProgramGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 

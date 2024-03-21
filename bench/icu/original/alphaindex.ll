@@ -248,7 +248,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7510BucketListE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7510BucketListE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bucketList_ = getelementptr inbounds %"class.icu_75::BucketList", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %bucketList_, align 8
   %isnull = icmp eq ptr %0, null
@@ -313,7 +313,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndex14ImmutableIndexE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndex14ImmutableIndexE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buckets_ = getelementptr inbounds %"class.icu_75::AlphabeticIndex::ImmutableIndex", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %buckets_, align 8
   %isnull = icmp eq ptr %0, null
@@ -561,7 +561,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndexE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndexE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %inputList_ = getelementptr inbounds %"class.icu_75::AlphabeticIndex", ptr %this1, i32 0, i32 1
   store ptr null, ptr %inputList_, align 8
   %labelsIterIndex_ = getelementptr inbounds %"class.icu_75::AlphabeticIndex", ptr %this1, i32 0, i32 2
@@ -704,7 +704,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -715,7 +715,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -1035,7 +1035,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndexE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndexE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %inputList_ = getelementptr inbounds %"class.icu_75::AlphabeticIndex", ptr %this1, i32 0, i32 1
   store ptr null, ptr %inputList_, align 8
   %labelsIterIndex_ = getelementptr inbounds %"class.icu_75::AlphabeticIndex", ptr %this1, i32 0, i32 2
@@ -1178,7 +1178,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndexE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndexE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %collator_ = getelementptr inbounds %"class.icu_75::AlphabeticIndex", ptr %this1, i32 0, i32 8
   %0 = load ptr, ptr %collator_, align 8
   %isnull = icmp eq ptr %0, null
@@ -3649,7 +3649,7 @@ entry:
   store ptr %collatorPrimaryOnly, ptr %collatorPrimaryOnly.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndex14ImmutableIndexE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndex14ImmutableIndexE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buckets_ = getelementptr inbounds %"class.icu_75::AlphabeticIndex::ImmutableIndex", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %bucketList.addr, align 8
   store ptr %0, ptr %buckets_, align 8
@@ -5770,7 +5770,7 @@ entry:
   store ptr %publicBucketList, ptr %publicBucketList.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7510BucketListE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7510BucketListE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bucketList_ = getelementptr inbounds %"class.icu_75::BucketList", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %bucketList.addr, align 8
   store ptr %0, ptr %bucketList_, align 8
@@ -7801,7 +7801,7 @@ entry:
   store i32 %type, ptr %type.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %label_ = getelementptr inbounds %"class.icu_75::AlphabeticIndex::Bucket", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %label.addr, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %label_, ptr noundef nonnull align 8 dereferenceable(64) %0)
@@ -7862,7 +7862,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515AlphabeticIndex6BucketE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %records_ = getelementptr inbounds %"class.icu_75::AlphabeticIndex::Bucket", ptr %this1, i32 0, i32 6
   %0 = load ptr, ptr %records_, align 8
   %isnull = icmp eq ptr %0, null
@@ -7917,7 +7917,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

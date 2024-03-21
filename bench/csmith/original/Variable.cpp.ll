@@ -4399,7 +4399,7 @@ define dso_local void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   store i8 %26, ptr %19, align 1
   store ptr %9, ptr %20, align 8
   %27 = load ptr, ptr %11, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i32 0, inrange i32 0, i32 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i32 0, i32 0, i32 2), ptr %27, align 8
   %28 = getelementptr inbounds %class.Variable, ptr %27, i32 0, i32 1
   call void @_ZNSt6vectorIP8VariableSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28) #3
   %29 = getelementptr inbounds %class.Variable, ptr %27, i32 0, i32 2
@@ -4537,7 +4537,7 @@ define dso_local void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %13 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.Variable, ptr %13, i32 0, i32 1
   call void @_ZNSt6vectorIP8VariableSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #3
   %15 = getelementptr inbounds %class.Variable, ptr %13, i32 0, i32 2
@@ -4627,7 +4627,7 @@ define dso_local void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   %17 = zext i1 %6 to i8
   store i8 %17, ptr %14, align 1
   %18 = load ptr, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i32 0, i32 0, i32 2), ptr %18, align 8
   %19 = getelementptr inbounds %class.Variable, ptr %18, i32 0, i32 1
   call void @_ZNSt6vectorIP8VariableSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #3
   %20 = getelementptr inbounds %class.Variable, ptr %18, i32 0, i32 2
@@ -4709,7 +4709,7 @@ define dso_local void @_ZN8VariableD2Ev(ptr noundef nonnull align 8 dereferencea
   %5 = alloca %"class.__gnu_cxx::__normal_iterator.53", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV8Variable, i32 0, i32 0, i32 2), ptr %6, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPP8VariableSt6vectorIS2_SaIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   %7 = getelementptr inbounds %class.Variable, ptr %6, i32 0, i32 1
   %8 = call ptr @_ZNSt6vectorIP8VariableSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #3

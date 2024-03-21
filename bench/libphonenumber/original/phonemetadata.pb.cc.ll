@@ -1009,7 +1009,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2EPN6google8protobuf
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.i18n::phonenumbers::NumberFormat", ptr %9, i32 0, i32 1
   store ptr %11, ptr %4, align 8
   %12 = load ptr, ptr %4, align 8
@@ -1076,7 +1076,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf11MessageLiteC2EPNS0_5Are
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef %7)
@@ -1158,7 +1158,7 @@ define dso_local void @_ZN4i18n12phonenumbers12NumberFormatC2ERKS1_(ptr noundef 
   store ptr %1, ptr %13, align 8
   %16 = load ptr, ptr %12, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12NumberFormatE, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %"class.i18n::phonenumbers::NumberFormat", ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr inbounds %"class.i18n::phonenumbers::NumberFormat", ptr %18, i32 0, i32 1
@@ -1436,7 +1436,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf11MessageLiteC2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %3, i32 0, i32 1
   call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void
@@ -4598,7 +4598,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2EPN6google8proto
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberDesc", ptr %9, i32 0, i32 1
   store ptr %11, ptr %4, align 8
   %12 = load ptr, ptr %4, align 8
@@ -4725,7 +4725,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberDescC2ERKS1_(ptr nound
   store ptr %1, ptr %13, align 8
   %16 = load ptr, ptr %12, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberDescE, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberDesc", ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberDesc", ptr %18, i32 0, i32 1
@@ -6960,7 +6960,7 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2EPN6google8protobu
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers13PhoneMetadataE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers13PhoneMetadataE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneMetadata", ptr %9, i32 0, i32 1
   store ptr %11, ptr %4, align 8
   %12 = load ptr, ptr %4, align 8
@@ -7140,7 +7140,7 @@ define dso_local void @_ZN4i18n12phonenumbers13PhoneMetadataC2ERKS1_(ptr noundef
   store ptr %1, ptr %13, align 8
   %16 = load ptr, ptr %12, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers13PhoneMetadataE, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers13PhoneMetadataE, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneMetadata", ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneMetadata", ptr %18, i32 0, i32 1
@@ -18794,7 +18794,7 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2EPN6goog
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneMetadataCollection", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN4i18n12phonenumbers13PhoneMetadataEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef %10)
@@ -18913,7 +18913,7 @@ define dso_local void @_ZN4i18n12phonenumbers23PhoneMetadataCollectionC2ERKS1_(p
   store ptr %1, ptr %13, align 8
   %16 = load ptr, ptr %12, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4i18n12phonenumbers23PhoneMetadataCollectionE, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneMetadataCollection", ptr %16, i32 0, i32 1
   %18 = load ptr, ptr %13, align 8
   %19 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneMetadataCollection", ptr %18, i32 0, i32 1

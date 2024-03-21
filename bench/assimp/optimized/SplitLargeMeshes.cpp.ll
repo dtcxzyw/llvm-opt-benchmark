@@ -87,7 +87,7 @@ $_ZNSt6vectorI6aiFaceSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iter
 define void @_ZN6Assimp32SplitLargeMeshesProcess_TriangleC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp32SplitLargeMeshesProcess_TriangleE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp32SplitLargeMeshesProcess_TriangleE, i64 0, i32 0, i64 2), ptr %this, align 8
   %LIMIT = getelementptr inbounds i8, ptr %this, i64 24
   store i32 1000000, ptr %LIMIT, align 8
   ret void
@@ -1853,7 +1853,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 define void @_ZN6Assimp30SplitLargeMeshesProcess_VertexC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #14
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp30SplitLargeMeshesProcess_VertexE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp30SplitLargeMeshesProcess_VertexE, i64 0, i32 0, i64 2), ptr %this, align 8
   %LIMIT = getelementptr inbounds i8, ptr %this, i64 24
   store i32 1000000, ptr %LIMIT, align 8
   ret void

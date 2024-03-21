@@ -1069,7 +1069,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18OpenImageIO_v2_6_010ImageInputC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this1)
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08PNMInputE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN18OpenImageIO_v2_6_08PNMInputE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_file_contents = getelementptr inbounds %"class.OpenImageIO_v2_6_0::PNMInput", ptr %this1, i32 0, i32 5
   call void @_ZNSt6vectorIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_file_contents) #3
   %m_remaining = getelementptr inbounds %"class.OpenImageIO_v2_6_0::PNMInput", ptr %this1, i32 0, i32 6

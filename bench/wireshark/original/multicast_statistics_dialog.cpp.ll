@@ -1014,9 +1014,9 @@ define void @_ZN25MulticastStatisticsDialogC2ER7QWidgetR11CaptureFilePKc(ptr nou
   %76 = load ptr, ptr %6, align 8
   %77 = load ptr, ptr %7, align 8
   call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %75, ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef nonnull align 8 dereferenceable(48) %77, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %75, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i32 0, i32 0, i32 2), ptr %75, align 8
   %78 = getelementptr inbounds i8, ptr %75, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %78, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i32 0, i32 1, i32 2), ptr %78, align 8
   %79 = getelementptr inbounds %class.MulticastStatisticsDialog, ptr %75, i32 0, i32 7
   call void @_ZN5QListIP7QWidgetEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %79) #15
   invoke void @_ZN25MulticastStatisticsDialog2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef @.str, ptr noundef null, i32 noundef -1)
@@ -3289,9 +3289,9 @@ define void @_ZN25MulticastStatisticsDialogD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.MulticastStatisticsDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   invoke void @remove_tap_listener_mcast_stream(ptr noundef %6)
@@ -3389,7 +3389,7 @@ define linkonce_odr void @_ZN27MulticastStatTreeWidgetItemC2EP11QTreeWidget(ptr 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %7, ptr noundef %8, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV27MulticastStatTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV27MulticastStatTreeWidgetItem, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.MulticastStatTreeWidgetItem, ptr %7, i32 0, i32 1
   invoke void @_ZL13clear_addressP8_address(ptr noundef %9)
           to label %10 unwind label %23

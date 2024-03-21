@@ -194,7 +194,7 @@ define linkonce_odr dso_local void @_Z4ftosB5cxx11f(ptr dead_on_unwind noalias w
   %45 = getelementptr inbounds i8, ptr %3, i64 %44
   store ptr %42, ptr %45, align 8, !tbaa !17
   %46 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %46, align 8, !tbaa !17
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %46, align 8, !tbaa !17
   %47 = getelementptr inbounds i8, ptr %3, i64 80
   %48 = load ptr, ptr %47, align 8, !tbaa !36
   %49 = getelementptr inbounds i8, ptr %3, i64 96
@@ -213,7 +213,7 @@ define linkonce_odr dso_local void @_Z4ftosB5cxx11f(ptr dead_on_unwind noalias w
   br label %56
 
 56:                                               ; preds = %55, %51
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %46, align 8, !tbaa !17
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %46, align 8, !tbaa !17
   %57 = getelementptr inbounds i8, ptr %3, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #20
   %58 = getelementptr inbounds i8, ptr %3, i64 112

@@ -3981,7 +3981,7 @@ entry:
   store i8 %frombool, ptr %latin1.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3re26Regexp6WalkerIPNS_9Prefilter4InfoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re29Prefilter4Info6WalkerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re29Prefilter4Info6WalkerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %latin1_ = getelementptr inbounds %"class.re2::Prefilter::Info::Walker", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %latin1.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -5471,7 +5471,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIPNS_9Prefilter4InfoEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIPNS_9Prefilter4InfoEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stack_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 1
   call void @_ZNSt5stackIN3re29WalkStateIPNS0_9Prefilter4InfoEEESt5dequeIS5_SaIS5_EEEC2IS8_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %stack_)
   %stopped_early_ = getelementptr inbounds %"class.re2::Regexp::Walker", ptr %this1, i32 0, i32 2
@@ -5497,7 +5497,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIPNS_9Prefilter4InfoEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3re26Regexp6WalkerIPNS_9Prefilter4InfoEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN3re26Regexp6WalkerIPNS_9Prefilter4InfoEE5ResetEv(ptr noundef nonnull align 8 dereferenceable(96) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 

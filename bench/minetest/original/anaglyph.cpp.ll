@@ -168,11 +168,11 @@ $_ZTI12RenderTarget = comdat any
 @.str.12 = private unnamed_addr constant [21 x i8] c"Server shutting down\00", align 1
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
 @_ZTV16SetColorMaskStep = dso_local unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI16SetColorMaskStep, ptr @_ZN16SetColorMaskStepD1Ev, ptr @_ZN16SetColorMaskStepD0Ev, ptr @_ZN17TrivialRenderStep5resetER15PipelineContext, ptr @_ZN17TrivialRenderStep15setRenderSourceEP12RenderSource, ptr @_ZN17TrivialRenderStep15setRenderTargetEP12RenderTarget, ptr @_ZN16SetColorMaskStep3runER15PipelineContext] }, align 8
-@_ZTT16SetColorMaskStep = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SetColorMaskStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SetColorMaskStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SetColorMaskStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SetColorMaskStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT16SetColorMaskStep = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SetColorMaskStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SetColorMaskStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SetColorMaskStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SetColorMaskStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTV22ClearDepthBufferTarget = dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI22ClearDepthBufferTarget, ptr @_ZN22ClearDepthBufferTargetD1Ev, ptr @_ZN22ClearDepthBufferTargetD0Ev, ptr @_ZN22ClearDepthBufferTarget5resetER15PipelineContext, ptr @_ZN22ClearDepthBufferTarget8activateER15PipelineContext] }, align 8
-@_ZTT22ClearDepthBufferTarget = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22ClearDepthBufferTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC22ClearDepthBufferTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC22ClearDepthBufferTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22ClearDepthBufferTarget, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT22ClearDepthBufferTarget = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22ClearDepthBufferTarget, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC22ClearDepthBufferTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC22ClearDepthBufferTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22ClearDepthBufferTarget, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTV31ConfigureOverrideMaterialTarget = dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI31ConfigureOverrideMaterialTarget, ptr @_ZN31ConfigureOverrideMaterialTargetD1Ev, ptr @_ZN31ConfigureOverrideMaterialTargetD0Ev, ptr @_ZN12RenderTarget5resetER15PipelineContext, ptr @_ZN31ConfigureOverrideMaterialTarget8activateER15PipelineContext] }, align 8
-@_ZTT31ConfigureOverrideMaterialTarget = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31ConfigureOverrideMaterialTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC31ConfigureOverrideMaterialTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC31ConfigureOverrideMaterialTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31ConfigureOverrideMaterialTarget, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT31ConfigureOverrideMaterialTarget = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31ConfigureOverrideMaterialTarget, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC31ConfigureOverrideMaterialTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC31ConfigureOverrideMaterialTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31ConfigureOverrideMaterialTarget, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTC16SetColorMaskStep0_17TrivialRenderStep = dso_local unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI17TrivialRenderStep, ptr @_ZN17TrivialRenderStepD1Ev, ptr @_ZN17TrivialRenderStepD0Ev, ptr @_ZN17TrivialRenderStep5resetER15PipelineContext, ptr @_ZN17TrivialRenderStep15setRenderSourceEP12RenderSource, ptr @_ZN17TrivialRenderStep15setRenderTargetEP12RenderTarget, ptr @__cxa_pure_virtual] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTS17TrivialRenderStep = linkonce_odr dso_local constant [20 x i8] c"17TrivialRenderStep\00", comdat, align 1
@@ -455,7 +455,7 @@ define dso_local void @_ZN16SetColorMaskStepC2Ei(ptr nocapture noundef nonnull w
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16SetColorMaskStepC1Ei(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %0, i32 noundef %1) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %3, align 8, !tbaa !14
   ret void
@@ -541,7 +541,7 @@ define dso_local void @_ZN22ClearDepthBufferTargetC2EP12RenderTarget(ptr nocaptu
 define dso_local void @_ZN22ClearDepthBufferTargetC1EP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %3, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22ClearDepthBufferTarget, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22ClearDepthBufferTarget, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8, !tbaa !43
   ret void
@@ -601,7 +601,7 @@ define dso_local void @_ZN31ConfigureOverrideMaterialTargetC1EP12RenderTargetb(p
   %4 = zext i1 %2 to i8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %5, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31ConfigureOverrideMaterialTarget, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31ConfigureOverrideMaterialTarget, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %6, align 8, !tbaa !45
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -676,7 +676,7 @@ define dso_local void @_Z24populateAnaglyphPipelineP14RenderPipelineP6Client(ptr
   store ptr %24, ptr %27, align 8, !tbaa !12, !noalias !51
   %28 = getelementptr inbounds i8, ptr %22, i64 8
   store i8 1, ptr %28, align 8, !tbaa !41, !noalias !51
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV12ScreenTarget, i64 0, inrange i32 0, i64 5), ptr %22, align 8, !tbaa !12, !noalias !51
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV12ScreenTarget, i64 0, i32 0, i64 5), ptr %22, align 8, !tbaa !12, !noalias !51
   %29 = getelementptr inbounds i8, ptr %22, i64 12
   store i32 0, ptr %29, align 4, !tbaa !54, !noalias !51
   %30 = getelementptr inbounds i8, ptr %22, i64 16
@@ -726,7 +726,7 @@ define dso_local void @_Z24populateAnaglyphPipelineP14RenderPipelineP6Client(ptr
   %51 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23, !noalias !57
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store i8 1, ptr %52, align 8, !tbaa !41, !noalias !57
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22ClearDepthBufferTarget, i64 0, inrange i32 0, i64 5), ptr %51, align 8, !tbaa !12, !noalias !57
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22ClearDepthBufferTarget, i64 0, i32 0, i64 5), ptr %51, align 8, !tbaa !12, !noalias !57
   %53 = getelementptr inbounds i8, ptr %51, i64 16
   store ptr %31, ptr %53, align 8, !tbaa !43, !noalias !57
   store ptr %51, ptr %4, align 8, !tbaa !50, !alias.scope !57
@@ -770,7 +770,7 @@ define dso_local void @_Z24populateAnaglyphPipelineP14RenderPipelineP6Client(ptr
   %72 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23, !noalias !60
   %73 = getelementptr inbounds i8, ptr %72, i64 8
   store i8 1, ptr %73, align 8, !tbaa !41, !noalias !60
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31ConfigureOverrideMaterialTarget, i64 0, inrange i32 0, i64 5), ptr %72, align 8, !tbaa !12, !noalias !60
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV31ConfigureOverrideMaterialTarget, i64 0, i32 0, i64 5), ptr %72, align 8, !tbaa !12, !noalias !60
   %74 = getelementptr inbounds i8, ptr %72, i64 16
   store ptr %54, ptr %74, align 8, !tbaa !45, !noalias !60
   %75 = getelementptr inbounds i8, ptr %72, i64 24
@@ -1323,7 +1323,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI16SetColo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !94)
   %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !94
   %5 = load i32, ptr %1, align 4, !tbaa !64, !noalias !94
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i64 0, inrange i32 0, i64 5), ptr %4, align 8, !tbaa !12, !noalias !94
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i64 0, i32 0, i64 5), ptr %4, align 8, !tbaa !12, !noalias !94
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %5, ptr %6, align 8, !tbaa !14, !noalias !94
   store ptr %4, ptr %3, align 8, !tbaa !50, !alias.scope !94
@@ -1443,7 +1443,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI16SetColo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !97)
   %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23, !noalias !97
   %5 = load i32, ptr %1, align 4, !tbaa !70, !noalias !97
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i64 0, inrange i32 0, i64 5), ptr %4, align 8, !tbaa !12, !noalias !97
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SetColorMaskStep, i64 0, i32 0, i64 5), ptr %4, align 8, !tbaa !12, !noalias !97
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %5, ptr %6, align 8, !tbaa !14, !noalias !97
   store ptr %4, ptr %3, align 8, !tbaa !50, !alias.scope !97
@@ -1699,7 +1699,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI9DrawWiel
   %7 = load i64, ptr %6, align 8, !noalias !103
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   store ptr %5, ptr %8, align 8, !tbaa !12, !noalias !103
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV9DrawWield, i64 0, inrange i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !103
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV9DrawWield, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !103
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %9, align 8, !tbaa !106, !noalias !103
   store ptr %3, ptr %2, align 8, !tbaa !50, !alias.scope !103
@@ -1831,7 +1831,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI13MapPost
   %12 = load i64, ptr %11, align 8, !noalias !108
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   store ptr %10, ptr %13, align 8, !tbaa !12, !noalias !108
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13MapPostFxStep, i64 0, inrange i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !108
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13MapPostFxStep, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !108
   store ptr %3, ptr %2, align 8, !tbaa !50, !alias.scope !108
   %14 = invoke noundef ptr @_ZN14RenderPipeline3ownI13MapPostFxStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %15 unwind label %63
@@ -1948,7 +1948,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI7DrawHUDJ
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #23, !noalias !111
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV7DrawHUD, i64 0, inrange i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !111
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV7DrawHUD, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !111
   store ptr %3, ptr %2, align 8, !tbaa !50, !alias.scope !111
   %4 = invoke noundef ptr @_ZN14RenderPipeline3ownI7DrawHUDEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %5 unwind label %53

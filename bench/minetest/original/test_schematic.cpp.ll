@@ -207,7 +207,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -501,7 +501,7 @@ define dso_local void @_ZN13TestSchematic27testMtsSerializeDeserializeEPK14NodeD
   call void @llvm.lifetime.start.p0(i64 392, ptr nonnull %7) #23
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1ESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(128) %7, i32 noundef 28)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %8) #23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !4
   %62 = getelementptr inbounds i8, ptr %8, i64 24
   %63 = getelementptr inbounds i8, ptr %8, i64 40
   store ptr %63, ptr %62, align 8, !tbaa !51
@@ -515,7 +515,7 @@ define dso_local void @_ZN13TestSchematic27testMtsSerializeDeserializeEPK14NodeD
 66:                                               ; preds = %61
   %67 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !4
   %68 = load ptr, ptr %62, align 8, !tbaa !7
   %69 = icmp eq ptr %68, %63
   br i1 %69, label %70, label %73
@@ -531,8 +531,8 @@ define dso_local void @_ZN13TestSchematic27testMtsSerializeDeserializeEPK14NodeD
   br label %851
 
 74:                                               ; preds = %61
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 1, i64 2), ptr %65, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 1, i64 2), ptr %65, align 8, !tbaa !4
   %75 = getelementptr inbounds i8, ptr %8, i64 136
   %76 = getelementptr inbounds i8, ptr %8, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %75, i8 0, i64 34, i1 false)
@@ -773,7 +773,7 @@ define dso_local void @_ZN13TestSchematic27testMtsSerializeDeserializeEPK14NodeD
 
 197:                                              ; preds = %195
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %11) #23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %11, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %11, align 8, !tbaa !4
   %198 = getelementptr inbounds i8, ptr %11, i64 24
   %199 = getelementptr inbounds i8, ptr %11, i64 40
   store ptr %199, ptr %198, align 8, !tbaa !51
@@ -787,7 +787,7 @@ define dso_local void @_ZN13TestSchematic27testMtsSerializeDeserializeEPK14NodeD
 202:                                              ; preds = %197
   %203 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %11, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %11, align 8, !tbaa !4
   %204 = load ptr, ptr %198, align 8, !tbaa !7
   %205 = icmp eq ptr %204, %199
   br i1 %205, label %206, label %209
@@ -803,8 +803,8 @@ define dso_local void @_ZN13TestSchematic27testMtsSerializeDeserializeEPK14NodeD
   br label %847
 
 210:                                              ; preds = %197
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 0, i64 2), ptr %11, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 1, i64 2), ptr %201, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 0, i64 2), ptr %11, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 1, i64 2), ptr %201, align 8, !tbaa !4
   %211 = getelementptr inbounds i8, ptr %11, i64 136
   %212 = getelementptr inbounds i8, ptr %11, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %211, i8 0, i64 34, i1 false)
@@ -2019,7 +2019,7 @@ define dso_local void @_ZN13TestSchematic27testMtsSerializeDeserializeEPK14NodeD
   %775 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %775, ptr %165, align 8, !tbaa !4
   %776 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %776, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %776, align 8, !tbaa !4
   %777 = getelementptr inbounds i8, ptr %7, i64 96
   %778 = load ptr, ptr %777, align 8, !tbaa !7
   %779 = getelementptr inbounds i8, ptr %7, i64 112
@@ -2038,7 +2038,7 @@ define dso_local void @_ZN13TestSchematic27testMtsSerializeDeserializeEPK14NodeD
   br label %786
 
 786:                                              ; preds = %785, %781
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %776, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %776, align 8, !tbaa !4
   %787 = getelementptr inbounds i8, ptr %7, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %787) #23
   %788 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -2511,7 +2511,7 @@ define dso_local void @_ZN13TestSchematic21testLuaTableSerializeEPK14NodeDefMana
 
 36:                                               ; preds = %26, %23, %20
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !4
   %37 = getelementptr inbounds i8, ptr %5, i64 24
   %38 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %38, ptr %37, align 8, !tbaa !51
@@ -2525,7 +2525,7 @@ define dso_local void @_ZN13TestSchematic21testLuaTableSerializeEPK14NodeDefMana
 41:                                               ; preds = %36
   %42 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !4
   %43 = load ptr, ptr %37, align 8, !tbaa !7
   %44 = icmp eq ptr %43, %38
   br i1 %44, label %45, label %48
@@ -2545,8 +2545,8 @@ define dso_local void @_ZN13TestSchematic21testLuaTableSerializeEPK14NodeDefMana
   resume { ptr, i32 } %50
 
 51:                                               ; preds = %36
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 1, i64 2), ptr %40, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 1, i64 2), ptr %40, align 8, !tbaa !4
   %52 = getelementptr inbounds i8, ptr %5, i64 136
   %53 = getelementptr inbounds i8, ptr %5, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %53, i8 0, i64 16, i1 false)
@@ -3060,7 +3060,7 @@ define dso_local void @_ZN13TestSchematic21testLuaTableSerializeEPK14NodeDefMana
   %303 = getelementptr inbounds i8, ptr %6, i64 %302
   store ptr %300, ptr %303, align 8, !tbaa !4
   %304 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %304, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %304, align 8, !tbaa !4
   %305 = getelementptr inbounds i8, ptr %6, i64 80
   %306 = load ptr, ptr %305, align 8, !tbaa !7
   %307 = getelementptr inbounds i8, ptr %6, i64 96
@@ -3079,7 +3079,7 @@ define dso_local void @_ZN13TestSchematic21testLuaTableSerializeEPK14NodeDefMana
   br label %314
 
 314:                                              ; preds = %313, %309
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %304, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %304, align 8, !tbaa !4
   %315 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %315) #23
   %316 = getelementptr inbounds i8, ptr %6, i64 112
@@ -3285,7 +3285,7 @@ define dso_local void @_ZN13TestSchematic28testFileSerializeDeserializeEPK14Node
 86:                                               ; preds = %85, %82
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %5) #23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !4
   %87 = getelementptr inbounds i8, ptr %5, i64 24
   %88 = getelementptr inbounds i8, ptr %5, i64 40
   store ptr %88, ptr %87, align 8, !tbaa !51
@@ -3299,7 +3299,7 @@ define dso_local void @_ZN13TestSchematic28testFileSerializeDeserializeEPK14Node
 91:                                               ; preds = %86
   %92 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !4
   %93 = load ptr, ptr %87, align 8, !tbaa !7
   %94 = icmp eq ptr %93, %88
   br i1 %94, label %95, label %98
@@ -3315,14 +3315,14 @@ define dso_local void @_ZN13TestSchematic28testFileSerializeDeserializeEPK14Node
   br label %424
 
 99:                                               ; preds = %86
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 1, i64 2), ptr %90, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 1, i64 2), ptr %90, align 8, !tbaa !4
   %100 = getelementptr inbounds i8, ptr %5, i64 136
   %101 = getelementptr inbounds i8, ptr %5, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %100, i8 0, i64 34, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 192, ptr nonnull %6) #23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !4
   %102 = getelementptr inbounds i8, ptr %6, i64 24
   %103 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %103, ptr %102, align 8, !tbaa !51
@@ -3336,7 +3336,7 @@ define dso_local void @_ZN13TestSchematic28testFileSerializeDeserializeEPK14Node
 106:                                              ; preds = %99
   %107 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !4
   %108 = load ptr, ptr %102, align 8, !tbaa !7
   %109 = icmp eq ptr %108, %103
   br i1 %109, label %110, label %113
@@ -3352,8 +3352,8 @@ define dso_local void @_ZN13TestSchematic28testFileSerializeDeserializeEPK14Node
   br label %422
 
 114:                                              ; preds = %99
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, inrange i32 1, i64 2), ptr %105, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTV9Schematic, i64 0, i32 1, i64 2), ptr %105, align 8, !tbaa !4
   %115 = getelementptr inbounds i8, ptr %6, i64 136
   %116 = getelementptr inbounds i8, ptr %6, i64 176
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(34) %115, i8 0, i64 34, i1 false)
@@ -4231,7 +4231,7 @@ declare void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -5457,14 +5457,14 @@ define internal void @_GLOBAL__sub_I_test_schematic.cpp() #17 section ".text.sta
   store ptr getelementptr inbounds (%class.TestSchematic, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestSchematic, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !51
   store i64 0, ptr getelementptr inbounds (%class.TestSchematic, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestSchematic, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !52
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TestSchematic, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TestSchematic, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%class.TestSchematic, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestSchematic, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

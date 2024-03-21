@@ -1756,7 +1756,7 @@ define linkonce_odr void @_ZN5faiss15LinearTransformD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss15LinearTransformE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss15LinearTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %3, i32 0, i32 4
@@ -2185,7 +2185,7 @@ define linkonce_odr void @_ZN5faiss24RemapDimensionsTransformD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss24RemapDimensionsTransformE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss24RemapDimensionsTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::RemapDimensionsTransform", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   call void @_ZN5faiss15VectorTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #14
@@ -3288,7 +3288,7 @@ define linkonce_odr void @_ZN5faiss9PCAMatrixD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9PCAMatrixE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9PCAMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::PCAMatrix", ptr %3, i32 0, i32 8
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = getelementptr inbounds %"struct.faiss::PCAMatrix", ptr %3, i32 0, i32 7
@@ -4080,7 +4080,7 @@ define linkonce_odr void @_ZN5faiss9ITQMatrixD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9ITQMatrixE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9ITQMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::ITQMatrix", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   call void @_ZN5faiss15LinearTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %3) #14
@@ -4940,7 +4940,7 @@ define linkonce_odr void @_ZN5faiss12ITQTransformD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12ITQTransformE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12ITQTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::ITQTransform", ptr %3, i32 0, i32 6
   call void @_ZN5faiss15LinearTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %4) #14
   %5 = getelementptr inbounds %"struct.faiss::ITQTransform", ptr %3, i32 0, i32 3
@@ -6969,7 +6969,7 @@ define linkonce_odr void @_ZN5faiss18CenteringTransformD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss18CenteringTransformE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss18CenteringTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::CenteringTransform", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   call void @_ZN5faiss15VectorTransformD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %3) #14
@@ -7100,7 +7100,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
@@ -7466,7 +7466,7 @@ define void @_ZN5faiss15LinearTransformC2Eiib(ptr noundef nonnull align 8 derefe
   %11 = load i32, ptr %6, align 4
   %12 = load i32, ptr %7, align 4
   call void @_ZN5faiss15VectorTransformC2Eii(ptr noundef nonnull align 8 dereferenceable(17) %10, i32 noundef %11, i32 noundef %12)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss15LinearTransformE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss15LinearTransformE, i32 0, i32 0, i32 2), ptr %10, align 8
   %13 = getelementptr inbounds %"struct.faiss::LinearTransform", ptr %10, i32 0, i32 1
   %14 = load i8, ptr %8, align 1
   %15 = trunc i8 %14 to i1
@@ -7494,7 +7494,7 @@ define linkonce_odr void @_ZN5faiss15VectorTransformC2Eii(ptr noundef nonnull al
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss15VectorTransformE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss15VectorTransformE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %7, i32 0, i32 1
   %9 = load i32, ptr %5, align 4
   store i32 %9, ptr %8, align 8
@@ -9795,7 +9795,7 @@ define void @_ZN5faiss9PCAMatrixC2Eiifb(ptr noundef nonnull align 8 dereferencea
   %13 = load i32, ptr %7, align 4
   %14 = load i32, ptr %8, align 4
   call void @_ZN5faiss15LinearTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(73) %12, i32 noundef %13, i32 noundef %14, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9PCAMatrixE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9PCAMatrixE, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %"struct.faiss::PCAMatrix", ptr %12, i32 0, i32 1
   %16 = load float, ptr %9, align 4
   store float %16, ptr %15, align 4
@@ -13813,7 +13813,7 @@ define linkonce_odr void @_ZN5faiss20RandomRotationMatrixC2Eii(ptr noundef nonnu
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @_ZN5faiss15LinearTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(73) %7, i32 noundef %8, i32 noundef %9, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss20RandomRotationMatrixE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -14547,7 +14547,7 @@ define void @_ZN5faiss9ITQMatrixC2Ei(ptr noundef nonnull align 8 dereferenceable
   %6 = load i32, ptr %4, align 4
   %7 = load i32, ptr %4, align 4
   call void @_ZN5faiss15LinearTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(73) %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9ITQMatrixE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9ITQMatrixE, i32 0, i32 0, i32 2), ptr %5, align 8
   %8 = getelementptr inbounds %"struct.faiss::ITQMatrix", ptr %5, i32 0, i32 1
   store i32 50, ptr %8, align 4
   %9 = getelementptr inbounds %"struct.faiss::ITQMatrix", ptr %5, i32 0, i32 2
@@ -14609,7 +14609,7 @@ define void @_ZN5faiss12ITQTransformC2Eiib(ptr noundef nonnull align 8 dereferen
   %15 = load i32, ptr %6, align 4
   %16 = load i32, ptr %7, align 4
   call void @_ZN5faiss15VectorTransformC2Eii(ptr noundef nonnull align 8 dereferenceable(17) %14, i32 noundef %15, i32 noundef %16)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12ITQTransformE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss12ITQTransformE, i32 0, i32 0, i32 2), ptr %14, align 8
   %17 = getelementptr inbounds %"struct.faiss::ITQTransform", ptr %14, i32 0, i32 1
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
   %18 = getelementptr inbounds %"struct.faiss::ITQTransform", ptr %14, i32 0, i32 2
@@ -15222,7 +15222,7 @@ define void @_ZN5faiss9OPQMatrixC2Eiii(ptr noundef nonnull align 8 dereferenceab
 17:                                               ; preds = %15, %13
   %18 = phi i32 [ %14, %13 ], [ %16, %15 ]
   call void @_ZN5faiss15LinearTransformC2Eiib(ptr noundef nonnull align 8 dereferenceable(73) %9, i32 noundef %10, i32 noundef %18, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9OPQMatrixE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss9OPQMatrixE, i32 0, i32 0, i32 2), ptr %9, align 8
   %19 = getelementptr inbounds %"struct.faiss::OPQMatrix", ptr %9, i32 0, i32 1
   %20 = load i32, ptr %7, align 4
   store i32 %20, ptr %19, align 4
@@ -15358,7 +15358,7 @@ define linkonce_odr void @_ZN5faiss16ProductQuantizerD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss16ProductQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 12
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = getelementptr inbounds %"struct.faiss::ProductQuantizer", ptr %3, i32 0, i32 11
@@ -16002,7 +16002,7 @@ define void @_ZN5faiss22NormalizationTransformC2Eif(ptr noundef nonnull align 8 
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %5, align 4
   call void @_ZN5faiss15VectorTransformC2Eii(ptr noundef nonnull align 8 dereferenceable(17) %7, i32 noundef %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss22NormalizationTransformE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss22NormalizationTransformE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.faiss::NormalizationTransform", ptr %7, i32 0, i32 1
   %11 = load float, ptr %6, align 4
   store float %11, ptr %10, align 4
@@ -16015,7 +16015,7 @@ define void @_ZN5faiss22NormalizationTransformC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss15VectorTransformC2Eii(ptr noundef nonnull align 8 dereferenceable(17) %3, i32 noundef -1, i32 noundef -1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss22NormalizationTransformE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss22NormalizationTransformE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::NormalizationTransform", ptr %3, i32 0, i32 1
   store float -1.000000e+00, ptr %4, align 4
   ret void
@@ -16031,7 +16031,7 @@ define void @_ZN5faiss18CenteringTransformC2Ei(ptr noundef nonnull align 8 deref
   %6 = load i32, ptr %4, align 4
   %7 = load i32, ptr %4, align 4
   call void @_ZN5faiss15VectorTransformC2Eii(ptr noundef nonnull align 8 dereferenceable(17) %5, i32 noundef %6, i32 noundef %7)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss18CenteringTransformE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss18CenteringTransformE, i32 0, i32 0, i32 2), ptr %5, align 8
   %8 = getelementptr inbounds %"struct.faiss::CenteringTransform", ptr %5, i32 0, i32 1
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #14
   %9 = getelementptr inbounds %"struct.faiss::VectorTransform", ptr %5, i32 0, i32 3
@@ -16058,7 +16058,7 @@ define void @_ZN5faiss24RemapDimensionsTransformC2EiiPKi(ptr noundef nonnull ali
   %15 = load i32, ptr %6, align 4
   %16 = load i32, ptr %7, align 4
   call void @_ZN5faiss15VectorTransformC2Eii(ptr noundef nonnull align 8 dereferenceable(17) %14, i32 noundef %15, i32 noundef %16)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss24RemapDimensionsTransformE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss24RemapDimensionsTransformE, i32 0, i32 0, i32 2), ptr %14, align 8
   %17 = getelementptr inbounds %"struct.faiss::RemapDimensionsTransform", ptr %14, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #14
   %18 = getelementptr inbounds %"struct.faiss::RemapDimensionsTransform", ptr %14, i32 0, i32 1
@@ -16720,7 +16720,7 @@ define void @_ZN5faiss24RemapDimensionsTransformC2Eiib(ptr noundef nonnull align
   %17 = load i32, ptr %6, align 4
   %18 = load i32, ptr %7, align 4
   call void @_ZN5faiss15VectorTransformC2Eii(ptr noundef nonnull align 8 dereferenceable(17) %16, i32 noundef %17, i32 noundef %18)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss24RemapDimensionsTransformE, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5faiss24RemapDimensionsTransformE, i32 0, i32 0, i32 2), ptr %16, align 8
   %19 = getelementptr inbounds %"struct.faiss::RemapDimensionsTransform", ptr %16, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #14
   %20 = getelementptr inbounds %"struct.faiss::RemapDimensionsTransform", ptr %16, i32 0, i32 1

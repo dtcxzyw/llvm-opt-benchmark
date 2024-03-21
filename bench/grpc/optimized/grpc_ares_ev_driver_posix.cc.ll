@@ -127,7 +127,7 @@ _ZNSt10unique_ptrIN9grpc_core24GrpcPolledFdFactoryPosixESt14default_deleteIS1_EE
   %call.i = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #13, !noalias !4
   %1 = getelementptr inbounds i8, ptr %call.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %1, i8 0, i64 16, i1 false), !noalias !4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !4
   %kSockFuncs.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix6SocketEiiiPv, ptr %kSockFuncs.i.i, align 8, !noalias !4
   %aclose.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -161,7 +161,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, inrange i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -275,7 +275,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core24GrpcPolledFdFactoryPosixD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owned_fds_ = getelementptr inbounds i8, ptr %this, i64 48
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.cond
@@ -334,7 +334,7 @@ terminate.lpad:                                   ; preds = %for.body
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core24GrpcPolledFdFactoryPosixD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owned_fds_.i = getelementptr inbounds i8, ptr %this, i64 48
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   br label %for.cond.i
@@ -471,7 +471,7 @@ define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosixC2EiP16grpc_pollset_se
 invoke.cont:
   %ref.tmp = alloca %"class.absl::lts_20230802::AlphaNum", align 8
   %ref.tmp2 = alloca %"class.absl::lts_20230802::AlphaNum", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i64 0, i32 0, i64 2), ptr %this, align 8
   %name_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 11, ptr %ref.tmp, align 8
   %0 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
@@ -836,7 +836,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosixD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %phony_release_fd = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i64 0, i32 0, i64 2), ptr %this, align 8
   %driver_pollset_set_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %driver_pollset_set_, align 8
   %fd_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -867,7 +867,7 @@ define linkonce_odr void @_ZN9grpc_core17GrpcPolledFdPosixD0Ev(ptr noundef nonnu
 entry:
   %phony_release_fd.i = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %phony_release_fd.i)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i64 0, i32 0, i64 2), ptr %this, align 8
   %driver_pollset_set_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %driver_pollset_set_.i, align 8
   %fd_.i = getelementptr inbounds i8, ptr %this, i64 48

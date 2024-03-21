@@ -120,7 +120,7 @@ entry:
   store float %planeConstant, ptr %planeConstant.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV18btStaticPlaneShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV18btStaticPlaneShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_localAabbMin = getelementptr inbounds %class.btStaticPlaneShape, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_localAabbMin)
           to label %invoke.cont unwind label %lpad

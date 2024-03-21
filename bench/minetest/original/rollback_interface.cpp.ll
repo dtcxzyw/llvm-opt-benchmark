@@ -416,7 +416,7 @@ define dso_local void @_ZN12RollbackNodeC2EP3MapN3irr4core8vector3dIsEEP8IGameDe
   %124 = getelementptr inbounds i8, ptr %5, i64 %123
   store ptr %121, ptr %124, align 8, !tbaa !17
   %125 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %125, align 8, !tbaa !17
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %125, align 8, !tbaa !17
   %126 = getelementptr inbounds i8, ptr %5, i64 80
   %127 = load ptr, ptr %126, align 8, !tbaa !33
   %128 = getelementptr inbounds i8, ptr %5, i64 96
@@ -435,7 +435,7 @@ define dso_local void @_ZN12RollbackNodeC2EP3MapN3irr4core8vector3dIsEEP8IGameDe
   br label %135
 
 135:                                              ; preds = %134, %130
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %125, align 8, !tbaa !17
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %125, align 8, !tbaa !17
   %136 = getelementptr inbounds i8, ptr %5, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %136) #22
   %137 = getelementptr inbounds i8, ptr %5, i64 112
@@ -1938,7 +1938,7 @@ define dso_local void @_ZNK14RollbackAction8toStringB5cxx11Ev(ptr dead_on_unwind
   %778 = getelementptr inbounds i8, ptr %6, i64 %777
   store ptr %775, ptr %778, align 8, !tbaa !17
   %779 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %779, align 8, !tbaa !17
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %779, align 8, !tbaa !17
   %780 = getelementptr inbounds i8, ptr %6, i64 80
   %781 = load ptr, ptr %780, align 8, !tbaa !33
   %782 = getelementptr inbounds i8, ptr %6, i64 96
@@ -1957,7 +1957,7 @@ define dso_local void @_ZNK14RollbackAction8toStringB5cxx11Ev(ptr dead_on_unwind
   br label %789
 
 789:                                              ; preds = %788, %784
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %779, align 8, !tbaa !17
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %779, align 8, !tbaa !17
   %790 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %790) #22
   %791 = getelementptr inbounds i8, ptr %6, i64 112

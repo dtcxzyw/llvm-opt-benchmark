@@ -80,7 +80,7 @@ define void @_ZN4LIEF2PE9RichEntryC2ERKS1_(ptr noundef nonnull align 8 dereferen
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6ObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE9RichEntryE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE9RichEntryE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.LIEF::PE::RichEntry", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.LIEF::PE::RichEntry", ptr %8, i32 0, i32 1
@@ -117,7 +117,7 @@ define void @_ZN4LIEF2PE9RichEntryC2Ev(ptr noundef nonnull align 8 dereferenceab
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE9RichEntryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE9RichEntryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::PE::RichEntry", ptr %3, i32 0, i32 1
   store i16 0, ptr %4, align 8
   %5 = getelementptr inbounds %"class.LIEF::PE::RichEntry", ptr %3, i32 0, i32 2
@@ -141,7 +141,7 @@ define void @_ZN4LIEF2PE9RichEntryC2Ettj(ptr noundef nonnull align 8 dereference
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %5, align 8
   call void @_ZN4LIEF6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE9RichEntryE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF2PE9RichEntryE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.LIEF::PE::RichEntry", ptr %9, i32 0, i32 1
   %11 = load i16, ptr %6, align 2
   store i16 %11, ptr %10, align 8

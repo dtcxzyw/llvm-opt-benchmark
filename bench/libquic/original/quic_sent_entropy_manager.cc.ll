@@ -236,7 +236,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %packets_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this1, i32 0, i32 1
   call void @_ZNSt5dequeIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_)
   %map_offset_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this1, i32 0, i32 2
@@ -328,7 +328,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net22QuicSentEntropyManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %packets_entropy_ = getelementptr inbounds %"class.net::QuicSentEntropyManager", ptr %this1, i32 0, i32 1
   call void @_ZNSt5dequeIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %packets_entropy_) #10
   ret void

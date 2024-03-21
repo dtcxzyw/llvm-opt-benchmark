@@ -69,7 +69,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator.66", align 1
   %ref.tmp91 = alloca %"class.cvc5::internal::FatalStream", align 1
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_te = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %te, ptr %d_te, align 8
   %d_valuation = getelementptr inbounds i8, ptr %this, i64 24
@@ -568,7 +568,7 @@ declare void @_ZN4cvc58internal11FatalStreamD1Ev(ptr noundef nonnull align 1 der
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory17CombinationEngineD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory17CombinationEngineE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_cmbsPg = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %d_cmbsPg, align 8
   %cmp.not.i = icmp eq ptr %0, null

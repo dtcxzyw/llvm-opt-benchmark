@@ -115,7 +115,7 @@ entry:
   store i32 %buffer_size, ptr %buffer_size.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io19ZeroCopyInputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io15GzipInputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io15GzipInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %format_ = getelementptr inbounds %"class.google::protobuf::io::GzipInputStream", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %format.addr, align 4
   store i32 %0, ptr %format_, align 8
@@ -285,7 +285,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io19ZeroCopyInputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io19ZeroCopyInputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -974,7 +974,7 @@ entry:
   store ptr %sub_stream, ptr %sub_stream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %sub_stream.addr, align 8
   invoke void @_ZN6google8protobuf2io16GzipOutputStream7OptionsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -1010,7 +1010,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1194,7 +1194,7 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %sub_stream.addr, align 8
   %1 = load ptr, ptr %options.addr, align 8
   invoke void @_ZN6google8protobuf2io16GzipOutputStream4InitEPNS1_20ZeroCopyOutputStreamERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(16) %1)

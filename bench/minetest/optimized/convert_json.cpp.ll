@@ -252,7 +252,7 @@ define dso_local void @_Z13fastWriteJsonB5cxx11RKN4Json5ValueE(ptr dead_on_unwin
   %38 = getelementptr inbounds i8, ptr %3, i64 %37
   store ptr %35, ptr %38, align 8, !tbaa !14
   %39 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %39, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %39, align 8, !tbaa !14
   %40 = getelementptr inbounds i8, ptr %3, i64 80
   %41 = load ptr, ptr %40, align 8, !tbaa !13
   %42 = getelementptr inbounds i8, ptr %3, i64 96
@@ -271,7 +271,7 @@ define dso_local void @_Z13fastWriteJsonB5cxx11RKN4Json5ValueE(ptr dead_on_unwin
   br label %49
 
 49:                                               ; preds = %48, %44
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %39, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %39, align 8, !tbaa !14
   %50 = getelementptr inbounds i8, ptr %3, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #11
   %51 = getelementptr inbounds i8, ptr %3, i64 112

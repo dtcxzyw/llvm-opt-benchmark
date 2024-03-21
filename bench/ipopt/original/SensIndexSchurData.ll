@@ -553,7 +553,7 @@ define void @_ZN5Ipopt14IndexSchurDataC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt9SchurDataC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
   %5 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 2
@@ -567,7 +567,7 @@ define linkonce_odr void @_ZN5Ipopt9SchurDataC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt9SchurDataE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt9SchurDataE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Ipopt::SchurData", ptr %3, i32 0, i32 1
   store i8 0, ptr %4, align 4
   %5 = getelementptr inbounds %"class.Ipopt::SchurData", ptr %3, i32 0, i32 2
@@ -596,7 +596,7 @@ define void @_ZN5Ipopt14IndexSchurDataC2ESt6vectorIiSaIiEES3_(ptr noundef nonnul
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5Ipopt9SchurDataC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
   %11 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %9, i32 0, i32 2
@@ -871,7 +871,7 @@ define void @_ZN5Ipopt14IndexSchurDataD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5Ipopt14IndexSchurDataE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
   %5 = getelementptr inbounds %"class.Ipopt::IndexSchurData", ptr %3, i32 0, i32 1
@@ -3171,7 +3171,7 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Ipopt::ReferencedObject", ptr %3, i32 0, i32 1
   store i32 0, ptr %4, align 8
   ret void
@@ -3211,7 +3211,7 @@ define linkonce_odr void @_ZN5Ipopt16ReferencedObjectD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Ipopt16ReferencedObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

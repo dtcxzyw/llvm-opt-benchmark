@@ -681,7 +681,7 @@ define dso_local void @_ZN24cmInstallExportGeneratorC2EP11cmExportSetRKNSt7__cxx
   call void @_ZN19cmListFileBacktraceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %35) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %32) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %31) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallExportGenerator, i32 0, inrange i32 0, i32 2), ptr %44, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallExportGenerator, i32 0, i32 0, i32 2), ptr %44, align 8
   %53 = getelementptr inbounds %class.cmInstallExportGenerator, ptr %44, i32 0, i32 1
   %54 = load ptr, ptr %17, align 8
   store ptr %54, ptr %53, align 8
@@ -1019,7 +1019,7 @@ define dso_local void @_ZN24cmInstallExportGeneratorD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallExportGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallExportGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmInstallExportGenerator, ptr %3, i32 0, i32 11
   call void @_ZNSt10unique_ptrI28cmExportInstallFileGeneratorSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.cmInstallExportGenerator, ptr %3, i32 0, i32 10

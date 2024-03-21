@@ -437,9 +437,9 @@ define void @_ZN23ProtocolPreferencesMenuC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
   call void @_ZN5QMenuC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef null)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, inrange i32 1, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, i32 1, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %class.ProtocolPreferencesMenu, ptr %7, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
   invoke void @_ZN23ProtocolPreferencesMenu2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %3, ptr noundef @.str, ptr noundef null, i32 noundef -1)
@@ -1161,9 +1161,9 @@ define void @_ZN23ProtocolPreferencesMenuC2ERK7QStringS2_P7QWidget(ptr noundef n
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN5QMenuC2ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, inrange i32 1, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, i32 1, i32 2), ptr %15, align 8
   %16 = getelementptr inbounds %class.ProtocolPreferencesMenu, ptr %12, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #10
   %17 = load ptr, ptr %7, align 8
@@ -1998,7 +1998,7 @@ define linkonce_odr void @_ZN20BoolPreferenceActionC2EP10preferenceP7QObject(ptr
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV20BoolPreferenceAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV20BoolPreferenceAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.BoolPreferenceAction, ptr %10, i32 0, i32 1
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %12, align 8
@@ -2093,7 +2093,7 @@ define linkonce_odr void @_ZN20EnumPreferenceActionC2EP10preferencePKciP12QActio
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %12, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV20EnumPreferenceAction, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV20EnumPreferenceAction, i32 0, i32 0, i32 2), ptr %16, align 8
   %18 = getelementptr inbounds %class.EnumPreferenceAction, ptr %16, i32 0, i32 1
   %19 = load ptr, ptr %8, align 8
   store ptr %19, ptr %18, align 8
@@ -2175,7 +2175,7 @@ define linkonce_odr void @_ZN22EditorPreferenceActionC2EP10preferenceP7QObject(p
   %15 = load ptr, ptr %4, align 8
   %16 = load ptr, ptr %6, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV22EditorPreferenceAction, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV22EditorPreferenceAction, i32 0, i32 0, i32 2), ptr %15, align 8
   %17 = getelementptr inbounds %class.EditorPreferenceAction, ptr %15, i32 0, i32 1
   %18 = load ptr, ptr %5, align 8
   store ptr %18, ptr %17, align 8
@@ -2315,7 +2315,7 @@ define linkonce_odr void @_ZN19UatPreferenceActionC2EP10preferenceP7QObject(ptr 
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %6, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV19UatPreferenceAction, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV19UatPreferenceAction, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.UatPreferenceAction, ptr %14, i32 0, i32 1
   %17 = load ptr, ptr %5, align 8
   store ptr %17, ptr %16, align 8
@@ -2480,7 +2480,7 @@ define linkonce_odr void @_ZN37EnumCustomTCPOverridePreferenceActionC2EP10prefer
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %12, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV37EnumCustomTCPOverridePreferenceAction, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV37EnumCustomTCPOverridePreferenceAction, i32 0, i32 0, i32 2), ptr %16, align 8
   %18 = getelementptr inbounds %class.EnumCustomTCPOverridePreferenceAction, ptr %16, i32 0, i32 1
   %19 = load ptr, ptr %8, align 8
   store ptr %19, ptr %18, align 8

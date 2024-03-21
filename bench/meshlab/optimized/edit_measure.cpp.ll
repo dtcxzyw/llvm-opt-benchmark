@@ -481,8 +481,8 @@ define void @_ZN17EditMeasurePluginC2Ev(ptr noundef nonnull align 8 dereferencea
           to label %3 unwind label %11
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i64 0, i32 1, i64 2), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %4)
           to label %5 unwind label %13

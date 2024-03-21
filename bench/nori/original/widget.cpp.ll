@@ -397,7 +397,7 @@ define hidden void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 derefe
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %8)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6WidgetE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6WidgetE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.nanogui::Widget", ptr %8, i32 0, i32 2
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds %"class.nanogui::Widget", ptr %8, i32 0, i32 3
@@ -539,7 +539,7 @@ define linkonce_odr hidden void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #11
   ret void
@@ -807,7 +807,7 @@ define hidden void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferen
   %7 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %8 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6WidgetE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6WidgetE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = call noundef i32 @_ZSt19uncaught_exceptionsv() #7
   %10 = icmp sgt i32 %9, 0
   br i1 %10, label %11, label %12

@@ -970,7 +970,7 @@ define void @_ZN5draco13ExpertEncoderC2ERKNS_10PointCloudE(ptr noundef nonnull a
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco13ExpertEncoderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco13ExpertEncoderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.draco::ExpertEncoder", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -984,7 +984,7 @@ define linkonce_odr void @_ZN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEC2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 1
   call void @_ZN5draco18EncoderOptionsBaseIiE20CreateDefaultOptionsEv(ptr dead_on_unwind writable sret(%"class.draco::EncoderOptionsBase") align 8 %4)
   %5 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 2
@@ -1002,7 +1002,7 @@ define void @_ZN5draco13ExpertEncoderC2ERKNS_4MeshE(ptr noundef nonnull align 8 
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco13ExpertEncoderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco13ExpertEncoderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.draco::ExpertEncoder", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -2051,7 +2051,7 @@ define linkonce_odr void @_ZN5draco27PointCloudSequentialEncoderC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco17PointCloudEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco27PointCloudSequentialEncoderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco27PointCloudSequentialEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2260,7 +2260,7 @@ define linkonce_odr void @_ZN5draco23PointCloudKdTreeEncoderC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco17PointCloudEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco23PointCloudKdTreeEncoderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco23PointCloudKdTreeEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4354,7 +4354,7 @@ define linkonce_odr void @_ZN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEED2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5draco11EncoderBaseINS_18EncoderOptionsBaseIiEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::EncoderBase", ptr %3, i32 0, i32 1
   call void @_ZN5draco18EncoderOptionsBaseIiED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %4) #3
   ret void

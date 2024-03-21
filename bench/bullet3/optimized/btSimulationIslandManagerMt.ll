@@ -59,7 +59,7 @@ $_ZTI22UpdateIslandDispatcher = comdat any
 define dso_local void @_ZN27btSimulationIslandManagerMtC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont7:
   tail call void @_ZN25btSimulationIslandManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store i8 1, ptr %m_ownsMemory.i.i, align 8
   %m_data.i.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -113,7 +113,7 @@ entry:
   %__profile = alloca %class.CProfileSample, align 1
   %dispatcher = alloca %struct.UpdateIslandDispatcher, align 8
   call void @_ZN14CProfileSampleC1EPKc(ptr noundef nonnull align 1 dereferenceable(1) %__profile, ptr noundef nonnull @.str.2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22UpdateIslandDispatcher, i64 0, inrange i32 0, i64 2), ptr %dispatcher, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22UpdateIslandDispatcher, i64 0, i32 0, i64 2), ptr %dispatcher, align 8
   %m_islandsPtr.i = getelementptr inbounds i8, ptr %dispatcher, i64 8
   store ptr %islandsPtr, ptr %m_islandsPtr.i, align 8
   %m_solverParams.i = getelementptr inbounds i8, ptr %dispatcher, i64 16
@@ -221,7 +221,7 @@ declare void @_ZN25btSimulationIslandManagerD2Ev(ptr noundef nonnull align 8 der
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN27btSimulationIslandManagerMtD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_size.i = getelementptr inbounds i8, ptr %this, i64 116
   %0 = load i32, ptr %m_size.i, align 4
   %cmp117 = icmp sgt i32 %0, 0

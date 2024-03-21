@@ -2437,7 +2437,7 @@ entry:
   store ptr %isolate, ptr %isolate.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraphC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node4heap7JSGraphE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node4heap7JSGraphE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %isolate_ = getelementptr inbounds %"class.node::heap::JSGraph", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %isolate.addr, align 8
   store ptr %0, ptr %isolate_, align 8
@@ -4238,7 +4238,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node4heap7JSGraphE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node4heap7JSGraphE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %edges_ = getelementptr inbounds %"class.node::heap::JSGraph", ptr %this1, i32 0, i32 4
   call void @_ZNSt13unordered_mapIPN2v813EmbedderGraph4NodeESt3setISt4pairIPKcS3_ESt4lessIS8_ESaIS8_EESt4hashIS3_ESt8equal_toIS3_ESaIS5_IKS3_SC_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %edges_) #3
   %engine_nodes_ = getelementptr inbounds %"class.node::heap::JSGraph", ptr %this1, i32 0, i32 3
@@ -4408,7 +4408,7 @@ entry:
   store ptr %req, ptr %req.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v812OutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_116FileOutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_116FileOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fd_ = getelementptr inbounds %"class.node::heap::(anonymous namespace)::FileOutputStream", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %fd.addr, align 4
   store i32 %0, ptr %fd_, align 8
@@ -7324,7 +7324,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this6 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v820QueryObjectPredicateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node4heap17PrototypeChainHasE, i32 0, inrange i32 0, i32 2), ptr %this6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node4heap17PrototypeChainHasE, i32 0, i32 0, i32 2), ptr %this6, align 8
   %context_ = getelementptr inbounds %"class.node::heap::PrototypeChainHas", ptr %this6, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %context_, ptr align 8 %context, i64 8, i1 false)
   %search_ = getelementptr inbounds %"class.node::heap::PrototypeChainHas", ptr %this6, i32 0, i32 2
@@ -7832,7 +7832,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2v813EmbedderGraphE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2v813EmbedderGraphE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8396,7 +8396,7 @@ entry:
   store ptr %isolate, ptr %isolate.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %persistent_ = getelementptr inbounds %"class.node::heap::JSGraphJSNode", ptr %this3, i32 0, i32 1
   %0 = load ptr, ptr %isolate.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %val, i64 8, i1 false)
@@ -8684,7 +8684,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8699,7 +8699,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node4heap13JSGraphJSNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %persistent_ = getelementptr inbounds %"class.node::heap::JSGraphJSNode", ptr %this1, i32 0, i32 1
   store ptr %persistent_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -19042,7 +19042,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2v812OutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2v812OutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -20634,7 +20634,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2v820QueryObjectPredicateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2v820QueryObjectPredicateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -21946,11 +21946,11 @@ entry:
   call void @_ZN4node10StreamBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef %3)
   %4 = getelementptr inbounds i8, ptr %this3, i64 120
   call void @_ZN2v812OutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
-  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this3, i64 120
-  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, inrange i32 2, i32 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, i32 2, i32 2), ptr %add.ptr7, align 8
   %snapshot_ = getelementptr inbounds %"class.node::heap::(anonymous namespace)::HeapSnapshotStream", ptr %this3, i32 0, i32 3
   %5 = load ptr, ptr %snapshot.addr, align 8
   call void @_ZNSt10unique_ptrIKN2v812HeapSnapshotEN4node15FunctionDeleterIS2_XadL_ZNS3_4heap18DeleteHeapSnapshotEPS2_EEEEEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %snapshot_, ptr noundef nonnull align 8 dereferenceable(8) %5) #3
@@ -22037,7 +22037,7 @@ entry:
   store ptr %env, ptr %env.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14StreamResourceC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %env.addr, align 8
   store ptr %0, ptr %env_, align 8
@@ -22099,11 +22099,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 120
-  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [20 x ptr], [8 x ptr] }, ptr @_ZTVN4node4heap12_GLOBAL__N_118HeapSnapshotStreamE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %snapshot_ = getelementptr inbounds %"class.node::heap::(anonymous namespace)::HeapSnapshotStream", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIKN2v812HeapSnapshotEN4node15FunctionDeleterIS2_XadL_ZNS3_4heap18DeleteHeapSnapshotEPS2_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %snapshot_) #3
   %0 = getelementptr inbounds i8, ptr %this1, i64 120
@@ -22649,7 +22649,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node14StreamResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %listener_ = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 1
   store ptr null, ptr %listener_, align 8
   %bytes_read_ = getelementptr inbounds %"class.node::StreamResource", ptr %this1, i32 0, i32 2
@@ -22666,7 +22666,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node30ReportWritesToJSStreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22EmitToJSStreamListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22EmitToJSStreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -22751,7 +22751,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14StreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node30ReportWritesToJSStreamListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node30ReportWritesToJSStreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -22761,7 +22761,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 1
   store ptr null, ptr %stream_, align 8
   %previous_listener_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 2
@@ -22846,7 +22846,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %default_listener_ = getelementptr inbounds %"class.node::StreamBase", ptr %this1, i32 0, i32 2
   call void @_ZN4node22EmitToJSStreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_) #3
   call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -23024,7 +23024,7 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2

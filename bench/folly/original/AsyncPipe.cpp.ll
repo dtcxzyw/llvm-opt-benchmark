@@ -566,7 +566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont93:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %aex89, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %aex89, align 8, !tbaa !35
   %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %aex89, i64 0, i32 1
   store i32 10, ptr %type_.i, align 8, !tbaa !47
   %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %aex89, i64 0, i32 2
@@ -713,7 +713,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i212: ; preds =
 
 invoke.cont134:                                   ; preds = %if.then.i.i.i218, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i221
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i208) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex129, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ex129, align 8, !tbaa !35
   store i32 10, ptr %type_.i219, align 8, !tbaa !47
   store i32 %56, ptr %errno_.i220, align 4, !tbaa !53
   %62 = load ptr, ptr %ref.tmp130, align 8, !tbaa !41
@@ -998,11 +998,11 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly15AsyncPipeWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr], [12 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [8 x ptr], [12 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds ({ [8 x ptr], [12 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [8 x ptr], [12 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !35
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 192
-  store ptr getelementptr inbounds ({ [8 x ptr], [12 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [8 x ptr], [12 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeWriterE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !35
   invoke void @_ZN5folly15AsyncPipeWriter8closeNowEv(ptr noundef nonnull align 8 dereferenceable(280) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1336,11 +1336,11 @@ entry:
 define void @_ZN5folly15AsyncPipeReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.i.i = alloca %"struct.folly::NetworkSocket", align 4
-  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !35
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 192
-  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr], [6 x ptr] }, ptr @_ZTVN5folly15AsyncPipeReaderE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !35
   invoke void @_ZN5folly12EventHandler17unregisterHandlerEv(ptr noundef nonnull align 8 dereferenceable(184) %this)
           to label %.noexc unwind label %terminate.lpad
 
@@ -1756,7 +1756,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
   %type_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 1
   store i32 %type, ptr %type_, align 8, !tbaa !47
   %errno_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 2
@@ -2008,7 +2008,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont5:                                     ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ex, align 8, !tbaa !35
   %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 1
   store i32 1, ptr %type_.i, align 8, !tbaa !47
   %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 2
@@ -2451,7 +2451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont126:                                   ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp119, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp119, align 8, !tbaa !35
   %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ref.tmp119, i64 0, i32 1
   store i32 8, ptr %type_.i, align 8, !tbaa !47
   %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ref.tmp119, i64 0, i32 2
@@ -2888,7 +2888,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont24:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp18, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp18, align 8, !tbaa !35
   %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ref.tmp18, i64 0, i32 1
   store i32 1, ptr %type_.i, align 8, !tbaa !47
   %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ref.tmp18, i64 0, i32 2

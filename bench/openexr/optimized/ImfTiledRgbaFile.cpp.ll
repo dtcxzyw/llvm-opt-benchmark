@@ -550,7 +550,7 @@ define void @_ZN7Imf_3_219TiledRgbaOutputFileC2EPKcRKNS_6HeaderENS_12RgbaChannel
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imf_3_2::TileDescription", align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %_toYa = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
@@ -819,7 +819,7 @@ define void @_ZN7Imf_3_219TiledRgbaOutputFileC2ERNS_7OStreamERKNS_6HeaderENS_12R
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imf_3_2::TileDescription", align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %_toYa = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
@@ -904,7 +904,7 @@ define void @_ZN7Imf_3_219TiledRgbaOutputFileC2EPKciiNS_9LevelModeENS_17LevelRou
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imf_3_2::TileDescription", align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %_toYa = getelementptr inbounds i8, ptr %this, i64 16
   %max.i = getelementptr inbounds i8, ptr %dataWindow, i64 8
@@ -991,7 +991,7 @@ define void @_ZN7Imf_3_219TiledRgbaOutputFileC2EPKciiiiNS_9LevelModeENS_17LevelR
 entry:
   %hd = alloca %"class.Imf_3_2::Header", align 8
   %ref.tmp = alloca %"class.Imf_3_2::TileDescription", align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %_toYa = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_outputFile, i8 0, i64 16, i1 false)
@@ -1068,7 +1068,7 @@ declare void @_ZN7Imf_3_26HeaderC1EiifRKN9Imath_3_24Vec2IfEEfNS_9LineOrderENS_11
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_219TiledRgbaOutputFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219TiledRgbaOutputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_outputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_outputFile, align 8
   %isnull = icmp eq ptr %0, null
@@ -2272,7 +2272,7 @@ declare void @_ZN7Imf_3_27RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS
 define void @_ZN7Imf_3_218TiledRgbaInputFileC2EPKci(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %name, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_inputFile = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   invoke void @_ZN7Imf_3_214TiledInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef %name, i32 noundef %numThreads)
@@ -2390,7 +2390,7 @@ entry:
 define void @_ZN7Imf_3_218TiledRgbaInputFileC2ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_inputFile = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   invoke void @_ZN7Imf_3_214TiledInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads)
@@ -2495,7 +2495,7 @@ declare void @_ZN7Imf_3_214TiledInputFileC1ERNS_7IStreamEi(ptr noundef nonnull a
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_218TiledRgbaInputFileC2EPKcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %name, ptr noundef nonnull align 8 dereferenceable(32) %layerName, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_inputFile = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   invoke void @_ZN7Imf_3_214TiledInputFileC1EPKci(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef %name, i32 noundef %numThreads)
@@ -2684,7 +2684,7 @@ return:                                           ; preds = %return.sink.split, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Imf_3_218TiledRgbaInputFileC2ERNS_7IStreamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(40) %is, ptr noundef nonnull align 8 dereferenceable(32) %layerName, i32 noundef %numThreads) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_inputFile = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #13
   invoke void @_ZN7Imf_3_214TiledInputFileC1ERNS_7IStreamEi(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(40) %is, i32 noundef %numThreads)
@@ -2759,7 +2759,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_218TiledRgbaInputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_218TiledRgbaInputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_inputFile = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_inputFile, align 8
   %isnull = icmp eq ptr %0, null

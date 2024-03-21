@@ -269,7 +269,7 @@ entry:
   store ptr %session, ptr %session.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3tsi16SslCachedSessionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.tsi::(anonymous namespace)::BoringSslCachedSession", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %session_, ptr noundef nonnull align 8 dereferenceable(8) %session) #8
   ret void
@@ -471,7 +471,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi16SslCachedSessionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi16SslCachedSessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -481,7 +481,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %session_ = getelementptr inbounds %"class.tsi::(anonymous namespace)::BoringSslCachedSession", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %session_) #8
   call void @_ZN3tsi16SslCachedSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8

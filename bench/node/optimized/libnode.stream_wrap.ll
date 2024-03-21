@@ -992,13 +992,13 @@ entry:
   store ptr %env, ptr %env_.i, align 8
   %default_listener_.i = getelementptr inbounds i8, ptr %this, i64 128
   %stream_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22EmitToJSStreamListenerE, i64 0, inrange i32 0, i64 2), ptr %default_listener_.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22EmitToJSStreamListenerE, i64 0, i32 0, i64 2), ptr %default_listener_.i, align 8
   %previous_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 144
   store ptr null, ptr %previous_listener_.i.i, align 8
   store ptr %0, ptr %stream_.i.i.i.i, align 8
   store ptr %default_listener_.i, ptr %listener_.i.i, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node15LibuvStreamWrapE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node15LibuvStreamWrapE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node15LibuvStreamWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr], [20 x ptr] }, ptr @_ZTVN4node15LibuvStreamWrapE, i64 0, i32 1, i64 2), ptr %0, align 8
   %stream_ = getelementptr inbounds i8, ptr %this, i64 152
   store ptr %stream, ptr %stream_, align 8
   tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %object.coerce, i32 noundef 2, ptr noundef nonnull %0) #17
@@ -1783,7 +1783,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node18SimpleShutdownWrapINS_7ReqWrapI13uv_shutdown_sEEEC2EPNS_10StreamBaseEN2v85LocalINS7_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %stream, ptr %req_wrap_obj.coerce) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9StreamReqE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9StreamReqE, i64 0, i32 0, i64 2), ptr %this, align 8
   %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %stream, ptr %stream_.i.i, align 8
   %0 = load i64, ptr %req_wrap_obj.coerce, align 8
@@ -1823,13 +1823,13 @@ do.body7.i.i.i:                                   ; preds = %_ZN2v86Object34GetA
 
 _ZN4node12ShutdownWrapC2EPNS_10StreamBaseEN2v85LocalINS3_6ObjectEEE.exit: ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit.i.i.i
   tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %req_wrap_obj.coerce, i32 noundef 2, ptr noundef nonnull %this) #17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node12ShutdownWrapE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node12ShutdownWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
   %9 = getelementptr inbounds i8, ptr %this, i64 16
   %env_.i = getelementptr inbounds i8, ptr %stream, i64 32
   %10 = load ptr, ptr %env_.i, align 8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %10, ptr nonnull %req_wrap_obj.coerce, i32 noundef 34, double noundef -1.000000e+00) #17
   %11 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %11, align 8
   %req_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %req_wrap_queue_.i.i, ptr %req_wrap_queue_.i.i, align 8
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -1856,15 +1856,15 @@ _ZN4node7ReqWrapI13uv_shutdown_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEEN
   store ptr %16, ptr %req_wrap_queue_.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i, ptr %next_.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i, ptr %req_wrap_queue_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_shutdown_sEE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_shutdown_sEE, i64 0, inrange i32 1, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_shutdown_sEE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_shutdown_sEE, i64 0, i32 1, i64 2), ptr %11, align 8
   %original_callback_.i = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %original_callback_.i, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original_callback_.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_7ReqWrapI13uv_shutdown_sEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_7ReqWrapI13uv_shutdown_sEEEE, i64 0, inrange i32 1, i64 2), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_7ReqWrapI13uv_shutdown_sEEEE, i64 0, inrange i32 2, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_7ReqWrapI13uv_shutdown_sEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_7ReqWrapI13uv_shutdown_sEEEE, i64 0, i32 1, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node18SimpleShutdownWrapINS_7ReqWrapI13uv_shutdown_sEEEE, i64 0, i32 2, i64 2), ptr %11, align 8
   ret void
 }
 
@@ -1888,7 +1888,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node15SimpleWriteWrapINS_7ReqWrapI10uv_write_sEEEC2EPNS_10StreamBaseEN2v85LocalINS7_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %stream, ptr %req_wrap_obj.coerce) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9StreamReqE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9StreamReqE, i64 0, i32 0, i64 2), ptr %this, align 8
   %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %stream, ptr %stream_.i.i, align 8
   %0 = load i64, ptr %req_wrap_obj.coerce, align 8
@@ -1928,7 +1928,7 @@ do.body7.i.i.i:                                   ; preds = %_ZN2v86Object34GetA
 
 _ZN4node9WriteWrapC2EPNS_10StreamBaseEN2v85LocalINS3_6ObjectEEE.exit: ; preds = %_ZN2v86Object34GetAlignedPointerFromInternalFieldEi.exit.i.i.i
   tail call void @_ZN2v86Object32SetAlignedPointerInInternalFieldEiPv(ptr noundef nonnull align 1 dereferenceable(1) %req_wrap_obj.coerce, i32 noundef 2, ptr noundef nonnull %this) #17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
   %backing_store_.i = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %backing_store_.i, align 8
   %9 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1936,7 +1936,7 @@ _ZN4node9WriteWrapC2EPNS_10StreamBaseEN2v85LocalINS3_6ObjectEEE.exit: ; preds = 
   %10 = load ptr, ptr %env_.i, align 8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %10, ptr nonnull %req_wrap_obj.coerce, i32 noundef 47, double noundef -1.000000e+00) #17
   %11 = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %11, align 8
   %req_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %req_wrap_queue_.i.i, ptr %req_wrap_queue_.i.i, align 8
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -1963,15 +1963,15 @@ _ZN4node7ReqWrapI10uv_write_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS_9
   store ptr %16, ptr %req_wrap_queue_.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i, ptr %next_.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i, ptr %req_wrap_queue_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI10uv_write_sEE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI10uv_write_sEE, i64 0, inrange i32 1, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI10uv_write_sEE, i64 0, i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI10uv_write_sEE, i64 0, i32 1, i64 2), ptr %11, align 8
   %original_callback_.i = getelementptr inbounds i8, ptr %this, i64 104
   store ptr null, ptr %original_callback_.i, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #17
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %original_callback_.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_7ReqWrapI10uv_write_sEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_7ReqWrapI10uv_write_sEEEE, i64 0, inrange i32 1, i64 2), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_7ReqWrapI10uv_write_sEEEE, i64 0, inrange i32 2, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_7ReqWrapI10uv_write_sEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_7ReqWrapI10uv_write_sEEEE, i64 0, i32 1, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node15SimpleWriteWrapINS_7ReqWrapI10uv_write_sEEEE, i64 0, i32 2, i64 2), ptr %11, align 8
   ret void
 }
 
@@ -2439,11 +2439,11 @@ entry:
 define linkonce_odr dso_local void @_ZN4node15LibuvStreamWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 88
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %default_listener_.i = getelementptr inbounds i8, ptr %this, i64 128
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i) #17
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #17
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
   %handle_wrap_queue_.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i, align 8
@@ -2554,11 +2554,11 @@ entry:
 define linkonce_odr dso_local void @_ZThn88_N4node15LibuvStreamWrapD1Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -88
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %default_listener_.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZN4node14StreamListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %default_listener_.i.i) #17
   tail call void @_ZN4node14StreamResourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) #17
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i64 0, i32 0, i64 2), ptr %0, align 8
   %handle_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 -24
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -16
   %1 = load ptr, ptr %next_.i.i.i.i, align 8
@@ -2737,7 +2737,7 @@ define linkonce_odr dso_local void @_ZN4node18SimpleShutdownWrapINS_7ReqWrapI13u
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %1, align 8
   %req_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %next_.i.i.i.i, align 8
@@ -2757,7 +2757,7 @@ define linkonce_odr dso_local void @_ZN4node18SimpleShutdownWrapINS_7ReqWrapI13u
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   %1 = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %1, align 8
   %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %2 = load ptr, ptr %next_.i.i.i.i.i, align 8
@@ -2812,7 +2812,7 @@ entry:
 define linkonce_odr dso_local void @_ZThn16_N4node18SimpleShutdownWrapINS_7ReqWrapI13uv_shutdown_sEEED1Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i.i.i, align 8
@@ -2832,7 +2832,7 @@ define linkonce_odr dso_local void @_ZThn16_N4node18SimpleShutdownWrapINS_7ReqWr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
   %1 = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %1, align 8
   %req_wrap_queue_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %next_.i.i.i.i.i.i, align 8
@@ -2909,7 +2909,7 @@ entry:
 define linkonce_odr dso_local void @_ZThn72_N4node18SimpleShutdownWrapINS_7ReqWrapI13uv_shutdown_sEEED1Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i.i.i.i, align 8
@@ -2929,7 +2929,7 @@ define linkonce_odr dso_local void @_ZThn72_N4node18SimpleShutdownWrapINS_7ReqWr
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -72
   %1 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %req_wrap_queue_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %next_.i.i.i.i.i.i, align 8
@@ -2990,7 +2990,7 @@ declare void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 derefe
 define linkonce_odr dso_local void @_ZN4node7ReqWrapI13uv_shutdown_sED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %req_wrap_queue_.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i, align 8
@@ -3024,7 +3024,7 @@ entry:
 define linkonce_odr dso_local void @_ZThn56_N4node7ReqWrapI13uv_shutdown_sED1Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %req_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i.i.i, align 8
@@ -3056,7 +3056,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node11ReqWrapBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %req_wrap_queue_ = getelementptr inbounds i8, ptr %this, i64 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i.i, align 8
@@ -3084,7 +3084,7 @@ define linkonce_odr dso_local void @_ZN4node15SimpleWriteWrapINS_7ReqWrapI10uv_w
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %1, align 8
   %req_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %next_.i.i.i.i, align 8
@@ -3096,7 +3096,7 @@ entry:
   store ptr %req_wrap_queue_.i.i, ptr %req_wrap_queue_.i.i, align 8
   store ptr %req_wrap_queue_.i.i, ptr %next_.i.i.i.i, align 8
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
   %backing_store_.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %backing_store_.i, align 8
   %cmp.not.i.i = icmp eq ptr %5, null
@@ -3117,7 +3117,7 @@ define linkonce_odr dso_local void @_ZN4node15SimpleWriteWrapINS_7ReqWrapI10uv_w
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   %1 = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %1, align 8
   %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %2 = load ptr, ptr %next_.i.i.i.i.i, align 8
@@ -3129,7 +3129,7 @@ entry:
   store ptr %req_wrap_queue_.i.i.i, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i, ptr %next_.i.i.i.i.i, align 8
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, i32 0, i64 2), ptr %this, align 8
   %backing_store_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %backing_store_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
@@ -3185,7 +3185,7 @@ define linkonce_odr dso_local void @_ZThn24_N4node15SimpleWriteWrapINS_7ReqWrapI
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   %1 = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %1, align 8
   %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %next_.i.i.i.i.i, align 8
@@ -3197,7 +3197,7 @@ entry:
   store ptr %req_wrap_queue_.i.i.i, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i, ptr %next_.i.i.i.i.i, align 8
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, i32 0, i64 2), ptr %0, align 8
   %backing_store_.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %5 = load ptr, ptr %backing_store_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
@@ -3218,7 +3218,7 @@ define linkonce_odr dso_local void @_ZThn24_N4node15SimpleWriteWrapINS_7ReqWrapI
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
   %1 = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %1, align 8
   %req_wrap_queue_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %2 = load ptr, ptr %next_.i.i.i.i.i.i, align 8
@@ -3230,7 +3230,7 @@ entry:
   store ptr %req_wrap_queue_.i.i.i.i, ptr %req_wrap_queue_.i.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i.i, ptr %next_.i.i.i.i.i.i, align 8
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) #17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, i32 0, i64 2), ptr %0, align 8
   %backing_store_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -8
   %5 = load ptr, ptr %backing_store_.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
@@ -3298,7 +3298,7 @@ define linkonce_odr dso_local void @_ZThn80_N4node15SimpleWriteWrapINS_7ReqWrapI
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   %1 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %req_wrap_queue_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %next_.i.i.i.i.i, align 8
@@ -3310,7 +3310,7 @@ entry:
   store ptr %req_wrap_queue_.i.i.i, ptr %req_wrap_queue_.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i, ptr %next_.i.i.i.i.i, align 8
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, i32 0, i64 2), ptr %0, align 8
   %backing_store_.i.i = getelementptr inbounds i8, ptr %this, i64 -64
   %5 = load ptr, ptr %backing_store_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %5, null
@@ -3331,7 +3331,7 @@ define linkonce_odr dso_local void @_ZThn80_N4node15SimpleWriteWrapINS_7ReqWrapI
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
   %1 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %req_wrap_queue_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %next_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %2 = load ptr, ptr %next_.i.i.i.i.i.i, align 8
@@ -3343,7 +3343,7 @@ entry:
   store ptr %req_wrap_queue_.i.i.i.i, ptr %req_wrap_queue_.i.i.i.i, align 8
   store ptr %req_wrap_queue_.i.i.i.i, ptr %next_.i.i.i.i.i.i, align 8
   tail call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %1) #17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9WriteWrapE, i64 0, i32 0, i64 2), ptr %0, align 8
   %backing_store_.i.i.i = getelementptr inbounds i8, ptr %this, i64 -64
   %5 = load ptr, ptr %backing_store_.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
@@ -3387,7 +3387,7 @@ entry:
 define linkonce_odr dso_local void @_ZN4node7ReqWrapI10uv_write_sED2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %req_wrap_queue_.i = getelementptr inbounds i8, ptr %this, i64 64
   %next_.i.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %1 = load ptr, ptr %next_.i.i.i, align 8
@@ -3419,7 +3419,7 @@ entry:
 define linkonce_odr dso_local void @_ZThn56_N4node7ReqWrapI10uv_write_sED1Ev(ptr noundef %this) unnamed_addr #6 comdat align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %req_wrap_queue_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i.i.i, align 8

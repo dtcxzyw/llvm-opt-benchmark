@@ -3354,7 +3354,7 @@ define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes32EC2EP5c
 
 19:                                               ; preds = %4
   call void @_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes32E, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes32E, i32 0, i32 0, i32 2), ptr %16, align 8
   %20 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 2
   call void @_ZNSt6vectorI10Elf32_ShdrSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #13
   %21 = getelementptr inbounds %class.cmELFInternalImpl, ptr %16, i32 0, i32 3
@@ -3814,7 +3814,7 @@ define linkonce_odr dso_local void @_ZN13cmELFInternalC2EP5cmELFSt10unique_ptrIS
   store ptr %2, ptr %7, align 8
   store i32 %3, ptr %8, align 4
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13cmELFInternal, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13cmELFInternal, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.cmELFInternal, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
@@ -4133,7 +4133,7 @@ define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes32ED2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes32E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes32E, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmELFInternalImpl, ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorI9Elf32_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %5 = getelementptr inbounds %class.cmELFInternalImpl, ptr %3, i32 0, i32 2
@@ -4960,7 +4960,7 @@ define linkonce_odr dso_local void @_ZN13cmELFInternalD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13cmELFInternal, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13cmELFInternal, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmELFInternal, ptr %3, i32 0, i32 8
   call void @_ZNSt3mapIjN5cmELF11StringEntryESt4lessIjESaISt4pairIKjS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   %5 = getelementptr inbounds %class.cmELFInternal, ptr %3, i32 0, i32 2
@@ -12958,7 +12958,7 @@ define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes64EC2EP5c
   %18 = load i32, ptr %8, align 4
   call void @_ZN13cmELFInternalC2EP5cmELFSt10unique_ptrISiSt14default_deleteISiEENS_13ByteOrderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %16, ptr noundef %17, ptr noundef %9, i32 noundef %18)
   call void @_ZNSt10unique_ptrISiSt14default_deleteISiEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #13
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes64E, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes64E, i32 0, i32 0, i32 2), ptr %16, align 8
   %19 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 2
   call void @_ZNSt6vectorI10Elf64_ShdrSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %19) #13
   %20 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %16, i32 0, i32 3
@@ -13469,7 +13469,7 @@ define linkonce_odr dso_local void @_ZN17cmELFInternalImplI12cmELFTypes64ED2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes64E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17cmELFInternalImplI12cmELFTypes64E, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorI9Elf64_DynSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %5 = getelementptr inbounds %class.cmELFInternalImpl.75, ptr %3, i32 0, i32 2

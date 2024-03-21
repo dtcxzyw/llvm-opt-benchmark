@@ -65,7 +65,7 @@ $_ZSt10__distanceIPKcENSt15iterator_traitsIT_E15difference_typeES3_S3_St26random
 
 $_ZSt19__iterator_categoryIPKcENSt15iterator_traitsIT_E17iterator_categoryERKS3_ = comdat any
 
-@_ZZN6hermes12oom_categoryEvE8category = internal global { ptr } { ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVZN6hermes12oom_categoryEvE16OOMErrorCategory, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZZN6hermes12oom_categoryEvE8category = internal global { ptr } { ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVZN6hermes12oom_categoryEvE16OOMErrorCategory, i32 0, i32 0, i32 2) }, align 8
 @_ZTVZN6hermes12oom_categoryEvE16OOMErrorCategory = internal unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr null, ptr @_ZZN6hermes12oom_categoryEvEN16OOMErrorCategoryD2Ev, ptr @_ZZN6hermes12oom_categoryEvEN16OOMErrorCategoryD0Ev, ptr @_ZZN6hermes12oom_categoryEvENK16OOMErrorCategory4nameEv, ptr @_ZNKSt3_V214error_category10_M_messageB5cxx11Ei, ptr @_ZZN6hermes12oom_categoryEvENK16OOMErrorCategory7messageB5cxx11Ei, ptr @_ZNKSt3_V214error_category23default_error_conditionEi, ptr @_ZNKSt3_V214error_category10equivalentEiRKSt15error_condition, ptr @_ZNKSt3_V214error_category10equivalentERKSt10error_codei] }, align 8
 @_ZGVZN6hermes12oom_categoryEvE8category = internal global i64 0, align 8
 @__dso_handle = external hidden global i8

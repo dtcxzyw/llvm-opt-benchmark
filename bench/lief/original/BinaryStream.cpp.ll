@@ -1609,7 +1609,7 @@ define hidden void @_ZN4LIEF12BinaryStreamC2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4LIEF12BinaryStreamE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4LIEF12BinaryStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::BinaryStream", ptr %3, i32 0, i32 1
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds %"class.LIEF::BinaryStream", ptr %3, i32 0, i32 2
@@ -7056,7 +7056,7 @@ define linkonce_odr hidden void @_ZN2tl19bad_expected_accessI11lief_errorsEC2ES1
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessI11lief_errorsEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessI11lief_errorsEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.tl::bad_expected_access", ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -7092,7 +7092,7 @@ define linkonce_odr hidden void @_ZN2tl19bad_expected_accessI11lief_errorsEC2EOS
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessI11lief_errorsEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessI11lief_errorsEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.tl::bad_expected_access", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.tl::bad_expected_access", ptr %8, i32 0, i32 1
@@ -7110,7 +7110,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2EOS_(ptr noundef nonnull align
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -7139,7 +7139,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

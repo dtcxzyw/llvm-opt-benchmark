@@ -139,7 +139,7 @@ entry:
   %0 = load ptr, ptr %rbA.addr, align 8
   %1 = load ptr, ptr %rbB.addr, align 8
   call void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(ptr noundef nonnull align 8 dereferenceable(72) %this1, i32 noundef 10, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV16btGearConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV16btGearConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_axisInA = getelementptr inbounds %class.btGearConstraint, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %axisInA.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_axisInA, ptr align 4 %2, i64 16, i1 false)
@@ -393,7 +393,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

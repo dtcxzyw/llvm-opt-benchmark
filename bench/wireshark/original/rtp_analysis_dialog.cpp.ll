@@ -2028,9 +2028,9 @@ define void @_ZN17RtpAnalysisDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnul
   %29 = load ptr, ptr %5, align 8
   %30 = load ptr, ptr %6, align 8
   call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %28, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(48) %30)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17RtpAnalysisDialog, i32 0, inrange i32 0, i32 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17RtpAnalysisDialog, i32 0, i32 0, i32 2), ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17RtpAnalysisDialog, i32 0, inrange i32 1, i32 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17RtpAnalysisDialog, i32 0, i32 1, i32 2), ptr %31, align 8
   %32 = getelementptr inbounds %class.RtpAnalysisDialog, ptr %28, i32 0, i32 1
   %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #17
           to label %34 unwind label %216
@@ -5296,9 +5296,9 @@ define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
   call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #18
   %6 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
@@ -5314,9 +5314,9 @@ define void @_ZN17RtpAnalysisDialogD2Ev(ptr noundef nonnull align 8 dereferencea
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17RtpAnalysisDialog, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17RtpAnalysisDialog, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17RtpAnalysisDialog, i32 0, inrange i32 1, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV17RtpAnalysisDialog, i32 0, i32 1, i32 2), ptr %6, align 8
   invoke void @_ZNSt10lock_guardISt5mutexEC2ERS0_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(40) @_ZN17RtpAnalysisDialog11init_mutex_E)
           to label %7 unwind label %48
 
@@ -7341,7 +7341,7 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.48, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %15, align 4
@@ -10487,7 +10487,7 @@ define linkonce_odr void @_ZN25RtpAnalysisTreeWidgetItemC2EP11QTreeWidgetP15_tap
   %41 = load ptr, ptr %6, align 8
   %42 = load ptr, ptr %7, align 8
   call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %41, ptr noundef %42, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25RtpAnalysisTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %41, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25RtpAnalysisTreeWidgetItem, i32 0, i32 0, i32 2), ptr %41, align 8
   %43 = load ptr, ptr %9, align 8
   %44 = getelementptr inbounds %struct._packet_info, ptr %43, i32 0, i32 3
   %45 = load i32, ptr %44, align 4
@@ -17211,7 +17211,7 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
   ret void

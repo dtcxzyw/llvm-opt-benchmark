@@ -38,7 +38,7 @@ define dso_local void @_ZN19cmCursesDummyWidgetC2Eiiii(ptr noundef nonnull align
   %14 = load i32, ptr %9, align 4
   %15 = load i32, ptr %10, align 4
   call void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %11, i32 noundef %12, i32 noundef %13, i32 noundef %14, i32 noundef %15)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19cmCursesDummyWidget, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19cmCursesDummyWidget, i32 0, i32 0, i32 2), ptr %11, align 8
   %16 = getelementptr inbounds %class.cmCursesWidget, ptr %11, i32 0, i32 1
   store i32 4, ptr %16, align 8
   ret void

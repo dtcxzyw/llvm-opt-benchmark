@@ -837,7 +837,7 @@ define void @_ZN6casadi6SXElemC2Ed(ptr nocapture noundef nonnull writeonly align
           to label %39 unwind label %44
 
 39:                                               ; preds = %36
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10RealtypeSXE, i64 0, inrange i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10RealtypeSXE, i64 0, i32 0, i64 2), ptr %37, align 8
   %40 = getelementptr inbounds i8, ptr %37, i64 16
   store double %38, ptr %40, align 8
   %41 = load double, ptr %3, align 8
@@ -962,7 +962,7 @@ define void @_ZN6casadi6SXElem3symERKNSt7__cxx1112basic_stringIcSt11char_traitsI
           to label %.noexc unwind label %7
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10SymbolicSXE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10SymbolicSXE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZN6casadi10SymbolicSXC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit unwind label %5
@@ -1404,7 +1404,7 @@ define linkonce_odr hidden void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %4 unwind label %5
@@ -1421,7 +1421,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
@@ -1861,7 +1861,7 @@ define linkonce_odr hidden void @_ZN6casadi7UnarySX6createEhRKNS_6SXElemE(ptr de
           to label %.noexc unwind label %24
 
 .noexc:                                           ; preds = %18
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi7UnarySXE, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi7UnarySXE, i64 0, i32 0, i64 2), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
   store i8 %1, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 24
@@ -5340,7 +5340,7 @@ define linkonce_odr hidden void @_ZN6casadi8BinarySX6createEhRKNS_6SXElemES3_(pt
           to label %.noexc unwind label %42
 
 .noexc:                                           ; preds = %31
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi8BinarySXE, i64 0, inrange i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi8BinarySXE, i64 0, i32 0, i64 2), ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %32, i64 16
   store i8 %1, ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 24
@@ -6416,7 +6416,7 @@ define linkonce_odr hidden void @_ZN6casadi9IntegerSXC2Ex(ptr noundef nonnull al
   %11 = alloca %"class.std::allocator.22", align 1
   %12 = alloca %"class.std::vector", align 8
   tail call void @_ZN6casadi6SXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi9IntegerSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi9IntegerSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 16
   %14 = trunc i64 %1 to i32
   store i32 %14, ptr %13, align 8
@@ -6568,7 +6568,7 @@ define linkonce_odr hidden void @_ZN6casadi9IntegerSXC2Ex(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi9IntegerSXD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi9IntegerSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi9IntegerSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -6592,7 +6592,7 @@ _ZNSt13unordered_mapIxPN6casadi9IntegerSXESt4hashIxESt8equal_toIxESaISt4pairIKxS
 define linkonce_odr hidden void @_ZN6casadi9IntegerSXD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi9IntegerSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi9IntegerSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
@@ -7527,7 +7527,7 @@ declare noundef i64 @_ZSt11_Hash_bytesPKvmm(ptr noundef, i64 noundef, i64 nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10RealtypeSXD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10RealtypeSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10RealtypeSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = invoke noundef i64 @_ZNSt10_HashtableIdSt4pairIKdPN6casadi10RealtypeSXEESaIS5_ENSt8__detail10_Select1stESt8equal_toIdESt4hashIdENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6casadi10RealtypeSX17cached_constants_E, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZNSt13unordered_mapIdPN6casadi10RealtypeSXESt4hashIdESt8equal_toIdESaISt4pairIKdS2_EEE5eraseERS8_.exit unwind label %4
@@ -7546,7 +7546,7 @@ _ZNSt13unordered_mapIdPN6casadi10RealtypeSXESt4hashIdESt8equal_toIdESaISt4pairIK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10RealtypeSXD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10RealtypeSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10RealtypeSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = invoke noundef i64 @_ZNSt10_HashtableIdSt4pairIKdPN6casadi10RealtypeSXEESaIS5_ENSt8__detail10_Select1stESt8equal_toIdESt4hashIdENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseESt17integral_constantIbLb1EERS1_(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6casadi10RealtypeSX17cached_constants_E, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN6casadi10RealtypeSXD2Ev.exit unwind label %4
@@ -8348,7 +8348,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10SymbolicSXD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10SymbolicSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10SymbolicSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   tail call void @_ZN6casadi6SXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
@@ -8357,7 +8357,7 @@ define linkonce_odr hidden void @_ZN6casadi10SymbolicSXD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10SymbolicSXD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10SymbolicSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10SymbolicSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   tail call void @_ZN6casadi6SXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #25
@@ -8570,7 +8570,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #25
@@ -9180,7 +9180,7 @@ declare double @hypot(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi7UnarySXD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi7UnarySXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi7UnarySXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3nanE, align 8
@@ -9218,7 +9218,7 @@ _ZN6casadi6SXElem14assignNoDeleteERKS0_.exit:     ; preds = %1, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi7UnarySXD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi7UnarySXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi7UnarySXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3nanE, align 8
@@ -11638,7 +11638,7 @@ declare void @_ZN6casadi17SerializingStream4packERKNS_6SXElemE(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi8BinarySXD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi8BinarySXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi8BinarySXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3nanE, align 8
@@ -11700,7 +11700,7 @@ _ZN6casadi6SXElem14assignNoDeleteERKS0_.exit1:    ; preds = %13, %18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi8BinarySXD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi8BinarySXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi8BinarySXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = load ptr, ptr @_ZN6casadi13casadi_limitsINS_6SXElemEE3nanE, align 8
@@ -12697,7 +12697,7 @@ declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi6ZeroSXD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi6ZeroSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi6ZeroSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -12714,7 +12714,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi6ZeroSXD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi6ZeroSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi6ZeroSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -12810,7 +12810,7 @@ _ZN6casadi17SerializingStream4packIcEEvRKNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi5OneSXD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5OneSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5OneSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -12821,7 +12821,7 @@ define linkonce_odr hidden void @_ZN6casadi5OneSXD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi5OneSXD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5OneSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5OneSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -12912,7 +12912,7 @@ _ZN6casadi17SerializingStream4packIcEEvRKNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10MinusOneSXD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusOneSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusOneSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -12923,7 +12923,7 @@ define linkonce_odr hidden void @_ZN6casadi10MinusOneSXD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10MinusOneSXD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusOneSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusOneSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -13014,7 +13014,7 @@ _ZN6casadi17SerializingStream4packIcEEvRKNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi5NanSXD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5NanSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5NanSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -13025,7 +13025,7 @@ define linkonce_odr hidden void @_ZN6casadi5NanSXD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi5NanSXD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5NanSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5NanSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -13106,7 +13106,7 @@ _ZN6casadi17SerializingStream4packIcEEvRKNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi5InfSXD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5InfSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5InfSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -13117,7 +13117,7 @@ define linkonce_odr hidden void @_ZN6casadi5InfSXD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi5InfSXD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5InfSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5InfSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -13198,7 +13198,7 @@ _ZN6casadi17SerializingStream4packIcEEvRKNSt7__cxx1112basic_stringIcSt11char_tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10MinusInfSXD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusInfSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusInfSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -13209,7 +13209,7 @@ define linkonce_odr hidden void @_ZN6casadi10MinusInfSXD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10MinusInfSXD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusInfSXE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusInfSXE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = add i32 %3, -1
@@ -13429,7 +13429,7 @@ define internal void @_GLOBAL__sub_I_sx_elem.cpp() #20 section ".text.startup" p
           to label %9 unwind label %13
 
 9:                                                ; preds = %8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi6ZeroSXE, i64 0, inrange i32 0, i64 2), ptr @_ZZN6casadi6ZeroSX9singletonEvE8instance, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi6ZeroSXE, i64 0, i32 0, i64 2), ptr @_ZZN6casadi6ZeroSX9singletonEvE8instance, align 8
   %10 = load i32, ptr getelementptr inbounds (%"class.casadi::ZeroSX", ptr @_ZZN6casadi6ZeroSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
   %11 = add i32 %10, 1
   store i32 %11, ptr getelementptr inbounds (%"class.casadi::ZeroSX", ptr @_ZZN6casadi6ZeroSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
@@ -13465,7 +13465,7 @@ __cxx_global_var_init.13.exit:                    ; preds = %0, %6, %9
           to label %21 unwind label %25
 
 21:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5OneSXE, i64 0, inrange i32 0, i64 2), ptr @_ZZN6casadi5OneSX9singletonEvE8instance, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5OneSXE, i64 0, i32 0, i64 2), ptr @_ZZN6casadi5OneSX9singletonEvE8instance, align 8
   %22 = load i32, ptr getelementptr inbounds (%"class.casadi::OneSX", ptr @_ZZN6casadi5OneSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
   %23 = add i32 %22, 1
   store i32 %23, ptr getelementptr inbounds (%"class.casadi::OneSX", ptr @_ZZN6casadi5OneSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
@@ -13498,7 +13498,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %__cxx_global_var_in
           to label %35 unwind label %39
 
 35:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusOneSXE, i64 0, inrange i32 0, i64 2), ptr @_ZZN6casadi10MinusOneSX9singletonEvE8instance, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusOneSXE, i64 0, i32 0, i64 2), ptr @_ZZN6casadi10MinusOneSX9singletonEvE8instance, align 8
   %36 = load i32, ptr getelementptr inbounds (%"class.casadi::MinusOneSX", ptr @_ZZN6casadi10MinusOneSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
   %37 = add i32 %36, 1
   store i32 %37, ptr getelementptr inbounds (%"class.casadi::MinusOneSX", ptr @_ZZN6casadi10MinusOneSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
@@ -13528,7 +13528,7 @@ __cxx_global_var_init.16.exit:                    ; preds = %__cxx_global_var_in
           to label %47 unwind label %51
 
 47:                                               ; preds = %46
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5NanSXE, i64 0, inrange i32 0, i64 2), ptr @_ZZN6casadi5NanSX9singletonEvE8instance, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5NanSXE, i64 0, i32 0, i64 2), ptr @_ZZN6casadi5NanSX9singletonEvE8instance, align 8
   %48 = load i32, ptr getelementptr inbounds (%"class.casadi::NanSX", ptr @_ZZN6casadi5NanSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
   %49 = add i32 %48, 1
   store i32 %49, ptr getelementptr inbounds (%"class.casadi::NanSX", ptr @_ZZN6casadi5NanSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
@@ -13558,7 +13558,7 @@ __cxx_global_var_init.17.exit:                    ; preds = %__cxx_global_var_in
           to label %59 unwind label %63
 
 59:                                               ; preds = %58
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5InfSXE, i64 0, inrange i32 0, i64 2), ptr @_ZZN6casadi5InfSX9singletonEvE8instance, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi5InfSXE, i64 0, i32 0, i64 2), ptr @_ZZN6casadi5InfSX9singletonEvE8instance, align 8
   %60 = load i32, ptr getelementptr inbounds (%"class.casadi::InfSX", ptr @_ZZN6casadi5InfSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
   %61 = add i32 %60, 1
   store i32 %61, ptr getelementptr inbounds (%"class.casadi::InfSX", ptr @_ZZN6casadi5InfSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
@@ -13588,7 +13588,7 @@ __cxx_global_var_init.18.exit:                    ; preds = %__cxx_global_var_in
           to label %71 unwind label %75
 
 71:                                               ; preds = %70
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusInfSXE, i64 0, inrange i32 0, i64 2), ptr @_ZZN6casadi10MinusInfSX9singletonEvE8instance, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6casadi10MinusInfSXE, i64 0, i32 0, i64 2), ptr @_ZZN6casadi10MinusInfSX9singletonEvE8instance, align 8
   %72 = load i32, ptr getelementptr inbounds (%"class.casadi::MinusInfSX", ptr @_ZZN6casadi10MinusInfSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4
   %73 = add i32 %72, 1
   store i32 %73, ptr getelementptr inbounds (%"class.casadi::MinusInfSX", ptr @_ZZN6casadi10MinusInfSX9singletonEvE8instance, i64 0, i32 0, i32 0, i32 2), align 4

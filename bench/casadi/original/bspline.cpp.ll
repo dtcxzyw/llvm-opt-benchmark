@@ -2781,7 +2781,7 @@ define linkonce_odr hidden void @_ZN6casadi17BSplineParametricC2ERNS_19Deseriali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi13BSplineCommonC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(232) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi17BSplineParametricE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi17BSplineParametricE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -3034,7 +3034,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -3066,7 +3066,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -3122,7 +3122,7 @@ define void @_ZN6casadi13BSplineCommonC2ERKSt6vectorIdSaIdEERKS1_IxSaIxEES9_xS9_
   store ptr %5, ptr %12, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %15)
-  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi13BSplineCommonE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi13BSplineCommonE, i32 0, i32 0, i32 2), ptr %15, align 8
   %16 = getelementptr inbounds %"class.casadi::BSplineCommon", ptr %15, i32 0, i32 1
   %17 = load ptr, ptr %8, align 8
   invoke void @_ZNSt6vectorIdSaIdEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17)
@@ -4496,7 +4496,7 @@ define void @_ZN6casadi13BSplineCommonC2ERNS_19DeserializingStreamE(ptr noundef 
   %25 = load ptr, ptr %3, align 8
   %26 = load ptr, ptr %4, align 8
   call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(41) %26)
-  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi13BSplineCommonE, i32 0, inrange i32 0, i32 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi13BSplineCommonE, i32 0, i32 0, i32 2), ptr %25, align 8
   %27 = getelementptr inbounds %"class.casadi::BSplineCommon", ptr %25, i32 0, i32 1
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %27) #3
   %28 = getelementptr inbounds %"class.casadi::BSplineCommon", ptr %25, i32 0, i32 2
@@ -6058,7 +6058,7 @@ define void @_ZN6casadi7BSplineC2ERNS_19DeserializingStreamE(ptr noundef nonnull
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi13BSplineCommonC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(232) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi7BSplineE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi7BSplineE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.casadi::BSpline", ptr %9, i32 0, i32 1
   call void @_ZNSt6vectorIdSaIdEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #3
   %12 = load ptr, ptr %4, align 8
@@ -6148,7 +6148,7 @@ define void @_ZN6casadi7BSplineC2ERKNS_2MXERKSt6vectorIdSaIdEERKS4_IxSaIxEES8_SC
   %35 = load i64, ptr %15, align 8
   %36 = load ptr, ptr %16, align 8
   call void @_ZN6casadi13BSplineCommonC2ERKSt6vectorIdSaIdEERKS1_IxSaIxEES9_xS9_(ptr noundef nonnull align 8 dereferenceable(232) %31, ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
-  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi7BSplineE, i32 0, inrange i32 0, i32 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi7BSplineE, i32 0, i32 0, i32 2), ptr %31, align 8
   %37 = getelementptr inbounds %"class.casadi::BSpline", ptr %31, i32 0, i32 1
   %38 = load ptr, ptr %13, align 8
   invoke void @_ZNSt6vectorIdSaIdEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %37, ptr noundef nonnull align 8 dereferenceable(24) %38)
@@ -6477,7 +6477,7 @@ define void @_ZN6casadi17BSplineParametricC2ERKNS_2MXES3_RKSt6vectorIdSaIdEERKS4
   %35 = load i64, ptr %15, align 8
   %36 = load ptr, ptr %16, align 8
   call void @_ZN6casadi13BSplineCommonC2ERKSt6vectorIdSaIdEERKS1_IxSaIxEES9_xS9_(ptr noundef nonnull align 8 dereferenceable(232) %31, ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %33, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 noundef %35, ptr noundef nonnull align 8 dereferenceable(24) %36)
-  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi17BSplineParametricE, i32 0, inrange i32 0, i32 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi17BSplineParametricE, i32 0, i32 0, i32 2), ptr %31, align 8
   %37 = load ptr, ptr %10, align 8
   %38 = invoke noundef i64 @_ZNK6casadi13GenericMatrixINS_2MXEE5size1Ev(ptr noundef nonnull align 1 dereferenceable(1) %37)
           to label %39 unwind label %54
@@ -16803,7 +16803,7 @@ define linkonce_odr hidden void @_ZN6casadi13BSplineCommonD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi13BSplineCommonE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi13BSplineCommonE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::BSplineCommon", ptr %3, i32 0, i32 9
   call void @_ZN6casadi2MXD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %"class.casadi::BSplineCommon", ptr %3, i32 0, i32 7
@@ -17152,7 +17152,7 @@ define linkonce_odr hidden void @_ZN6casadi7BSplineD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi7BSplineE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [110 x ptr] }, ptr @_ZTVN6casadi7BSplineE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::BSpline", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN6casadi13BSplineCommonD2Ev(ptr noundef nonnull align 8 dereferenceable(232) %3) #3
@@ -17299,7 +17299,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

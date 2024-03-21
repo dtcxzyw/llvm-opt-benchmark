@@ -48,7 +48,7 @@ $_ZN32btConvexInternalAabbCachingShapeD0Ev = comdat any
 define dso_local void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN13btConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21btConvexInternalShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21btConvexInternalShape, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_localScaling = getelementptr inbounds i8, ptr %this, i64 32
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_localScaling, align 8
   %m_collisionMargin = getelementptr inbounds i8, ptr %this, i64 64
@@ -329,7 +329,7 @@ entry:
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_localScaling.i, align 8
   %m_collisionMargin.i = getelementptr inbounds i8, ptr %this, i64 64
   store float 0x3FA47AE140000000, ptr %m_collisionMargin.i, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV32btConvexInternalAabbCachingShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV32btConvexInternalAabbCachingShape, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_localAabbMin = getelementptr inbounds i8, ptr %this, i64 72
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_localAabbMin, align 8
   %m_localAabbMax = getelementptr inbounds i8, ptr %this, i64 88

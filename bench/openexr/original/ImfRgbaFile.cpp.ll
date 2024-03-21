@@ -1796,7 +1796,7 @@ entry:
   store i32 %rgbaChannels, ptr %rgbaChannels.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_outputFile, align 8
   %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this1, i32 0, i32 2
@@ -2086,7 +2086,7 @@ entry:
   store i32 %rgbaChannels, ptr %rgbaChannels.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_outputFile, align 8
   %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this1, i32 0, i32 2
@@ -2207,7 +2207,7 @@ entry:
   store i32 %compression, ptr %compression.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_outputFile, align 8
   %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this1, i32 0, i32 2
@@ -2385,7 +2385,7 @@ entry:
   store i32 %compression, ptr %compression.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_outputFile = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_outputFile, align 8
   %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this1, i32 0, i32 2
@@ -2488,7 +2488,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214RgbaOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_toYca = getelementptr inbounds %"class.Imf_3_2::RgbaOutputFile", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %_toYca, align 8
   %isnull = icmp eq ptr %0, null
@@ -4932,7 +4932,7 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
   %0 = load ptr, ptr %name.addr, align 8
@@ -5149,7 +5149,7 @@ entry:
   store ptr %is, ptr %is.addr, align 8
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
   %0 = load ptr, ptr %is.addr, align 8
@@ -5371,7 +5371,7 @@ entry:
   store ptr %layerName, ptr %layerName.addr, align 8
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
   %0 = load ptr, ptr %name.addr, align 8
@@ -5592,7 +5592,7 @@ entry:
   store ptr %layerName, ptr %layerName.addr, align 8
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_multiPartFile = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #13
   %0 = load ptr, ptr %is.addr, align 8
@@ -5908,7 +5908,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213RgbaInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_inputPart = getelementptr inbounds %"class.Imf_3_2::RgbaInputFile", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %_inputPart, align 8
   %tobool = icmp ne ptr %0, null

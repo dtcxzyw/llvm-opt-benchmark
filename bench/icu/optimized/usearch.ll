@@ -4373,10 +4373,10 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %t2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %t2, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %t2, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %p2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %p2, align 8
   %fUnion2.i13 = getelementptr inbounds i8, ptr %p2, i64 8
   store i16 2, ptr %fUnion2.i13, align 8
   %nfd = getelementptr inbounds i8, ptr %strsrch, i64 3136

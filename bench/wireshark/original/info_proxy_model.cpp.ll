@@ -486,7 +486,7 @@ define void @_ZN14InfoProxyModelC2EP7QObject(ptr noundef nonnull align 8 derefer
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV14InfoProxyModel, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV14InfoProxyModel, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.InfoProxyModel, ptr %5, i32 0, i32 1
   store i32 -1, ptr %7, align 8
   %8 = getelementptr inbounds %class.InfoProxyModel, ptr %5, i32 0, i32 2
@@ -511,7 +511,7 @@ define void @_ZN14InfoProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV14InfoProxyModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV14InfoProxyModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.InfoProxyModel, ptr %3, i32 0, i32 2
   invoke void @_ZN5QListI7QStringE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %5 unwind label %7

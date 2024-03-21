@@ -214,7 +214,7 @@ entry:
   %ref.tmp12 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp15 = alloca i8, align 1
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt18TimeoutCoreManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt18TimeoutCoreManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_subSolver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %d_subSolver, align 8
   %d_true = getelementptr inbounds i8, ptr %this, i64 24
@@ -6084,7 +6084,7 @@ init.end:                                         ; preds = %_ZN4cvc58internal12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal3smt18TimeoutCoreManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt18TimeoutCoreManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal3smt18TimeoutCoreManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_globalInclude = getelementptr inbounds i8, ptr %this, i64 432
   %0 = load ptr, ptr %d_globalInclude, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 440

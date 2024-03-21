@@ -1238,7 +1238,7 @@ define void @_ZN7IncVPSCC2EjPP8VariablejPP10Constraint(ptr noundef nonnull align
   %20 = load i32, ptr %9, align 4
   %21 = load ptr, ptr %10, align 8
   call void @_ZN4VPSCC2EjPP8VariablejPP10Constraint(ptr noundef nonnull align 8 dereferenceable(84) %17, i32 noundef %18, ptr noundef %19, i32 noundef %20, ptr noundef %21)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV7IncVPSC, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV7IncVPSC, i32 0, i32 0, i32 2), ptr %17, align 8
   %22 = getelementptr inbounds %struct.IncVPSC, ptr %17, i32 0, i32 2
   call void @_ZNSt6vectorIP10ConstraintSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #3
   %23 = getelementptr inbounds %struct.IncVPSC, ptr %17, i32 0, i32 2
@@ -1315,7 +1315,7 @@ define void @_ZN4VPSCC2EjPP8VariablejPP10Constraint(ptr noundef nonnull align 8 
   store i32 %3, ptr %9, align 4
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV4VPSC, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV4VPSC, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %struct.VPSC, ptr %11, i32 0, i32 1
   %13 = load i32, ptr %7, align 4
   %14 = load ptr, ptr %8, align 8
@@ -3965,7 +3965,7 @@ define linkonce_odr void @_ZN4VPSCD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV4VPSC, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV4VPSC, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.VPSC, ptr %3, i32 0, i32 1
   call void @_ZN6BlocksD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %4) #3
   ret void
@@ -3986,7 +3986,7 @@ define linkonce_odr void @_ZN7IncVPSCD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV7IncVPSC, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV7IncVPSC, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.IncVPSC, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIP10ConstraintSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN4VPSCD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %3) #3

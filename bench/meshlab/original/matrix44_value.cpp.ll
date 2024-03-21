@@ -717,7 +717,7 @@ define void @_ZN13Matrix44ValueC2ERKN3vcg8Matrix44IfEE(ptr noundef nonnull align
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5ValueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #5
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13Matrix44Value, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13Matrix44Value, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.Matrix44Value, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 4 %7, i64 64, i1 false)
@@ -729,7 +729,7 @@ define linkonce_odr void @_ZN5ValueC2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -833,7 +833,7 @@ define linkonce_odr void @_ZN13Matrix44ValueC2ERKS_(ptr noundef nonnull align 8 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5ValueC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #5
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13Matrix44Value, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13Matrix44Value, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.Matrix44Value, ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %class.Matrix44Value, ptr %8, i32 0, i32 1
@@ -848,7 +848,7 @@ define linkonce_odr void @_ZN5ValueC2ERKS_(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV5Value, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 

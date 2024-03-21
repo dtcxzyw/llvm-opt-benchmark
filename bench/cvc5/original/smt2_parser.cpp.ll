@@ -489,7 +489,7 @@ entry:
   %0 = load ptr, ptr %solver.addr, align 8
   %1 = load ptr, ptr %sm.addr, align 8
   call void @_ZN4cvc56parser6ParserC2EPNS_6SolverEPNS0_10SymManagerE(ptr noundef nonnull align 8 dereferenceable(41) %this2, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser10Smt2ParserE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser10Smt2ParserE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %d_slex = getelementptr inbounds %"class.cvc5::parser::Smt2Parser", ptr %this2, i32 0, i32 2
   %2 = load i8, ptr %isStrict.addr, align 1
   %tobool = trunc i8 %2 to i1
@@ -614,7 +614,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2LexerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_token = getelementptr inbounds %"class.cvc5::parser::Smt2Lexer", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_token) #1
   call void @_ZN4cvc56parser5LexerD2Ev(ptr noundef nonnull align 8 dereferenceable(32892) %this1) #1
@@ -627,7 +627,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser6ParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser6ParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_flexInput = getelementptr inbounds %"class.cvc5::parser::Parser", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN4cvc56parser5InputESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_flexInput) #1
   call void @_ZN4cvc56parser19ParserStateCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #1
@@ -737,7 +737,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser10Smt2ParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser10Smt2ParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_cmdParser = getelementptr inbounds %"class.cvc5::parser::Smt2Parser", ptr %this1, i32 0, i32 5
   call void @_ZN4cvc56parser13Smt2CmdParserD2Ev(ptr noundef nonnull align 8 dereferenceable(82) %d_cmdParser) #1
   %d_termParser = getelementptr inbounds %"class.cvc5::parser::Smt2Parser", ptr %this1, i32 0, i32 4
@@ -801,7 +801,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser5LexerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser5LexerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_peeked = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN4cvc56parser5TokenESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_peeked) #1
   %d_inputName = getelementptr inbounds %"class.cvc5::parser::Lexer", ptr %this1, i32 0, i32 2
@@ -1353,7 +1353,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_table = getelementptr inbounds %"class.cvc5::parser::Smt2CmdParser", ptr %this1, i32 0, i32 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc56parser5TokenESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_table) #1
   ret void

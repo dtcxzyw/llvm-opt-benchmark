@@ -551,7 +551,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7516DateIntervalInfoC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fFallbackIntervalPattern = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %fFallbackIntervalPattern, ptr noundef nonnull @_ZN6icu_75L23gDefaultFallbackPatternE)
           to label %invoke.cont unwind label %lpad
@@ -674,7 +674,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7516DateIntervalInfoC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fFallbackIntervalPattern = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDs(ptr noundef nonnull align 8 dereferenceable(64) %fFallbackIntervalPattern, ptr noundef nonnull @_ZN6icu_75L23gDefaultFallbackPatternE)
           to label %invoke.cont unwind label %lpad
@@ -842,7 +842,7 @@ invoke.cont49:                                    ; preds = %if.end48
           to label %invoke.cont50 unwind label %lpad
 
 invoke.cont50:                                    ; preds = %invoke.cont49
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, inrange i32 0, i64 2), ptr %sink51, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, i32 0, i64 2), ptr %sink51, align 8
   %dateIntervalInfo.i = getelementptr inbounds i8, ptr %sink51, i64 8
   store ptr %this, ptr %dateIntervalInfo.i, align 8
   %nextCalendarType.i = getelementptr inbounds i8, ptr %sink51, i64 16
@@ -999,7 +999,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i
   unreachable
 
 _ZN6icu_759HashtableD2Ev.exit:                    ; preds = %invoke.cont52, %if.end90, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, inrange i32 0, i64 2), ptr %sink51, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, i32 0, i64 2), ptr %sink51, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType.i) #15
   call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink51) #15
   br label %if.end92
@@ -1011,7 +1011,7 @@ ehcleanup:                                        ; preds = %lpad57, %lpad.i55, 
 
 ehcleanup91:                                      ; preds = %ehcleanup, %lpad53
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %22, %lpad53 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, inrange i32 0, i64 2), ptr %sink51, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, i32 0, i64 2), ptr %sink51, align 8
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType.i) #15
   call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %sink51) #15
   br label %ehcleanup98
@@ -1109,7 +1109,7 @@ new.notnull:                                      ; preds = %if.then4
 invoke.cont:                                      ; preds = %new.notnull, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call5, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -1209,9 +1209,9 @@ declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStri
 define void @_ZN6icu_7516DateIntervalInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %dtitvinf) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %status.i = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fFallbackIntervalPattern = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fFallbackIntervalPattern, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fFallbackIntervalPattern, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %fIntervalPatterns = getelementptr inbounds i8, ptr %this, i64 80
@@ -1414,7 +1414,7 @@ new.notnull:                                      ; preds = %while.body
 invoke.cont:                                      ; preds = %new.notnull, %invoke.cont
   %arrayctor.cur.idx = phi i64 [ 8, %new.notnull ], [ %arrayctor.cur.add, %invoke.cont ]
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call7, i64 %arrayctor.cur.idx
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayctor.cur.add = add nuw nsw i64 %arrayctor.cur.idx, 64
@@ -1710,7 +1710,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6icu_7516DateIntervalInfo16DateIntervalSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, i32 0, i64 2), ptr %this, align 8
   %nextCalendarType = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType) #15
   tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
@@ -1723,7 +1723,7 @@ declare void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN6icu_7516DateIntervalInfo16DateIntervalSinkD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7516DateIntervalInfo16DateIntervalSinkE, i64 0, i32 0, i64 2), ptr %this, align 8
   %nextCalendarType.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %nextCalendarType.i) #15
   tail call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #15
@@ -1879,7 +1879,7 @@ entry:
   %pos = alloca i32, align 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %inputSkeletonFieldWidth, i8 0, i64 232, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(232) %skeletonFieldWidth, i8 0, i64 232, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %copySkeleton, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %copySkeleton, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %copySkeleton, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fUnion.i.i.i = getelementptr inbounds i8, ptr %skeleton, i64 8
@@ -2071,7 +2071,7 @@ invoke.cont42:                                    ; preds = %invoke.cont40
           to label %invoke.cont50 unwind label %lpad.loopexit.split-lp
 
 invoke.cont50:                                    ; preds = %invoke.cont42
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp48, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ref.tmp48, align 8
   %fUnion2.i117 = getelementptr inbounds i8, ptr %ref.tmp48, i64 8
   store i16 2, ptr %fUnion2.i117, align 8
   %42 = load i16, ptr %fUnion2.i, align 8
@@ -2098,7 +2098,7 @@ invoke.cont52:                                    ; preds = %invoke.cont50
           to label %invoke.cont60 unwind label %lpad.loopexit.split-lp
 
 invoke.cont60:                                    ; preds = %invoke.cont52
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp58, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ref.tmp58, align 8
   %fUnion2.i135 = getelementptr inbounds i8, ptr %ref.tmp58, i64 8
   store i16 2, ptr %fUnion2.i135, align 8
   %48 = load i16, ptr %fUnion2.i, align 8

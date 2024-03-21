@@ -651,7 +651,7 @@ entry:
   store ptr %accConfig, ptr %accConfig.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen16HTTPCodecFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen30HTTPDefaultSessionCodecFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen30HTTPDefaultSessionCodecFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %accConfig_ = getelementptr inbounds %"class.proxygen::HTTPDefaultSessionCodecFactory", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %accConfig.addr, align 8
   store ptr %0, ptr %accConfig_, align 8
@@ -699,7 +699,7 @@ entry:
   %ref.tmp = alloca %class.anon, align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %useStrictValidationFn_ = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFbvEEC2IN8proxygen16HTTPCodecFactory22useStrictValidationFn_MUlvE_EvEEOT_(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
   ret void
@@ -1510,7 +1510,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen16HTTPCodecFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %useStrictValidationFn_ = getelementptr inbounds %"class.proxygen::HTTPCodecFactory", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFbvEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %useStrictValidationFn_) #3
   ret void

@@ -1109,7 +1109,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18cmCTestTestHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(4416) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN21cmCTestGenericHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 296
   %3 = getelementptr inbounds i8, ptr %0, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %2, i8 0, i64 48, i1 false)
@@ -12253,7 +12253,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit78: ; 
   %95 = getelementptr inbounds i8, ptr %17, i64 24
   %96 = getelementptr inbounds i8, ptr %93, i64 8
   store ptr %0, ptr %96, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i64 0, inrange i32 0, i64 2), ptr %93, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i64 0, i32 0, i64 2), ptr %93, align 8
   store ptr %93, ptr %17, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEN12_GLOBAL__N_121cmCTestAddTestCommandEE9_M_invokeERKSt9_Any_dataS5_S7_, ptr %95, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %92, align 8
@@ -12360,7 +12360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit94: ; 
   %121 = getelementptr inbounds i8, ptr %24, i64 24
   %122 = getelementptr inbounds i8, ptr %119, i64 8
   store ptr %0, ptr %122, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i64 0, inrange i32 0, i64 2), ptr %119, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i64 0, i32 0, i64 2), ptr %119, align 8
   store ptr %119, ptr %24, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE9_M_invokeERKSt9_Any_dataS5_S7_, ptr %121, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %118, align 8
@@ -12441,7 +12441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit108: ;
   %142 = getelementptr inbounds i8, ptr %29, i64 24
   %143 = getelementptr inbounds i8, ptr %140, i64 8
   store ptr %0, ptr %143, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i64 0, inrange i32 0, i64 2), ptr %140, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i64 0, i32 0, i64 2), ptr %140, align 8
   store ptr %140, ptr %29, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE9_M_invokeERKSt9_Any_dataS5_S7_, ptr %142, align 8
   store ptr @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmListFileArgumentSaIS1_EER17cmExecutionStatusEN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation, ptr %139, align 8
@@ -18523,7 +18523,7 @@ _ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit: ; preds = %65, %71
           to label %74 unwind label %106
 
 74:                                               ; preds = %_ZNK5cmsys17RegularExpression5matchB5cxx11Ei.exit
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i64 0, i32 0, i64 2), ptr %24, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %56) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
@@ -19570,7 +19570,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev.exit242: ; preds = %_ZNSt10uni
           to label %325 unwind label %108
 
 325:                                              ; preds = %323
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i64 0, i32 0, i64 2), ptr %24, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %59) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %58) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %57) #25
@@ -22300,7 +22300,7 @@ declare void @_ZN5cmsys11SystemTools13ReplaceStringERNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN31cmCTestTestMeasurementXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds i8, ptr %0, i64 104
@@ -28001,7 +28001,7 @@ define linkonce_odr dso_local noundef i32 @_ZN21cmCTestGenericHandler27ProcessCo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18cmCTestTestHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(4416) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 4384
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds i8, ptr %0, i64 4344
@@ -38762,7 +38762,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.val7.i, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i64 0, i32 0, i64 2), ptr %8, align 8
   store ptr %8, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_121cmCTestAddTestCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
 
@@ -38868,7 +38868,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.val7.i, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i64 0, i32 0, i64 2), ptr %8, align 8
   store ptr %8, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
 
@@ -38972,7 +38972,7 @@ define internal noundef zeroext i1 @_ZNSt17_Function_handlerIFbRKSt6vectorI18cmL
   %8 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #31
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %.val7.i, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i64 0, i32 0, i64 2), ptr %8, align 8
   store ptr %8, ptr %0, align 8
   br label %_ZNSt14_Function_base13_Base_managerIN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandEE10_M_managerERSt9_Any_dataRKS4_St18_Manager_operation.exit
 

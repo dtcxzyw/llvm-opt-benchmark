@@ -2516,7 +2516,7 @@ define hidden void @_ZN7nanogui6ScreenC2Ev(ptr noundef nonnull align 8 dereferen
   %3 = alloca i32, align 4
   %4 = alloca i8, align 1
   tail call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef null)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7nanogui6ScreenE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7nanogui6ScreenE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   %6 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 0, ptr %6, align 8
@@ -2629,7 +2629,7 @@ define hidden void @_ZN7nanogui6ScreenC2ERKNS_5ArrayIiLm2EEERKNSt7__cxx1112basic
   %16 = alloca %"class.std::__cxx11::basic_string", align 8
   %17 = alloca i8, align 1
   tail call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %0, ptr noundef null)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7nanogui6ScreenE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7nanogui6ScreenE, i64 0, i32 0, i64 2), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 144
   %19 = getelementptr inbounds i8, ptr %0, i64 208
   store i32 0, ptr %19, align 8
@@ -3669,7 +3669,7 @@ declare void @nvgEndFrame(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7nanogui6ScreenD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7nanogui6ScreenE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN7nanogui6ScreenE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   %3 = invoke noundef i64 @_ZNSt8_Rb_treeIP10GLFWwindowSt4pairIKS1_PN7nanogui6ScreenEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE5eraseERS3_(ptr noundef nonnull align 8 dereferenceable(48) @_ZN7nanogui17__nanogui_screensE, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZNSt3mapIP10GLFWwindowPN7nanogui6ScreenESt4lessIS1_ESaISt4pairIKS1_S4_EEE5eraseERS8_.exit.preheader unwind label %.loopexit.split-lp

@@ -11707,7 +11707,7 @@ define dso_local void @_ZN22cmGlobalNinjaGeneratorC2EP5cmake(ptr noundef nonnull
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN23cmGlobalCommonGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(1880) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV22cmGlobalNinjaGenerator, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV22cmGlobalNinjaGenerator, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.cmGlobalNinjaGenerator, ptr %7, i32 0, i32 1
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
   %10 = getelementptr inbounds %class.cmGlobalNinjaGenerator, ptr %7, i32 0, i32 2
@@ -38442,7 +38442,7 @@ define dso_local void @_ZN27cmGlobalNinjaMultiGeneratorC2EP5cmake(ptr noundef no
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN22cmGlobalNinjaGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(2808) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV27cmGlobalNinjaMultiGenerator, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV27cmGlobalNinjaMultiGenerator, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.cmGlobalNinjaMultiGenerator, ptr %7, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrI21cmGeneratedFileStreamSt14default_deleteIS7_EESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %9) #3
   %10 = getelementptr inbounds %class.cmGlobalNinjaMultiGenerator, ptr %7, i32 0, i32 2
@@ -41142,7 +41142,7 @@ define linkonce_odr dso_local void @_ZN22cmGlobalNinjaGeneratorD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV22cmGlobalNinjaGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV22cmGlobalNinjaGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmGlobalNinjaGenerator, ptr %3, i32 0, i32 40
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.cmGlobalNinjaGenerator, ptr %3, i32 0, i32 39
@@ -41759,7 +41759,7 @@ define linkonce_odr dso_local void @_ZN27cmGlobalNinjaMultiGeneratorD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV27cmGlobalNinjaMultiGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV27cmGlobalNinjaMultiGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmGlobalNinjaMultiGenerator, ptr %3, i32 0, i32 4
   call void @_ZNSt10unique_ptrI21cmGeneratedFileStreamSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.cmGlobalNinjaMultiGenerator, ptr %3, i32 0, i32 3

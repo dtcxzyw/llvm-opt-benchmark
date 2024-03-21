@@ -857,7 +857,7 @@ entry:
   %ref.tmp9 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN7rocksdb18SystemClockWrapperC2ERKSt10shared_ptrINS_11SystemClockEE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(16) %base)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb19EmulatedSystemClockE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb19EmulatedSystemClockE, i64 0, i32 0, i64 2), ptr %this, align 8
   %base.val = load ptr, ptr %base, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %time.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i)
@@ -993,7 +993,7 @@ declare void @_ZN7rocksdb12Configurable15RegisterOptionsERKNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18SystemClockWrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb18SystemClockWrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN7rocksdb18SystemClockWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -1068,7 +1068,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN7rocksdb11SystemClockEED2Ev.exit
 
 _ZNSt10shared_ptrIN7rocksdb11SystemClockEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i64 0, i32 0, i64 2), ptr %this, align 8
   %options_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %11 = load ptr, ptr %options_.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1106,7 +1106,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN7rocksdb10FileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  store ptr getelementptr inbounds ({ [63 x ptr] }, ptr @_ZTVN7rocksdb14MockFileSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [63 x ptr] }, ptr @_ZTVN7rocksdb14MockFileSystemE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
   %1 = and i8 %0, 1
@@ -1328,7 +1328,7 @@ declare void @_ZN7rocksdb10FileSystemD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb14MockFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(145) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [63 x ptr] }, ptr @_ZTVN7rocksdb14MockFileSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [63 x ptr] }, ptr @_ZTVN7rocksdb14MockFileSystemE, i64 0, i32 0, i64 2), ptr %this, align 8
   %file_map_ = getelementptr inbounds i8, ptr %this, i64 72
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -1989,7 +1989,7 @@ if.else33:                                        ; preds = %land.lhs.true, %if.
           to label %invoke.cont34 unwind label %lpad2
 
 invoke.cont34:                                    ; preds = %if.else33
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_118MockSequentialFileE, i64 0, inrange i32 0, i64 2), ptr %call35, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_118MockSequentialFileE, i64 0, i32 0, i64 2), ptr %call35, align 8
   %file_.i = getelementptr inbounds i8, ptr %call35, i64 8
   store ptr %12, ptr %file_.i, align 8
   %use_direct_io_.i = getelementptr inbounds i8, ptr %call35, i64 16
@@ -2366,7 +2366,7 @@ if.else33:                                        ; preds = %land.lhs.true, %if.
           to label %invoke.cont34 unwind label %lpad2
 
 invoke.cont34:                                    ; preds = %if.else33
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_120MockRandomAccessFileE, i64 0, inrange i32 0, i64 2), ptr %call35, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_120MockRandomAccessFileE, i64 0, i32 0, i64 2), ptr %call35, align 8
   %file_.i = getelementptr inbounds i8, ptr %call35, i64 8
   store ptr %12, ptr %file_.i, align 8
   %use_direct_io_.i = getelementptr inbounds i8, ptr %call35, i64 16
@@ -2633,7 +2633,7 @@ if.end27:                                         ; preds = %invoke.cont17
           to label %invoke.cont28 unwind label %lpad3
 
 invoke.cont28:                                    ; preds = %if.end27
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockRandomRWFileE, i64 0, inrange i32 0, i64 2), ptr %call29, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockRandomRWFileE, i64 0, i32 0, i64 2), ptr %call29, align 8
   %file_.i = getelementptr inbounds i8, ptr %call29, i64 8
   store ptr %13, ptr %file_.i, align 8
   %mutex_.i.i = getelementptr inbounds i8, ptr %13, i64 40
@@ -3100,7 +3100,7 @@ invoke.cont25:                                    ; preds = %if.else
   store i32 0, ptr %write_hint_.i.i, align 4
   %strict_bytes_per_sync_.i.i = getelementptr inbounds i8, ptr %call26, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockWritableFileE, i64 0, inrange i32 0, i64 2), ptr %call26, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockWritableFileE, i64 0, i32 0, i64 2), ptr %call26, align 8
   %file_.i = getelementptr inbounds i8, ptr %call26, i64 40
   store ptr %call11, ptr %file_.i, align 8
   %use_direct_io_.i = getelementptr inbounds i8, ptr %call26, i64 48
@@ -3560,7 +3560,7 @@ invoke.cont28:                                    ; preds = %if.else27
   store i32 0, ptr %write_hint_.i.i, align 4
   %strict_bytes_per_sync_.i.i = getelementptr inbounds i8, ptr %call29, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockWritableFileE, i64 0, inrange i32 0, i64 2), ptr %call29, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockWritableFileE, i64 0, i32 0, i64 2), ptr %call29, align 8
   %file_.i = getelementptr inbounds i8, ptr %call29, i64 40
   store ptr %file.0, ptr %file_.i, align 8
   %use_direct_io_.i = getelementptr inbounds i8, ptr %call29, i64 48
@@ -3654,7 +3654,7 @@ ehcleanup34:                                      ; preds = %ehcleanup, %lpad
 define void @_ZN7rocksdb14MockFileSystem12NewDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_9IOOptionsEPSt10unique_ptrINS_11FSDirectoryESt14default_deleteISD_EEPNS_14IODebugContextE(ptr noalias nocapture writeonly sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr nocapture nonnull readnone align 8 %this, ptr nocapture nonnull readnone align 8 %0, ptr nocapture nonnull readnone align 8 %1, ptr nocapture noundef %result, ptr nocapture readnone %2) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockEnvDirectoryE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockEnvDirectoryE, i64 0, i32 0, i64 2), ptr %call, align 8
   %3 = load ptr, ptr %result, align 8
   store ptr %call, ptr %result, align 8
   %tobool.not.i.i = icmp eq ptr %3, null
@@ -6042,7 +6042,7 @@ invoke.cont21:                                    ; preds = %invoke.cont17
   store i32 0, ptr %write_hint_.i.i, align 4
   %strict_bytes_per_sync_.i.i = getelementptr inbounds i8, ptr %call18, i64 32
   store i8 0, ptr %strict_bytes_per_sync_.i.i, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockWritableFileE, i64 0, inrange i32 0, i64 2), ptr %call18, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockWritableFileE, i64 0, i32 0, i64 2), ptr %call18, align 8
   %file_.i = getelementptr inbounds i8, ptr %call18, i64 40
   store ptr %file.0, ptr %file_.i, align 8
   %use_direct_io_.i = getelementptr inbounds i8, ptr %call18, i64 48
@@ -6117,7 +6117,7 @@ invoke.cont25:                                    ; preds = %_ZN7rocksdb11FileOp
   store i8 0, ptr %closed_.i.i, align 8
   %log_level_.i.i = getelementptr inbounds i8, ptr %call26, i64 17
   store i8 3, ptr %log_level_.i.i, align 1
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_113TestMemLoggerE, i64 0, inrange i32 0, i64 2), ptr %call26, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_113TestMemLoggerE, i64 0, i32 0, i64 2), ptr %call26, align 8
   %file_.i12 = getelementptr inbounds i8, ptr %call26, i64 24
   store i64 %25, ptr %file_.i12, align 8
   %log_size_.i = getelementptr inbounds i8, ptr %call26, i64 32
@@ -6208,7 +6208,7 @@ _ZNSt12__shared_ptrIN7rocksdb6LoggerELN9__gnu_cxx12_Lock_policyE2EEC2INS0_12_GLO
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i14, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb12_GLOBAL__N_113TestMemLoggerELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i14, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7rocksdb12_GLOBAL__N_113TestMemLoggerELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i14, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i14, i64 16
   store ptr %call26, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call26, ptr %result, align 8
@@ -6683,7 +6683,7 @@ _ZN7rocksdb9MutexLockD2Ev.exit:                   ; preds = %cleanup
           to label %invoke.cont44 unwind label %lpad
 
 invoke.cont44:                                    ; preds = %_ZN7rocksdb9MutexLockD2Ev.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115MockEnvFileLockE, i64 0, inrange i32 0, i64 2), ptr %call45, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115MockEnvFileLockE, i64 0, i32 0, i64 2), ptr %call45, align 8
   %fname_.i = getelementptr inbounds i8, ptr %call45, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %fname_.i, ptr noundef nonnull align 8 dereferenceable(32) %fn)
           to label %invoke.cont47 unwind label %lpad.i
@@ -7197,7 +7197,7 @@ return:                                           ; preds = %for.end, %entry
 define void @_ZN7rocksdb7MockEnvC2EPNS_3EnvERKSt10shared_ptrINS_10FileSystemEERKS3_INS_11SystemClockEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(16) %fs, ptr noundef nonnull align 8 dereferenceable(16) %clock) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN7rocksdb19CompositeEnvWrapperC2EPNS_3EnvERKSt10shared_ptrINS_10FileSystemEERKS3_INS_11SystemClockEE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %env, ptr noundef nonnull align 8 dereferenceable(16) %fs, ptr noundef nonnull align 8 dereferenceable(16) %clock)
-  store ptr getelementptr inbounds ({ [87 x ptr] }, ptr @_ZTVN7rocksdb7MockEnvE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [87 x ptr] }, ptr @_ZTVN7rocksdb7MockEnvE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -7215,7 +7215,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !141
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !141
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb19EmulatedSystemClockESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !141
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb19EmulatedSystemClockESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !141
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZN7rocksdb19EmulatedSystemClockC1ERKSt10shared_ptrINS_11SystemClockEEb(ptr noundef nonnull align 8 dereferenceable(74) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %call, i1 noundef zeroext true)
           to label %if.then.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb19EmulatedSystemClockESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !141
@@ -7423,7 +7423,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !144
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !144
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb14MockFileSystemESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !144
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7rocksdb14MockFileSystemESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !144
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZN7rocksdb14MockFileSystemC1ERKSt10shared_ptrINS_11SystemClockEEb(ptr noundef nonnull align 8 dereferenceable(145) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %clock, i1 noundef zeroext true)
           to label %_ZSt11make_sharedIN7rocksdb14MockFileSystemEJRKSt10shared_ptrINS0_11SystemClockEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7rocksdb14MockFileSystemESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !144
@@ -9025,7 +9025,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb7MockEnvD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [87 x ptr] }, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [87 x ptr] }, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -9107,7 +9107,7 @@ _ZN7rocksdb19CompositeEnvWrapperD2Ev.exit:        ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb7MockEnvD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [87 x ptr] }, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [87 x ptr] }, ptr @_ZTVN7rocksdb19CompositeEnvWrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -13976,7 +13976,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_118MockSequentialFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_118MockSequentialFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_118MockSequentialFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -14240,7 +14240,7 @@ declare void @_ZN7rocksdb4port5Mutex6UnlockEv(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_120MockRandomAccessFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(18) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_120MockRandomAccessFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_120MockRandomAccessFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -14663,7 +14663,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #13
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_116MockRandomRWFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockRandomRWFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockRandomRWFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %file_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %file_, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -14999,7 +14999,7 @@ declare noundef i64 @_ZN7rocksdb6Hash64EPKcm(ptr noundef, i64 noundef) local_unn
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_116MockWritableFileD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockWritableFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_116MockWritableFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %file_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %file_, align 8
   %mutex_.i = getelementptr inbounds i8, ptr %0, i64 40
@@ -15654,7 +15654,7 @@ declare void @_ZN7rocksdb6LoggerD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_113TestMemLoggerD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_113TestMemLoggerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_113TestMemLoggerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %property_bag.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -16190,7 +16190,7 @@ declare void @_ZN7rocksdb8FileLockD2Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_115MockEnvFileLockD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115MockEnvFileLockE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115MockEnvFileLockE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fname_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname_) #28
   tail call void @_ZN7rocksdb8FileLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #28
@@ -16200,7 +16200,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7rocksdb12_GLOBAL__N_115MockEnvFileLockD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115MockEnvFileLockE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_115MockEnvFileLockE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fname_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %fname_.i) #28
   tail call void @_ZN7rocksdb8FileLockD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #28

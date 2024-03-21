@@ -154,7 +154,7 @@ define linkonce_odr hidden void @_ZN4nori7DiffuseC2ERKNS_12PropertyListE(ptr nou
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.2", align 1
   %6 = alloca %"struct.nori::Color3f", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4nori7DiffuseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4nori7DiffuseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store <2 x float> zeroinitializer, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16

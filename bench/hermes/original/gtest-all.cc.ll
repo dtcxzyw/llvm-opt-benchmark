@@ -8045,7 +8045,7 @@ entry:
   store ptr %result, ptr %result.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing31TestPartResultReporterInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %intercept_mode_ = getelementptr inbounds %"class.testing::ScopedFakeTestPartResultReporter", ptr %this1, i32 0, i32 1
   store i32 0, ptr %intercept_mode_, align 8
   %result_ = getelementptr inbounds %"class.testing::ScopedFakeTestPartResultReporter", ptr %this1, i32 0, i32 3
@@ -8081,7 +8081,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing31TestPartResultReporterInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing31TestPartResultReporterInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8134,7 +8134,7 @@ entry:
   store ptr %result, ptr %result.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing31TestPartResultReporterInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %intercept_mode_ = getelementptr inbounds %"class.testing::ScopedFakeTestPartResultReporter", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %intercept_mode.addr, align 4
   store i32 %0, ptr %intercept_mode_, align 8
@@ -8238,7 +8238,7 @@ entry:
   %impl = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef ptr @_ZN7testing8internal15GetUnitTestImplEv()
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -9320,7 +9320,7 @@ entry:
   store ptr %unit_test, ptr %unit_test.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing31TestPartResultReporterInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %unit_test_ = getelementptr inbounds %"class.testing::internal::DefaultGlobalTestPartResultReporter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %unit_test.addr, align 8
   store ptr %0, ptr %unit_test_, align 8
@@ -9422,7 +9422,7 @@ entry:
   store ptr %unit_test, ptr %unit_test.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing31TestPartResultReporterInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %unit_test_ = getelementptr inbounds %"class.testing::internal::DefaultPerThreadTestPartResultReporter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %unit_test.addr, align 8
   store ptr %0, ptr %unit_test_, align 8
@@ -19539,7 +19539,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %gtest_flag_saver_ = getelementptr inbounds %"class.testing::Test", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 248) #20
   invoke void @_ZN7testing8internal14GTestFlagSaverC2Ev(ptr noundef nonnull align 8 dereferenceable(241) %call)
@@ -19711,7 +19711,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %gtest_flag_saver_ = getelementptr inbounds %"class.testing::Test", ptr %this1, i32 0, i32 1
   call void @_ZN7testing8internal10scoped_ptrINS0_14GTestFlagSaverEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %gtest_flag_saver_) #3
   ret void
@@ -20549,7 +20549,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal26GoogleTestFailureExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal26GoogleTestFailureExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -22511,7 +22511,7 @@ entry:
   store ptr %set_up_tc, ptr %set_up_tc.addr, align 8
   store ptr %tear_down_tc, ptr %tear_down_tc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.testing::TestCase", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %a_name.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
@@ -22733,7 +22733,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %test_info_list_ = getelementptr inbounds %"class.testing::TestCase", ptr %this1, i32 0, i32 3
   invoke void @_ZN7testing8internal7ForEachISt6vectorIPNS_8TestInfoESaIS4_EEPFvS4_EEEvRKT_T0_(ptr noundef nonnull align 8 dereferenceable(24) %test_info_list_, ptr noundef @_ZN7testing8internalL6DeleteINS_8TestInfoEEEvPT_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -25562,7 +25562,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %listeners_ = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %this1, i32 0, i32 2
   invoke void @_ZN7testing8internal7ForEachISt6vectorIPNS_17TestEventListenerESaIS4_EEPFvS4_EEEvRKT_T0_(ptr noundef nonnull align 8 dereferenceable(24) %listeners_, ptr noundef @_ZN7testing8internalL6DeleteINS_17TestEventListenerEEEvPT_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -26602,7 +26602,7 @@ entry:
   store ptr %output_file, ptr %output_file.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing22EmptyTestEventListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %output_file_ = getelementptr inbounds %"class.testing::internal::XmlUnitTestResultPrinter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %output_file.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
@@ -26677,7 +26677,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing17TestEventListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing22EmptyTestEventListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing22EmptyTestEventListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -31334,7 +31334,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing17TestEventListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %forwarding_enabled_ = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %this1, i32 0, i32 1
   store i8 1, ptr %forwarding_enabled_, align 8
   %listeners_ = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %this1, i32 0, i32 2
@@ -33015,7 +33015,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mutex_ = getelementptr inbounds %"class.testing::UnitTest", ptr %this1, i32 0, i32 1
   call void @_ZN7testing8internal5MutexC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %mutex_)
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 504) #20
@@ -33067,7 +33067,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.testing::UnitTest", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %impl_, align 8
   %isnull = icmp eq ptr %0, null
@@ -33173,7 +33173,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %parent, ptr %parent.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %parent_ = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %parent.addr, align 8
   store ptr %0, ptr %parent_, align 8
@@ -33559,7 +33559,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal16DeathTestFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal23DefaultDeathTestFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal23DefaultDeathTestFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -33622,7 +33622,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing17TestEventListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal27PrettyUnitTestResultPrinterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal27PrettyUnitTestResultPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -33896,7 +33896,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %test_cases_ = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this1, i32 0, i32 9
   invoke void @_ZN7testing8internal7ForEachISt6vectorIPNS_8TestCaseESaIS4_EEPFvS4_EEEvRKT_T0_(ptr noundef nonnull align 8 dereferenceable(24) %test_cases_, ptr noundef @_ZN7testing8internalL6DeleteINS_8TestCaseEEEvPT_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -34363,7 +34363,7 @@ entry:
   store ptr %port, ptr %port.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing22EmptyTestEventListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %socket_writer_ = getelementptr inbounds %"class.testing::internal::StreamingListener", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 80) #20
           to label %invoke.cont unwind label %lpad
@@ -36467,7 +36467,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal27OsStackTraceGetterInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -38332,7 +38332,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal9DeathTestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal9DeathTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef ptr @_ZN7testing8internal15GetUnitTestImplEv()
   %call2 = call noundef ptr @_ZN7testing8internal12UnitTestImpl17current_test_infoEv(ptr noundef nonnull align 8 dereferenceable(497) %call)
   store ptr %call2, ptr %info, align 8
@@ -40213,7 +40213,7 @@ entry:
   %0 = load ptr, ptr %a_statement.addr, align 8
   %1 = load ptr, ptr %a_regex.addr, align 8
   call void @_ZN7testing8internal13DeathTestImplC2EPKcPKNS0_2REE(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal16ForkingDeathTestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal16ForkingDeathTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %child_pid_ = getelementptr inbounds %"class.testing::internal::ForkingDeathTest", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %child_pid_, align 4
   ret void
@@ -40230,7 +40230,7 @@ entry:
   store ptr %a_regex, ptr %a_regex.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal9DeathTestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13DeathTestImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13DeathTestImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %statement_ = getelementptr inbounds %"class.testing::internal::DeathTestImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %a_statement.addr, align 8
   store ptr %0, ptr %statement_, align 8
@@ -44667,7 +44667,7 @@ entry:
   %0 = load ptr, ptr %a_statement.addr, align 8
   %1 = load ptr, ptr %a_regex.addr, align 8
   call void @_ZN7testing8internal16ForkingDeathTestC2EPKcPKNS0_2REE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13ExecDeathTestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13ExecDeathTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %file_ = getelementptr inbounds %"class.testing::internal::ExecDeathTest", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %file.addr, align 8
   store ptr %2, ptr %file_, align 8
@@ -44690,7 +44690,7 @@ entry:
   %0 = load ptr, ptr %a_statement.addr, align 8
   %1 = load ptr, ptr %a_regex.addr, align 8
   call void @_ZN7testing8internal16ForkingDeathTestC2EPKcPKNS0_2REE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal15NoExecDeathTestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal15NoExecDeathTestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -47911,7 +47911,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing31TestPartResultReporterInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %has_new_fatal_failure_ = getelementptr inbounds %"class.testing::internal::HasNewFatalFailureHelper", ptr %this1, i32 0, i32 1
   store i8 0, ptr %has_new_fatal_failure_, align 8
   %original_reporter_ = getelementptr inbounds %"class.testing::internal::HasNewFatalFailureHelper", ptr %this1, i32 0, i32 2
@@ -47958,7 +47958,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef ptr @_ZN7testing8internal15GetUnitTestImplEv()
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -48921,7 +48921,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %output_file_ = getelementptr inbounds %"class.testing::internal::XmlUnitTestResultPrinter", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_file_) #3
   call void @_ZN7testing22EmptyTestEventListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -49097,7 +49097,7 @@ entry:
   %ref.tmp11 = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13DeathTestImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13DeathTestImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %invoke.cont17, %entry
@@ -54058,7 +54058,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing17TestEventListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing17TestEventListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -54512,7 +54512,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal16DeathTestFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal16DeathTestFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -54740,7 +54740,7 @@ entry:
   store ptr %port, ptr %port.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal17StreamingListener20AbstractSocketWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sockfd_ = getelementptr inbounds %"class.testing::internal::StreamingListener::SocketWriter", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %sockfd_, align 8
   %host_name_ = getelementptr inbounds %"class.testing::internal::StreamingListener::SocketWriter", ptr %this1, i32 0, i32 2
@@ -54899,7 +54899,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %socket_writer_ = getelementptr inbounds %"class.testing::internal::StreamingListener", ptr %this1, i32 0, i32 1
   call void @_ZN7testing8internal10scoped_ptrINS0_17StreamingListener20AbstractSocketWriterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %socket_writer_) #3
   call void @_ZN7testing22EmptyTestEventListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -55866,7 +55866,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener20AbstractSocketWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener20AbstractSocketWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -55876,7 +55876,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sockfd_ = getelementptr inbounds %"class.testing::internal::StreamingListener::SocketWriter", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %sockfd_, align 8
   %cmp = icmp ne i32 %0, -1
@@ -56366,7 +56366,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal27OsStackTraceGetterInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal27OsStackTraceGetterInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -56492,7 +56492,7 @@ entry:
   store ptr %O, ptr %O.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11raw_ostreamC2Eb(ptr noundef nonnull align 8 dereferenceable(36) %this1, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %OS = getelementptr inbounds %"class.llvh::raw_os_ostream", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %O.addr, align 8
   store ptr %0, ptr %OS, align 8
@@ -56552,7 +56552,7 @@ entry:
   %frombool = zext i1 %unbuffered to i8
   store i8 %frombool, ptr %unbuffered.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh11raw_ostreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %BufferMode = getelementptr inbounds %"class.llvh::raw_ostream", ptr %this1, i32 0, i32 4
   %0 = load i8, ptr %unbuffered.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -76829,7 +76829,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE18ValueHolderFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE26InstanceValueHolderFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE26InstanceValueHolderFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.testing::internal::ThreadLocal<testing::TestPartResultReporterInterface *>::InstanceValueHolderFactory", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   %1 = load ptr, ptr %0, align 8
@@ -76880,7 +76880,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE18ValueHolderFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE18ValueHolderFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -76965,7 +76965,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal26ThreadLocalValueHolderBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE11ValueHolderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE11ValueHolderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.testing::internal::ThreadLocal<testing::TestPartResultReporterInterface *>::ValueHolder", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   %1 = load ptr, ptr %0, align 8
@@ -76979,7 +76979,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal26ThreadLocalValueHolderBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal26ThreadLocalValueHolderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -77085,7 +77085,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE18ValueHolderFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE25DefaultValueHolderFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE25DefaultValueHolderFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -77109,7 +77109,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE18ValueHolderFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE18ValueHolderFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -77190,7 +77190,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7testing8internal26ThreadLocalValueHolderBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.testing::internal::ThreadLocal<std::vector<testing::internal::TraceInfo>>::ValueHolder", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %value_, i8 0, i64 24, i1 false)
   call void @_ZNSt6vectorIN7testing8internal9TraceInfoESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_) #3
@@ -77213,7 +77213,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.testing::internal::ThreadLocal<std::vector<testing::internal::TraceInfo>>::ValueHolder", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7testing8internal9TraceInfoESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %value_) #3
   call void @_ZN7testing8internal26ThreadLocalValueHolderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

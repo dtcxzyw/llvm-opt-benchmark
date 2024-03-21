@@ -110,7 +110,7 @@ $_ZTI10ShaderInfo = comdat any
 @.str.12 = private unnamed_addr constant [21 x i8] c"Server shutting down\00", align 1
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
 @_ZTV18PostProcessingStep = dso_local unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI18PostProcessingStep, ptr @_ZN18PostProcessingStepD1Ev, ptr @_ZN18PostProcessingStepD0Ev, ptr @_ZN18PostProcessingStep5resetER15PipelineContext, ptr @_ZN18PostProcessingStep15setRenderSourceEP12RenderSource, ptr @_ZN18PostProcessingStep15setRenderTargetEP12RenderTarget, ptr @_ZN18PostProcessingStep3runER15PipelineContext] }, align 8
-@_ZTT18PostProcessingStep = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC18PostProcessingStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC18PostProcessingStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT18PostProcessingStep = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC18PostProcessingStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC18PostProcessingStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i32 0, inrange i32 0, i32 5)], align 8
 @_ZZN18PostProcessingStep3runER15PipelineContextE5color = internal global %"class.irr::video::SColor" zeroinitializer, align 4
 @_ZGVZN18PostProcessingStep3runER15PipelineContextE5color = internal global i64 0, align 8
 @_ZZN18PostProcessingStep3runER15PipelineContextE8vertices = internal global [4 x %"struct.irr::video::S3DVertex"] zeroinitializer, align 16
@@ -592,7 +592,7 @@ define dso_local void @_ZN18PostProcessingStep17configureMaterialEv(ptr nocaptur
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18PostProcessingStepC1EjRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull align 8 dereferenceable(240) %0, i32 noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -806,7 +806,7 @@ define dso_local void @_ZN18PostProcessingStep3runER15PipelineContext(ptr nounde
   %25 = getelementptr inbounds i8, ptr %0, i64 56
   %26 = getelementptr inbounds i8, ptr %0, i64 184
   store i32 %24, ptr %26, align 8, !tbaa !60
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !12
   %27 = getelementptr inbounds i8, ptr %3, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = getelementptr inbounds i8, ptr %3, i64 24
@@ -924,7 +924,7 @@ define dso_local void @_ZN18PostProcessingStep3runER15PipelineContext(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1038,7 +1038,7 @@ define dso_local noundef ptr @_Z17addPostProcessingP14RenderPipelineP10RenderSte
   %63 = load i64, ptr %62, align 8, !noalias !66
   %64 = getelementptr inbounds i8, ptr %58, i64 %63
   store ptr %61, ptr %64, align 8, !tbaa !12, !noalias !66
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TextureBuffer, i64 0, inrange i32 0, i64 5), ptr %58, align 8, !tbaa !12, !noalias !66
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TextureBuffer, i64 0, i32 0, i64 5), ptr %58, align 8, !tbaa !12, !noalias !66
   %65 = getelementptr inbounds i8, ptr %58, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %65, i8 0, i64 56, i1 false), !noalias !66
   store ptr %58, ptr %19, align 8, !tbaa !33, !alias.scope !66
@@ -4786,7 +4786,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18PostProcessingStepD1Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !41
   %4 = icmp eq ptr %3, null
@@ -4842,7 +4842,7 @@ define linkonce_odr dso_local void @_ZN18PostProcessingStepD1Ev(ptr noundef nonn
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18PostProcessingStepD0Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18PostProcessingStep, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !41
   %4 = icmp eq ptr %3, null
@@ -4935,7 +4935,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24

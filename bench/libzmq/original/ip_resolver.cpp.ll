@@ -448,7 +448,7 @@ entry:
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %opts_, ptr align 8 %tmp.coerce, i64 6, i1 false)
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq13ip_resolver_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq13ip_resolver_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_options = getelementptr inbounds %"class.zmq::ip_resolver_t", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_options, ptr align 1 %opts_, i64 6, i1 false)
   ret void

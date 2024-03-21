@@ -2181,7 +2181,7 @@ define dso_local void @_ZN22FunctionInvocationUserC2EP8FunctionbPK11SafeOpFlags(
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %8, align 8
   call void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef 2, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.FunctionInvocationUser, ptr %10, i32 0, i32 1
   %13 = load ptr, ptr %6, align 8
   store ptr %13, ptr %12, align 8
@@ -2204,7 +2204,7 @@ define dso_local void @_ZN22FunctionInvocationUserC2ERKS_(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22FunctionInvocationUser, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.FunctionInvocationUser, ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %class.FunctionInvocationUser, ptr %8, i32 0, i32 1

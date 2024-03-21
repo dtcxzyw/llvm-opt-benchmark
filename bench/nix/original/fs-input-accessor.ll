@@ -554,7 +554,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZTISt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @__cxa_pure_virtual, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTVN3nix15FSInputAccessorE = linkonce_odr unnamed_addr constant { [6 x ptr], [11 x ptr], [23 x ptr] } { [6 x ptr] [ptr inttoptr (i64 120 to ptr), ptr null, ptr @_ZTIN3nix15FSInputAccessorE, ptr @_ZN3nix13InputAccessor15getLastModifiedEv, ptr @_ZN3nix15FSInputAccessorD1Ev, ptr @_ZN3nix15FSInputAccessorD0Ev], [11 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix15FSInputAccessorE, ptr @_ZN3nix19PosixSourceAccessor8readFileERKNS_9CanonPathERNS_4SinkESt8functionIFvmEE, ptr @_ZN3nix19PosixSourceAccessor10pathExistsERKNS_9CanonPathE, ptr @_ZN3nix19PosixSourceAccessor10maybeLstatERKNS_9CanonPathE, ptr @_ZN3nix19PosixSourceAccessor13readDirectoryB5cxx11ERKNS_9CanonPathE, ptr @_ZN3nix19PosixSourceAccessor8readLinkB5cxx11ERKNS_9CanonPathE, ptr @_ZN3nix19PosixSourceAccessor15getPhysicalPathB5cxx11ERKNS_9CanonPathE, ptr @_ZThn64_N3nix15FSInputAccessorD1Ev, ptr @_ZThn64_N3nix15FSInputAccessorD0Ev], [23 x ptr] [ptr null, ptr inttoptr (i64 -56 to ptr), ptr null, ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr null, ptr inttoptr (i64 -120 to ptr), ptr inttoptr (i64 -120 to ptr), ptr @_ZTIN3nix15FSInputAccessorE, ptr @_ZTv0_n24_N3nix15FSInputAccessorD1Ev, ptr @_ZTv0_n24_N3nix15FSInputAccessorD0Ev, ptr @_ZN3nix14SourceAccessor8readFileB5cxx11ERKNS_9CanonPathE, ptr @_ZTv0_n40_N3nix19PosixSourceAccessor8readFileERKNS_9CanonPathERNS_4SinkESt8functionIFvmEE, ptr @_ZTv0_n48_N3nix19PosixSourceAccessor10pathExistsERKNS_9CanonPathE, ptr @_ZTv0_n56_N3nix19PosixSourceAccessor10maybeLstatERKNS_9CanonPathE, ptr @_ZTv0_n64_N3nix19PosixSourceAccessor13readDirectoryB5cxx11ERKNS_9CanonPathE, ptr @_ZTv0_n72_N3nix19PosixSourceAccessor8readLinkB5cxx11ERKNS_9CanonPathE, ptr @_ZN3nix14SourceAccessor8dumpPathERKNS_9CanonPathERNS_4SinkERSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, ptr @_ZTv0_n88_N3nix19PosixSourceAccessor15getPhysicalPathB5cxx11ERKNS_9CanonPathE, ptr @_ZN3nix14SourceAccessor8showPathB5cxx11ERKNS_9CanonPathE] }, comdat, align 8
-@_ZTTN3nix15FSInputAccessorE = linkonce_odr unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15FSInputAccessorE0_NS_13InputAccessorE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15FSInputAccessorE0_NS_13InputAccessorE, i32 0, inrange i32 1, i32 12), ptr getelementptr inbounds ({ [11 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15FSInputAccessorE64_NS_19PosixSourceAccessorE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15FSInputAccessorE64_NS_19PosixSourceAccessorE, i32 0, inrange i32 1, i32 12), ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 2, i32 12), ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN3nix15FSInputAccessorE = linkonce_odr unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15FSInputAccessorE0_NS_13InputAccessorE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15FSInputAccessorE0_NS_13InputAccessorE, i32 0, inrange i32 1, i32 12), ptr getelementptr inbounds ({ [11 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15FSInputAccessorE64_NS_19PosixSourceAccessorE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [23 x ptr] }, ptr @_ZTCN3nix15FSInputAccessorE64_NS_19PosixSourceAccessorE, i32 0, inrange i32 1, i32 12), ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 2, i32 12), ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN3nix15FSInputAccessorE0_NS_13InputAccessorE = linkonce_odr unnamed_addr constant { [6 x ptr], [23 x ptr] } { [6 x ptr] [ptr inttoptr (i64 120 to ptr), ptr null, ptr @_ZTIN3nix13InputAccessorE, ptr @_ZN3nix13InputAccessor15getLastModifiedEv, ptr @_ZN3nix13InputAccessorD1Ev, ptr @_ZN3nix13InputAccessorD0Ev], [23 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -120 to ptr), ptr inttoptr (i64 -120 to ptr), ptr @_ZTIN3nix13InputAccessorE, ptr @_ZTv0_n24_N3nix13InputAccessorD1Ev, ptr @_ZTv0_n24_N3nix13InputAccessorD0Ev, ptr @_ZN3nix14SourceAccessor8readFileB5cxx11ERKNS_9CanonPathE, ptr @_ZN3nix14SourceAccessor8readFileERKNS_9CanonPathERNS_4SinkESt8functionIFvmEE, ptr @_ZN3nix14SourceAccessor10pathExistsERKNS_9CanonPathE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3nix14SourceAccessor8dumpPathERKNS_9CanonPathERNS_4SinkERSt8functionIFbRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, ptr @_ZN3nix14SourceAccessor15getPhysicalPathB5cxx11ERKNS_9CanonPathE, ptr @_ZN3nix14SourceAccessor8showPathB5cxx11ERKNS_9CanonPathE] }, comdat, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3nix13InputAccessorE = linkonce_odr constant [22 x i8] c"N3nix13InputAccessorE\00", comdat, align 1
@@ -2881,7 +2881,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorE
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(200) %7) #3
   %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(216) %6) #3
@@ -3061,7 +3061,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -3258,11 +3258,11 @@ define linkonce_odr void @_ZN3nix15FSInputAccessorC1Ev(ptr noundef nonnull align
           to label %8 unwind label %11
 
 8:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 0, i32 3), ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 120
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 2, i32 12), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 2, i32 12), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 1, i32 3), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 1, i32 3), ptr %10, align 8
   ret void
 
 11:                                               ; preds = %1
@@ -3342,7 +3342,7 @@ define linkonce_odr void @_ZN3nix14SourceAccessorD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix14SourceAccessorE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %"struct.nix::SourceAccessor", ptr %3, i32 0, i32 2
@@ -4714,7 +4714,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorE
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(200) %9) #3
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3nix15FSInputAccessorESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(216) %8) #3
@@ -4787,11 +4787,11 @@ define linkonce_odr void @_ZN3nix15FSInputAccessorCI1NS_19PosixSourceAccessorEEO
           to label %11 unwind label %14
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 0, i32 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 0, i32 3), ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 120
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 2, i32 12), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 2, i32 12), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 64
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, inrange i32 1, i32 3), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr], [23 x ptr] }, ptr @_ZTVN3nix15FSInputAccessorE, i32 0, i32 1, i32 3), ptr %13, align 8
   ret void
 
 14:                                               ; preds = %2

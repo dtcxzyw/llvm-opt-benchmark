@@ -21,7 +21,7 @@ $_ZTI6b2Draw = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6b2DrawC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV6b2Draw, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV6b2Draw, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_drawFlags = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_drawFlags, align 8
   ret void

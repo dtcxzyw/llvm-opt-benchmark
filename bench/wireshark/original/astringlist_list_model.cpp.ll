@@ -1227,7 +1227,7 @@ define void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 d
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV20AStringListListModel, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV20AStringListListModel, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.AStringListListModel, ptr %5, i32 0, i32 1
   call void @_ZN5QListIS_I7QStringEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
   %8 = getelementptr inbounds %class.AStringListListModel, ptr %5, i32 0, i32 2
@@ -1262,7 +1262,7 @@ define void @_ZN20AStringListListModelD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV20AStringListListModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV20AStringListListModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.AStringListListModel, ptr %3, i32 0, i32 1
   invoke void @_ZN5QListIS_I7QStringEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %5 unwind label %8
@@ -2035,7 +2035,7 @@ define void @_ZN35AStringListListSortFilterProxyModelC2EP7QObject(ptr noundef no
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV35AStringListListSortFilterProxyModel, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV35AStringListListSortFilterProxyModel, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #14
   %12 = getelementptr inbounds %class.AStringListListSortFilterProxyModel, ptr %9, i32 0, i32 2
@@ -3606,7 +3606,7 @@ define void @_ZN28AStringListListUrlProxyModelC2EP7QObject(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV28AStringListListUrlProxyModel, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV28AStringListListUrlProxyModel, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.AStringListListUrlProxyModel, ptr %5, i32 0, i32 1
   call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #14
   ret void
@@ -3864,7 +3864,7 @@ define linkonce_odr void @_ZN28AStringListListUrlProxyModelD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV28AStringListListUrlProxyModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV28AStringListListUrlProxyModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.AStringListListUrlProxyModel, ptr %3, i32 0, i32 1
   call void @_ZN5QListIiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   call void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14

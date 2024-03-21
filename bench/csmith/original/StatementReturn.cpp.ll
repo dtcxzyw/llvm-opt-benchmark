@@ -769,7 +769,7 @@ define dso_local void @_ZN15StatementReturnC2EP5BlockRK18ExpressionVariable(ptr 
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 5, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.StatementReturn, ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %9, align 8
@@ -791,7 +791,7 @@ define dso_local void @_ZN15StatementReturnC2ERKS_(ptr noundef nonnull align 8 d
   %9 = getelementptr inbounds %class.Statement, ptr %8, i32 0, i32 4
   %10 = load ptr, ptr %9, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %7, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i32 0, i32 0, i32 2), ptr %5, align 8
   %11 = getelementptr inbounds %class.StatementReturn, ptr %5, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %class.StatementReturn, ptr %12, i32 0, i32 1
@@ -815,7 +815,7 @@ define dso_local void @_ZN15StatementReturnD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15StatementReturn, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.StatementReturn, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

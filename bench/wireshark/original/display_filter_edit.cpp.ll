@@ -849,9 +849,9 @@ define void @_ZN17DisplayFilterEditC2EP7QWidget21DisplayFilterEditType(ptr nound
   %47 = load ptr, ptr %4, align 8
   %48 = load ptr, ptr %5, align 8
   call void @_ZN14SyntaxLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(185) %47, ptr noundef %48)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17DisplayFilterEdit, i32 0, inrange i32 0, i32 2), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17DisplayFilterEdit, i32 0, i32 0, i32 2), ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %47, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17DisplayFilterEdit, i32 0, inrange i32 1, i32 2), ptr %49, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17DisplayFilterEdit, i32 0, i32 1, i32 2), ptr %49, align 8
   %50 = getelementptr inbounds %class.DisplayFilterEdit, ptr %47, i32 0, i32 1
   %51 = load i32, ptr %6, align 4
   store i32 %51, ptr %50, align 4
@@ -3367,9 +3367,9 @@ define linkonce_odr void @_ZN14SyntaxLineEditD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 9
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   %6 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 8
@@ -5578,7 +5578,7 @@ define linkonce_odr void @_ZN15FilterListModelD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FilterListModel, ptr %3, i32 0, i32 2
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3

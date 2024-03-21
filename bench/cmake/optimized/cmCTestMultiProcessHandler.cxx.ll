@@ -547,7 +547,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN26cmCTestMultiProcessHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(870) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::set", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1195,7 +1195,7 @@ _ZN19cmCTestResourceSpec6SocketD2Ev.exit:         ; preds = %_ZN11cmJSONStateD2E
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN26cmCTestMultiProcessHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(870) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 824
   tail call void @_ZN2cm19uv_handle_ptr_base_I10uv_timer_sED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #25
   %3 = getelementptr inbounds i8, ptr %0, i64 808

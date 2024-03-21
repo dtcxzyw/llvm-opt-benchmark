@@ -130,7 +130,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this1)
-  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %constructorErrorCode = getelementptr inbounds %"class.icu_75::ChoiceFormat", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %status.addr, align 8
   %1 = load i32, ptr %0, align 4
@@ -210,7 +210,7 @@ entry:
   store i32 %cnt, ptr %cnt.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this1)
-  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %constructorErrorCode = getelementptr inbounds %"class.icu_75::ChoiceFormat", ptr %this1, i32 0, i32 1
   store i32 0, ptr %constructorErrorCode, align 4
   %msgPattern = getelementptr inbounds %"class.icu_75::ChoiceFormat", ptr %this1, i32 0, i32 2
@@ -280,7 +280,7 @@ entry:
   store i32 %cnt, ptr %cnt.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this1)
-  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %constructorErrorCode = getelementptr inbounds %"class.icu_75::ChoiceFormat", ptr %this1, i32 0, i32 1
   store i32 0, ptr %constructorErrorCode, align 4
   %msgPattern = getelementptr inbounds %"class.icu_75::ChoiceFormat", ptr %this1, i32 0, i32 2
@@ -346,7 +346,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %that.addr, align 8
   call void @_ZN6icu_7512NumberFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(356) %this1, ptr noundef nonnull align 8 dereferenceable(356) %0)
-  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %constructorErrorCode = getelementptr inbounds %"class.icu_75::ChoiceFormat", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %that.addr, align 8
   %constructorErrorCode2 = getelementptr inbounds %"class.icu_75::ChoiceFormat", ptr %1, i32 0, i32 1
@@ -398,7 +398,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512NumberFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this1)
-  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %constructorErrorCode = getelementptr inbounds %"class.icu_75::ChoiceFormat", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %status.addr, align 8
   %1 = load i32, ptr %0, align 4
@@ -538,7 +538,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [49 x ptr] }, ptr @_ZTVN6icu_7512ChoiceFormatE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %msgPattern = getelementptr inbounds %"class.icu_75::ChoiceFormat", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_7514MessagePatternD1Ev(ptr noundef nonnull align 8 dereferenceable(127) %msgPattern) #5
   call void @_ZN6icu_7512NumberFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this1) #5
@@ -1266,7 +1266,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -2354,7 +2354,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2364,7 +2364,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

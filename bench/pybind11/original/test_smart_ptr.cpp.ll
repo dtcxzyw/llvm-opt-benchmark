@@ -7185,7 +7185,7 @@ $_ZTIN8pybind114listE = comdat any
 @_ZZN12_GLOBAL__N_111pointer_setINS_10MyObject4aEEERSt13unordered_setIPT_St4hashIS4_ESt8equal_toIS4_ESaIS4_EEvE9singleton = internal global ptr null, align 8
 @_ZGVZN12_GLOBAL__N_111pointer_setINS_10MyObject4aEEERSt13unordered_setIPT_St4hashIS4_ESt8equal_toIS4_ESaIS4_EEvE9singleton = internal global i64 0, align 8
 @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE = internal unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 8 to ptr), ptr null, ptr @_ZTIN12_GLOBAL__N_118SharedFromThisVirtE, ptr @_ZN12_GLOBAL__N_118SharedFromThisVirtD1Ev, ptr @_ZN12_GLOBAL__N_118SharedFromThisVirtD0Ev], [5 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN12_GLOBAL__N_118SharedFromThisVirtE, ptr @_ZTv0_n24_N12_GLOBAL__N_118SharedFromThisVirtD1Ev, ptr @_ZTv0_n24_N12_GLOBAL__N_118SharedFromThisVirtD0Ev] }, align 8
-@_ZTTN12_GLOBAL__N_118SharedFromThisVirtE = internal unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN12_GLOBAL__N_118SharedFromThisVirtE = internal unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN12_GLOBAL__N_118SharedFromThisVirtE = internal constant [37 x i8] c"N12_GLOBAL__N_118SharedFromThisVirtE\00", align 1
 @_ZTSN12_GLOBAL__N_119SharedFromThisVBaseE = internal constant [38 x i8] c"N12_GLOBAL__N_119SharedFromThisVBaseE\00", align 1
@@ -14195,9 +14195,9 @@ define internal void @_ZN12_GLOBAL__N_118SharedFromThisVirtC1Ev(ptr noundef nonn
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZN12_GLOBAL__N_119SharedFromThisVBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, inrange i32 0, i32 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, i32 0, i32 3), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, inrange i32 1, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, i32 1, i32 3), ptr %5, align 8
   ret void
 }
 
@@ -16929,7 +16929,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
@@ -19068,7 +19068,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %5, i32 0, i32 1
   %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #22
           to label %8 unwind label %11
@@ -19245,7 +19245,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21573,7 +21573,7 @@ define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorERK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -22036,7 +22036,7 @@ define linkonce_odr hidden void @_ZN8pybind1117builtin_exceptionCI2St13runtime_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -22576,7 +22576,7 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN8pybind116detail25
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %7, align 8
@@ -22739,7 +22739,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -57359,7 +57359,7 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -71720,7 +71720,7 @@ define internal void @_ZN12_GLOBAL__N_119SharedFromThisVBaseC2Ev(ptr noundef non
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt23enable_shared_from_thisIN12_GLOBAL__N_119SharedFromThisVBaseEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119SharedFromThisVBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119SharedFromThisVBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -85134,7 +85134,7 @@ define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -85168,7 +85168,7 @@ define linkonce_odr hidden void @_ZN8pybind1117builtin_exceptionCI2St13runtime_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -90332,7 +90332,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject1C2Ei(ptr noundef nonnull align 
   store i32 %1, ptr %4, align 4
   %8 = load ptr, ptr %3, align 8
   call void @_ZN6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject1E, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject1E, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.(anonymous namespace)::MyObject1", ptr %8, i32 0, i32 1
   %10 = load i32, ptr %4, align 4
   store i32 %10, ptr %9, align 4
@@ -90386,7 +90386,7 @@ define linkonce_odr hidden void @_ZN6ObjectC2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Object, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Object, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.Object, ptr %3, i32 0, i32 1
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #7
   call void @_Z21print_default_createdI6ObjectJEEvPT_DpOT0_(ptr noundef %3)
@@ -90514,7 +90514,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject1D2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject1E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject1E, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedIN12_GLOBAL__N_19MyObject1EJEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -90612,7 +90612,7 @@ define linkonce_odr hidden void @_ZN6ObjectD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Object, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Object, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedI6ObjectJEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -106450,7 +106450,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject2ELN9__gnu
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject2ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject2ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -107020,7 +107020,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject2C2Ei(ptr noundef nonnull align 
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %8 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.(anonymous namespace)::MyObject2", ptr %8, i32 0, i32 1
   %10 = load i32, ptr %4, align 4
   store i32 %10, ptr %9, align 8
@@ -107171,7 +107171,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject2D2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedIN12_GLOBAL__N_19MyObject2EJEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -107992,7 +107992,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject2C2ERKS0_(ptr noundef nonnull al
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject2E, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.(anonymous namespace)::MyObject2", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.(anonymous namespace)::MyObject2", ptr %7, i32 0, i32 1
@@ -108580,7 +108580,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ES
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -112991,7 +112991,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject3ELN9__gnu
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject3ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_19MyObject3ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.771", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -113680,7 +113680,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject3C2Ei(ptr noundef nonnull align 
   %8 = load ptr, ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 8
   call void @_ZNSt23enable_shared_from_thisIN12_GLOBAL__N_19MyObject3EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %"class.(anonymous namespace)::MyObject3", ptr %8, i32 0, i32 2
   %11 = load i32, ptr %4, align 4
   store i32 %11, ptr %10, align 8
@@ -113868,7 +113868,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject3D2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedIN12_GLOBAL__N_19MyObject3EJEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %6
 
@@ -114716,7 +114716,7 @@ define internal void @_ZN12_GLOBAL__N_19MyObject3C2ERKS0_(ptr noundef nonnull al
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   call void @_ZNSt23enable_shared_from_thisIN12_GLOBAL__N_19MyObject3EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19MyObject3E, i32 0, i32 0, i32 2), ptr %5, align 8
   %9 = getelementptr inbounds %"class.(anonymous namespace)::MyObject3", ptr %5, i32 0, i32 2
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.(anonymous namespace)::MyObject3", ptr %10, i32 0, i32 2
@@ -115316,7 +115316,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ES
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.792", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %9) #7
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #7
@@ -122125,7 +122125,7 @@ define linkonce_odr hidden void @_ZN8pybind1120reference_cast_errorCI2St13runtim
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -125239,7 +125239,7 @@ define internal void @_ZN12_GLOBAL__N_110MyObject4aC2Ei(ptr noundef nonnull alig
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4aE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4aE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.(anonymous namespace)::MyObject4a", ptr %7, i32 0, i32 1
   %9 = load i32, ptr %4, align 4
   store i32 %9, ptr %8, align 8
@@ -125338,7 +125338,7 @@ define internal void @_ZN12_GLOBAL__N_110MyObject4aD2Ev(ptr noundef nonnull alig
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4aE, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4aE, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZN12_GLOBAL__N_111pointer_setINS_10MyObject4aEEERSt13unordered_setIPT_St4hashIS4_ESt8equal_toIS4_ESaIS4_EEv()
           to label %6 unwind label %10
 
@@ -130860,7 +130860,7 @@ define internal void @_ZN12_GLOBAL__N_110MyObject4bC2Ei(ptr noundef nonnull alig
   %7 = load ptr, ptr %3, align 8
   %8 = load i32, ptr %4, align 4
   call void @_ZN12_GLOBAL__N_110MyObject4aC2Ei(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4bE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4bE, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_Z13print_createdIN12_GLOBAL__N_110MyObject4bEJEEvPT_DpOT0_(ptr noundef %7)
           to label %9 unwind label %10
 
@@ -130945,7 +130945,7 @@ define internal void @_ZN12_GLOBAL__N_110MyObject4bD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4bE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110MyObject4bE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_Z15print_destroyedIN12_GLOBAL__N_110MyObject4bEJEEvPT_DpOT0_(ptr noundef %3)
           to label %4 unwind label %5
 
@@ -134127,7 +134127,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_112SharedPtrRef1AELN
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_112SharedPtrRef1AELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_112SharedPtrRef1AELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.967", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -135807,7 +135807,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrR
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrRef1AESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrRef1AESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.994", ptr %6, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrRef1AESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 1 dereferenceable(1) %7) #7
   %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrRef1AESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(24) %6) #7
@@ -141756,7 +141756,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_117SharedFromThisRef
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_117SharedFromThisRef1BELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_117SharedFromThisRef1BELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1051", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -143432,7 +143432,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFrom
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFromThisRef1BESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFromThisRef1BESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1074", ptr %6, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFromThisRef1BESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(16) %7) #7
   %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFromThisRef1BESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #7
@@ -149168,7 +149168,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_118SharedFromThisVir
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_118SharedFromThisVirtELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_118SharedFromThisVirtELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1125", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -150357,9 +150357,9 @@ define internal void @_ZN12_GLOBAL__N_118SharedFromThisVirtC1ERKS0_(ptr noundef 
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   call void @_ZN12_GLOBAL__N_119SharedFromThisVBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11) #7
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, i32 0, i32 3), ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, inrange i32 1, i32 3), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, i32 1, i32 3), ptr %12, align 8
   ret void
 }
 
@@ -150374,7 +150374,7 @@ define internal void @_ZN12_GLOBAL__N_119SharedFromThisVBaseC2ERKS0_(ptr noundef
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   call void @_ZNSt23enable_shared_from_thisIN12_GLOBAL__N_119SharedFromThisVBaseEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119SharedFromThisVBaseE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119SharedFromThisVBaseE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -150433,9 +150433,9 @@ define internal void @_ZN12_GLOBAL__N_118SharedFromThisVirtC1EOS0_(ptr noundef n
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   call void @_ZN12_GLOBAL__N_119SharedFromThisVBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %11) #7
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, i32 0, i32 3), ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, inrange i32 1, i32 3), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118SharedFromThisVirtE, i32 0, i32 1, i32 3), ptr %12, align 8
   ret void
 }
 
@@ -152626,7 +152626,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_126TypeForHolderWith
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_126TypeForHolderWithAddressOfELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_126TypeForHolderWithAddressOfELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1164", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -163042,7 +163042,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementBaseELN9__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementBaseELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementBaseELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1280", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -163470,7 +163470,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_18ElementAELN9__gnu_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_18ElementAELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_18ElementAELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1287", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -164075,7 +164075,7 @@ define internal void @_ZN12_GLOBAL__N_18ElementAC2Ei(ptr noundef nonnull align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN12_GLOBAL__N_111ElementBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18ElementAE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18ElementAE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.(anonymous namespace)::ElementA", ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -164087,7 +164087,7 @@ define internal void @_ZN12_GLOBAL__N_111ElementBaseC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111ElementBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111ElementBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -165015,7 +165015,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementListELN9__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementListELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_111ElementListELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1312", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8

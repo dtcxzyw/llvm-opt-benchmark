@@ -3431,7 +3431,7 @@ entry:
   store ptr %why, ptr %why.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(32) %why)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5048,7 +5048,7 @@ entry:
   store i8 %frombool, ptr %prefilter.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue218GlushkovBuildStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #15
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %startState = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %b.addr, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -5231,7 +5231,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue218GlushkovBuildStateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue218GlushkovBuildStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5276,7 +5276,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_122GlushkovBuildStateImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %successors = getelementptr inbounds %"class.ue2::(anonymous namespace)::GlushkovBuildStateImpl", ptr %this1, i32 0, i32 9
   call void @_ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pairIKjS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %successors) #15
   call void @_ZN3ue218GlushkovBuildStateD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #15

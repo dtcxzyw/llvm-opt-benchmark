@@ -262,9 +262,9 @@ define void @_ZN18CaptureFilterComboC2EP7QWidgetb(ptr noundef nonnull align 8 de
   %30 = load ptr, ptr %4, align 8
   %31 = load ptr, ptr %5, align 8
   call void @_ZN9QComboBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef %31)
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18CaptureFilterCombo, i32 0, inrange i32 0, i32 2), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18CaptureFilterCombo, i32 0, i32 0, i32 2), ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %30, i64 16
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18CaptureFilterCombo, i32 0, inrange i32 1, i32 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18CaptureFilterCombo, i32 0, i32 1, i32 2), ptr %32, align 8
   %33 = getelementptr inbounds %class.CaptureFilterCombo, ptr %30, i32 0, i32 1
   store ptr null, ptr %33, align 8
   %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 280) #8

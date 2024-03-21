@@ -2890,7 +2890,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5cmake20AddDefaultGeneratorsEv(ptr nocapture noundef nonnull align 8 dereferenceable(2216) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !20
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI25cmGlobalGhsMultiGeneratorE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !noalias !20
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI25cmGlobalGhsMultiGeneratorE, i64 0, i32 0, i64 2), ptr %2, align 8, !noalias !20
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2979,7 +2979,7 @@ _ZNSt10unique_ptrI24cmGlobalGeneratorFactorySt14default_deleteIS0_EED2Ev.exit: ;
   %35 = phi ptr [ %.pre, %7 ], [ %34, %.noexc ]
   %36 = phi ptr [ %10, %7 ], [ %32, %.noexc ]
   %37 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !29
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI30cmGlobalUnixMakefileGenerator3E, i64 0, inrange i32 0, i64 2), ptr %37, align 8, !noalias !29
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI30cmGlobalUnixMakefileGenerator3E, i64 0, i32 0, i64 2), ptr %37, align 8, !noalias !29
   %.not.i.i4 = icmp eq ptr %36, %35
   br i1 %.not.i.i4, label %42, label %38
 
@@ -3064,7 +3064,7 @@ _ZNSt10unique_ptrI24cmGlobalGeneratorFactorySt14default_deleteIS0_EED2Ev.exit9: 
   %66 = phi ptr [ %.pre156, %38 ], [ %65, %.noexc5 ]
   %67 = phi ptr [ %41, %38 ], [ %63, %.noexc5 ]
   %68 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !37
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI22cmGlobalNinjaGeneratorE, i64 0, inrange i32 0, i64 2), ptr %68, align 8, !noalias !37
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI22cmGlobalNinjaGeneratorE, i64 0, i32 0, i64 2), ptr %68, align 8, !noalias !37
   %.not.i.i10 = icmp eq ptr %67, %66
   br i1 %.not.i.i10, label %73, label %69
 
@@ -3149,7 +3149,7 @@ _ZNSt10unique_ptrI24cmGlobalGeneratorFactorySt14default_deleteIS0_EED2Ev.exit15:
   %97 = phi ptr [ %.pre157, %69 ], [ %96, %.noexc11 ]
   %98 = phi ptr [ %72, %69 ], [ %94, %.noexc11 ]
   %99 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !45
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI27cmGlobalNinjaMultiGeneratorE, i64 0, inrange i32 0, i64 2), ptr %99, align 8, !noalias !45
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI27cmGlobalNinjaMultiGeneratorE, i64 0, i32 0, i64 2), ptr %99, align 8, !noalias !45
   %.not.i.i16 = icmp eq ptr %98, %97
   br i1 %.not.i.i16, label %104, label %100
 
@@ -3234,7 +3234,7 @@ _ZNSt10unique_ptrI24cmGlobalGeneratorFactorySt14default_deleteIS0_EED2Ev.exit21:
   %128 = phi ptr [ %.pre158, %100 ], [ %127, %.noexc17 ]
   %129 = phi ptr [ %103, %100 ], [ %125, %.noexc17 ]
   %130 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #31, !noalias !53
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI28cmGlobalWatcomWMakeGeneratorE, i64 0, inrange i32 0, i64 2), ptr %130, align 8, !noalias !53
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV30cmGlobalGeneratorSimpleFactoryI28cmGlobalWatcomWMakeGeneratorE, i64 0, i32 0, i64 2), ptr %130, align 8, !noalias !53
   %.not.i.i22 = icmp eq ptr %129, %128
   br i1 %.not.i.i22, label %135, label %131
 
@@ -6546,7 +6546,7 @@ define dso_local void @_ZNK5cmake18ReportCapabilitiesB5cxx11Ev(ptr dead_on_unwin
   %9 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #30
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10FastWriterE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10FastWriterE, i64 0, i32 0, i64 2), ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #30
   call void @_ZN4Json6WriterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #30
@@ -6570,7 +6570,7 @@ define dso_local void @_ZNK5cmake18ReportCapabilitiesB5cxx11Ev(ptr dead_on_unwin
 
 17:                                               ; preds = %15, %13
   %.pn = phi { ptr, i32 } [ %16, %15 ], [ %14, %13 ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10FastWriterE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10FastWriterE, i64 0, i32 0, i64 2), ptr %3, align 8
   %18 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %18) #30
   call void @_ZN4Json6WriterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #30
@@ -28760,7 +28760,7 @@ _ZNK5cmake21GetDebuggerDapLogFileB5cxx11Ev.exit:  ; preds = %19
   store i32 1, ptr %22, align 8, !noalias !1135
   %23 = getelementptr inbounds i8, ptr %21, i64 12
   store i32 1, ptr %23, align 4, !noalias !1135
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10cmDebugger17cmDebuggerAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %21, align 8, !noalias !1135
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10cmDebugger17cmDebuggerAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %21, align 8, !noalias !1135
   %24 = getelementptr inbounds i8, ptr %21, i64 16
   invoke void @_ZSt10_ConstructIN10cmDebugger17cmDebuggerAdapterEJSt10shared_ptrINS0_30cmDebuggerPipeConnection_POSIXEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_(ptr noundef nonnull %24, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(32) %6)
           to label %_ZSt11make_sharedIN10cmDebugger17cmDebuggerAdapterEJSt10shared_ptrINS0_30cmDebuggerPipeConnection_POSIXEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEES2_INSt9enable_ifIXntsr8is_arrayIT_EE5valueESC_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN10cmDebugger17cmDebuggerAdapterESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit11.i.i.i.i, !noalias !1135
@@ -42324,7 +42324,7 @@ define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10PresetPairINS_14Wo
 
 6:                                                ; preds = %1
   store i8 0, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 0, i32 0, i64 2), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 456
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 464
@@ -42358,7 +42358,7 @@ _ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph14WorkflowPresetEE10_M_destr
   br label %_ZNSt8optionalIN19cmCMakePresetsGraph14WorkflowPresetEED2Ev.exit
 
 _ZNSt8optionalIN19cmCMakePresetsGraph14WorkflowPresetEED2Ev.exit: ; preds = %1, %_ZNSt22_Optional_payload_baseIN19cmCMakePresetsGraph14WorkflowPresetEE10_M_destroyEv.exit.i.i.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph14WorkflowPresetE, i64 0, i32 0, i64 2), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 216
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 224
@@ -42394,7 +42394,7 @@ _ZN19cmCMakePresetsGraph14WorkflowPresetD2Ev.exit: ; preds = %_ZSt8_DestroyIPN19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph6PresetD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph6PresetE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 168
   %3 = getelementptr inbounds i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8
@@ -42577,7 +42577,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph13PackagePresetD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph13PackagePresetE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 488
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
   %3 = getelementptr inbounds i8, ptr %0, i64 456
@@ -42727,7 +42727,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph10TestPresetD2Ev(ptr noundef nonnull align 8 dereferenceable(904) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph10TestPresetE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 896
   %3 = load i8, ptr %2, align 8
   %4 = and i8 %3, 1
@@ -42915,7 +42915,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph11BuildPresetD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph11BuildPresetE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 328
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 336
@@ -43019,7 +43019,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19cmCMakePresetsGraph15ConfigurePresetD2Ev(ptr noundef nonnull align 8 dereferenceable(568) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN19cmCMakePresetsGraph15ConfigurePresetE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 536
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #30
   %3 = getelementptr inbounds i8, ptr %0, i64 512
@@ -51925,7 +51925,7 @@ define linkonce_odr dso_local void @_ZNSt12__shared_ptrIN10cmDebugger30cmDebugge
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10cmDebugger30cmDebuggerPipeConnection_POSIXESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN10cmDebugger30cmDebuggerPipeConnection_POSIXESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %2) #30

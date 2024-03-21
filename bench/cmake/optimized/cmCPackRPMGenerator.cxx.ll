@@ -110,7 +110,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN19cmCPackRPMGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN16cmCPackGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackRPMGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackRPMGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 

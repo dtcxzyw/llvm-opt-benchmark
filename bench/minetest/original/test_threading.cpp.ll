@@ -176,7 +176,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -454,7 +454,7 @@ define dso_local void @_ZN13TestThreading17testStartStopWaitEv(ptr nocapture non
 
 48:                                               ; preds = %38, %35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16SimpleTestThread, i64 0, inrange i32 0, i64 2), ptr %28, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16SimpleTestThread, i64 0, i32 0, i64 2), ptr %28, align 8, !tbaa !4
   %49 = getelementptr inbounds i8, ptr %28, i64 144
   store i32 25, ptr %49, align 8, !tbaa !21
   %50 = getelementptr inbounds i8, ptr %28, i64 50
@@ -1604,7 +1604,7 @@ define dso_local void @_ZN13TestThreading25testAtomicSemaphoreThreadEv(ptr nocap
 
 23:                                               ; preds = %20, %19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16AtomicTestThread, i64 0, inrange i32 0, i64 2), ptr %14, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16AtomicTestThread, i64 0, i32 0, i64 2), ptr %14, align 8, !tbaa !4
   %24 = getelementptr inbounds i8, ptr %14, i64 144
   store ptr %3, ptr %24, align 8, !tbaa !14
   %25 = getelementptr inbounds i8, ptr %14, i64 152
@@ -1645,7 +1645,7 @@ define dso_local void @_ZN13TestThreading25testAtomicSemaphoreThreadEv(ptr nocap
 
 38:                                               ; preds = %35, %34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16AtomicTestThread, i64 0, inrange i32 0, i64 2), ptr %29, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16AtomicTestThread, i64 0, i32 0, i64 2), ptr %29, align 8, !tbaa !4
   %39 = getelementptr inbounds i8, ptr %29, i64 144
   store ptr %3, ptr %39, align 8, !tbaa !14
   %40 = getelementptr inbounds i8, ptr %29, i64 152
@@ -1686,7 +1686,7 @@ define dso_local void @_ZN13TestThreading25testAtomicSemaphoreThreadEv(ptr nocap
 
 53:                                               ; preds = %50, %49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16AtomicTestThread, i64 0, inrange i32 0, i64 2), ptr %44, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16AtomicTestThread, i64 0, i32 0, i64 2), ptr %44, align 8, !tbaa !4
   %54 = getelementptr inbounds i8, ptr %44, i64 144
   store ptr %3, ptr %54, align 8, !tbaa !14
   %55 = getelementptr inbounds i8, ptr %44, i64 152
@@ -1754,7 +1754,7 @@ define dso_local void @_ZN13TestThreading25testAtomicSemaphoreThreadEv(ptr nocap
 
 79:                                               ; preds = %68, %65
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16AtomicTestThread, i64 0, inrange i32 0, i64 2), ptr %12, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16AtomicTestThread, i64 0, i32 0, i64 2), ptr %12, align 8, !tbaa !4
   %80 = getelementptr inbounds i8, ptr %12, i64 144
   store ptr %3, ptr %80, align 8, !tbaa !14
   %81 = getelementptr inbounds i8, ptr %12, i64 152
@@ -1999,7 +1999,7 @@ define dso_local void @_ZN13TestThreading7testTLSEv(ptr nocapture nonnull readno
 
 30:                                               ; preds = %18, %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13TLSTestThread, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13TLSTestThread, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !4
   %31 = invoke noundef zeroext i1 @_ZN6Thread5startEv(ptr noundef nonnull align 8 dereferenceable(144) %3)
           to label %32 unwind label %78
 
@@ -2690,14 +2690,14 @@ define internal void @_GLOBAL__sub_I_test_threading.cpp() #17 section ".text.sta
   store ptr getelementptr inbounds (%class.TestThreading, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestThreading, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !19
   store i64 0, ptr getelementptr inbounds (%class.TestThreading, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestThreading, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !20
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TestThreading, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TestThreading, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%class.TestThreading, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestThreading, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

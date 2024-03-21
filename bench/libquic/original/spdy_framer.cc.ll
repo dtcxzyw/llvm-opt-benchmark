@@ -1611,7 +1611,7 @@ entry:
   store i32 %version, ptr %version.addr, align 4
   store ptr %adapter_factory, ptr %adapter_factory.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %send_frame_size_limit_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 8
   store i64 16384, ptr %send_frame_size_limit_, align 8
   %recv_frame_size_limit_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 9
@@ -2229,7 +2229,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_compressor_ = getelementptr inbounds %"class.net::SpdyFramer", ptr %this1, i32 0, i32 17
   %call = call noundef ptr @_ZNKSt10unique_ptrI10z_stream_sSt14default_deleteIS0_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %header_compressor_) #13
   %tobool = icmp ne ptr %call, null
@@ -20225,7 +20225,7 @@ entry:
   store ptr %framer, ptr %framer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net16SpdyFrameVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %framer_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %framer.addr, align 8
   store ptr %0, ptr %framer_, align 8
@@ -20273,7 +20273,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %frame_ = getelementptr inbounds %"class.net::(anonymous namespace)::FrameSerializationVisitor", ptr %this1, i32 0, i32 2
   call void @_ZN3net19SpdySerializedFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %frame_) #13
   call void @_ZN3net16SpdyFrameVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
@@ -23149,7 +23149,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net16SpdyFrameVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net16SpdyFrameVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

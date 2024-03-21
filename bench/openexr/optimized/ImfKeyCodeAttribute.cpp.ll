@@ -66,7 +66,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_7KeyCodeEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(36) %this, ptr noundef nonnull align 4 dereferenceable(28) %value) unnamed_addr #3 comdat($_ZN7Imf_3_214TypedAttributeINS_7KeyCodeEEC5ERKS1_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_7KeyCodeEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_7KeyCodeEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_value = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN7Imf_3_27KeyCodeC1ERKS0_(ptr noundef nonnull align 4 dereferenceable(28) %_value, ptr noundef nonnull align 4 dereferenceable(28) %value)
           to label %invoke.cont unwind label %lpad
@@ -143,7 +143,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_7KeyCodeEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_7KeyCodeEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN7Imf_3_27KeyCodeC1Eiiiiiii(ptr noundef nonnull align 4 dereferenceable(28) %_value.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 64)
           to label %invoke.cont unwind label %lpad.i
@@ -183,7 +183,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_7KeyCodeEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_7KeyCodeEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN7Imf_3_27KeyCodeC1Eiiiiiii(ptr noundef nonnull align 4 dereferenceable(28) %_value.i, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef 4, i32 noundef 64)
           to label %invoke.cont unwind label %lpad.i

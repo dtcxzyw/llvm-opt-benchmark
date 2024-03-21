@@ -721,7 +721,7 @@ define void @_ZN7Imf_3_219DeepTiledOutputFileC2EPKcRKNS_6HeaderEi(ptr noundef no
 entry:
   %_iex_replace_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   tail call void @_ZN7Imf_3_217GenericOutputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219DeepTiledOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219DeepTiledOutputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = invoke noalias noundef nonnull dereferenceable(464) ptr @_Znwm(i64 noundef 464) #22
           to label %invoke.cont unwind label %lpad
@@ -1486,7 +1486,7 @@ define void @_ZN7Imf_3_219DeepTiledOutputFileC2ERNS_7OStreamERKNS_6HeaderEi(ptr 
 entry:
   %_iex_replace_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   tail call void @_ZN7Imf_3_217GenericOutputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219DeepTiledOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219DeepTiledOutputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   %call = invoke noalias noundef nonnull dereferenceable(464) ptr @_Znwm(i64 noundef 464) #22
           to label %invoke.cont unwind label %lpad
@@ -1728,7 +1728,7 @@ define void @_ZN7Imf_3_219DeepTiledOutputFileC2EPKNS_14OutputPartDataE(ptr nound
 entry:
   %_iex_replace_s = alloca %"class.std::__cxx11::basic_stringstream", align 8
   tail call void @_ZN7Imf_3_217GenericOutputFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219DeepTiledOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219DeepTiledOutputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK7Imf_3_26Header4typeB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(49) %part)
           to label %invoke.cont unwind label %lpad
 
@@ -1980,7 +1980,7 @@ declare noundef ptr @_ZN7Imf_3_213newCompressorENS_11CompressionEmRKNS_6HeaderE(
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Imf_3_219DeepTiledOutputFileD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219DeepTiledOutputFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_219DeepTiledOutputFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_data = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_data, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -3062,7 +3062,7 @@ invoke.cont54:                                    ; preds = %while.body
           to label %.noexc92 unwind label %lpad57
 
 .noexc92:                                         ; preds = %invoke.cont54
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 0, inrange i32 0, i64 2), ptr %call55, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 0, i32 0, i64 2), ptr %call55, align 8
   %_ofd.i = getelementptr inbounds i8, ptr %call55, i64 16
   store ptr %23, ptr %_ofd.i, align 8
   %_tileBuffer.i = getelementptr inbounds i8, ptr %call55, i64 24
@@ -4290,7 +4290,7 @@ invoke.cont78:                                    ; preds = %if.then77
           to label %.noexc133 unwind label %lpad81
 
 .noexc133:                                        ; preds = %invoke.cont78
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 0, inrange i32 0, i64 2), ptr %call79, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 0, i32 0, i64 2), ptr %call79, align 8
   %_ofd.i115 = getelementptr inbounds i8, ptr %call79, i64 16
   store ptr %157, ptr %_ofd.i115, align 8
   %_tileBuffer.i116 = getelementptr inbounds i8, ptr %call79, i64 24
@@ -7928,7 +7928,7 @@ declare void @_ZN13IlmThread_3_24TaskD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7Imf_3_212_GLOBAL__N_114TileBufferTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_tileBuffer = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_tileBuffer, align 8
   %_sem.i = getelementptr inbounds i8, ptr %0, i64 144
@@ -7950,7 +7950,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7Imf_3_212_GLOBAL__N_114TileBufferTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_114TileBufferTaskE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_tileBuffer.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_tileBuffer.i, align 8
   %_sem.i.i = getelementptr inbounds i8, ptr %0, i64 144

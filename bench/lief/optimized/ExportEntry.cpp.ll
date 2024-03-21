@@ -35,7 +35,7 @@ $_ZN4LIEF2PE11ExportEntry5valueEm = comdat any
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN4LIEF2PE11ExportEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #8
@@ -60,7 +60,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF2PE11ExportEntryC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(136) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4LIEF6SymbolC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %3, ptr noundef nonnull align 8 dereferenceable(13) %4, i64 13, i1 false)
@@ -122,7 +122,7 @@ declare noundef nonnull align 8 dereferenceable(56) ptr @_ZN4LIEF6SymbolaSERKS0_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4LIEF2PE11ExportEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) unnamed_addr #3 align 2 {
   tail call void @_ZN4LIEF6SymbolC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 60
@@ -144,7 +144,7 @@ declare void @_ZN4LIEF6SymbolC2Ev(ptr noundef nonnull align 8 dereferenceable(56
 define void @_ZN4LIEF2PE11ExportEntryC2Ejbtj(ptr noundef nonnull align 8 dereferenceable(136) %0, i32 noundef %1, i1 noundef zeroext %2, i16 noundef zeroext %3, i32 noundef %4) unnamed_addr #3 align 2 {
   %6 = zext i1 %2 to i8
   tail call void @_ZN4LIEF6SymbolC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %4, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 60

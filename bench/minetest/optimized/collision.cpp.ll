@@ -736,7 +736,7 @@ define dso_local void @_Z19collisionMoveSimpleP11EnvironmentP8IGameDeffRKN3irr4c
   %38 = load ptr, ptr %37, align 8
   %39 = tail call noundef nonnull align 8 dereferenceable(144) ptr %38(ptr noundef nonnull align 8 dereferenceable(112) %1)
   %40 = load ptr, ptr %1, align 8, !tbaa !26
-  %41 = icmp eq ptr %40, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, inrange i32 0, i64 2)
+  %41 = icmp eq ptr %40, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, i32 0, i64 2)
   %42 = select i1 %41, ptr %1, ptr null
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %17) #23
   %43 = load ptr, ptr @g_profiler, align 8, !tbaa !25

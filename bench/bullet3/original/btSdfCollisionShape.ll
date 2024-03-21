@@ -259,7 +259,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV19btSdfCollisionShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV19btSdfCollisionShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 29, ptr %m_shapeType, align 8
   %call = invoke noundef ptr @_ZN31btSdfCollisionShapeInternalDatanwEm(i64 noundef 224)
@@ -369,7 +369,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV19btSdfCollisionShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV19btSdfCollisionShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_data = getelementptr inbounds %class.btSdfCollisionShape, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m_data, align 8
   %isnull = icmp eq ptr %0, null

@@ -1012,7 +1012,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12memory_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12memory_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1032,7 +1032,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11depth_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11depth_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1052,7 +1052,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10size_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10size_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1072,7 +1072,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15num_exprs_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15num_exprs_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1096,7 +1096,7 @@ entry:
   store double %v, ptr %v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11const_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11const_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_val = getelementptr inbounds %class.const_probe, ptr %this1, i32 0, i32 1
   %0 = load double, ptr %v.addr, align 8
   store double %0, ptr %m_val, align 8
@@ -1124,7 +1124,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %p.addr, align 8
   call void @_ZN11unary_probeC2EP5probe(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9not_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9not_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1155,7 +1155,7 @@ entry:
   %0 = load ptr, ptr %p1.addr, align 8
   %1 = load ptr, ptr %p2.addr, align 8
   call void @_ZN9bin_probeC2EP5probeS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9and_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9and_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1186,7 +1186,7 @@ entry:
   %0 = load ptr, ptr %p1.addr, align 8
   %1 = load ptr, ptr %p2.addr, align 8
   call void @_ZN9bin_probeC2EP5probeS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8or_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8or_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1231,7 +1231,7 @@ entry:
   %0 = load ptr, ptr %p1.addr, align 8
   %1 = load ptr, ptr %p2.addr, align 8
   call void @_ZN9bin_probeC2EP5probeS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8eq_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8eq_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1276,7 +1276,7 @@ entry:
   %0 = load ptr, ptr %p1.addr, align 8
   %1 = load ptr, ptr %p2.addr, align 8
   call void @_ZN9bin_probeC2EP5probeS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8le_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8le_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1347,7 +1347,7 @@ entry:
   %0 = load ptr, ptr %p1.addr, align 8
   %1 = load ptr, ptr %p2.addr, align 8
   call void @_ZN9bin_probeC2EP5probeS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9add_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9add_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1378,7 +1378,7 @@ entry:
   %0 = load ptr, ptr %p1.addr, align 8
   %1 = load ptr, ptr %p2.addr, align 8
   call void @_ZN9bin_probeC2EP5probeS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9mul_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9mul_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1409,7 +1409,7 @@ entry:
   %0 = load ptr, ptr %p1.addr, align 8
   %1 = load ptr, ptr %p2.addr, align 8
   call void @_ZN9bin_probeC2EP5probeS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9sub_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9sub_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1440,7 +1440,7 @@ entry:
   %0 = load ptr, ptr %p1.addr, align 8
   %1 = load ptr, ptr %p2.addr, align 8
   call void @_ZN9bin_probeC2EP5probeS1_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9div_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9div_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1460,7 +1460,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22is_propositional_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22is_propositional_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1480,7 +1480,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13is_qfbv_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13is_qfbv_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1500,7 +1500,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16is_qfaufbv_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16is_qfaufbv_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1520,7 +1520,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15is_qfufbv_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15is_qfufbv_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1544,7 +1544,7 @@ entry:
   store ptr %f, ptr %f.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16num_consts_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16num_consts_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_bool = getelementptr inbounds %class.num_consts_probe, ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %b.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -1596,7 +1596,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20produce_proofs_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20produce_proofs_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1616,7 +1616,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20produce_models_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20produce_models_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1636,7 +1636,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25produce_unsat_cores_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25produce_unsat_cores_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1656,7 +1656,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17has_pattern_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17has_pattern_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1676,7 +1676,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20has_quantifier_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20has_quantifier_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1686,7 +1686,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ref_count = getelementptr inbounds %class.probe, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_ref_count, align 8
   ret void
@@ -2109,7 +2109,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11unary_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11unary_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_p = getelementptr inbounds %class.unary_probe, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %p.addr, align 8
   store ptr %0, ptr %m_p, align 8
@@ -2207,7 +2207,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11unary_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11unary_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_p = getelementptr inbounds %class.unary_probe, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m_p, align 8
   invoke void @_ZN5probe7dec_refEv(ptr noundef nonnull align 8 dereferenceable(12) %0)
@@ -2336,7 +2336,7 @@ entry:
   store ptr %p2, ptr %p2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5probeC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_p1 = getelementptr inbounds %class.bin_probe, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %p1.addr, align 8
   store ptr %0, ptr %m_p1, align 8
@@ -2421,7 +2421,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9bin_probe, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_p1 = getelementptr inbounds %class.bin_probe, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m_p1, align 8
   invoke void @_ZN5probe7dec_refEv(ptr noundef nonnull align 8 dereferenceable(12) %0)
@@ -5522,7 +5522,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -5535,7 +5535,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -5771,7 +5771,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

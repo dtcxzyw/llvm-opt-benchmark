@@ -5430,7 +5430,7 @@ define void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenc
   %17 = load ptr, ptr %5, align 8
   %18 = load ptr, ptr %6, align 8
   call void @_ZN12QApplicationC2ERiPPci(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(4) %17, ptr noundef %18, i32 noundef 393732)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i32 0, i32 0, i32 2), ptr %16, align 8
   %19 = getelementptr inbounds %class.MainApplication, ptr %16, i32 0, i32 1
   invoke void @_ZN11QTranslatorC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef null)
           to label %20 unwind label %109
@@ -5819,7 +5819,7 @@ define linkonce_odr void @_ZN22MimeDatabaseInitThreadC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9QRunnableC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %3) #2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22MimeDatabaseInitThread, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22MimeDatabaseInitThread, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5889,7 +5889,7 @@ define void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i32 0, i32 0, i32 2), ptr %3, align 8
   store ptr null, ptr @mainApp, align 8
   invoke void @_ZN15MainApplication26clearDynamicMenuGroupItemsEv(ptr noundef nonnull align 8 dereferenceable(216) %3)
           to label %4 unwind label %16
@@ -10915,7 +10915,7 @@ define linkonce_odr void @_ZN9QRunnableC2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9QRunnable, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9QRunnable, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QRunnable, ptr %3, i32 0, i32 1
   store i8 1, ptr %4, align 8
   ret void

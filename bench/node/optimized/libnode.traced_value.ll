@@ -59,7 +59,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 define dso_local void @_ZN4node7tracing11TracedValue6CreateEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %data_.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_.i) #10
   %first_item_.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -77,7 +77,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #1
 define dso_local void @_ZN4node7tracing11TracedValue11CreateArrayEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %data_.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_.i) #10
   %first_item_.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -92,7 +92,7 @@ entry:
 define dso_local void @_ZN4node7tracing11TracedValueC2Eb(ptr noundef nonnull align 8 dereferenceable(42) %this, i1 noundef zeroext %root_is_array) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %root_is_array to i8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #10
   %first_item_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -958,7 +958,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node7tracing11TracedValueD2Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_) #10
   ret void
@@ -967,7 +967,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node7tracing11TracedValueD0Ev(ptr noundef nonnull align 8 dereferenceable(42) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7tracing11TracedValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %data_.i) #10
   tail call void @_ZdlPv(ptr noundef nonnull %this) #13

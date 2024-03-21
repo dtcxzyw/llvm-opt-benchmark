@@ -897,7 +897,7 @@ return:                                           ; preds = %if.end, %_ZN4base28
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base28PersistentHistogramAllocatorC2ESt10unique_ptrINS_25PersistentMemoryAllocatorESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr nocapture noundef %memory) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %memory_allocator_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i64, ptr %memory, align 8
   store i64 %0, ptr %memory_allocator_, align 8
@@ -962,7 +962,7 @@ _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base28PersistentHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lock_.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i) #19
   %sample_records_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -999,7 +999,7 @@ _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base28PersistentHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(132) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lock_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #19
   %sample_records_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2246,10 +2246,10 @@ declare void @_ZN4base6PickleD1Ev(ptr noundef nonnull align 8 dereferenceable(40
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base24GlobalHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %persistent_location_ = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %persistent_location_) #19
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lock_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i) #19
   %sample_records_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2289,10 +2289,10 @@ declare void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base24GlobalHistogramAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %persistent_location_.i = getelementptr inbounds i8, ptr %this, i64 160
   tail call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %persistent_location_.i) #19
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lock_.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4base8internal8LockImplD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_.i.i.i) #19
   %sample_records_.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -2660,7 +2660,7 @@ define dso_local void @_ZN4base24GlobalHistogramAllocatorC2ESt10unique_ptrINS_25
 entry:
   %0 = load i64, ptr %memory, align 8
   store ptr null, ptr %memory, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %memory_allocator_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %0, ptr %memory_allocator_.i, align 8
   %sparse_histogram_data_manager_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2717,7 +2717,7 @@ _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev
 _ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %.noexc.i
   %last_created_.i = getelementptr inbounds i8, ptr %this, i64 128
   store i32 0, ptr %last_created_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %import_iterator_ = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %this, ptr %import_iterator_, align 8
   %memory_iter_.i = getelementptr inbounds i8, ptr %this, i64 144

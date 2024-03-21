@@ -58,7 +58,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517CharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %text, align 8
   ret void
@@ -106,7 +106,7 @@ cond.false6:                                      ; preds = %entry
 cond.end7:                                        ; preds = %cond.false6, %cond.end
   %cond8 = phi i32 [ %cond, %cond.end ], [ 0, %cond.false6 ]
   call void @_ZN6icu_7517CharacterIteratorC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %cond8)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
   %call9 = invoke noundef ptr @_ZNK6icu_7514ConstChar16PtrcvPKDsEv(ptr noundef nonnull align 8 dereferenceable(8) %textPtr)
           to label %invoke.cont unwind label %lpad
@@ -195,7 +195,7 @@ cond.end7:                                        ; preds = %cond.false6, %cond.
   %cond8 = phi i32 [ %cond, %cond.end ], [ 0, %cond.false6 ]
   %2 = load i32, ptr %position.addr, align 4
   call void @_ZN6icu_7517CharacterIteratorC2Eii(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %cond8, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
   %call9 = invoke noundef ptr @_ZNK6icu_7514ConstChar16PtrcvPKDsEv(ptr noundef nonnull align 8 dereferenceable(8) %textPtr)
           to label %invoke.cont unwind label %lpad
@@ -273,7 +273,7 @@ cond.end7:                                        ; preds = %cond.false6, %cond.
   %3 = load i32, ptr %textEnd.addr, align 4
   %4 = load i32, ptr %position.addr, align 4
   call void @_ZN6icu_7517CharacterIteratorC2Eiiii(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef %cond8, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
   %call9 = invoke noundef ptr @_ZNK6icu_7514ConstChar16PtrcvPKDsEv(ptr noundef nonnull align 8 dereferenceable(8) %textPtr)
           to label %invoke.cont unwind label %lpad
@@ -312,7 +312,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %that.addr, align 8
   call void @_ZN6icu_7517CharacterIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %text = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %that.addr, align 8
   %text2 = getelementptr inbounds %"class.icu_75::UCharCharacterIterator", ptr %1, i32 0, i32 1

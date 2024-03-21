@@ -530,7 +530,7 @@ entry:
 define void @_ZN6icu_756number4impl32LocalizedNumberFormatterAsFormatC2ERKNS0_24LocalizedNumberFormatterERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef nonnull align 8 dereferenceable(496) %formatter, ptr noundef nonnull align 8 dereferenceable(217) %locale) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_756FormatC2Ev(ptr noundef nonnull align 8 dereferenceable(322) %this)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fFormatter = getelementptr inbounds i8, ptr %this, i64 328
   invoke void @_ZN6icu_756number24LocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter, ptr noundef nonnull align 8 dereferenceable(496) %formatter)
           to label %invoke.cont unwind label %lpad
@@ -596,7 +596,7 @@ declare void @_ZN6icu_756FormatD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_756number4impl32LocalizedNumberFormatterAsFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(1048) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fLocale = getelementptr inbounds i8, ptr %this, i64 824
   tail call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #11
   %fFormatter = getelementptr inbounds i8, ptr %this, i64 328
@@ -724,7 +724,7 @@ new.notnull:                                      ; preds = %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_756number4impl32LocalizedNumberFormatterAsFormatE, i64 0, i32 0, i64 2), ptr %call, align 8
   %fFormatter.i = getelementptr inbounds i8, ptr %call, i64 328
   %fFormatter2.i = getelementptr inbounds i8, ptr %this, i64 328
   invoke void @_ZN6icu_756number24LocalizedNumberFormatterC1ERKS1_(ptr noundef nonnull align 8 dereferenceable(496) %fFormatter.i, ptr noundef nonnull align 8 dereferenceable(496) %fFormatter2.i)
@@ -780,7 +780,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %data, i8 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, inrange i32 0, i64 2), ptr %data, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, i32 0, i64 2), ptr %data, align 8
   %quantity.i = getelementptr inbounds i8, ptr %data, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i
@@ -937,7 +937,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   call void @_ZN6icu_7531FormattedValueStringBuilderImplC2ENS_22FormattedStringBuilder5FieldE(ptr noundef nonnull align 8 dereferenceable(300) %data, i8 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, inrange i32 0, i64 2), ptr %data, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_756number4impl20UFormattedNumberDataE, i64 0, i32 0, i64 2), ptr %data, align 8
   %quantity.i = getelementptr inbounds i8, ptr %data, i64 304
   invoke void @_ZN6icu_756number4impl15DecimalQuantityC1Ev(ptr noundef nonnull align 8 dereferenceable(66) %quantity.i)
           to label %invoke.cont.i unwind label %lpad.i

@@ -139,9 +139,9 @@ define void @_ZN8EqHandleC2EP10CHART_INFO6QColor7QPointF21EQUALIZER_HANDLE_TYPEP
   %37 = getelementptr inbounds { double, double }, ptr %23, i32 0, i32 1
   %38 = load double, ptr %37, align 8
   call void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64) %31, ptr noundef %32, ptr noundef %22, double %36, double %38, i32 noundef %33, i32 noundef %34)
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i32 0, inrange i32 0, i32 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i32 0, i32 0, i32 2), ptr %31, align 8
   %39 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i32 0, inrange i32 1, i32 2), ptr %39, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV8EqHandle, i32 0, i32 1, i32 2), ptr %39, align 8
   %40 = getelementptr inbounds %class.EqHandle, ptr %31, i32 0, i32 3
   %41 = getelementptr inbounds [3 x %class.QPointF], ptr %40, i32 0, i32 0
   %42 = getelementptr inbounds %class.QPointF, ptr %41, i64 3

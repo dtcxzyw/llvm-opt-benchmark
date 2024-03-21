@@ -550,7 +550,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers19QuantifiersRewriterC2EPNS1_8RewriterERKNS0_7OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef %r, ptr noundef nonnull align 8 dereferenceable(392) %opts) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers19QuantifiersRewriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers19QuantifiersRewriterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_rewriter = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %r, ptr %d_rewriter, align 8
   %d_opts = getelementptr inbounds i8, ptr %this, i64 16

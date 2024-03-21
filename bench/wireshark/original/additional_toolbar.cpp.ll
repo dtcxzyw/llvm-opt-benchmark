@@ -612,9 +612,9 @@ define void @_ZN17AdditionalToolBarC2EP14_ext_toolbar_tP7QWidget(ptr noundef non
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17AdditionalToolBar, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17AdditionalToolBar, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17AdditionalToolBar, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV17AdditionalToolBar, i32 0, i32 1, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.AdditionalToolBar, ptr %7, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %10, align 8
@@ -1127,7 +1127,7 @@ define void @_ZN29AdditionalToolbarWidgetActionC2EP7QObject(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13QWidgetActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
   ret void
@@ -1151,7 +1151,7 @@ define void @_ZN29AdditionalToolbarWidgetActionC2EP14_ext_toolbar_tP7QObject(ptr
   %12 = load ptr, ptr %4, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN13QWidgetActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %12, i32 0, i32 1
   %15 = load ptr, ptr %5, align 8
   store ptr %15, ptr %14, align 8
@@ -1317,7 +1317,7 @@ define void @_ZN29AdditionalToolbarWidgetActionC2ERKS_(ptr noundef nonnull align
   %11 = load ptr, ptr %4, align 8
   %12 = call noundef ptr @_ZNK7QObject6parentEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   call void @_ZN13QWidgetActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29AdditionalToolbarWidgetAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %13 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %10, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds %class.AdditionalToolbarWidgetAction, ptr %14, i32 0, i32 1

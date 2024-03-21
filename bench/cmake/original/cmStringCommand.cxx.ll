@@ -14153,7 +14153,7 @@ define internal void @_ZN12_GLOBAL__N_110json_errorC2ERKNSt7__cxx1112basic_strin
   %6 = load ptr, ptr %4, align 8
   %7 = load ptr, ptr %5, align 8
   call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110json_errorE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110json_errorE, i32 0, i32 0, i32 2), ptr %6, align 8
   %8 = getelementptr inbounds %"class.(anonymous namespace)::json_error", ptr %6, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %2, i64 24, i1 false)
   ret void

@@ -2323,7 +2323,7 @@ define linkonce_odr void @_ZN5Ttopt13TruthTableReoC2Eii(ptr noundef nonnull alig
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @_ZN5Ttopt10TruthTableC2Eii(ptr noundef nonnull align 8 dereferenceable(216) %7, i32 noundef %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt13TruthTableReoE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt13TruthTableReoE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %7, i32 0, i32 2
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #18
   %11 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %7, i32 0, i32 3
@@ -2596,7 +2596,7 @@ define linkonce_odr void @_ZN5Ttopt10TruthTableC2Eii(ptr noundef nonnull align 8
   store i32 %1, ptr %5, align 4
   store i32 %2, ptr %6, align 4
   %10 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt10TruthTableE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt10TruthTableE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %10, i32 0, i32 1
   %12 = load i32, ptr %5, align 4
   store i32 %12, ptr %11, align 8
@@ -3338,7 +3338,7 @@ define linkonce_odr void @_ZN5Ttopt10TruthTableD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt10TruthTableE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt10TruthTableE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 12
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   %5 = getelementptr inbounds %"class.Ttopt::TruthTable", ptr %3, i32 0, i32 11
@@ -3363,7 +3363,7 @@ define linkonce_odr void @_ZN5Ttopt13TruthTableReoD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt13TruthTableReoE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt13TruthTableReoE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIS_IS_IiSaIiEESaIS1_EESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   %5 = getelementptr inbounds %"class.Ttopt::TruthTableReo", ptr %3, i32 0, i32 2
@@ -3906,7 +3906,7 @@ define linkonce_odr void @_ZN5Ttopt18TruthTableLevelTSMC2Eii(ptr noundef nonnull
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @_ZN5Ttopt14TruthTableCareC2Eii(ptr noundef nonnull align 8 dereferenceable(360) %7, i32 noundef %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Ttopt18TruthTableLevelTSME, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Ttopt18TruthTableLevelTSME, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -17678,7 +17678,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCareC2Eii(ptr noundef nonnull ali
   %10 = load i32, ptr %5, align 4
   %11 = load i32, ptr %6, align 4
   call void @_ZN5Ttopt17TruthTableRewriteC2Eii(ptr noundef nonnull align 8 dereferenceable(216) %9, i32 noundef %10, i32 noundef %11)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Ttopt14TruthTableCareE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Ttopt14TruthTableCareE, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 1
   call void @_ZNSt6vectorImSaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #18
   %13 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %9, i32 0, i32 2
@@ -18412,7 +18412,7 @@ define linkonce_odr void @_ZN5Ttopt17TruthTableRewriteC2Eii(ptr noundef nonnull 
   %8 = load i32, ptr %5, align 4
   %9 = load i32, ptr %6, align 4
   call void @_ZN5Ttopt10TruthTableC2Eii(ptr noundef nonnull align 8 dereferenceable(216) %7, i32 noundef %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt17TruthTableRewriteE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Ttopt17TruthTableRewriteE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -27869,7 +27869,7 @@ define linkonce_odr void @_ZN5Ttopt14TruthTableCareD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Ttopt14TruthTableCareE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Ttopt14TruthTableCareE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIS_IS_ISt4pairIiiESaIS1_EESaIS3_EESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #18
   %5 = getelementptr inbounds %"class.Ttopt::TruthTableCare", ptr %3, i32 0, i32 5

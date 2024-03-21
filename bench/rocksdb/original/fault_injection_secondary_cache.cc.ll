@@ -1469,7 +1469,7 @@ entry:
   store ptr %base, ptr %base.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb26SecondaryCacheResultHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cache_ = getelementptr inbounds %"class.rocksdb::FaultInjectionSecondaryCache::ResultHandle", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %cache.addr, align 8
   store ptr %0, ptr %cache_, align 8
@@ -1821,7 +1821,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCacheE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %thread_local_error_ = getelementptr inbounds %"class.rocksdb::FaultInjectionSecondaryCache", ptr %this1, i32 0, i32 5
   call void @_ZNSt10unique_ptrIN7rocksdb14ThreadLocalPtrESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %thread_local_error_) #11
   %base_ = getelementptr inbounds %"class.rocksdb::FaultInjectionSecondaryCache", ptr %this1, i32 0, i32 1
@@ -2172,7 +2172,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb28FaultInjectionSecondaryCache12ResultHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %base_ = getelementptr inbounds %"class.rocksdb::FaultInjectionSecondaryCache::ResultHandle", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN7rocksdb26SecondaryCacheResultHandleESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %base_) #11
   call void @_ZN7rocksdb26SecondaryCacheResultHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -2558,7 +2558,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb26SecondaryCacheResultHandleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb26SecondaryCacheResultHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3175,7 +3175,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #11
   ret void

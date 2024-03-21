@@ -989,7 +989,7 @@ define void @_ZN5mem_tC2Em(ptr noundef nonnull align 8 dereferenceable(64) %0, i
   store i64 %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN14abstract_mem_tC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV5mem_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV5mem_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.mem_t, ptr %7, i32 0, i32 1
   call void @_ZNSt3mapImPcSt4lessImESaISt4pairIKmS0_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %8) #3
   %9 = getelementptr inbounds %class.mem_t, ptr %7, i32 0, i32 2
@@ -1058,7 +1058,7 @@ define linkonce_odr void @_ZN14abstract_mem_tC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN17abstract_device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14abstract_mem_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14abstract_mem_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1104,7 +1104,7 @@ define void @_ZN5mem_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) u
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV5mem_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV5mem_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.mem_t, ptr %7, i32 0, i32 1
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr %3, align 8
@@ -1461,7 +1461,7 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1609,7 +1609,7 @@ define linkonce_odr void @_ZN5bus_tD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV5bus_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV5bus_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.bus_t, ptr %3, i32 0, i32 1
   call void @_ZNSt3mapImP17abstract_device_tSt4lessImESaISt4pairIKmS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   call void @_ZN17abstract_device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -2300,7 +2300,7 @@ define linkonce_odr void @_ZN17abstract_device_tC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV17abstract_device_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV17abstract_device_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2666,7 +2666,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

@@ -6347,13 +6347,13 @@ define void @_ZN29RadianceScalingRendererPluginC1Ev(ptr noundef nonnull align 8 
 9:                                                ; preds = %8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN12RenderPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTT29RadianceScalingRendererPlugin, i64 0, i64 1))
-  store ptr getelementptr inbounds ({ [23 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV29RadianceScalingRendererPlugin, i32 0, inrange i32 0, i32 4), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV29RadianceScalingRendererPlugin, i32 0, i32 0, i32 4), ptr %5, align 8
   %11 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [23 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV29RadianceScalingRendererPlugin, i32 0, inrange i32 1, i32 4), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV29RadianceScalingRendererPlugin, i32 0, i32 1, i32 4), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [23 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV29RadianceScalingRendererPlugin, i32 0, inrange i32 2, i32 6), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV29RadianceScalingRendererPlugin, i32 0, i32 2, i32 6), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 152
-  store ptr getelementptr inbounds ({ [23 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV29RadianceScalingRendererPlugin, i32 0, inrange i32 3, i32 3), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [12 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV29RadianceScalingRendererPlugin, i32 0, i32 3, i32 3), ptr %13, align 8
   %14 = getelementptr inbounds %class.RadianceScalingRendererPlugin, ptr %5, i32 0, i32 2
   store i8 0, ptr %14, align 8
   %15 = getelementptr inbounds %class.RadianceScalingRendererPlugin, ptr %5, i32 0, i32 3
@@ -6418,7 +6418,7 @@ define linkonce_odr void @_ZN13MeshLabPluginC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 1
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
@@ -6442,7 +6442,7 @@ define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   ret void

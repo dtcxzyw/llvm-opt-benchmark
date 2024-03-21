@@ -2543,7 +2543,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %memory, ptr %memory.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memory_allocator_ = getelementptr inbounds %"class.base::PersistentHistogramAllocator", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %memory_allocator_, ptr noundef nonnull align 8 dereferenceable(8) %memory) #12
   %sparse_histogram_data_manager_ = getelementptr inbounds %"class.base::PersistentHistogramAllocator", ptr %this1, i32 0, i32 2
@@ -2645,7 +2645,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base28PersistentHistogramAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sparse_histogram_data_manager_ = getelementptr inbounds %"class.base::PersistentHistogramAllocator", ptr %this1, i32 0, i32 2
   call void @_ZN4base36PersistentSparseHistogramDataManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %sparse_histogram_data_manager_) #12
   %memory_allocator_ = getelementptr inbounds %"class.base::PersistentHistogramAllocator", ptr %this1, i32 0, i32 1
@@ -4744,7 +4744,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %persistent_location_ = getelementptr inbounds %"class.base::GlobalHistogramAllocator", ptr %this1, i32 0, i32 2
   call void @_ZN4base8FilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %persistent_location_) #12
   call void @_ZN4base28PersistentHistogramAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this1) #12
@@ -5466,7 +5466,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10unique_ptrIN4base25PersistentMemoryAllocatorESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #12
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base24GlobalHistogramAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %import_iterator_ = getelementptr inbounds %"class.base::GlobalHistogramAllocator", ptr %this1, i32 0, i32 1
   invoke void @_ZN4base28PersistentHistogramAllocator8IteratorC1EPS0_(ptr noundef nonnull align 8 dereferenceable(24) %import_iterator_, ptr noundef %this1)
           to label %invoke.cont3 unwind label %lpad2

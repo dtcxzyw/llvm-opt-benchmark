@@ -1452,7 +1452,7 @@ entry:
   %0 = load ptr, ptr %t.addr, align 8
   %1 = load ptr, ptr %index_block.addr, align 8
   call void @_ZN7rocksdb15BlockBasedTable17IndexReaderCommonC2EPKS0_ONS_13CachableEntryINS_5BlockEEE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(25) %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15HashIndexReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15HashIndexReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %prefix_index_ = getelementptr inbounds %"class.rocksdb::HashIndexReader", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb16BlockPrefixIndexESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %prefix_index_) #3
   ret void
@@ -2403,7 +2403,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15HashIndexReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15HashIndexReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %prefix_index_ = getelementptr inbounds %"class.rocksdb::HashIndexReader", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb16BlockPrefixIndexESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %prefix_index_) #3
   call void @_ZN7rocksdb15BlockBasedTable17IndexReaderCommonD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
@@ -2773,7 +2773,7 @@ entry:
   store ptr %index_block, ptr %index_block.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb15BlockBasedTable11IndexReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15BlockBasedTable17IndexReaderCommonE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15BlockBasedTable17IndexReaderCommonE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %table_ = getelementptr inbounds %"class.rocksdb::BlockBasedTable::IndexReaderCommon", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %t.addr, align 8
   store ptr %0, ptr %table_, align 8
@@ -2801,7 +2801,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15BlockBasedTable11IndexReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15BlockBasedTable11IndexReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2846,7 +2846,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15BlockBasedTable17IndexReaderCommonE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15BlockBasedTable17IndexReaderCommonE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index_block_ = getelementptr inbounds %"class.rocksdb::BlockBasedTable::IndexReaderCommon", ptr %this1, i32 0, i32 2
   call void @_ZN7rocksdb13CachableEntryINS_5BlockEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %index_block_) #3
   call void @_ZN7rocksdb15BlockBasedTable11IndexReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -4453,7 +4453,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb12ConfigurableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.rocksdb::Configurable", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb12Configurable17RegisteredOptionsESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %options_) #3
   ret void

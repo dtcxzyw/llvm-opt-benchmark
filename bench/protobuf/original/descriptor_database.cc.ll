@@ -6226,7 +6226,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24SimpleDescriptorDatabaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24SimpleDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index_ = getelementptr inbounds %"class.google::protobuf::SimpleDescriptorDatabase", ptr %this1, i32 0, i32 1
   invoke void @_ZN6google8protobuf24SimpleDescriptorDatabase15DescriptorIndexIPKNS0_19FileDescriptorProtoEEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %index_)
           to label %invoke.cont unwind label %lpad
@@ -6260,7 +6260,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf18DescriptorDatabaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf18DescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6335,7 +6335,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24SimpleDescriptorDatabaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24SimpleDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %files_to_delete_ = getelementptr inbounds %"class.google::protobuf::SimpleDescriptorDatabase", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorISt10unique_ptrIKN6google8protobuf19FileDescriptorProtoESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %files_to_delete_) #3
   %index_ = getelementptr inbounds %"class.google::protobuf::SimpleDescriptorDatabase", ptr %this1, i32 0, i32 1
@@ -12038,7 +12038,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf25EncodedDescriptorDatabaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf25EncodedDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index_ = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #22
           to label %invoke.cont unwind label %lpad
@@ -12232,7 +12232,7 @@ entry:
   %p = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf25EncodedDescriptorDatabaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf25EncodedDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %files_to_delete_ = getelementptr inbounds %"class.google::protobuf::EncodedDescriptorDatabase", ptr %this1, i32 0, i32 2
   store ptr %files_to_delete_, ptr %__range2, align 8
   %0 = load ptr, ptr %__range2, align 8
@@ -12427,7 +12427,7 @@ entry:
   store ptr %pool, ptr %pool.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf22DescriptorPoolDatabaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf22DescriptorPoolDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.google::protobuf::DescriptorPoolDatabase", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -12915,7 +12915,7 @@ entry:
   store ptr %source2, ptr %source2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sources_ = getelementptr inbounds %"class.google::protobuf::MergedDescriptorDatabase", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sources_) #3
   %sources_2 = getelementptr inbounds %"class.google::protobuf::MergedDescriptorDatabase", ptr %this1, i32 0, i32 1
@@ -13044,7 +13044,7 @@ entry:
   store ptr %sources, ptr %sources.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf18DescriptorDatabaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sources_ = getelementptr inbounds %"class.google::protobuf::MergedDescriptorDatabase", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %sources.addr, align 8
   invoke void @_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %sources_, ptr noundef nonnull align 8 dereferenceable(24) %0)
@@ -13153,7 +13153,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24MergedDescriptorDatabaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sources_ = getelementptr inbounds %"class.google::protobuf::MergedDescriptorDatabase", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN6google8protobuf18DescriptorDatabaseESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %sources_) #3
   call void @_ZN6google8protobuf18DescriptorDatabaseD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

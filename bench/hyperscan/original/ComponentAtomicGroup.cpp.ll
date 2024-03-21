@@ -236,7 +236,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3ue217ComponentSequenceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(88) %1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue220ComponentAtomicGroupE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue220ComponentAtomicGroupE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

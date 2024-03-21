@@ -254,7 +254,7 @@ define dso_local noundef zeroext i1 @_ZN24cmParseBlanketJSCoverage12ReadJSONFile
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = load ptr, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN24cmParseBlanketJSCoverage10JSONParserE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN24cmParseBlanketJSCoverage10JSONParserE, i64 0, i32 0, i64 2), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %6, ptr %7, align 8
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %4)

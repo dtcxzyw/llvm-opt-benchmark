@@ -424,12 +424,12 @@ entry:
   %ref.tmp.i.i = alloca %"struct.subpaving::config_mpq", align 8
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 1624)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_ctx.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %m, ptr %ref.tmp.i.i, align 8
   call void @_ZN9subpaving9context_tINS_10config_mpqEEC1ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx.i.i, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_c.i = getelementptr inbounds i8, ptr %call, i64 1568
   store ptr %m, ptr %m_c.i, align 8
   %m_num.i.i = getelementptr inbounds i8, ptr %call, i64 1576
@@ -467,13 +467,13 @@ entry:
 define linkonce_odr hidden void @_ZN9subpaving19context_mpf_wrapperC2ER8reslimitR3f2nI11mpf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1712) %this, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(88) %fm, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i = alloca %"struct.subpaving::config_mpf", align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
   store ptr %fm, ptr %ref.tmp.i.i, align 8
   call void @_ZN9subpaving9context_tINS_10config_mpfEEC2ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx.i, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_qm = getelementptr inbounds i8, ptr %this, i64 1568
   %0 = load ptr, ptr %fm, align 8
   store ptr %0, ptr %m_qm, align 8
@@ -531,7 +531,7 @@ invoke.cont16:                                    ; preds = %entry
 lpad:                                             ; preds = %entry
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   call void @_ZN9subpaving9context_tINS_10config_mpfEED2Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx.i) #14
   resume { ptr, i32 } %3
 }
@@ -541,13 +541,13 @@ define hidden noundef ptr @_ZN9subpaving14mk_hwf_contextER8reslimitR3f2nI11hwf_m
 entry:
   %ref.tmp.i.i.i = alloca %"struct.subpaving::config_hwf", align 8
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 872)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_ctx.i.i = getelementptr inbounds i8, ptr %call, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
   store ptr %m, ptr %ref.tmp.i.i.i, align 8
   call void @_ZN9subpaving9context_tINS_10config_hwfEEC2ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(840) %m_ctx.i.i, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i.i)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_qm.i = getelementptr inbounds i8, ptr %call, i64 848
   store ptr %qm, ptr %m_qm.i, align 8
   %m_as.i = getelementptr inbounds i8, ptr %call, i64 864
@@ -561,12 +561,12 @@ entry:
   %ref.tmp.i.i = alloca %"struct.subpaving::config_mpff", align 8
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 880)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_ctx.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %m, ptr %ref.tmp.i.i, align 8
   call void @_ZN9subpaving9context_tINS_11config_mpffEEC1ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(784) %m_ctx.i.i, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_qm.i = getelementptr inbounds i8, ptr %call, i64 792
   store ptr %qm, ptr %m_qm.i, align 8
   %m_c.i = getelementptr inbounds i8, ptr %call, i64 800
@@ -604,12 +604,12 @@ entry:
   %ref.tmp.i.i = alloca %"struct.subpaving::config_mpfx", align 8
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 752)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_ctx.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %m, ptr %ref.tmp.i.i, align 8
   call void @_ZN9subpaving9context_tINS_11config_mpfxEEC1ER8reslimitRKS1_RK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(656) %m_ctx.i.i, ptr noundef nonnull align 8 dereferenceable(40) %lim, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(8) %p, ptr noundef %a)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp.i.i)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_qm.i = getelementptr inbounds i8, ptr %call, i64 664
   store ptr %qm, ptr %m_qm.i, align 8
   %m_c.i = getelementptr inbounds i8, ptr %call, i64 672
@@ -648,7 +648,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving19context_mpq_wrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(1624) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_as = getelementptr inbounds i8, ptr %this, i64 1608
   tail call void @_ZN22_scoped_numeral_vectorI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_as) #14
   %m_c = getelementptr inbounds i8, ptr %this, i64 1568
@@ -670,7 +670,7 @@ terminate.lpad.i:                                 ; preds = %.noexc.i, %entry
   unreachable
 
 _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_10config_mpqEED1Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx.i) #14
   ret void
@@ -679,7 +679,7 @@ _ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev.exit: ; preds = %.noexc.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving19context_mpq_wrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(1624) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_as.i = getelementptr inbounds i8, ptr %this, i64 1608
   tail call void @_ZN22_scoped_numeral_vectorI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_as.i) #14
   %m_c.i = getelementptr inbounds i8, ptr %this, i64 1568
@@ -701,7 +701,7 @@ terminate.lpad.i.i:                               ; preds = %.noexc.i.i, %entry
   unreachable
 
 _ZN9subpaving19context_mpq_wrapperD2Ev.exit:      ; preds = %.noexc.i.i
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_10config_mpqEED1Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx.i.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -1016,7 +1016,7 @@ declare void @_ZN9subpaving9context_tINS_10config_mpqEEC1ER8reslimitRKS1_RK10par
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(1568) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_10config_mpqEED1Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx) #14
   ret void
@@ -1174,7 +1174,7 @@ if.then17:                                        ; preds = %if.else
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -1326,7 +1326,7 @@ invoke.cont4:                                     ; preds = %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #14
   ret void
@@ -1476,7 +1476,7 @@ declare void @_ZNK9subpaving9context_tINS_10config_mpqEE14display_boundsERSo(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving19context_mpf_wrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(1712) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_q2 = getelementptr inbounds i8, ptr %this, i64 1672
   %0 = load ptr, ptr %m_q2, align 8
   %m_num.i = getelementptr inbounds i8, ptr %this, i64 1680
@@ -1595,7 +1595,7 @@ terminate.lpad.i.i:                               ; preds = %_ZN22_scoped_numera
   unreachable
 
 _ZN10scoped_mpfD2Ev.exit:                         ; preds = %_ZN22_scoped_numeral_vectorI11mpf_managerED2Ev.exit
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_10config_mpfEED2Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx.i) #14
   ret void
@@ -2004,7 +2004,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving15context_wrapperINS_11context_mpfEED2Ev(ptr noundef nonnull align 8 dereferenceable(1568) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_10config_mpfEED2Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx) #14
   ret void
@@ -2196,7 +2196,7 @@ if.then17:                                        ; preds = %if.else
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -2335,7 +2335,7 @@ declare void @_ZNK9subpaving9context_tINS_10config_mpfEE14display_boundsERSo(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving19context_hwf_wrapperD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_as = getelementptr inbounds i8, ptr %this, i64 864
   %0 = load ptr, ptr %m_as, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2354,7 +2354,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i.i
   unreachable
 
 _ZN7svectorI3hwfjED2Ev.exit:                      ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_10config_hwfEED2Ev(ptr noundef nonnull align 8 dereferenceable(840) %m_ctx.i) #14
   ret void
@@ -2363,7 +2363,7 @@ _ZN7svectorI3hwfjED2Ev.exit:                      ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving19context_hwf_wrapperD0Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_as.i = getelementptr inbounds i8, ptr %this, i64 864
   %0 = load ptr, ptr %m_as.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -2382,7 +2382,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i.i
   unreachable
 
 _ZN9subpaving19context_hwf_wrapperD2Ev.exit:      ; preds = %entry, %if.then.i.i.i.i
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_10config_hwfEED2Ev(ptr noundef nonnull align 8 dereferenceable(840) %m_ctx.i.i) #14
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -2754,7 +2754,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving15context_wrapperINS_11context_hwfEED2Ev(ptr noundef nonnull align 8 dereferenceable(848) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_10config_hwfEED2Ev(ptr noundef nonnull align 8 dereferenceable(840) %m_ctx) #14
   ret void
@@ -2865,7 +2865,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -2941,7 +2941,7 @@ declare void @_ZNK9subpaving9context_tINS_10config_hwfEE14display_boundsERSo(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(880) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_z2 = getelementptr inbounds i8, ptr %this, i64 856
   %0 = load ptr, ptr %m_z2, align 8
   %m_num.i = getelementptr inbounds i8, ptr %this, i64 864
@@ -3046,7 +3046,7 @@ terminate.lpad.i6:                                ; preds = %_ZN22_scoped_numera
   unreachable
 
 _ZN15_scoped_numeralI12mpff_managerED2Ev.exit:    ; preds = %_ZN22_scoped_numeral_vectorI12mpff_managerED2Ev.exit
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_11config_mpffEED1Ev(ptr noundef nonnull align 8 dereferenceable(784) %m_ctx.i) #14
   ret void
@@ -3413,7 +3413,7 @@ declare void @_ZN9subpaving9context_tINS_11config_mpffEEC1ER8reslimitRKS1_RK10pa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(792) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_11config_mpffEED1Ev(ptr noundef nonnull align 8 dereferenceable(784) %m_ctx) #14
   ret void
@@ -3547,7 +3547,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17
@@ -3617,7 +3617,7 @@ declare void @_ZNK9subpaving9context_tINS_11config_mpffEE14display_boundsERSo(pt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(752) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_z2 = getelementptr inbounds i8, ptr %this, i64 728
   %0 = load ptr, ptr %m_z2, align 8
   %m_num.i = getelementptr inbounds i8, ptr %this, i64 736
@@ -3722,7 +3722,7 @@ terminate.lpad.i6:                                ; preds = %_ZN22_scoped_numera
   unreachable
 
 _ZN15_scoped_numeralI12mpfx_managerED2Ev.exit:    ; preds = %_ZN22_scoped_numeral_vectorI12mpfx_managerED2Ev.exit
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_11config_mpfxEED1Ev(ptr noundef nonnull align 8 dereferenceable(656) %m_ctx.i) #14
   ret void
@@ -4089,7 +4089,7 @@ declare void @_ZN9subpaving9context_tINS_11config_mpfxEEC1ER8reslimitRKS1_RK10pa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(664) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ctx = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN9subpaving9context_tINS_11config_mpfxEED1Ev(ptr noundef nonnull align 8 dereferenceable(656) %m_ctx) #14
   ret void
@@ -4223,7 +4223,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #14
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #17

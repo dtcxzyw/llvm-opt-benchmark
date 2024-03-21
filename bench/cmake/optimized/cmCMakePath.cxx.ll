@@ -1535,7 +1535,7 @@ define linkonce_odr dso_local void @_ZNSt10filesystem7__cxx114path14_S_str_conve
   store i64 1114111, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %8, i64 32
   store i32 0, ptr %13, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt10filesystem7__cxx114path8_CodecvtIwEE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt10filesystem7__cxx114path8_CodecvtIwEE, i64 0, i32 0, i64 2), ptr %8, align 8
   %14 = getelementptr inbounds i8, ptr %2, i64 %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)

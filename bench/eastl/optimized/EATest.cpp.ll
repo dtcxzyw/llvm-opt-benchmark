@@ -696,7 +696,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA8UnitTest4TestC2EPKcPFvS3_E(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %pTestName, ptr noundef %pReportFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %msTestName = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %msTestName, align 8
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
@@ -760,7 +760,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEEC2EPKcRKS1_.exit: ; preds = %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA8UnitTest4TestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mRemainingSizeField.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %0 = load i8, ptr %mRemainingSizeField.i.i.i, align 1
   %tobool.i.i.i = icmp slt i8 %0, 0
@@ -783,7 +783,7 @@ _ZN5eastl12basic_stringIcNS_9allocatorEED2Ev.exit: ; preds = %entry, %if.then.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA8UnitTest4TestD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mRemainingSizeField.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %0 = load i8, ptr %mRemainingSizeField.i.i.i.i, align 1
   %tobool.i.i.i.i = icmp slt i8 %0, 0
@@ -1078,7 +1078,7 @@ declare noundef i32 @_ZN2EA4StdC7SprintfEPcPKcz(ptr noundef, ptr noundef, ...) l
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA8UnitTest12TestFunctionC2EPKcPFivE(ptr nocapture noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %pTestName, ptr noundef %pFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %msTestName.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %msTestName.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
@@ -1132,7 +1132,7 @@ _ZN2EA8UnitTest4TestC2EPKcPFvS3_E.exit:           ; preds = %if.then.i.i.i.i.i, 
   store i8 0, ptr %cond.i.i.i.i.i, align 1
   %mpParentSuite.i = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %mpParentSuite.i, i8 0, i64 33, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mpFunction = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %pFunction, ptr %mpFunction, align 8
   ret void
@@ -1177,7 +1177,7 @@ if.end8:                                          ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN2EA8UnitTest14TestCollectionC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #17 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mTests = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mTests, i8 0, i64 24, i1 false)
   ret void
@@ -1186,7 +1186,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA8UnitTest14TestCollectionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mTests = getelementptr inbounds i8, ptr %this, i64 8
   %mpEnd.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond
@@ -1241,7 +1241,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA8UnitTest14TestCollectionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mTests.i = getelementptr inbounds i8, ptr %this, i64 8
   %mpEnd.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond.i
@@ -1378,7 +1378,7 @@ return:                                           ; preds = %for.body, %_ZN5east
 define dso_local void @_ZN2EA8UnitTest14TestCollection7AddTestEPKcPFivE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %pTestName, ptr noundef %pFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #30
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %call, align 8
   %msTestName.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i8 0, ptr %msTestName.i.i, align 1
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 31
@@ -1435,7 +1435,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   store i8 0, ptr %cond.i.i.i.i.i.i, align 1
   %mpParentSuite.i.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %mpParentSuite.i.i, i8 0, i64 33, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i64 0, i32 0, i64 2), ptr %call, align 8
   %mpFunction.i = getelementptr inbounds i8, ptr %call, i64 80
   store ptr %pFunction, ptr %mpFunction.i, align 8
   %vtable = load ptr, ptr %this, align 8
@@ -2022,7 +2022,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %pTestName, ptr noundef %pReportFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %msTestName.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %msTestName.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
@@ -2083,8 +2083,8 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i, 
   %5 = getelementptr inbounds i8, ptr %this, i64 80
   %mTests.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mTests.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 1, i64 2), ptr %5, align 8
   %mnTestResult = getelementptr inbounds i8, ptr %this, i64 112
   store i32 -2147483647, ptr %mnTestResult, align 8
   %mResults = getelementptr inbounds i8, ptr %this, i64 120
@@ -2095,9 +2095,9 @@ invoke.cont3:                                     ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA8UnitTest9TestSuiteD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %mResults = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -2108,7 +2108,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i:     ; preds = %entry
   br label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit
 
 _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit: ; preds = %entry, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8
   %mTests.i = getelementptr inbounds i8, ptr %this, i64 88
   %mpEnd.i.i = getelementptr inbounds i8, ptr %this, i64 96
   br label %while.cond.i
@@ -2144,7 +2144,7 @@ terminate.lpad.i:                                 ; preds = %while.body.i
   unreachable
 
 _ZN2EA8UnitTest14TestCollectionD2Ev.exit:         ; preds = %while.end.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mRemainingSizeField.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %7 = load i8, ptr %mRemainingSizeField.i.i.i.i, align 1
   %tobool.i.i.i.i = icmp slt i8 %7, 0
@@ -2168,8 +2168,8 @@ _ZN2EA8UnitTest4TestD2Ev.exit:                    ; preds = %_ZN2EA8UnitTest14Te
 define dso_local void @_ZThn80_N2EA8UnitTest9TestSuiteD1Ev(ptr noundef %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 1, i64 2), ptr %this, align 8
   %mResults.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %mResults.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -2180,7 +2180,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %entry
   br label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i
 
 _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mTests.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %mpEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond.i.i
@@ -2216,7 +2216,7 @@ terminate.lpad.i.i:                               ; preds = %while.body.i.i
   unreachable
 
 _ZN2EA8UnitTest14TestCollectionD2Ev.exit.i:       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i, %while.end.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -49
   %8 = load i8, ptr %mRemainingSizeField.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = icmp slt i8 %8, 0
@@ -2239,9 +2239,9 @@ _ZN2EA8UnitTest9TestSuiteD2Ev.exit:               ; preds = %_ZN2EA8UnitTest14Te
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA8UnitTest9TestSuiteD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
   %mResults.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2252,7 +2252,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %entry
   br label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i
 
 _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr %add.ptr.i, align 8
   %mTests.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mpEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   br label %while.cond.i.i
@@ -2288,7 +2288,7 @@ terminate.lpad.i.i:                               ; preds = %while.body.i.i
   unreachable
 
 _ZN2EA8UnitTest14TestCollectionD2Ev.exit.i:       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i, %while.end.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %7 = load i8, ptr %mRemainingSizeField.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = icmp slt i8 %7, 0
@@ -3148,7 +3148,7 @@ entry:
 define dso_local void @_ZN2EA8UnitTest15TestApplicationC2EPKciPPcPFivES7_(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %pTestApplicationName, i32 noundef %argc, ptr noundef %argv, ptr noundef %pInitFunction, ptr noundef %pShutdownFunction) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN2EA6EAMain17GetReportFunctionEv()
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %msTestName.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %msTestName.i.i, align 8
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
@@ -3213,8 +3213,8 @@ _ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E.exit:      ; preds = %if.then.i.i.i.i.i.i
   store i32 -2147483647, ptr %mnTestResult.i, align 8
   %mResults.i = getelementptr inbounds i8, ptr %this, i64 120
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %mResults.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i64 0, inrange i32 1, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i64 0, i32 1, i64 2), ptr %5, align 8
   %mArgc = getelementptr inbounds i8, ptr %this, i64 144
   store i32 %argc, ptr %mArgc, align 8
   %mArgv = getelementptr inbounds i8, ptr %this, i64 152
@@ -3231,9 +3231,9 @@ declare noundef ptr @_ZN2EA6EAMain17GetReportFunctionEv() local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA8UnitTest15TestApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
   %mResults.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3244,7 +3244,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i:   ; preds = %entry
   br label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i
 
 _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr %add.ptr.i, align 8
   %mTests.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mpEnd.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   br label %while.cond.i.i
@@ -3280,7 +3280,7 @@ terminate.lpad.i.i:                               ; preds = %while.body.i.i
   unreachable
 
 _ZN2EA8UnitTest14TestCollectionD2Ev.exit.i:       ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i, %while.end.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %7 = load i8, ptr %mRemainingSizeField.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = icmp slt i8 %7, 0
@@ -3304,8 +3304,8 @@ _ZN2EA8UnitTest9TestSuiteD2Ev.exit:               ; preds = %_ZN2EA8UnitTest14Te
 define dso_local void @_ZThn80_N2EA8UnitTest15TestApplicationD1Ev(ptr noundef %this) unnamed_addr #21 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 1, i64 2), ptr %this, align 8
   %mResults.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %mResults.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -3316,7 +3316,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %entry
   br label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i.i
 
 _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mTests.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %mpEnd.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   br label %while.cond.i.i.i
@@ -3352,7 +3352,7 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i.i.i
   unreachable
 
 _ZN2EA8UnitTest14TestCollectionD2Ev.exit.i.i:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i, %while.end.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %0, align 8
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 -49
   %8 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i = icmp slt i8 %8, 0
@@ -3375,9 +3375,9 @@ _ZN2EA8UnitTest15TestApplicationD2Ev.exit:        ; preds = %_ZN2EA8UnitTest14Te
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN2EA8UnitTest15TestApplicationD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i64 0, i32 1, i64 2), ptr %add.ptr.i.i, align 8
   %mResults.i.i = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %mResults.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3388,7 +3388,7 @@ _ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i: ; preds = %entry
   br label %_ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i.i
 
 _ZN5eastl6vectorIN2EA8UnitTest9TestSuite10ResultInfoENS_9allocatorEED2Ev.exit.i.i: ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr %add.ptr.i.i, align 8
   %mTests.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %mpEnd.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   br label %while.cond.i.i.i
@@ -3424,7 +3424,7 @@ terminate.lpad.i.i.i:                             ; preds = %while.body.i.i.i
   unreachable
 
 _ZN2EA8UnitTest14TestCollectionD2Ev.exit.i.i:     ; preds = %_ZN5eastl9allocator10deallocateEPvm.exit.i.i.i.i.i, %while.end.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %7 = load i8, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i.i = icmp slt i8 %7, 0
@@ -4537,7 +4537,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %init.check
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, inrange i32 0, i64 2), ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i64 0, i32 0, i64 2), ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.EA::UnitTest::TestCollection", ptr @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, i64 0, i32 1, i32 0, i32 0), i8 0, i64 24, i1 false)
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN2EA8UnitTest14TestCollectionD2Ev, ptr nonnull @_ZZN2EA8UnitTest11GetRegistryEvE9sRegistry, ptr nonnull @__dso_handle) #32
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN2EA8UnitTest11GetRegistryEvE9sRegistry) #32
@@ -4559,7 +4559,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #25
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2EA8UnitTest12TestFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mRemainingSizeField.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %0 = load i8, ptr %mRemainingSizeField.i.i.i.i, align 1
   %tobool.i.i.i.i = icmp slt i8 %0, 0
@@ -4582,7 +4582,7 @@ _ZN2EA8UnitTest4TestD2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN2EA8UnitTest12TestFunctionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mRemainingSizeField.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 31
   %0 = load i8, ptr %mRemainingSizeField.i.i.i.i.i, align 1
   %tobool.i.i.i.i.i = icmp slt i8 %0, 0

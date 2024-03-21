@@ -3576,7 +3576,7 @@ define internal void @_ZN12_GLOBAL__N_118ExtractCounterPassC2Ev(ptr noundef nonn
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118ExtractCounterPassE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118ExtractCounterPassE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %1
@@ -4975,7 +4975,7 @@ define linkonce_odr void @_ZN5Yosys8ModIndexC2EPNS_5RTLIL6ModuleE(ptr noundef no
   store ptr %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN5Yosys5RTLIL7MonitorC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %9)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5Yosys8ModIndexE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5Yosys8ModIndexE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"struct.Yosys::ModIndex", ptr %9, i32 0, i32 2
   %11 = load ptr, ptr %4, align 8
   invoke void @_ZN5Yosys6SigMapC2EPNS_5RTLIL6ModuleE(ptr noundef nonnull align 8 dereferenceable(80) %10, ptr noundef %11)
@@ -7739,7 +7739,7 @@ define linkonce_odr void @_ZN5Yosys8ModIndexD2Ev(ptr noundef nonnull align 8 der
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5Yosys8ModIndexE, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5Yosys8ModIndexE, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"struct.Yosys::ModIndex", ptr %4, i32 0, i32 3
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds %"struct.Yosys::RTLIL::Module", ptr %6, i32 0, i32 4
@@ -16716,7 +16716,7 @@ define linkonce_odr void @_ZN5Yosys5RTLIL7MonitorC2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5Yosys5RTLIL7MonitorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5Yosys5RTLIL7MonitorE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = load i32, ptr @_ZZN5Yosys5RTLIL7MonitorC1EvE13hashidx_count, align 4
   %5 = call noundef i32 @_ZN5Yosys7hashlib15mkhash_xorshiftEj(i32 noundef %4)
   store i32 %5, ptr @_ZZN5Yosys5RTLIL7MonitorC1EvE13hashidx_count, align 4

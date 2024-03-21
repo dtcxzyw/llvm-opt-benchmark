@@ -535,11 +535,11 @@ lpad:                                             ; preds = %entry
 define void @_ZN8proxygen19HTTPSessionAcceptorC2ERKNS_21AcceptorConfigurationESt10shared_ptrINS_16HTTPCodecFactoryEE(ptr noundef nonnull align 8 dereferenceable(1928) %this, ptr noundef nonnull align 8 dereferenceable(761) %accConfig, ptr nocapture noundef readonly %codecFactory) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6wangle8AcceptorC2ERKNS_18ServerSocketConfigE(ptr noundef nonnull align 8 dereferenceable(1072) %this, ptr noundef nonnull align 8 dereferenceable(608) %accConfig)
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2.i, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 2, i64 2), ptr %add.ptr2.i, align 8
   %accConfig_.i = getelementptr inbounds i8, ptr %this, i64 1072
   invoke void @_ZN8proxygen21AcceptorConfigurationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(761) %accConfig_.i, ptr noundef nonnull align 8 dereferenceable(761) %accConfig)
           to label %_ZN8proxygen12HTTPAcceptorC2ERKNS_21AcceptorConfigurationE.exit unwind label %lpad.i
@@ -558,10 +558,10 @@ _ZN8proxygen12HTTPAcceptorC2ERKNS_21AcceptorConfigurationE.exit: ; preds = %entr
   %timer_.i = getelementptr inbounds i8, ptr %this, i64 1840
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timer_.i, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %this, i64 1856
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2.i, align 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, inrange i32 3, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 2, i64 2), ptr %add.ptr2.i, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 3, i64 2), ptr %1, align 8
   %downstreamSessionStats_ = getelementptr inbounds i8, ptr %this, i64 1864
   store ptr null, ptr %downstreamSessionStats_, align 8
   %setEnableConnectProtocol_ = getelementptr inbounds i8, ptr %this, i64 1872
@@ -606,7 +606,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !4
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen16SimpleControllerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i2, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen16SimpleControllerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i2, align 8, !noalias !4
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i2, i64 16
   invoke void @_ZN8proxygen16SimpleControllerC1EPNS_19HTTPSessionAcceptorE(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8proxygen16SimpleControllerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !4
@@ -636,7 +636,7 @@ call5.i.i.i3.i.i.i.i.noexc7:                      ; preds = %if.then
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i3, align 8, !noalias !7
   %_M_weak_count.i.i.i.i.i.i4 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i8, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i4, align 4, !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen30HTTPDefaultSessionCodecFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i8, align 8, !noalias !7
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8proxygen30HTTPDefaultSessionCodecFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i8, align 8, !noalias !7
   %_M_impl.i.i.i.i.i.i5 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i8, i64 16
   invoke void @_ZN8proxygen30HTTPDefaultSessionCodecFactoryC1ERKNS_21AcceptorConfigurationE(ptr noundef nonnull align 8 dereferenceable(50) %_M_impl.i.i.i.i.i.i5, ptr noundef nonnull align 8 dereferenceable(761) %accConfig_.i)
           to label %invoke.cont7 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN8proxygen30HTTPDefaultSessionCodecFactoryESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !7
@@ -925,13 +925,13 @@ _ZNSt12__shared_ptrIN8proxygen16SimpleControllerELN9__gnu_cxx12_Lock_policyE2EED
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen19HTTPSessionAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(1928) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 1856
-  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [7 x ptr], [11 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen19HTTPSessionAcceptorE, i64 0, i32 3, i64 2), ptr %add.ptr3, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 1912
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -2070,29 +2070,29 @@ terminate.lpad.i:                                 ; preds = %if.then.i
 
 invoke.cont16:                                    ; preds = %if.then.i, %_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev.exit
   store ptr null, ptr %agg.tmp, align 8
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %this, i64 1584
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 2, i64 2), ptr %add.ptr5, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 2, i64 2), ptr %add.ptr5, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 1592
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 3, i64 2), ptr %add.ptr6, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 3, i64 2), ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 1600
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 4, i64 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 4, i64 2), ptr %add.ptr7, align 8
   %add.ptr8 = getelementptr inbounds i8, ptr %this, i64 1608
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 5, i64 2), ptr %add.ptr8, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 5, i64 2), ptr %add.ptr8, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %this, i64 1616
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 6, i64 2), ptr %add.ptr9, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 6, i64 2), ptr %add.ptr9, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %this, i64 1624
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 7, i64 2), ptr %add.ptr10, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 7, i64 2), ptr %add.ptr10, align 8
   %add.ptr11 = getelementptr inbounds i8, ptr %this, i64 1632
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 8, i64 2), ptr %add.ptr11, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 8, i64 2), ptr %add.ptr11, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %this, i64 1672
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 9, i64 2), ptr %add.ptr12, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 9, i64 2), ptr %add.ptr12, align 8
   %add.ptr13 = getelementptr inbounds i8, ptr %this, i64 1688
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 10, i64 2), ptr %add.ptr13, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 10, i64 2), ptr %add.ptr13, align 8
   %add.ptr14 = getelementptr inbounds i8, ptr %this, i64 1696
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, inrange i32 11, i64 2), ptr %add.ptr14, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen21HTTPDownstreamSessionE, i64 0, i32 11, i64 2), ptr %add.ptr14, align 8
   %call_.i.i = getelementptr inbounds i8, ptr %this, i64 992
   %9 = load ptr, ptr %call_.i.i, align 8
   %vtable = load ptr, ptr %9, align 8
@@ -3679,11 +3679,11 @@ declare void @_ZN6wangle8AcceptorD2Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen12HTTPAcceptorD2Ev(ptr noundef nonnull align 8 dereferenceable(1856) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [7 x ptr], [11 x ptr] }, ptr @_ZTVN8proxygen12HTTPAcceptorE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8
   %tcpEventsTimeouts_ = getelementptr inbounds i8, ptr %this, i64 1848
   %0 = load ptr, ptr %tcpEventsTimeouts_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -5364,7 +5364,7 @@ declare void @__cxa_rethrow() local_unnamed_addr
 define linkonce_odr void @_ZN6wangle16SSLContextConfigC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(433) %this, ptr noundef nonnull align 8 dereferenceable(433) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__an.i.i.i.i = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
   %certificates = getelementptr inbounds i8, ptr %this, i64 8
   %certificates2 = getelementptr inbounds i8, ptr %0, i64 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %0, i64 16
@@ -5829,7 +5829,7 @@ _ZNSt12_Vector_baseIN6wangle16SSLContextConfig15CertificateInfoESaIS2_EED2Ev.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6wangle16SSLContextConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(433) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6wangle16SSLContextConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
   %hasValue.i.i.i = getelementptr inbounds i8, ptr %this, i64 424
   %0 = load i8, ptr %hasValue.i.i.i, align 8
   %1 = and i8 %0, 1

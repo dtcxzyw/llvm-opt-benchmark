@@ -1385,7 +1385,7 @@ define dso_local void @_ZN9Stockfish6ThreadC2ERNS_6Search11SharedStateESt10uniqu
   store ptr %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %14 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9Stockfish6ThreadE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9Stockfish6ThreadE, i32 0, i32 0, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %"class.Stockfish::Thread", ptr %14, i32 0, i32 1
   %16 = load ptr, ptr %6, align 8
   call void @_ZSt11make_uniqueIN9Stockfish6Search6WorkerEJRNS1_11SharedStateESt10unique_ptrINS1_14ISearchManagerESt14default_deleteIS6_EERmEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.2") align 8 %15, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -1646,7 +1646,7 @@ define dso_local void @_ZN9Stockfish6ThreadD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9Stockfish6ThreadE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9Stockfish6ThreadE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Stockfish::Thread", ptr %3, i32 0, i32 6
   store i8 1, ptr %4, align 8
   call void @_ZN9Stockfish6Thread15start_searchingEv(ptr noundef nonnull align 8 dereferenceable(136) %3)
@@ -2118,7 +2118,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish6Search13SearchManagerC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9Stockfish6Search14ISearchManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9Stockfish6Search13SearchManagerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9Stockfish6Search13SearchManagerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Stockfish::Search::SearchManager", ptr %3, i32 0, i32 1
   call void @_ZN9Stockfish14TimeManagementC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %4) #3
   ret void
@@ -2170,7 +2170,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish6Search17NullSearchManagerC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9Stockfish6Search14ISearchManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9Stockfish6Search17NullSearchManagerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9Stockfish6Search17NullSearchManagerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3950,7 +3950,7 @@ define linkonce_odr dso_local void @_ZN9Stockfish6Search14ISearchManagerC2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9Stockfish6Search14ISearchManagerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9Stockfish6Search14ISearchManagerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

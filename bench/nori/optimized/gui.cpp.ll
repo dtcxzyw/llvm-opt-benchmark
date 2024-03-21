@@ -169,7 +169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 59:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #13
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i64 0, i32 0, i64 2), ptr %0, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 384
   store ptr %1, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 392
@@ -1307,7 +1307,7 @@ declare void @_ZN7nanogui10RenderPass3endEv(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4nori10NoriScreenD2Ev(ptr noundef nonnull align 8 dereferenceable(420) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -1344,7 +1344,7 @@ _ZN7nanogui3refINS_6ShaderEED2Ev.exit:            ; preds = %_ZN7nanogui3refINS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4nori10NoriScreenD0Ev(ptr noundef nonnull align 8 dereferenceable(420) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null

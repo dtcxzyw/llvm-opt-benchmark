@@ -340,7 +340,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 define void @_ZN7rocksdb16WritePreparedTxnC2EPNS_18WritePreparedTxnDBERKNS_12WriteOptionsERKNS_18TransactionOptionsE(ptr noundef nonnull align 8 dereferenceable(584) %this, ptr noundef %txn_db, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(56) %txn_options) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7rocksdb22PessimisticTransactionC2EPNS_13TransactionDBERKNS_12WriteOptionsERKNS_18TransactionOptionsEb(ptr noundef nonnull align 8 dereferenceable(561) %this, ptr noundef %txn_db, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(56) %txn_options, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb16WritePreparedTxnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb16WritePreparedTxnE, i64 0, i32 0, i64 2), ptr %this, align 8
   %wpt_db_ = getelementptr inbounds i8, ptr %this, i64 568
   store ptr %txn_db, ptr %wpt_db_, align 8
   %prepare_batch_cnt_ = getelementptr inbounds i8, ptr %this, i64 576
@@ -645,7 +645,7 @@ invoke.cont21:                                    ; preds = %_ZN7rocksdb8ReadLoc
   store i64 %storemerge.i, ptr %max_visible_seq_.i.i, align 8
   %min_uncommitted_.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   store i64 %min_uncommitted.0, ptr %min_uncommitted_.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %callback, align 8
   %db_.i = getelementptr inbounds i8, ptr %callback, i64 24
   store ptr %37, ptr %db_.i, align 8
   %backed_by_snapshot_.i = getelementptr inbounds i8, ptr %callback, i64 32
@@ -731,11 +731,11 @@ lpad16:                                           ; preds = %if.then.i.i26, %if.
 lpad23:                                           ; preds = %if.then.i.i35, %invoke.cont21
   %50 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %callback, align 8
   br label %ehcleanup
 
 if.end45:                                         ; preds = %_ZN7rocksdb6StatusD2Ev.exit51, %_ZNK7rocksdb18WritePreparedTxnDB12WPRecordTickEj.exit, %lor.rhs, %_ZN7rocksdb18WritePreparedTxnDB16ValidateSnapshotEmNS_14SnapshotBackupESt12memory_order.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %callback, align 8
   %51 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i53 = icmp eq ptr %51, null
   br i1 %tobool.not.i.i.i53, label %return, label %if.then.i.i.i54
@@ -777,7 +777,7 @@ declare void @_ZN7rocksdb19WriteBatchWithIndex22MultiGetFromBatchAndDBEPNS_2DBER
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb28WritePreparedTxnReadCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(35) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -985,7 +985,7 @@ _ZN7rocksdb18WritePreparedTxnDB16AssignMinMaxSeqsEPKNS_8SnapshotEPmS4_.exit: ; p
   store i64 %storemerge.i, ptr %max_visible_seq_.i.i, align 8
   %min_uncommitted_.i.i = getelementptr inbounds i8, ptr %callback, i64 16
   store i64 %min_uncommitted.0, ptr %min_uncommitted_.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %callback, align 8
   %db_.i = getelementptr inbounds i8, ptr %callback, i64 24
   store ptr %14, ptr %db_.i, align 8
   %backed_by_snapshot_.i = getelementptr inbounds i8, ptr %callback, i64 32
@@ -1156,7 +1156,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
   %two_write_queues = getelementptr inbounds i8, ptr %4, i64 1252
   %5 = load i8, ptr %two_write_queues, align 4
   %6 = and i8 %5, 1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb19AddPreparedCallbackE, i64 0, inrange i32 0, i64 2), ptr %add_prepared_callback, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb19AddPreparedCallbackE, i64 0, i32 0, i64 2), ptr %add_prepared_callback, align 8
   %db_.i = getelementptr inbounds i8, ptr %add_prepared_callback, i64 8
   store ptr %3, ptr %db_.i, align 8
   %db_impl_.i = getelementptr inbounds i8, ptr %add_prepared_callback, i64 16
@@ -1390,7 +1390,7 @@ if.end36:                                         ; preds = %entry, %if.then6
   %6 = load ptr, ptr %wpt_db_46, align 8
   %prepare_batch_cnt_ = getelementptr inbounds i8, ptr %this, i64 576
   %7 = load i64, ptr %prepare_batch_cnt_, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb42WritePreparedCommitEntryPreReleaseCallbackE, i64 0, inrange i32 0, i64 2), ptr %update_commit_map, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb42WritePreparedCommitEntryPreReleaseCallbackE, i64 0, i32 0, i64 2), ptr %update_commit_map, align 8
   %db_.i = getelementptr inbounds i8, ptr %update_commit_map, i64 8
   store ptr %6, ptr %db_.i, align 8
   %db_impl_.i = getelementptr inbounds i8, ptr %update_commit_map, i64 16
@@ -1767,7 +1767,7 @@ invoke.cont18:                                    ; preds = %_ZN7rocksdb18WriteP
   %rollback_merge_operands = getelementptr inbounds i8, ptr %17, i64 116
   %20 = load i8, ptr %rollback_merge_operands, align 4
   %21 = and i8 %20, 1
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 0, inrange i32 0, i64 2), ptr %rollback_handler, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 0, i32 0, i64 2), ptr %rollback_handler, align 8
   %db_.i = getelementptr inbounds i8, ptr %rollback_handler, i64 8
   store ptr %18, ptr %db_.i, align 8
   %wpt_db_.i = getelementptr inbounds i8, ptr %rollback_handler, i64 16
@@ -1777,7 +1777,7 @@ invoke.cont18:                                    ; preds = %_ZN7rocksdb18WriteP
   store i64 72057594037927935, ptr %max_visible_seq_.i.i.i, align 8
   %min_uncommitted_.i.i.i = getelementptr inbounds i8, ptr %rollback_handler, i64 40
   store i64 1, ptr %min_uncommitted_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %callback_.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %callback_.i, align 8
   %db_.i.i = getelementptr inbounds i8, ptr %rollback_handler, i64 48
   store ptr %17, ptr %db_.i.i, align 8
   %backed_by_snapshot_.i.i = getelementptr inbounds i8, ptr %rollback_handler, i64 56
@@ -1919,7 +1919,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
   %tobool37.not = icmp eq i8 %40, 0
   store i64 72057594037927935, ptr %seq_used, align 8
   %41 = load ptr, ptr %wpt_db_, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb19AddPreparedCallbackE, i64 0, inrange i32 0, i64 2), ptr %add_prepared_callback, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb19AddPreparedCallbackE, i64 0, i32 0, i64 2), ptr %add_prepared_callback, align 8
   %db_.i23 = getelementptr inbounds i8, ptr %add_prepared_callback, i64 8
   store ptr %41, ptr %db_.i23, align 8
   %db_impl_.i = getelementptr inbounds i8, ptr %add_prepared_callback, i64 16
@@ -1933,7 +1933,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %_ZN7rocksdb6Statusa
   %42 = load i64, ptr %id_.i, align 8
   %prepare_batch_cnt_ = getelementptr inbounds i8, ptr %this, i64 576
   %43 = load i64, ptr %prepare_batch_cnt_, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb42WritePreparedCommitEntryPreReleaseCallbackE, i64 0, inrange i32 0, i64 2), ptr %update_commit_map, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb42WritePreparedCommitEntryPreReleaseCallbackE, i64 0, i32 0, i64 2), ptr %update_commit_map, align 8
   %db_.i25 = getelementptr inbounds i8, ptr %update_commit_map, i64 8
   store ptr %41, ptr %db_.i25, align 8
   %db_impl_.i26 = getelementptr inbounds i8, ptr %update_commit_map, i64 16
@@ -2038,7 +2038,7 @@ if.end72:                                         ; preds = %if.end64
   %62 = load ptr, ptr %db_impl_, align 8
   %63 = load i64, ptr %id_.i, align 8
   %64 = load i64, ptr %prepare_batch_cnt_, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb39WritePreparedRollbackPreReleaseCallbackE, i64 0, inrange i32 0, i64 2), ptr %update_commit_map_with_prepare, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb39WritePreparedRollbackPreReleaseCallbackE, i64 0, i32 0, i64 2), ptr %update_commit_map_with_prepare, align 8
   %db_.i51 = getelementptr inbounds i8, ptr %update_commit_map_with_prepare, i64 8
   store ptr %61, ptr %db_.i51, align 8
   %db_impl_.i52 = getelementptr inbounds i8, ptr %update_commit_map_with_prepare, i64 16
@@ -2269,7 +2269,7 @@ invoke.cont105:                                   ; preds = %if.end103
   br label %nrvo.skipdtor
 
 nrvo.skipdtor:                                    ; preds = %invoke.cont105, %invoke.cont61, %if.then66, %invoke.cont28
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 0, inrange i32 0, i64 2), ptr %rollback_handler, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 0, i32 0, i64 2), ptr %rollback_handler, align 8
   %106 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i122 = icmp eq ptr %106, null
   br i1 %tobool.not.i.i.i.i122, label %_ZN7rocksdb11ReadOptionsD2Ev.exit.i, label %if.then.i.i.i.i123
@@ -2299,7 +2299,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN7rocksdb11ReadOp
   unreachable
 
 _ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilderD2Ev.exit: ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %callback_.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %callback_.i, align 8
   call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %rollback_handler) #19
   %112 = load ptr, ptr %_M_manager.i.i.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %112, null
@@ -2521,7 +2521,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_manager.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %_M_manager.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2555,7 +2555,7 @@ terminate.lpad.i.i:                               ; preds = %_ZN7rocksdb11ReadOp
 
 _ZNSt3mapIjSt3setIN7rocksdb5SliceENS1_13SetComparatorESaIS2_EESt4lessIjESaISt4pairIKjS5_EEED2Ev.exit: ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit
   %callback_ = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %callback_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %callback_, align 8
   tail call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   ret void
 }
@@ -2684,7 +2684,7 @@ cond.end:                                         ; preds = %if.end, %cond.false
   store i64 %call5, ptr %max_visible_seq_.i.i, align 8
   %min_uncommitted_.i.i = getelementptr inbounds i8, ptr %snap_checker, i64 16
   store i64 %1, ptr %min_uncommitted_.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %snap_checker, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %snap_checker, align 8
   %db_.i = getelementptr inbounds i8, ptr %snap_checker, i64 24
   store ptr %6, ptr %db_.i, align 8
   %backed_by_snapshot_.i = getelementptr inbounds i8, ptr %snap_checker, i64 32
@@ -4670,7 +4670,7 @@ declare void @_ZN7rocksdb10WriteBatchC2Emmmm(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilderD0Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb16WritePreparedTxn16RollbackInternalEvE25RollbackWriteBatchBuilder, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_manager.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %_M_manager.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -4704,7 +4704,7 @@ terminate.lpad.i.i.i:                             ; preds = %_ZN7rocksdb11ReadOp
 
 _ZZN7rocksdb16WritePreparedTxn16RollbackInternalEvEN25RollbackWriteBatchBuilderD2Ev.exit: ; preds = %_ZN7rocksdb11ReadOptionsD2Ev.exit.i
   %callback_.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, inrange i32 0, i64 2), ptr %callback_.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedTxnReadCallbackE, i64 0, i32 0, i64 2), ptr %callback_.i, align 8
   tail call void @_ZN7rocksdb10WriteBatch7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #19
   tail call void @_ZdlPv(ptr noundef nonnull %this) #18
   ret void

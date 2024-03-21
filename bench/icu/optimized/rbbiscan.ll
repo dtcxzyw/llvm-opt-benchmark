@@ -66,13 +66,13 @@ entry:
   %ref.tmp42 = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp54 = alloca %"class.icu_75::UnicodeSet", align 8
   %ref.tmp55 = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleScannerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleScannerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fC = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %fC, align 8
   %fEscaped.i = getelementptr inbounds i8, ptr %this, i64 44
   store i8 0, ptr %fEscaped.i, align 4
   %fVarName = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fVarName, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fVarName, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 56
   store i16 2, ptr %fUnion2.i, align 8
   %fRuleSets.ptr = getelementptr inbounds i8, ptr %this, i64 1152
@@ -427,7 +427,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7515RBBIRuleScannerD2Ev(ptr noundef nonnull align 8 dereferenceable(3192) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleScannerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515RBBIRuleScannerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fSymbolTable = getelementptr inbounds i8, ptr %this, i64 1136
   %0 = load ptr, ptr %fSymbolTable, align 8
   %isnull = icmp eq ptr %0, null
@@ -2687,7 +2687,7 @@ entry:
   %localStatus = alloca i32, align 4
   %uset = alloca %"class.icu_75::LocalPointer", align 8
   %tempSet = alloca %"class.icu_75::UnicodeSet", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, inrange i32 0, i64 2), ptr %pos, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %pos, align 8
   %index.i = getelementptr inbounds i8, ptr %pos, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds i8, ptr %pos, i64 12
@@ -3000,7 +3000,7 @@ declare ptr @uhash_put_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef) lo
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7515RBBIRuleScanner10stripRulesERKNS_13UnicodeStringE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %rules) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %rules, i64 8

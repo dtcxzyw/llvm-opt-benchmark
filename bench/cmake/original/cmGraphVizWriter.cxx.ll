@@ -2463,7 +2463,7 @@ define dso_local void @_ZN16cmGraphVizWriterC2ERKNSt7__cxx1112basic_stringIcSt11
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN22cmLinkItemGraphVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %13) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmGraphVizWriter, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmGraphVizWriter, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.cmGraphVizWriter, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %5, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
@@ -2633,7 +2633,7 @@ define linkonce_odr dso_local void @_ZN22cmLinkItemGraphVisitorC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmLinkItemGraphVisitor, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmLinkItemGraphVisitor, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 1
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 2
@@ -2764,7 +2764,7 @@ define dso_local void @_ZN16cmGraphVizWriterD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmGraphVizWriter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmGraphVizWriter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmGraphVizWriter, ptr %3, i32 0, i32 2
   invoke void @_ZN16cmGraphVizWriter11WriteFooterER21cmGeneratedFileStream(ptr noundef nonnull align 8 dereferenceable(1043) %3, ptr noundef nonnull align 8 dereferenceable(348) %4)
           to label %5 unwind label %15
@@ -9356,7 +9356,7 @@ define linkonce_odr dso_local void @_ZN22cmLinkItemGraphVisitorD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmLinkItemGraphVisitor, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmLinkItemGraphVisitor, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 2
   call void @_ZNSt3setISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESt4lessIS7_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %class.cmLinkItemGraphVisitor, ptr %3, i32 0, i32 1

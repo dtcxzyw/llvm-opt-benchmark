@@ -416,7 +416,7 @@ $_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag = comdat any
 @_ZTISt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @__cxa_pure_virtual, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTVN3dap6Socket6SharedE = linkonce_odr dso_local unnamed_addr constant { [12 x ptr], [11 x ptr] } { [12 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN3dap6Socket6SharedE, ptr @_ZN3dap6Socket6SharedD1Ev, ptr @_ZN3dap6Socket6SharedD0Ev, ptr @_ZN3dap6Socket6Shared6isOpenEv, ptr @_ZN3dap6Socket6Shared5closeEv, ptr @_ZN3dap6Socket6Shared4readEPvm, ptr @_ZN3dap6Socket6Shared5writeEPKvm], [11 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3dap6Socket6SharedE, ptr @_ZThn8_N3dap6Socket6SharedD1Ev, ptr @_ZThn8_N3dap6Socket6SharedD0Ev, ptr null, ptr null, ptr @_ZThn8_N3dap6Socket6Shared5writeEPKvm] }, comdat, align 8
-@_ZTTN3dap6Socket6SharedE = linkonce_odr dso_local unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE8_NS_6WriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE8_NS_6WriterE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_12ReaderWriterE, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 1, i32 6)], comdat, align 8
+@_ZTTN3dap6Socket6SharedE = linkonce_odr dso_local unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE8_NS_6WriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE8_NS_6WriterE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN3dap6Socket6SharedE0_NS_12ReaderWriterE, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 1, i32 6)], comdat, align 8
 @_ZTCN3dap6Socket6SharedE0_NS_12ReaderWriterE = linkonce_odr dso_local unnamed_addr constant { [11 x ptr], [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN3dap12ReaderWriterE, ptr @_ZN3dap12ReaderWriterD1Ev, ptr @_ZN3dap12ReaderWriterD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual], [11 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3dap12ReaderWriterE, ptr @_ZThn8_N3dap12ReaderWriterD1Ev, ptr @_ZThn8_N3dap12ReaderWriterD0Ev, ptr null, ptr null, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3dap12ReaderWriterE = linkonce_odr dso_local constant [21 x i8] c"N3dap12ReaderWriterE\00", comdat, align 1
@@ -1314,7 +1314,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN3dap6Socket6
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %10, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(128) %11) #13
   %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %10) #13
@@ -1508,7 +1508,7 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -1723,10 +1723,10 @@ define linkonce_odr dso_local void @_ZN3dap6Socket6SharedC1EP8addrinfoi(ptr noun
   %7 = load ptr, ptr %4, align 8
   call void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
   call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN3dap6Socket6SharedE, i64 0, i64 1)) #13
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 0, i32 6), ptr %7, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 0, i32 6), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, i32 0, i32 6), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, i32 0, i32 6), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 1, i32 6), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, i32 1, i32 6), ptr %8, align 8
   %9 = getelementptr inbounds %"class.dap::Socket::Shared", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %5, align 8
   store ptr %10, ptr %9, align 8
@@ -1743,7 +1743,7 @@ define linkonce_odr dso_local void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dap8ClosableE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dap8ClosableE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4013,7 +4013,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN3dap6Socket6
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_(ptr noundef nonnull align 8 dereferenceable(128) %9) #13
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN3dap6Socket6SharedESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(144) %8) #13
@@ -4078,10 +4078,10 @@ define linkonce_odr dso_local void @_ZN3dap6Socket6SharedC1Ei(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
   call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN3dap6Socket6SharedE, i64 0, i64 1)) #13
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 0, i32 6), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 0, i32 6), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, i32 0, i32 6), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, i32 0, i32 6), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, inrange i32 1, i32 6), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN3dap6Socket6SharedE, i32 0, i32 1, i32 6), ptr %6, align 8
   %7 = getelementptr inbounds %"class.dap::Socket::Shared", ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds %"class.dap::Socket::Shared", ptr %5, i32 0, i32 2

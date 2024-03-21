@@ -12937,7 +12937,7 @@ entry:
   store ptr %column_family_set, ptr %column_family_set.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb21ColumnFamilyMemTablesC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %column_family_set_ = getelementptr inbounds %"class.rocksdb::ColumnFamilyMemTablesImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %column_family_set.addr, align 8
   store ptr %0, ptr %column_family_set_, align 8
@@ -12976,7 +12976,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %handle_ = getelementptr inbounds %"class.rocksdb::ColumnFamilyMemTablesImpl", ptr %this1, i32 0, i32 3
   call void @_ZN7rocksdb26ColumnFamilyHandleInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %handle_) #3
   call void @_ZN7rocksdb21ColumnFamilyMemTablesD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -25823,7 +25823,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb21ColumnFamilyMemTablesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb21ColumnFamilyMemTablesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -25834,7 +25834,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb22ColumnFamilyHandleImplC2EPNS_16ColumnFamilyDataEPNS_6DBImplEPNS_17InstrumentedMutexE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, ptr noundef null, ptr noundef null)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %internal_cfd_ = getelementptr inbounds %"class.rocksdb::ColumnFamilyHandleInternal", ptr %this1, i32 0, i32 1
   store ptr null, ptr %internal_cfd_, align 8
   ret void

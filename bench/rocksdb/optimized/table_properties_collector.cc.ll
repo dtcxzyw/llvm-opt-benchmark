@@ -415,7 +415,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb31UserKeyTablePropertiesCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31UserKeyTablePropertiesCollectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31UserKeyTablePropertiesCollectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %collector_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %collector_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -436,7 +436,7 @@ _ZNSt10unique_ptrIN7rocksdb24TablePropertiesCollectorESt14default_deleteIS1_EED2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb31UserKeyTablePropertiesCollectorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31UserKeyTablePropertiesCollectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31UserKeyTablePropertiesCollectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %collector_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %collector_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

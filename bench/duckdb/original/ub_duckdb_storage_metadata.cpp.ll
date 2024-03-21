@@ -4264,7 +4264,7 @@ _ZNSt12_Vector_baseIN6duckdb17MetadataBlockInfoESaIS1_EED2Ev.exit: ; preds = %if
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb14MetadataReaderC2ERNS_15MetadataManagerENS_16MetaBlockPointerENS_12optional_ptrINS_6vectorIS3_Lb1EEEEENS_15BlockReaderTypeE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(128) %manager, i64 %pointer.coerce0, i32 %pointer.coerce1, ptr %read_pointers_p.coerce, i32 noundef %type) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14MetadataReaderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !65
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14MetadataReaderE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !65
   %manager2 = getelementptr inbounds %"class.duckdb::MetadataReader", ptr %this, i64 0, i32 1
   store ptr %manager, ptr %manager2, align 8, !tbaa !3
   %type3 = getelementptr inbounds %"class.duckdb::MetadataReader", ptr %this, i64 0, i32 2
@@ -4445,7 +4445,7 @@ _ZN6duckdb15MetadataManager16FromBlockPointerENS_12BlockPointerE.exit: ; preds =
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb14MetadataReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14MetadataReaderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !65
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14MetadataReaderE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !65
   %handle.i = getelementptr inbounds %"class.duckdb::MetadataReader", ptr %this, i64 0, i32 3, i32 1
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i) #20
   ret void
@@ -4847,7 +4847,7 @@ declare void @_ZN6duckdb11IOExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_tr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !65
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !65
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !83
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2
@@ -4905,7 +4905,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb14MetadataWriterC2ERNS_15MetadataManagerENS_12optional_ptrINS_6vectorINS_16MetaBlockPointerELb1EEEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(128) %manager, ptr %written_pointers_p.coerce) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb14MetadataWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !65
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb14MetadataWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !65
   %manager2 = getelementptr inbounds %"class.duckdb::MetadataWriter", ptr %this, i64 0, i32 1
   store ptr %manager, ptr %manager2, align 8, !tbaa !3
   %handle.i = getelementptr inbounds %"class.duckdb::MetadataWriter", ptr %this, i64 0, i32 2, i32 1
@@ -4920,7 +4920,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb14MetadataWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb14MetadataWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !65
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb14MetadataWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !65
   %handle.i = getelementptr inbounds %"class.duckdb::MetadataWriter", ptr %this, i64 0, i32 2, i32 1
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle.i) #20
   ret void

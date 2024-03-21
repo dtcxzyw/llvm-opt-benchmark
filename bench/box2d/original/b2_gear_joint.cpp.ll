@@ -119,7 +119,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %def.addr, align 8
   call void @_ZN7b2JointC2EPK10b2JointDef(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11b2GearJoint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11b2GearJoint, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load ptr, ptr %def.addr, align 8
   %joint1 = getelementptr inbounds %struct.b2GearJointDef, ptr %1, i32 0, i32 2
   %2 = load ptr, ptr %joint1, align 8

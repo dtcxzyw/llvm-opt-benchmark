@@ -1403,7 +1403,7 @@ define dso_local void @_ZN14ShadowRenderer7preInitEP21IWritableShaderSource(ptr 
 
 38:                                               ; preds = %37
   %39 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV27ShadowConstantSetterFactory, i64 0, inrange i32 0, i64 2), ptr %39, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV27ShadowConstantSetterFactory, i64 0, i32 0, i64 2), ptr %39, align 8, !tbaa !12
   %40 = load ptr, ptr %0, align 8, !tbaa !12
   %41 = getelementptr inbounds i8, ptr %40, i64 64
   %42 = load ptr, ptr %41, align 8
@@ -2022,7 +2022,7 @@ define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr nocapture nounde
 237:                                              ; preds = %235
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %236, i8 0, i64 272, i1 false)
   %238 = getelementptr inbounds i8, ptr %236, i64 248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %238, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %238, align 8, !tbaa !12
   %239 = getelementptr inbounds i8, ptr %236, i64 264
   store i32 1, ptr %239, align 8, !tbaa !95
   %240 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT19ShadowDepthShaderCB, i64 0, i64 1), align 8
@@ -2032,8 +2032,8 @@ define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr nocapture nounde
   %243 = load i64, ptr %242, align 8
   %244 = getelementptr inbounds i8, ptr %236, i64 %243
   store ptr %241, ptr %244, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, inrange i32 0, i64 3), ptr %236, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, inrange i32 1, i64 3), ptr %238, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, i32 0, i64 3), ptr %236, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, i32 1, i64 3), ptr %238, align 8, !tbaa !12
   %245 = getelementptr inbounds i8, ptr %236, i64 8
   store <4 x float> <float 2.048000e+03, float 1.024000e+03, float 0x3FECCCCCC0000000, float 5.000000e-01>, ptr %245, align 8, !tbaa !32
   %246 = getelementptr inbounds i8, ptr %236, i64 24
@@ -2820,7 +2820,7 @@ define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr nocapture nounde
 644:                                              ; preds = %642
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %643, i8 0, i64 272, i1 false)
   %645 = getelementptr inbounds i8, ptr %643, i64 248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %645, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %645, align 8, !tbaa !12
   %646 = getelementptr inbounds i8, ptr %643, i64 264
   store i32 1, ptr %646, align 8, !tbaa !95
   %647 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT19ShadowDepthShaderCB, i64 0, i64 1), align 8
@@ -2830,8 +2830,8 @@ define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr nocapture nounde
   %650 = load i64, ptr %649, align 8
   %651 = getelementptr inbounds i8, ptr %643, i64 %650
   store ptr %648, ptr %651, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, inrange i32 0, i64 3), ptr %643, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, inrange i32 1, i64 3), ptr %645, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, i32 0, i64 3), ptr %643, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, i32 1, i64 3), ptr %645, align 8, !tbaa !12
   %652 = getelementptr inbounds i8, ptr %643, i64 8
   store <4 x float> <float 2.048000e+03, float 1.024000e+03, float 0x3FECCCCCC0000000, float 5.000000e-01>, ptr %652, align 8, !tbaa !32
   %653 = getelementptr inbounds i8, ptr %643, i64 24
@@ -3571,7 +3571,7 @@ define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr nocapture nounde
 1022:                                             ; preds = %1020
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(80) %1021, i8 0, i64 80, i1 false)
   %1023 = getelementptr inbounds i8, ptr %1021, i64 56
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %1023, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %1023, align 8, !tbaa !12
   %1024 = getelementptr inbounds i8, ptr %1021, i64 72
   store i32 1, ptr %1024, align 8, !tbaa !95
   %1025 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT18shadowScreenQuadCB, i64 0, i64 1), align 8
@@ -3581,8 +3581,8 @@ define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr nocapture nounde
   %1028 = load i64, ptr %1027, align 8
   %1029 = getelementptr inbounds i8, ptr %1021, i64 %1028
   store ptr %1026, ptr %1029, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV18shadowScreenQuadCB, i64 0, inrange i32 0, i64 3), ptr %1021, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV18shadowScreenQuadCB, i64 0, inrange i32 1, i64 3), ptr %1023, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV18shadowScreenQuadCB, i64 0, i32 0, i64 3), ptr %1021, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV18shadowScreenQuadCB, i64 0, i32 1, i64 3), ptr %1023, align 8, !tbaa !12
   %1030 = getelementptr inbounds i8, ptr %1021, i64 8
   store ptr @.str.64, ptr %1030, align 8, !tbaa !105
   %1031 = getelementptr inbounds i8, ptr %1021, i64 20
@@ -4268,7 +4268,7 @@ define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr nocapture nounde
 1369:                                             ; preds = %1367
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(272) %1368, i8 0, i64 272, i1 false)
   %1370 = getelementptr inbounds i8, ptr %1368, i64 248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %1370, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %1370, align 8, !tbaa !12
   %1371 = getelementptr inbounds i8, ptr %1368, i64 264
   store i32 1, ptr %1371, align 8, !tbaa !95
   %1372 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT19ShadowDepthShaderCB, i64 0, i64 1), align 8
@@ -4278,8 +4278,8 @@ define dso_local void @_ZN14ShadowRenderer13createShadersEv(ptr nocapture nounde
   %1375 = load i64, ptr %1374, align 8
   %1376 = getelementptr inbounds i8, ptr %1368, i64 %1375
   store ptr %1373, ptr %1376, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, inrange i32 0, i64 3), ptr %1368, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, inrange i32 1, i64 3), ptr %1370, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, i32 0, i64 3), ptr %1368, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV19ShadowDepthShaderCB, i64 0, i32 1, i64 3), ptr %1370, align 8, !tbaa !12
   %1377 = getelementptr inbounds i8, ptr %1368, i64 8
   store <4 x float> <float 2.048000e+03, float 1.024000e+03, float 0x3FECCCCCC0000000, float 5.000000e-01>, ptr %1377, align 8, !tbaa !32
   %1378 = getelementptr inbounds i8, ptr %1368, i64 24
@@ -9886,7 +9886,7 @@ define linkonce_odr dso_local noundef ptr @_ZN27ShadowConstantSetterFactory6crea
   %2 = tail call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #29
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(320) %3, i8 0, i64 304, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20ShadowConstantSetter, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV20ShadowConstantSetter, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @.str.48, ptr %4, align 8, !tbaa !97
   %5 = getelementptr inbounds i8, ptr %2, i64 81

@@ -266,8 +266,8 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal24ProofNodeUpdaterCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
   %frombool = zext i1 %resPivots to i8
-  store ptr getelementptr inbounds ({ [8 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal5proof30AletheProofPostprocessCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal5proof30AletheProofPostprocessCallbackE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal5proof30AletheProofPostprocessCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal5proof30AletheProofPostprocessCallbackE, i64 0, i32 1, i64 2), ptr %0, align 8
   %d_anc = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %anc, ptr %d_anc, align 8
   %d_resPivots = getelementptr inbounds i8, ptr %this, i64 32
@@ -34654,7 +34654,7 @@ eh.resume:                                        ; preds = %lpad6, %ehcleanup
 define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocessC2ERNS0_3EnvERNS1_19AletheNodeConverterEb(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(288) %anc, i1 noundef zeroext %resPivots) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal5proof22AletheProofPostprocessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal5proof22AletheProofPostprocessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_cb = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal5proof30AletheProofPostprocessCallbackC2ERNS0_3EnvERNS1_19AletheNodeConverterEb(ptr noundef nonnull align 8 dereferenceable(64) %d_cb, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull align 8 dereferenceable(288) %anc, i1 noundef zeroext %resPivots)
   ret void
@@ -34663,7 +34663,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocessD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal5proof22AletheProofPostprocessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal5proof22AletheProofPostprocessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_cb = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal5proof30AletheProofPostprocessCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %d_cb) #17
   ret void
@@ -34672,9 +34672,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal5proof30AletheProofPostprocessCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal5proof30AletheProofPostprocessCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal5proof30AletheProofPostprocessCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal5proof30AletheProofPostprocessCallbackE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal5proof30AletheProofPostprocessCallbackE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %d_false = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %d_false, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -34766,7 +34766,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit22: ; preds = %_ZN4cvc58internal12
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal5proof22AletheProofPostprocessD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal5proof22AletheProofPostprocessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal5proof22AletheProofPostprocessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_cb.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN4cvc58internal5proof30AletheProofPostprocessCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %d_cb.i) #17
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -35603,7 +35603,7 @@ if.then.i.i.i242:                                 ; preds = %invoke.cont.i240
 
 _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit246: ; preds = %invoke.cont.i240, %if.then.i.i.i242
   call void @_ZN4cvc58internal7CDProofD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %cpf) #17
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal16ProofNodeUpdaterE, i64 0, inrange i32 0, i64 2), ptr %updater, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal16ProofNodeUpdaterE, i64 0, i32 0, i64 2), ptr %updater, align 8
   %d_freeAssumps.i = getelementptr inbounds i8, ptr %updater, i64 32
   %118 = load ptr, ptr %d_freeAssumps.i, align 8
   %_M_finish.i.i247 = getelementptr inbounds i8, ptr %updater, i64 40
@@ -35935,7 +35935,7 @@ declare void @_ZN4cvc58internal7CDProofD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal16ProofNodeUpdaterD2Ev(ptr noundef nonnull align 8 dereferenceable(58) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal16ProofNodeUpdaterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal16ProofNodeUpdaterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_freeAssumps = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_freeAssumps, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -36090,7 +36090,7 @@ declare void @__gmpq_clear(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal16ProofNodeUpdaterD0Ev(ptr noundef nonnull align 8 dereferenceable(58) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal16ProofNodeUpdaterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal16ProofNodeUpdaterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_freeAssumps.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %d_freeAssumps.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40

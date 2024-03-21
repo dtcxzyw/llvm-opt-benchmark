@@ -2896,9 +2896,9 @@ define void @_ZN16InterfaceToolbarC2EP7QWidgetPK14_iface_toolbar(ptr noundef non
   %14 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %15 = load i32, ptr %14, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %13, i32 %15)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i32 0, i32 0, i32 2), ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.InterfaceToolbar, ptr %12, i32 0, i32 1
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #18
           to label %19 unwind label %57
@@ -4359,9 +4359,9 @@ define void @_ZN16InterfaceToolbarD2Ev(ptr noundef nonnull align 8 dereferenceab
   %11 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %12 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16InterfaceToolbar, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.InterfaceToolbar, ptr %12, i32 0, i32 2
   invoke void @_ZNK4QMapI7QString16interface_valuesE4keysEv(ptr dead_on_unwind writable sret(%class.QList) align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %83
@@ -10634,7 +10634,7 @@ define linkonce_odr void @_ZN22InterfaceToolbarReaderC2E7QStringPvP7QObject(ptr 
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV22InterfaceToolbarReader, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV22InterfaceToolbarReader, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.InterfaceToolbarReader, ptr %11, i32 0, i32 1
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %1) #17
   %14 = getelementptr inbounds %class.InterfaceToolbarReader, ptr %11, i32 0, i32 2
@@ -12745,7 +12745,7 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.12, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %15, align 4
@@ -13109,7 +13109,7 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
   ret void

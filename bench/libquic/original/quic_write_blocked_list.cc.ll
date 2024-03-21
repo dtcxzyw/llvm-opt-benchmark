@@ -758,7 +758,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net14WriteSchedulerIjEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %num_ready_streams_ = getelementptr inbounds %"class.net::PriorityWriteScheduler", ptr %this1, i32 0, i32 1
   store i64 0, ptr %num_ready_streams_, align 8
   %priority_infos_ = getelementptr inbounds %"class.net::PriorityWriteScheduler", ptr %this1, i32 0, i32 2
@@ -830,7 +830,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stream_infos_ = getelementptr inbounds %"class.net::PriorityWriteScheduler", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_mapIjN3net22PriorityWriteSchedulerIjE10StreamInfoESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %stream_infos_) #11
   %priority_infos_ = getelementptr inbounds %"class.net::PriorityWriteScheduler", ptr %this1, i32 0, i32 2
@@ -856,7 +856,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net14WriteSchedulerIjEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net14WriteSchedulerIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

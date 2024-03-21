@@ -189,7 +189,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly10symbolizer22StringSymbolizePrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer22StringSymbolizePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer22StringSymbolizePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %arrayidx.i.i.i = getelementptr inbounds i8, ptr %this, i64 39
   %0 = load i8, ptr %arrayidx.i.i.i, align 1, !tbaa !10
   %cmp.i.i = icmp ult i8 %0, 64
@@ -223,7 +223,7 @@ _ZN5folly14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_coreIcEEED2Ev.ex
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly10symbolizer22StringSymbolizePrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer22StringSymbolizePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer22StringSymbolizePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 39
   %0 = load i8, ptr %arrayidx.i.i.i.i, align 1, !tbaa !10
   %cmp.i.i.i = icmp ult i8 %0, 64
@@ -1436,7 +1436,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_113isColorfulTtyEii.exit: ; preds = %lor.rhs.i
   store i32 %options, ptr %options_.i, align 8, !tbaa !39
   %isTty_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 %retval.0.i, ptr %isTty_.i, align 4, !tbaa !75
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer23OStreamSymbolizePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer23OStreamSymbolizePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %out_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %out, ptr %out_, align 8, !tbaa !20
   ret void
@@ -1500,7 +1500,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_113isColorfulTtyEii.exit: ; preds = %lor.rhs.i
   store i32 %options, ptr %options_.i, align 8, !tbaa !39
   %isTty_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 %retval.0.i, ptr %isTty_.i, align 4, !tbaa !75
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer18FDSymbolizePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer18FDSymbolizePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %fd_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %fd, ptr %fd_, align 8, !tbaa !21
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -1524,7 +1524,7 @@ declare void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr") align 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly10symbolizer18FDSymbolizePrinterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer18FDSymbolizePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer18FDSymbolizePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %buffer_.i, align 8, !tbaa !20
   %cmp.i.not.i = icmp eq ptr %0, null
@@ -1633,7 +1633,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_113isColorfulTtyEii.exit: ; preds = %lor.rhs.i
   store i32 %options, ptr %options_.i, align 8, !tbaa !39
   %isTty_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i8 %retval.0.i, ptr %isTty_.i, align 4, !tbaa !75
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer20FILESymbolizePrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly10symbolizer20FILESymbolizePrinterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %file_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %file, ptr %file_, align 8, !tbaa !35
   ret void
@@ -2269,7 +2269,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDp
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #32
           to label %invoke.cont unwind label %lpad
 
@@ -2288,7 +2288,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #24 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !7
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #33
   unreachable
 }
@@ -2321,7 +2321,7 @@ declare { i64, i1 } @llvm.uadd.with.overflow.i64(i64, i64) #25
 define linkonce_odr void @_ZNSt12length_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   ret void
 }
 

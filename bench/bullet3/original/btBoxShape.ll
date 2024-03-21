@@ -188,7 +188,7 @@ entry:
   store ptr %boxHalfExtents, ptr %boxHalfExtents.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV10btBoxShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV10btBoxShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_shapeType, align 8
   %vtable = load ptr, ptr %this1, align 8

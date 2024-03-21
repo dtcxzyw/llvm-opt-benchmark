@@ -77,7 +77,7 @@ define void @_ZN5draco15StdioFileReader4OpenERKNSt7__cxx1112basic_stringIcSt11ch
   br label %_ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit
 
 17:                                               ; preds = %10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco15StdioFileReaderE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco15StdioFileReaderE, i64 0, i32 0, i64 2), ptr %11, align 8
   %18 = getelementptr inbounds i8, ptr %11, i64 8
   store ptr %7, ptr %18, align 8
   %19 = ptrtoint ptr %11 to i64
@@ -90,7 +90,7 @@ _ZNSt10unique_ptrIN5draco19FileReaderInterfaceESt14default_deleteIS1_EED2Ev.exit
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define void @_ZN5draco15StdioFileReaderD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco15StdioFileReaderE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco15StdioFileReaderE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i32 @fclose(ptr noundef %3)

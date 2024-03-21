@@ -314,7 +314,7 @@ if.then:                                          ; preds = %land.lhs.true
           to label %call.i3.noexc unwind label %lpad
 
 call.i3.noexc:                                    ; preds = %if.then
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN7rocksdb15DeleteSchedulerEFvvEPS4_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i34, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN7rocksdb15DeleteSchedulerEFvvEPS4_EEEEEE, i64 0, i32 0, i64 2), ptr %call.i34, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i34, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %call.i34, i64 16

@@ -1134,7 +1134,7 @@ entry:
   %0 = load ptr, ptr %connection.addr, align 8
   %1 = load ptr, ptr %config.addr, align 8
   call void @_ZN3net11QuicSessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2044) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(600) %1)
-  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %headers_stream_ = getelementptr inbounds %"class.net::QuicSpdySession", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN3net17QuicHeadersStreamESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %headers_stream_) #11
   %force_hol_blocking_ = getelementptr inbounds %"class.net::QuicSpdySession", ptr %this1, i32 0, i32 3
@@ -1170,7 +1170,7 @@ entry:
   %kv = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef ptr @_ZN3net11QuicSession14closed_streamsEv(ptr noundef nonnull align 8 dereferenceable(2044) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 

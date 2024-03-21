@@ -23,7 +23,7 @@ $_ZTI7b2Shape = comdat any
 define noundef ptr @_ZNK13b2CircleShape5CloneEP16b2BlockAllocator(ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %this, ptr noundef nonnull %allocator) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 24)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13b2CircleShape, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13b2CircleShape, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_type.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_type.i, i8 0, i64 16, i1 false)
   %m_type2.i.i = getelementptr inbounds i8, ptr %this, i64 8

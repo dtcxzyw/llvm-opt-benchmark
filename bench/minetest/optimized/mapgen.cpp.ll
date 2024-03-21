@@ -620,7 +620,7 @@ define internal void @__cxx_global_array_dtor.20(ptr nocapture readnone %0) #5 s
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @_ZN6MapgenC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef %1, ptr nocapture noundef readonly %2, ptr noundef %3) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %0, i64 12
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -698,7 +698,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6MapgenD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6Mapgen, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !61
   %4 = icmp eq ptr %3, null
@@ -1058,7 +1058,7 @@ define dso_local noundef ptr @_ZN6Mapgen18createMapgenParamsE10MapgenType(i32 no
   store i16 31007, ptr %25, align 2, !tbaa !75
   %26 = getelementptr inbounds i8, ptr %15, i64 52
   store i8 0, ptr %26, align 4, !tbaa !76
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV22MapgenSinglenodeParams, i64 0, inrange i32 0, i64 2), ptr %15, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV22MapgenSinglenodeParams, i64 0, i32 0, i64 2), ptr %15, align 8, !tbaa !15
   br label %43
 
 27:                                               ; preds = %1
@@ -4946,7 +4946,7 @@ define dso_local void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr no
   store ptr %3, ptr %19, align 8, !tbaa !61
   %58 = load ptr, ptr %3, align 8, !tbaa !62
   store ptr %58, ptr %20, align 8, !tbaa !63
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11MapgenBasic, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11MapgenBasic, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %59 = getelementptr inbounds i8, ptr %0, i64 216
   %60 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
@@ -5633,7 +5633,7 @@ declare noundef zeroext i16 @_ZNK14NodeDefManager5getIdERKNSt7__cxx1112basic_str
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(474) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11MapgenBasic, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11MapgenBasic, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !132
   %4 = icmp eq ptr %3, null
@@ -5653,7 +5653,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11MapgenBasicD0Ev(ptr noundef nonnull align 8 dereferenceable(474) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11MapgenBasic, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11MapgenBasic, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !tbaa !132
   %4 = icmp eq ptr %3, null
@@ -7736,7 +7736,7 @@ define dso_local void @_ZN16GenerateNotifier11clearEventsEv(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12MapgenParamsD0Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !73
   %4 = icmp eq ptr %3, null
@@ -8055,7 +8055,7 @@ define dso_local void @_ZN12MapgenParams10readParamsEPK8Settings(ptr noundef non
           to label %142 unwind label %75
 
 142:                                              ; preds = %140
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19BiomeParamsOriginal, i64 0, inrange i32 0, i64 2), ptr %141, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19BiomeParamsOriginal, i64 0, i32 0, i64 2), ptr %141, align 8, !tbaa !15
   %143 = getelementptr inbounds i8, ptr %141, i64 12
   %144 = getelementptr inbounds i8, ptr %141, i64 28
   %145 = getelementptr inbounds i8, ptr %141, i64 32
@@ -8105,7 +8105,7 @@ define dso_local void @_ZN12MapgenParams10readParamsEPK8Settings(ptr noundef non
   store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %165, align 4, !tbaa !206
   store i32 1, ptr %166, align 4, !tbaa !211
   store ptr %141, ptr %133, align 8, !tbaa !73
-  %167 = load ptr, ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19BiomeParamsOriginal, i64 0, inrange i32 0, i64 2), align 8
+  %167 = load ptr, ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19BiomeParamsOriginal, i64 0, i32 0, i64 2), align 8
   invoke void %167(ptr noundef nonnull align 8 dereferenceable(12) %141, ptr noundef nonnull %1)
           to label %204 unwind label %75
 
@@ -8881,7 +8881,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12MapgenParamsD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(53) %0) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !73
   %4 = icmp eq ptr %3, null
@@ -8900,7 +8900,7 @@ define dso_local void @_ZN12MapgenParamsD2Ev(ptr nocapture noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22MapgenSinglenodeParamsD0Ev(ptr noundef nonnull align 8 dereferenceable(53) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !73
   %4 = icmp eq ptr %3, null
@@ -9146,7 +9146,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13PrngExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -9199,13 +9199,13 @@ define linkonce_odr dso_local void @_ZN13PrngExceptionC2ERKNSt7__cxx1112basic_st
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13PrngException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13PrngException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9234,7 +9234,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13PrngExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9267,7 +9267,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13BaseException4whatEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24

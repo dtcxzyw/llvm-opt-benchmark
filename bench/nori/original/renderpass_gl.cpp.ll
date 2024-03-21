@@ -478,7 +478,7 @@ define hidden void @_ZN7nanogui10RenderPassC2ESt6vectorIPNS_6ObjectESaIS3_EES3_S
   store i8 %35, ptr %12, align 1
   %36 = load ptr, ptr %7, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %36)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui10RenderPassE, i32 0, inrange i32 0, i32 2), ptr %36, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui10RenderPassE, i32 0, i32 0, i32 2), ptr %36, align 8
   %37 = getelementptr inbounds %"class.nanogui::RenderPass", ptr %36, i32 0, i32 2
   %38 = call noundef i64 @_ZNKSt6vectorIPN7nanogui6ObjectESaIS2_EE4sizeEv(ptr noundef nonnull align 8 dereferenceable(24) %1) #12
   %39 = add i64 %38, 2
@@ -1054,7 +1054,7 @@ define linkonce_odr hidden void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #12
   ret void
@@ -1839,7 +1839,7 @@ define hidden void @_ZN7nanogui10RenderPassD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui10RenderPassE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui10RenderPassE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::RenderPass", ptr %3, i32 0, i32 20
   invoke void @glDeleteFramebuffers(i32 noundef 1, ptr noundef %4)
           to label %5 unwind label %9

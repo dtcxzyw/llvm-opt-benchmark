@@ -40,9 +40,9 @@ define void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 derefer
   %6 = alloca %class.QEasingCurve, align 8
   %7 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i64 0, inrange i32 1, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i64 0, i32 1, i64 2), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 0, ptr %9, align 8
   invoke void @_ZN14AccordionFrame16updateStyleSheetEv(ptr noundef nonnull align 8 dereferenceable(56) %0)

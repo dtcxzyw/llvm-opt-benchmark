@@ -7284,7 +7284,7 @@ define dso_local void @_ZN16cmLocalGeneratorC2EP17cmGlobalGeneratorP10cmMakefile
   %84 = load ptr, ptr %6, align 8
   call void @_ZNK10cmMakefile16GetStateSnapshotEv(ptr dead_on_unwind writable sret(%class.cmStateSnapshot) align 8 %7, ptr noundef nonnull align 8 dereferenceable(3520) %84)
   call void @_ZN17cmOutputConverterC2ERK15cmStateSnapshot(ptr noundef nonnull align 8 dereferenceable(108) %83, ptr noundef nonnull align 8 dereferenceable(24) %7)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16cmLocalGenerator, i32 0, inrange i32 0, i32 2), ptr %83, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16cmLocalGenerator, i32 0, i32 0, i32 2), ptr %83, align 8
   %85 = getelementptr inbounds %class.cmLocalGenerator, ptr %83, i32 0, i32 2
   %86 = load ptr, ptr %6, align 8
   invoke void @_ZNK10cmMakefile12GetBacktraceEv(ptr dead_on_unwind writable sret(%class.cmListFileBacktrace) align 8 %85, ptr noundef nonnull align 8 dereferenceable(3520) %86)
@@ -9889,7 +9889,7 @@ define dso_local void @_ZN16cmLocalGeneratorD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16cmLocalGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16cmLocalGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmLocalGenerator, ptr %3, i32 0, i32 22
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN16cmLocalGenerator11SourceEntryESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #3
   %5 = getelementptr inbounds %class.cmLocalGenerator, ptr %3, i32 0, i32 18
@@ -47562,7 +47562,7 @@ define linkonce_odr dso_local void @_ZN29cmInstallTargetGeneratorLocalC2EP16cmLo
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %13) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV29cmInstallTargetGeneratorLocal, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV29cmInstallTargetGeneratorLocal, i32 0, i32 0, i32 2), ptr %21, align 8
   %34 = load ptr, ptr %7, align 8
   %35 = load ptr, ptr %21, align 8
   %36 = getelementptr inbounds ptr, ptr %35, i64 10
@@ -57926,7 +57926,7 @@ define linkonce_odr dso_local void @_ZN17cmOutputConverterD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmOutputConverter, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmOutputConverter, ptr %3, i32 0, i32 4

@@ -124,7 +124,7 @@ define dso_local void @_ZN14ManifestParserC2EP5StateP10FileReader21ManifestParse
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV14ManifestParser, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV14ManifestParser, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 %3, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 84
@@ -1469,7 +1469,7 @@ _ZN10EvalStringD2Ev.exit249:                      ; preds = %_ZSt8_DestroyIPSt4p
 
 223:                                              ; preds = %221
   %224 = load ptr, ptr %124, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i64 0, inrange i32 0, i64 2), ptr %222, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i64 0, i32 0, i64 2), ptr %222, align 8
   %225 = getelementptr inbounds i8, ptr %222, i64 16
   store i32 0, ptr %225, align 8
   %226 = getelementptr inbounds i8, ptr %222, i64 24
@@ -3265,7 +3265,7 @@ _ZN5Lexer8ReadPathEP10EvalStringPNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   store ptr %18, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %6, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %22, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV14ManifestParser, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV14ManifestParser, i64 0, i32 0, i64 2), ptr %6, align 8
   %23 = getelementptr inbounds i8, ptr %6, i64 80
   store i32 %.sroa.0.0.copyload, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %6, i64 84
@@ -3281,7 +3281,7 @@ _ZN5Lexer8ReadPathEP10EvalStringPNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 29:                                               ; preds = %27
   %30 = load ptr, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i64 0, inrange i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i64 0, i32 0, i64 2), ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 16
   store i32 0, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %28, i64 24

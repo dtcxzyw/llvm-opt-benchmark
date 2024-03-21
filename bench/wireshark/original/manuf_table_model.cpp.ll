@@ -653,7 +653,7 @@ define void @_ZN15ManufTableModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ManufTableModel, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ManufTableModel, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.ManufTableModel, ptr %9, i32 0, i32 1
   call void @_ZN5QListIP14ManufTableItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #12
   invoke void @ws_manuf_iter_init(ptr noundef %5)
@@ -771,7 +771,7 @@ define void @_ZN15ManufTableModelD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ManufTableModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ManufTableModel, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN15ManufTableModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %4 unwind label %6
 
@@ -1454,7 +1454,7 @@ define void @_ZN25ManufSortFilterProxyModelC2EP7QObject(ptr noundef nonnull alig
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV25ManufSortFilterProxyModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV25ManufSortFilterProxyModel, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.ManufSortFilterProxyModel, ptr %7, i32 0, i32 1
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds %class.ManufSortFilterProxyModel, ptr %7, i32 0, i32 2

@@ -1928,7 +1928,7 @@ define dso_local void @_ZN20cmCTestSubmitHandlerC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN21cmCTestGenericHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20cmCTestSubmitHandler, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20cmCTestSubmitHandler, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.cmCTestSubmitHandler, ptr %5, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   %7 = getelementptr inbounds %class.cmCTestSubmitHandler, ptr %5, i32 0, i32 3
@@ -6692,7 +6692,7 @@ define linkonce_odr dso_local void @_ZN20cmCTestSubmitHandler14ResponseParserC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN20cmCTestSubmitHandler14ResponseParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN20cmCTestSubmitHandler14ResponseParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCTestSubmitHandler::ResponseParser", ptr %3, i32 0, i32 1
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds %"class.cmCTestSubmitHandler::ResponseParser", ptr %3, i32 0, i32 2
@@ -6717,7 +6717,7 @@ define linkonce_odr dso_local void @_ZN20cmCTestSubmitHandler14ResponseParserD2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN20cmCTestSubmitHandler14ResponseParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN20cmCTestSubmitHandler14ResponseParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCTestSubmitHandler::ResponseParser", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %"class.cmCTestSubmitHandler::ResponseParser", ptr %3, i32 0, i32 5
@@ -13165,7 +13165,7 @@ define linkonce_odr dso_local void @_ZN20cmCTestSubmitHandlerD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20cmCTestSubmitHandler, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20cmCTestSubmitHandler, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestSubmitHandler, ptr %3, i32 0, i32 4
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds %class.cmCTestSubmitHandler, ptr %3, i32 0, i32 10

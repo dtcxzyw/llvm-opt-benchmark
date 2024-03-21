@@ -124,7 +124,7 @@ entry:
   %ec = alloca i32, align 4
   %lpDictionaryCache = alloca %"class.icu_75::LocalPointer", align 8
   tail call void @_ZN6icu_7513BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(479) %this)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fText = getelementptr inbounds i8, ptr %this, i64 480
   store <4 x i32> <i32 878368812, i32 0, i32 0, i32 144>, ptr %fText, align 8
   %chunkNativeLimit = getelementptr inbounds i8, ptr %this, i64 496
@@ -283,7 +283,7 @@ declare noalias ptr @uprv_malloc_75(i64 noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7522RuleBasedBreakIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(745) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN6icu_7522RuleBasedBreakIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fCharIter = getelementptr inbounds i8, ptr %this, i64 688
   %0 = load ptr, ptr %fCharIter, align 8
   %fSCharIter = getelementptr inbounds i8, ptr %this, i64 696
@@ -4359,7 +4359,7 @@ if.then2.i:                                       ; preds = %if.end.i
   br i1 %new.isnull.i, label %_ZN6icu_75L8rbbiInitEv.exit, label %new.notnull.i
 
 new.notnull.i:                                    ; preds = %if.then2.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8
   br label %_ZN6icu_75L8rbbiInitEv.exit

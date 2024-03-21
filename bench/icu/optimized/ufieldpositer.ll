@@ -70,7 +70,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 define i32 @ufieldpositer_next_75(ptr noundef nonnull %fpositer, ptr noundef writeonly %beginIndex, ptr noundef writeonly %endIndex) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %fp = alloca %"class.icu_75::FieldPosition", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, inrange i32 0, i64 2), ptr %fp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, i32 0, i64 2), ptr %fp, align 8
   %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12

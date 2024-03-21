@@ -1138,7 +1138,7 @@ define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal12SparseMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.ceres::internal::TripletSparseMatrix", ptr %3, i32 0, i32 1
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds %"class.ceres::internal::TripletSparseMatrix", ptr %3, i32 0, i32 2
@@ -1162,7 +1162,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal12SparseMatrixC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal12SparseMatrixE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal12SparseMatrixE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1293,7 +1293,7 @@ define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2Eiii(ptr noundef no
   store i32 %3, ptr %8, align 4
   %17 = load ptr, ptr %5, align 8
   call void @_ZN5ceres8internal12SparseMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #15
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i32 0, i32 0, i32 2), ptr %17, align 8
   %18 = getelementptr inbounds %"class.ceres::internal::TripletSparseMatrix", ptr %17, i32 0, i32 1
   %19 = load i32, ptr %6, align 4
   store i32 %19, ptr %18, align 8
@@ -1619,7 +1619,7 @@ define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2EiiRKSt6vectorIiSaI
   store ptr %5, ptr %12, align 8
   %33 = load ptr, ptr %7, align 8
   call void @_ZN5ceres8internal12SparseMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #15
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i32 0, inrange i32 0, i32 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i32 0, i32 0, i32 2), ptr %33, align 8
   %34 = getelementptr inbounds %"class.ceres::internal::TripletSparseMatrix", ptr %33, i32 0, i32 1
   %35 = load i32, ptr %8, align 4
   store i32 %35, ptr %34, align 8
@@ -2181,7 +2181,7 @@ define hidden void @_ZN5ceres8internal19TripletSparseMatrixC2ERKS1_(ptr noundef 
   %8 = getelementptr inbounds i8, ptr %7, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 8, i1 false)
   call void @_ZN5ceres8internal12SparseMatrixC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #15
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5ceres8internal19TripletSparseMatrixE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.ceres::internal::TripletSparseMatrix", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::TripletSparseMatrix", ptr %10, i32 0, i32 1
@@ -5615,7 +5615,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal14LinearOperatorC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5ceres8internal14LinearOperatorE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8731,7 +8731,7 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8745,7 +8745,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

@@ -4098,7 +4098,7 @@ define linkonce_odr dso_local void @_ZN6cmList15transform_errorC2ERKNSt7__cxx111
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6cmList15transform_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6cmList15transform_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -13287,7 +13287,7 @@ define internal void @_ZN12_GLOBAL__N_121TransformActionAppendC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115TransformActionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121TransformActionAppendE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121TransformActionAppendE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::TransformActionAppend", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   ret void
@@ -13321,7 +13321,7 @@ define internal void @_ZN12_GLOBAL__N_115TransformActionC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115TransformActionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115TransformActionE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -13330,7 +13330,7 @@ define internal void @_ZN12_GLOBAL__N_121TransformActionAppendD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121TransformActionAppendE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121TransformActionAppendE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::TransformActionAppend", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN12_GLOBAL__N_115TransformActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -14336,7 +14336,7 @@ define internal void @_ZN12_GLOBAL__N_122TransformActionPrependC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115TransformActionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionPrependE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionPrependE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::TransformActionPrepend", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   ret void
@@ -14370,7 +14370,7 @@ define internal void @_ZN12_GLOBAL__N_122TransformActionPrependD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionPrependE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionPrependE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::TransformActionPrepend", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN12_GLOBAL__N_115TransformActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -15215,7 +15215,7 @@ define internal void @_ZN12_GLOBAL__N_122TransformActionToUpperC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115TransformActionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionToUpperE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionToUpperE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15998,7 +15998,7 @@ define internal void @_ZN12_GLOBAL__N_122TransformActionToLowerC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115TransformActionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionToLowerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionToLowerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -16779,7 +16779,7 @@ define internal void @_ZN12_GLOBAL__N_120TransformActionStripC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115TransformActionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120TransformActionStripE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120TransformActionStripE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17574,7 +17574,7 @@ define internal void @_ZN12_GLOBAL__N_125TransformActionGenexStripC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115TransformActionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125TransformActionGenexStripE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125TransformActionGenexStripE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18357,7 +18357,7 @@ define internal void @_ZN12_GLOBAL__N_122TransformActionReplaceC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_115TransformActionC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionReplaceE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionReplaceE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::TransformActionReplace", ptr %3, i32 0, i32 1
   call void @_ZNSt10unique_ptrI21cmStringReplaceHelperSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   ret void
@@ -18402,7 +18402,7 @@ define internal void @_ZN12_GLOBAL__N_122TransformActionReplaceD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionReplaceE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformActionReplaceE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::TransformActionReplace", ptr %3, i32 0, i32 1
   call void @_ZNSt10unique_ptrI21cmStringReplaceHelperSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN12_GLOBAL__N_115TransformActionD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -20365,7 +20365,7 @@ define internal void @_ZN12_GLOBAL__N_119TransformNoSelectorC2Ev(ptr noundef non
 9:                                                ; preds = %8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119TransformNoSelectorE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119TransformNoSelectorE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 10:                                               ; preds = %1
@@ -20430,7 +20430,7 @@ define internal void @_ZN12_GLOBAL__N_117TransformSelectorC2EONSt7__cxx1112basic
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN6cmList17TransformSelectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117TransformSelectorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117TransformSelectorE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelector", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7) #3
@@ -20550,7 +20550,7 @@ define linkonce_odr dso_local void @_ZN6cmList17TransformSelectorC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6cmList17TransformSelectorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6cmList17TransformSelectorE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20559,7 +20559,7 @@ define internal void @_ZN12_GLOBAL__N_117TransformSelectorD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117TransformSelectorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117TransformSelectorE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelector", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN6cmList17TransformSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -30282,7 +30282,7 @@ define internal void @_ZN12_GLOBAL__N_119TransformSelectorAtC2EOSt6vectorIlSaIlE
 12:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119TransformSelectorAtE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119TransformSelectorAtE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %2
@@ -30352,7 +30352,7 @@ define internal void @_ZN12_GLOBAL__N_124TransformSelectorIndexesC2EONSt7__cxx11
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_117TransformSelectorC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124TransformSelectorIndexesE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124TransformSelectorIndexesE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelectorIndexes", ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   invoke void @_ZNSt6vectorIlSaIlEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
@@ -30624,7 +30624,7 @@ define internal void @_ZN12_GLOBAL__N_124TransformSelectorIndexesD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124TransformSelectorIndexesE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124TransformSelectorIndexesE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelectorIndexes", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIlSaIlEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN12_GLOBAL__N_117TransformSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
@@ -32121,7 +32121,7 @@ define internal void @_ZN12_GLOBAL__N_119TransformSelectorAtC2ERKSt6vectorIlSaIl
 12:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119TransformSelectorAtE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119TransformSelectorAtE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %2
@@ -32168,7 +32168,7 @@ define internal void @_ZN12_GLOBAL__N_124TransformSelectorIndexesC2EONSt7__cxx11
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_117TransformSelectorC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124TransformSelectorIndexesE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124TransformSelectorIndexesE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelectorIndexes", ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   invoke void @_ZNSt6vectorIlSaIlEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
@@ -32221,7 +32221,7 @@ define internal void @_ZN12_GLOBAL__N_120TransformSelectorForC2Elll(ptr noundef 
 15:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120TransformSelectorForE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120TransformSelectorForE, i32 0, i32 0, i32 2), ptr %13, align 8
   %16 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelectorFor", ptr %13, i32 0, i32 1
   %17 = load i64, ptr %6, align 8
   store i64 %17, ptr %16, align 8
@@ -32296,7 +32296,7 @@ define internal void @_ZN12_GLOBAL__N_124TransformSelectorIndexesC2EONSt7__cxx11
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_117TransformSelectorC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124TransformSelectorIndexesE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124TransformSelectorIndexesE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelectorIndexes", ptr %5, i32 0, i32 1
   call void @_ZNSt6vectorIlSaIlEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
   ret void
@@ -33430,7 +33430,7 @@ define internal void @_ZN12_GLOBAL__N_122TransformSelectorRegexC2ERKNSt7__cxx111
   call void @_ZN12_GLOBAL__N_117TransformSelectorC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformSelectorRegexE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformSelectorRegexE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelectorRegex", ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   invoke void @_ZN5cmsys17RegularExpressionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(556) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
@@ -33495,7 +33495,7 @@ define internal void @_ZN12_GLOBAL__N_122TransformSelectorRegexD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformSelectorRegexE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformSelectorRegexE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelectorRegex", ptr %3, i32 0, i32 1
   call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %4) #3
   call void @_ZN12_GLOBAL__N_117TransformSelectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #3
@@ -34202,7 +34202,7 @@ define internal void @_ZN12_GLOBAL__N_122TransformSelectorRegexC2EONSt7__cxx1112
   call void @_ZN12_GLOBAL__N_117TransformSelectorC2EONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %5)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformSelectorRegexE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_122TransformSelectorRegexE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.(anonymous namespace)::TransformSelectorRegex", ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   invoke void @_ZN5cmsys17RegularExpressionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(556) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)

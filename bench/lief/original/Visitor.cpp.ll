@@ -407,7 +407,7 @@ define void @_ZN4LIEF7VisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(56
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [167 x ptr] }, ptr @_ZTVN4LIEF7VisitorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [167 x ptr] }, ptr @_ZTVN4LIEF7VisitorE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::Visitor", ptr %3, i32 0, i32 1
   call void @_ZNSt3setImSt4lessImESaImEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #4
   ret void
@@ -428,7 +428,7 @@ define void @_ZN4LIEF7VisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(56
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [167 x ptr] }, ptr @_ZTVN4LIEF7VisitorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [167 x ptr] }, ptr @_ZTVN4LIEF7VisitorE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::Visitor", ptr %3, i32 0, i32 1
   call void @_ZNSt3setImSt4lessImESaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #4
   ret void

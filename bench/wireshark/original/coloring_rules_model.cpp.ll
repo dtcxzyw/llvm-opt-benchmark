@@ -919,7 +919,7 @@ define void @_ZN16ColoringRuleItemC2Eb7QStringS0_6QColorS1_PS_(ptr noundef nonnu
   %18 = load ptr, ptr %10, align 8
   %19 = load ptr, ptr %14, align 8
   call void @_ZN19ModelHelperTreeItemI16ColoringRuleItemEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(40) %18, ptr noundef %19)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ColoringRuleItem, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ColoringRuleItem, i32 0, i32 0, i32 2), ptr %18, align 8
   %20 = getelementptr inbounds %class.ColoringRuleItem, ptr %18, i32 0, i32 1
   %21 = load i8, ptr %11, align 1
   %22 = trunc i8 %21 to i1
@@ -943,7 +943,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI16ColoringRuleItemEC2EPS0_(pt
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI16ColoringRuleItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI16ColoringRuleItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -974,7 +974,7 @@ define void @_ZN16ColoringRuleItemD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ColoringRuleItem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ColoringRuleItem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ColoringRuleItem, ptr %3, i32 0, i32 3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %5 = getelementptr inbounds %class.ColoringRuleItem, ptr %3, i32 0, i32 2
@@ -1023,7 +1023,7 @@ define void @_ZN16ColoringRuleItemC2EP13_color_filterPS_(ptr noundef nonnull ali
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %6, align 8
   call void @_ZN19ModelHelperTreeItemI16ColoringRuleItemEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ColoringRuleItem, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ColoringRuleItem, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.ColoringRuleItem, ptr %13, i32 0, i32 1
   %16 = load ptr, ptr %5, align 8
   %17 = getelementptr inbounds %struct._color_filter, ptr %16, i32 0, i32 4
@@ -1160,7 +1160,7 @@ define void @_ZN16ColoringRuleItemC2ERKS_(ptr noundef nonnull align 8 dereferenc
   %7 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %6, i32 0, i32 1
   %8 = load ptr, ptr %7, align 8
   call void @_ZN19ModelHelperTreeItemI16ColoringRuleItemEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ColoringRuleItem, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ColoringRuleItem, i32 0, i32 0, i32 2), ptr %5, align 8
   %9 = getelementptr inbounds %class.ColoringRuleItem, ptr %5, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %class.ColoringRuleItem, ptr %10, i32 0, i32 1
@@ -1359,7 +1359,7 @@ define void @_ZN18ColoringRulesModelC2E6QColorS0_P7QObject(ptr noundef nonnull a
   %22 = load ptr, ptr %9, align 8
   %23 = load ptr, ptr %10, align 8
   call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %22, ptr noundef %23)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18ColoringRulesModel, i32 0, inrange i32 0, i32 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18ColoringRulesModel, i32 0, i32 0, i32 2), ptr %22, align 8
   %24 = getelementptr inbounds %class.ColoringRulesModel, ptr %22, i32 0, i32 1
   %25 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 128) #16
           to label %26 unwind label %39
@@ -1523,7 +1523,7 @@ define void @_ZN18ColoringRulesModelD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18ColoringRulesModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18ColoringRulesModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ColoringRulesModel, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -7252,7 +7252,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI16ColoringRuleItemED2Ev(ptr n
   %4 = alloca %class.QVariant, align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI16ColoringRuleItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI16ColoringRuleItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   store i32 0, ptr %3, align 4
   br label %6
 

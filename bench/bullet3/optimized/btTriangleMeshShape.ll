@@ -62,7 +62,7 @@ entry:
   %vec.i = alloca %class.btVector3, align 4
   %tmp.i = alloca %class.btVector3, align 8
   tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV19btTriangleMeshShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV19btTriangleMeshShape, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_localAabbMin = getelementptr inbounds i8, ptr %this, i64 36
   %m_localAabbMax = getelementptr inbounds i8, ptr %this, i64 52
   %m_meshInterface = getelementptr inbounds i8, ptr %this, i64 72
@@ -441,7 +441,7 @@ entry:
 define dso_local void @_ZNK19btTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_(ptr nocapture noundef nonnull readonly align 8 dereferenceable(80) %this, ptr noundef %callback, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %filterCallback = alloca %struct.FilteredCallback, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK19btTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E16FilteredCallback, i64 0, inrange i32 0, i64 2), ptr %filterCallback, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK19btTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E16FilteredCallback, i64 0, i32 0, i64 2), ptr %filterCallback, align 8
   %m_callback.i = getelementptr inbounds i8, ptr %filterCallback, i64 8
   store ptr %callback, ptr %m_callback.i, align 8
   %m_aabbMin.i = getelementptr inbounds i8, ptr %filterCallback, i64 16
@@ -491,7 +491,7 @@ invoke.cont5:
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %ident.sroa.2.0.m_worldTrans.i.sroa_idx, i8 0, i64 12, i1 false)
   %m_origin.i.i = getelementptr inbounds i8, ptr %supportCallback, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_origin.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21SupportVertexCallback, i64 0, inrange i32 0, i64 2), ptr %supportCallback, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21SupportVertexCallback, i64 0, i32 0, i64 2), ptr %supportCallback, align 8
   %m_supportVertexLocal.i = getelementptr inbounds i8, ptr %supportCallback, i64 8
   %m_worldTrans.i = getelementptr inbounds i8, ptr %supportCallback, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_supportVertexLocal.i, i8 0, i64 16, i1 false)

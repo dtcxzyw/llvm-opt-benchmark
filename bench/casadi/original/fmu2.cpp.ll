@@ -1965,7 +1965,7 @@ define void @_ZN6casadi4Fmu2D2Ev(ptr noundef nonnull align 8 dereferenceable(137
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6casadi4Fmu2E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6casadi4Fmu2E, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::Fmu2", ptr %3, i32 0, i32 40
   call void @_ZN6casadi4Fmu25ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #3
   %5 = getelementptr inbounds %"class.casadi::Fmu2", ptr %3, i32 0, i32 21
@@ -5322,7 +5322,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -5354,7 +5354,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -18302,7 +18302,7 @@ define void @_ZN6casadi4Fmu2C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %17 = load ptr, ptr %11, align 8
   %18 = load ptr, ptr %12, align 8
   call void @_ZN6casadi11FmuInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorIS6_SaIS6_EESD_RKSt3mapIS6_S9_ImSaImEESt4lessIS6_ESaISt4pairIS7_SG_EEESD_(ptr noundef nonnull align 8 dereferenceable(608) %13, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(48) %17, ptr noundef nonnull align 8 dereferenceable(24) %18)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6casadi4Fmu2E, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6casadi4Fmu2E, i32 0, i32 0, i32 2), ptr %13, align 8
   %19 = getelementptr inbounds %"class.casadi::Fmu2", ptr %13, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #3
   %20 = getelementptr inbounds %"class.casadi::Fmu2", ptr %13, i32 0, i32 3
@@ -18525,7 +18525,7 @@ define void @_ZN6casadi4Fmu2C2ERNS_19DeserializingStreamE(ptr noundef nonnull al
   %53 = load ptr, ptr %3, align 8
   %54 = load ptr, ptr %4, align 8
   call void @_ZN6casadi11FmuInternalC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(608) %53, ptr noundef nonnull align 8 dereferenceable(41) %54)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6casadi4Fmu2E, i32 0, inrange i32 0, i32 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6casadi4Fmu2E, i32 0, i32 0, i32 2), ptr %53, align 8
   %55 = getelementptr inbounds %"class.casadi::Fmu2", ptr %53, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %55) #3
   %56 = getelementptr inbounds %"class.casadi::Fmu2", ptr %53, i32 0, i32 3
@@ -22689,7 +22689,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

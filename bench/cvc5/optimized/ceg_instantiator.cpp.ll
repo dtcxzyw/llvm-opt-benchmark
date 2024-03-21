@@ -615,7 +615,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory11quantifiers15CegInstantiatorC2ERNS0_3EnvENS0_12NodeTemplateILb1EEERNS2_16QuantifiersStateERNS2_27QuantifiersInferenceManagerERNS2_19QuantifiersRegistryERNS2_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(992) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr nocapture noundef readonly %q, ptr noundef nonnull align 8 dereferenceable(248) %qs, ptr noundef nonnull align 8 dereferenceable(376) %qim, ptr noundef nonnull align 8 dereferenceable(488) %qr, ptr noundef nonnull align 8 dereferenceable(208) %tr) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15CegInstantiatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15CegInstantiatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_quant = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %q, align 8
   store ptr %0, ptr %d_quant, align 8
@@ -855,7 +855,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers15CegInstantiatorD2Ev(ptr noundef nonnull align 8 dereferenceable(992) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15CegInstantiatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers15CegInstantiatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_instantiator = getelementptr inbounds i8, ptr %this, i64 944
   %_M_left.i.i = getelementptr inbounds i8, ptr %this, i64 968
   %0 = load ptr, ptr %_M_left.i.i, align 8
@@ -7636,7 +7636,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i8
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont, %if.then.i.i2, %if.then13.i.i8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14DtInstantiatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14DtInstantiatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit
@@ -7713,7 +7713,7 @@ terminate.lpad.i:                                 ; preds = %if.then13.i.i8
   unreachable
 
 _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %invoke.cont, %if.then.i.i2, %if.then13.i.i8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22ModelValueInstantiatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers22ModelValueInstantiatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN4cvc58internal8TypeNodeC2ERKS1_.exit
@@ -8328,7 +8328,7 @@ if.then15:                                        ; preds = %if.then
           to label %invoke.cont18 unwind label %lpad
 
 invoke.cont18:                                    ; preds = %if.then15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24BvInstantiatorPreprocessE, i64 0, inrange i32 0, i64 2), ptr %call16, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24BvInstantiatorPreprocessE, i64 0, i32 0, i64 2), ptr %call16, align 8
   %d_opts.i = getelementptr inbounds i8, ptr %call16, i64 8
   store ptr %call17, ptr %d_opts.i, align 8
   %d_tipp = getelementptr inbounds i8, ptr %this, i64 512
@@ -9997,7 +9997,7 @@ invoke.cont174:                                   ; preds = %_ZN4cvc58internal12
   br i1 %call175, label %if.then176, label %if.end218
 
 if.then176:                                       ; preds = %invoke.cont174
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %pv_prop_m, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %pv_prop_m, align 8
   %d_type.i = getelementptr inbounds i8, ptr %pv_prop_m, i64 8
   store i32 1, ptr %d_type.i, align 8
   %139 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -10272,7 +10272,7 @@ ehcleanup212:                                     ; preds = %lpad208, %lpad206
 
 if.end214:                                        ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit615
   store i32 %147, ptr %d_effort98, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %pv_prop_m, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %pv_prop_m, align 8
   %168 = load ptr, ptr %d_coeff.i, align 8
   %bf.load.i.i.i = load i64, ptr %168, align 8
   %169 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -10332,7 +10332,7 @@ terminate.lpad.i628:                              ; preds = %if.then13.i.i627
   unreachable
 
 cleanup219.critedge:                              ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit615
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %pv_prop_m, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %pv_prop_m, align 8
   %176 = load ptr, ptr %d_coeff.i, align 8
   %bf.load.i.i.i631 = load i64, ptr %176, align 8
   %177 = and i64 %bf.load.i.i.i631, 1152920405095219200
@@ -12507,7 +12507,7 @@ lpad.i.i:                                         ; preds = %init.i.i
 invoke.cont158:                                   ; preds = %invoke.cont.i.i, %init.check.i.i, %if.then157
   %47 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %47, ptr %ns, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %pv_prop, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %pv_prop, align 8
   store i32 1, ptr %d_type.i, align 8
   %48 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i.i = icmp eq i8 %48, 0
@@ -13316,7 +13316,7 @@ lpad230:                                          ; preds = %if.then.i.i967
 cleanup:                                          ; preds = %cleanup.done235, %invoke.cont224, %invoke.cont198, %invoke.cont180, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit947
   %cleanup.dest.slot.0 = phi i32 [ 1, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit947 ], [ 0, %invoke.cont180 ], [ 0, %invoke.cont198 ], [ 2, %invoke.cont224 ], [ %spec.select, %cleanup.done235 ]
   %retval.1 = phi i1 [ true, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit947 ], [ %retval.04064, %invoke.cont180 ], [ %retval.04064, %invoke.cont198 ], [ %retval.04064, %invoke.cont224 ], [ %spec.select3804, %cleanup.done235 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %pv_prop, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %pv_prop, align 8
   %144 = load ptr, ptr %d_coeff.i, align 8
   %bf.load.i.i.i = load i64, ptr %144, align 8
   %145 = and i64 %bf.load.i.i.i, 1152920405095219200
@@ -13966,7 +13966,7 @@ lpad.i.i1412:                                     ; preds = %init.i.i1410
 invoke.cont386:                                   ; preds = %invoke.cont.i.i1413, %init.check.i.i1408, %if.then384
   %209 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %209, ptr %ns385, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %pv_prop387, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %pv_prop387, align 8
   store i32 1, ptr %d_type.i1418, align 8
   %210 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i.i1419 = icmp eq i8 %210, 0
@@ -14678,7 +14678,7 @@ cond.true484:                                     ; preds = %invoke.cont477, %fo
   br i1 %cmp.not.i2038, label %if.else.i2060, label %if.then.i2039
 
 if.then.i2039:                                    ; preds = %cond.true484
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %303, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %303, align 8
   %d_type.i.i.i.i2040 = getelementptr inbounds i8, ptr %303, i64 8
   %d_type2.i.i.i.i2041 = getelementptr inbounds i8, ptr %add.ptr.i2035, i64 8
   %305 = load i32, ptr %d_type2.i.i.i.i2041, align 8
@@ -15125,7 +15125,7 @@ invoke.cont549:                                   ; preds = %invoke.cont549.sink
   br i1 %cmp.not.i2226, label %if.else.i2248, label %if.then.i2227
 
 if.then.i2227:                                    ; preds = %invoke.cont549
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %355, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %355, align 8
   %d_type.i.i.i.i2228 = getelementptr inbounds i8, ptr %355, i64 8
   %357 = load i32, ptr %d_type.i1418, align 8
   store i32 %357, ptr %d_type.i.i.i.i2228, align 8
@@ -15258,7 +15258,7 @@ ehcleanup552:                                     ; preds = %lpad468.loopexit, %
 cleanup578:                                       ; preds = %invoke.cont423, %if.then.i.i.i2267, %invoke.cont.i2265
   %cond5 = phi i1 [ %cmp.not3862, %invoke.cont.i2265 ], [ %cmp.not3862, %if.then.i.i.i2267 ], [ true, %invoke.cont423 ]
   %retval.9 = phi i1 [ %retval.7, %invoke.cont.i2265 ], [ %retval.7, %if.then.i.i.i2267 ], [ %retval.64072, %invoke.cont423 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %pv_prop387, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %pv_prop387, align 8
   %372 = load ptr, ptr %d_coeff.i1420, align 8
   %bf.load.i.i.i2382 = load i64, ptr %372, align 8
   %373 = and i64 %bf.load.i.i.i2382, 1152920405095219200
@@ -18247,7 +18247,7 @@ if.then13.i4.i:                                   ; preds = %if.else.i.i869
           to label %invoke.cont192 unwind label %lpad122.loopexit.split-lp.loopexit.split-lp.loopexit
 
 invoke.cont192:                                   ; preds = %if.else.i.i869, %if.then.i5.i, %invoke.cont190, %if.then13.i4.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %a_pv_prop, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %a_pv_prop, align 8
   store i32 1, ptr %d_type.i, align 8
   %85 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %guard.uninitialized.i.i.i875 = icmp eq i8 %85, 0
@@ -18969,7 +18969,7 @@ terminate.lpad.i1394:                             ; preds = %if.then13.i.i1393
   unreachable
 
 _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit1395: ; preds = %cleanup, %if.then.i.i1387, %if.then13.i.i1393
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %a_pv_prop, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %a_pv_prop, align 8
   %174 = load ptr, ptr %d_coeff.i876, align 8
   %bf.load.i.i.i1397 = load i64, ptr %174, align 8
   %175 = and i64 %bf.load.i.i.i1397, 1152920405095219200
@@ -19923,7 +19923,7 @@ ehcleanup526:                                     ; preds = %ehcleanup523, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers14TermPropertiesD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_coeff = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_coeff, align 8
   %bf.load.i.i = load i64, ptr %0, align 8
@@ -25921,7 +25921,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit586: ; preds = %invoke.cont132, %i
   br i1 %call133, label %if.then135, label %if.end211
 
 if.then135:                                       ; preds = %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit586
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %atom_lhs_prop, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %atom_lhs_prop, align 8
   %d_type.i = getelementptr inbounds i8, ptr %atom_lhs_prop, i64 8
   store i32 1, ptr %d_type.i, align 8
   %147 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
@@ -26706,7 +26706,7 @@ lpad204:                                          ; preds = %if.then13.i4.i862, 
   br label %ehcleanup210
 
 if.end209:                                        ; preds = %if.then13.i.i882, %if.then.i.i875, %invoke.cont205, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit844, %invoke.cont152
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %atom_lhs_prop, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %atom_lhs_prop, align 8
   %238 = load ptr, ptr %d_coeff.i, align 8
   %bf.load.i.i.i886 = load i64, ptr %238, align 8
   %239 = and i64 %bf.load.i.i.i886, 1152920405095219200
@@ -33988,7 +33988,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers12InstantiatorC2ERNS0_3EnvENS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers22ModelValueInstantiatorD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_type.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_type.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
@@ -34023,7 +34023,7 @@ _ZN4cvc58internal6theory11quantifiers12InstantiatorD2Ev.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers22ModelValueInstantiatorD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12InstantiatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_type.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_type.i.i, align 8
   %bf.load.i.i.i.i = load i64, ptr %0, align 8
@@ -34395,7 +34395,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__cur.010 = phi ptr [ %incdec.ptr, %for.inc ], [ %__result, %entry ]
   %__first.sroa.0.09 = phi ptr [ %incdec.ptr.i, %for.inc ], [ %__first.coerce, %entry ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %__cur.010, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %__cur.010, align 8
   %d_type.i.i = getelementptr inbounds i8, ptr %__cur.010, i64 8
   %d_type2.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.09, i64 8
   %0 = load i32, ptr %d_type2.i.i, align 8
@@ -34483,7 +34483,7 @@ unreachable:                                      ; preds = %invoke.cont5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers14TermPropertiesD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_coeff.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %d_coeff.i, align 8
   %bf.load.i.i.i = load i64, ptr %0, align 8
@@ -34628,7 +34628,7 @@ while.body:                                       ; preds = %entry, %_ZNSt8_Rb_t
   %_M_left.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 16
   %1 = load ptr, ptr %_M_left.i, align 8
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 40
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %second.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i.i, align 8
   %d_coeff.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__x.addr.05, i64 56
   %2 = load ptr, ptr %d_coeff.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i = load i64, ptr %2, align 8
@@ -34781,7 +34781,7 @@ declare void @__gmpq_mul(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal13NodeConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(233) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal13NodeConverterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal13NodeConverterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_tcache = getelementptr inbounds i8, ptr %this, i64 176
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -41568,7 +41568,7 @@ cond.true.i:                                      ; preds = %_ZNKSt6vectorIN4cvc
 _ZNSt12_Vector_baseIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vectorIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE12_M_check_lenEmPKc.exit, %cond.true.i
   %cond.i19 = phi ptr [ %call5.i.i.i, %cond.true.i ], [ null, %_ZNKSt6vectorIN4cvc58internal6theory11quantifiers14TermPropertiesESaIS4_EE12_M_check_lenEmPKc.exit ]
   %add.ptr = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermProperties", ptr %cond.i19, i64 %sub.ptr.div.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8
   %d_type.i.i.i = getelementptr inbounds i8, ptr %add.ptr, i64 8
   %d_type2.i.i.i = getelementptr inbounds i8, ptr %__args, i64 8
   %3 = load i32, ptr %d_type2.i.i.i, align 8
@@ -41709,7 +41709,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %__cur.010 = phi ptr [ %incdec.ptr1, %for.inc ], [ %__result, %entry ]
   %__first.addr.09 = phi ptr [ %incdec.ptr, %for.inc ], [ %__first, %entry ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %__cur.010, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %__cur.010, align 8
   %d_type.i.i = getelementptr inbounds i8, ptr %__cur.010, i64 8
   %d_type2.i.i = getelementptr inbounds i8, ptr %__first.addr.09, i64 8
   %0 = load i32, ptr %d_type2.i.i, align 8
@@ -43037,7 +43037,7 @@ lpad:                                             ; preds = %invoke.cont
 
 if.then.i:                                        ; preds = %invoke.cont7
   %second.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 40
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %second.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i.i.i, align 8
   %d_coeff.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 56
   %7 = load ptr, ptr %d_coeff.i.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i.i = load i64, ptr %7, align 8
@@ -43297,7 +43297,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %second.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %second.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i.i, align 8
   %d_coeff.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 56
   %1 = load ptr, ptr %d_coeff.i.i.i.i.i.i, align 8
   %bf.load.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
@@ -43342,7 +43342,7 @@ entry:
   %2 = load i32, ptr %1, align 4
   store i32 %2, ptr %_M_storage.i, align 8
   %second.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 40
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, inrange i32 0, i64 2), ptr %second.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers14TermPropertiesE, i64 0, i32 0, i64 2), ptr %second.i.i.i.i, align 8
   %d_type.i.i.i.i.i = getelementptr inbounds i8, ptr %__node, i64 48
   store i32 1, ptr %d_type.i.i.i.i.i, align 8
   %3 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8

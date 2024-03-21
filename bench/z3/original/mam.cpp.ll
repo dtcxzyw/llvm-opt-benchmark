@@ -1844,7 +1844,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ctx.addr, align 8
   call void @_ZN3smt3mamC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %0)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18mam_implE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18mam_implE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m = getelementptr inbounds %"class.(anonymous namespace)::mam_impl", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %ctx.addr, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt7context11get_managerEv(ptr noundef nonnull align 8 dereferenceable(11616) %1)
@@ -2212,7 +2212,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %ctx, ptr %ctx.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN3smt3mamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN3smt3mamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.smt::mam", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_context, align 8
@@ -3223,7 +3223,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18mam_implE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18mam_implE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_trail_stack = getelementptr inbounds %"class.(anonymous namespace)::mam_impl", ptr %this1, i32 0, i32 3
   invoke void @_ZN11trail_stack5resetEv(ptr noundef nonnull align 8 dereferenceable(56) %m_trail_stack)
           to label %invoke.cont unwind label %terminate.lpad
@@ -5293,7 +5293,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -5306,7 +5306,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -5544,7 +5544,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -10828,7 +10828,7 @@ entry:
   store ptr %ptr, ptr %ptr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ptr = getelementptr inbounds %class.set_ptr_trail, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ptr.addr, align 8
   store ptr %0, ptr %m_ptr, align 8
@@ -11063,7 +11063,7 @@ entry:
   store ptr %ptr, ptr %ptr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19code_treeEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19code_treeEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ptr = getelementptr inbounds %class.set_ptr_trail.347, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ptr.addr, align 8
   store ptr %0, ptr %m_ptr, align 8
@@ -11128,7 +11128,7 @@ entry:
   store ptr %obj, ptr %obj.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13new_obj_trailIN12_GLOBAL__N_19code_treeEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13new_obj_trailIN12_GLOBAL__N_19code_treeEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_obj = getelementptr inbounds %class.new_obj_trail, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %obj.addr, align 8
   store ptr %0, ptr %m_obj, align 8
@@ -11173,7 +11173,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailI10approx_setE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailI10approx_setE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   store ptr %0, ptr %m_value, align 8
@@ -12201,7 +12201,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.348, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   store ptr %0, ptr %m_value, align 8
@@ -12282,7 +12282,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIjE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.348, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_value2 = getelementptr inbounds %class.value_trail.348, ptr %2, i32 0, i32 1
@@ -12460,7 +12460,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -12512,7 +12512,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5trail, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -16172,7 +16172,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIPN12_GLOBAL__N_111instructionEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIPN12_GLOBAL__N_111instructionEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.349, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   store ptr %0, ptr %m_value, align 8
@@ -16203,7 +16203,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIPN12_GLOBAL__N_111instructionEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailIPN12_GLOBAL__N_111instructionEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail.349, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_value2 = getelementptr inbounds %class.value_trail.349, ptr %2, i32 0, i32 1
@@ -20635,7 +20635,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19code_treeEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19code_treeEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ptr = getelementptr inbounds %class.set_ptr_trail.347, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_ptr2 = getelementptr inbounds %class.set_ptr_trail.347, ptr %2, i32 0, i32 1
@@ -20948,7 +20948,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13new_obj_trailIN12_GLOBAL__N_19code_treeEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13new_obj_trailIN12_GLOBAL__N_19code_treeEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_obj = getelementptr inbounds %class.new_obj_trail, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_obj2 = getelementptr inbounds %class.new_obj_trail, ptr %2, i32 0, i32 1
@@ -20990,7 +20990,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailI10approx_setE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11value_trailI10approx_setE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_value = getelementptr inbounds %class.value_trail, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_value2 = getelementptr inbounds %class.value_trail, ptr %2, i32 0, i32 1
@@ -21032,7 +21032,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13set_ptr_trailIN12_GLOBAL__N_19path_treeEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ptr = getelementptr inbounds %class.set_ptr_trail, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_ptr2 = getelementptr inbounds %class.set_ptr_trail, ptr %2, i32 0, i32 1
@@ -21416,7 +21416,7 @@ entry:
   store i32 %idx, ptr %idx.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19set_bitvector_trail, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19set_bitvector_trail, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.set_bitvector_trail, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %v.addr, align 8
   store ptr %0, ptr %m_vector, align 8
@@ -21701,7 +21701,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19set_bitvector_trail, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19set_bitvector_trail, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_vector = getelementptr inbounds %class.set_bitvector_trail, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_vector2 = getelementptr inbounds %class.set_bitvector_trail, ptr %2, i32 0, i32 1
@@ -22578,7 +22578,7 @@ entry:
   store ptr %n, ptr %n.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18mam_impl22add_shared_enode_trailE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18mam_impl22add_shared_enode_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m2 = getelementptr inbounds %"class.(anonymous namespace)::mam_impl::add_shared_enode_trail", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m.addr, align 8
   store ptr %0, ptr %m2, align 8
@@ -22790,7 +22790,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18mam_impl22add_shared_enode_trailE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_18mam_impl22add_shared_enode_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m = getelementptr inbounds %"class.(anonymous namespace)::mam_impl::add_shared_enode_trail", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m2 = getelementptr inbounds %"class.(anonymous namespace)::mam_impl::add_shared_enode_trail", ptr %2, i32 0, i32 1
@@ -24591,7 +24591,7 @@ entry:
   store i32 %id, ptr %id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5trailC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113code_tree_map13mk_tree_trailE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113code_tree_map13mk_tree_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_trees = getelementptr inbounds %"class.(anonymous namespace)::code_tree_map::mk_tree_trail", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %t.addr, align 8
   store ptr %0, ptr %m_trees, align 8
@@ -24920,7 +24920,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5trailC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113code_tree_map13mk_tree_trailE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113code_tree_map13mk_tree_trailE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_trees = getelementptr inbounds %"class.(anonymous namespace)::code_tree_map::mk_tree_trail", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_trees2 = getelementptr inbounds %"class.(anonymous namespace)::code_tree_map::mk_tree_trail", ptr %2, i32 0, i32 1

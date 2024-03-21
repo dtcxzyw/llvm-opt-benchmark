@@ -1235,9 +1235,9 @@ define void @_ZN25ServiceResponseTimeDialogC2ER7QWidgetR11CaptureFileP12register
   %19 = alloca %class.QString, align 16
   %20 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV25ServiceResponseTimeDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV25ServiceResponseTimeDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV25ServiceResponseTimeDialog, i64 0, inrange i32 1, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV25ServiceResponseTimeDialog, i64 0, i32 1, i64 2), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 224
   store ptr %3, ptr %22, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %13)
@@ -2060,9 +2060,9 @@ declare void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN25ServiceResponseTimeDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV25ServiceResponseTimeDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV25ServiceResponseTimeDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV25ServiceResponseTimeDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV25ServiceResponseTimeDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2160,7 +2160,7 @@ define linkonce_odr void @_ZN22SrtTableTreeWidgetItemC2EP11QTreeWidgetPK15_srt_s
   %5 = alloca %class.QString, align 16
   %6 = alloca %class.QString, align 16
   tail call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef %1, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22SrtTableTreeWidgetItem, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22SrtTableTreeWidgetItem, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %2, ptr %7, align 8
   %8 = load ptr, ptr %2, align 8
@@ -4700,7 +4700,7 @@ define linkonce_odr void @_ZN20SrtRowTreeWidgetItemC2EP15QTreeWidgetItemPK16_srt
   %5 = alloca %class.QString, align 16
   %6 = alloca %class.QString, align 16
   tail call void @_ZN15QTreeWidgetItemC2EPS_i(ptr noundef nonnull align 8 dereferenceable(92) %0, ptr noundef %1, i32 noundef 1001)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20SrtRowTreeWidgetItem, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20SrtRowTreeWidgetItem, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 96
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 80

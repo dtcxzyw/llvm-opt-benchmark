@@ -768,7 +768,7 @@ $_ZTIZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17s
 @_ZTIN5boost9intrusive14list_base_hookIJNS0_9link_modeILNS0_14link_mode_typeE0EEEEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5boost9intrusive14list_base_hookIJNS0_9link_modeILNS0_14link_mode_typeE0EEEEEE, ptr @_ZTIN5boost9intrusive12generic_hookILNS0_10algo_typesE0ENS0_16list_node_traitsIPvEENS0_7dft_tagELNS0_14link_mode_typeE0ELNS0_14base_hook_typeE1EEE }, comdat, align 8
 @_ZTIN5folly9EventBase21OnDestructionCallbackE = constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN5folly9EventBase21OnDestructionCallbackE, i32 0, i32 1, ptr @_ZTIN5boost9intrusive14list_base_hookIJNS0_9link_modeILNS0_14link_mode_typeE0EEEEEE, i64 2050 }, align 8
 @_ZTVN5folly9EventBaseE = unnamed_addr constant { [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] } { [19 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIN5folly9EventBaseE, ptr @_ZN5folly9EventBaseD1Ev, ptr @_ZN5folly9EventBaseD0Ev, ptr @_ZN5folly9EventBase20attachTimeoutManagerEPNS_12AsyncTimeoutENS_14TimeoutManager12InternalEnumE, ptr @_ZN5folly9EventBase20detachTimeoutManagerEPNS_12AsyncTimeoutE, ptr @_ZN5folly9EventBase15scheduleTimeoutEPNS_12AsyncTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000EEEE, ptr @_ZN5folly14TimeoutManager22scheduleTimeoutHighResEPNS_12AsyncTimeoutENSt6chrono8durationIlSt5ratioILl1ELl1000000EEEE, ptr @_ZN5folly9EventBase13cancelTimeoutEPNS_12AsyncTimeoutE, ptr @_ZN5folly9EventBase16bumpHandlingTimeEv, ptr @_ZN5folly9EventBase24isInTimeoutManagerThreadEv, ptr @_ZN5folly9EventBase3addENS_8FunctionIFvvEEE, ptr @_ZN5folly9EventBase5driveEv, ptr @_ZN5folly9EventBase10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS5_3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEE, ptr @_ZN5folly9EventBase12getEventBaseEv, ptr @_ZN5folly9EventBase20getThreadIdCollectorEv, ptr @_ZN5folly9EventBase16keepAliveAcquireEv, ptr @_ZN5folly9EventBase16keepAliveReleaseEv], [17 x ptr] [ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr null, ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5folly9EventBaseE, ptr @_ZThn16_N5folly9EventBaseD1Ev, ptr @_ZThn16_N5folly9EventBaseD0Ev, ptr @_ZTv0_n32_N5folly9EventBase3addENS_8FunctionIFvvEEE, ptr @_ZN5folly8Executor15addWithPriorityENS_8FunctionIFvvEEEa, ptr @_ZNK5folly8Executor16getNumPrioritiesEv, ptr @_ZTv0_n56_N5folly9EventBase16keepAliveAcquireEv, ptr @_ZTv0_n64_N5folly9EventBase16keepAliveReleaseEv, ptr @_ZThn16_N5folly9EventBase5driveEv], [17 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN5folly9EventBaseE, ptr @_ZThn24_N5folly9EventBaseD1Ev, ptr @_ZThn24_N5folly9EventBaseD0Ev, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZThn24_N5folly9EventBase12getEventBaseEv], [16 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIN5folly9EventBaseE, ptr @_ZThn32_N5folly9EventBaseD1Ev, ptr @_ZThn32_N5folly9EventBaseD0Ev, ptr null, ptr null, ptr null, ptr null, ptr null], [18 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -40 to ptr), ptr inttoptr (i64 -40 to ptr), ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -40 to ptr), ptr inttoptr (i64 -40 to ptr), ptr inttoptr (i64 -40 to ptr), ptr @_ZTIN5folly9EventBaseE, ptr @_ZThn40_N5folly9EventBaseD1Ev, ptr @_ZThn40_N5folly9EventBaseD0Ev, ptr @_ZThn40_N5folly9EventBase3addENS_8FunctionIFvvEEE, ptr null, ptr null, ptr null, ptr null, ptr @_ZThn40_N5folly9EventBase10scheduleAtEONS_8FunctionIFvvEEERKNSt6chrono10time_pointINS5_3_V212steady_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEE, ptr @_ZN5folly17ScheduledExecutor3nowEv], [5 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN5folly9EventBaseE, ptr @_ZThn48_N5folly9EventBaseD1Ev, ptr @_ZThn48_N5folly9EventBaseD0Ev, ptr @_ZThn48_N5folly9EventBase20getThreadIdCollectorEv] }, align 8
-@_ZTTN5folly9EventBaseE = unnamed_addr constant [14 x ptr] [ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTCN5folly9EventBaseE16_NS_16DrivableExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTCN5folly9EventBaseE16_NS_16DrivableExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE24_NS_10IOExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE24_NS_10IOExecutorE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [16 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE32_NS_17SequencedExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE32_NS_17SequencedExecutorE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [18 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE40_NS_17ScheduledExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [18 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE40_NS_17ScheduledExecutorE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 1, i32 9), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 1, i32 9), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 2, i32 9), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 3, i32 9), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 4, i32 9)], align 8
+@_ZTTN5folly9EventBaseE = unnamed_addr constant [14 x ptr] [ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTCN5folly9EventBaseE16_NS_16DrivableExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTCN5folly9EventBaseE16_NS_16DrivableExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE24_NS_10IOExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE24_NS_10IOExecutorE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [16 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE32_NS_17SequencedExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [16 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE32_NS_17SequencedExecutorE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [18 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE40_NS_17ScheduledExecutorE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [18 x ptr], [15 x ptr] }, ptr @_ZTCN5folly9EventBaseE40_NS_17ScheduledExecutorE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 1, i32 9), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 1, i32 9), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 2, i32 9), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 3, i32 9), ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i32 0, inrange i32 4, i32 9)], align 8
 @_ZTCN5folly9EventBaseE16_NS_16DrivableExecutorE = unnamed_addr constant { [17 x ptr] } { [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5folly16DrivableExecutorE, ptr @_ZN5folly16DrivableExecutorD1Ev, ptr @_ZN5folly16DrivableExecutorD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN5folly8Executor15addWithPriorityENS_8FunctionIFvvEEEa, ptr @_ZNK5folly8Executor16getNumPrioritiesEv, ptr @_ZN5folly8Executor16keepAliveAcquireEv, ptr @_ZN5folly8Executor16keepAliveReleaseEv, ptr @__cxa_pure_virtual] }, align 8
 @_ZTSN5folly16DrivableExecutorE = linkonce_odr constant [27 x i8] c"N5folly16DrivableExecutorE\00", comdat, align 1
 @_ZTIN5folly8ExecutorE = external constant ptr
@@ -2306,7 +2306,7 @@ invoke.cont22:
   %add.ptr.i75 = getelementptr inbounds i8, ptr %15, i64 %vbase.offset.i74
   store ptr %19, ptr %add.ptr.i75, align 8, !tbaa !28
   %20 = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20GetThreadIdCollectorE, i64 0, inrange i32 0, i64 2), ptr %20, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20GetThreadIdCollectorE, i64 0, i32 0, i64 2), ptr %20, align 16, !tbaa !28
   %21 = load ptr, ptr %vtt, align 8
   store ptr %21, ptr %this, align 16, !tbaa !28
   %22 = getelementptr inbounds ptr, ptr %vtt, i64 9
@@ -2327,7 +2327,7 @@ invoke.cont22:
   %30 = getelementptr inbounds ptr, ptr %vtt, i64 13
   %31 = load ptr, ptr %30, align 8
   store ptr %31, ptr %15, align 8, !tbaa !28
-  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, inrange i32 5, i64 2), ptr %20, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, i32 5, i64 2), ptr %20, align 16, !tbaa !28
   %intervalDuration_ = getelementptr inbounds %"class.folly::EventBase", ptr %this, i64 0, i32 6
   %timerTickInterval = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %options, i64 0, i32 3
   %32 = load i64, ptr %timerTickInterval, align 8, !tbaa !138
@@ -2441,7 +2441,7 @@ cond.false:                                       ; preds = %invoke.cont29
           to label %call.i.i.noexc unwind label %lpad31
 
 call.i.i.noexc:                                   ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, inrange i32 0, i64 2), ptr %call.i.i86, align 8, !tbaa !28, !noalias !176
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, i32 0, i64 2), ptr %call.i.i86, align 8, !tbaa !28, !noalias !176
   %call.i2.i.i = invoke ptr @event_base_new()
           to label %_ZN5folly9EventBase17getDefaultBackendEv.exit unwind label %lpad.i.i, !noalias !176
 
@@ -2465,7 +2465,7 @@ cond.end:                                         ; preds = %_ZN5folly9EventBase
 
 invoke.cont35:                                    ; preds = %cond.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i87, i8 0, i64 16, i1 false), !noalias !183
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollectorE, i64 0, inrange i32 0, i64 2), ptr %call.i87, align 8, !tbaa !28, !noalias !183
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollectorE, i64 0, i32 0, i64 2), ptr %call.i87, align 8, !tbaa !28, !noalias !183
   %keepAlives_.i.i = getelementptr inbounds %"class.folly::EventBase::ThreadIdCollector", ptr %call.i87, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keepAlives_.i.i, i8 0, i64 16, i1 false), !noalias !183
   store ptr %call.i87, ptr %threadIdCollector_, align 16, !tbaa !134, !alias.scope !183
@@ -2748,18 +2748,18 @@ _ZN5folly9EventBase7OptionsD2Ev.exit34:           ; preds = %if.then.i.i30, %ehc
 define void @_ZN5folly9EventBaseC1ENS0_7OptionsE(ptr noundef nonnull align 16 dereferenceable(584) %this, ptr noundef %options) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly8ExecutorE, i64 0, inrange i32 0, i64 2), ptr %0, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly8ExecutorE, i64 0, i32 0, i64 2), ptr %0, align 16, !tbaa !28
   tail call void @_ZN5folly14TimeoutManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
   %1 = getelementptr inbounds i8, ptr %this, i64 24
   %2 = getelementptr inbounds i8, ptr %this, i64 32
   %3 = getelementptr inbounds i8, ptr %this, i64 40
   %4 = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, inrange i32 0, i64 3), ptr %this, align 16, !tbaa !28
-  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, inrange i32 1, i64 9), ptr %0, align 16, !tbaa !28
-  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, inrange i32 2, i64 9), ptr %1, align 8, !tbaa !28
-  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, inrange i32 3, i64 9), ptr %2, align 16, !tbaa !28
-  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, inrange i32 4, i64 9), ptr %3, align 8, !tbaa !28
-  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, inrange i32 5, i64 2), ptr %4, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, i32 0, i64 3), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, i32 1, i64 9), ptr %0, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, i32 2, i64 9), ptr %1, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, i32 3, i64 9), ptr %2, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, i32 4, i64 9), ptr %3, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, i32 5, i64 2), ptr %4, align 16, !tbaa !28
   %intervalDuration_ = getelementptr inbounds %"class.folly::EventBase", ptr %this, i64 0, i32 6
   %timerTickInterval = getelementptr inbounds %"struct.folly::EventBase::Options", ptr %options, i64 0, i32 3
   %5 = load i64, ptr %timerTickInterval, align 8, !tbaa !138
@@ -2873,7 +2873,7 @@ cond.false:                                       ; preds = %invoke.cont30
           to label %call.i.i.noexc unwind label %lpad32
 
 call.i.i.noexc:                                   ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, inrange i32 0, i64 2), ptr %call.i.i82, align 8, !tbaa !28, !noalias !205
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, i32 0, i64 2), ptr %call.i.i82, align 8, !tbaa !28, !noalias !205
   %call.i2.i.i = invoke ptr @event_base_new()
           to label %_ZN5folly9EventBase17getDefaultBackendEv.exit unwind label %lpad.i.i, !noalias !205
 
@@ -2897,7 +2897,7 @@ cond.end:                                         ; preds = %_ZN5folly9EventBase
 
 invoke.cont36:                                    ; preds = %cond.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i83, i8 0, i64 16, i1 false), !noalias !208
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollectorE, i64 0, inrange i32 0, i64 2), ptr %call.i83, align 8, !tbaa !28, !noalias !208
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollectorE, i64 0, i32 0, i64 2), ptr %call.i83, align 8, !tbaa !28, !noalias !208
   %keepAlives_.i.i = getelementptr inbounds %"class.folly::EventBase::ThreadIdCollector", ptr %call.i83, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %keepAlives_.i.i, i8 0, i64 16, i1 false), !noalias !208
   store ptr %call.i83, ptr %threadIdCollector_, align 16, !tbaa !134, !alias.scope !208
@@ -3422,7 +3422,7 @@ entry:
   %call.val = load ptr, ptr %__functor, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !224)
   %call.i.i.i.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #55, !noalias !227
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8, !tbaa !28, !noalias !227
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !tbaa !28, !noalias !227
   %evb_.i.i.i.i.i = getelementptr inbounds %"class.(anonymous namespace)::EventBaseBackend", ptr %call.i.i.i.i, i64 0, i32 1
   store ptr %call.val, ptr %evb_.i.i.i.i.i, align 8, !tbaa !179, !noalias !227
   %cmp.i.i.i.i.i = icmp eq ptr %call.val, null
@@ -3548,7 +3548,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116EventBaseBackendD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !28
   %evb_ = getelementptr inbounds %"class.(anonymous namespace)::EventBaseBackend", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %evb_, align 8, !tbaa !179
   invoke void @event_base_free(ptr noundef %0)
@@ -3568,7 +3568,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_116EventBaseBackendD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !28
   %evb_.i = getelementptr inbounds %"class.(anonymous namespace)::EventBaseBackend", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %evb_.i, align 8, !tbaa !179
   invoke void @event_base_free(ptr noundef %0)
@@ -3876,7 +3876,7 @@ lpad:                                             ; preds = %invoke.cont14, %inv
 define void @_ZN5folly9EventBase17getDefaultBackendEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr.67") align 8 %agg.result) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #55, !noalias !235
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !28, !noalias !235
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116EventBaseBackendE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !28, !noalias !235
   %call.i2.i = invoke ptr @event_base_new()
           to label %_ZNSt10unique_ptrIN12_GLOBAL__N_116EventBaseBackendESt14default_deleteIS1_EED2Ev.exit unwind label %lpad.i, !noalias !235
 
@@ -4251,7 +4251,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #51
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !28
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #52
           to label %invoke.cont unwind label %lpad
 
@@ -4270,7 +4270,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #20 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #51
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !28
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #56
   unreachable
 }
@@ -4300,7 +4300,7 @@ entry:
   %keepAlives_ = getelementptr inbounds %"class.folly::EventBase::ThreadIdCollector", ptr %this, i64 0, i32 2
   %0 = atomicrmw add ptr %keepAlives_, i64 1 acq_rel, align 8
   %call.i11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #55, !noalias !270
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollector5GuardE, i64 0, inrange i32 0, i64 2), ptr %call.i11, align 8, !tbaa !28, !noalias !270
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollector5GuardE, i64 0, i32 0, i64 2), ptr %call.i11, align 8, !tbaa !28, !noalias !270
   %parent_.i.i = getelementptr inbounds %"class.folly::EventBase::ThreadIdCollector::Guard", ptr %call.i11, i64 0, i32 1
   store ptr %this, ptr %parent_.i.i, align 8, !tbaa !134, !noalias !270
   %tid_ = getelementptr inbounds %"class.folly::EventBase::ThreadIdCollector", ptr %this, i64 0, i32 1
@@ -4350,7 +4350,7 @@ _ZNSt10unique_ptrIN5folly9EventBase17ThreadIdCollector5GuardESt14default_deleteI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9EventBase17ThreadIdCollector5GuardD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollector5GuardE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollector5GuardE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !28
   %parent_ = getelementptr inbounds %"class.folly::EventBase::ThreadIdCollector::Guard", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %parent_, align 8, !tbaa !279
   %keepAlives_ = getelementptr inbounds %"class.folly::EventBase::ThreadIdCollector", ptr %0, i64 0, i32 2
@@ -4386,7 +4386,7 @@ if.end:                                           ; preds = %if.then.i.i, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9EventBase17ThreadIdCollector5GuardD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollector5GuardE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly9EventBase17ThreadIdCollector5GuardE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !28
   %parent_.i = getelementptr inbounds %"class.folly::EventBase::ThreadIdCollector::Guard", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %parent_.i, align 8, !tbaa !279
   %keepAlives_.i = getelementptr inbounds %"class.folly::EventBase::ThreadIdCollector", ptr %0, i64 0, i32 2
@@ -4527,7 +4527,7 @@ entry:
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %10, ptr %add.ptr6, align 8, !tbaa !28
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, inrange i32 5, i64 2), ptr %add.ptr7, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [19 x ptr], [17 x ptr], [17 x ptr], [16 x ptr], [18 x ptr], [5 x ptr] }, ptr @_ZTVN5folly9EventBaseE, i64 0, i32 5, i64 2), ptr %add.ptr7, align 16, !tbaa !28
   %strictLoopThread_ = getelementptr inbounds %"class.folly::EventBase", ptr %this, i64 0, i32 8
   store i8 0, ptr %strictLoopThread_, align 1, !tbaa !139
   %preDestructionCallbacks_ = getelementptr inbounds %"class.folly::EventBase", ptr %this, i64 0, i32 14
@@ -11499,7 +11499,7 @@ declare void @_ZNSt12system_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #51
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !28
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
   %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %0, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !461
@@ -11653,7 +11653,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #51
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #51
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #51
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !28
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa.struct !461
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1, i32 1
@@ -11815,7 +11815,7 @@ declare void @_ZNSt12length_errorD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12length_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #51
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !28
   ret void
 }
 
@@ -12447,7 +12447,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt9bad_allocJEEEvDp
 entry:
   %ref.tmp = alloca %"class.std::bad_alloc", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #51
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !28
   invoke void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #52
           to label %invoke.cont unwind label %lpad
 
@@ -12466,7 +12466,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt9bad_allocEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #20 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #51
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !28
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #56
   unreachable
 }
@@ -15364,7 +15364,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #55
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase20FunctionLoopCallbackE, i64 0, inrange i32 0, i64 2), ptr %call, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase20FunctionLoopCallbackE, i64 0, i32 0, i64 2), ptr %call, align 16, !tbaa !28
   %function_.i = getelementptr inbounds %"class.folly::EventBase::FunctionLoopCallback", ptr %call, i64 0, i32 2
   store ptr null, ptr %function_.i, align 16, !tbaa !140
   %call_.i.i = getelementptr inbounds %"class.folly::EventBase::FunctionLoopCallback", ptr %call, i64 0, i32 2, i32 1
@@ -15483,7 +15483,7 @@ _ZNSt12__shared_ptrIN5folly14RequestContextELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9EventBase20FunctionLoopCallbackD2Ev(ptr noundef nonnull align 16 dereferenceable(112) %this) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase20FunctionLoopCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase20FunctionLoopCallbackE, i64 0, i32 0, i64 2), ptr %this, align 16, !tbaa !28
   %exec_.i.i = getelementptr inbounds %"class.folly::EventBase::FunctionLoopCallback", ptr %this, i64 0, i32 2, i32 2
   %0 = load ptr, ptr %exec_.i.i, align 8, !tbaa !142
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -15495,7 +15495,7 @@ if.end.i.i:                                       ; preds = %entry
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit
 
 _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i, %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, i32 0, i64 2), ptr %this, align 16, !tbaa !28
   %_M_refcount.i.i = getelementptr inbounds %"class.folly::EventBase::LoopCallback", ptr %this, i64 0, i32 2, i32 0, i32 1
   %1 = load ptr, ptr %_M_refcount.i.i, align 16, !tbaa !266
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -15567,7 +15567,7 @@ _ZN5folly9EventBase12LoopCallbackD2Ev.exit:       ; preds = %if.then.i.i.i2.i, %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9EventBase20FunctionLoopCallbackD0Ev(ptr noundef nonnull align 16 dereferenceable(112) %this) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase20FunctionLoopCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase20FunctionLoopCallbackE, i64 0, i32 0, i64 2), ptr %this, align 16, !tbaa !28
   %exec_.i.i.i = getelementptr inbounds %"class.folly::EventBase::FunctionLoopCallback", ptr %this, i64 0, i32 2, i32 2
   %0 = load ptr, ptr %exec_.i.i.i, align 8, !tbaa !142
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -15579,7 +15579,7 @@ if.end.i.i.i:                                     ; preds = %entry
   br label %_ZN5folly8FunctionIFvvEED2Ev.exit.i
 
 _ZN5folly8FunctionIFvvEED2Ev.exit.i:              ; preds = %if.end.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, i32 0, i64 2), ptr %this, align 16, !tbaa !28
   %_M_refcount.i.i.i = getelementptr inbounds %"class.folly::EventBase::LoopCallback", ptr %this, i64 0, i32 2, i32 0, i32 1
   %1 = load ptr, ptr %_M_refcount.i.i.i, align 16, !tbaa !266
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -15675,7 +15675,7 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9EventBase12LoopCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !28
   %_M_refcount.i = getelementptr inbounds %"class.folly::EventBase::LoopCallback", ptr %this, i64 0, i32 2, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !266
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -16102,7 +16102,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
   store i8 0, ptr %scheduled_.i.i, align 4, !tbaa !532
   %mutex_.i.i.i = getelementptr inbounds %"class.folly::EventBase::OnDestructionCallback", ptr %call, i64 0, i32 4, i32 1
   store i32 0, ptr %mutex_.i.i.i, align 4, !tbaa !156
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 0, inrange i32 0, i64 2), ptr %call, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 0, i32 0, i64 2), ptr %call, align 16, !tbaa !28
   %f_.i = getelementptr inbounds %"class.folly::EventBase::FunctionOnDestructionCallback", ptr %call, i64 0, i32 2
   store ptr null, ptr %f_.i, align 16, !tbaa !140
   %call_.i.i = getelementptr inbounds %"class.folly::EventBase::FunctionOnDestructionCallback", ptr %call, i64 0, i32 2, i32 1
@@ -16190,7 +16190,7 @@ _ZN5folly9EventBase16runOnDestructionERNS0_21OnDestructionCallbackE.exit: ; pred
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9EventBase29FunctionOnDestructionCallbackD2Ev(ptr noundef nonnull align 16 dereferenceable(176) %this) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 0, i32 0, i64 2), ptr %this, align 16, !tbaa !28
   %exec_.i.i = getelementptr inbounds %"class.folly::EventBase::FunctionOnDestructionCallback", ptr %this, i64 0, i32 2, i32 2
   %0 = load ptr, ptr %exec_.i.i, align 8, !tbaa !142
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -16209,7 +16209,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i, %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly9EventBase29FunctionOnDestructionCallbackD0Ev(ptr noundef nonnull align 16 dereferenceable(176) %this) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 0, i32 0, i64 2), ptr %this, align 16, !tbaa !28
   %exec_.i.i.i = getelementptr inbounds %"class.folly::EventBase::FunctionOnDestructionCallback", ptr %this, i64 0, i32 2, i32 2
   %0 = load ptr, ptr %exec_.i.i.i, align 8, !tbaa !142
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -16267,7 +16267,7 @@ entry:
   %ctx.i.i.i.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
   %ref.tmp = alloca %"class.folly::LockedPtr.289", align 8
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase21OnDestructionCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase21OnDestructionCallbackE, i64 0, i32 0, i64 2), ptr %this, align 16, !tbaa !28
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #51
   tail call void @llvm.experimental.noalias.scope.decl(metadata !534)
   %mutex_.i.i = getelementptr inbounds %"class.folly::EventBase::OnDestructionCallback", ptr %this, i64 0, i32 4, i32 1
@@ -16704,7 +16704,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
   store i8 0, ptr %scheduled_.i.i, align 4, !tbaa !532
   %mutex_.i.i.i = getelementptr inbounds %"class.folly::EventBase::OnDestructionCallback", ptr %call, i64 0, i32 4, i32 1
   store i32 0, ptr %mutex_.i.i.i, align 4, !tbaa !156
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 0, inrange i32 0, i64 2), ptr %call, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly9EventBase29FunctionOnDestructionCallbackE, i64 0, i32 0, i64 2), ptr %call, align 16, !tbaa !28
   %f_.i = getelementptr inbounds %"class.folly::EventBase::FunctionOnDestructionCallback", ptr %call, i64 0, i32 2
   store ptr null, ptr %f_.i, align 16, !tbaa !140
   %call_.i.i = getelementptr inbounds %"class.folly::EventBase::FunctionOnDestructionCallback", ptr %call, i64 0, i32 2, i32 1
@@ -17817,7 +17817,7 @@ entry:
   %ref.tmp = alloca %"class.google::LogMessage", align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 64, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, i32 0, i64 2), ptr %this, align 64, !tbaa !28
   %context_.i = getelementptr inbounds %"class.folly::EventBase::LoopCallback", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %context_.i, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %this, i64 40
@@ -17825,8 +17825,8 @@ entry:
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 64, !tbaa !28
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEEE, i64 0, inrange i32 1, i64 2), ptr %1, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEEE, i64 0, i32 0, i64 2), ptr %this, align 64, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEEE, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !28
   %eventfd_ = getelementptr inbounds %"class.folly::EventBaseAtomicNotificationQueue", ptr %this, i64 0, i32 2
   store i32 -1, ptr %eventfd_, align 32, !tbaa !262
   %pipeFds_ = getelementptr inbounds %"class.folly::EventBaseAtomicNotificationQueue", ptr %this, i64 0, i32 3
@@ -18255,9 +18255,9 @@ declare void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenc
 define linkonce_odr void @_ZN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEED2Ev(ptr noundef nonnull align 64 dereferenceable(490) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.anon.285, align 1
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 64, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEEE, i64 0, i32 0, i64 2), ptr %this, align 64, !tbaa !28
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN5folly32EventBaseAtomicNotificationQueueINS_8FunctionIFvvEEENS_9EventBase10FuncRunnerEEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !28
   %notificationQueue_.i = getelementptr inbounds %"class.folly::EventBaseAtomicNotificationQueue", ptr %this, i64 0, i32 8
   %armed_.i = getelementptr inbounds %"class.folly::EventBaseAtomicNotificationQueue", ptr %this, i64 0, i32 15
   %consumerDisarmedCount_.i = getelementptr inbounds %"class.folly::EventBaseAtomicNotificationQueue", ptr %this, i64 0, i32 12
@@ -18364,7 +18364,7 @@ invoke.cont55:                                    ; preds = %if.then52
 if.end59:                                         ; preds = %invoke.cont55, %if.end48
   call void @_ZN5folly23AtomicNotificationQueueINS_8FunctionIFvvEEEED2Ev(ptr noundef nonnull align 64 dereferenceable(156) %notificationQueue_.i) #51
   call void @_ZN5folly12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %add.ptr) #51
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 64, !tbaa !28
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9EventBase12LoopCallbackE, i64 0, i32 0, i64 2), ptr %this, align 64, !tbaa !28
   %_M_refcount.i.i = getelementptr inbounds %"class.folly::EventBase::LoopCallback", ptr %this, i64 0, i32 2, i32 0, i32 1
   %10 = load ptr, ptr %_M_refcount.i.i, align 32, !tbaa !266
   %cmp.not.i.i.i = icmp eq ptr %10, null
@@ -19584,7 +19584,7 @@ _ZN5folly8FunctionIFvvEEC2EOS2_.exit:             ; preds = %if.end.i.i, %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZN5folly8FunctionIFvvEEC2EOS2_.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17scheduleTimeoutFnINS_8FunctionIFvvEEEEEvT_S5_E7Wrapper, i64 0, inrange i32 0, i64 2), ptr %call, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17scheduleTimeoutFnINS_8FunctionIFvvEEEEEvT_S5_E7Wrapper, i64 0, i32 0, i64 2), ptr %call, align 16, !tbaa !28
   %fn_.i = getelementptr inbounds %struct.Wrapper, ptr %call, i64 0, i32 1
   store ptr null, ptr %fn_.i, align 16, !tbaa !140
   %call_.i.i = getelementptr inbounds %struct.Wrapper, ptr %call, i64 0, i32 1, i32 1
@@ -19637,7 +19637,7 @@ declare void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl10
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17scheduleTimeoutFnINS_8FunctionIFvvEEEEEvT_S5_EN7WrapperD2Ev(ptr noundef nonnull align 16 dereferenceable(128) %this) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17scheduleTimeoutFnINS_8FunctionIFvvEEEEEvT_S5_E7Wrapper, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17scheduleTimeoutFnINS_8FunctionIFvvEEEEEvT_S5_E7Wrapper, i64 0, i32 0, i64 2), ptr %this, align 16, !tbaa !28
   %exec_.i.i = getelementptr inbounds %struct.Wrapper, ptr %this, i64 0, i32 1, i32 2
   %0 = load ptr, ptr %exec_.i.i, align 8, !tbaa !142
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -19656,7 +19656,7 @@ _ZN5folly8FunctionIFvvEED2Ev.exit:                ; preds = %if.end.i.i, %entry
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17scheduleTimeoutFnINS_8FunctionIFvvEEEEEvT_S5_EN7WrapperD0Ev(ptr noundef nonnull align 16 dereferenceable(128) %this) unnamed_addr #19 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17scheduleTimeoutFnINS_8FunctionIFvvEEEEEvT_S5_E7Wrapper, i64 0, inrange i32 0, i64 2), ptr %this, align 16, !tbaa !28
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE17scheduleTimeoutFnINS_8FunctionIFvvEEEEEvT_S5_E7Wrapper, i64 0, i32 0, i64 2), ptr %this, align 16, !tbaa !28
   %exec_.i.i.i = getelementptr inbounds %struct.Wrapper, ptr %this, i64 0, i32 1, i32 2
   %0 = load ptr, ptr %exec_.i.i.i, align 8, !tbaa !142
   %tobool.not.i.i.i = icmp eq ptr %0, null

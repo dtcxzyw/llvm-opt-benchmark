@@ -77,7 +77,7 @@ $_ZTIN5folly17LogHandlerFactoryE = comdat any
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly20StreamHandlerFactory13WriterFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_, align 8, !tbaa !10
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -102,7 +102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly20StreamHandlerFactory13WriterFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %stream_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %stream_.i, align 8, !tbaa !10
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -524,7 +524,7 @@ entry:
   %writerFactory = alloca %"class.folly::StreamHandlerFactory::WriterFactory", align 8
   %ref.tmp = alloca %"class.std::shared_ptr.6", align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %writerFactory) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, inrange i32 0, i64 2), ptr %writerFactory, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, i32 0, i64 2), ptr %writerFactory, align 8, !tbaa !7
   %stream_.i = getelementptr inbounds i8, ptr %writerFactory, i64 8
   %0 = getelementptr inbounds i8, ptr %writerFactory, i64 24
   store ptr %0, ptr %stream_.i, align 8, !tbaa !24
@@ -554,7 +554,7 @@ _ZNSt12__shared_ptrIN5folly18StandardLogHandlerELN9__gnu_cxx12_Lock_policyE2EED2
   %4 = load <2 x ptr>, ptr %ref.tmp, align 16, !tbaa !38
   store <2 x ptr> %4, ptr %agg.result, align 8, !tbaa !38
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, inrange i32 0, i64 2), ptr %writerFactory, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, i32 0, i64 2), ptr %writerFactory, align 8, !tbaa !7
   %5 = load ptr, ptr %stream_.i, align 8, !tbaa !10
   %cmp.i.i.i.i = icmp eq ptr %5, %0
   br i1 %cmp.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %if.then.i.i.i5
@@ -577,7 +577,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
   %7 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, inrange i32 0, i64 2), ptr %writerFactory, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly20StreamHandlerFactory13WriterFactoryE, i64 0, i32 0, i64 2), ptr %writerFactory, align 8, !tbaa !7
   %8 = load ptr, ptr %stream_.i, align 8, !tbaa !10
   %cmp.i.i.i.i8 = icmp eq ptr %8, %0
   br i1 %cmp.i.i.i.i8, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i10, label %if.then.i.i.i9

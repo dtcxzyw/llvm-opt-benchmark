@@ -10021,7 +10021,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
@@ -10871,7 +10871,7 @@ define void @_ZN5faiss19OnDiskInvertedListsC2EmmPKc(ptr noundef nonnull align 8 
   %13 = load i64, ptr %6, align 8
   %14 = load i64, ptr %7, align 8
   call void @_ZN5faiss13InvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(25) %12, i64 noundef %13, i64 noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss19OnDiskInvertedListsE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss19OnDiskInvertedListsE, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %"struct.faiss::OnDiskInvertedLists", ptr %12, i32 0, i32 2
   call void @_ZNSt6vectorIN5faiss13OnDiskOneListESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #13
   %16 = getelementptr inbounds %"struct.faiss::OnDiskInvertedLists", ptr %12, i32 0, i32 3
@@ -12735,7 +12735,7 @@ define void @_ZN5faiss19OnDiskInvertedListsD2Ev(ptr noundef nonnull align 8 dere
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss19OnDiskInvertedListsE, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss19OnDiskInvertedListsE, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"struct.faiss::OnDiskInvertedLists", ptr %4, i32 0, i32 10
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -16212,7 +16212,7 @@ define void @_ZN5faiss25OnDiskInvertedListsIOHookC2Ev(ptr noundef nonnull align 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss25OnDiskInvertedListsIOHookE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss25OnDiskInvertedListsIOHookE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 14:                                               ; preds = %1
@@ -20890,7 +20890,7 @@ define linkonce_odr void @_ZN5faiss19InvertedListsIOHookD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss19InvertedListsIOHookE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss19InvertedListsIOHookE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::InvertedListsIOHook", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   %5 = getelementptr inbounds %"struct.faiss::InvertedListsIOHook", ptr %3, i32 0, i32 1

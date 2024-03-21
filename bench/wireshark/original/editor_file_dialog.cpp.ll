@@ -213,9 +213,9 @@ define void @_ZN16EditorFileDialogC2ERK11QModelIndexNS_8FileModeEP7QWidgetRK7QSt
   %22 = load ptr, ptr %8, align 8
   %23 = load ptr, ptr %11, align 8
   call void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef %23)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16EditorFileDialog, i32 0, inrange i32 0, i32 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16EditorFileDialog, i32 0, i32 0, i32 2), ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16EditorFileDialog, i32 0, inrange i32 1, i32 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV16EditorFileDialog, i32 0, i32 1, i32 2), ptr %24, align 8
   %25 = getelementptr inbounds %class.EditorFileDialog, ptr %22, i32 0, i32 1
   %26 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #8
           to label %27 unwind label %45

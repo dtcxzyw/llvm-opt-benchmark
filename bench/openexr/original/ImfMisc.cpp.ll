@@ -9372,7 +9372,7 @@ entry:
   %0 = load i64, ptr %call, align 8
   %1 = load i64, ptr %__refs.addr, align 8
   call void @_ZNSt19__codecvt_utf8_baseIwEC2EmSt12codecvt_modem(ptr noundef nonnull align 8 dereferenceable(36) %this1, i64 noundef %0, i32 noundef 0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9413,7 +9413,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %__refs.addr, align 8
   call void @_ZNSt7codecvtIwc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt19__codecvt_utf8_baseIwE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt19__codecvt_utf8_baseIwE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_maxcode = getelementptr inbounds %"class.std::__codecvt_utf8_base", ptr %this1, i32 0, i32 1
   %1 = load i64, ptr %__maxcode.addr, align 8
   store i64 %1, ptr %_M_maxcode, align 8

@@ -1212,7 +1212,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7511PluralRulesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7511PluralRulesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mRules = getelementptr inbounds %"class.icu_75::PluralRules", ptr %this1, i32 0, i32 1
   store ptr null, ptr %mRules, align 8
   %mStandardPluralRanges = getelementptr inbounds %"class.icu_75::PluralRules", ptr %this1, i32 0, i32 2
@@ -1231,7 +1231,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1247,7 +1247,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7511PluralRulesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7511PluralRulesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mRules = getelementptr inbounds %"class.icu_75::PluralRules", ptr %this1, i32 0, i32 1
   store ptr null, ptr %mRules, align 8
   %mStandardPluralRanges = getelementptr inbounds %"class.icu_75::PluralRules", ptr %this1, i32 0, i32 2
@@ -1287,7 +1287,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1499,7 +1499,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7511PluralRulesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7511PluralRulesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mRules = getelementptr inbounds %"class.icu_75::PluralRules", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %mRules, align 8
   %isnull = icmp eq ptr %0, null
@@ -1559,7 +1559,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517SharedPluralRulesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517SharedPluralRulesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ptr = getelementptr inbounds %"class.icu_75::SharedPluralRules", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ptr, align 8
   %isnull = icmp eq ptr %0, null
@@ -3590,7 +3590,7 @@ entry:
   store ptr %prToAdopt, ptr %prToAdopt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512SharedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517SharedPluralRulesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517SharedPluralRulesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ptr = getelementptr inbounds %"class.icu_75::SharedPluralRules", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %prToAdopt.addr, align 8
   store ptr %0, ptr %ptr, align 8
@@ -7268,7 +7268,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512OrConstraintE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512OrConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %childNode = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %this1, i32 0, i32 1
   store ptr null, ptr %childNode, align 8
   %next = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %this1, i32 0, i32 2
@@ -7559,7 +7559,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759RuleChainE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759RuleChainE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fKeyword = getelementptr inbounds %"class.icu_75::RuleChain", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fKeyword)
   %fNext = getelementptr inbounds %"class.icu_75::RuleChain", ptr %this1, i32 0, i32 2
@@ -7639,7 +7639,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -9024,7 +9024,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513AndConstraintE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513AndConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %op = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %this1, i32 0, i32 1
   store i32 0, ptr %op, align 8
   %opNum = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %this1, i32 0, i32 2
@@ -9268,7 +9268,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513AndConstraintE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513AndConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rangeList = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %this1, i32 0, i32 5
   %0 = load ptr, ptr %rangeList, align 8
   %isnull = icmp eq ptr %0, null
@@ -9557,7 +9557,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513AndConstraintE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7513AndConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %op = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %this1, i32 0, i32 1
   store i32 0, ptr %op, align 8
   %opNum = getelementptr inbounds %"class.icu_75::AndConstraint", ptr %this1, i32 0, i32 2
@@ -9593,7 +9593,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512OrConstraintE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512OrConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %childNode = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %this1, i32 0, i32 1
   store ptr null, ptr %childNode, align 8
   %next = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %this1, i32 0, i32 2
@@ -9769,7 +9769,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512OrConstraintE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512OrConstraintE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %childNode = getelementptr inbounds %"class.icu_75::OrConstraint", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %childNode, align 8
   %isnull = icmp eq ptr %0, null
@@ -9903,7 +9903,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759RuleChainE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759RuleChainE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fKeyword = getelementptr inbounds %"class.icu_75::RuleChain", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %other.addr, align 8
   %fKeyword2 = getelementptr inbounds %"class.icu_75::RuleChain", ptr %0, i32 0, i32 1
@@ -10179,7 +10179,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759RuleChainE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759RuleChainE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fNext = getelementptr inbounds %"class.icu_75::RuleChain", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %fNext, align 8
   %isnull = icmp eq ptr %0, null
@@ -10485,7 +10485,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7516PluralRuleParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7516PluralRuleParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ruleIndex = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this1, i32 0, i32 2
   store i32 0, ptr %ruleIndex, align 8
   %token = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this1, i32 0, i32 3
@@ -10511,7 +10511,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7516PluralRuleParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7516PluralRuleParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %token = getelementptr inbounds %"class.icu_75::PluralRuleParser", ptr %this1, i32 0, i32 3
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %token) #13
   ret void
@@ -11189,7 +11189,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7524PluralKeywordEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7524PluralKeywordEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pos = getelementptr inbounds %"class.icu_75::PluralKeywordEnumeration", ptr %this1, i32 0, i32 1
   store i32 0, ptr %pos, align 4
   %fKeywordNames = getelementptr inbounds %"class.icu_75::PluralKeywordEnumeration", ptr %this1, i32 0, i32 2
@@ -11632,7 +11632,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7524PluralKeywordEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7524PluralKeywordEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fKeywordNames = getelementptr inbounds %"class.icu_75::PluralKeywordEnumeration", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_757UVectorD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %fKeywordNames) #13
   call void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1) #13
@@ -11674,9 +11674,9 @@ entry:
   call void @_ZN6icu_7513IFixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %1 = load double, ptr %n.addr, align 8
   %2 = load i32, ptr %v.addr, align 4
   %3 = load i64, ptr %f.addr, align 8
@@ -11714,7 +11714,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513IFixedDecimalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7513IFixedDecimalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11871,9 +11871,9 @@ entry:
   call void @_ZN6icu_7513IFixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %1 = load double, ptr %n.addr, align 8
   %2 = load i32, ptr %v.addr, align 4
   %3 = load i64, ptr %f.addr, align 8
@@ -11944,9 +11944,9 @@ entry:
   call void @_ZN6icu_7513IFixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %1 = load double, ptr %n.addr, align 8
   %2 = load i32, ptr %v.addr, align 4
   %3 = load i64, ptr %f.addr, align 8
@@ -12013,9 +12013,9 @@ entry:
   call void @_ZN6icu_7513IFixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %1 = load double, ptr %n.addr, align 8
   %2 = load i32, ptr %v.addr, align 4
   %3 = load double, ptr %n.addr, align 8
@@ -12164,9 +12164,9 @@ entry:
   call void @_ZN6icu_7513IFixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %1 = load double, ptr %n.addr, align 8
   invoke void @_ZN6icu_7512FixedDecimal4initEd(ptr noundef nonnull align 8 dereferenceable(64) %this1, double noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -12226,9 +12226,9 @@ entry:
   call void @_ZN6icu_7513IFixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   invoke void @_ZN6icu_7512FixedDecimal4initEdil(ptr noundef nonnull align 8 dereferenceable(64) %this1, double noundef 0.000000e+00, i32 noundef 0, i64 noundef 0)
           to label %invoke.cont unwind label %lpad
 
@@ -12286,9 +12286,9 @@ entry:
   call void @_ZN6icu_7513IFixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   invoke void @_ZN6icu_7510CharStringC2Ev(ptr noundef nonnull align 8 dereferenceable(60) %cs)
           to label %invoke.cont unwind label %lpad
 
@@ -12664,9 +12664,9 @@ entry:
   call void @_ZN6icu_7513IFixedDecimalC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN6icu_7512FixedDecimalE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %1 = load ptr, ptr %other.addr, align 8
   %source = getelementptr inbounds %"class.icu_75::FixedDecimal", ptr %1, i32 0, i32 2
   %2 = load double, ptr %source, align 8
@@ -13394,7 +13394,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7533PluralAvailableLocalesEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7533PluralAvailableLocalesEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLocales = getelementptr inbounds %"class.icu_75::PluralAvailableLocalesEnumeration", ptr %this1, i32 0, i32 2
   store ptr null, ptr %fLocales, align 8
   %fRes = getelementptr inbounds %"class.icu_75::PluralAvailableLocalesEnumeration", ptr %this1, i32 0, i32 3
@@ -13481,7 +13481,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7533PluralAvailableLocalesEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7533PluralAvailableLocalesEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLocales = getelementptr inbounds %"class.icu_75::PluralAvailableLocalesEnumeration", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %fLocales, align 8
   invoke void @ures_close_75(ptr noundef %0)
@@ -13780,7 +13780,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 1
   store i32 0, ptr %softRefCount, align 8
   %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 2
@@ -14099,7 +14099,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -14366,7 +14366,7 @@ entry:
   store ptr %loc, ptr %loc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758CacheKeyINS_17SharedPluralRulesEEC2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_17SharedPluralRulesEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_17SharedPluralRulesEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %loc.addr, align 8
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLoc, ptr noundef nonnull align 8 dereferenceable(217) %0)
@@ -14399,7 +14399,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_17SharedPluralRulesEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_17SharedPluralRulesEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLoc) #13
   call void @_ZN6icu_758CacheKeyINS_17SharedPluralRulesEED2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #13
@@ -14550,7 +14550,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512CacheKeyBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_758CacheKeyINS_17SharedPluralRulesEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_758CacheKeyINS_17SharedPluralRulesEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -14696,7 +14696,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fCreationStatus = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this1, i32 0, i32 1
   store i32 0, ptr %fCreationStatus, align 8
   %fIsPrimary = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this1, i32 0, i32 2
@@ -14913,7 +14913,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_758CacheKeyINS_17SharedPluralRulesEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(13) %this1, ptr noundef nonnull align 8 dereferenceable(13) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_17SharedPluralRulesEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514LocaleCacheKeyINS_17SharedPluralRulesEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLoc = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %other.addr, align 8
   %fLoc2 = getelementptr inbounds %"class.icu_75::LocaleCacheKey", ptr %1, i32 0, i32 2
@@ -14951,7 +14951,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6icu_7512CacheKeyBaseC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(13) %this1, ptr noundef nonnull align 8 dereferenceable(13) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_758CacheKeyINS_17SharedPluralRulesEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_758CacheKeyINS_17SharedPluralRulesEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -14965,7 +14965,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #13
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7512CacheKeyBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fCreationStatus = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %fCreationStatus2 = getelementptr inbounds %"class.icu_75::CacheKeyBase", ptr %1, i32 0, i32 1

@@ -357,7 +357,7 @@ entry:
   %2 = load ptr, ptr %vfn.i, align 8
   %call2.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN7rocksdb19TransactionBaseImplC2EPNS_2DBERKNS_12WriteOptionsERKNS_18LockTrackerFactoryE(ptr noundef nonnull align 8 dereferenceable(320) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(8) %call2.i)
-  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb22PessimisticTransactionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb22PessimisticTransactionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %use_only_the_last_commit_time_batch_for_recovery_ = getelementptr inbounds i8, ptr %this, i64 320
   store i8 0, ptr %use_only_the_last_commit_time_batch_for_recovery_, align 8
   %skip_prepare_ = getelementptr inbounds i8, ptr %this, i64 321
@@ -572,7 +572,7 @@ declare void @_ZN7rocksdb24PessimisticTransactionDB26InsertExpirableTransactionE
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb22PessimisticTransactionD2Ev(ptr noundef nonnull align 8 dereferenceable(561) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb22PessimisticTransactionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb22PessimisticTransactionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %txn_db_impl_ = getelementptr inbounds i8, ptr %this, i64 328
   %0 = load ptr, ptr %txn_db_impl_, align 8
   %tracked_locks_ = getelementptr inbounds i8, ptr %this, i64 184
@@ -773,7 +773,7 @@ entry:
   %2 = load ptr, ptr %vfn.i.i, align 8
   %call2.i.i = tail call noundef nonnull align 8 dereferenceable(8) ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %1)
   tail call void @_ZN7rocksdb19TransactionBaseImplC2EPNS_2DBERKNS_12WriteOptionsERKNS_18LockTrackerFactoryE(ptr noundef nonnull align 8 dereferenceable(320) %this, ptr noundef %call.i, ptr noundef nonnull align 8 dereferenceable(24) %write_options, ptr noundef nonnull align 8 dereferenceable(8) %call2.i.i)
-  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb22PessimisticTransactionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb22PessimisticTransactionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %use_only_the_last_commit_time_batch_for_recovery_.i = getelementptr inbounds i8, ptr %this, i64 320
   store i8 0, ptr %use_only_the_last_commit_time_batch_for_recovery_.i, align 8
   %skip_prepare_.i = getelementptr inbounds i8, ptr %this, i64 321
@@ -813,7 +813,7 @@ lpad4.i:                                          ; preds = %entry
   resume { ptr, i32 } %4
 
 _ZN7rocksdb22PessimisticTransactionC2EPNS_13TransactionDBERKNS_12WriteOptionsERKNS_18TransactionOptionsEb.exit: ; preds = %entry
-  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb17WriteCommittedTxnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb17WriteCommittedTxnE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cfs_with_ts_tracked_when_indexing_disabled_ = getelementptr inbounds i8, ptr %this, i64 568
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 616
   store ptr %_M_single_bucket.i.i, ptr %cfs_with_ts_tracked_when_indexing_disabled_, align 8
@@ -3692,7 +3692,7 @@ if.then:                                          ; preds = %entry
   br label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEE7Handler, i64 0, inrange i32 0, i64 2), ptr %handler, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEE7Handler, i64 0, i32 0, i64 2), ptr %handler, align 8
   %0 = getelementptr inbounds i8, ptr %handler, i64 16
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %handler, i64 24
@@ -3944,7 +3944,7 @@ if.then42:                                        ; preds = %invoke.cont33, %inv
           to label %nrvo.skipdtor unwind label %lpad3.loopexit.split-lp
 
 nrvo.skipdtor:                                    ; preds = %for.inc37, %for.inc37.us, %if.end6, %invoke.cont4, %if.then42
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEE7Handler, i64 0, inrange i32 0, i64 2), ptr %handler, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEE7Handler, i64 0, i32 0, i64 2), ptr %handler, align 8
   %keys_.i = getelementptr inbounds i8, ptr %handler, i64 8
   %29 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
   invoke void @_ZNSt8_Rb_treeIjSt4pairIKjSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEESt10_Select1stISD_ES9_IjESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %keys_.i, ptr noundef %29)
@@ -4408,7 +4408,7 @@ entry:
   %two_write_queues = getelementptr inbounds i8, ptr %2, i64 1252
   %3 = load i8, ptr %two_write_queues, align 4
   %4 = and i8 %3, 1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN7rocksdb17WriteCommittedTxn15PrepareInternalEvE15MarkLogCallback, i64 0, inrange i32 0, i64 2), ptr %mark_log_callback, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN7rocksdb17WriteCommittedTxn15PrepareInternalEvE15MarkLogCallback, i64 0, i32 0, i64 2), ptr %mark_log_callback, align 8
   %db_.i = getelementptr inbounds i8, ptr %mark_log_callback, i64 8
   store ptr %2, ptr %db_.i, align 8
   %two_write_queues_.i = getelementptr inbounds i8, ptr %mark_log_callback, i64 16
@@ -5181,7 +5181,7 @@ if.end17:                                         ; preds = %nrvo.skipdtor.threa
   %15 = load ptr, ptr %db_impl_, align 8
   %snapshot_notifier_ = getelementptr inbounds i8, ptr %this, i64 304
   %snapshot_ = getelementptr inbounds i8, ptr %this, i64 128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, inrange i32 0, i64 2), ptr %snapshot_creation_cb, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, i32 0, i64 2), ptr %snapshot_creation_cb, align 8
   %db_impl_.i = getelementptr inbounds i8, ptr %snapshot_creation_cb, i64 8
   store ptr %15, ptr %db_impl_.i, align 8
   %commit_ts_.i = getelementptr inbounds i8, ptr %snapshot_creation_cb, i64 16
@@ -5280,7 +5280,7 @@ _ZN7rocksdb6StatusD2Ev.exit27:                    ; preds = %lpad35, %_ZNKSt14de
   br label %ehcleanup
 
 cleanup47:                                        ; preds = %if.then23, %invoke.cont36, %if.then38
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, inrange i32 0, i64 2), ptr %snapshot_creation_cb, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, i32 0, i64 2), ptr %snapshot_creation_cb, align 8
   %31 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %31, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -5381,7 +5381,7 @@ declare void @_ZN7rocksdb10WriteBatch16UpdateTimestampsERKNS_5SliceESt8functionI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb24SnapshotCreationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %state_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -5892,7 +5892,7 @@ _ZN7rocksdb6StatusD2Ev.exit89:                    ; preds = %_ZN7rocksdb6Statusa
   %61 = load i64, ptr %commit_timestamp_, align 8
   %snapshot_notifier_ = getelementptr inbounds i8, ptr %this, i64 304
   %snapshot_ = getelementptr inbounds i8, ptr %this, i64 128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, inrange i32 0, i64 2), ptr %snapshot_creation_cb, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, i32 0, i64 2), ptr %snapshot_creation_cb, align 8
   %db_impl_.i = getelementptr inbounds i8, ptr %snapshot_creation_cb, i64 8
   store ptr %60, ptr %db_impl_.i, align 8
   %commit_ts_.i = getelementptr inbounds i8, ptr %snapshot_creation_cb, i64 16
@@ -6091,7 +6091,7 @@ if.then68:                                        ; preds = %invoke.cont66
           to label %cleanup unwind label %lpad53
 
 cleanup:                                          ; preds = %invoke.cont66, %if.then68, %_ZN7rocksdb6StatusD2Ev.exit113
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, inrange i32 0, i64 2), ptr %snapshot_creation_cb, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, i32 0, i64 2), ptr %snapshot_creation_cb, align 8
   %98 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %98, null
   br i1 %cmp.not.i.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i
@@ -6769,7 +6769,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEEN7HandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEE7Handler, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEE7Handler, i64 0, i32 0, i64 2), ptr %this, align 8
   %keys_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -7982,7 +7982,7 @@ ehcleanup:                                        ; preds = %_ZN7rocksdb6StatusD
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb17WriteCommittedTxnD2Ev(ptr noundef nonnull align 8 dereferenceable(624) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb17WriteCommittedTxnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb17WriteCommittedTxnE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cfs_with_ts_tracked_when_indexing_disabled_ = getelementptr inbounds i8, ptr %this, i64 568
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 584
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -8020,7 +8020,7 @@ _ZNSt13unordered_setIjSt4hashIjESt8equal_toIjESaIjEED2Ev.exit: ; preds = %_ZNSt1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb17WriteCommittedTxnD0Ev(ptr noundef nonnull align 8 dereferenceable(624) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb17WriteCommittedTxnE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [97 x ptr] }, ptr @_ZTVN7rocksdb17WriteCommittedTxnE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cfs_with_ts_tracked_when_indexing_disabled_.i = getelementptr inbounds i8, ptr %this, i64 568
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 584
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -9085,7 +9085,7 @@ declare void @_ZN7rocksdb10WriteBatchC2Emmmm(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEEN7HandlerD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEE7Handler, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVZN7rocksdb22PessimisticTransaction9LockBatchEPNS_10WriteBatchEPNS_11LockTrackerEE7Handler, i64 0, i32 0, i64 2), ptr %this, align 8
   %keys_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

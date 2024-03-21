@@ -3247,7 +3247,7 @@ entry:
   %coerce.dive9 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive8, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive9, align 8
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this6, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i32 0, inrange i32 0, i32 2), ptr %this6, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i32 0, i32 0, i32 2), ptr %this6, align 8
   %context_ = getelementptr inbounds %"class.node::contextify::ContextifyContext", ptr %this6, i32 0, i32 1
   store ptr %context_, ptr %this.addr.i16, align 8
   %this1.i17 = load ptr, ptr %this.addr.i16, align 8
@@ -3447,7 +3447,7 @@ entry:
   %agg.tmp = alloca %"class.v8::Local.316", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
   %call2 = call noundef ptr @_ZNK4node11Environment7isolateEv(ptr noundef nonnull align 8 dereferenceable(2872) %call)
   store ptr %call2, ptr %isolate, align 8
@@ -32751,7 +32751,7 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %script_ = getelementptr inbounds %"class.node::contextify::ContextifyScript", ptr %this3, i32 0, i32 1
   store ptr %script_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -32775,7 +32775,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %script_ = getelementptr inbounds %"class.node::contextify::ContextifyScript", ptr %this1, i32 0, i32 1
   store ptr %script_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8

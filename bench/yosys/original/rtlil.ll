@@ -33367,7 +33367,7 @@ define void @_ZN5Yosys5RTLIL6ModuleC2Ev(ptr noundef nonnull align 8 dereferencea
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZN5Yosys5RTLIL10AttrObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys5RTLIL6ModuleE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys5RTLIL6ModuleE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"struct.Yosys::RTLIL::Module", ptr %5, i32 0, i32 4
   invoke void @_ZN5Yosys7hashlib4poolIPNS_5RTLIL7MonitorENS0_8hash_opsIS4_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %7)
           to label %8 unwind label %34
@@ -33782,7 +33782,7 @@ define void @_ZN5Yosys5RTLIL6ModuleD2Ev(ptr noundef nonnull align 8 dereferencea
   %26 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %27 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys5RTLIL6ModuleE, i32 0, inrange i32 0, i32 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys5RTLIL6ModuleE, i32 0, i32 0, i32 2), ptr %27, align 8
   %28 = getelementptr inbounds %"struct.Yosys::RTLIL::Module", ptr %27, i32 0, i32 7
   store ptr %28, ptr %3, align 8
   %29 = load ptr, ptr %3, align 8

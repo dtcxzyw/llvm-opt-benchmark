@@ -256,7 +256,7 @@ entry:
   %2 = load i32, ptr %linkA.addr, align 4
   %3 = load i32, ptr %linkB.addr, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, i1 noundef zeroext false, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV25btMultiBodyGearConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV25btMultiBodyGearConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pivotInA = getelementptr inbounds %class.btMultiBodyGearConstraint, ptr %this1, i32 0, i32 3
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_pivotInA)
           to label %invoke.cont unwind label %lpad

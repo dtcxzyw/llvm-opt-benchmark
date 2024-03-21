@@ -6386,7 +6386,7 @@ declare void @_ZNK6casadi8Function8get_freeB5cxx11Ev(ptr dead_on_unwind writable
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %4 unwind label %5
@@ -6403,7 +6403,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #29
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29
@@ -7258,8 +7258,8 @@ define noundef i64 @_ZN6casadi9dyn_n_outEv() local_unnamed_addr #5 {
 define void @_ZN6casadi10IntegratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(1905) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, double noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi14OracleFunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1520) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   %6 = getelementptr inbounds i8, ptr %0, i64 1520
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, inrange i32 1, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, i32 1, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1528
   invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
           to label %8 unwind label %51
@@ -7410,9 +7410,9 @@ declare void @_ZN6casadi14OracleFunctionD2Ev(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6casadi10IntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1905) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1856
   %4 = getelementptr inbounds i8, ptr %0, i64 1872
   %5 = load ptr, ptr %4, align 8
@@ -30672,9 +30672,9 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6casadi19FixedStepIntegratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(1976) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, double noundef %3, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %4) unnamed_addr #3 align 2 {
   tail call void @_ZN6casadi10IntegratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(1905) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, inrange i32 1, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, i32 1, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1920
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 1912
@@ -30684,9 +30684,9 @@ define void @_ZN6casadi19FixedStepIntegratorC2ERKNSt7__cxx1112basic_stringIcSt11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6casadi19FixedStepIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, i32 1, i64 2), ptr %2, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %3 unwind label %7
 
@@ -34388,16 +34388,16 @@ define void @_ZN6casadi27ImplicitFixedStepIntegratorC2ERKNSt7__cxx1112basic_stri
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 1912
   store i64 20, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i64 0, inrange i32 1, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i64 0, i32 1, i64 2), ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6casadi27ImplicitFixedStepIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1976) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, i32 1, i64 2), ptr %2, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %3 unwind label %7
 
@@ -36964,8 +36964,8 @@ define void @_ZN6casadi10IntegratorC2ERNS_19DeserializingStreamE(ptr noundef non
   %68 = alloca %"class.std::allocator.0", align 1
   tail call void @_ZN6casadi14OracleFunctionC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1520) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
   %69 = getelementptr inbounds i8, ptr %0, i64 1520
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, inrange i32 1, i64 2), ptr %69, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i64 0, i32 1, i64 2), ptr %69, align 8
   %70 = getelementptr inbounds i8, ptr %0, i64 1528
   invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %70, i64 noundef 0)
           to label %71 unwind label %247
@@ -40433,9 +40433,9 @@ define void @_ZN6casadi19FixedStepIntegratorC2ERNS_19DeserializingStreamE(ptr no
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::allocator.0", align 1
   tail call void @_ZN6casadi10IntegratorC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1905) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, inrange i32 1, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i64 0, i32 1, i64 2), ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 1920
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, i8 0, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #29
@@ -41058,9 +41058,9 @@ define void @_ZN6casadi27ImplicitFixedStepIntegratorC2ERNS_19DeserializingStream
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.0", align 1
   tail call void @_ZN6casadi19FixedStepIntegratorC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1976) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i64 0, inrange i32 1, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i64 0, i32 1, i64 2), ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #29
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %.noexc unwind label %10
@@ -41703,7 +41703,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #29
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #29

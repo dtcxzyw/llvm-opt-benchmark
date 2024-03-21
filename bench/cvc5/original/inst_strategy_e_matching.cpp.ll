@@ -2649,7 +2649,7 @@ entry:
   %4 = load ptr, ptr %qr.addr, align 8
   %5 = load ptr, ptr %tr.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers12InstStrategyC2ERNS0_3EnvERNS2_4inst15TriggerDatabaseERNS2_16QuantifiersStateERNS2_27QuantifiersInferenceManagerERNS2_19QuantifiersRegistryERNS2_12TermRegistryE(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, ptr noundef nonnull align 8 dereferenceable(376) %3, ptr noundef nonnull align 8 dereferenceable(488) %4, ptr noundef nonnull align 1 %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTriggersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTriggersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_auto_gen_trigger = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 4
   %array.begin = getelementptr inbounds [2 x %"class.std::map"], ptr %d_auto_gen_trigger, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.std::map", ptr %array.begin, i64 2
@@ -13449,7 +13449,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTriggersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers27InstStrategyAutoGenTriggersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_hasUserPatterns = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 14
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEbSt4lessIS3_ESaISt4pairIKS3_bEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_hasUserPatterns) #3
   %d_pat_to_mpat = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::InstStrategyAutoGenTriggers", ptr %this1, i32 0, i32 13

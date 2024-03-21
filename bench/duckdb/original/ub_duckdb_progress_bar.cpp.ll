@@ -421,7 +421,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define void @_ZN6duckdb11ProgressBar25DefaultProgressBarDisplayEv(ptr noalias nocapture writeonly sret(%"class.duckdb::unique_ptr") align 8 %agg.result) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN6duckdb26TerminalProgressBarDisplayESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #21, !noalias !32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb26TerminalProgressBarDisplayE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !35, !noalias !32
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb26TerminalProgressBarDisplayE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !35, !noalias !32
   %PROGRESS_EMPTY.i.i = getelementptr inbounds %"class.duckdb::TerminalProgressBarDisplay", ptr %call.i, i64 0, i32 1
   store ptr @.str.2, ptr %PROGRESS_EMPTY.i.i, align 8, !tbaa !37, !noalias !32
   %PROGRESS_PARTIAL.i.i = getelementptr inbounds %"class.duckdb::TerminalProgressBarDisplay", ptr %call.i, i64 0, i32 2
@@ -1836,7 +1836,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !35
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !35
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !22
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2

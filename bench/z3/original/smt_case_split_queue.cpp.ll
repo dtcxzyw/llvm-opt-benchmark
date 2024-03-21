@@ -1474,7 +1474,7 @@ entry:
   %0 = load ptr, ptr %ctx.addr, align 8
   %1 = load ptr, ptr %p.addr, align 8
   call void @_ZN12_GLOBAL__N_120act_case_split_queueC2ERN3smt7contextER10smt_params(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_delayed_queue = getelementptr inbounds %"class.(anonymous namespace)::dact_case_split_queue", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %ctx.addr, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt7context19get_activity_vectorEv(ptr noundef nonnull align 8 dereferenceable(11616) %2)
@@ -1524,7 +1524,7 @@ entry:
   %0 = load ptr, ptr %ctx.addr, align 8
   %1 = load ptr, ptr %p.addr, align 8
   call void @_ZN12_GLOBAL__N_120act_case_split_queueC2ERN3smt7contextER10smt_params(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %0, ptr noundef nonnull align 8 dereferenceable(800) %1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cache = getelementptr inbounds %"class.(anonymous namespace)::cact_case_split_queue", ptr %this1, i32 0, i32 1
   invoke void @_ZN7obj_mapI4exprdEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_cache)
           to label %invoke.cont unwind label %lpad
@@ -1586,7 +1586,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120rel_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120rel_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_context, align 8
@@ -1678,7 +1678,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124rel_act_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124rel_act_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_context, align 8
@@ -1774,7 +1774,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125rel_goal_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125rel_goal_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_context, align 8
@@ -1916,7 +1916,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128theory_aware_branching_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128theory_aware_branching_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_context, align 8
@@ -2023,7 +2023,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt16case_split_queueC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120act_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120act_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.(anonymous namespace)::act_case_split_queue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_context, align 8
@@ -2548,7 +2548,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121dact_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_delayed_queue = getelementptr inbounds %"class.(anonymous namespace)::dact_case_split_queue", ptr %this1, i32 0, i32 1
   call void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_delayed_queue) #3
   call void @_ZN12_GLOBAL__N_120act_case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3
@@ -2586,7 +2586,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3smt16case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3smt16case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2825,7 +2825,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120act_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120act_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_queue = getelementptr inbounds %"class.(anonymous namespace)::act_case_split_queue", ptr %this1, i32 0, i32 3
   call void @_ZN4heapIN12_GLOBAL__N_115bool_var_act_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_queue) #3
   call void @_ZN3smt16case_split_queueD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3691,7 +3691,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -3704,7 +3704,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3953,7 +3953,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4915,7 +4915,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cact_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cache_domain = getelementptr inbounds %"class.(anonymous namespace)::cact_case_split_queue", ptr %this1, i32 0, i32 2
   call void @_ZN10ref_vectorI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_cache_domain) #3
   %m_cache = getelementptr inbounds %"class.(anonymous namespace)::cact_case_split_queue", ptr %this1, i32 0, i32 1
@@ -7285,7 +7285,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120rel_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120rel_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_scopes = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %this1, i32 0, i32 9
   call void @_ZN7svectorIN12_GLOBAL__N_120rel_case_split_queue5scopeEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_scopes) #3
   %m_queue2 = getelementptr inbounds %"class.(anonymous namespace)::rel_case_split_queue", ptr %this1, i32 0, i32 7
@@ -9199,7 +9199,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124rel_act_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124rel_act_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_scopes = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 8
   call void @_ZN7svectorIN12_GLOBAL__N_124rel_act_case_split_queue5scopeEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_scopes) #3
   %m_delayed_queue = getelementptr inbounds %"class.(anonymous namespace)::rel_act_case_split_queue", ptr %this1, i32 0, i32 7
@@ -10720,7 +10720,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125rel_goal_case_split_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125rel_goal_case_split_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_priority_queue2 = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %this1, i32 0, i32 10
   call void @_ZN4heapIN12_GLOBAL__N_125rel_goal_case_split_queue13generation_ltEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_priority_queue2) #3
   %m_scopes = getelementptr inbounds %"class.(anonymous namespace)::rel_goal_case_split_queue", ptr %this1, i32 0, i32 8
@@ -14666,7 +14666,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128theory_aware_branching_queueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128theory_aware_branching_queueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_theory_var_phase = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 6
   call void @_ZN3mapIj5lbool8int_hash10default_eqIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_theory_var_phase) #3
   %m_theory_vars = getelementptr inbounds %"class.(anonymous namespace)::theory_aware_branching_queue", ptr %this1, i32 0, i32 5

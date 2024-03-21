@@ -106,7 +106,7 @@ define dso_local void @_ZN13cmDependsJavaC2Ev(ptr noundef nonnull align 8 derefe
 9:                                                ; preds = %8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13cmDependsJava, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13cmDependsJava, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 10:                                               ; preds = %1

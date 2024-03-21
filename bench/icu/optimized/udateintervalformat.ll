@@ -506,7 +506,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 1178880342, ptr %0, align 8
   %fImpl = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7521FormattedDateIntervalE, i64 0, inrange i32 0, i64 2), ptr %fImpl, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7521FormattedDateIntervalE, i64 0, i32 0, i64 2), ptr %fImpl, align 8
   %fData.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %fData.i, align 8
   %fErrorCode.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -842,7 +842,7 @@ cond.true:                                        ; preds = %if.end
   br i1 %cmp1.not, label %if.end4.thread, label %if.then3
 
 if.end4.thread:                                   ; preds = %cond.true
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i23 = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i23, align 8
   br label %if.end8
@@ -856,7 +856,7 @@ if.then3:                                         ; preds = %cond.false, %cond.t
   br label %return
 
 if.then6:                                         ; preds = %cond.false
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %res, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %res, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call7 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString5setToEPDsii(ptr noundef nonnull align 8 dereferenceable(64) %res, ptr noundef nonnull %result, i32 noundef 0, i32 noundef %resultCapacity)
@@ -868,7 +868,7 @@ lpad:                                             ; preds = %if.then6
   br label %ehcleanup38
 
 if.end8:                                          ; preds = %if.end4.thread, %if.then6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, inrange i32 0, i64 2), ptr %fp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, i32 0, i64 2), ptr %fp, align 8
   %fField.i = getelementptr inbounds i8, ptr %fp, i64 8
   store i32 -1, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds i8, ptr %fp, i64 12

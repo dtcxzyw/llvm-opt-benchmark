@@ -188,7 +188,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net15QuicConfigValueC2EjNS_18QuicConfigPresenceE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i32 noundef %tag, i32 noundef %presence) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %tag_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %tag, ptr %tag_, align 8
   %presence_ = getelementptr inbounds i8, ptr %this, i64 12
@@ -219,7 +219,7 @@ entry:
   store i32 %tag, ptr %tag_.i, align 8
   %presence_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %presence, ptr %presence_.i, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %negotiated_ = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %negotiated_, align 8
   ret void
@@ -247,7 +247,7 @@ entry:
   store i32 %presence, ptr %presence_.i.i, align 4
   %negotiated_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %negotiated_.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, i32 0, i64 2), ptr %this, align 8
   %max_value_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %max_value_, align 4
   %default_value_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -469,7 +469,7 @@ entry:
   store i32 %presence, ptr %presence_.i.i, align 4
   %negotiated_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %negotiated_.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i64 0, i32 0, i64 2), ptr %this, align 8
   %negotiated_tag_ = getelementptr inbounds i8, ptr %this, i64 20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %negotiated_tag_, i8 0, i64 32, i1 false)
   ret void
@@ -478,7 +478,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net17QuicNegotiableTagD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i64 0, i32 0, i64 2), ptr %this, align 8
   %possible_values_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %possible_values_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -495,7 +495,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net17QuicNegotiableTagD0Ev(ptr noundef nonnull align 8 dereferenceable(52) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicNegotiableTagE, i64 0, i32 0, i64 2), ptr %this, align 8
   %possible_values_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %possible_values_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1005,7 +1005,7 @@ entry:
   store i32 %tag, ptr %tag_.i, align 8
   %presence_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %presence, ptr %presence_.i, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %this, align 8
   %has_send_value_ = getelementptr inbounds i8, ptr %this, i64 20
   store i8 0, ptr %has_send_value_, align 4
   %has_receive_value_ = getelementptr inbounds i8, ptr %this, i64 28
@@ -1291,7 +1291,7 @@ entry:
   store i32 %name, ptr %tag_.i, align 8
   %presence_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %presence, ptr %presence_.i, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %send_values_ = getelementptr inbounds i8, ptr %this, i64 16
   %receive_values_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %send_values_, i8 0, i64 25, i1 false)
@@ -1302,12 +1302,12 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18QuicFixedTagVectorC2ERKS0_(ptr nocapture noundef nonnull align 8 dereferenceable(73) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(73) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %tag_.i = getelementptr inbounds i8, ptr %this, i64 8
   %tag_2.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i64, ptr %tag_2.i, align 8
   store i64 %0, ptr %tag_.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %send_values_ = getelementptr inbounds i8, ptr %this, i64 16
   %send_values_2 = getelementptr inbounds i8, ptr %other, i64 16
   %_M_finish.i.i = getelementptr inbounds i8, ptr %other, i64 24
@@ -1437,7 +1437,7 @@ ehcleanup:                                        ; preds = %if.then.i.i.i, %lpa
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net18QuicFixedTagVectorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(73) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %receive_values_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %receive_values_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1464,7 +1464,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit3:                   ; preds = %_ZNSt6vectorIjSaIjE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net18QuicFixedTagVectorD0Ev(ptr noundef nonnull align 8 dereferenceable(73) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %receive_values_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %receive_values_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -1921,7 +1921,7 @@ entry:
   store i32 %tag, ptr %tag_.i, align 8
   %presence_.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 %presence, ptr %presence_.i, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, i32 0, i64 2), ptr %this, align 8
   %send_value_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN3net10IPEndPointC1Ev(ptr noundef nonnull align 8 dereferenceable(26) %send_value_)
   %has_send_value_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1950,7 +1950,7 @@ declare void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net19QuicFixedIPEndPointD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %this) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, i32 0, i64 2), ptr %this, align 8
   %receive_value_ = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %receive_value_) #17
   %send_value_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -1961,7 +1961,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net19QuicFixedIPEndPointD0Ev(ptr noundef nonnull align 8 dereferenceable(89) %this) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, i32 0, i64 2), ptr %this, align 8
   %receive_value_.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %receive_value_.i) #17
   %send_value_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2327,7 +2327,7 @@ entry:
   store i32 1414549315, ptr %tag_.i.i, align 8
   %presence_.i.i = getelementptr inbounds i8, ptr %this, i64 52
   store i32 0, ptr %presence_.i.i, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, inrange i32 0, i64 2), ptr %connection_options_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, i32 0, i64 2), ptr %connection_options_, align 8
   %send_values_.i = getelementptr inbounds i8, ptr %this, i64 56
   %receive_values_.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %send_values_.i, i8 0, i64 25, i1 false)
@@ -2339,7 +2339,7 @@ entry:
   store i32 1, ptr %presence_.i.i.i, align 4
   %negotiated_.i.i = getelementptr inbounds i8, ptr %this, i64 136
   store i8 0, ptr %negotiated_.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, inrange i32 0, i64 2), ptr %idle_connection_state_lifetime_seconds_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, i32 0, i64 2), ptr %idle_connection_state_lifetime_seconds_, align 8
   %max_value_.i = getelementptr inbounds i8, ptr %this, i64 140
   store i32 0, ptr %max_value_.i, align 4
   %default_value_.i = getelementptr inbounds i8, ptr %this, i64 144
@@ -2353,7 +2353,7 @@ entry:
   store i32 0, ptr %presence_.i.i.i3, align 4
   %negotiated_.i.i4 = getelementptr inbounds i8, ptr %this, i64 168
   store i8 0, ptr %negotiated_.i.i4, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, inrange i32 0, i64 2), ptr %silent_close_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, i32 0, i64 2), ptr %silent_close_, align 8
   %max_value_.i5 = getelementptr inbounds i8, ptr %this, i64 172
   store i32 0, ptr %max_value_.i5, align 4
   %default_value_.i6 = getelementptr inbounds i8, ptr %this, i64 176
@@ -2367,7 +2367,7 @@ entry:
   store i32 0, ptr %presence_.i.i.i9, align 4
   %negotiated_.i.i10 = getelementptr inbounds i8, ptr %this, i64 200
   store i8 0, ptr %negotiated_.i.i10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, inrange i32 0, i64 2), ptr %max_streams_per_connection_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, i32 0, i64 2), ptr %max_streams_per_connection_, align 8
   %max_value_.i11 = getelementptr inbounds i8, ptr %this, i64 204
   store i32 0, ptr %max_value_.i11, align 4
   %default_value_.i12 = getelementptr inbounds i8, ptr %this, i64 208
@@ -2379,7 +2379,7 @@ entry:
   store i32 1396984141, ptr %tag_.i.i14, align 8
   %presence_.i.i15 = getelementptr inbounds i8, ptr %this, i64 228
   store i32 0, ptr %presence_.i.i15, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %max_incoming_dynamic_streams_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %max_incoming_dynamic_streams_, align 8
   %has_send_value_.i = getelementptr inbounds i8, ptr %this, i64 236
   store i8 0, ptr %has_send_value_.i, align 4
   %has_receive_value_.i = getelementptr inbounds i8, ptr %this, i64 244
@@ -2389,7 +2389,7 @@ entry:
   store i32 1145652052, ptr %tag_.i.i16, align 8
   %presence_.i.i17 = getelementptr inbounds i8, ptr %this, i64 260
   store i32 0, ptr %presence_.i.i17, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %bytes_for_connection_id_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %bytes_for_connection_id_, align 8
   %has_send_value_.i18 = getelementptr inbounds i8, ptr %this, i64 268
   store i8 0, ptr %has_send_value_.i18, align 4
   %has_receive_value_.i19 = getelementptr inbounds i8, ptr %this, i64 276
@@ -2399,7 +2399,7 @@ entry:
   store i32 1414812233, ptr %tag_.i.i20, align 8
   %presence_.i.i21 = getelementptr inbounds i8, ptr %this, i64 292
   store i32 0, ptr %presence_.i.i21, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %initial_round_trip_time_us_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %initial_round_trip_time_us_, align 8
   %has_send_value_.i22 = getelementptr inbounds i8, ptr %this, i64 300
   store i8 0, ptr %has_send_value_.i22, align 4
   %has_receive_value_.i23 = getelementptr inbounds i8, ptr %this, i64 308
@@ -2409,7 +2409,7 @@ entry:
   store i32 1464026707, ptr %tag_.i.i24, align 8
   %presence_.i.i25 = getelementptr inbounds i8, ptr %this, i64 324
   store i32 0, ptr %presence_.i.i25, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %initial_stream_flow_control_window_bytes_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %initial_stream_flow_control_window_bytes_, align 8
   %has_send_value_.i26 = getelementptr inbounds i8, ptr %this, i64 332
   store i8 0, ptr %has_send_value_.i26, align 4
   %has_receive_value_.i27 = getelementptr inbounds i8, ptr %this, i64 340
@@ -2419,7 +2419,7 @@ entry:
   store i32 1464026691, ptr %tag_.i.i28, align 8
   %presence_.i.i29 = getelementptr inbounds i8, ptr %this, i64 356
   store i32 0, ptr %presence_.i.i29, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %initial_session_flow_control_window_bytes_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %initial_session_flow_control_window_bytes_, align 8
   %has_send_value_.i30 = getelementptr inbounds i8, ptr %this, i64 364
   store i8 0, ptr %has_send_value_.i30, align 4
   %has_receive_value_.i31 = getelementptr inbounds i8, ptr %this, i64 372
@@ -2429,7 +2429,7 @@ entry:
   store i32 1178751571, ptr %tag_.i.i32, align 8
   %presence_.i.i33 = getelementptr inbounds i8, ptr %this, i64 388
   store i32 0, ptr %presence_.i.i33, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %socket_receive_buffer_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %socket_receive_buffer_, align 8
   %has_send_value_.i34 = getelementptr inbounds i8, ptr %this, i64 396
   store i8 0, ptr %has_send_value_.i34, align 4
   %has_receive_value_.i35 = getelementptr inbounds i8, ptr %this, i64 404
@@ -2441,7 +2441,7 @@ entry:
   store i32 0, ptr %presence_.i.i.i37, align 4
   %negotiated_.i.i38 = getelementptr inbounds i8, ptr %this, i64 424
   store i8 0, ptr %negotiated_.i.i38, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, inrange i32 0, i64 2), ptr %multipath_enabled_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, i32 0, i64 2), ptr %multipath_enabled_, align 8
   %max_value_.i39 = getelementptr inbounds i8, ptr %this, i64 428
   store i32 0, ptr %max_value_.i39, align 4
   %default_value_.i40 = getelementptr inbounds i8, ptr %this, i64 432
@@ -2453,7 +2453,7 @@ entry:
   store i32 1380795214, ptr %tag_.i.i42, align 8
   %presence_.i.i43 = getelementptr inbounds i8, ptr %this, i64 452
   store i32 0, ptr %presence_.i.i43, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %connection_migration_disabled_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %connection_migration_disabled_, align 8
   %has_send_value_.i44 = getelementptr inbounds i8, ptr %this, i64 460
   store i8 0, ptr %has_send_value_.i44, align 4
   %has_receive_value_.i45 = getelementptr inbounds i8, ptr %this, i64 468
@@ -2463,7 +2463,7 @@ entry:
   store i32 1145131841, ptr %tag_.i.i46, align 8
   %presence_.i.i47 = getelementptr inbounds i8, ptr %this, i64 484
   store i32 0, ptr %presence_.i.i47, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, inrange i32 0, i64 2), ptr %alternate_server_address_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, i32 0, i64 2), ptr %alternate_server_address_, align 8
   %send_value_.i = getelementptr inbounds i8, ptr %this, i64 488
   invoke void @_ZN3net10IPEndPointC1Ev(ptr noundef nonnull align 8 dereferenceable(26) %send_value_.i)
           to label %.noexc unwind label %lpad23
@@ -2493,7 +2493,7 @@ invoke.cont28:                                    ; preds = %.noexc
   store i32 1280264262, ptr %tag_.i.i50, align 8
   %presence_.i.i51 = getelementptr inbounds i8, ptr %this, i64 580
   store i32 0, ptr %presence_.i.i51, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %force_hol_blocking_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %force_hol_blocking_, align 8
   %has_send_value_.i52 = getelementptr inbounds i8, ptr %this, i64 588
   store i8 0, ptr %has_send_value_.i52, align 4
   %has_receive_value_.i53 = getelementptr inbounds i8, ptr %this, i64 596
@@ -2578,146 +2578,146 @@ entry:
   %connection_options_3 = getelementptr inbounds i8, ptr %other, i64 40
   tail call void @_ZN3net18QuicFixedTagVectorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(73) %connection_options_, ptr noundef nonnull align 8 dereferenceable(73) %connection_options_3)
   %idle_connection_state_lifetime_seconds_ = getelementptr inbounds i8, ptr %this, i64 120
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %idle_connection_state_lifetime_seconds_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %idle_connection_state_lifetime_seconds_, align 8
   %tag_.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %tag_2.i.i.i = getelementptr inbounds i8, ptr %other, i64 128
   %0 = load i64, ptr %tag_2.i.i.i, align 8
   store i64 %0, ptr %tag_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, inrange i32 0, i64 2), ptr %idle_connection_state_lifetime_seconds_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, i32 0, i64 2), ptr %idle_connection_state_lifetime_seconds_, align 8
   %negotiated_.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %negotiated_2.i.i = getelementptr inbounds i8, ptr %other, i64 136
   %1 = load i8, ptr %negotiated_2.i.i, align 8
   %2 = and i8 %1, 1
   store i8 %2, ptr %negotiated_.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, inrange i32 0, i64 2), ptr %idle_connection_state_lifetime_seconds_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, i32 0, i64 2), ptr %idle_connection_state_lifetime_seconds_, align 8
   %max_value_.i = getelementptr inbounds i8, ptr %this, i64 140
   %max_value_2.i = getelementptr inbounds i8, ptr %other, i64 140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %max_value_.i, ptr noundef nonnull align 4 dereferenceable(12) %max_value_2.i, i64 12, i1 false)
   %silent_close_ = getelementptr inbounds i8, ptr %this, i64 152
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %silent_close_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %silent_close_, align 8
   %tag_.i.i.i15 = getelementptr inbounds i8, ptr %this, i64 160
   %tag_2.i.i.i16 = getelementptr inbounds i8, ptr %other, i64 160
   %3 = load i64, ptr %tag_2.i.i.i16, align 8
   store i64 %3, ptr %tag_.i.i.i15, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, inrange i32 0, i64 2), ptr %silent_close_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, i32 0, i64 2), ptr %silent_close_, align 8
   %negotiated_.i.i17 = getelementptr inbounds i8, ptr %this, i64 168
   %negotiated_2.i.i18 = getelementptr inbounds i8, ptr %other, i64 168
   %4 = load i8, ptr %negotiated_2.i.i18, align 8
   %5 = and i8 %4, 1
   store i8 %5, ptr %negotiated_.i.i17, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, inrange i32 0, i64 2), ptr %silent_close_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, i32 0, i64 2), ptr %silent_close_, align 8
   %max_value_.i19 = getelementptr inbounds i8, ptr %this, i64 172
   %max_value_2.i20 = getelementptr inbounds i8, ptr %other, i64 172
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %max_value_.i19, ptr noundef nonnull align 4 dereferenceable(12) %max_value_2.i20, i64 12, i1 false)
   %max_streams_per_connection_ = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %max_streams_per_connection_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %max_streams_per_connection_, align 8
   %tag_.i.i.i21 = getelementptr inbounds i8, ptr %this, i64 192
   %tag_2.i.i.i22 = getelementptr inbounds i8, ptr %other, i64 192
   %6 = load i64, ptr %tag_2.i.i.i22, align 8
   store i64 %6, ptr %tag_.i.i.i21, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, inrange i32 0, i64 2), ptr %max_streams_per_connection_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, i32 0, i64 2), ptr %max_streams_per_connection_, align 8
   %negotiated_.i.i23 = getelementptr inbounds i8, ptr %this, i64 200
   %negotiated_2.i.i24 = getelementptr inbounds i8, ptr %other, i64 200
   %7 = load i8, ptr %negotiated_2.i.i24, align 8
   %8 = and i8 %7, 1
   store i8 %8, ptr %negotiated_.i.i23, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, inrange i32 0, i64 2), ptr %max_streams_per_connection_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, i32 0, i64 2), ptr %max_streams_per_connection_, align 8
   %max_value_.i25 = getelementptr inbounds i8, ptr %this, i64 204
   %max_value_2.i26 = getelementptr inbounds i8, ptr %other, i64 204
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %max_value_.i25, ptr noundef nonnull align 4 dereferenceable(12) %max_value_2.i26, i64 12, i1 false)
   %max_incoming_dynamic_streams_ = getelementptr inbounds i8, ptr %this, i64 216
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %max_incoming_dynamic_streams_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %max_incoming_dynamic_streams_, align 8
   %tag_.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %tag_2.i.i = getelementptr inbounds i8, ptr %other, i64 224
   %9 = load i64, ptr %tag_2.i.i, align 8
   store i64 %9, ptr %tag_.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %max_incoming_dynamic_streams_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %max_incoming_dynamic_streams_, align 8
   %send_value_.i = getelementptr inbounds i8, ptr %this, i64 232
   %send_value_2.i = getelementptr inbounds i8, ptr %other, i64 232
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %send_value_.i, ptr noundef nonnull align 8 dereferenceable(13) %send_value_2.i, i64 13, i1 false)
   %bytes_for_connection_id_ = getelementptr inbounds i8, ptr %this, i64 248
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %bytes_for_connection_id_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %bytes_for_connection_id_, align 8
   %tag_.i.i27 = getelementptr inbounds i8, ptr %this, i64 256
   %tag_2.i.i28 = getelementptr inbounds i8, ptr %other, i64 256
   %10 = load i64, ptr %tag_2.i.i28, align 8
   store i64 %10, ptr %tag_.i.i27, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %bytes_for_connection_id_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %bytes_for_connection_id_, align 8
   %send_value_.i29 = getelementptr inbounds i8, ptr %this, i64 264
   %send_value_2.i30 = getelementptr inbounds i8, ptr %other, i64 264
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %send_value_.i29, ptr noundef nonnull align 8 dereferenceable(13) %send_value_2.i30, i64 13, i1 false)
   %initial_round_trip_time_us_ = getelementptr inbounds i8, ptr %this, i64 280
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %initial_round_trip_time_us_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %initial_round_trip_time_us_, align 8
   %tag_.i.i31 = getelementptr inbounds i8, ptr %this, i64 288
   %tag_2.i.i32 = getelementptr inbounds i8, ptr %other, i64 288
   %11 = load i64, ptr %tag_2.i.i32, align 8
   store i64 %11, ptr %tag_.i.i31, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %initial_round_trip_time_us_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %initial_round_trip_time_us_, align 8
   %send_value_.i33 = getelementptr inbounds i8, ptr %this, i64 296
   %send_value_2.i34 = getelementptr inbounds i8, ptr %other, i64 296
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %send_value_.i33, ptr noundef nonnull align 8 dereferenceable(13) %send_value_2.i34, i64 13, i1 false)
   %initial_stream_flow_control_window_bytes_ = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %initial_stream_flow_control_window_bytes_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %initial_stream_flow_control_window_bytes_, align 8
   %tag_.i.i35 = getelementptr inbounds i8, ptr %this, i64 320
   %tag_2.i.i36 = getelementptr inbounds i8, ptr %other, i64 320
   %12 = load i64, ptr %tag_2.i.i36, align 8
   store i64 %12, ptr %tag_.i.i35, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %initial_stream_flow_control_window_bytes_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %initial_stream_flow_control_window_bytes_, align 8
   %send_value_.i37 = getelementptr inbounds i8, ptr %this, i64 328
   %send_value_2.i38 = getelementptr inbounds i8, ptr %other, i64 328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %send_value_.i37, ptr noundef nonnull align 8 dereferenceable(13) %send_value_2.i38, i64 13, i1 false)
   %initial_session_flow_control_window_bytes_ = getelementptr inbounds i8, ptr %this, i64 344
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %initial_session_flow_control_window_bytes_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %initial_session_flow_control_window_bytes_, align 8
   %tag_.i.i39 = getelementptr inbounds i8, ptr %this, i64 352
   %tag_2.i.i40 = getelementptr inbounds i8, ptr %other, i64 352
   %13 = load i64, ptr %tag_2.i.i40, align 8
   store i64 %13, ptr %tag_.i.i39, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %initial_session_flow_control_window_bytes_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %initial_session_flow_control_window_bytes_, align 8
   %send_value_.i41 = getelementptr inbounds i8, ptr %this, i64 360
   %send_value_2.i42 = getelementptr inbounds i8, ptr %other, i64 360
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %send_value_.i41, ptr noundef nonnull align 8 dereferenceable(13) %send_value_2.i42, i64 13, i1 false)
   %socket_receive_buffer_ = getelementptr inbounds i8, ptr %this, i64 376
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %socket_receive_buffer_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %socket_receive_buffer_, align 8
   %tag_.i.i43 = getelementptr inbounds i8, ptr %this, i64 384
   %tag_2.i.i44 = getelementptr inbounds i8, ptr %other, i64 384
   %14 = load i64, ptr %tag_2.i.i44, align 8
   store i64 %14, ptr %tag_.i.i43, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %socket_receive_buffer_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %socket_receive_buffer_, align 8
   %send_value_.i45 = getelementptr inbounds i8, ptr %this, i64 392
   %send_value_2.i46 = getelementptr inbounds i8, ptr %other, i64 392
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %send_value_.i45, ptr noundef nonnull align 8 dereferenceable(13) %send_value_2.i46, i64 13, i1 false)
   %multipath_enabled_ = getelementptr inbounds i8, ptr %this, i64 408
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %multipath_enabled_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %multipath_enabled_, align 8
   %tag_.i.i.i47 = getelementptr inbounds i8, ptr %this, i64 416
   %tag_2.i.i.i48 = getelementptr inbounds i8, ptr %other, i64 416
   %15 = load i64, ptr %tag_2.i.i.i48, align 8
   store i64 %15, ptr %tag_.i.i.i47, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, inrange i32 0, i64 2), ptr %multipath_enabled_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicNegotiableValueE, i64 0, i32 0, i64 2), ptr %multipath_enabled_, align 8
   %negotiated_.i.i49 = getelementptr inbounds i8, ptr %this, i64 424
   %negotiated_2.i.i50 = getelementptr inbounds i8, ptr %other, i64 424
   %16 = load i8, ptr %negotiated_2.i.i50, align 8
   %17 = and i8 %16, 1
   store i8 %17, ptr %negotiated_.i.i49, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, inrange i32 0, i64 2), ptr %multipath_enabled_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20QuicNegotiableUint32E, i64 0, i32 0, i64 2), ptr %multipath_enabled_, align 8
   %max_value_.i51 = getelementptr inbounds i8, ptr %this, i64 428
   %max_value_2.i52 = getelementptr inbounds i8, ptr %other, i64 428
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %max_value_.i51, ptr noundef nonnull align 4 dereferenceable(12) %max_value_2.i52, i64 12, i1 false)
   %connection_migration_disabled_ = getelementptr inbounds i8, ptr %this, i64 440
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %connection_migration_disabled_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %connection_migration_disabled_, align 8
   %tag_.i.i53 = getelementptr inbounds i8, ptr %this, i64 448
   %tag_2.i.i54 = getelementptr inbounds i8, ptr %other, i64 448
   %18 = load i64, ptr %tag_2.i.i54, align 8
   store i64 %18, ptr %tag_.i.i53, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %connection_migration_disabled_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %connection_migration_disabled_, align 8
   %send_value_.i55 = getelementptr inbounds i8, ptr %this, i64 456
   %send_value_2.i56 = getelementptr inbounds i8, ptr %other, i64 456
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %send_value_.i55, ptr noundef nonnull align 8 dereferenceable(13) %send_value_2.i56, i64 13, i1 false)
   %alternate_server_address_ = getelementptr inbounds i8, ptr %this, i64 472
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %alternate_server_address_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %alternate_server_address_, align 8
   %tag_.i.i57 = getelementptr inbounds i8, ptr %this, i64 480
   %tag_2.i.i58 = getelementptr inbounds i8, ptr %other, i64 480
   %19 = load i64, ptr %tag_2.i.i58, align 8
   store i64 %19, ptr %tag_.i.i57, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, inrange i32 0, i64 2), ptr %alternate_server_address_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, i32 0, i64 2), ptr %alternate_server_address_, align 8
   %send_value_.i59 = getelementptr inbounds i8, ptr %this, i64 488
   %send_value_2.i60 = getelementptr inbounds i8, ptr %other, i64 488
   invoke void @_ZN3net10IPEndPointC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(26) %send_value_.i59, ptr noundef nonnull align 8 dereferenceable(26) %send_value_2.i60)
@@ -2747,12 +2747,12 @@ invoke.cont:                                      ; preds = %.noexc
   %24 = and i8 %23, 1
   store i8 %24, ptr %has_receive_value_.i, align 8
   %force_hol_blocking_ = getelementptr inbounds i8, ptr %this, i64 568
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, inrange i32 0, i64 2), ptr %force_hol_blocking_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicConfigValueE, i64 0, i32 0, i64 2), ptr %force_hol_blocking_, align 8
   %tag_.i.i61 = getelementptr inbounds i8, ptr %this, i64 576
   %tag_2.i.i62 = getelementptr inbounds i8, ptr %other, i64 576
   %25 = load i64, ptr %tag_2.i.i62, align 8
   store i64 %25, ptr %tag_.i.i61, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, inrange i32 0, i64 2), ptr %force_hol_blocking_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net15QuicFixedUint32E, i64 0, i32 0, i64 2), ptr %force_hol_blocking_, align 8
   %send_value_.i63 = getelementptr inbounds i8, ptr %this, i64 584
   %send_value_2.i64 = getelementptr inbounds i8, ptr %other, i64 584
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %send_value_.i63, ptr noundef nonnull align 8 dereferenceable(13) %send_value_2.i64, i64 13, i1 false)
@@ -2776,13 +2776,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN3net10QuicConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(600) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %alternate_server_address_ = getelementptr inbounds i8, ptr %this, i64 472
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, inrange i32 0, i64 2), ptr %alternate_server_address_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net19QuicFixedIPEndPointE, i64 0, i32 0, i64 2), ptr %alternate_server_address_, align 8
   %receive_value_.i = getelementptr inbounds i8, ptr %this, i64 528
   tail call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %receive_value_.i) #17
   %send_value_.i = getelementptr inbounds i8, ptr %this, i64 488
   tail call void @_ZN3net10IPEndPointD1Ev(ptr noundef nonnull align 8 dereferenceable(26) %send_value_.i) #17
   %connection_options_ = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, inrange i32 0, i64 2), ptr %connection_options_, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net18QuicFixedTagVectorE, i64 0, i32 0, i64 2), ptr %connection_options_, align 8
   %receive_values_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %receive_values_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

@@ -103,7 +103,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %id, ptr %id.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base16HistogramSamplesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base16HistogramSamplesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %local_meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this1, i32 0, i32 1
   call void @_ZN4base16HistogramSamples8MetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %local_meta_)
   %meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this1, i32 0, i32 2
@@ -142,7 +142,7 @@ entry:
   store i64 %id, ptr %id.addr, align 8
   store ptr %meta, ptr %meta.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base16HistogramSamplesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base16HistogramSamplesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %local_meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this1, i32 0, i32 1
   call void @_ZN4base16HistogramSamples8MetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %local_meta_)
   %meta_ = getelementptr inbounds %"class.base::HistogramSamples", ptr %this1, i32 0, i32 2
@@ -488,7 +488,7 @@ entry:
   store ptr %iter, ptr %iter.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base19SampleCountIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base12_GLOBAL__N_125SampleCountPickleIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base12_GLOBAL__N_125SampleCountPickleIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %iter_ = getelementptr inbounds %"class.base::(anonymous namespace)::SampleCountPickleIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %iter.addr, align 8
   store ptr %0, ptr %iter_, align 8
@@ -1010,7 +1010,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

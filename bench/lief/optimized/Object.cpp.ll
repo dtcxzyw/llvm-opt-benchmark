@@ -14,13 +14,13 @@ $_ZNK4LIEF6ObjectneERKS0_ = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF6ObjectC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF6ObjectE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF6ObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN4LIEF6ObjectC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0, ptr nocapture noundef nonnull readnone align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF6ObjectE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4LIEF6ObjectE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 

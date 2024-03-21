@@ -139,7 +139,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 define dso_local void @_ZN4base5Value15CreateNullValueEv(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %type_.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %type_.i, align 8
   store ptr %call, ptr %agg.result, align 8, !alias.scope !5
@@ -230,7 +230,7 @@ entry:
 define dso_local noalias noundef nonnull ptr @_ZNK4base5Value8DeepCopyEv(ptr nocapture nonnull readnone align 8 %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit:
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !8
   %type_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %type_.i.i, align 8, !noalias !8
   ret ptr %call.i
@@ -283,7 +283,7 @@ return:                                           ; preds = %if.end, %entry, %if
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4base5ValueC2ENS0_4TypeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %type) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %type, ptr %type_, align 8
   ret void
@@ -292,7 +292,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN4base5ValueC2ERKS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(12) %that) unnamed_addr #7 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 8
   %type_2 = getelementptr inbounds i8, ptr %that, i64 8
   %0 = load i32, ptr %type_2, align 8
@@ -316,7 +316,7 @@ entry:
   %frombool = zext i1 %in_value to i8
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 1, ptr %type_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool, ptr %0, align 8
   ret void
@@ -327,7 +327,7 @@ define dso_local void @_ZN4base16FundamentalValueC2Ei(ptr nocapture noundef nonn
 entry:
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %type_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %in_value, ptr %0, align 8
   ret void
@@ -338,7 +338,7 @@ define dso_local void @_ZN4base16FundamentalValueC2Ed(ptr nocapture noundef nonn
 entry:
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 3, ptr %type_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = tail call double @llvm.fabs.f64(double %in_value)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
   %storemerge = select i1 %1, double 0.000000e+00, double %in_value
@@ -350,7 +350,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4base16FundamentalValueD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -464,7 +464,7 @@ sw.bb:                                            ; preds = %entry
   %3 = and i8 %2, 1
   %type_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store i32 1, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call2, align 8
   %4 = getelementptr inbounds i8, ptr %call2, i64 16
   store i8 %3, ptr %4, align 8
   br label %return
@@ -475,7 +475,7 @@ sw.bb3:                                           ; preds = %entry
   %6 = load i32, ptr %5, align 8
   %type_.i.i1 = getelementptr inbounds i8, ptr %call4, i64 8
   store i32 2, ptr %type_.i.i1, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call4, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call4, align 8
   %7 = getelementptr inbounds i8, ptr %call4, i64 16
   store i32 %6, ptr %7, align 8
   br label %return
@@ -486,7 +486,7 @@ sw.bb7:                                           ; preds = %entry
   %9 = load double, ptr %8, align 8
   %type_.i.i2 = getelementptr inbounds i8, ptr %call8, i64 8
   store i32 3, ptr %type_.i.i2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call8, align 8
   %10 = tail call double @llvm.fabs.f64(double %9)
   %11 = fcmp ueq double %10, 0x7FF0000000000000
   %storemerge.i = select i1 %11, double 0.000000e+00, double %9
@@ -598,7 +598,7 @@ entry:
   store i64 %in_value.coerce1, ptr %0, align 8
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 4, ptr %type_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %value_ = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %value_, ptr noundef nonnull align 8 dereferenceable(16) %in_value)
   ret void
@@ -612,7 +612,7 @@ entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece.3", align 8
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 4, ptr %type_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   call void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %in_value)
   %value_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %agg.tmp, align 8
@@ -629,7 +629,7 @@ declare void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string1
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base11StringValueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %value_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_) #26
   ret void
@@ -641,7 +641,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base11StringValueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #1 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %value_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_.i) #26
   tail call void @_ZdlPv(ptr noundef nonnull %this) #24
@@ -746,7 +746,7 @@ invoke.cont:                                      ; preds = %entry
   store i64 %2, ptr %3, align 8
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 4, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %value_.i = getelementptr inbounds i8, ptr %call, i64 16
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %value_.i, ptr noundef nonnull align 8 dereferenceable(16) %in_value.i)
           to label %invoke.cont2 unwind label %lpad
@@ -840,7 +840,7 @@ define dso_local void @_ZN4base11BinaryValueC2Ev(ptr nocapture noundef nonnull w
 entry:
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 5, ptr %type_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %buffer_, i8 0, i64 16, i1 false)
   ret void
@@ -851,7 +851,7 @@ define dso_local void @_ZN4base11BinaryValueC2ESt10unique_ptrIA_cSt14default_del
 entry:
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 5, ptr %type_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %buffer, align 8
   store i64 %0, ptr %buffer_, align 8
@@ -864,7 +864,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base11BinaryValueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %buffer_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -882,7 +882,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry, %_ZNKS
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base11BinaryValueD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %buffer_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -910,7 +910,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit: ; preds = %entry
   %0 = ptrtoint ptr %call to i64
   %type_.i.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   store i32 5, ptr %type_.i.i.i, align 8, !noalias !14
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, inrange i32 0, i64 2), ptr %call.i1, align 8, !noalias !14
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, i32 0, i64 2), ptr %call.i1, align 8, !noalias !14
   %buffer_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
   store i64 %0, ptr %buffer_.i.i, align 8, !noalias !14
   %size_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 24
@@ -967,7 +967,7 @@ _ZNSt10unique_ptrIN4base11BinaryValueESt14default_deleteIS1_EED2Ev.exit: ; preds
   %3 = ptrtoint ptr %call.i to i64
   %type_.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
   store i32 5, ptr %type_.i.i.i.i, align 8, !noalias !20
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !20
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i64 0, i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !20
   %buffer_.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
   store i64 %3, ptr %buffer_.i.i.i, align 8, !noalias !20
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 24
@@ -1038,7 +1038,7 @@ define dso_local void @_ZN4base15DictionaryValueC2Ev(ptr noundef nonnull align 8
 entry:
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 6, ptr %type_.i, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -1055,7 +1055,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %dictionary_.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -1134,7 +1134,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base15DictionaryValueD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %dictionary_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
@@ -1314,7 +1314,7 @@ if.then:                                          ; preds = %lor.lhs.false.i.i, 
 invoke.cont6:                                     ; preds = %if.then
   %type_.i.i = getelementptr inbounds i8, ptr %call7, i64 8
   store i32 6, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, inrange i32 0, i64 2), ptr %call7, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, i32 0, i64 2), ptr %call7, align 8
   %8 = getelementptr inbounds i8, ptr %call7, i64 24
   store i32 0, ptr %8, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call7, i64 32
@@ -1675,7 +1675,7 @@ entry:
   %frombool.i = zext i1 %in_value to i8
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   store i8 %frombool.i, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i)
@@ -1724,7 +1724,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 2, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %in_value, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp2.i)
@@ -1773,7 +1773,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 3, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = tail call double @llvm.fabs.f64(double %in_value)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
   %storemerge.i = select i1 %1, double 0.000000e+00, double %in_value
@@ -1847,7 +1847,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store i64 %3, ptr %4, align 8
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 4, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %value_.i = getelementptr inbounds i8, ptr %call, i64 16
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %value_.i, ptr noundef nonnull align 8 dereferenceable(16) %in_value.i)
           to label %invoke.cont5 unwind label %ehcleanup
@@ -1924,7 +1924,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 4, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %in_value)
           to label %.noexc unwind label %lpad
 
@@ -2059,7 +2059,7 @@ entry:
   %frombool.i = zext i1 %in_value to i8
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   store i8 %frombool.i, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
@@ -2101,7 +2101,7 @@ lpad.i:                                           ; preds = %entry
   br label %lpad.body.i
 
 lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
-  %vtable.i.i3.i = phi ptr [ getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), %lpad.i ], [ %vtable.i.i3.i.pre, %lpad.i.i ]
+  %vtable.i.i3.i = phi ptr [ getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), %lpad.i ], [ %vtable.i.i3.i.pre, %lpad.i.i ]
   %eh.lpad-body.i = phi { ptr, i32 } [ %5, %lpad.i ], [ %4, %lpad.i.i ]
   %vfn.i.i4.i = getelementptr inbounds i8, ptr %vtable.i.i3.i, i64 8
   %6 = load ptr, ptr %vfn.i.i4.i, align 8
@@ -2123,7 +2123,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 2, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %in_value, ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %key.i.i)
@@ -2165,7 +2165,7 @@ lpad.i:                                           ; preds = %entry
   br label %lpad.body.i
 
 lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
-  %vtable.i.i3.i = phi ptr [ getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), %lpad.i ], [ %vtable.i.i3.i.pre, %lpad.i.i ]
+  %vtable.i.i3.i = phi ptr [ getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), %lpad.i ], [ %vtable.i.i3.i.pre, %lpad.i.i ]
   %eh.lpad-body.i = phi { ptr, i32 } [ %5, %lpad.i ], [ %4, %lpad.i.i ]
   %vfn.i.i4.i = getelementptr inbounds i8, ptr %vtable.i.i3.i, i64 8
   %6 = load ptr, ptr %vfn.i.i4.i, align 8
@@ -2187,7 +2187,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 3, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = tail call double @llvm.fabs.f64(double %in_value)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
   %storemerge.i = select i1 %1, double 0.000000e+00, double %in_value
@@ -2232,7 +2232,7 @@ lpad.i:                                           ; preds = %invoke.cont
   br label %lpad.body.i
 
 lpad.body.i:                                      ; preds = %lpad.i, %lpad.i.i
-  %vtable.i.i3.i = phi ptr [ getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), %lpad.i ], [ %vtable.i.i3.i.pre, %lpad.i.i ]
+  %vtable.i.i3.i = phi ptr [ getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), %lpad.i ], [ %vtable.i.i3.i.pre, %lpad.i.i ]
   %eh.lpad-body.i = phi { ptr, i32 } [ %7, %lpad.i ], [ %6, %lpad.i.i ]
   %vfn.i.i4.i = getelementptr inbounds i8, ptr %vtable.i.i3.i, i64 8
   %8 = load ptr, ptr %vfn.i.i4.i, align 8
@@ -2276,7 +2276,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   store i64 %3, ptr %4, align 8
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 4, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %value_.i = getelementptr inbounds i8, ptr %call, i64 16
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %value_.i, ptr noundef nonnull align 8 dereferenceable(16) %in_value.i)
           to label %invoke.cont5 unwind label %ehcleanup.thread6
@@ -2367,7 +2367,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 4, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %in_value)
           to label %.noexc unwind label %lpad
 
@@ -3450,7 +3450,7 @@ if.then:                                          ; preds = %entry
 _ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %if.then
   %type_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   store i32 6, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, i32 0, i64 2), ptr %call2, align 8
   %1 = getelementptr inbounds i8, ptr %call2, i64 24
   store i32 0, ptr %1, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2, i64 32
@@ -3525,7 +3525,7 @@ if.then8:                                         ; preds = %if.then
 _ZNSt10unique_ptrIN4base15DictionaryValueESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %if.then8
   %type_.i.i = getelementptr inbounds i8, ptr %call11, i64 8
   store i32 6, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, i32 0, i64 2), ptr %call11, align 8
   %7 = getelementptr inbounds i8, ptr %call11, i64 24
   store i32 0, ptr %7, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call11, i64 32
@@ -3924,7 +3924,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 6, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 24
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 32
@@ -4140,7 +4140,7 @@ define dso_local void @_ZN4base9ListValueC2Ev(ptr nocapture noundef nonnull writ
 entry:
   %type_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 7, ptr %type_.i, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %list_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list_, i8 0, i64 24, i1 false)
   ret void
@@ -4149,7 +4149,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base9ListValueD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %list_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %list_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4258,7 +4258,7 @@ _ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EE5clearE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base9ListValueD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %list_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %list_.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -4404,7 +4404,7 @@ while.body:                                       ; preds = %while.body.lr.ph, %
   %4 = phi ptr [ %3, %while.body.lr.ph ], [ %12, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
   %5 = phi ptr [ %2, %while.body.lr.ph ], [ %13, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit ]
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25, !noalias !62
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !62
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !62
   %type_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 0, ptr %type_.i.i, align 8, !noalias !62
   %6 = load ptr, ptr %_M_end_of_storage.i.i.i, align 8
@@ -4624,7 +4624,7 @@ return:                                           ; preds = %_ZNKSt14default_del
   ret i1 %cmp.i
 
 eh.resume.sink.split:                             ; preds = %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit.split-lp, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29
-  %vtable.i.i30.sink = phi ptr [ %vtable.i.i30, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29 ], [ getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, inrange i32 0, i64 2), %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit ], [ %vtable.i.i11.pre, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit.split-lp ]
+  %vtable.i.i30.sink = phi ptr [ %vtable.i.i30, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29 ], [ getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i64 0, i32 0, i64 2), %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit ], [ %vtable.i.i11.pre, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit.split-lp ]
   %.sink = phi ptr [ %15, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29 ], [ %call.i, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit ], [ %call.i, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit.split-lp ]
   %.pn.ph = phi { ptr, i32 } [ %22, %_ZNKSt14default_deleteIN4base5ValueEEclEPS1_.exit.i29 ], [ %lpad.loopexit, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit ], [ %lpad.loopexit.split-lp, %_ZNSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EED2Ev.exit13.loopexit.split-lp ]
   %vfn.i.i31 = getelementptr inbounds i8, ptr %vtable.i.i30.sink, i64 8
@@ -5477,7 +5477,7 @@ entry:
   %frombool.i = zext i1 %in_value to i8
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   store i8 %frombool.i, ptr %0, align 8
   tail call void @_ZN4base9ListValue6AppendEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %call)
@@ -5490,7 +5490,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 2, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %in_value, ptr %0, align 8
   tail call void @_ZN4base9ListValue6AppendEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull %call)
@@ -5503,7 +5503,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #25
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 3, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %0 = tail call double @llvm.fabs.f64(double %in_value)
   %1 = fcmp ueq double %0, 0x7FF0000000000000
   %storemerge.i = select i1 %1, double 0.000000e+00, double %in_value
@@ -5541,7 +5541,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   store i64 %3, ptr %4, align 8
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 4, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %value_.i = getelementptr inbounds i8, ptr %call, i64 16
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %value_.i, ptr noundef nonnull align 8 dereferenceable(16) %in_value.i)
           to label %invoke.cont4 unwind label %ehcleanup.thread6
@@ -5590,7 +5590,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 4, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i, ptr noundef nonnull align 8 dereferenceable(32) %in_value)
           to label %.noexc unwind label %lpad
 
@@ -5663,7 +5663,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %type_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 4, ptr %type_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i, ptr noundef nonnull align 8 dereferenceable(32) %it.sroa.0.05)
           to label %.noexc.i unwind label %lpad.i
 
@@ -6024,7 +6024,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #25
   %type_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 7, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, i32 0, i64 2), ptr %call, align 8
   %list_.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list_.i, i8 0, i64 24, i1 false)
   %list_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -6374,7 +6374,7 @@ if.then11.i:                                      ; preds = %if.then.i
 _ZNSt10unique_ptrIN4base9ListValueESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %if.then11.i
   %type_.i.i = getelementptr inbounds i8, ptr %call14.i, i64 8
   store i32 7, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, inrange i32 0, i64 2), ptr %call14.i, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i64 0, i32 0, i64 2), ptr %call14.i, align 8
   %list_.i38 = getelementptr inbounds i8, ptr %call14.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %list_.i38, i8 0, i64 24, i1 false)
   br label %if.end.i

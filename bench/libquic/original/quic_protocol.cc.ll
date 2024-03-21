@@ -6117,7 +6117,7 @@ entry:
   store ptr %buffer, ptr %buffer.addr, align 8
   store i64 %length, ptr %length.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.net::QuicData", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %buffer.addr, align 8
   store ptr %0, ptr %buffer_, align 8
@@ -6142,7 +6142,7 @@ entry:
   %frombool = zext i1 %owns_buffer to i8
   store i8 %frombool, ptr %owns_buffer.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.net::QuicData", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %buffer.addr, align 8
   store ptr %0, ptr %buffer_, align 8
@@ -6163,7 +6163,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %owns_buffer_ = getelementptr inbounds %"class.net::QuicData", ptr %this1, i32 0, i32 3
   %0 = load i8, ptr %owns_buffer_, align 8
   %tobool = trunc i8 %0 to i1
@@ -6281,7 +6281,7 @@ entry:
   %2 = load i8, ptr %owns_buffer.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN3net8QuicDataC2EPKcmb(ptr noundef nonnull align 8 dereferenceable(25) %this4, ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicPacketE, i32 0, inrange i32 0, i32 2), ptr %this4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicPacketE, i32 0, i32 0, i32 2), ptr %this4, align 8
   %buffer_ = getelementptr inbounds %"class.net::QuicPacket", ptr %this4, i32 0, i32 1
   %3 = load ptr, ptr %buffer.addr, align 8
   store ptr %3, ptr %buffer_, align 8
@@ -6322,7 +6322,7 @@ entry:
   %0 = load ptr, ptr %buffer.addr, align 8
   %1 = load i64, ptr %length.addr, align 8
   call void @_ZN3net8QuicDataC2EPKcm(ptr noundef nonnull align 8 dereferenceable(25) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6344,7 +6344,7 @@ entry:
   %2 = load i8, ptr %owns_buffer.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN3net8QuicDataC2EPKcmb(ptr noundef nonnull align 8 dereferenceable(25) %this1, ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6518,7 +6518,7 @@ entry:
   %2 = load i8, ptr %owns_buffer.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN3net19QuicEncryptedPacketC2EPKcmb(ptr noundef nonnull align 8 dereferenceable(25) %this3, ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %receipt_time_ = getelementptr inbounds %"class.net::QuicReceivedPacket", ptr %this3, i32 0, i32 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %receipt_time_, ptr align 8 %receipt_time, i64 8, i1 false)
   %ttl_ = getelementptr inbounds %"class.net::QuicReceivedPacket", ptr %this3, i32 0, i32 3

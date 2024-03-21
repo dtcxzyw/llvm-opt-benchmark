@@ -3808,11 +3808,11 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this1, i64 248
-  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, inrange i32 2, i32 2), ptr %add.ptr4, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, i32 2, i32 2), ptr %add.ptr4, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusReconstruct", ptr %this1, i32 0, i32 3
   %3 = load ptr, ptr %tds.addr, align 8
   store ptr %3, ptr %d_tds, align 8
@@ -3899,7 +3899,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal4expr11NotifyMatchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal4expr11NotifyMatchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4131,7 +4131,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal13NodeConverterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal13NodeConverterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_tcache = getelementptr inbounds %"class.cvc5::internal::NodeConverter", ptr %this1, i32 0, i32 4
   call void @_ZNSt13unordered_mapIN4cvc58internal8TypeNodeES2_St4hashIS2_ESt8equal_toIS2_ESaISt4pairIKS2_S2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_tcache) #3
   %d_preTCache = getelementptr inbounds %"class.cvc5::internal::NodeConverter", ptr %this1, i32 0, i32 3
@@ -14786,11 +14786,11 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 248
-  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [10 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers16SygusReconstructE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %d_poolTrie = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusReconstruct", ptr %this1, i32 0, i32 12
   call void @_ZN4cvc58internal4expr9MatchTrieD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %d_poolTrie) #3
   %d_pool = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusReconstruct", ptr %this1, i32 0, i32 11

@@ -3943,7 +3943,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net8QuicDataC2EPKcm(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %buffer, i64 noundef %length) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %buffer, ptr %buffer_, align 8
   %length_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3957,7 +3957,7 @@ entry:
 define dso_local void @_ZN3net8QuicDataC2EPKcmb(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %this, ptr noundef %buffer, i64 noundef %length, i1 noundef zeroext %owns_buffer) unnamed_addr #2 align 2 {
 entry:
   %frombool = zext i1 %owns_buffer to i8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %buffer, ptr %buffer_, align 8
   %length_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3970,7 +3970,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net8QuicDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_, align 8
   %1 = and i8 %0, 1
@@ -3997,7 +3997,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #14
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net8QuicDataD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i, align 8
   %1 = and i8 %0, 1
@@ -4058,7 +4058,7 @@ entry:
   store i64 %length, ptr %length_.i, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool.i, ptr %owns_buffer_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicPacketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %buffer, ptr %buffer_, align 8
   %connection_id_length_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -4083,7 +4083,7 @@ entry:
   store i64 %length, ptr %length_.i, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %owns_buffer_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -4097,7 +4097,7 @@ entry:
   store i64 %length, ptr %length_.i, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool.i, ptr %owns_buffer_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -4117,7 +4117,7 @@ entry:
   store i64 %0, ptr %length_.i.i, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %call5, i64 24
   store i8 1, ptr %owns_buffer_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicEncryptedPacketE, i64 0, i32 0, i64 2), ptr %call5, align 8
   ret ptr %call5
 }
 
@@ -4146,7 +4146,7 @@ entry:
   store i64 %length, ptr %length_.i.i.i.i, align 8
   %owns_buffer_.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %owns_buffer_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
   %receipt_time_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %receipt_time.coerce, ptr %receipt_time_.i.i, align 8
   %ttl_.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -4166,7 +4166,7 @@ entry:
   store i64 %length, ptr %length_.i.i.i, align 8
   %owns_buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool.i.i.i, ptr %owns_buffer_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
   %receipt_time_.i = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %receipt_time.coerce, ptr %receipt_time_.i, align 8
   %ttl_.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -4187,7 +4187,7 @@ entry:
   store i64 %length, ptr %length_.i.i, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i8 %frombool.i.i, ptr %owns_buffer_.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, i32 0, i64 2), ptr %this, align 8
   %receipt_time_ = getelementptr inbounds i8, ptr %this, i64 32
   store i64 %receipt_time.coerce, ptr %receipt_time_, align 8
   %ttl_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -4221,7 +4221,7 @@ entry:
   store i64 %0, ptr %length_.i.i.i, align 8
   %owns_buffer_.i.i.i = getelementptr inbounds i8, ptr %call5, i64 24
   store i8 1, ptr %owns_buffer_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net18QuicReceivedPacketE, i64 0, i32 0, i64 2), ptr %call5, align 8
   %receipt_time_.i5 = getelementptr inbounds i8, ptr %call5, i64 32
   store i64 %retval.sroa.0.0.copyload.i, ptr %receipt_time_.i5, align 8
   %ttl_.i6 = getelementptr inbounds i8, ptr %call5, i64 40
@@ -5164,7 +5164,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net10QuicPacketD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i, align 8
   %1 = and i8 %0, 1
@@ -5188,7 +5188,7 @@ _ZN3net8QuicDataD2Ev.exit:                        ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net10QuicPacketD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i.i, align 8
   %1 = and i8 %0, 1
@@ -5213,7 +5213,7 @@ _ZN3net10QuicPacketD2Ev.exit:                     ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net19QuicEncryptedPacketD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i, align 8
   %1 = and i8 %0, 1
@@ -5237,7 +5237,7 @@ _ZN3net8QuicDataD2Ev.exit:                        ; preds = %entry, %if.then.i, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net19QuicEncryptedPacketD0Ev(ptr noundef nonnull align 8 dereferenceable(25) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i.i, align 8
   %1 = and i8 %0, 1
@@ -5262,7 +5262,7 @@ _ZN3net19QuicEncryptedPacketD2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net18QuicReceivedPacketD2Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i.i, align 8
   %1 = and i8 %0, 1
@@ -5286,7 +5286,7 @@ _ZN3net19QuicEncryptedPacketD2Ev.exit:            ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3net18QuicReceivedPacketD0Ev(ptr noundef nonnull align 8 dereferenceable(45) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net8QuicDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i8, ptr %owns_buffer_.i.i.i, align 8
   %1 = and i8 %0, 1

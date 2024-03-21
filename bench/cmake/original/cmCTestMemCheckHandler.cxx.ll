@@ -1688,7 +1688,7 @@ define dso_local void @_ZN22cmCTestMemCheckHandlerC2Ev(ptr noundef nonnull align
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18cmCTestTestHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(4416) %3)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22cmCTestMemCheckHandler, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22cmCTestMemCheckHandler, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestMemCheckHandler, ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmCTestMemCheckHandler, ptr %3, i32 0, i32 2
@@ -13826,7 +13826,7 @@ define linkonce_odr dso_local void @_ZN21cmBoundsCheckerParserC2EP7cmCTest(ptr n
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21cmBoundsCheckerParser, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21cmBoundsCheckerParser, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.cmBoundsCheckerParser, ptr %7, i32 0, i32 2
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   %9 = getelementptr inbounds %class.cmBoundsCheckerParser, ptr %7, i32 0, i32 3
@@ -13936,7 +13936,7 @@ define linkonce_odr dso_local void @_ZN21cmBoundsCheckerParserD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21cmBoundsCheckerParser, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21cmBoundsCheckerParser, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmBoundsCheckerParser, ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmBoundsCheckerParser, ptr %3, i32 0, i32 2
@@ -16047,7 +16047,7 @@ define linkonce_odr dso_local void @_ZN22cmCTestMemCheckHandlerD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22cmCTestMemCheckHandler, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22cmCTestMemCheckHandler, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestMemCheckHandler, ptr %3, i32 0, i32 15
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.cmCTestMemCheckHandler, ptr %3, i32 0, i32 14
@@ -18029,7 +18029,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestHandlerD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestTestHandler, ptr %3, i32 0, i32 45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmCTestTestHandler, ptr %3, i32 0, i32 40

@@ -2288,7 +2288,7 @@ entry:
   store i32 %width, ptr %width.addr, align 4
   store i32 %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_isNativeXdr = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 1
   store i8 0, ptr %_isNativeXdr, align 8
   %_packedAcCount = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 2
@@ -2374,7 +2374,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_dctData = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 12
   call void @_ZNSt6vectorIN7Imf_3_219SimdAlignedBuffer64IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_dctData) #3
   %_type = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 11
@@ -7197,7 +7197,7 @@ entry:
   store i32 %width, ptr %width.addr, align 4
   store i32 %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_quantBaseError = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 1
   %0 = load float, ptr %quantBaseError.addr, align 4
   store float %0, ptr %_quantBaseError, align 8
@@ -7303,7 +7303,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_dctData = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 9
   call void @_ZNSt6vectorIN7Imf_3_219SimdAlignedBuffer64IfEESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_dctData) #3
   %_type = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 8
@@ -9713,7 +9713,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %hdr.addr, align 8
   call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_acCompression = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %acCompression.addr, align 4
   store i32 %1, ptr %_acCompression, align 8
@@ -10039,7 +10039,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_packedAcBuffer = getelementptr inbounds %"class.Imf_3_2::DwaCompressor", ptr %this1, i32 0, i32 10
   %0 = load ptr, ptr %_packedAcBuffer, align 8
   %isnull = icmp eq ptr %0, null
@@ -15592,7 +15592,7 @@ entry:
   %4 = load i32, ptr %width.addr, align 4
   %5 = load i32, ptr %height.addr, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseC2EfPcS2_PKtii(ptr noundef nonnull align 8 dereferenceable(640) %this1, float noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctEncoderCscE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctEncoderCscE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_type = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 8
   invoke void @_ZNSt6vectorIN7Imf_3_29PixelTypeESaIS1_EE9push_backERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %_type, ptr noundef nonnull align 4 dereferenceable(4) %typeR.addr)
           to label %invoke.cont unwind label %lpad
@@ -15727,7 +15727,7 @@ entry:
   %4 = load i32, ptr %width.addr, align 4
   %5 = load i32, ptr %height.addr, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseC2EfPcS2_PKtii(ptr noundef nonnull align 8 dereferenceable(640) %this1, float noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctEncoderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctEncoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_rowPtrs = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctEncoderBase", ptr %this1, i32 0, i32 7
   %6 = load ptr, ptr %rowPtrs.addr, align 8
   invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE9push_backERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -18342,7 +18342,7 @@ entry:
   %4 = load i32, ptr %width.addr, align 4
   %5 = load i32, ptr %height.addr, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseC2EPcS2_S2_PKtii(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctDecoderCscE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctDecoderCscE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_rowPtrs = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 10
   %6 = load ptr, ptr %rowPtrsR.addr, align 8
   invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -18459,7 +18459,7 @@ entry:
   %4 = load i32, ptr %width.addr, align 4
   %5 = load i32, ptr %height.addr, align 4
   call void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseC2EPcS2_S2_PKtii(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctDecoderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctDecoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_rowPtrs = getelementptr inbounds %"class.Imf_3_2::DwaCompressor::LossyDctDecoderBase", ptr %this1, i32 0, i32 10
   %6 = load ptr, ptr %rowPtrs.addr, align 8
   invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE9push_backERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr noundef nonnull align 8 dereferenceable(24) %6)

@@ -73,7 +73,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN19out_of_memory_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN8z3_errorC2Ej(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef 101)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19out_of_memory_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19out_of_memory_error, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

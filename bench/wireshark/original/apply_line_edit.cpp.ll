@@ -268,9 +268,9 @@ define void @_ZN13ApplyLineEditC2E7QStringP7QWidget(ptr noundef nonnull align 8 
   %29 = load ptr, ptr %4, align 8
   %30 = load ptr, ptr %6, align 8
   call void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef %30)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ApplyLineEdit, i32 0, inrange i32 0, i32 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ApplyLineEdit, i32 0, i32 0, i32 2), ptr %29, align 8
   %31 = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ApplyLineEdit, i32 0, inrange i32 1, i32 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ApplyLineEdit, i32 0, i32 1, i32 2), ptr %31, align 8
   %32 = getelementptr inbounds %class.ApplyLineEdit, ptr %29, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %32) #10
   %33 = getelementptr inbounds %class.ApplyLineEdit, ptr %29, i32 0, i32 3
@@ -1263,9 +1263,9 @@ define void @_ZN13ApplyLineEditD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ApplyLineEdit, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ApplyLineEdit, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ApplyLineEdit, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ApplyLineEdit, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.ApplyLineEdit, ptr %3, i32 0, i32 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #10
   call void @_ZN9QLineEditD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #10

@@ -1108,7 +1108,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %4 = load i32, ptr %edgeColor.addr, align 4
   call void @_ZN7msdfgen11EdgeSegmentC2ENS_9EdgeColorE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %4)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen13LinearSegmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %p = getelementptr inbounds %"class.msdfgen::LinearSegment", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [2 x %"struct.msdfgen::Vector2"], ptr %p, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %array.begin, i64 2
@@ -1159,7 +1159,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %edgeColor, ptr %edgeColor.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen11EdgeSegmentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen11EdgeSegmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %color = getelementptr inbounds %"class.msdfgen::EdgeSegment", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %edgeColor.addr, align 4
   store i32 %0, ptr %color, align 8
@@ -1210,7 +1210,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %6 = load i32, ptr %edgeColor.addr, align 4
   call void @_ZN7msdfgen11EdgeSegmentC2ENS_9EdgeColorE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen16QuadraticSegmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %p = getelementptr inbounds %"class.msdfgen::QuadraticSegment", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x %"struct.msdfgen::Vector2"], ptr %p, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %array.begin, i64 3
@@ -1288,7 +1288,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %8 = load i32, ptr %edgeColor.addr, align 4
   call void @_ZN7msdfgen11EdgeSegmentC2ENS_9EdgeColorE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7msdfgen12CubicSegmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %p = getelementptr inbounds %"class.msdfgen::CubicSegment", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [4 x %"struct.msdfgen::Vector2"], ptr %p, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"struct.msdfgen::Vector2", ptr %array.begin, i64 4

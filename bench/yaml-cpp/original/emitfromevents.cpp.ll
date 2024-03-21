@@ -282,7 +282,7 @@ entry:
   store ptr %emitter, ptr %emitter.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4YAML12EventHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_emitter = getelementptr inbounds %"class.YAML::EmitFromEvents", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %emitter.addr, align 8
   store ptr %0, ptr %m_emitter, align 8
@@ -317,7 +317,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML12EventHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML12EventHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1109,7 +1109,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_stateStack = getelementptr inbounds %"class.YAML::EmitFromEvents", ptr %this1, i32 0, i32 2
   call void @_ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %m_stateStack) #11
   call void @_ZN4YAML12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11

@@ -6031,7 +6031,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerProcessOptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerProcessOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %per_isolate = getelementptr inbounds %"class.node::PerProcessOptions", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #17
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 104, i1 false)
@@ -9984,7 +9984,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser18DebugOptionsParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser18DebugOptionsParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef zeroext i1 @_ZN4node3sea18IsSingleExecutableEv()
   br i1 %call, label %if.then, label %if.end
 
@@ -10094,7 +10094,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.node::options_parser::OptionsParser", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_12DebugOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %options_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser", ptr %this1, i32 0, i32 2
@@ -10468,7 +10468,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser24EnvironmentOptionsParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser24EnvironmentOptionsParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE9AddOptionEPKcS5_MS2_St6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.65, ptr noundef @.str.66, i64 16, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE8AddAliasEPKcS5_(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.67, ptr noundef @.str.65)
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE9AddOptionEPKcS5_MS2_bNS_20OptionEnvvarSettingsEb(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.68, ptr noundef @.str.69, i64 40, i32 noundef 0, i1 noundef zeroext false)
@@ -10649,7 +10649,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.46", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_18EnvironmentOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %options_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.46", ptr %this1, i32 0, i32 2
@@ -11190,7 +11190,7 @@ entry:
   store ptr %eop, ptr %eop.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser23PerIsolateOptionsParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser23PerIsolateOptionsParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE9AddOptionEPKcS5_MS2_bNS_20OptionEnvvarSettingsEb(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.272, ptr noundef @.str.273, i64 24, i32 noundef 0, i1 noundef zeroext false)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE9AddOptionEPKcS5_NS3_8V8OptionENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.274, ptr noundef @.str.275, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE9AddOptionEPKcS5_NS3_8V8OptionENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.276, ptr noundef @.str.277, i32 noundef 0)
@@ -11234,7 +11234,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.75", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerIsolateOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %options_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.75", ptr %this1, i32 0, i32 2
@@ -11839,7 +11839,7 @@ entry:
   store ptr %iop, ptr %iop.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser23PerProcessOptionsParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser23PerProcessOptionsParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_MS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.307, ptr noundef @.str.308, i64 24, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_MS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.309, ptr noundef @.str.310, i64 56, i32 noundef 0)
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE9AddOptionEPKcS5_MS2_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_20OptionEnvvarSettingsE(ptr noundef nonnull align 8 dereferenceable(176) %this1, ptr noundef @.str.311, ptr noundef @.str.312, i64 88, i32 noundef 0)
@@ -11924,7 +11924,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %options_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE10OptionInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %options_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr %this1, i32 0, i32 2
@@ -20497,7 +20497,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerProcessOptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerProcessOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cmdline = getelementptr inbounds %"class.node::PerProcessOptions", ptr %this1, i32 0, i32 35
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %cmdline) #3
   %use_largepages = getelementptr inbounds %"class.node::PerProcessOptions", ptr %this1, i32 0, i32 33
@@ -20549,7 +20549,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %build_snapshot_config = getelementptr inbounds %"class.node::PerIsolateOptions", ptr %this1, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %build_snapshot_config) #3
   %report_signal = getelementptr inbounds %"class.node::PerIsolateOptions", ptr %this1, i32 0, i32 6
@@ -20577,7 +20577,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %debug_options_ = getelementptr inbounds %"class.node::EnvironmentOptions", ptr %this1, i32 0, i32 99
   call void @_ZN4node12DebugOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %debug_options_) #3
   %user_argv = getelementptr inbounds %"class.node::EnvironmentOptions", ptr %this1, i32 0, i32 98
@@ -20659,7 +20659,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %host_port = getelementptr inbounds %"class.node::DebugOptions", ptr %this1, i32 0, i32 9
   call void @_ZN4node8HostPortD2Ev(ptr noundef nonnull align 8 dereferenceable(34) %host_port) #3
   %inspect_publish_uid_string = getelementptr inbounds %"class.node::DebugOptions", ptr %this1, i32 0, i32 6
@@ -20729,7 +20729,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7OptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node7OptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -20741,7 +20741,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %per_env = getelementptr inbounds %"class.node::PerIsolateOptions", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 1144) #17
   call void @llvm.memset.p0.i64(ptr align 16 %call, i8 0, i64 1144, i1 false)
@@ -20823,7 +20823,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %abort_on_uncaught_exception = getelementptr inbounds %"class.node::EnvironmentOptions", ptr %this1, i32 0, i32 1
   store i8 0, ptr %abort_on_uncaught_exception, align 8
   %conditions = getelementptr inbounds %"class.node::EnvironmentOptions", ptr %this1, i32 0, i32 2
@@ -21048,7 +21048,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %allow_attaching_debugger = getelementptr inbounds %"class.node::DebugOptions", ptr %this1, i32 0, i32 1
   store i8 1, ptr %allow_attaching_debugger, align 8
   %inspector_enabled = getelementptr inbounds %"class.node::DebugOptions", ptr %this1, i32 0, i32 2
@@ -21141,7 +21141,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node18EnvironmentOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node18EnvironmentOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8
@@ -21154,7 +21154,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -21344,7 +21344,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.480", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8
@@ -21977,7 +21977,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %implications_ = getelementptr inbounds %"class.node::options_parser::OptionsParser", ptr %this1, i32 0, i32 3
   call void @_ZNSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_12DebugOptionsEE11ImplicationESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %implications_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser", ptr %this1, i32 0, i32 2
@@ -27684,7 +27684,7 @@ entry:
   store { i64, i64 } %get_child1, ptr %get_child.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS1_INS_12DebugOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS1_INS_12DebugOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this2, align 8
   %original3 = getelementptr inbounds %struct.AdaptedField, ptr %this2, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %original3, ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   %get_child4 = getelementptr inbounds %struct.AdaptedField, ptr %this2, i32 0, i32 2
@@ -27712,7 +27712,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -27722,7 +27722,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS1_INS_12DebugOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE7ConvertINS1_INS_12DebugOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this1, align 8
   %original = getelementptr inbounds %struct.AdaptedField, ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -27898,7 +27898,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE7ConvertINS2_INS0_12DebugOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE7ConvertINS2_INS0_12DebugOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.529", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8
@@ -30029,7 +30029,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %implications_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.46", ptr %this1, i32 0, i32 3
   call void @_ZNSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_18EnvironmentOptionsEE11ImplicationESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %implications_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.46", ptr %this1, i32 0, i32 2
@@ -30282,7 +30282,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %implications_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.75", ptr %this1, i32 0, i32 3
   call void @_ZNSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerIsolateOptionsEE11ImplicationESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %implications_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.75", ptr %this1, i32 0, i32 2
@@ -31136,7 +31136,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %implications_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr %this1, i32 0, i32 3
   call void @_ZNSt18unordered_multimapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4node14options_parser13OptionsParserINS6_17PerProcessOptionsEE11ImplicationESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %implications_) #3
   %aliases_ = getelementptr inbounds %"class.node::options_parser::OptionsParser.104", ptr %this1, i32 0, i32 2
@@ -36226,7 +36226,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerProcessOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerProcessOptionsELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.583", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8
@@ -44670,7 +44670,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINS0_8HostPortEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINS0_8HostPortEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINS0_8HostPortEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINS0_8HostPortEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -44976,7 +44976,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldINS_8HostPortEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldINS_8HostPortEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::DebugOptions>::SimpleOptionField", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -44989,7 +44989,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -46287,7 +46287,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.626", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -46583,7 +46583,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldIbEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::DebugOptions>::SimpleOptionField.628", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -48859,7 +48859,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.639", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -49155,7 +49155,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_12DebugOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_12DebugOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::DebugOptions>::SimpleOptionField.641", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -49810,7 +49810,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.649", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESG_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -50106,7 +50106,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -50464,7 +50464,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.658", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -50760,7 +50760,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldIbEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField.660", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -51118,7 +51118,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.668", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -51414,7 +51414,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField.670", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -52224,7 +52224,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.678", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -52520,7 +52520,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldIlEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField.680", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -52902,7 +52902,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.688", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldImEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE17SimpleOptionFieldImEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -53198,7 +53198,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldImEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_18EnvironmentOptionsEE17SimpleOptionFieldImEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::EnvironmentOptions>::SimpleOptionField.690", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -54498,7 +54498,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.702", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -54794,7 +54794,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE17SimpleOptionFieldIbEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerIsolateOptions>::SimpleOptionField", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -54807,7 +54807,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -55214,7 +55214,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.711", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -55510,7 +55510,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerIsolateOptions>::SimpleOptionField.713", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -57659,7 +57659,7 @@ entry:
   store { i64, i64 } %get_child1, ptr %get_child.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS1_INS_18EnvironmentOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS1_INS_18EnvironmentOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this2, align 8
   %original3 = getelementptr inbounds %struct.AdaptedField.718, ptr %this2, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %original3, ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   %get_child4 = getelementptr inbounds %struct.AdaptedField.718, ptr %this2, i32 0, i32 2
@@ -57687,7 +57687,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS1_INS_18EnvironmentOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE7ConvertINS1_INS_18EnvironmentOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this1, align 8
   %original = getelementptr inbounds %struct.AdaptedField.718, ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_18EnvironmentOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   call void @_ZN4node14options_parser13OptionsParserINS_17PerIsolateOptionsEE15BaseOptionFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -57846,7 +57846,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE7ConvertINS2_INS0_18EnvironmentOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE7ConvertINS2_INS0_18EnvironmentOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.719", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8
@@ -59320,7 +59320,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.731", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESD_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -59616,7 +59616,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerProcessOptions>::SimpleOptionField", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -59629,7 +59629,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -60025,7 +60025,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.740", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -60321,7 +60321,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldIlEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerProcessOptions>::SimpleOptionField.742", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -60679,7 +60679,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.750", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -60975,7 +60975,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldIbEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerProcessOptions>::SimpleOptionField.752", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -61333,7 +61333,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.760", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESG_(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -61629,7 +61629,7 @@ entry:
   store i64 %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE17SimpleOptionFieldISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %field_ = getelementptr inbounds %"class.node::options_parser::OptionsParser<node::PerProcessOptions>::SimpleOptionField.762", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %field.addr, align 8
   store i64 %0, ptr %field_, align 8
@@ -63709,7 +63709,7 @@ entry:
   store { i64, i64 } %get_child1, ptr %get_child.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS1_INS_17PerIsolateOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS1_INS_17PerIsolateOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this2, align 8
   %original3 = getelementptr inbounds %struct.AdaptedField.766, ptr %this2, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE15BaseOptionFieldEEC2ERKS6_(ptr noundef nonnull align 8 dereferenceable(16) %original3, ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   %get_child4 = getelementptr inbounds %struct.AdaptedField.766, ptr %this2, i32 0, i32 2
@@ -63737,7 +63737,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS1_INS_17PerIsolateOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE7ConvertINS1_INS_17PerIsolateOptionsEE15BaseOptionFieldES5_EEDaSt10shared_ptrIT_EMS2_FPT0_vEE12AdaptedField, i32 0, i32 0, i32 2), ptr %this1, align 8
   %original = getelementptr inbounds %struct.AdaptedField.766, ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node14options_parser13OptionsParserINS0_17PerIsolateOptionsEE15BaseOptionFieldEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %original) #3
   call void @_ZN4node14options_parser13OptionsParserINS_17PerProcessOptionsEE15BaseOptionFieldD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -63865,7 +63865,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE7ConvertINS2_INS0_17PerIsolateOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZN4node14options_parser13OptionsParserINS0_17PerProcessOptionsEE7ConvertINS2_INS0_17PerIsolateOptionsEE15BaseOptionFieldES6_EEDaSt10shared_ptrIT_EMS3_FPT0_vEE12AdaptedFieldLN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.767", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8

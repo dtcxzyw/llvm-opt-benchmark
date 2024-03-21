@@ -110,7 +110,7 @@ define void @_ZN15CacheProxyModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV15CacheProxyModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV15CacheProxyModel, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.CacheProxyModel, ptr %7, i32 0, i32 1
   invoke void @_ZN18QStandardItemModelC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef null)
           to label %10 unwind label %11

@@ -149,7 +149,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTV18GUIBackgroundImage = dso_local unnamed_addr constant { [39 x ptr], [5 x ptr] } { [39 x ptr] [ptr inttoptr (i64 384 to ptr), ptr null, ptr @_ZTI18GUIBackgroundImage, ptr @_ZN18GUIBackgroundImageD1Ev, ptr @_ZN18GUIBackgroundImageD0Ev, ptr @_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE, ptr @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv, ptr @_ZN3irr3gui11IGUIElement19getElementFromPointERKNS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE, ptr @_ZN3irr3gui11IGUIElement8addChildEPS1_, ptr @_ZN3irr3gui11IGUIElement11removeChildEPS1_, ptr @_ZN3irr3gui11IGUIElement17removeAllChildrenEv, ptr @_ZN3irr3gui11IGUIElement6removeEv, ptr @_ZN18GUIBackgroundImage4drawEv, ptr @_ZN3irr3gui11IGUIElement12OnPostRenderEj, ptr @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement9isVisibleEv, ptr @_ZNK3irr3gui11IGUIElement14isTrulyVisibleEv, ptr @_ZN3irr3gui11IGUIElement10setVisibleEb, ptr @_ZNK3irr3gui11IGUIElement12isSubElementEv, ptr @_ZN3irr3gui11IGUIElement13setSubElementEb, ptr @_ZNK3irr3gui11IGUIElement9isEnabledEv, ptr @_ZN3irr3gui11IGUIElement10setEnabledEb, ptr @_ZN3irr3gui11IGUIElement7setTextEPKw, ptr @_ZNK3irr3gui11IGUIElement7getTextEv, ptr @_ZN3irr3gui11IGUIElement14setToolTipTextEPKw, ptr @_ZNK3irr3gui11IGUIElement14getToolTipTextEv, ptr @_ZNK3irr3gui11IGUIElement5getIDEv, ptr @_ZN3irr3gui11IGUIElement5setIDEi, ptr @_ZN3irr3gui11IGUIElement12bringToFrontEPS1_, ptr @_ZN3irr3gui11IGUIElement10sendToBackEPS1_, ptr @_ZNK3irr3gui11IGUIElement11getChildrenB5cxx11Ev, ptr @_ZNK3irr3gui11IGUIElement16getElementFromIdEib, ptr @_ZNK3irr3gui11IGUIElement7hasTypeENS0_17EGUI_ELEMENT_TYPEE, ptr @_ZNK3irr3gui11IGUIElement11getTypeNameEv, ptr @_ZNK3irr3gui11IGUIElement7getNameEv, ptr @_ZN3irr3gui11IGUIElement7setNameEPKc, ptr @_ZN3irr3gui11IGUIElement7setNameERKNS_4core6stringIcEE, ptr @_ZN3irr3gui11IGUIElement10acceptsIMEEv], [5 x ptr] [ptr inttoptr (i64 -384 to ptr), ptr inttoptr (i64 -384 to ptr), ptr @_ZTI18GUIBackgroundImage, ptr @_ZTv0_n24_N18GUIBackgroundImageD1Ev, ptr @_ZTv0_n24_N18GUIBackgroundImageD0Ev] }, align 8
-@_ZTT18GUIBackgroundImage = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC18GUIBackgroundImage0_N3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC18GUIBackgroundImage0_N3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTT18GUIBackgroundImage = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC18GUIBackgroundImage0_N3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC18GUIBackgroundImage0_N3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i32 0, inrange i32 1, i32 3)], align 8
 @errorstream = external thread_local global %class.LogStream, align 8
 @.str = private unnamed_addr constant [51 x i8] c"GUIBackgroundImage::draw() Unable to load texture:\00", align 1
 @.str.1 = private unnamed_addr constant [2 x i8] c"\09\00", align 1
@@ -168,7 +168,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @_ZTVN3irr14IEventReceiverE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN3irr14IEventReceiverE, ptr @_ZN3irr14IEventReceiverD2Ev, ptr @_ZN3irr14IEventReceiverD0Ev, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTVN3irr17IReferenceCountedE = linkonce_odr dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr @_ZTIN3irr17IReferenceCountedE, ptr @_ZN3irr17IReferenceCountedD2Ev, ptr @_ZN3irr17IReferenceCountedD0Ev] }, comdat, align 8
 @_ZTVN3irr3gui11IGUIElementE = linkonce_odr dso_local unnamed_addr constant { [39 x ptr], [5 x ptr] } { [39 x ptr] [ptr inttoptr (i64 312 to ptr), ptr null, ptr @_ZTIN3irr3gui11IGUIElementE, ptr @_ZN3irr3gui11IGUIElementD1Ev, ptr @_ZN3irr3gui11IGUIElementD0Ev, ptr @_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE, ptr @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv, ptr @_ZN3irr3gui11IGUIElement19getElementFromPointERKNS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE, ptr @_ZN3irr3gui11IGUIElement8addChildEPS1_, ptr @_ZN3irr3gui11IGUIElement11removeChildEPS1_, ptr @_ZN3irr3gui11IGUIElement17removeAllChildrenEv, ptr @_ZN3irr3gui11IGUIElement6removeEv, ptr @_ZN3irr3gui11IGUIElement4drawEv, ptr @_ZN3irr3gui11IGUIElement12OnPostRenderEj, ptr @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement9isVisibleEv, ptr @_ZNK3irr3gui11IGUIElement14isTrulyVisibleEv, ptr @_ZN3irr3gui11IGUIElement10setVisibleEb, ptr @_ZNK3irr3gui11IGUIElement12isSubElementEv, ptr @_ZN3irr3gui11IGUIElement13setSubElementEb, ptr @_ZNK3irr3gui11IGUIElement9isEnabledEv, ptr @_ZN3irr3gui11IGUIElement10setEnabledEb, ptr @_ZN3irr3gui11IGUIElement7setTextEPKw, ptr @_ZNK3irr3gui11IGUIElement7getTextEv, ptr @_ZN3irr3gui11IGUIElement14setToolTipTextEPKw, ptr @_ZNK3irr3gui11IGUIElement14getToolTipTextEv, ptr @_ZNK3irr3gui11IGUIElement5getIDEv, ptr @_ZN3irr3gui11IGUIElement5setIDEi, ptr @_ZN3irr3gui11IGUIElement12bringToFrontEPS1_, ptr @_ZN3irr3gui11IGUIElement10sendToBackEPS1_, ptr @_ZNK3irr3gui11IGUIElement11getChildrenB5cxx11Ev, ptr @_ZNK3irr3gui11IGUIElement16getElementFromIdEib, ptr @_ZNK3irr3gui11IGUIElement7hasTypeENS0_17EGUI_ELEMENT_TYPEE, ptr @_ZNK3irr3gui11IGUIElement11getTypeNameEv, ptr @_ZNK3irr3gui11IGUIElement7getNameEv, ptr @_ZN3irr3gui11IGUIElement7setNameEPKc, ptr @_ZN3irr3gui11IGUIElement7setNameERKNS_4core6stringIcEE, ptr @_ZN3irr3gui11IGUIElement10acceptsIMEEv], [5 x ptr] [ptr inttoptr (i64 -312 to ptr), ptr inttoptr (i64 -312 to ptr), ptr @_ZTIN3irr3gui11IGUIElementE, ptr @_ZTv0_n24_N3irr3gui11IGUIElementD1Ev, ptr @_ZTv0_n24_N3irr3gui11IGUIElementD0Ev] }, comdat, align 8
-@_ZTTN3irr3gui11IGUIElementE = linkonce_odr dso_local unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN3irr3gui11IGUIElementE = linkonce_odr dso_local unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZN3irr3guiL19GUIElementTypeNamesE = internal unnamed_addr constant [27 x ptr] [ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.9, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14, ptr @.str.15, ptr @.str.16, ptr @.str.17, ptr @.str.18, ptr @.str.19, ptr @.str.20, ptr @.str.21, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.27, ptr null], align 16
 @.str.2 = private unnamed_addr constant [7 x i8] c"button\00", align 1
 @.str.3 = private unnamed_addr constant [9 x i8] c"checkBox\00", align 1
@@ -284,7 +284,7 @@ define dso_local void @_ZN18GUIBackgroundImageC2EPN3irr3gui15IGUIEnvironmentEPNS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(16) %6) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %0, align 8, !tbaa !4
   %9 = getelementptr inbounds i8, ptr %1, i64 8
@@ -576,14 +576,14 @@ define linkonce_odr dso_local void @_ZN3irr3gui11IGUIElementD2Ev(ptr noundef non
 define dso_local void @_ZN18GUIBackgroundImageC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiRKNS0_4core4rectIiEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_P20ISimpleTextureSourcebNS6_8vector2dIiEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %5, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %6, ptr noundef %7, i1 noundef zeroext %8, i64 %9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %11 = alloca i64, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %12, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %12, align 8, !tbaa !4
   %13 = getelementptr inbounds i8, ptr %0, i64 392
   store ptr null, ptr %13, align 8, !tbaa !68
   %14 = getelementptr inbounds i8, ptr %0, i64 400
   store i32 1, ptr %14, align 8, !tbaa !60
   tail call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTT18GUIBackgroundImage, i64 0, i64 1), i32 noundef 23, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %4)
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 1, i64 3), ptr %12, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %12, align 8, !tbaa !4
   %15 = getelementptr inbounds i8, ptr %0, i64 312
   %16 = getelementptr inbounds i8, ptr %0, i64 328
   store ptr %16, ptr %15, align 8, !tbaa !7
@@ -2035,9 +2035,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N3irr3gui11IGUIElementD0Ev(ptr nou
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18GUIBackgroundImageD1Ev(ptr noundef nonnull align 8 dereferenceable(380) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds i8, ptr %0, i64 328
@@ -2062,9 +2062,9 @@ define linkonce_odr dso_local void @_ZN18GUIBackgroundImageD1Ev(ptr noundef nonn
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18GUIBackgroundImageD0Ev(ptr noundef nonnull align 8 dereferenceable(380) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 384
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = getelementptr inbounds i8, ptr %0, i64 328
@@ -2094,9 +2094,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N18GUIBackgroundImageD1Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds i8, ptr %5, i64 312
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = getelementptr inbounds i8, ptr %5, i64 328
@@ -2125,9 +2125,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N18GUIBackgroundImageD0Ev(ptr noun
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds i8, ptr %5, i64 384
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTV18GUIBackgroundImage, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds i8, ptr %5, i64 312
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = getelementptr inbounds i8, ptr %5, i64 328

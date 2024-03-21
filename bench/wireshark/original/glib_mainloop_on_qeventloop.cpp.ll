@@ -192,7 +192,7 @@ define void @_ZN10GLibPollerC2EP13_GMainContext(ptr noundef nonnull align 8 dere
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7QThreadC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef null)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV10GLibPoller, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV10GLibPoller, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.GLibPoller, ptr %7, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 8, i1 false)
   invoke void @_ZN6QMutexC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
@@ -337,7 +337,7 @@ define void @_ZN10GLibPollerD2Ev(ptr noundef nonnull align 8 dereferenceable(64)
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV10GLibPoller, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV10GLibPoller, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.GLibPoller, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
   invoke void @g_main_context_unref(ptr noundef %5)
@@ -573,7 +573,7 @@ define void @_ZN24GLibMainloopOnQEventLoopC2EP7QObject(ptr noundef nonnull align
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV24GLibMainloopOnQEventLoop, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV24GLibMainloopOnQEventLoop, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %11, i32 0, i32 1
   %14 = invoke ptr @g_main_context_default()
           to label %15 unwind label %28
@@ -854,7 +854,7 @@ define void @_ZN24GLibMainloopOnQEventLoopD2Ev(ptr noundef nonnull align 8 deref
   %3 = alloca %class.QDeadlineTimer, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV24GLibMainloopOnQEventLoop, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV24GLibMainloopOnQEventLoop, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.GLibMainloopOnQEventLoop, ptr %4, i32 0, i32 1
   invoke void @_ZN7QThread19requestInterruptionEv(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %6 unwind label %26

@@ -1427,7 +1427,7 @@ entry:
   store ptr %parsed_files, ptr %parsed_files.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf8compiler16GeneratorContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler24GeneratorResponseContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler24GeneratorResponseContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %compiler_version_ = getelementptr inbounds %"class.google::protobuf::compiler::GeneratorResponseContext", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %compiler_version.addr, align 8
   invoke void @_ZN6google8protobuf8compiler7VersionC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %compiler_version_, ptr noundef nonnull align 8 dereferenceable(48) %0)
@@ -1562,7 +1562,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler24GeneratorResponseContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler24GeneratorResponseContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %compiler_version_ = getelementptr inbounds %"class.google::protobuf::compiler::GeneratorResponseContext", ptr %this1, i32 0, i32 1
   call void @_ZN6google8protobuf8compiler7VersionD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %compiler_version_) #3
   call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -2516,7 +2516,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler16GeneratorContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler16GeneratorContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

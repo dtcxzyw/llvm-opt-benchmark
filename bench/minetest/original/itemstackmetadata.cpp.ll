@@ -109,7 +109,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.1 = private unnamed_addr constant [11 x i8] c"wear_color\00", align 1
 @.str.4 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @_ZTV17ItemStackMetadata = dso_local unnamed_addr constant { [19 x ptr] } { [19 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTI17ItemStackMetadata, ptr @_ZN17ItemStackMetadataD1Ev, ptr @_ZN17ItemStackMetadataD0Ev, ptr @_ZN17ItemStackMetadata5clearEv, ptr @_ZNK14SimpleMetadata8containsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN17ItemStackMetadata9setStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E, ptr @_ZNK14SimpleMetadata10getStringsEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE, ptr @_ZNK14SimpleMetadata7getKeysEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE, ptr @_ZNK14SimpleMetadata12getStringRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_, ptr @_ZNK14SimpleMetadata5emptyEv] }, align 8
-@_ZTT17ItemStackMetadata = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTC17ItemStackMetadata0_14SimpleMetadata, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTC17ItemStackMetadata0_14SimpleMetadata, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i32 0, inrange i32 0, i32 10)], align 8
+@_ZTT17ItemStackMetadata = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i32 0, i32 0, i32 10), ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTC17ItemStackMetadata0_14SimpleMetadata, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTC17ItemStackMetadata0_14SimpleMetadata, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i32 0, inrange i32 0, i32 10)], align 8
 @_ZTC17ItemStackMetadata0_14SimpleMetadata = dso_local unnamed_addr constant { [19 x ptr] } { [19 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTI14SimpleMetadata, ptr @_ZN14SimpleMetadataD1Ev, ptr @_ZN14SimpleMetadataD0Ev, ptr @_ZN14SimpleMetadata5clearEv, ptr @_ZNK14SimpleMetadata8containsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN14SimpleMetadata9setStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt17basic_string_viewIcS3_E, ptr @_ZNK14SimpleMetadata10getStringsEPSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_St4hashIS6_ESt8equal_toIS6_ESaISt4pairIKS6_S6_EEE, ptr @_ZNK14SimpleMetadata7getKeysEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE, ptr @_ZNK14SimpleMetadata12getStringRawERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS5_, ptr @_ZNK14SimpleMetadata5emptyEv] }, align 8
 @_ZTI14SimpleMetadata = external constant ptr
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -463,7 +463,7 @@ define dso_local void @_ZN17ItemStackMetadata22updateToolCapabilitiesEv(ptr noun
   %153 = getelementptr inbounds i8, ptr %10, i64 %152
   store ptr %150, ptr %153, align 8, !tbaa !15
   %154 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %154, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %154, align 8, !tbaa !15
   %155 = getelementptr inbounds i8, ptr %10, i64 88
   %156 = load ptr, ptr %155, align 8, !tbaa !11
   %157 = getelementptr inbounds i8, ptr %10, i64 104
@@ -482,7 +482,7 @@ define dso_local void @_ZN17ItemStackMetadata22updateToolCapabilitiesEv(ptr noun
   br label %164
 
 164:                                              ; preds = %163, %159
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %154, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %154, align 8, !tbaa !15
   %165 = getelementptr inbounds i8, ptr %10, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %165) #19
   %166 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -703,7 +703,7 @@ define dso_local void @_ZN17ItemStackMetadata19updateWearBarParamsEv(ptr noundef
   %55 = getelementptr inbounds i8, ptr %3, i64 %54
   store ptr %52, ptr %55, align 8, !tbaa !15
   %56 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %56, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %56, align 8, !tbaa !15
   %57 = getelementptr inbounds i8, ptr %3, i64 88
   %58 = load ptr, ptr %57, align 8, !tbaa !11
   %59 = getelementptr inbounds i8, ptr %3, i64 104
@@ -722,7 +722,7 @@ define dso_local void @_ZN17ItemStackMetadata19updateWearBarParamsEv(ptr noundef
   br label %66
 
 66:                                               ; preds = %65, %61
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %56, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %56, align 8, !tbaa !15
   %67 = getelementptr inbounds i8, ptr %3, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %67) #19
   %68 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -1691,7 +1691,7 @@ define dso_local void @_ZNK17ItemStackMetadata9serializeERSo(ptr nocapture nound
   %133 = getelementptr inbounds i8, ptr %6, i64 %132
   store ptr %130, ptr %133, align 8, !tbaa !15
   %134 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %134, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %134, align 8, !tbaa !15
   %135 = getelementptr inbounds i8, ptr %6, i64 80
   %136 = load ptr, ptr %135, align 8, !tbaa !11
   %137 = getelementptr inbounds i8, ptr %6, i64 96
@@ -1710,7 +1710,7 @@ define dso_local void @_ZNK17ItemStackMetadata9serializeERSo(ptr nocapture nound
   br label %144
 
 144:                                              ; preds = %143, %139
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %134, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %134, align 8, !tbaa !15
   %145 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %145) #19
   %146 = getelementptr inbounds i8, ptr %6, i64 112
@@ -2523,7 +2523,7 @@ define dso_local void @_ZN17ItemStackMetadata19setToolCapabilitiesERK16ToolCapab
   %69 = getelementptr inbounds i8, ptr %4, i64 %68
   store ptr %66, ptr %69, align 8, !tbaa !15
   %70 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %70, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %70, align 8, !tbaa !15
   %71 = getelementptr inbounds i8, ptr %4, i64 80
   %72 = load ptr, ptr %71, align 8, !tbaa !11
   %73 = getelementptr inbounds i8, ptr %4, i64 96
@@ -2542,7 +2542,7 @@ define dso_local void @_ZN17ItemStackMetadata19setToolCapabilitiesERK16ToolCapab
   br label %80
 
 80:                                               ; preds = %79, %75
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %70, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %70, align 8, !tbaa !15
   %81 = getelementptr inbounds i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %81) #19
   %82 = getelementptr inbounds i8, ptr %4, i64 112
@@ -2799,7 +2799,7 @@ define dso_local void @_ZN17ItemStackMetadata16setWearBarParamsERK13WearBarParam
   %64 = getelementptr inbounds i8, ptr %3, i64 %63
   store ptr %61, ptr %64, align 8, !tbaa !15
   %65 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %65, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %65, align 8, !tbaa !15
   %66 = getelementptr inbounds i8, ptr %3, i64 80
   %67 = load ptr, ptr %66, align 8, !tbaa !11
   %68 = getelementptr inbounds i8, ptr %3, i64 96
@@ -2818,7 +2818,7 @@ define dso_local void @_ZN17ItemStackMetadata16setWearBarParamsERK13WearBarParam
   br label %75
 
 75:                                               ; preds = %74, %70
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %65, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %65, align 8, !tbaa !15
   %76 = getelementptr inbounds i8, ptr %3, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %76) #19
   %77 = getelementptr inbounds i8, ptr %3, i64 112

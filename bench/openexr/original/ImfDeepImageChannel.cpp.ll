@@ -413,7 +413,7 @@ entry:
   %1 = load i8, ptr %pLinear.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN7Imf_3_216DeepImageChannelC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_sampleListPointers = getelementptr inbounds %"class.Imf_3_2::TypedDeepImageChannel", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_sampleListPointers, align 8
   %_base = getelementptr inbounds %"class.Imf_3_2::TypedDeepImageChannel", ptr %this1, i32 0, i32 2
@@ -462,7 +462,7 @@ entry:
   %1 = load i8, ptr %pLinear.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN7Imf_3_212ImageChannelC2ERNS_10ImageLevelEiib(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef 1, i32 noundef 1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_216DeepImageChannelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_216DeepImageChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -484,7 +484,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIN9Imath_3_24halfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_sampleListPointers = getelementptr inbounds %"class.Imf_3_2::TypedDeepImageChannel", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %isnull = icmp eq ptr %0, null
@@ -1376,7 +1376,7 @@ entry:
   %1 = load i8, ptr %pLinear.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN7Imf_3_216DeepImageChannelC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_sampleListPointers = getelementptr inbounds %"class.Imf_3_2::TypedDeepImageChannel.0", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_sampleListPointers, align 8
   %_base = getelementptr inbounds %"class.Imf_3_2::TypedDeepImageChannel.0", ptr %this1, i32 0, i32 2
@@ -1416,7 +1416,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_sampleListPointers = getelementptr inbounds %"class.Imf_3_2::TypedDeepImageChannel.0", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %isnull = icmp eq ptr %0, null
@@ -2169,7 +2169,7 @@ entry:
   %1 = load i8, ptr %pLinear.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN7Imf_3_216DeepImageChannelC2ERNS_14DeepImageLevelEb(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(192) %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_sampleListPointers = getelementptr inbounds %"class.Imf_3_2::TypedDeepImageChannel.1", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_sampleListPointers, align 8
   %_base = getelementptr inbounds %"class.Imf_3_2::TypedDeepImageChannel.1", ptr %this1, i32 0, i32 2
@@ -2209,7 +2209,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7Imf_3_221TypedDeepImageChannelIjEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_sampleListPointers = getelementptr inbounds %"class.Imf_3_2::TypedDeepImageChannel.1", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_sampleListPointers, align 8
   %isnull = icmp eq ptr %0, null

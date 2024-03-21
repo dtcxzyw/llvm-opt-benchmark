@@ -105,7 +105,7 @@ define void @_ZN18ExportObjectActionC2EP7QObjectP11register_eo(ptr noundef nonnu
   %18 = load ptr, ptr %4, align 8
   %19 = load ptr, ptr %5, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %19)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18ExportObjectAction, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18ExportObjectAction, i32 0, i32 0, i32 2), ptr %18, align 8
   %20 = getelementptr inbounds %class.ExportObjectAction, ptr %18, i32 0, i32 1
   %21 = load ptr, ptr %6, align 8
   store ptr %21, ptr %20, align 8

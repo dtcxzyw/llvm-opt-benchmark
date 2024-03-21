@@ -143,7 +143,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefP
 
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call3.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %InputData.coerce0, i64 %InputData.coerce1
   %BufferStart.i.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   store ptr %InputData.coerce0, ptr %BufferStart.i.i, align 8
@@ -213,7 +213,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZL13CopyStringRefP
 
 _ZN4llvh12MemoryBuffer12getMemBufferENS_9StringRefES1_b.exit: ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i, %if.then.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i.i, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call3.i.i, align 8, !noalias !4
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %retval.sroa.0.0.copyload.i, i64 %retval.sroa.2.0.copyload.i
   %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 8
   store ptr %retval.sroa.0.0.copyload.i, ptr %BufferStart.i.i.i, align 8, !noalias !4
@@ -262,7 +262,7 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 %add2.i.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 %InputData.coerce1
   store i8 0, ptr %arrayidx.i.i, align 1, !noalias !10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !10
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !10
   %BufferStart.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   store ptr %add.ptr7.i.i, ptr %BufferStart.i.i.i.i, align 8, !noalias !10
   %BufferEnd.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 16
@@ -726,7 +726,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZL13CopyStringRefP
 
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i.i), !noalias !29
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i.i, align 8, !noalias !29
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call3.i.i, align 8, !noalias !29
   %MFR.i.i = getelementptr inbounds i8, ptr %call3.i.i, i64 24
   %call.i.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22, !noalias !29
   %13 = add i32 %call.i.i.i.i, -1
@@ -808,7 +808,7 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i35.i: ; preds = %if.then.i.i34.i, %i
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 %add2.i.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 %MapSize.addr.0.i
   store i8 0, ptr %arrayidx.i.i, align 1, !noalias !33
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !33
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !33
   %BufferStart.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   store ptr %add.ptr7.i.i, ptr %BufferStart.i.i.i.i, align 8, !noalias !33
   %BufferEnd.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 16
@@ -957,7 +957,7 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit:       ; preds = %if.end, %if.then.i
   %add.ptr7 = getelementptr inbounds i8, ptr %call6, i64 %add2.i
   %arrayidx = getelementptr inbounds i8, ptr %add.ptr7, i64 %Size
   store i8 0, ptr %arrayidx, align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call6, align 8
   %BufferStart.i.i = getelementptr inbounds i8, ptr %call6, i64 8
   store ptr %add.ptr7, ptr %BufferStart.i.i, align 8
   %BufferEnd.i.i = getelementptr inbounds i8, ptr %call6, i64 16
@@ -1018,7 +1018,7 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i:     ; preds = %if.then.i.i, %if.en
   %add.ptr7.i = getelementptr inbounds i8, ptr %call6.i, i64 %add2.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %Size
   store i8 0, ptr %arrayidx.i, align 1, !noalias !39
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i, align 8, !noalias !39
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !39
   %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store ptr %add.ptr7.i, ptr %BufferStart.i.i.i, align 8, !noalias !39
   %BufferEnd.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 16
@@ -1176,7 +1176,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefP
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
   %11 = load i32, ptr %FD, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call3.i, align 8
   %MFR.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   %call.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %12 = add i32 %call.i.i.i, -1
@@ -1441,7 +1441,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZL13CopyStringRefP
 
 _ZnwmRKN12_GLOBAL__N_116NamedBufferAllocE.exit:   ; preds = %_ZL13CopyStringRefPcN4llvh9StringRefE.exit.i, %if.then.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 272, ptr nonnull %NameBuf.i)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call3.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call3.i, align 8
   %MFR.i = getelementptr inbounds i8, ptr %call3.i, i64 24
   %call.i.i.i = call noundef i32 @_ZN4llvh3sys2fs18mapped_file_region9alignmentEv() #22
   %15 = add i32 %call.i.i.i, -1
@@ -1523,7 +1523,7 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i41:   ; preds = %if.then.i.i40, %if.
   %add.ptr7.i = getelementptr inbounds i8, ptr %call6.i, i64 %add2.i.i
   %arrayidx.i = getelementptr inbounds i8, ptr %add.ptr7.i, i64 %MapSize.addr.0
   store i8 0, ptr %arrayidx.i, align 1, !noalias !42
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i, align 8, !noalias !42
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call6.i, align 8, !noalias !42
   %BufferStart.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 8
   store ptr %add.ptr7.i, ptr %BufferStart.i.i.i, align 8, !noalias !42
   %BufferEnd.i.i.i = getelementptr inbounds i8, ptr %call6.i, i64 16
@@ -1732,7 +1732,7 @@ _ZL13CopyStringRefPcN4llvh9StringRefE.exit.i.i:   ; preds = %if.then.i.i.i, %if.
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 %add2.i.i.i
   %arrayidx.i.i = getelementptr inbounds i8, ptr %add.ptr7.i.i, i64 %conv.i.i.i
   store i8 0, ptr %arrayidx.i.i, align 1, !noalias !51
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !51
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %call6.i.i, align 8, !noalias !51
   %BufferStart.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 8
   store ptr %add.ptr7.i.i, ptr %BufferStart.i.i.i.i, align 8, !noalias !51
   %BufferEnd.i.i.i.i = getelementptr inbounds i8, ptr %call6.i.i, i64 16
@@ -1880,7 +1880,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh23SmallVectorMemoryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh23SmallVectorMemoryBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh23SmallVectorMemoryBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %BufferName = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %BufferName) #22
   %SV = getelementptr inbounds i8, ptr %this, i64 24
@@ -1902,7 +1902,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh23SmallVectorMemoryBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh23SmallVectorMemoryBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh23SmallVectorMemoryBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %BufferName.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %BufferName.i) #22
   %SV.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1976,7 +1976,7 @@ declare void @_ZN4llvh3sys2fs18mapped_file_regionC1EiNS2_7mapmodeEmmRSt10error_c
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %MFR = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR) #22
   ret void
@@ -1985,7 +1985,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %MFR.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -2069,7 +2069,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_catego
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %MFR = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR) #22
   ret void
@@ -2078,7 +2078,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %MFR.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22
@@ -2133,7 +2133,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %MFR = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR) #22
   ret void
@@ -2142,7 +2142,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %MFR.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR.i) #22
   tail call void @_ZdlPv(ptr noundef nonnull %this) #22

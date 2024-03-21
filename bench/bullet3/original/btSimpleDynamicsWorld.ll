@@ -212,7 +212,7 @@ entry:
   %1 = load ptr, ptr %pairCache.addr, align 8
   %2 = load ptr, ptr %collisionConfiguration.addr, align 8
   call void @_ZN15btDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(280) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_constraintSolver = getelementptr inbounds %class.btSimpleDynamicsWorld, ptr %this1, i32 0, i32 1
   %3 = load ptr, ptr %constraintSolver.addr, align 8
   store ptr %3, ptr %m_constraintSolver, align 8
@@ -264,7 +264,7 @@ entry:
   %1 = load ptr, ptr %broadphase.addr, align 8
   %2 = load ptr, ptr %collisionConfiguration.addr, align 8
   call void @_ZN16btCollisionWorldC2EP12btDispatcherP21btBroadphaseInterfaceP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(121) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV15btDynamicsWorld, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV15btDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_internalTickCallback = getelementptr inbounds %class.btDynamicsWorld, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_internalTickCallback, align 8
   %m_internalPreTickCallback = getelementptr inbounds %class.btDynamicsWorld, ptr %this1, i32 0, i32 2
@@ -337,7 +337,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTV21btSimpleDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ownsConstraintSolver = getelementptr inbounds %class.btSimpleDynamicsWorld, ptr %this1, i32 0, i32 2
   %0 = load i8, ptr %m_ownsConstraintSolver, align 8
   %tobool = trunc i8 %0 to i1
@@ -1456,7 +1456,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

@@ -511,7 +511,7 @@ if.then.i.i15:                                    ; preds = %if.then.i12
   br label %_ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrI21grpc_call_credentialsED2Ev.exit, %if.then.i12, %if.then.i.i15
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core27TlsChannelSecurityConnectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core27TlsChannelSecurityConnectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mu_ = getelementptr inbounds i8, ptr %this, i64 56
   %verifier_request_map_mu_ = getelementptr inbounds i8, ptr %this, i64 64
   %options_ = getelementptr inbounds i8, ptr %this, i64 72
@@ -726,7 +726,7 @@ invoke.cont37:                                    ; preds = %invoke.cont32
           to label %invoke.cont41 unwind label %lpad13
 
 invoke.cont41:                                    ; preds = %invoke.cont37
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcherE, i64 0, inrange i32 0, i64 2), ptr %call.i4748, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core27TlsChannelSecurityConnector28TlsChannelCertificateWatcherE, i64 0, i32 0, i64 2), ptr %call.i4748, align 8, !noalias !4
   %security_connector_.i.i = getelementptr inbounds i8, ptr %call.i4748, i64 8
   store ptr %this, ptr %security_connector_.i.i, align 8, !noalias !4
   store ptr %call.i4748, ptr %certificate_watcher_, align 8
@@ -1254,7 +1254,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN31grpc_channel_security_connectorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV31grpc_channel_security_connector, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV31grpc_channel_security_connector, i64 0, i32 0, i64 2), ptr %this, align 8
   %channel_args_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %channel_args_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -1473,7 +1473,7 @@ _ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit: ; preds =
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %verifier_request_map_mu_) #19
   %mu_ = getelementptr inbounds i8, ptr %this, i64 56
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #19
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV31grpc_channel_security_connector, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV31grpc_channel_security_connector, i64 0, i32 0, i64 2), ptr %this, align 8
   %channel_args_.i = getelementptr inbounds i8, ptr %this, i64 48
   %23 = load ptr, ptr %channel_args_.i, align 8
   %cmp.not.i.i12 = icmp eq ptr %23, null
@@ -4559,7 +4559,7 @@ if.then.i.i:                                      ; preds = %if.then.i
   br label %_ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit
 
 _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit: ; preds = %invoke.cont, %if.then.i, %if.then.i.i
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core26TlsServerSecurityConnectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN9grpc_core26TlsServerSecurityConnectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mu_ = getelementptr inbounds i8, ptr %this, i64 40
   %verifier_request_map_mu_ = getelementptr inbounds i8, ptr %this, i64 48
   %options_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -4672,7 +4672,7 @@ if.end:                                           ; preds = %_ZN9grpc_core13RefC
           to label %invoke.cont22 unwind label %lpad10
 
 invoke.cont22:                                    ; preds = %if.end
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcherE, i64 0, inrange i32 0, i64 2), ptr %call.i25, align 8, !noalias !30
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core26TlsServerSecurityConnector27TlsServerCertificateWatcherE, i64 0, i32 0, i64 2), ptr %call.i25, align 8, !noalias !30
   %security_connector_.i.i = getelementptr inbounds i8, ptr %call.i25, i64 8
   store ptr %this, ptr %security_connector_.i.i, align 8, !noalias !30
   store ptr %call.i25, ptr %certificate_watcher_, align 8
@@ -4998,7 +4998,7 @@ if.then.i.i112:                                   ; preds = %if.then.i109
 _ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit: ; preds = %_ZN9grpc_core13RefCountedPtrIN3tsi24TlsSessionKeyLoggerCache19TlsSessionKeyLoggerEED2Ev.exit107, %if.then.i109, %if.then.i.i112
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %verifier_request_map_mu_) #19
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #19
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV30grpc_server_security_connector, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV30grpc_server_security_connector, i64 0, i32 0, i64 2), ptr %this, align 8
   %server_creds_.i = getelementptr inbounds i8, ptr %this, i64 32
   %69 = load ptr, ptr %server_creds_.i, align 8
   %cmp.not.i.i115 = icmp eq ptr %69, null
@@ -5185,7 +5185,7 @@ _ZN9grpc_core13RefCountedPtrI28grpc_tls_credentials_optionsED2Ev.exit: ; preds =
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %verifier_request_map_mu_) #19
   %mu_ = getelementptr inbounds i8, ptr %this, i64 40
   call void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %mu_) #19
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV30grpc_server_security_connector, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV30grpc_server_security_connector, i64 0, i32 0, i64 2), ptr %this, align 8
   %server_creds_.i = getelementptr inbounds i8, ptr %this, i64 32
   %22 = load ptr, ptr %server_creds_.i, align 8
   %cmp.not.i.i10 = icmp eq ptr %22, null
@@ -6824,7 +6824,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, inrange i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

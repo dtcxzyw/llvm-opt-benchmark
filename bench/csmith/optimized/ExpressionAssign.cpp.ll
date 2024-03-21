@@ -121,7 +121,7 @@ define dso_local noundef nonnull ptr @_ZN16ExpressionAssign11make_randomER9CGCon
           to label %25 unwind label %27
 
 25:                                               ; preds = %24
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16ExpressionAssign, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16ExpressionAssign, i64 0, i32 0, i64 2), ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 24
   store ptr %16, ptr %26, align 8
   call void @_ZN12CVQualifiersD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %4) #12
@@ -165,7 +165,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16ExpressionAssignC2EPK15StatementAssign(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16ExpressionAssign, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16ExpressionAssign, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   ret void
@@ -198,7 +198,7 @@ define dso_local noundef nonnull ptr @_ZNK16ExpressionAssign5cloneEv(ptr nocaptu
           to label %5 unwind label %7
 
 5:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16ExpressionAssign, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV16ExpressionAssign, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   store ptr %4, ptr %6, align 8
   ret ptr %2

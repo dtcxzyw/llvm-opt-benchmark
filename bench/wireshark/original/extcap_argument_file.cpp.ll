@@ -243,7 +243,7 @@ define void @_ZN27ExtcapArgumentFileSelectionC2EP11_extcap_argP7QObject(ptr noun
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27ExtcapArgumentFileSelection, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27ExtcapArgumentFileSelection, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.ExtcapArgumentFileSelection, ptr %7, i32 0, i32 1
   store ptr null, ptr %10, align 8
   ret void
@@ -256,7 +256,7 @@ define void @_ZN27ExtcapArgumentFileSelectionD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27ExtcapArgumentFileSelection, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27ExtcapArgumentFileSelection, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ExtcapArgumentFileSelection, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null

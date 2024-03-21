@@ -751,7 +751,7 @@ define void @_ZN15ExtArgTimestampC2EP11_extcap_argP7QObject(ptr noundef nonnull 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV15ExtArgTimestamp, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV15ExtArgTimestamp, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.ExtArgTimestamp, ptr %7, i32 0, i32 1
   call void @_ZN9QDateTimeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #14
   %11 = getelementptr inbounds %class.ExtArgTimestamp, ptr %7, i32 0, i32 2
@@ -774,7 +774,7 @@ define void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull a
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtcapArgument, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtcapArgument, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.ExtcapArgument, ptr %11, i32 0, i32 1
   call void @_ZN5QListI11ExtcapValueEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #14
   %14 = getelementptr inbounds %class.ExtcapArgument, ptr %11, i32 0, i32 2
@@ -1596,7 +1596,7 @@ define void @_ZN14ExtArgSelectorC2EP11_extcap_argP7QObject(ptr noundef nonnull a
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtArgSelector, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtArgSelector, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.ExtArgSelector, ptr %7, i32 0, i32 1
   store ptr null, ptr %10, align 8
   ret void
@@ -3201,7 +3201,7 @@ define void @_ZN18ExtArgEditSelectorC2EP11_extcap_argP7QObject(ptr noundef nonnu
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN14ExtArgSelectorC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18ExtArgEditSelector, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18ExtArgEditSelector, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -3425,7 +3425,7 @@ define void @_ZN11ExtArgRadioC2EP11_extcap_argP7QObject(ptr noundef nonnull alig
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV11ExtArgRadio, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV11ExtArgRadio, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.ExtArgRadio, ptr %7, i32 0, i32 1
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds %class.ExtArgRadio, ptr %7, i32 0, i32 2
@@ -3438,7 +3438,7 @@ define void @_ZN11ExtArgRadioD2Ev(ptr noundef nonnull align 8 dereferenceable(10
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV11ExtArgRadio, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV11ExtArgRadio, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ExtArgRadio, ptr %3, i32 0, i32 2
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
@@ -3478,7 +3478,7 @@ define void @_ZN14ExtcapArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtcapArgument, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtcapArgument, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ExtcapArgument, ptr %3, i32 0, i32 2
   %5 = load ptr, ptr %4, align 8
   invoke void @extcap_free_arg(ptr noundef %5)
@@ -4260,7 +4260,7 @@ define void @_ZN10ExtArgBoolC2EP11_extcap_argP7QObject(ptr noundef nonnull align
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV10ExtArgBool, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV10ExtArgBool, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.ExtArgBool, ptr %7, i32 0, i32 1
   store ptr null, ptr %10, align 8
   ret void
@@ -4893,7 +4893,7 @@ define void @_ZN10ExtArgTextC2EP11_extcap_argP7QObject(ptr noundef nonnull align
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV10ExtArgText, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV10ExtArgText, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.ExtArgText, ptr %7, i32 0, i32 1
   store ptr null, ptr %10, align 8
   ret void
@@ -5675,7 +5675,7 @@ define void @_ZN12ExtArgNumberC2EP11_extcap_argP7QObject(ptr noundef nonnull ali
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN10ExtArgTextC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV12ExtArgNumber, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV12ExtArgNumber, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -6452,7 +6452,7 @@ define void @_ZN11ExtcapValueD2Ev(ptr noundef nonnull align 8 dereferenceable(88
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ExtcapValue, ptr %3, i32 0, i32 6
   call void @_ZN5QListI11ExtcapValueED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = getelementptr inbounds %class.ExtcapValue, ptr %3, i32 0, i32 2
@@ -6627,7 +6627,7 @@ define void @_ZN14ExtcapArgumentC2EP7QObject(ptr noundef nonnull align 8 derefer
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtcapArgument, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtcapArgument, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.ExtcapArgument, ptr %7, i32 0, i32 1
   call void @_ZN5QListI11ExtcapValueEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #14
   %10 = getelementptr inbounds %class.ExtcapArgument, ptr %7, i32 0, i32 2
@@ -7010,7 +7010,7 @@ define void @_ZN14ExtcapArgumentC2ERKS_(ptr noundef nonnull align 8 dereferencea
   %10 = load ptr, ptr %4, align 8
   %11 = call noundef ptr @_ZNK7QObject6parentEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtcapArgument, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV14ExtcapArgument, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.ExtcapArgument, ptr %9, i32 0, i32 1
   call void @_ZN5QListI11ExtcapValueEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #14
   %13 = getelementptr inbounds %class.ExtcapArgument, ptr %9, i32 0, i32 2
@@ -7152,7 +7152,7 @@ define linkonce_odr void @_ZN11ExtcapValueC2E7QStringS0_bb(ptr noundef nonnull a
   %12 = zext i1 %4 to i8
   store i8 %12, ptr %10, align 1
   %13 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 1
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1) #14
   %15 = getelementptr inbounds %class.ExtcapValue, ptr %13, i32 0, i32 2
@@ -12675,7 +12675,7 @@ define linkonce_odr void @_ZN11ExtcapValueC2ERKS_(ptr noundef nonnull align 8 de
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %class.ExtcapValue, ptr %7, i32 0, i32 1

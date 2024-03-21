@@ -472,7 +472,7 @@ define dso_local void @_ZN17ClientEnvironmentC2EP9ClientMapP14ITextureSourceP6Cl
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = select i1 %5, ptr null, ptr %6
   tail call void @_ZN11EnvironmentC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17ClientEnvironment, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17ClientEnvironment, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %8 = getelementptr inbounds i8, ptr %0, i64 112
   store ptr %1, ptr %8, align 8, !tbaa !14
   %9 = getelementptr inbounds i8, ptr %0, i64 120
@@ -484,7 +484,7 @@ define dso_local void @_ZN17ClientEnvironmentC2EP9ClientMapP14ITextureSourceP6Cl
   %12 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %12, align 8, !tbaa !57
   %13 = getelementptr inbounds i8, ptr %0, i64 152
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 0, inrange i32 0, i64 2), ptr %13, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 0, i32 0, i64 2), ptr %13, align 8, !tbaa !12
   %14 = getelementptr inbounds i8, ptr %0, i64 168
   store i32 0, ptr %14, align 8, !tbaa !58
   %15 = getelementptr inbounds i8, ptr %0, i64 176
@@ -530,7 +530,7 @@ define dso_local void @_ZN17ClientEnvironmentC2EP9ClientMapP14ITextureSourceP6Cl
   br label %51
 
 34:                                               ; preds = %4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6client15ActiveObjectMgrE, i64 0, inrange i32 0, i64 2), ptr %13, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6client15ActiveObjectMgrE, i64 0, i32 0, i64 2), ptr %13, align 8, !tbaa !12
   %35 = getelementptr inbounds i8, ptr %0, i64 272
   %36 = getelementptr inbounds i8, ptr %0, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %35, i8 0, i64 104, i1 false)
@@ -581,7 +581,7 @@ declare void @_ZN6client15ActiveObjectMgrD1Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17ClientEnvironmentD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17ClientEnvironment, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17ClientEnvironment, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   invoke void @_ZN15ActiveObjectMgrI18ClientActiveObjectE5clearEv(ptr noundef nonnull align 8 dereferenceable(120) %2)
           to label %3 unwind label %66
@@ -1682,7 +1682,7 @@ define dso_local void @_ZN17ClientEnvironment4stepEf(ptr noundef nonnull align 8
           to label %418 unwind label %423
 
 418:                                              ; preds = %416
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %417, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %417, align 8, !tbaa !12
   %419 = getelementptr inbounds i8, ptr %417, i64 8
   store i8 3, ptr %419, align 8, !tbaa !224
   %420 = load ptr, ptr %415, align 8, !tbaa !12
@@ -4427,7 +4427,7 @@ define internal void @__cxx_global_var_init.33() #21 section ".text.startup" com
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ActiveObjectMgrI18ClientActiveObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV15ActiveObjectMgrI18ClientActiveObjectE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
   %4 = load i32, ptr %3, align 8, !tbaa !63

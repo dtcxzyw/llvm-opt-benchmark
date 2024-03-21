@@ -2878,7 +2878,7 @@ define hidden void @_ZN5ceres14SubsetManifoldC2EiRKSt6vectorIiSaIiEE(ptr noundef
   store ptr %2, ptr %6, align 8
   %30 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8ManifoldC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #13
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres14SubsetManifoldE, i32 0, inrange i32 0, i32 2), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres14SubsetManifoldE, i32 0, i32 0, i32 2), ptr %30, align 8
   %31 = getelementptr inbounds %"class.ceres::SubsetManifold", ptr %30, i32 0, i32 1
   %32 = load i32, ptr %5, align 4
   %33 = sext i32 %32 to i64
@@ -3230,7 +3230,7 @@ define linkonce_odr hidden void @_ZN5ceres8ManifoldC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres8ManifoldE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5ceres8ManifoldE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6132,7 +6132,7 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6146,7 +6146,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

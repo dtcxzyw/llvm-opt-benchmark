@@ -681,7 +681,7 @@ define dso_local void @_ZN20cmFindProgramCommandC2ER17cmExecutionStatus(ptr noun
 16:                                               ; preds = %14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20cmFindProgramCommand, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20cmFindProgramCommand, i32 0, i32 0, i32 2), ptr %13, align 8
   %17 = getelementptr inbounds %class.cmFindBase, ptr %13, i32 0, i32 8
   store i8 1, ptr %17, align 1
   %18 = getelementptr inbounds %class.cmFindBase, ptr %13, i32 0, i32 3
@@ -950,7 +950,7 @@ define linkonce_odr dso_local void @_ZN10cmFindBaseD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10cmFindBase, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10cmFindBase, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmFindBase, ptr %3, i32 0, i32 14
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmFindBase, ptr %3, i32 0, i32 9

@@ -339,7 +339,7 @@ entry:
   %0 = load i64, ptr %id.addr, align 8
   %1 = load ptr, ptr %meta.addr, align 8
   call void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base19PersistentSampleMapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base19PersistentSampleMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sample_counts_ = getelementptr inbounds %"class.base::PersistentSampleMap", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %sample_counts_) #10
   %allocator_ = getelementptr inbounds %"class.base::PersistentSampleMap", ptr %this1, i32 0, i32 2
@@ -369,7 +369,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base19PersistentSampleMapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4base19PersistentSampleMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %records_ = getelementptr inbounds %"class.base::PersistentSampleMap", ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %records_, align 8
   %tobool = icmp ne ptr %0, null
@@ -957,7 +957,7 @@ entry:
   store ptr %sample_counts, ptr %sample_counts.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base19SampleCountIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base12_GLOBAL__N_127PersistentSampleMapIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base12_GLOBAL__N_127PersistentSampleMapIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %iter_ = getelementptr inbounds %"class.base::(anonymous namespace)::PersistentSampleMapIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %sample_counts.addr, align 8
   %call = call ptr @_ZNKSt3mapIiPiSt4lessIiESaISt4pairIKiS0_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %0) #10
@@ -1924,7 +1924,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

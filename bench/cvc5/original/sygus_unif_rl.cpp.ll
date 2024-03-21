@@ -4385,7 +4385,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers9SygusUnifC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(193) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRlE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRlE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_parent = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifRl", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %p.addr, align 8
   store ptr %1, ptr %d_parent, align 8
@@ -4489,7 +4489,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRlE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRlE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_cond_enums = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifRl", ptr %this1, i32 0, i32 13
   call void @_ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_cond_enums) #3
   %d_cand_cenums = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifRl", ptr %this1, i32 0, i32 12
@@ -23972,7 +23972,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_eval_cond_hd = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifRl::DecisionTreeInfo::PointSeparator", ptr %this1, i32 0, i32 3
   call void @_ZNSt3mapISt4pairIN4cvc58internal12NodeTemplateILb1EEES4_ES4_St4lessIS5_ESaIS0_IKS5_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_eval_cond_hd) #3
   %d_trie = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifRl::DecisionTreeInfo::PointSeparator", ptr %this1, i32 0, i32 1
@@ -44324,7 +44324,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers17LazyTrieEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_trie = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifRl::DecisionTreeInfo::PointSeparator", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal6theory11quantifiers13LazyTrieMultiC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %d_trie)
           to label %invoke.cont unwind label %lpad
@@ -44360,7 +44360,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17LazyTrieEvaluatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17LazyTrieEvaluatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

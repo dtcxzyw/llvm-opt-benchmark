@@ -1075,7 +1075,7 @@ define hidden void @_ZN7nanogui7TextureD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::Texture", ptr %3, i32 0, i32 10
   invoke void @glDeleteTextures(i32 noundef 1, ptr noundef %4)
           to label %5 unwind label %8

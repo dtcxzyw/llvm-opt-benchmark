@@ -1642,7 +1642,7 @@ entry:
 
 sw.bb1:                                           ; preds = %entry
   %exception = call ptr @__cxa_allocate_exception(i64 8) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf815not_enough_roomE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf815not_enough_roomE, i64 0, i32 0, i64 2), ptr %exception, align 8
   call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf815not_enough_roomE, ptr nonnull @_ZN4utf815not_enough_roomD2Ev) #17
   unreachable
 
@@ -1650,7 +1650,7 @@ sw.bb2:                                           ; preds = %entry, %entry, %ent
   %exception3 = call ptr @__cxa_allocate_exception(i64 16) #18
   %0 = load ptr, ptr %it, align 8
   %1 = load i8, ptr %0, align 1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf812invalid_utf8E, i64 0, inrange i32 0, i64 2), ptr %exception3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf812invalid_utf8E, i64 0, i32 0, i64 2), ptr %exception3, align 8
   %u8.i = getelementptr inbounds i8, ptr %exception3, i64 8
   store i8 %1, ptr %u8.i, align 8
   call void @__cxa_throw(ptr nonnull %exception3, ptr nonnull @_ZTIN4utf812invalid_utf8E, ptr nonnull @_ZN4utf812invalid_utf8D2Ev) #17
@@ -1659,7 +1659,7 @@ sw.bb2:                                           ; preds = %entry, %entry, %ent
 sw.bb4:                                           ; preds = %entry
   %exception5 = call ptr @__cxa_allocate_exception(i64 16) #18
   %2 = load i32, ptr %cp, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i64 0, inrange i32 0, i64 2), ptr %exception5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i64 0, i32 0, i64 2), ptr %exception5, align 8
   %cp.i = getelementptr inbounds i8, ptr %exception5, i64 8
   store i32 %2, ptr %cp.i, align 8
   call void @__cxa_throw(ptr nonnull %exception5, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZN4utf818invalid_code_pointD2Ev) #17
@@ -1944,7 +1944,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i64 0, i32 0, i64 2), ptr %exception, align 8
   %cp.i = getelementptr inbounds i8, ptr %exception, i64 8
   store i32 %cp, ptr %cp.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf818invalid_code_pointE, ptr nonnull @_ZN4utf818invalid_code_pointD2Ev) #17
@@ -2057,7 +2057,7 @@ if.then8:                                         ; preds = %if.then3
 
 if.else:                                          ; preds = %if.then3
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, i32 0, i64 2), ptr %exception, align 8
   %u16.i = getelementptr inbounds i8, ptr %exception, i64 8
   store i16 %1, ptr %u16.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #17
@@ -2065,7 +2065,7 @@ if.else:                                          ; preds = %if.then3
 
 if.else11:                                        ; preds = %if.then
   %exception12 = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, inrange i32 0, i64 2), ptr %exception12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, i32 0, i64 2), ptr %exception12, align 8
   %u16.i12 = getelementptr inbounds i8, ptr %exception12, i64 8
   store i16 %0, ptr %u16.i12, align 8
   tail call void @__cxa_throw(ptr nonnull %exception12, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #17
@@ -2073,7 +2073,7 @@ if.else11:                                        ; preds = %if.then
 
 if.then19:                                        ; preds = %while.body
   %exception20 = tail call ptr @__cxa_allocate_exception(i64 16) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, inrange i32 0, i64 2), ptr %exception20, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i64 0, i32 0, i64 2), ptr %exception20, align 8
   %u16.i13 = getelementptr inbounds i8, ptr %exception20, i64 8
   store i16 %0, ptr %u16.i13, align 8
   tail call void @__cxa_throw(ptr nonnull %exception20, ptr nonnull @_ZTIN4utf813invalid_utf16E, ptr nonnull @_ZN4utf813invalid_utf16D2Ev) #17

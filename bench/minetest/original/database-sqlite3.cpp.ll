@@ -1209,7 +1209,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt4endlIcSt11char_trai
 define dso_local void @_ZN16Database_SQLite3C2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16Database_SQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16Database_SQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr null, ptr %6, align 8, !tbaa !42
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1866,7 +1866,7 @@ declare ptr @sqlite3_errmsg(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17DatabaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -1919,7 +1919,7 @@ define linkonce_odr dso_local void @_ZN17DatabaseExceptionC2ERKNSt7__cxx1112basi
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DatabaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DatabaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   ret void
 }
 
@@ -3684,7 +3684,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20FileNotGoodExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -3737,13 +3737,13 @@ define linkonce_odr dso_local void @_ZN20FileNotGoodExceptionC2ERKNSt7__cxx1112b
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20FileNotGoodException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20FileNotGoodException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -3780,7 +3780,7 @@ declare i32 @sqlite3_prepare_v2(ptr noundef, ptr noundef, i32 noundef, ptr nound
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN16Database_SQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16Database_SQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16Database_SQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   %4 = invoke i32 @sqlite3_finalize(ptr noundef %3)
@@ -4255,8 +4255,8 @@ define dso_local void @_ZN18MapDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcSt
 14:                                               ; preds = %13, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
   %15 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr] }, ptr @_ZTV18MapDatabaseSQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr] }, ptr @_ZTV18MapDatabaseSQLite3, i64 0, inrange i32 1, i64 2), ptr %15, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr] }, ptr @_ZTV18MapDatabaseSQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr] }, ptr @_ZTV18MapDatabaseSQLite3, i64 0, i32 1, i64 2), ptr %15, align 8, !tbaa !29
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %16, i8 0, i64 32, i1 false)
   ret void
@@ -4288,9 +4288,9 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN18MapDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr] }, ptr @_ZTV18MapDatabaseSQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr] }, ptr @_ZTV18MapDatabaseSQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr] }, ptr @_ZTV18MapDatabaseSQLite3, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [13 x ptr], [11 x ptr] }, ptr @_ZTV18MapDatabaseSQLite3, i64 0, i32 1, i64 2), ptr %2, align 8, !tbaa !29
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !73
   %5 = invoke i32 @sqlite3_finalize(ptr noundef %4)
@@ -6457,8 +6457,8 @@ define dso_local void @_ZN21PlayerDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringI
 14:                                               ; preds = %13, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
   %15 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTV21PlayerDatabaseSQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTV21PlayerDatabaseSQLite3, i64 0, inrange i32 1, i64 2), ptr %15, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTV21PlayerDatabaseSQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTV21PlayerDatabaseSQLite3, i64 0, i32 1, i64 2), ptr %15, align 8, !tbaa !29
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %16, i8 0, i64 112, i1 false)
   ret void
@@ -6487,9 +6487,9 @@ define dso_local void @_ZN21PlayerDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringI
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN21PlayerDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTV21PlayerDatabaseSQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTV21PlayerDatabaseSQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTV21PlayerDatabaseSQLite3, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTV21PlayerDatabaseSQLite3, i64 0, i32 1, i64 2), ptr %2, align 8, !tbaa !29
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !92
   %5 = invoke i32 @sqlite3_finalize(ptr noundef %4)
@@ -11993,7 +11993,7 @@ define dso_local void @_ZN21PlayerDatabaseSQLite310savePlayerEP12RemotePlayer(pt
   %601 = getelementptr inbounds i8, ptr %20, i64 %600
   store ptr %598, ptr %601, align 8, !tbaa !29
   %602 = getelementptr inbounds i8, ptr %20, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %602, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %602, align 8, !tbaa !29
   %603 = getelementptr inbounds i8, ptr %20, i64 80
   %604 = load ptr, ptr %603, align 8, !tbaa !11
   %605 = getelementptr inbounds i8, ptr %20, i64 96
@@ -12012,7 +12012,7 @@ define dso_local void @_ZN21PlayerDatabaseSQLite310savePlayerEP12RemotePlayer(pt
   br label %612
 
 612:                                              ; preds = %611, %607
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %602, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %602, align 8, !tbaa !29
   %613 = getelementptr inbounds i8, ptr %20, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %613) #28
   %614 = getelementptr inbounds i8, ptr %20, i64 112
@@ -12865,8 +12865,8 @@ define dso_local void @_ZN19AuthDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcS
 14:                                               ; preds = %13, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
   %15 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [16 x ptr], [10 x ptr] }, ptr @_ZTV19AuthDatabaseSQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
-  store ptr getelementptr inbounds ({ [16 x ptr], [10 x ptr] }, ptr @_ZTV19AuthDatabaseSQLite3, i64 0, inrange i32 1, i64 2), ptr %15, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr], [10 x ptr] }, ptr @_ZTV19AuthDatabaseSQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr], [10 x ptr] }, ptr @_ZTV19AuthDatabaseSQLite3, i64 0, i32 1, i64 2), ptr %15, align 8, !tbaa !29
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %16, i8 0, i64 72, i1 false)
   ret void
@@ -12895,9 +12895,9 @@ define dso_local void @_ZN19AuthDatabaseSQLite3C2ERKNSt7__cxx1112basic_stringIcS
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN19AuthDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr], [10 x ptr] }, ptr @_ZTV19AuthDatabaseSQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr], [10 x ptr] }, ptr @_ZTV19AuthDatabaseSQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [16 x ptr], [10 x ptr] }, ptr @_ZTV19AuthDatabaseSQLite3, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [16 x ptr], [10 x ptr] }, ptr @_ZTV19AuthDatabaseSQLite3, i64 0, i32 1, i64 2), ptr %2, align 8, !tbaa !29
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8, !tbaa !250
   %5 = invoke i32 @sqlite3_finalize(ptr noundef %4)
@@ -16051,8 +16051,8 @@ define dso_local void @_ZN25ModStorageDatabaseSQLite3C2ERKNSt7__cxx1112basic_str
 14:                                               ; preds = %13, %10
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3) #28
   %15 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
-  store ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 0, inrange i32 1, i64 2), ptr %15, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 0, i32 1, i64 2), ptr %15, align 8, !tbaa !29
   %16 = getelementptr inbounds i8, ptr %0, i64 128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %16, i8 0, i64 56, i1 false)
   ret void
@@ -16081,9 +16081,9 @@ define dso_local void @_ZN25ModStorageDatabaseSQLite3C2ERKNSt7__cxx1112basic_str
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN25ModStorageDatabaseSQLite3D2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTV25ModStorageDatabaseSQLite3, i64 0, i32 1, i64 2), ptr %2, align 8, !tbaa !29
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8, !tbaa !266
   %5 = invoke i32 @sqlite3_finalize(ptr noundef %4)
@@ -19812,7 +19812,7 @@ declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17DatabaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19845,7 +19845,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13BaseException4whatEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -19874,7 +19874,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20FileNotGoodExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -20002,7 +20002,7 @@ define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1Ev(ptr noundef nonnu
   %3 = alloca %"struct.std::__detail::_AllocNode", align 8
   %4 = alloca %"class.std::unordered_map.137", align 8
   %5 = alloca %"class.std::unordered_map.151", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9IMetadata, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9IMetadata, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !29
   %6 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT17ItemStackMetadata, i64 0, i64 1), align 8
   store ptr %6, ptr %0, align 8, !tbaa !29
   %7 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT17ItemStackMetadata, i64 0, i64 2), align 8
@@ -20023,7 +20023,7 @@ define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1Ev(ptr noundef nonnu
   store float 1.000000e+00, ptr %16, align 8, !tbaa !279
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, inrange i32 0, i64 10), ptr %0, align 8, !tbaa !29
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, i32 0, i64 10), ptr %0, align 8, !tbaa !29
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %18, align 8, !tbaa !280
   %19 = getelementptr inbounds i8, ptr %0, i64 80

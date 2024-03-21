@@ -216,7 +216,7 @@ define noundef i64 @_Z19fast_rv32i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -430,7 +430,7 @@ define noundef i64 @_Z19fast_rv32i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %123, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %110, i64 40
   store i64 %128, ptr %135, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %110, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %110, align 8
   invoke void @__cxa_throw(ptr nonnull %110, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #18
           to label %248 unwind label %241
 
@@ -480,7 +480,7 @@ define noundef i64 @_Z19fast_rv32i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %154, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %141, i64 40
   store i64 %159, ptr %166, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, inrange i32 0, i64 2), ptr %141, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %141, align 8
   invoke void @__cxa_throw(ptr nonnull %141, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #18
           to label %248 unwind label %236
 
@@ -530,7 +530,7 @@ define noundef i64 @_Z19fast_rv32i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %185, ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %172, i64 40
   store i64 %190, ptr %197, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, inrange i32 0, i64 2), ptr %172, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %172, align 8
   invoke void @__cxa_throw(ptr nonnull %172, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #18
           to label %248 unwind label %231
 
@@ -573,7 +573,7 @@ define noundef i64 @_Z19fast_rv32i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %212, ptr %222, align 8
   %223 = getelementptr inbounds i8, ptr %203, i64 40
   store i64 %217, ptr %223, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, inrange i32 0, i64 2), ptr %203, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %203, align 8
   invoke void @__cxa_throw(ptr nonnull %203, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #18
           to label %248 unwind label %226
 
@@ -714,7 +714,7 @@ define noundef i64 @_Z19fast_rv64i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -928,7 +928,7 @@ define noundef i64 @_Z19fast_rv64i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %123, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %110, i64 40
   store i64 %128, ptr %135, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %110, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %110, align 8
   invoke void @__cxa_throw(ptr nonnull %110, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #18
           to label %248 unwind label %241
 
@@ -978,7 +978,7 @@ define noundef i64 @_Z19fast_rv64i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %154, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %141, i64 40
   store i64 %159, ptr %166, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, inrange i32 0, i64 2), ptr %141, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %141, align 8
   invoke void @__cxa_throw(ptr nonnull %141, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #18
           to label %248 unwind label %236
 
@@ -1028,7 +1028,7 @@ define noundef i64 @_Z19fast_rv64i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %185, ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %172, i64 40
   store i64 %190, ptr %197, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, inrange i32 0, i64 2), ptr %172, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %172, align 8
   invoke void @__cxa_throw(ptr nonnull %172, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #18
           to label %248 unwind label %231
 
@@ -1071,7 +1071,7 @@ define noundef i64 @_Z19fast_rv64i_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %212, ptr %222, align 8
   %223 = getelementptr inbounds i8, ptr %203, i64 40
   store i64 %217, ptr %223, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, inrange i32 0, i64 2), ptr %203, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %203, align 8
   invoke void @__cxa_throw(ptr nonnull %203, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #18
           to label %248 unwind label %226
 
@@ -1194,7 +1194,7 @@ define noundef i64 @_Z21logged_rv32i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -1408,7 +1408,7 @@ define noundef i64 @_Z21logged_rv32i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %123, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %110, i64 40
   store i64 %128, ptr %135, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %110, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %110, align 8
   invoke void @__cxa_throw(ptr nonnull %110, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #18
           to label %247 unwind label %241
 
@@ -1458,7 +1458,7 @@ define noundef i64 @_Z21logged_rv32i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %154, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %141, i64 40
   store i64 %159, ptr %166, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, inrange i32 0, i64 2), ptr %141, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %141, align 8
   invoke void @__cxa_throw(ptr nonnull %141, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #18
           to label %247 unwind label %236
 
@@ -1508,7 +1508,7 @@ define noundef i64 @_Z21logged_rv32i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %185, ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %172, i64 40
   store i64 %190, ptr %197, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, inrange i32 0, i64 2), ptr %172, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %172, align 8
   invoke void @__cxa_throw(ptr nonnull %172, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #18
           to label %247 unwind label %231
 
@@ -1551,7 +1551,7 @@ define noundef i64 @_Z21logged_rv32i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %212, ptr %222, align 8
   %223 = getelementptr inbounds i8, ptr %203, i64 40
   store i64 %217, ptr %223, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, inrange i32 0, i64 2), ptr %203, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %203, align 8
   invoke void @__cxa_throw(ptr nonnull %203, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #18
           to label %247 unwind label %226
 
@@ -1733,7 +1733,7 @@ define noundef i64 @_Z21logged_rv64i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -1947,7 +1947,7 @@ define noundef i64 @_Z21logged_rv64i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %123, ptr %134, align 8
   %135 = getelementptr inbounds i8, ptr %110, i64 40
   store i64 %128, ptr %135, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %110, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %110, align 8
   invoke void @__cxa_throw(ptr nonnull %110, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #18
           to label %247 unwind label %241
 
@@ -1997,7 +1997,7 @@ define noundef i64 @_Z21logged_rv64i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %154, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %141, i64 40
   store i64 %159, ptr %166, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, inrange i32 0, i64 2), ptr %141, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %141, align 8
   invoke void @__cxa_throw(ptr nonnull %141, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #18
           to label %247 unwind label %236
 
@@ -2047,7 +2047,7 @@ define noundef i64 @_Z21logged_rv64i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %185, ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %172, i64 40
   store i64 %190, ptr %197, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, inrange i32 0, i64 2), ptr %172, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %172, align 8
   invoke void @__cxa_throw(ptr nonnull %172, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #18
           to label %247 unwind label %231
 
@@ -2090,7 +2090,7 @@ define noundef i64 @_Z21logged_rv64i_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %212, ptr %222, align 8
   %223 = getelementptr inbounds i8, ptr %203, i64 40
   store i64 %217, ptr %223, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, inrange i32 0, i64 2), ptr %203, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %203, align 8
   invoke void @__cxa_throw(ptr nonnull %203, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #18
           to label %247 unwind label %226
 
@@ -2270,7 +2270,7 @@ define noundef i64 @_Z19fast_rv32e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -2290,7 +2290,7 @@ define noundef i64 @_Z19fast_rv32e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   store i64 %1, ptr %25, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -2390,7 +2390,7 @@ define noundef i64 @_Z19fast_rv32e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %73, i64 24
   store i64 %1, ptr %76, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %73, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %73, align 8
   invoke void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
           to label %.noexc77.i unwind label %116
 
@@ -2519,7 +2519,7 @@ define noundef i64 @_Z19fast_rv32e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %137, ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %124, i64 40
   store i64 %142, ptr %149, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %124, align 8
   invoke void @__cxa_throw(ptr nonnull %124, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #18
           to label %262 unwind label %255
 
@@ -2569,7 +2569,7 @@ define noundef i64 @_Z19fast_rv32e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %168, ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %155, i64 40
   store i64 %173, ptr %180, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, inrange i32 0, i64 2), ptr %155, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %155, align 8
   invoke void @__cxa_throw(ptr nonnull %155, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #18
           to label %262 unwind label %250
 
@@ -2619,7 +2619,7 @@ define noundef i64 @_Z19fast_rv32e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %199, ptr %210, align 8
   %211 = getelementptr inbounds i8, ptr %186, i64 40
   store i64 %204, ptr %211, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, inrange i32 0, i64 2), ptr %186, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %186, align 8
   invoke void @__cxa_throw(ptr nonnull %186, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #18
           to label %262 unwind label %245
 
@@ -2662,7 +2662,7 @@ define noundef i64 @_Z19fast_rv32e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %226, ptr %236, align 8
   %237 = getelementptr inbounds i8, ptr %217, i64 40
   store i64 %231, ptr %237, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, inrange i32 0, i64 2), ptr %217, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %217, align 8
   invoke void @__cxa_throw(ptr nonnull %217, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #18
           to label %262 unwind label %240
 
@@ -2762,7 +2762,7 @@ define noundef i64 @_Z19fast_rv32e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %269, align 8
   %270 = getelementptr inbounds i8, ptr %267, i64 24
   store i64 %1, ptr %270, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %267, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %267, align 8
   call void @__cxa_throw(ptr nonnull %267, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -2803,7 +2803,7 @@ define noundef i64 @_Z19fast_rv64e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -2823,7 +2823,7 @@ define noundef i64 @_Z19fast_rv64e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   store i64 %1, ptr %25, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -2923,7 +2923,7 @@ define noundef i64 @_Z19fast_rv64e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %73, i64 24
   store i64 %1, ptr %76, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %73, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %73, align 8
   invoke void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
           to label %.noexc77.i unwind label %116
 
@@ -3052,7 +3052,7 @@ define noundef i64 @_Z19fast_rv64e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %137, ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %124, i64 40
   store i64 %142, ptr %149, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %124, align 8
   invoke void @__cxa_throw(ptr nonnull %124, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #18
           to label %262 unwind label %255
 
@@ -3102,7 +3102,7 @@ define noundef i64 @_Z19fast_rv64e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %168, ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %155, i64 40
   store i64 %173, ptr %180, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, inrange i32 0, i64 2), ptr %155, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %155, align 8
   invoke void @__cxa_throw(ptr nonnull %155, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #18
           to label %262 unwind label %250
 
@@ -3152,7 +3152,7 @@ define noundef i64 @_Z19fast_rv64e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %199, ptr %210, align 8
   %211 = getelementptr inbounds i8, ptr %186, i64 40
   store i64 %204, ptr %211, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, inrange i32 0, i64 2), ptr %186, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %186, align 8
   invoke void @__cxa_throw(ptr nonnull %186, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #18
           to label %262 unwind label %245
 
@@ -3195,7 +3195,7 @@ define noundef i64 @_Z19fast_rv64e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i64 %226, ptr %236, align 8
   %237 = getelementptr inbounds i8, ptr %217, i64 40
   store i64 %231, ptr %237, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, inrange i32 0, i64 2), ptr %217, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %217, align 8
   invoke void @__cxa_throw(ptr nonnull %217, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #18
           to label %262 unwind label %240
 
@@ -3295,7 +3295,7 @@ define noundef i64 @_Z19fast_rv64e_amoxor_hP11processor_t6insn_tm(ptr nocapture 
   store i8 0, ptr %269, align 8
   %270 = getelementptr inbounds i8, ptr %267, i64 24
   store i64 %1, ptr %270, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %267, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %267, align 8
   call void @__cxa_throw(ptr nonnull %267, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -3334,7 +3334,7 @@ define noundef i64 @_Z21logged_rv32e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -3354,7 +3354,7 @@ define noundef i64 @_Z21logged_rv32e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   store i64 %1, ptr %25, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -3454,7 +3454,7 @@ define noundef i64 @_Z21logged_rv32e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %73, i64 24
   store i64 %1, ptr %76, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %73, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %73, align 8
   invoke void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
           to label %.noexc77.i unwind label %116
 
@@ -3583,7 +3583,7 @@ define noundef i64 @_Z21logged_rv32e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %137, ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %124, i64 40
   store i64 %142, ptr %149, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %124, align 8
   invoke void @__cxa_throw(ptr nonnull %124, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #18
           to label %261 unwind label %255
 
@@ -3633,7 +3633,7 @@ define noundef i64 @_Z21logged_rv32e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %168, ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %155, i64 40
   store i64 %173, ptr %180, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, inrange i32 0, i64 2), ptr %155, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %155, align 8
   invoke void @__cxa_throw(ptr nonnull %155, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #18
           to label %261 unwind label %250
 
@@ -3683,7 +3683,7 @@ define noundef i64 @_Z21logged_rv32e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %199, ptr %210, align 8
   %211 = getelementptr inbounds i8, ptr %186, i64 40
   store i64 %204, ptr %211, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, inrange i32 0, i64 2), ptr %186, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %186, align 8
   invoke void @__cxa_throw(ptr nonnull %186, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #18
           to label %261 unwind label %245
 
@@ -3726,7 +3726,7 @@ define noundef i64 @_Z21logged_rv32e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %226, ptr %236, align 8
   %237 = getelementptr inbounds i8, ptr %217, i64 40
   store i64 %231, ptr %237, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, inrange i32 0, i64 2), ptr %217, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %217, align 8
   invoke void @__cxa_throw(ptr nonnull %217, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #18
           to label %261 unwind label %240
 
@@ -3884,7 +3884,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i8 0, ptr %294, align 8
   %295 = getelementptr inbounds i8, ptr %292, i64 24
   store i64 %1, ptr %295, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %292, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %292, align 8
   call void @__cxa_throw(ptr nonnull %292, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -3924,7 +3924,7 @@ define noundef i64 @_Z21logged_rv64e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %1, ptr %14, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %11, align 8
   tail call void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -3944,7 +3944,7 @@ define noundef i64 @_Z21logged_rv64e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %22, i64 24
   store i64 %1, ptr %25, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %22, align 8
   tail call void @__cxa_throw(ptr nonnull %22, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 
@@ -4044,7 +4044,7 @@ define noundef i64 @_Z21logged_rv64e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i8 0, ptr %75, align 8
   %76 = getelementptr inbounds i8, ptr %73, i64 24
   store i64 %1, ptr %76, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %73, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %73, align 8
   invoke void @__cxa_throw(ptr nonnull %73, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
           to label %.noexc77.i unwind label %116
 
@@ -4173,7 +4173,7 @@ define noundef i64 @_Z21logged_rv64e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %137, ptr %148, align 8
   %149 = getelementptr inbounds i8, ptr %124, i64 40
   store i64 %142, ptr %149, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_store_address_misaligned, i64 0, i32 0, i64 2), ptr %124, align 8
   invoke void @__cxa_throw(ptr nonnull %124, ptr nonnull @_ZTI29trap_store_address_misaligned, ptr nonnull @_ZN29trap_store_address_misalignedD2Ev) #18
           to label %261 unwind label %255
 
@@ -4223,7 +4223,7 @@ define noundef i64 @_Z21logged_rv64e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %168, ptr %179, align 8
   %180 = getelementptr inbounds i8, ptr %155, i64 40
   store i64 %173, ptr %180, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, inrange i32 0, i64 2), ptr %155, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_store_page_fault, i64 0, i32 0, i64 2), ptr %155, align 8
   invoke void @__cxa_throw(ptr nonnull %155, ptr nonnull @_ZTI21trap_store_page_fault, ptr nonnull @_ZN21trap_store_page_faultD2Ev) #18
           to label %261 unwind label %250
 
@@ -4273,7 +4273,7 @@ define noundef i64 @_Z21logged_rv64e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %199, ptr %210, align 8
   %211 = getelementptr inbounds i8, ptr %186, i64 40
   store i64 %204, ptr %211, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, inrange i32 0, i64 2), ptr %186, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV23trap_store_access_fault, i64 0, i32 0, i64 2), ptr %186, align 8
   invoke void @__cxa_throw(ptr nonnull %186, ptr nonnull @_ZTI23trap_store_access_fault, ptr nonnull @_ZN23trap_store_access_faultD2Ev) #18
           to label %261 unwind label %245
 
@@ -4316,7 +4316,7 @@ define noundef i64 @_Z21logged_rv64e_amoxor_hP11processor_t6insn_tm(ptr noundef 
   store i64 %226, ptr %236, align 8
   %237 = getelementptr inbounds i8, ptr %217, i64 40
   store i64 %231, ptr %237, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, inrange i32 0, i64 2), ptr %217, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV27trap_store_guest_page_fault, i64 0, i32 0, i64 2), ptr %217, align 8
   invoke void @__cxa_throw(ptr nonnull %217, ptr nonnull @_ZTI27trap_store_guest_page_fault, ptr nonnull @_ZN27trap_store_guest_page_faultD2Ev) #18
           to label %261 unwind label %240
 
@@ -4474,7 +4474,7 @@ _ZNSt13unordered_mapIm10float128_tSt4hashImESt8equal_toImESaISt4pairIKmS0_EEEixE
   store i8 0, ptr %294, align 8
   %295 = getelementptr inbounds i8, ptr %292, i64 24
   store i64 %1, ptr %295, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %292, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %292, align 8
   call void @__cxa_throw(ptr nonnull %292, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #18
   unreachable
 

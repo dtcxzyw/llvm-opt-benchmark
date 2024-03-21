@@ -583,7 +583,7 @@ _ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit:
           to label %.noexc unwind label %86
 
 .noexc:                                           ; preds = %69
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, inrange i32 0, i64 2), ptr %67, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, i32 0, i64 2), ptr %67, align 8
   %70 = getelementptr inbounds i8, ptr %67, i64 1304
   invoke void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %73 unwind label %71
@@ -597,7 +597,7 @@ _ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit:
 73:                                               ; preds = %.noexc
   %74 = getelementptr inbounds i8, ptr %67, i64 1312
   store i64 %3, ptr %74, align 8
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i64 0, inrange i32 0, i64 2), ptr %67, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i64 0, i32 0, i64 2), ptr %67, align 8
   %75 = getelementptr inbounds i8, ptr %12, i64 8
   %76 = getelementptr inbounds i8, ptr %12, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
@@ -667,7 +667,7 @@ _ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit:
           to label %.noexc61 unwind label %114
 
 .noexc61:                                         ; preds = %97
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, inrange i32 0, i64 2), ptr %95, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, i32 0, i64 2), ptr %95, align 8
   %98 = getelementptr inbounds i8, ptr %95, i64 1304
   invoke void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %98, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %101 unwind label %99
@@ -681,7 +681,7 @@ _ZN6casadi3strIxEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_.exit:
 101:                                              ; preds = %.noexc61
   %102 = getelementptr inbounds i8, ptr %95, i64 1312
   store i64 %3, ptr %102, align 8
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i64 0, inrange i32 0, i64 2), ptr %95, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i64 0, i32 0, i64 2), ptr %95, align 8
   %103 = getelementptr inbounds i8, ptr %14, i64 8
   %104 = getelementptr inbounds i8, ptr %14, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, i8 0, i64 24, i1 false)
@@ -1067,7 +1067,7 @@ define linkonce_odr hidden void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %4 unwind label %5
@@ -1084,7 +1084,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18
@@ -1133,7 +1133,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6casadi3MapC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEx(ptr noundef nonnull align 8 dereferenceable(1320) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi16FunctionInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1304
   invoke void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %_ZN6casadi8FunctionC2ERKS0_.exit unwind label %7
@@ -1800,7 +1800,7 @@ define void @_ZN6casadi3MapC2ERNS_19DeserializingStreamE(ptr noundef nonnull ali
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   tail call void @_ZN6casadi16FunctionInternalC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1304) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 1304
   invoke void @_ZN6casadi8FunctionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %8 unwind label %18
@@ -2481,7 +2481,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZN6casadi6OmpMapC2ERNS_19DeserializingStreamE.exit unwind label %37
 
 _ZN6casadi6OmpMapC2ERNS_19DeserializingStreamE.exit: ; preds = %36
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i64 0, inrange i32 0, i64 2), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i64 0, i32 0, i64 2), ptr %35, align 8
   br label %81
 
 37:                                               ; preds = %36
@@ -2504,7 +2504,7 @@ _ZN6casadi6OmpMapC2ERNS_19DeserializingStreamE.exit: ; preds = %36
           to label %_ZN6casadi9ThreadMapC2ERNS_19DeserializingStreamE.exit unwind label %45
 
 _ZN6casadi9ThreadMapC2ERNS_19DeserializingStreamE.exit: ; preds = %44
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i64 0, inrange i32 0, i64 2), ptr %43, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i64 0, i32 0, i64 2), ptr %43, align 8
   br label %81
 
 45:                                               ; preds = %44
@@ -2900,7 +2900,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6casadi3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %2 unwind label %4
 
@@ -6017,12 +6017,12 @@ define linkonce_odr hidden void @_ZN6casadi15scoped_checkoutINS_8FunctionEED2Ev(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6casadi6OmpMapD2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %2 unwind label %7
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %_ZN6casadi3MapD2Ev.exit unwind label %3
 
@@ -6651,12 +6651,12 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt5flushIcSt11char_tra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6casadi9ThreadMapD2Ev(ptr noundef nonnull align 8 dereferenceable(1320) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %2 unwind label %7
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %0)
           to label %_ZN6casadi3MapD2Ev.exit unwind label %3
 
@@ -8103,7 +8103,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #18

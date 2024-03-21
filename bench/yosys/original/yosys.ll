@@ -10158,7 +10158,7 @@ define linkonce_odr void @_ZN5Yosys7TclPassC2Ev(ptr noundef nonnull align 8 dere
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys7TclPassE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys7TclPassE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %1
@@ -12696,7 +12696,7 @@ define linkonce_odr void @_ZN5Yosys9ShellPassC2Ev(ptr noundef nonnull align 8 de
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys9ShellPassE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys9ShellPassE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %1
@@ -12789,7 +12789,7 @@ define linkonce_odr void @_ZN5Yosys11HistoryPassC2Ev(ptr noundef nonnull align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys11HistoryPassE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys11HistoryPassE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %1
@@ -12882,7 +12882,7 @@ define linkonce_odr void @_ZN5Yosys13ScriptCmdPassC2Ev(ptr noundef nonnull align
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys13ScriptCmdPassE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Yosys13ScriptCmdPassE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %1

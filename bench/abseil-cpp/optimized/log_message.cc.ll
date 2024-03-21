@@ -2106,7 +2106,7 @@ entry:
 define dso_local void @_ZN4absl12log_internal10LogMessage11OstreamViewC2ERNS1_14LogMessageDataE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(30576) %message_data) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4absl12log_internal10LogMessage11OstreamViewE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4absl12log_internal10LogMessage11OstreamViewE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr %message_data, ptr %data_, align 8
   %encoded_remaining_copy_ = getelementptr inbounds i8, ptr %this, i64 72

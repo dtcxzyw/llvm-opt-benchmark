@@ -1943,7 +1943,7 @@ entry:
   store ptr %supported_versions, ptr %supported_versions.addr, align 8
   store i32 %perspective, ptr %perspective.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicFramerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %detailed_error_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %detailed_error_) #13
   %visitor_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 2
@@ -2403,7 +2403,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicFramerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10QuicFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %encrypter_ = getelementptr inbounds %"class.net::QuicFramer", ptr %this1, i32 0, i32 20
   %array.begin = getelementptr inbounds [3 x %"class.std::unique_ptr.23"], ptr %encrypter_, i32 0, i32 0
   %0 = getelementptr inbounds %"class.std::unique_ptr.23", ptr %array.begin, i64 3

@@ -145,7 +145,7 @@ entry:
   %env_.i = getelementptr inbounds i8, ptr %source, i64 32
   %0 = load ptr, ptr %env_.i, align 8
   tail call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEENS0_12ProviderTypeEd(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef %0, ptr %obj.coerce, i32 noundef 37, double noundef -1.000000e+00) #12
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamPipeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamPipeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %pending_writes_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %pending_writes_, align 8
   %is_reading_ = getelementptr inbounds i8, ptr %this, i64 60
@@ -159,11 +159,11 @@ entry:
   %readable_listener_ = getelementptr inbounds i8, ptr %this, i64 80
   %stream_.i.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node10StreamPipe16ReadableListenerE, i64 0, inrange i32 0, i64 2), ptr %readable_listener_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node10StreamPipe16ReadableListenerE, i64 0, i32 0, i64 2), ptr %readable_listener_, align 8
   %writable_listener_ = getelementptr inbounds i8, ptr %this, i64 104
   %stream_.i.i5 = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i5, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node10StreamPipe16WritableListenerE, i64 0, inrange i32 0, i64 2), ptr %writable_listener_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node10StreamPipe16WritableListenerE, i64 0, i32 0, i64 2), ptr %writable_listener_, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #12
   %cmp.not = icmp eq ptr %sink, null
   br i1 %cmp.not, label %do.body9, label %do.end20
@@ -227,7 +227,7 @@ declare void @abort() local_unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node10StreamPipeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamPipeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4node10StreamPipeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %is_closed_.i = getelementptr inbounds i8, ptr %this, i64 62
   %0 = load i8, ptr %is_closed_.i, align 2
   %1 = and i8 %0, 1
@@ -367,7 +367,7 @@ _ZN4node17BaseObjectPtrImplINS_10StreamPipeELb0EEC2ERKS2_.exit: ; preds = %_ZNK4
   store i32 1, ptr %flags_.i.i.i.i.i, align 8, !noalias !5
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0EE", i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !5
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_10StreamPipe6UnpipeEbE3$_0EE", i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !5
   %callback_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 24
   store ptr %this, ptr %callback_.i.i.i.i, align 8, !noalias !5
   %14 = getelementptr inbounds i8, ptr %call.i.i.i, i64 32
@@ -1871,7 +1871,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit"
 
 "_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit":  ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i1 = icmp eq ptr %1, null
@@ -1902,7 +1902,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %"_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit.i"
 
 "_ZZN4node10StreamPipe6UnpipeEbEN3$_0D2Ev.exit.i": ; preds = %if.then.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i1.i = icmp eq ptr %1, null
@@ -2086,7 +2086,7 @@ lor.rhs222.i:                                     ; preds = %lor.lhs.false188.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %next_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_, align 8
   %cmp.not.i = icmp eq ptr %0, null

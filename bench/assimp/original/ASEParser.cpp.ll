@@ -3119,7 +3119,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -6349,7 +6349,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp4D3DS8MaterialC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(689) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %avSubMaterials = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %avSubMaterials) #16
   %pcInstance = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 3
@@ -6365,7 +6365,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %avSubMaterials = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN6Assimp3ASE8MaterialESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %avSubMaterials) #16
   call void @_ZN6Assimp4D3DS8MaterialD2Ev(ptr noundef nonnull align 8 dereferenceable(689) %this1) #16
@@ -13815,7 +13815,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mName = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %name.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %mName, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -13953,7 +13953,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sTexAmbient = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 19
   call void @_ZN6Assimp4D3DS7TextureD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sTexAmbient) #16
   %sTexShininess = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 16
@@ -26386,7 +26386,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6Assimp4D3DS8MaterialC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(689) %this1, ptr noundef nonnull align 8 dereferenceable(689) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %avSubMaterials = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %other.addr, align 8
   %avSubMaterials2 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %1, i32 0, i32 2
@@ -26428,7 +26428,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4D3DS8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mName = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %other.addr, align 8
   %mName2 = getelementptr inbounds %"struct.Assimp::D3DS::Material", ptr %0, i32 0, i32 1
@@ -27472,7 +27472,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3ASE8MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %avSubMaterials = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %other.addr, align 8
   %avSubMaterials2 = getelementptr inbounds %"struct.Assimp::ASE::Material", ptr %1, i32 0, i32 2
@@ -32378,7 +32378,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, inrange i32 0, i32 2), ptr %this5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -33033,7 +33033,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, inrange i32 0, i32 2), ptr %this5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this5, align 8
   ret void
 
 lpad:                                             ; preds = %entry

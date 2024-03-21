@@ -9282,7 +9282,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -9314,7 +9314,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -9802,7 +9802,7 @@ define void @_ZN6casadi8OptiNodeC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsI
   store ptr %1, ptr %4, align 8
   %29 = load ptr, ptr %3, align 8
   call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi8OptiNodeE, i32 0, inrange i32 0, i32 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi8OptiNodeE, i32 0, i32 0, i32 2), ptr %29, align 8
   %30 = getelementptr inbounds %"class.casadi::OptiNode", ptr %29, i32 0, i32 4
   call void @_ZNSt3mapIPN6casadi6MXNodeENS0_7MetaVarESt4lessIS2_ESaISt4pairIKS2_S3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %30) #3
   %31 = getelementptr inbounds %"class.casadi::OptiNode", ptr %29, i32 0, i32 5
@@ -10625,7 +10625,7 @@ define void @_ZN6casadi8OptiNodeD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi8OptiNodeE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi8OptiNodeE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::OptiNode", ptr %3, i32 0, i32 28
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %"class.casadi::OptiNode", ptr %3, i32 0, i32 27
@@ -11907,7 +11907,7 @@ define linkonce_odr hidden void @_ZN6casadi8OptiNodeC2ERKS0_(ptr noundef nonnull
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN6casadi20SharedObjectInternalC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi8OptiNodeE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6casadi8OptiNodeE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.casadi::OptiNode", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.casadi::OptiNode", ptr %10, i32 0, i32 1
@@ -29894,7 +29894,7 @@ define linkonce_odr hidden void @_ZN6casadi20InternalOptiCallbackC2ERNS_8OptiNod
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi20InternalOptiCallbackE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi20InternalOptiCallbackE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds ptr, ptr %9, i64 2
   %11 = load ptr, ptr %10, align 8
@@ -29904,7 +29904,7 @@ define linkonce_odr hidden void @_ZN6casadi20InternalOptiCallbackC2ERNS_8OptiNod
 
 12:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi20InternalOptiCallbackE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi20InternalOptiCallbackE, i32 0, i32 0, i32 2), ptr %8, align 8
   %13 = getelementptr inbounds %"class.casadi::InternalOptiCallback", ptr %8, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   store ptr %14, ptr %13, align 8
@@ -41124,7 +41124,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -51804,7 +51804,7 @@ define linkonce_odr hidden void @_ZN6casadi20InternalOptiCallbackD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi20InternalOptiCallbackE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi20InternalOptiCallbackE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %4 unwind label %5
 

@@ -929,9 +929,9 @@ define void @_ZN34BluetoothAttServerAttributesDialogC2ER7QWidgetR11CaptureFile(p
   %30 = load ptr, ptr %5, align 8
   %31 = load ptr, ptr %6, align 8
   call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %29, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(48) %31)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV34BluetoothAttServerAttributesDialog, i32 0, inrange i32 0, i32 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV34BluetoothAttServerAttributesDialog, i32 0, i32 0, i32 2), ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV34BluetoothAttServerAttributesDialog, i32 0, inrange i32 1, i32 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV34BluetoothAttServerAttributesDialog, i32 0, i32 1, i32 2), ptr %32, align 8
   %33 = getelementptr inbounds %class.BluetoothAttServerAttributesDialog, ptr %29, i32 0, i32 1
   %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #15
           to label %35 unwind label %159
@@ -3522,9 +3522,9 @@ define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
   call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   %6 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
@@ -3538,9 +3538,9 @@ define void @_ZN34BluetoothAttServerAttributesDialogD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV34BluetoothAttServerAttributesDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV34BluetoothAttServerAttributesDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV34BluetoothAttServerAttributesDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV34BluetoothAttServerAttributesDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.BluetoothAttServerAttributesDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -9598,7 +9598,7 @@ define linkonce_odr void @_ZN7QPixmapC2EOS_(ptr noundef nonnull align 8 derefere
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %5) #16
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.QPixmap, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %class.QPixmap, ptr %7, i32 0, i32 1

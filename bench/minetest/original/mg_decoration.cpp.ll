@@ -108,7 +108,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17DecorationManagerC2EP8IGameDef(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   tail call void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %1, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17DecorationManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17DecorationManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   ret void
 }
 
@@ -763,7 +763,7 @@ define dso_local noundef nonnull ptr @_ZNK17DecorationManager5cloneEv(ptr nounde
   %2 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17DecorationManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17DecorationManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   tail call void @_ZNK13ObjDefManager7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull %2)
   ret ptr %2
 }
@@ -1471,7 +1471,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(24) ptr @_
 define dso_local noundef nonnull ptr @_ZNK10DecoSimple5cloneEv(ptr noundef nonnull align 8 dereferenceable(342) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(344) ptr @_Znwm(i64 noundef 344) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %2, i8 0, i64 344, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %4, ptr %3, align 8, !tbaa !101
@@ -1484,7 +1484,7 @@ define dso_local noundef nonnull ptr @_ZNK10DecoSimple5cloneEv(ptr noundef nonnu
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %9 = load ptr, ptr %3, align 8, !tbaa !103
   %10 = icmp eq ptr %9, %4
   br i1 %10, label %11, label %14
@@ -1538,8 +1538,8 @@ define dso_local noundef nonnull ptr @_ZNK10DecoSimple5cloneEv(ptr noundef nonnu
   store float 1.000000e+00, ptr %34, align 8, !tbaa !110
   %35 = getelementptr inbounds i8, ptr %2, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 1, i64 2), ptr %6, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %6, align 8, !tbaa !4
   %36 = getelementptr inbounds i8, ptr %2, i64 312
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 24, i1 false)
   tail call void @_ZNK6ObjDef7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2)
@@ -1995,9 +1995,9 @@ define dso_local noundef i64 @_ZN10DecoSimple8generateEP8MMVManipP9PcgRandomN3ir
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13DecoSchematicD2Ev(ptr noundef nonnull align 8 dereferenceable(329) %0) unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   %4 = load i8, ptr %3, align 8, !tbaa !124, !range !127, !noundef !128
   %5 = icmp eq i8 %4, 0
@@ -2024,8 +2024,8 @@ define dso_local void @_ZN13DecoSchematicD2Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZThn56_N13DecoSchematicD1Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -56
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load i8, ptr %3, align 8, !tbaa !124, !range !127, !noundef !128
   %5 = icmp eq i8 %4, 0
@@ -2051,9 +2051,9 @@ define dso_local void @_ZThn56_N13DecoSchematicD1Ev(ptr noundef %0) unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN13DecoSchematicD0Ev(ptr noundef nonnull align 8 dereferenceable(329) %0) unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   %4 = load i8, ptr %3, align 8, !tbaa !124, !range !127, !noundef !128
   %5 = icmp eq i8 %4, 0
@@ -2081,8 +2081,8 @@ define dso_local void @_ZN13DecoSchematicD0Ev(ptr noundef nonnull align 8 derefe
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZThn56_N13DecoSchematicD0Ev(ptr noundef %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -56
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load i8, ptr %3, align 8, !tbaa !124, !range !127, !noundef !128
   %5 = icmp eq i8 %4, 0
@@ -2111,7 +2111,7 @@ define dso_local void @_ZThn56_N13DecoSchematicD0Ev(ptr noundef %0) unnamed_addr
 define dso_local noundef ptr @_ZNK13DecoSchematic5cloneEv(ptr noundef nonnull align 8 dereferenceable(329) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(336) ptr @_Znwm(i64 noundef 336) #22
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(336) %2, i8 0, i64 336, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %4, ptr %3, align 8, !tbaa !101
@@ -2124,7 +2124,7 @@ define dso_local noundef ptr @_ZNK13DecoSchematic5cloneEv(ptr noundef nonnull al
 7:                                                ; preds = %1
   %8 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %9 = load ptr, ptr %3, align 8, !tbaa !103
   %10 = icmp eq ptr %9, %4
   br i1 %10, label %11, label %14
@@ -2178,8 +2178,8 @@ define dso_local noundef ptr @_ZNK13DecoSchematic5cloneEv(ptr noundef nonnull al
   store float 1.000000e+00, ptr %34, align 8, !tbaa !110
   %35 = getelementptr inbounds i8, ptr %2, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %35, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, inrange i32 1, i64 2), ptr %6, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV13DecoSchematic, i64 0, i32 1, i64 2), ptr %6, align 8, !tbaa !4
   %36 = getelementptr inbounds i8, ptr %2, i64 320
   store ptr null, ptr %36, align 8, !tbaa !129
   %37 = getelementptr inbounds i8, ptr %2, i64 328
@@ -2427,9 +2427,9 @@ declare void @_ZN9Schematic12blitToVManipEP8MMVManipN3irr4core8vector3dIsEE8Rota
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DecoSimpleD2Ev(ptr noundef nonnull align 8 dereferenceable(342) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8, !tbaa !99
   %5 = icmp eq ptr %4, null
@@ -2446,9 +2446,9 @@ define linkonce_odr dso_local void @_ZN10DecoSimpleD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DecoSimpleD0Ev(ptr noundef nonnull align 8 dereferenceable(342) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8, !tbaa !99
   %5 = icmp eq ptr %4, null
@@ -2467,8 +2467,8 @@ define linkonce_odr dso_local void @_ZN10DecoSimpleD0Ev(ptr noundef nonnull alig
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr dso_local void @_ZThn56_N10DecoSimpleD1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -56
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8, !tbaa !99
   %5 = icmp eq ptr %4, null
@@ -2486,8 +2486,8 @@ define linkonce_odr dso_local void @_ZThn56_N10DecoSimpleD1Ev(ptr noundef %0) un
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr dso_local void @_ZThn56_N10DecoSimpleD0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -56
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10DecoSimple, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = load ptr, ptr %3, align 8, !tbaa !99
   %5 = icmp eq ptr %4, null
@@ -2505,9 +2505,9 @@ define linkonce_odr dso_local void @_ZThn56_N10DecoSimpleD0Ev(ptr noundef %0) un
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10DecorationD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10Decoration, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10Decoration, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10Decoration, i64 0, inrange i32 1, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV10Decoration, i64 0, i32 1, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 256
   %4 = getelementptr inbounds i8, ptr %0, i64 272
   %5 = load ptr, ptr %4, align 8, !tbaa !135
@@ -2559,7 +2559,7 @@ define linkonce_odr dso_local void @_ZN10DecorationD2Ev(ptr noundef nonnull alig
 
 30:                                               ; preds = %29, %25
   tail call void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(73) %2) #21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %31 = getelementptr inbounds i8, ptr %0, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !103
   %33 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3034,7 +3034,7 @@ declare void @_ZN12NodeResolverD2Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !103
   %4 = getelementptr inbounds i8, ptr %0, i64 40

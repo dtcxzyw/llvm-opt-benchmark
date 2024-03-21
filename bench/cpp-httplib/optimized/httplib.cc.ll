@@ -7126,7 +7126,7 @@ if.end:                                           ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7httplib6detail15gzip_compressorC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail15gzip_compressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail15gzip_compressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_, align 8
   %strm_2 = getelementptr inbounds i8, ptr %this, i64 16
@@ -7143,7 +7143,7 @@ declare i32 @deflateInit2_(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7httplib6detail15gzip_compressorD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail15gzip_compressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail15gzip_compressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %strm_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = invoke i32 @deflateEnd(ptr noundef nonnull %strm_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -7296,7 +7296,7 @@ declare i32 @deflate(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7httplib6detail17gzip_decompressorC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6detail17gzip_decompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6detail17gzip_decompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %is_valid_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_valid_, align 8
   %strm_2 = getelementptr inbounds i8, ptr %this, i64 16
@@ -7313,7 +7313,7 @@ declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) l
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7httplib6detail17gzip_decompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6detail17gzip_decompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6detail17gzip_decompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %strm_ = getelementptr inbounds i8, ptr %this, i64 16
   %call = invoke i32 @inflateEnd(ptr noundef nonnull %strm_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -7437,7 +7437,7 @@ declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7httplib6detail17brotli_compressorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17brotli_compressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17brotli_compressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %state_, align 8
   %call = tail call ptr @BrotliEncoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null)
@@ -7450,7 +7450,7 @@ declare ptr @BrotliEncoderCreateInstance(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7httplib6detail17brotli_compressorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17brotli_compressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17brotli_compressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %state_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %state_, align 8
   invoke void @BrotliEncoderDestroyInstance(ptr noundef %0)
@@ -7593,7 +7593,7 @@ declare i32 @BrotliEncoderCompressStream(ptr noundef, i32 noundef, ptr noundef, 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7httplib6detail19brotli_decompressorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6detail19brotli_decompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6detail19brotli_decompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %decoder_s = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %decoder_s, align 8
   %call = tail call ptr @BrotliDecoderCreateInstance(ptr noundef null, ptr noundef null, ptr noundef null)
@@ -7610,7 +7610,7 @@ declare ptr @BrotliDecoderCreateInstance(ptr noundef, ptr noundef, ptr noundef) 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7httplib6detail19brotli_decompressorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6detail19brotli_decompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6detail19brotli_decompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %decoder_s = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %decoder_s, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -17907,7 +17907,7 @@ define void @_ZN7httplib6detail12SocketStreamC2Eillll(ptr noundef nonnull align 
 entry:
   %ref.tmp.i.i = alloca %"class.std::allocator", align 1
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12SocketStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12SocketStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %sock_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %sock, ptr %sock_, align 8
   %read_timeout_sec_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -17953,7 +17953,7 @@ invoke.cont:                                      ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7httplib6detail12SocketStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12SocketStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12SocketStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %read_buff_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %read_buff_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -18378,7 +18378,7 @@ entry:
   %ref.tmp24 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp25 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp48 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17PathParamsMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17PathParamsMatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
   %static_fragments_ = getelementptr inbounds i8, ptr %this, i64 8
   %param_names_ = getelementptr inbounds i8, ptr %this, i64 32
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %param_name_set, i64 48
@@ -18905,7 +18905,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 define void @_ZN7httplib6ServerC2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6ServerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6ServerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %new_task_queue = getelementptr inbounds i8, ptr %this, i64 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -19109,7 +19109,7 @@ _ZNSt12_Vector_baseIN7httplib6Server15MountPointEntryESaIS2_EED2Ev.exit: ; preds
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7httplib6ServerD2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6ServerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib6ServerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 800
   %0 = load ptr, ptr %_M_manager.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %0, null
@@ -20008,7 +20008,7 @@ return:                                           ; preds = %if.then, %_ZNSt10un
 define linkonce_odr void @_ZN7httplib6detail11make_uniqueINS0_12RegexMatcherEJRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt9enable_ifIXntsr3std8is_arrayIT_EE5valueESt10unique_ptrISC_St14default_deleteISC_EEE4typeEDpOT0_(ptr noalias sret(%"class.std::unique_ptr.201") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(32) %args) local_unnamed_addr #5 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #43
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12RegexMatcherE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12RegexMatcherE, i64 0, i32 0, i64 2), ptr %call, align 8
   %regex_.i = getelementptr inbounds i8, ptr %call, i64 8
   %_M_loc.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_loc.i.i) #37
@@ -24286,7 +24286,7 @@ if.end.i:                                         ; preds = %if.end169
           to label %if.end174 unwind label %lpad.loopexit.split-lp
 
 if.end174:                                        ; preds = %if.end.i, %if.end169
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %bstrm, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %bstrm, align 8
   %buffer.i = getelementptr inbounds i8, ptr %bstrm, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #37
   %position.i = getelementptr inbounds i8, ptr %bstrm, i64 40
@@ -24313,7 +24313,7 @@ lpad178.loopexit.split-lp:                        ; preds = %if.end174, %if.then
 
 lpad178:                                          ; preds = %lpad178.loopexit.split-lp, %lpad178.loopexit
   %lpad.phi242 = phi { ptr, i32 } [ %lpad.loopexit240, %lpad178.loopexit ], [ %lpad.loopexit.split-lp241, %lpad178.loopexit.split-lp ]
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %bstrm, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %bstrm, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #37
   br label %ehcleanup233
 
@@ -24365,7 +24365,7 @@ call.i204.noexc:                                  ; preds = %while.body.i
   br i1 %or.cond236, label %while.body.i, label %cleanup, !llvm.loop !45
 
 cleanup:                                          ; preds = %call.i204.noexc, %if.end191
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %bstrm, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %bstrm, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #37
   %call.i.i207 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %req, ptr noundef nonnull @.str.125) #37
   %cmp.i.i208.not = icmp eq i32 %call.i.i207, 0
@@ -24430,7 +24430,7 @@ if.end.i230:                                      ; preds = %if.end225
           to label %cleanup232 unwind label %lpad.loopexit.split-lp
 
 cleanup232.critedge:                              ; preds = %invoke.cont187, %invoke.cont181
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %bstrm, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %bstrm, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #37
   br label %cleanup232
 
@@ -25863,7 +25863,7 @@ return:                                           ; preds = %entry, %sw.bb62, %s
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7httplib6detail12BufferStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer) #37
   ret void
@@ -26847,7 +26847,7 @@ lpad.i29:                                         ; preds = %if.then23
 
 if.else27:                                        ; preds = %if.then16
   %call.i43 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #43
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12nocompressorE, i64 0, inrange i32 0, i64 2), ptr %call.i43, align 8, !noalias !193
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12nocompressorE, i64 0, i32 0, i64 2), ptr %call.i43, align 8, !noalias !193
   br label %if.end31
 
 if.end31:                                         ; preds = %if.then23, %if.then19, %if.else27
@@ -28937,7 +28937,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %for.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !199
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !199
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7httplib6detail4mmapESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i29, align 8, !noalias !199
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN7httplib6detail4mmapESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i29, align 8, !noalias !199
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 16
   invoke void @_ZN7httplib6detail4mmapC1EPKc(ptr noundef nonnull align 8 dereferenceable(24) %_M_impl.i.i.i.i.i.i, ptr noundef %call37)
           to label %invoke.cont38 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN7httplib6detail4mmapESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !199
@@ -32313,7 +32313,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib10ClientImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib10ClientImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %host_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %host_, ptr noundef nonnull align 8 dereferenceable(32) %host)
   %port_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -32587,7 +32587,7 @@ return:                                           ; preds = %if.end, %invoke.con
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7httplib10ClientImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1000) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib10ClientImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib10ClientImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %socket_mutex_ = getelementptr inbounds i8, ptr %this, i64 96
   %call1.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %socket_mutex_) #37
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i, 0
@@ -38192,7 +38192,7 @@ common.resume:                                    ; preds = %_ZNKSt14default_del
 
 if.else:                                          ; preds = %if.then
   %call.i11 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #43
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12nocompressorE, i64 0, inrange i32 0, i64 2), ptr %call.i11, align 8, !noalias !221
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12nocompressorE, i64 0, i32 0, i64 2), ptr %call.i11, align 8, !noalias !221
   br label %if.end
 
 if.end:                                           ; preds = %if.then3, %if.else
@@ -40182,7 +40182,7 @@ lpad327.body:                                     ; preds = %lpad.i.i409, %lpad3
   br label %common.resume
 
 if.end334:                                        ; preds = %invoke.cont318, %invoke.cont328, %if.end310
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %bstrm, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %bstrm, align 8
   %buffer.i = getelementptr inbounds i8, ptr %bstrm, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #37
   %position.i = getelementptr inbounds i8, ptr %bstrm, i64 40
@@ -40258,7 +40258,7 @@ call.i424.noexc:                                  ; preds = %while.body.i
 if.then358:                                       ; preds = %call.i424.noexc
   store i32 5, ptr %error, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp335) #37
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %bstrm, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %bstrm, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #37
   br label %return
 
@@ -40284,7 +40284,7 @@ lpad347:                                          ; preds = %lpad347.loopexit.sp
 
 cleanup:                                          ; preds = %while.cond.i, %invoke.cont351
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp335) #37
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %bstrm, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %bstrm, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #37
   %call364 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %body) #37
   br i1 %call364, label %if.then365, label %if.end367
@@ -40295,7 +40295,7 @@ if.then365:                                       ; preds = %cleanup
 
 ehcleanup362:                                     ; preds = %lpad347, %lpad338
   %.pn96 = phi { ptr, i32 } [ %lpad.phi, %lpad347 ], [ %106, %lpad338 ]
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %bstrm, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %bstrm, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #37
   br label %common.resume
 
@@ -41170,7 +41170,7 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7httplib8DataSink19data_sink_streambufE, i64 0, inrange i32 0, i64 2), ptr %sb_, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7httplib8DataSink19data_sink_streambufE, i64 0, i32 0, i64 2), ptr %sb_, align 8
   %sink_.i = getelementptr inbounds i8, ptr %this, i64 464
   store ptr %this, ptr %sink_.i, align 8
   ret void
@@ -49167,7 +49167,7 @@ declare void @SSL_free(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7httplib6detail15SSLSocketStreamC2EiP6ssl_stllll(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(56) %this, i32 noundef %sock, ptr noundef %ssl, i64 noundef %read_timeout_sec, i64 noundef %read_timeout_usec, i64 noundef %write_timeout_sec, i64 noundef %write_timeout_usec) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail15SSLSocketStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail15SSLSocketStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %sock_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %sock, ptr %sock_, align 8
   %ssl_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -49589,7 +49589,7 @@ entry:
 define void @_ZN7httplib9SSLServerC2EPKcS2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(864) %this, ptr noundef %cert_path, ptr noundef %private_key_path, ptr noundef %client_ca_cert_file_path, ptr noundef %client_ca_cert_dir_path, ptr noundef %private_key_password) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7httplib6ServerC2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib9SSLServerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib9SSLServerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ctx_mutex_ = getelementptr inbounds i8, ptr %this, i64 824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ctx_mutex_, i8 0, i64 40, i1 false)
   %call = invoke ptr @TLS_server_method()
@@ -49705,7 +49705,7 @@ declare void @SSL_CTX_set_verify(ptr noundef, i32 noundef, ptr noundef) local_un
 define void @_ZN7httplib9SSLServerC2EP7x509_stP11evp_pkey_stP13x509_store_st(ptr noundef nonnull align 8 dereferenceable(864) %this, ptr noundef %cert, ptr noundef %private_key, ptr noundef %client_ca_cert_store) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7httplib6ServerC2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib9SSLServerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib9SSLServerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ctx_mutex_ = getelementptr inbounds i8, ptr %this, i64 824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ctx_mutex_, i8 0, i64 40, i1 false)
   %call = invoke ptr @TLS_server_method()
@@ -49791,7 +49791,7 @@ declare void @SSL_CTX_set_cert_store(ptr noundef, ptr noundef) local_unnamed_add
 define void @_ZN7httplib9SSLServerC2ERKSt8functionIFbR10ssl_ctx_stEE(ptr noundef nonnull align 8 dereferenceable(864) %this, ptr noundef nonnull align 8 dereferenceable(32) %setup_ssl_ctx_callback) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7httplib6ServerC2Ev(ptr noundef nonnull align 8 dereferenceable(816) %this)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib9SSLServerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib9SSLServerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ctx_mutex_ = getelementptr inbounds i8, ptr %this, i64 824
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %ctx_mutex_, i8 0, i64 40, i1 false)
   %call = invoke ptr @TLS_method()
@@ -49853,7 +49853,7 @@ declare ptr @TLS_method() local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7httplib9SSLServerD2Ev(ptr noundef nonnull align 8 dereferenceable(864) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib9SSLServerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7httplib9SSLServerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 816
   %0 = load ptr, ptr %ctx_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -50278,7 +50278,7 @@ define void @_ZN7httplib9SSLClientC2ERKNSt7__cxx1112basic_stringIcSt11char_trait
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   tail call void @_ZN7httplib10ClientImplC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiS8_S8_(ptr noundef nonnull align 8 dereferenceable(1000) %this, ptr noundef nonnull align 8 dereferenceable(32) %host, i32 noundef %port, ptr noundef nonnull align 8 dereferenceable(32) %client_cert_path, ptr noundef nonnull align 8 dereferenceable(32) %client_key_path)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib9SSLClientE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib9SSLClientE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ctx_mutex_ = getelementptr inbounds i8, ptr %this, i64 1008
   %host_components_ = getelementptr inbounds i8, ptr %this, i64 1056
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %ctx_mutex_, i8 0, i64 44, i1 false)
@@ -50450,7 +50450,7 @@ _ZN7httplib10ClientImplC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #37
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2.i)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib9SSLClientE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib9SSLClientE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ctx_mutex_ = getelementptr inbounds i8, ptr %this, i64 1008
   %host_components_ = getelementptr inbounds i8, ptr %this, i64 1056
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %ctx_mutex_, i8 0, i64 44, i1 false)
@@ -50565,7 +50565,7 @@ ehcleanup:                                        ; preds = %if.then.i.i7, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7httplib9SSLClientD2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib9SSLClientE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7httplib9SSLClientE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 1000
   %0 = load ptr, ptr %ctx_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -56299,7 +56299,7 @@ return:                                           ; preds = %entry, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7httplib6detail12RegexMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12RegexMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12RegexMatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -56382,7 +56382,7 @@ _ZNSt7__cxx1111basic_regexIcNS_12regex_traitsIcEEED2Ev.exit: ; preds = %entry, %
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7httplib6detail12RegexMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12RegexMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail12RegexMatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -56479,7 +56479,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7httplib6detail12BufferStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7httplib6detail12BufferStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %buffer.i) #37
   tail call void @_ZdlPv(ptr noundef nonnull %this) #39
@@ -56489,7 +56489,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7httplib6detail17PathParamsMatcherD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17PathParamsMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17PathParamsMatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
   %param_names_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %param_names_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -56552,7 +56552,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7httplib6detail17PathParamsMatcherD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17PathParamsMatcherE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7httplib6detail17PathParamsMatcherE, i64 0, i32 0, i64 2), ptr %this, align 8
   %param_names_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %param_names_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -61378,7 +61378,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZNSt11regex_errorC2ENSt15regex_constants10error_typeEPKc(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %__ecode, ptr noundef %__what) unnamed_addr #5 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %__what)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ecode, ptr %_M_code, align 8
   ret void
@@ -62695,7 +62695,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3, align 8
   %_M_impl.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3, i64 16
   %0 = load i32, ptr %__args1, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.ensured.i.i.i.i)
@@ -93449,7 +93449,7 @@ define linkonce_odr void @_ZN7httplib10ThreadPoolC2Em(ptr noundef nonnull align 
 entry:
   %agg.tmp.i.i.i.i = alloca %"class.std::unique_ptr.606", align 8
   %ref.tmp = alloca %"struct.httplib::ThreadPool::worker", align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7httplib10ThreadPoolE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7httplib10ThreadPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
   %threads_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %threads_, i8 0, i64 24, i1 false)
   %jobs_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -93487,7 +93487,7 @@ if.then.i:                                        ; preds = %while.body
           to label %call.i.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.i.noexc:                               ; preds = %if.then.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN7httplib10ThreadPool6workerEEEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN7httplib10ThreadPool6workerEEEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i2, align 8
   %_M_func.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i2, i64 8
   %2 = load i64, ptr %ref.tmp, align 8
   store i64 %2, ptr %_M_func.i.i.i.i.i, align 8
@@ -93634,7 +93634,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EED2Ev.exit:   ; preds = %invoke.cont, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7httplib10ThreadPoolD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7httplib10ThreadPoolE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7httplib10ThreadPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cond_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cond_) #37
   %jobs_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -93850,7 +93850,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6vec
           to label %call.i.i.i.noexc unwind label %lpad
 
 call.i.i.i.noexc:                                 ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN7httplib10ThreadPool6workerEEEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJN7httplib10ThreadPool6workerEEEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i18, align 8
   %_M_func.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i18, i64 8
   %3 = load i64, ptr %__args, align 8
   store i64 %3, ptr %_M_func.i.i.i.i, align 8

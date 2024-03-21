@@ -2990,7 +2990,7 @@ invoke.cont15:
   %m_numberOfVelocityIterations.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %m_numberOfVelocityIterations.i, align 4
   store i32 5, ptr %m_numberOfPositionIterations.i, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV22btDeformableBodySolver, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV22btDeformableBodySolver, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_numNodes = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %m_numNodes, align 4
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -3048,7 +3048,7 @@ invoke.cont15:
   store i32 300, ptr %m_maxIterations.i.i, align 8
   %m_tolerance.i.i = getelementptr inbounds i8, ptr %this, i64 236
   store float 0x3E80000000000000, ptr %m_tolerance.i.i, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateGradientI34btDeformableBackwardEulerObjectiveE, i64 0, inrange i32 0, i64 2), ptr %m_cg, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateGradientI34btDeformableBackwardEulerObjectiveE, i64 0, i32 0, i64 2), ptr %m_cg, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 264
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 256
@@ -3086,7 +3086,7 @@ invoke.cont15:
   store i32 300, ptr %m_maxIterations.i.i30, align 8
   %m_tolerance.i.i31 = getelementptr inbounds i8, ptr %this, i64 380
   store float 0x3E45798EE0000000, ptr %m_tolerance.i.i31, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateResidualI34btDeformableBackwardEulerObjectiveE, i64 0, inrange i32 0, i64 2), ptr %m_cr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateResidualI34btDeformableBackwardEulerObjectiveE, i64 0, i32 0, i64 2), ptr %m_cr, align 8
   %m_ownsMemory.i.i.i32 = getelementptr inbounds i8, ptr %this, i64 408
   store i8 1, ptr %m_ownsMemory.i.i.i32, align 8
   %m_data.i.i.i33 = getelementptr inbounds i8, ptr %this, i64 400
@@ -3196,7 +3196,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19btConjugateResidualI34btDeformableBackwardEulerObjectiveED2Ev(ptr noundef nonnull align 8 dereferenceable(212) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateResidualI34btDeformableBackwardEulerObjectiveE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateResidualI34btDeformableBackwardEulerObjectiveE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3389,7 +3389,7 @@ _ZN20btAlignedObjectArrayI9btVector3ED2Ev.exit55: ; preds = %_ZN20btAlignedObjec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN19btConjugateGradientI34btDeformableBackwardEulerObjectiveED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateGradientI34btDeformableBackwardEulerObjectiveE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateGradientI34btDeformableBackwardEulerObjectiveE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -3594,7 +3594,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22btDeformableBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(609) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV22btDeformableBodySolver, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV22btDeformableBodySolver, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_objective = getelementptr inbounds i8, ptr %this, i64 600
   %0 = load ptr, ptr %m_objective, align 8
   %isnull = icmp eq ptr %0, null

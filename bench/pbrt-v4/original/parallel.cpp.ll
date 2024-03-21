@@ -3610,7 +3610,7 @@ entry:
   store ptr %func, ptr %func.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func2 = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvllEEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %func2, ptr noundef nonnull align 8 dereferenceable(32) %func) #12
   %nextIndex = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this1, i32 0, i32 3
@@ -3641,7 +3641,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop1DE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::ParallelForLoop1D", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvllEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %func) #12
   call void @_ZN4pbrt11ParallelJobD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #12
@@ -3952,7 +3952,7 @@ entry:
   store ptr %func, ptr %func.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func2 = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvN4pbrt7Bounds2IiEEEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %func2, ptr noundef nonnull align 8 dereferenceable(32) %func) #12
   %extent3 = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this1, i32 0, i32 3
@@ -3984,7 +3984,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt17ParallelForLoop2DE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::ParallelForLoop2D", ptr %this1, i32 0, i32 2
   call void @_ZNSt8functionIFvN4pbrt7Bounds2IiEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %func) #12
   call void @_ZN4pbrt11ParallelJobD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #12
@@ -5181,7 +5181,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %activeWorkers = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 1
   store i32 0, ptr %activeWorkers, align 8
   %prev = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 3
@@ -5199,7 +5199,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -10673,7 +10673,7 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt6thread6_StateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS4_EEEEEE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN4pbrt10ThreadPoolEFvvEPS4_EEEEEE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %_M_func = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %this3, i32 0, i32 1
   %0 = load ptr, ptr %__args.addr, align 8
   %1 = load ptr, ptr %__args.addr2, align 8
@@ -10769,7 +10769,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread6_StateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

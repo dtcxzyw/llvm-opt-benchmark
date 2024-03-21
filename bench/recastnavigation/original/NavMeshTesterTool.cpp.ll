@@ -133,7 +133,7 @@ define dso_local void @_ZN17NavMeshTesterToolC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV17NavMeshTesterTool, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV17NavMeshTesterTool, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 1
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds %class.NavMeshTesterTool, ptr %5, i32 0, i32 2
@@ -227,7 +227,7 @@ define linkonce_odr dso_local void @_ZN10SampleToolC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

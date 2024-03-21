@@ -268,7 +268,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers14IcuRegExpInputC2ERKN
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN4i18n12phonenumbers11RegExpInputC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.i18n::phonenumbers::IcuRegExpInput", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN4i18n12phonenumbers12_GLOBAL__N_125Utf8StringToUnicodeStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.icu_70::UnicodeString") align 8 %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -350,7 +350,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers9IcuRegExpC2ERKNSt7__c
   store ptr %1, ptr %4, align 8
   %11 = load ptr, ptr %3, align 8
   call void @_ZN4i18n12phonenumbers6RegExpC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4i18n12phonenumbers9IcuRegExpE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4i18n12phonenumbers9IcuRegExpE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"class.i18n::phonenumbers::IcuRegExp", ptr %11, i32 0, i32 1
   call void @_ZN5boost10scoped_ptrIN6icu_7012RegexPatternEEC2EPS2_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef null) #11
   store i32 0, ptr %6, align 4
@@ -462,7 +462,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers11RegExpInputC2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11RegExpInputE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers11RegExpInputE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -492,7 +492,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers14IcuRegExpInputD2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4i18n12phonenumbers14IcuRegExpInputE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.i18n::phonenumbers::IcuRegExpInput", ptr %3, i32 0, i32 1
   call void @_ZN6icu_7013UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #11
   call void @_ZN4i18n12phonenumbers11RegExpInputD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
@@ -725,7 +725,7 @@ define linkonce_odr dso_local void @_ZN6icu_7014StringByteSinkINSt7__cxx1112basi
   store i32 %2, ptr %6, align 4
   %9 = load ptr, ptr %4, align 8
   call void @_ZN6icu_708ByteSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7014StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7014StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.icu_70::StringByteSink", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %10, align 8
@@ -821,7 +821,7 @@ define linkonce_odr dso_local void @_ZN6icu_708ByteSinkC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_708ByteSinkE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_708ByteSinkE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -878,7 +878,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers6RegExpC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4i18n12phonenumbers6RegExpE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4i18n12phonenumbers6RegExpE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1115,7 +1115,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers9IcuRegExpD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4i18n12phonenumbers9IcuRegExpE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4i18n12phonenumbers9IcuRegExpE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.i18n::phonenumbers::IcuRegExp", ptr %3, i32 0, i32 1
   call void @_ZN5boost10scoped_ptrIN6icu_7012RegexPatternEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #11
   call void @_ZN4i18n12phonenumbers6RegExpD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
@@ -2344,7 +2344,7 @@ define linkonce_odr dso_local void @_ZN6icu_7013UnicodeStringC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6icu_7011ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7013UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7013UnicodeStringE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.icu_70::UnicodeString", ptr %3, i32 0, i32 1
   %5 = getelementptr inbounds %struct.anon, ptr %4, i32 0, i32 0
   store i16 2, ptr %5, align 8
@@ -2365,7 +2365,7 @@ define linkonce_odr dso_local void @_ZN6icu_7011ReplaceableC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6icu_707UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #11
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7011ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7011ReplaceableE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2374,7 +2374,7 @@ define linkonce_odr dso_local void @_ZN6icu_707UObjectC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_707UObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_707UObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

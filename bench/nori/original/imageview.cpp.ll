@@ -322,7 +322,7 @@ define hidden void @_ZN7nanogui9ImageViewC2EPNS_6WidgetE(ptr noundef nonnull ali
   %21 = load ptr, ptr %3, align 8
   %22 = load ptr, ptr %4, align 8
   call void @_ZN7nanogui6CanvasC2EPNS_6WidgetEhbbb(ptr noundef nonnull align 8 dereferenceable(173) %21, ptr noundef %22, i8 noundef zeroext 1, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui9ImageViewE, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui9ImageViewE, i32 0, i32 0, i32 2), ptr %21, align 8
   %23 = getelementptr inbounds %"class.nanogui::ImageView", ptr %21, i32 0, i32 1
   invoke void @_ZN7nanogui3refINS_6ShaderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23)
           to label %24 unwind label %88
@@ -1051,7 +1051,7 @@ define linkonce_odr hidden void @_ZN7nanogui6CanvasD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6CanvasE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui6CanvasE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::Canvas", ptr %3, i32 0, i32 2
   call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #12
   call void @_ZN7nanogui6WidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(140) %3) #12
@@ -3912,7 +3912,7 @@ define linkonce_odr hidden void @_ZN7nanogui9ImageViewD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui9ImageViewE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7nanogui9ImageViewE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::ImageView", ptr %3, i32 0, i32 8
   call void @_ZNSt8functionIFvRKN7nanogui5ArrayIiLm2EEEPPcmEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   %5 = getelementptr inbounds %"class.nanogui::ImageView", ptr %3, i32 0, i32 2

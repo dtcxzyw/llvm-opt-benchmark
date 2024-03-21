@@ -115,9 +115,9 @@ entry:
   %4 = load i8, ptr %client_.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN3zmq11ws_engine_tC2EiRKNS_9options_tERKNS_19endpoint_uri_pair_tERKNS_12ws_address_tEb(ptr noundef nonnull align 8 dereferenceable(25696) %this1, i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(1336) %1, ptr noundef nonnull align 8 dereferenceable(68) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %_established = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this1, i32 0, i32 1
   store i8 0, ptr %_established, align 8
   %_tls_client_cred = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this1, i32 0, i32 2
@@ -619,9 +619,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12wss_engine_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %_tls_session = getelementptr inbounds %"class.zmq::wss_engine_t", ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %_tls_session, align 8
   invoke void @gnutls_deinit(ptr noundef %0)

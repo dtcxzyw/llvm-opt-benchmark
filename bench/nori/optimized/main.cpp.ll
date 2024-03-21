@@ -922,7 +922,7 @@ _ZN4nori10ImageBlock5clearEv.exit.i:              ; preds = %.lr.ph.i.i.i.i.i.i.
           to label %.noexc.i unwind label %268
 
 .noexc.i:                                         ; preds = %272
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %273, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_0EEEEEE", i64 0, i32 0, i64 2), ptr %273, align 8
   %274 = getelementptr inbounds i8, ptr %273, i64 8
   store ptr %7, ptr %274, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %273, i64 16
@@ -4078,7 +4078,7 @@ define internal void @"_ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL6rende
 _ZnwmRKN3tbb8internal32allocate_root_with_context_proxyE.exit.i.i.i.i.i.i.i: ; preds = %.noexc.i.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %23, i64 -11
   store i8 1, ptr %24, align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @"_ZTVN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEEE", i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @"_ZTVN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEEE", i64 0, i32 0, i64 2), ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 8
   store i32 %15, ptr %25, align 8
   %.sroa.36.0..sroa_idx.i.i.i.i.i = getelementptr inbounds i8, ptr %23, i64 12
@@ -4330,7 +4330,7 @@ _ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i: ; pre
   %42 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3tbb8internal27allocate_continuation_proxy8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef 16)
   %43 = getelementptr inbounds i8, ptr %42, i64 -11
   store i8 1, ptr %43, align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb10interface98internal9flag_taskE, i64 0, inrange i32 0, i64 2), ptr %42, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb10interface98internal9flag_taskE, i64 0, i32 0, i64 2), ptr %42, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
   store volatile i8 0, ptr %44, align 8
@@ -4340,7 +4340,7 @@ _ZN3tbb10interface98internal19auto_partition_type12is_divisibleEv.exit9.i: ; pre
   %46 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3tbb8internal20allocate_child_proxy8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %42, i64 noundef 72)
   %47 = getelementptr inbounds i8, ptr %46, i64 -11
   store i8 1, ptr %47, align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @"_ZTVN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEEE", i64 0, inrange i32 0, i64 2), ptr %46, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @"_ZTVN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEEE", i64 0, i32 0, i64 2), ptr %46, align 8
   %48 = getelementptr inbounds i8, ptr %46, i64 8
   %49 = load i32, ptr %21, align 8
   store i32 %49, ptr %48, align 8
@@ -4529,7 +4529,7 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to
   %151 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3tbb8internal27allocate_continuation_proxy8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 noundef 16)
   %152 = getelementptr inbounds i8, ptr %151, i64 -11
   store i8 1, ptr %152, align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb10interface98internal9flag_taskE, i64 0, inrange i32 0, i64 2), ptr %151, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb10interface98internal9flag_taskE, i64 0, i32 0, i64 2), ptr %151, align 8
   %153 = getelementptr inbounds i8, ptr %151, i64 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #21, !srcloc !26
   store volatile i8 0, ptr %153, align 8
@@ -4539,7 +4539,7 @@ _ZN3tbb10interface98internal12range_vectorINS_13blocked_rangeIiEELh8EE13split_to
   %155 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3tbb8internal20allocate_child_proxy8allocateEm(ptr noundef nonnull align 1 dereferenceable(1) %151, i64 noundef 72)
   %156 = getelementptr inbounds i8, ptr %155, i64 -11
   store i8 1, ptr %156, align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @"_ZTVN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEEE", i64 0, inrange i32 0, i64 2), ptr %155, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @"_ZTVN3tbb10interface98internal9start_forINS_13blocked_rangeIiEEZZL6renderPN4nori5SceneERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEENK3$_0clEvEUlRKS4_E_KNS_16auto_partitionerEEE", i64 0, i32 0, i64 2), ptr %155, align 8
   %157 = getelementptr inbounds i8, ptr %155, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %157, ptr noundef nonnull align 8 dereferenceable(16) %148, i64 16, i1 false)
   %158 = getelementptr inbounds i8, ptr %155, i64 24

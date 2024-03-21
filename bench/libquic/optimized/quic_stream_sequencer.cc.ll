@@ -43,7 +43,7 @@ target triple = "x86_64-unknown-linux-gnu"
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19QuicStreamSequencerC2EPNS_18ReliableQuicStreamEPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(169) %this, ptr noundef %quic_stream, ptr noundef %clock) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %stream_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %quic_stream, ptr %stream_, align 8
   %buffered_frames_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -68,7 +68,7 @@ declare void @_ZN3net25QuicStreamSequencerBufferC1Em(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net19QuicStreamSequencerD2Ev(ptr noundef nonnull align 8 dereferenceable(169) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffered_frames_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN3net25QuicStreamSequencerBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %buffered_frames_) #6
   ret void
@@ -80,7 +80,7 @@ declare void @_ZN3net25QuicStreamSequencerBufferD1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net19QuicStreamSequencerD0Ev(ptr noundef nonnull align 8 dereferenceable(169) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffered_frames_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN3net25QuicStreamSequencerBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %buffered_frames_.i) #6
   tail call void @_ZdlPv(ptr noundef nonnull %this) #7

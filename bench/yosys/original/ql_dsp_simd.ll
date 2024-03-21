@@ -2647,7 +2647,7 @@ define internal void @_ZN12_GLOBAL__N_113QlDspSimdPassC2Ev(ptr noundef nonnull a
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113QlDspSimdPassE, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113QlDspSimdPassE, i32 0, i32 0, i32 2), ptr %18, align 8
   %22 = getelementptr inbounds %"struct.(anonymous namespace)::QlDspSimdPass", ptr %18, i32 0, i32 1
   store i32 80, ptr %22, align 8
   %23 = getelementptr inbounds %"struct.(anonymous namespace)::QlDspSimdPass", ptr %18, i32 0, i32 2
@@ -2876,7 +2876,7 @@ define internal void @_ZN12_GLOBAL__N_113QlDspSimdPassD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113QlDspSimdPassE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113QlDspSimdPassE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::QlDspSimdPass", ptr %3, i32 0, i32 3
   call void @_ZN5Yosys6SigMapD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #3
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::QlDspSimdPass", ptr %3, i32 0, i32 2

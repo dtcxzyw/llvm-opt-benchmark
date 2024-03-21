@@ -73,7 +73,7 @@ define dso_local void @_ZN27btConvex2dConvex2dAlgorithm10CreateFuncC2EP22btVoron
 entry:
   %m_swapped.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %m_swapped.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27btConvex2dConvex2dAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN27btConvex2dConvex2dAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_simplexSolver = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %simplexSolver, ptr %m_simplexSolver, align 8
   %m_pdSolver = getelementptr inbounds i8, ptr %this, i64 16
@@ -101,7 +101,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #3
 define dso_local void @_ZN27btConvex2dConvex2dAlgorithmC2EP20btPersistentManifoldRK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS7_P22btVoronoiSimplexSolverP30btConvexPenetrationDepthSolverii(ptr noundef nonnull align 8 dereferenceable(49) %this, ptr noundef %mf, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap, ptr noundef %simplexSolver, ptr noundef %pdSolver, i32 %0, i32 %1) unnamed_addr #4 align 2 {
 entry:
   tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_simplexSolver = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %simplexSolver, ptr %m_simplexSolver, align 8
   %m_pdSolver = getelementptr inbounds i8, ptr %this, i64 24
@@ -120,7 +120,7 @@ declare void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmCons
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownManifold = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %m_ownManifold, align 8
   %1 = and i8 %0, 1
@@ -173,7 +173,7 @@ declare void @_ZN30btActivatingCollisionAlgorithmD2Ev(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN27btConvex2dConvex2dAlgorithmD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_ownManifold.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %m_ownManifold.i, align 8
   %1 = and i8 %0, 1
@@ -415,7 +415,7 @@ invoke.cont21:                                    ; preds = %land.lhs.true, %ent
   %m_ccdSweptSphereRadius.i = getelementptr inbounds i8, ptr %col1, i64 304
   %19 = load float, ptr %m_ccdSweptSphereRadius.i, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btSphereShape, i64 0, inrange i32 0, i64 2), ptr %sphere1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btSphereShape, i64 0, i32 0, i64 2), ptr %sphere1, align 8
   %m_shapeType.i = getelementptr inbounds i8, ptr %sphere1, i64 8
   store i32 8, ptr %m_shapeType.i, align 8
   %m_localScaling.i = getelementptr inbounds i8, ptr %sphere1, i64 32
@@ -430,7 +430,7 @@ invoke.cont21:                                    ; preds = %land.lhs.true, %ent
   store float %19, ptr %m_collisionMargin.i, align 8
   %m_padding.i = getelementptr inbounds i8, ptr %sphere1, i64 68
   store float 0.000000e+00, ptr %m_padding.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12btConvexCast10CastResultE, i64 0, inrange i32 0, i64 2), ptr %result, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12btConvexCast10CastResultE, i64 0, i32 0, i64 2), ptr %result, align 8
   %m_fraction.i = getelementptr inbounds i8, ptr %result, i64 168
   store float 0x43ABC16D60000000, ptr %m_fraction.i, align 8
   %m_debugDrawer.i = getelementptr inbounds i8, ptr %result, i64 176
@@ -503,7 +503,7 @@ invoke.cont64:                                    ; preds = %if.end49, %if.then5
   %m_ccdSweptSphereRadius.i70 = getelementptr inbounds i8, ptr %col0, i64 304
   %26 = load float, ptr %m_ccdSweptSphereRadius.i70, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %sphere0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btSphereShape, i64 0, inrange i32 0, i64 2), ptr %sphere0, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btSphereShape, i64 0, i32 0, i64 2), ptr %sphere0, align 8
   %m_shapeType.i71 = getelementptr inbounds i8, ptr %sphere0, i64 8
   store i32 8, ptr %m_shapeType.i71, align 8
   %m_localScaling.i72 = getelementptr inbounds i8, ptr %sphere0, i64 32
@@ -518,7 +518,7 @@ invoke.cont64:                                    ; preds = %if.end49, %if.then5
   store float %26, ptr %m_collisionMargin.i77, align 8
   %m_padding.i78 = getelementptr inbounds i8, ptr %sphere0, i64 68
   store float 0.000000e+00, ptr %m_padding.i78, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12btConvexCast10CastResultE, i64 0, inrange i32 0, i64 2), ptr %result59, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12btConvexCast10CastResultE, i64 0, i32 0, i64 2), ptr %result59, align 8
   %m_fraction.i79 = getelementptr inbounds i8, ptr %result59, i64 168
   store float 0x43ABC16D60000000, ptr %m_fraction.i79, align 8
   %m_debugDrawer.i80 = getelementptr inbounds i8, ptr %result59, i64 176
@@ -623,7 +623,7 @@ entry:
   %m_simplexSolver.i = getelementptr inbounds i8, ptr %call, i64 16
   %3 = load <2 x ptr>, ptr %m_pdSolver, align 8
   tail call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %call, ptr noundef nonnull align 8 dereferenceable(16) %ci, ptr noundef %body0Wrap, ptr noundef %body1Wrap)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV27btConvex2dConvex2dAlgorithm, i64 0, i32 0, i64 2), ptr %call, align 8
   %4 = shufflevector <2 x ptr> %3, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %4, ptr %m_simplexSolver.i, align 8
   %m_ownManifold.i = getelementptr inbounds i8, ptr %call, i64 32

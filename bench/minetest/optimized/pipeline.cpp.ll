@@ -116,15 +116,15 @@ $_ZTI17TrivialRenderStep = comdat any
 @.str.12 = private unnamed_addr constant [21 x i8] c"Server shutting down\00", align 1
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
 @_ZTV13TextureBuffer = dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI13TextureBuffer, ptr @_ZN13TextureBufferD1Ev, ptr @_ZN13TextureBufferD0Ev, ptr @_ZN13TextureBuffer5resetER15PipelineContext, ptr @_ZN13TextureBuffer15getTextureCountEv, ptr @_ZN13TextureBuffer10getTextureEh] }, align 8
-@_ZTT13TextureBuffer = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TextureBuffer, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTC13TextureBuffer0_12RenderSource, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTC13TextureBuffer0_12RenderSource, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TextureBuffer, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT13TextureBuffer = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TextureBuffer, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTC13TextureBuffer0_12RenderSource, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTC13TextureBuffer0_12RenderSource, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TextureBuffer, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTV19TextureBufferOutput = dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI19TextureBufferOutput, ptr @_ZN19TextureBufferOutputD1Ev, ptr @_ZN19TextureBufferOutputD0Ev, ptr @_ZN12RenderTarget5resetER15PipelineContext, ptr @_ZN19TextureBufferOutput8activateER15PipelineContext] }, align 8
-@_ZTT19TextureBufferOutput = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC19TextureBufferOutput0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC19TextureBufferOutput0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT19TextureBufferOutput = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC19TextureBufferOutput0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC19TextureBufferOutput0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i32 0, inrange i32 0, i32 5)], align 8
 @.str.14 = private unnamed_addr constant [59 x i8] c"Dynamic render target is not configured before activation.\00", align 1
 @_ZTISt11logic_error = external constant ptr
 @_ZTV19SetRenderTargetStep = dso_local unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI19SetRenderTargetStep, ptr @_ZN19SetRenderTargetStepD1Ev, ptr @_ZN19SetRenderTargetStepD0Ev, ptr @_ZN17TrivialRenderStep5resetER15PipelineContext, ptr @_ZN17TrivialRenderStep15setRenderSourceEP12RenderSource, ptr @_ZN17TrivialRenderStep15setRenderTargetEP12RenderTarget, ptr @_ZN19SetRenderTargetStep3runER15PipelineContext] }, align 8
-@_ZTT19SetRenderTargetStep = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19SetRenderTargetStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC19SetRenderTargetStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC19SetRenderTargetStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC19SetRenderTargetStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC19SetRenderTargetStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19SetRenderTargetStep, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT19SetRenderTargetStep = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19SetRenderTargetStep, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC19SetRenderTargetStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC19SetRenderTargetStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC19SetRenderTargetStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC19SetRenderTargetStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19SetRenderTargetStep, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTV16SwapTexturesStep = dso_local unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI16SwapTexturesStep, ptr @_ZN16SwapTexturesStepD1Ev, ptr @_ZN16SwapTexturesStepD0Ev, ptr @_ZN17TrivialRenderStep5resetER15PipelineContext, ptr @_ZN17TrivialRenderStep15setRenderSourceEP12RenderSource, ptr @_ZN17TrivialRenderStep15setRenderTargetEP12RenderTarget, ptr @_ZN16SwapTexturesStep3runER15PipelineContext] }, align 8
-@_ZTT16SwapTexturesStep = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SwapTexturesStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SwapTexturesStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SwapTexturesStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SwapTexturesStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SwapTexturesStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SwapTexturesStep, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT16SwapTexturesStep = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SwapTexturesStep, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SwapTexturesStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SwapTexturesStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SwapTexturesStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC16SwapTexturesStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SwapTexturesStep, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTC13TextureBuffer0_12RenderSource = dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI12RenderSource, ptr @_ZN12RenderSourceD1Ev, ptr @_ZN12RenderSourceD0Ev, ptr @_ZN20RenderPipelineObject5resetER15PipelineContext, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTS12RenderSource = linkonce_odr dso_local constant [15 x i8] c"12RenderSource\00", comdat, align 1
@@ -141,17 +141,17 @@ $_ZTI17TrivialRenderStep = comdat any
 @_ZTS19TextureBufferOutput = dso_local constant [22 x i8] c"19TextureBufferOutput\00", align 1
 @_ZTI19TextureBufferOutput = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS19TextureBufferOutput, ptr @_ZTI12RenderTarget }, align 8
 @_ZTV13DynamicSource = dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI13DynamicSource, ptr @_ZN13DynamicSourceD1Ev, ptr @_ZN13DynamicSourceD0Ev, ptr @_ZN20RenderPipelineObject5resetER15PipelineContext, ptr @_ZN13DynamicSource15getTextureCountEv, ptr @_ZN13DynamicSource10getTextureEh] }, align 8
-@_ZTT13DynamicSource = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13DynamicSource, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTC13DynamicSource0_12RenderSource, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTC13DynamicSource0_12RenderSource, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13DynamicSource, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT13DynamicSource = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13DynamicSource, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTC13DynamicSource0_12RenderSource, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTC13DynamicSource0_12RenderSource, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13DynamicSource, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTC13DynamicSource0_12RenderSource = dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI12RenderSource, ptr @_ZN12RenderSourceD1Ev, ptr @_ZN12RenderSourceD0Ev, ptr @_ZN20RenderPipelineObject5resetER15PipelineContext, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZTS13DynamicSource = dso_local constant [16 x i8] c"13DynamicSource\00", align 1
 @_ZTI13DynamicSource = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS13DynamicSource, ptr @_ZTI12RenderSource }, align 8
 @_ZTV12ScreenTarget = dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI12ScreenTarget, ptr @_ZN12ScreenTargetD1Ev, ptr @_ZN12ScreenTargetD0Ev, ptr @_ZN12ScreenTarget5resetER15PipelineContext, ptr @_ZN12ScreenTarget8activateER15PipelineContext] }, align 8
-@_ZTT12ScreenTarget = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV12ScreenTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC12ScreenTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC12ScreenTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV12ScreenTarget, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT12ScreenTarget = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV12ScreenTarget, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC12ScreenTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC12ScreenTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV12ScreenTarget, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTC12ScreenTarget0_12RenderTarget = dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI12RenderTarget, ptr @_ZN12RenderTargetD1Ev, ptr @_ZN12RenderTargetD0Ev, ptr @_ZN12RenderTarget5resetER15PipelineContext, ptr @_ZN12RenderTarget8activateER15PipelineContext] }, align 8
 @_ZTS12ScreenTarget = dso_local constant [15 x i8] c"12ScreenTarget\00", align 1
 @_ZTI12ScreenTarget = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS12ScreenTarget, ptr @_ZTI12RenderTarget }, align 8
 @_ZTV13DynamicTarget = dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI13DynamicTarget, ptr @_ZN13DynamicTargetD1Ev, ptr @_ZN13DynamicTargetD0Ev, ptr @_ZN12RenderTarget5resetER15PipelineContext, ptr @_ZN13DynamicTarget8activateER15PipelineContext] }, align 8
-@_ZTT13DynamicTarget = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DynamicTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC13DynamicTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC13DynamicTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DynamicTarget, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT13DynamicTarget = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DynamicTarget, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC13DynamicTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTC13DynamicTarget0_12RenderTarget, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DynamicTarget, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTC13DynamicTarget0_12RenderTarget = dso_local unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI12RenderTarget, ptr @_ZN12RenderTargetD1Ev, ptr @_ZN12RenderTargetD0Ev, ptr @_ZN12RenderTarget5resetER15PipelineContext, ptr @_ZN12RenderTarget8activateER15PipelineContext] }, align 8
 @_ZTS13DynamicTarget = dso_local constant [16 x i8] c"13DynamicTarget\00", align 1
 @_ZTI13DynamicTarget = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS13DynamicTarget, ptr @_ZTI12RenderTarget }, align 8
@@ -168,7 +168,7 @@ $_ZTI17TrivialRenderStep = comdat any
 @_ZTS16SwapTexturesStep = dso_local constant [19 x i8] c"16SwapTexturesStep\00", align 1
 @_ZTI16SwapTexturesStep = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS16SwapTexturesStep, ptr @_ZTI17TrivialRenderStep }, align 8
 @_ZTV14RenderPipeline = dso_local unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI14RenderPipeline, ptr @_ZN14RenderPipelineD1Ev, ptr @_ZN14RenderPipelineD0Ev, ptr @_ZN14RenderPipeline5resetER15PipelineContext, ptr @_ZN14RenderPipeline15setRenderSourceEP12RenderSource, ptr @_ZN14RenderPipeline15setRenderTargetEP12RenderTarget, ptr @_ZN14RenderPipeline3runER15PipelineContext] }, align 8
-@_ZTT14RenderPipeline = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC14RenderPipeline0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC14RenderPipeline0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT14RenderPipeline = dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC14RenderPipeline0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC14RenderPipeline0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i32 0, inrange i32 0, i32 5)], align 8
 @_ZTC14RenderPipeline0_10RenderStep = dso_local unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI10RenderStep, ptr @_ZN10RenderStepD1Ev, ptr @_ZN10RenderStepD0Ev, ptr @_ZN20RenderPipelineObject5resetER15PipelineContext, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZTS14RenderPipeline = dso_local constant [17 x i8] c"14RenderPipeline\00", align 1
 @_ZTI14RenderPipeline = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS14RenderPipeline, ptr @_ZTI10RenderStep }, align 8
@@ -1416,7 +1416,7 @@ define dso_local void @_ZN19TextureBufferOutputC2EP13TextureBufferh(ptr nocaptur
 define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %4, align 8, !tbaa !76
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8, !tbaa !78
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1516,7 +1516,7 @@ define dso_local void @_ZN19TextureBufferOutputC2EP13TextureBufferRKSt6vectorIhS
 define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferRKSt6vectorIhSaIhEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %4, align 8, !tbaa !76
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %5, align 8, !tbaa !78
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1652,7 +1652,7 @@ define dso_local void @_ZN19TextureBufferOutputC2EP13TextureBufferRKSt6vectorIhS
 define dso_local void @_ZN19TextureBufferOutputC1EP13TextureBufferRKSt6vectorIhSaIhEEh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2, i8 noundef zeroext %3) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %5, align 8, !tbaa !76
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %6, align 8, !tbaa !78
   %7 = getelementptr inbounds i8, ptr %0, i64 24
@@ -1759,7 +1759,7 @@ define dso_local void @_ZN19TextureBufferOutputD2Ev(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN19TextureBufferOutputD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !89
   %4 = icmp eq ptr %3, null
@@ -1805,7 +1805,7 @@ define dso_local void @_ZTv0_n24_N19TextureBufferOutputD1Ev(ptr nocapture nounde
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, inrange i32 0, i64 5), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, i32 0, i64 5), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !89
   %8 = icmp eq ptr %7, null
@@ -1847,7 +1847,7 @@ define dso_local void @_ZTv0_n24_N19TextureBufferOutputD1Ev(ptr nocapture nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN19TextureBufferOutputD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !89
   %4 = icmp eq ptr %3, null
@@ -1894,7 +1894,7 @@ define dso_local void @_ZTv0_n24_N19TextureBufferOutputD0Ev(ptr noundef %0) unna
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, inrange i32 0, i64 5), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19TextureBufferOutput, i64 0, i32 0, i64 5), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 56
   %7 = load ptr, ptr %6, align 8, !tbaa !89
   %8 = icmp eq ptr %7, null
@@ -2410,7 +2410,7 @@ define dso_local void @_ZN19SetRenderTargetStepC2EP10RenderStepP12RenderTarget(p
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN19SetRenderTargetStepC1EP10RenderStepP12RenderTarget(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #16 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19SetRenderTargetStep, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19SetRenderTargetStep, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !96
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2470,7 +2470,7 @@ define dso_local void @_ZN16SwapTexturesStepC2EP13TextureBufferhh(ptr nocapture 
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16SwapTexturesStepC1EP13TextureBufferhh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(18) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #16 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SwapTexturesStep, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16SwapTexturesStep, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %5, align 8, !tbaa !101
   %6 = getelementptr inbounds i8, ptr %0, i64 16
@@ -2728,7 +2728,7 @@ define linkonce_odr dso_local void @_ZN16SwapTexturesStepD0Ev(ptr noundef nonnul
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14RenderPipelineD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !116
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -2784,7 +2784,7 @@ define linkonce_odr dso_local void @_ZN14RenderPipelineD1Ev(ptr noundef nonnull 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14RenderPipelineD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !116
   %4 = getelementptr inbounds i8, ptr %0, i64 40

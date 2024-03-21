@@ -537,7 +537,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pStream = getelementptr inbounds %"class.Assimp::FileLogStream", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m_pStream, align 8
   %isnull = icmp eq ptr %0, null
@@ -619,7 +619,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp6LoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp10NullLoggerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp10NullLoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -777,7 +777,7 @@ entry:
   store ptr %_ostream, ptr %_ostream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp9LogStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mOstream = getelementptr inbounds %"class.Assimp::StdOStreamLogStream", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_ostream.addr, align 8
   store ptr %0, ptr %mOstream, align 8
@@ -800,7 +800,7 @@ entry:
   store ptr %io, ptr %io.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp9LogStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pStream = getelementptr inbounds %"class.Assimp::FileLogStream", ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_pStream, align 8
   %0 = load ptr, ptr %file.addr, align 8
@@ -1979,7 +1979,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %severity.addr, align 4
   call void @_ZN6Assimp6LoggerC2ENS0_11LogSeverityE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_StreamArray = getelementptr inbounds %"class.Assimp::DefaultLogger", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_StreamArray) #5
   %noRepeatMsg = getelementptr inbounds %"class.Assimp::DefaultLogger", ptr %this1, i32 0, i32 2
@@ -2000,7 +2000,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %severity, ptr %severity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp6LoggerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp6LoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_Severity = getelementptr inbounds %"class.Assimp::Logger", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %severity.addr, align 4
   store i32 %0, ptr %m_Severity, align 8
@@ -2025,7 +2025,7 @@ entry:
   %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_StreamArray = getelementptr inbounds %"class.Assimp::DefaultLogger", ptr %this1, i32 0, i32 1
   %call = call ptr @_ZNSt6vectorIPN6Assimp13LogStreamInfoESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %m_StreamArray) #5
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %it, i32 0, i32 0
@@ -2160,7 +2160,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #5
   ret void
@@ -2411,7 +2411,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp6LoggerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp6LoggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_Severity = getelementptr inbounds %"class.Assimp::Logger", ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_Severity, align 8
   ret void
@@ -2508,7 +2508,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp9LogStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp9LogStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2519,7 +2519,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp8IOSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #5
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp15DefaultIOSystemE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp15DefaultIOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2541,7 +2541,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #5
   ret void

@@ -858,7 +858,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen14RendezvousHashD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen14RendezvousHashE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen14RendezvousHashE, i64 0, i32 0, i64 2), ptr %this, align 8
   %weights_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %weights_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -875,7 +875,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EED2Ev.exit:        ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8proxygen14RendezvousHashD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen14RendezvousHashE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen14RendezvousHashE, i64 0, i32 0, i64 2), ptr %this, align 8
   %weights_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %weights_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

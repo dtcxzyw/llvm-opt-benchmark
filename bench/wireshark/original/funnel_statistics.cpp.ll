@@ -1240,7 +1240,7 @@ define void @_ZN12FunnelActionC2EP7QObject(ptr noundef nonnull align 8 dereferen
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #8
   %8 = getelementptr inbounds %class.FunnelAction, ptr %5, i32 0, i32 2
@@ -1304,7 +1304,7 @@ define void @_ZN12FunnelActionC2E7QStringPFvPvES1_iP7QObject(ptr noundef nonnull
   %18 = load ptr, ptr %7, align 8
   %19 = load ptr, ptr %12, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef %19)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2), ptr %18, align 8
   %20 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 1
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %1) #8
   %21 = getelementptr inbounds %class.FunnelAction, ptr %18, i32 0, i32 2
@@ -1511,7 +1511,7 @@ define void @_ZN12FunnelActionC2E7QStringPFvPvP10_GPtrArrayES1_iPKcP7QObject(ptr
   %25 = load ptr, ptr %8, align 8
   %26 = load ptr, ptr %14, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef %26)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, inrange i32 0, i32 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2), ptr %25, align 8
   %27 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 1
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %27, ptr noundef nonnull align 8 dereferenceable(24) %1) #8
   %28 = getelementptr inbounds %class.FunnelAction, ptr %25, i32 0, i32 2
@@ -1998,7 +1998,7 @@ define void @_ZN12FunnelActionD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV12FunnelAction, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FunnelAction, ptr %3, i32 0, i32 8
   call void @_ZN4QSetI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %5 = getelementptr inbounds %class.FunnelAction, ptr %3, i32 0, i32 2
@@ -2831,7 +2831,7 @@ define void @_ZN19FunnelConsoleActionC2E7QStringPFiPKcPPcS4_PvEPFvPFvS2_S5_ES5_S
   %24 = load ptr, ptr %8, align 8
   %25 = load ptr, ptr %14, align 8
   call void @_ZN12FunnelActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(112) %24, ptr noundef %25)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV19FunnelConsoleAction, i32 0, inrange i32 0, i32 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV19FunnelConsoleAction, i32 0, i32 0, i32 2), ptr %24, align 8
   %26 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %26) #8
   %27 = getelementptr inbounds %class.FunnelConsoleAction, ptr %24, i32 0, i32 2
@@ -3015,7 +3015,7 @@ define void @_ZN19FunnelConsoleActionD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV19FunnelConsoleAction, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV19FunnelConsoleAction, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FunnelConsoleAction, ptr %3, i32 0, i32 6
   call void @_ZN8QPointerI15IOConsoleDialogED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
   %5 = getelementptr inbounds %class.FunnelConsoleAction, ptr %3, i32 0, i32 1
@@ -3306,7 +3306,7 @@ define void @_ZN16FunnelStatisticsC2EP7QObjectR11CaptureFile(ptr noundef nonnull
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16FunnelStatistics, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16FunnelStatistics, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.FunnelStatistics, ptr %9, i32 0, i32 3
   %12 = load ptr, ptr %6, align 8
   store ptr %12, ptr %11, align 8
@@ -4343,7 +4343,7 @@ define void @_ZN16FunnelStatisticsD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16FunnelStatistics, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16FunnelStatistics, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FunnelStatistics, ptr %3, i32 0, i32 2
   %5 = load ptr, ptr %4, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 8, i1 false)

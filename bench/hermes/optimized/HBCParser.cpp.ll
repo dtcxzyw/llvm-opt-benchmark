@@ -240,7 +240,7 @@ if.then.i.i.i.i.i.thread:                         ; preds = %if.then.i.i.i.i4
   %16 = load i32, ptr %_M_use_count.i.i.i.i.i, align 4
   %add.i.i.i.i.i.i8 = add nsw i32 %16, 1
   store i32 %add.i.i.i.i.i.i8, ptr %_M_use_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %staticInstCountVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %staticInstCountVisitor, align 8
   store ptr %9, ptr %bcProvider_.i10.i, align 8
   store ptr %10, ptr %_M_refcount.i.i.i11.i, align 8
   br label %if.then.i.i.i.i.i.i.i
@@ -249,7 +249,7 @@ if.then.i.i.i.i.i:                                ; preds = %if.then.i.i.i.i4
   %17 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i.i, i32 1 acq_rel, align 4
   %.pre35 = load i8, ptr @__libc_single_threaded, align 1
   %18 = icmp eq i8 %.pre35, 0
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %staticInstCountVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %staticInstCountVisitor, align 8
   store ptr %9, ptr %bcProvider_.i10.i, align 8
   store ptr %10, ptr %_M_refcount.i.i.i11.i, align 8
   br i1 %18, label %if.else.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
@@ -345,7 +345,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZN6hermes39BasicBlockStaticInstructionCountVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_mapIPKhtSt4hashIS7_ESt8equal_toIS7_ESaISt4pairIKS7_tEEE.exit: ; preds = %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %call925 = phi ptr [ %call9, %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i ], [ %call924, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i ], [ %call924, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %call924, %if.end8.sink.split.i.i.i.i.i ]
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes39BasicBlockStaticInstructionCountVisitorE, i64 0, inrange i32 0, i64 2), ptr %staticInstCountVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes39BasicBlockStaticInstructionCountVisitorE, i64 0, i32 0, i64 2), ptr %staticInstCountVisitor, align 8
   %curProfileIndex_.i = getelementptr inbounds i8, ptr %staticInstCountVisitor, i64 28
   store i16 0, ptr %curProfileIndex_.i, align 4
   %curBlockStaticInstCount_.i = getelementptr inbounds i8, ptr %staticInstCountVisitor, i64 32
@@ -640,7 +640,7 @@ declare void @_ZN6hermes3hbc15BytecodeVisitor27visitInstructionsInFunctionEj(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes39BasicBlockStaticInstructionCountVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes39BasicBlockStaticInstructionCountVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes39BasicBlockStaticInstructionCountVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %basicBlockStaticInstCountMap_ = getelementptr inbounds i8, ptr %this, i64 48
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -671,7 +671,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIt
   br label %_ZNSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEED2Ev.exit
 
 _ZNSt13unordered_mapItmSt4hashItESt8equal_toItESaISt4pairIKtmEEED2Ev.exit: ; preds = %_ZNSt10_HashtableItSt4pairIKtmESaIS2_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
@@ -783,7 +783,7 @@ if.then.i.i.i.i.i2.thread:                        ; preds = %if.then.i.i.i.i, %i
   %5 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i.i = add nsw i32 %5, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %rangeVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %rangeVisitor, align 8
   %bcProvider_.i10.i118 = getelementptr inbounds i8, ptr %rangeVisitor, i64 8
   store ptr %0, ptr %bcProvider_.i10.i118, align 8
   %_M_refcount.i.i.i11.i119 = getelementptr inbounds i8, ptr %rangeVisitor, i64 16
@@ -793,7 +793,7 @@ if.then.i.i.i.i.i2.thread:                        ; preds = %if.then.i.i.i.i, %i
 if.then.i.i.i.i.i2:                               ; preds = %if.then.i.i.i.i
   %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   %.pre114 = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %rangeVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %rangeVisitor, align 8
   %bcProvider_.i10.i = getelementptr inbounds i8, ptr %rangeVisitor, i64 8
   store ptr %0, ptr %bcProvider_.i10.i, align 8
   %_M_refcount.i.i.i11.i = getelementptr inbounds i8, ptr %rangeVisitor, i64 16
@@ -890,7 +890,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN6hermes22BasicBlockRangeVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEE.exit
 
 _ZN6hermes22BasicBlockRangeVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEE.exit: ; preds = %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes22BasicBlockRangeVisitorE, i64 0, inrange i32 0, i64 2), ptr %rangeVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes22BasicBlockRangeVisitorE, i64 0, i32 0, i64 2), ptr %rangeVisitor, align 8
   %isBranchInst_.i = getelementptr inbounds i8, ptr %rangeVisitor, i64 28
   store i8 0, ptr %isBranchInst_.i, align 4
   %basicBlockStartAddresses_.i = getelementptr inbounds i8, ptr %rangeVisitor, i64 32
@@ -1004,7 +1004,7 @@ if.then.i.i.i.i.i32.thread:                       ; preds = %if.then.i.i.i.i27, 
   %36 = load i32, ptr %_M_use_count.i.i.i.i18, align 4
   %add.i.i.i.i.i.i31 = add nsw i32 %36, 1
   store i32 %add.i.i.i.i.i.i31, ptr %_M_use_count.i.i.i.i18, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %profileIndexVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %profileIndexVisitor, align 8
   %bcProvider_.i10.i33123 = getelementptr inbounds i8, ptr %profileIndexVisitor, i64 8
   store ptr %30, ptr %bcProvider_.i10.i33123, align 8
   %_M_refcount.i.i.i11.i34124 = getelementptr inbounds i8, ptr %profileIndexVisitor, i64 16
@@ -1015,7 +1015,7 @@ if.then.i.i.i.i.i32:                              ; preds = %if.then.i.i.i.i27
   %37 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i18, i32 1 acq_rel, align 4
   %.pre116 = load i8, ptr @__libc_single_threaded, align 1
   %38 = icmp eq i8 %.pre116, 0
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %profileIndexVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %profileIndexVisitor, align 8
   %bcProvider_.i10.i33 = getelementptr inbounds i8, ptr %profileIndexVisitor, i64 8
   store ptr %30, ptr %bcProvider_.i10.i33, align 8
   %_M_refcount.i.i.i11.i34 = getelementptr inbounds i8, ptr %profileIndexVisitor, i64 16
@@ -1111,7 +1111,7 @@ if.end8.sink.split.i.i.i.i.i64:                   ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN6hermes19ProfileIndexVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE.exit
 
 _ZN6hermes19ProfileIndexVisitorC2ESt10shared_ptrINS_3hbc14BCProviderBaseEERSt13unordered_setIPKhSt4hashIS7_ESt8equal_toIS7_ESaIS7_EE.exit: ; preds = %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i75, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i45, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i61, %if.end8.sink.split.i.i.i.i.i64
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes19ProfileIndexVisitorE, i64 0, inrange i32 0, i64 2), ptr %profileIndexVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes19ProfileIndexVisitorE, i64 0, i32 0, i64 2), ptr %profileIndexVisitor, align 8
   %hasSeenProfileInst_.i = getelementptr inbounds i8, ptr %profileIndexVisitor, i64 28
   store i8 0, ptr %hasSeenProfileInst_.i, align 4
   %curBasicBlockStart_.i = getelementptr inbounds i8, ptr %profileIndexVisitor, i64 32
@@ -1228,7 +1228,7 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit110: ; preds = %_ZN6her
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes19ProfileIndexVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes19ProfileIndexVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes19ProfileIndexVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %profileIndexMap_ = getelementptr inbounds i8, ptr %this, i64 48
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -1259,7 +1259,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP
   br label %_ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEED2Ev.exit
 
 _ZNSt13unordered_mapIPKhtSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_tEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIPKhSt4pairIKS1_tESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
@@ -1340,7 +1340,7 @@ _ZN6hermes3hbc15BytecodeVisitorD2Ev.exit:         ; preds = %_ZNSt13unordered_ma
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes22BasicBlockRangeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes22BasicBlockRangeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes22BasicBlockRangeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %basicBlockStartAddresses_ = getelementptr inbounds i8, ptr %this, i64 32
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -1371,7 +1371,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP
   br label %_ZNSt13unordered_setIPKhSt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev.exit
 
 _ZNSt13unordered_setIPKhSt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev.exit: ; preds = %_ZNSt10_HashtableIPKhS1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ESt4hashIS1_ENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %5 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
@@ -2014,7 +2014,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc15BytecodeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -2095,7 +2095,7 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %entry, %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc15BytecodeVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null

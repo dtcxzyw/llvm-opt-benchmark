@@ -135,7 +135,7 @@ entry:
   %initialAllocatedSize = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV23btHashedSimplePairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV23btHashedSimplePairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_overlappingPairArray = getelementptr inbounds %class.btHashedSimplePairCache, ptr %this1, i32 0, i32 1
   call void @_ZN20btAlignedObjectArrayI12btSimplePairEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray)
   %m_hashTable = getelementptr inbounds %class.btHashedSimplePairCache, ptr %this1, i32 0, i32 2
@@ -455,7 +455,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV23btHashedSimplePairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV23btHashedSimplePairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_next = getelementptr inbounds %class.btHashedSimplePairCache, ptr %this1, i32 0, i32 3
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_next) #7
   %m_hashTable = getelementptr inbounds %class.btHashedSimplePairCache, ptr %this1, i32 0, i32 2

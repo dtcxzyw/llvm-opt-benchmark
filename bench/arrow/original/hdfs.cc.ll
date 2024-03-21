@@ -1343,10 +1343,10 @@ $_ZTSSt15_Sp_counted_ptrIPN5arrow2io16HadoopFileSystemELN9__gnu_cxx12_Lock_polic
 $_ZTISt15_Sp_counted_ptrIPN5arrow2io16HadoopFileSystemELN9__gnu_cxx12_Lock_policyE2EE = comdat any
 
 @_ZTVN5arrow2io16HdfsReadableFileE = unnamed_addr constant { [27 x ptr], [5 x ptr], [15 x ptr] } { [27 x ptr] [ptr null, ptr inttoptr (i64 32 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5arrow2io16HdfsReadableFileE, ptr @_ZN5arrow2io16HdfsReadableFileD1Ev, ptr @_ZN5arrow2io16HdfsReadableFileD0Ev, ptr @_ZN5arrow2io16HdfsReadableFile4ReadElPv, ptr @_ZN5arrow2io16HdfsReadableFile4ReadEl, ptr @_ZNK5arrow2io8Readable10io_contextEv, ptr @_ZN5arrow2io11InputStream4PeekEl, ptr @_ZNK5arrow2io11InputStream18supports_zero_copyEv, ptr @_ZN5arrow2io11InputStream12ReadMetadataEv, ptr @_ZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextE, ptr @_ZN5arrow2io16HdfsReadableFile7GetSizeEv, ptr @_ZN5arrow2io16HdfsReadableFile6ReadAtEllPv, ptr @_ZN5arrow2io16HdfsReadableFile6ReadAtEll, ptr @_ZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEll, ptr @_ZN5arrow2io16RandomAccessFile13ReadManyAsyncERKNS0_9IOContextERKSt6vectorINS0_9ReadRangeESaIS6_EE, ptr @_ZN5arrow2io16RandomAccessFile8WillNeedERKSt6vectorINS0_9ReadRangeESaIS3_EE, ptr @_ZN5arrow2io16HdfsReadableFile5CloseEv, ptr @_ZNK5arrow2io16HdfsReadableFile6closedEv, ptr @_ZN5arrow2io16HdfsReadableFile4SeekEl, ptr @_ZNK5arrow2io16HdfsReadableFile4TellEv], [5 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN5arrow2io16HdfsReadableFileE, ptr @_ZThn8_N5arrow2io16HdfsReadableFileD1Ev, ptr @_ZThn8_N5arrow2io16HdfsReadableFileD0Ev, ptr @_ZThn8_N5arrow2io16HdfsReadableFile4SeekEl], [15 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr null, ptr null, ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIN5arrow2io16HdfsReadableFileE, ptr @_ZTv0_n24_N5arrow2io16HdfsReadableFileD1Ev, ptr @_ZTv0_n24_N5arrow2io16HdfsReadableFileD0Ev, ptr @_ZTv0_n32_N5arrow2io16HdfsReadableFile5CloseEv, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZN5arrow2io13FileInterface5AbortEv, ptr @_ZTv0_n56_NK5arrow2io16HdfsReadableFile4TellEv, ptr @_ZTv0_n64_NK5arrow2io16HdfsReadableFile6closedEv] }, align 8
-@_ZTTN5arrow2io16HdfsReadableFileE = unnamed_addr constant [9 x ptr] [ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 2, i32 8), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 0, i32 8)], align 8
+@_ZTTN5arrow2io16HdfsReadableFileE = unnamed_addr constant [9 x ptr] [ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 2, i32 8), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 0, i32 8)], align 8
 @.str = private unnamed_addr constant [33 x i8] c"Failed to close HdfsReadableFile\00", align 1
 @_ZTVN5arrow2io16HdfsOutputStreamE = unnamed_addr constant { [11 x ptr], [15 x ptr] } { [11 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIN5arrow2io16HdfsOutputStreamE, ptr @_ZN5arrow2io16HdfsOutputStreamD1Ev, ptr @_ZN5arrow2io16HdfsOutputStreamD0Ev, ptr @_ZN5arrow2io16HdfsOutputStream5WriteEPKvl, ptr @_ZN5arrow2io8Writable5WriteERKSt10shared_ptrINS_6BufferEE, ptr @_ZN5arrow2io16HdfsOutputStream5FlushEv, ptr @_ZN5arrow2io16HdfsOutputStream5CloseEv, ptr @_ZNK5arrow2io16HdfsOutputStream6closedEv, ptr @_ZNK5arrow2io16HdfsOutputStream4TellEv], [15 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr null, ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5arrow2io16HdfsOutputStreamE, ptr @_ZTv0_n24_N5arrow2io16HdfsOutputStreamD1Ev, ptr @_ZTv0_n24_N5arrow2io16HdfsOutputStreamD0Ev, ptr @_ZTv0_n32_N5arrow2io16HdfsOutputStream5CloseEv, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZN5arrow2io13FileInterface5AbortEv, ptr @_ZTv0_n56_NK5arrow2io16HdfsOutputStream4TellEv, ptr @_ZTv0_n64_NK5arrow2io16HdfsOutputStream6closedEv] }, align 8
-@_ZTTN5arrow2io16HdfsOutputStreamE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsOutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsOutputStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsOutputStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsOutputStreamE, i32 0, inrange i32 1, i32 8)], align 8
+@_ZTTN5arrow2io16HdfsOutputStreamE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsOutputStreamE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsOutputStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16HdfsOutputStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsOutputStreamE, i32 0, inrange i32 1, i32 8)], align 8
 @.str.1 = private unnamed_addr constant [33 x i8] c"Failed to close HdfsOutputStream\00", align 1
 @_ZTVN5arrow2io16HadoopFileSystemE = unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN5arrow2io16HadoopFileSystemE, ptr @_ZN5arrow2io16HadoopFileSystemD1Ev, ptr @_ZN5arrow2io16HadoopFileSystemD0Ev, ptr @_ZN5arrow2io16HadoopFileSystem13MakeDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN5arrow2io16HadoopFileSystem15DeleteDirectoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN5arrow2io16HadoopFileSystem11GetChildrenERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt6vectorIS7_SaIS7_EE, ptr @_ZN5arrow2io16HadoopFileSystem6RenameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_, ptr @_ZN5arrow2io16HadoopFileSystem4StatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_14FileStatisticsE] }, align 8
 @_ZTCN5arrow2io16HdfsReadableFileE0_NS0_16RandomAccessFileE = unnamed_addr constant { [23 x ptr], [15 x ptr] } { [23 x ptr] [ptr null, ptr inttoptr (i64 32 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5arrow2io16RandomAccessFileE, ptr @_ZN5arrow2io16RandomAccessFileD1Ev, ptr @_ZN5arrow2io16RandomAccessFileD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK5arrow2io8Readable10io_contextEv, ptr @_ZN5arrow2io11InputStream4PeekEl, ptr @_ZNK5arrow2io11InputStream18supports_zero_copyEv, ptr @_ZN5arrow2io11InputStream12ReadMetadataEv, ptr @_ZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextE, ptr @__cxa_pure_virtual, ptr @_ZN5arrow2io16RandomAccessFile6ReadAtEllPv, ptr @_ZN5arrow2io16RandomAccessFile6ReadAtEll, ptr @_ZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEll, ptr @_ZN5arrow2io16RandomAccessFile13ReadManyAsyncERKNS0_9IOContextERKSt6vectorINS0_9ReadRangeESaIS6_EE, ptr @_ZN5arrow2io16RandomAccessFile8WillNeedERKSt6vectorINS0_9ReadRangeESaIS3_EE], [15 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIN5arrow2io16RandomAccessFileE, ptr @_ZTv0_n24_N5arrow2io16RandomAccessFileD1Ev, ptr @_ZTv0_n24_N5arrow2io16RandomAccessFileD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZN5arrow2io13FileInterface5AbortEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
@@ -1457,7 +1457,7 @@ entry:
   %add.ptr6 = getelementptr inbounds i8, ptr %this1, i64 %vbase.offset5
   store ptr %5, ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 1, i32 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, i32 1, i32 2), ptr %add.ptr7, align 8
   %impl_ = getelementptr inbounds %"class.arrow::io::HdfsReadableFile", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5arrow2io16HdfsReadableFile20HdfsReadableFileImplESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %impl_) #14
   %impl_8 = getelementptr inbounds %"class.arrow::io::HdfsReadableFile", ptr %this1, i32 0, i32 1
@@ -1630,12 +1630,12 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 0, i32 8), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, i32 0, i32 8), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 2, i32 8), ptr %add.ptr, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 0, i32 8), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, i32 2, i32 8), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, i32 0, i32 8), ptr %this1, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 1, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, i32 1, i32 2), ptr %add.ptr2, align 8
   %impl_ = getelementptr inbounds %"class.arrow::io::HdfsReadableFile", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5arrow2io16HdfsReadableFile20HdfsReadableFileImplESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %impl_) #14
   %impl_3 = getelementptr inbounds %"class.arrow::io::HdfsReadableFile", ptr %this1, i32 0, i32 1
@@ -1710,7 +1710,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZNSt23enable_shared_from_thisIN5arrow2io13FileInterfaceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mode_ = getelementptr inbounds %"class.arrow::io::FileInterface", ptr %this1, i32 0, i32 2
   store i32 0, ptr %mode_, align 8
   ret void
@@ -1722,7 +1722,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1766,7 +1766,7 @@ entry:
   %add.ptr6 = getelementptr inbounds i8, ptr %this1, i64 %vbase.offset5
   store ptr %4, ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, inrange i32 1, i32 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsReadableFileE, i32 0, i32 1, i32 2), ptr %add.ptr7, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -3949,9 +3949,9 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN5arrow2io13FileInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %0)
   call void @_ZN5arrow2io12OutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN5arrow2io16HdfsOutputStreamE, i64 0, i64 1)) #14
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsOutputStreamE, i32 0, inrange i32 0, i32 3), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsOutputStreamE, i32 0, i32 0, i32 3), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsOutputStreamE, i32 0, inrange i32 1, i32 8), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16HdfsOutputStreamE, i32 0, i32 1, i32 8), ptr %add.ptr, align 8
   %impl_ = getelementptr inbounds %"class.arrow::io::HdfsOutputStream", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5arrow2io16HdfsOutputStream20HdfsOutputStreamImplESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %impl_) #14
   %impl_2 = getelementptr inbounds %"class.arrow::io::HdfsOutputStream", ptr %this1, i32 0, i32 1
@@ -4712,7 +4712,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow2io10FileSystemC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io16HadoopFileSystemE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io16HadoopFileSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.arrow::io::HadoopFileSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5arrow2io16HadoopFileSystem20HadoopFileSystemImplESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %impl_) #14
   %impl_2 = getelementptr inbounds %"class.arrow::io::HadoopFileSystem", ptr %this1, i32 0, i32 1
@@ -4765,7 +4765,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io10FileSystemE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io10FileSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4860,7 +4860,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io16HadoopFileSystemE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io16HadoopFileSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %impl_ = getelementptr inbounds %"class.arrow::io::HadoopFileSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5arrow2io16HadoopFileSystem20HadoopFileSystemImplESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %impl_) #14
   call void @_ZN5arrow2io10FileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
@@ -9802,7 +9802,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #14
@@ -9815,7 +9815,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -10697,7 +10697,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -15963,7 +15963,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16HdfsReadableFileELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16HdfsReadableFileELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8
@@ -16665,7 +16665,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16HdfsOutputStreamELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16HdfsOutputStreamELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.97", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8
@@ -17897,7 +17897,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #14
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16HadoopFileSystemELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16HadoopFileSystemELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr.98", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8

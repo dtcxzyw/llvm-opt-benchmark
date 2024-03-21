@@ -549,7 +549,7 @@ entry:
   store i32 %id, ptr %id.addr, align 4
   store ptr %session, ptr %session.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %queued_data_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx114listIN3net18ReliableQuicStream11PendingDataESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %queued_data_) #10
   %queued_data_bytes_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 2
@@ -844,7 +844,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3net18ReliableQuicStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %flow_controller_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 21
   call void @_ZN3net18QuicFlowControllerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %flow_controller_) #10
   %sequencer_ = getelementptr inbounds %"class.net::ReliableQuicStream", ptr %this1, i32 0, i32 3

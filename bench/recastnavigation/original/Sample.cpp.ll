@@ -244,7 +244,7 @@ define dso_local void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceabl
   %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV6Sample, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV6Sample, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 1
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds %class.Sample, ptr %6, i32 0, i32 2
@@ -332,7 +332,7 @@ define linkonce_odr dso_local void @_ZN15SampleDebugDrawC2Ev(ptr noundef nonnull
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11DebugDrawGLC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15SampleDebugDraw, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15SampleDebugDraw, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -393,7 +393,7 @@ define dso_local void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV6Sample, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV6Sample, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.Sample, ptr %4, i32 0, i32 3
   %6 = load ptr, ptr %5, align 8
   invoke void @_Z18dtFreeNavMeshQueryP14dtNavMeshQuery(ptr noundef %6)
@@ -2049,7 +2049,7 @@ define linkonce_odr dso_local void @_ZN11DebugDrawGLC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11duDebugDrawC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV11DebugDrawGL, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV11DebugDrawGL, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2058,7 +2058,7 @@ define linkonce_odr dso_local void @_ZN11duDebugDrawC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV11duDebugDraw, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV11duDebugDraw, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

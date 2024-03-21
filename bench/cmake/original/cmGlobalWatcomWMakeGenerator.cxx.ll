@@ -585,7 +585,7 @@ define dso_local void @_ZN28cmGlobalWatcomWMakeGeneratorC2EP5cmake(ptr noundef n
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN30cmGlobalUnixMakefileGenerator3C2EP5cmake(ptr noundef nonnull align 8 dereferenceable(2120) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [74 x ptr] }, ptr @_ZTV28cmGlobalWatcomWMakeGenerator, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [74 x ptr] }, ptr @_ZTV28cmGlobalWatcomWMakeGenerator, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.cmGlobalGenerator, ptr %7, i32 0, i32 4
   %10 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str)
           to label %11 unwind label %32

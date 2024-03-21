@@ -2066,7 +2066,7 @@ entry:
   store ptr %arg_yyout, ptr %arg_yyout.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9FlexLexerC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16veloxtpFlexLexer, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16veloxtpFlexLexer, i32 0, i32 0, i32 2), ptr %this1, align 8
   %yyin = getelementptr inbounds %class.veloxtpFlexLexer, ptr %this1, i32 0, i32 5
   %0 = load ptr, ptr %arg_yyin.addr, align 8
   %tobool = icmp ne ptr %0, null
@@ -2191,7 +2191,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV9FlexLexer, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV9FlexLexer, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2263,7 +2263,7 @@ entry:
   store ptr %arg_yyout, ptr %arg_yyout.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9FlexLexerC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this1) #3
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16veloxtpFlexLexer, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16veloxtpFlexLexer, i32 0, i32 0, i32 2), ptr %this1, align 8
   %yyin = getelementptr inbounds %class.veloxtpFlexLexer, ptr %this1, i32 0, i32 5
   %0 = load ptr, ptr %arg_yyin.addr, align 8
   %vtable = load ptr, ptr %0, align 8
@@ -2348,7 +2348,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16veloxtpFlexLexer, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16veloxtpFlexLexer, i32 0, i32 0, i32 2), ptr %this1, align 8
   %yy_state_buf = getelementptr inbounds %class.veloxtpFlexLexer, ptr %this1, i32 0, i32 21
   %0 = load ptr, ptr %yy_state_buf, align 8
   %isnull = icmp eq ptr %0, null
@@ -4065,7 +4065,7 @@ entry:
   %2 = load ptr, ptr %arg_yyin.addr, align 8
   %3 = load ptr, ptr %arg_yyout.addr, align 8
   call void @_ZN16veloxtpFlexLexerC2EPSiPSo(ptr noundef nonnull align 8 dereferenceable(732) %this1, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox4type7ScannerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox4type7ScannerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %outputType_ = getelementptr inbounds %"class.facebook::velox::type::Scanner", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %outputType.addr, align 8
   store ptr %4, ptr %outputType_, align 8
@@ -4972,7 +4972,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4995,7 +4995,7 @@ entry:
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5005,7 +5005,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5595,7 +5595,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly19ConversionErrorBaseC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %code_ = getelementptr inbounds %"class.folly::ConversionError", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %2, i32 0, i32 1
@@ -5614,7 +5614,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11range_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly19ConversionErrorBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly19ConversionErrorBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5642,7 +5642,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11range_error, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11range_error, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5750,7 +5750,7 @@ entry:
   store i8 %error, ptr %error.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.13", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %error.addr, align 1
   store i8 %0, ptr %error_, align 8
@@ -5777,7 +5777,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.13", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %error_2 = getelementptr inbounds %"class.folly::BadExpectedAccess.13", ptr %2, i32 0, i32 1

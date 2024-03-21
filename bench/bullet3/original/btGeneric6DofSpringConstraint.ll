@@ -235,7 +235,7 @@ entry:
   %4 = load i8, ptr %useLinearReferenceFrameA.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyS1_RK11btTransformS4_b(ptr noundef nonnull align 8 dereferenceable(1333) %this1, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29btGeneric6DofSpringConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29btGeneric6DofSpringConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN29btGeneric6DofSpringConstraint4initEv(ptr noundef nonnull align 8 dereferenceable(1412) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -345,7 +345,7 @@ entry:
   %2 = load i8, ptr %useLinearReferenceFrameB.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyRK11btTransformb(ptr noundef nonnull align 8 dereferenceable(1333) %this1, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 4 dereferenceable(64) %1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29btGeneric6DofSpringConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV29btGeneric6DofSpringConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN29btGeneric6DofSpringConstraint4initEv(ptr noundef nonnull align 8 dereferenceable(1412) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -1192,7 +1192,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

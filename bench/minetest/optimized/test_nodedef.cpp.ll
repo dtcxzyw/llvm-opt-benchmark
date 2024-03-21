@@ -406,7 +406,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 sect
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -814,7 +814,7 @@ define dso_local void @_ZN11TestNodeDef32testContentFeaturesSerializationEv(ptr 
   %164 = getelementptr inbounds i8, ptr %4, i64 %163
   store ptr %161, ptr %164, align 8, !tbaa !15
   %165 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %165, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %165, align 8, !tbaa !15
   %166 = getelementptr inbounds i8, ptr %4, i64 88
   %167 = load ptr, ptr %166, align 8, !tbaa !11
   %168 = getelementptr inbounds i8, ptr %4, i64 104
@@ -833,7 +833,7 @@ define dso_local void @_ZN11TestNodeDef32testContentFeaturesSerializationEv(ptr 
   br label %175
 
 175:                                              ; preds = %174, %170
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %165, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %165, align 8, !tbaa !15
   %176 = getelementptr inbounds i8, ptr %4, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %176) #21
   %177 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -856,7 +856,7 @@ define dso_local void @_ZN11TestNodeDef32testContentFeaturesSerializationEv(ptr 
   %188 = getelementptr inbounds i8, ptr %3, i64 %187
   store ptr %185, ptr %188, align 8, !tbaa !15
   %189 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %189, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %189, align 8, !tbaa !15
   %190 = getelementptr inbounds i8, ptr %3, i64 80
   %191 = load ptr, ptr %190, align 8, !tbaa !11
   %192 = getelementptr inbounds i8, ptr %3, i64 96
@@ -875,7 +875,7 @@ define dso_local void @_ZN11TestNodeDef32testContentFeaturesSerializationEv(ptr 
   br label %199
 
 199:                                              ; preds = %198, %194
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %189, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %189, align 8, !tbaa !15
   %200 = getelementptr inbounds i8, ptr %3, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %200) #21
   %201 = getelementptr inbounds i8, ptr %3, i64 112
@@ -1590,14 +1590,14 @@ define internal void @_GLOBAL__sub_I_test_nodedef.cpp() #16 section ".text.start
   store ptr getelementptr inbounds (%class.TestNodeDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestNodeDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !4
   store i64 0, ptr getelementptr inbounds (%class.TestNodeDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !14
   store i8 0, ptr getelementptr inbounds (%class.TestNodeDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11TestNodeDef, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11TestNodeDef, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !15
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %113 unwind label %105
 
 105:                                              ; preds = %100
   %106 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !15
   %107 = load ptr, ptr getelementptr inbounds (%class.TestNodeDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !11
   %108 = icmp eq ptr %107, getelementptr inbounds (%class.TestNodeDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %108, label %109, label %112

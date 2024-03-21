@@ -1419,7 +1419,7 @@ entry:
   store ptr %1, ptr %executor.i, align 8, !tbaa !47
   %finished_tasks.i = getelementptr inbounds %"class.duckdb::Event", ptr %this, i64 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %finished_tasks.i, i8 0, i64 81, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %pipeline = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1
   %_M_refcount.i.i = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1, i32 0, i32 1
   store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !50
@@ -1436,7 +1436,7 @@ define void @_ZN6duckdb5EventC2ERNS_8ExecutorE(ptr nocapture noundef nonnull wri
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb5EventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb5EventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %executor = getelementptr inbounds %"class.duckdb::Event", ptr %this, i64 0, i32 2
   store ptr %executor_p, ptr %executor, align 8, !tbaa !47
   %finished_tasks = getelementptr inbounds %"class.duckdb::Event", ptr %this, i64 0, i32 3
@@ -1455,7 +1455,7 @@ entry:
   store ptr %0, ptr %executor.i, align 8, !tbaa !47
   %finished_tasks.i = getelementptr inbounds %"class.duckdb::Event", ptr %this, i64 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %finished_tasks.i, i8 0, i64 81, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
   %_M_refcount.i.i.i = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1, i32 0, i32 1
   %_M_refcount2.i.i.i = getelementptr inbounds %"class.std::__weak_ptr.10", ptr %pipeline_p, i64 0, i32 1
@@ -1483,7 +1483,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !51
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !51
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !51
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38
           to label %.noexc unwind label %lpad
 
@@ -1585,7 +1585,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !94, !noalias !91
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !97, !noalias !91
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb8PipelineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !48, !noalias !91
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb8PipelineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !48, !noalias !91
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1040", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb8PipelineC1ERNS_8ExecutorE(ptr noundef nonnull align 8 dereferenceable(224) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(384) %0)
           to label %if.then.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb8PipelineESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !91
@@ -2275,7 +2275,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %if.then
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !128
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !128
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38, !noalias !128
   unreachable
 
@@ -2697,7 +2697,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !94, !noalias !140
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i21.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !97, !noalias !140
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12MetaPipelineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i21.i.i.i.i, align 8, !tbaa !48, !noalias !140
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12MetaPipelineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i21.i.i.i.i, align 8, !tbaa !48, !noalias !140
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i21.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb12MetaPipelineC1ERNS_8ExecutorERNS_18PipelineBuildStateEPNS_16PhysicalOperatorE(ptr noundef nonnull align 8 dereferenceable(272) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef nonnull %op)
           to label %if.then.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb12MetaPipelineESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit27.i.i.i.i, !noalias !140
@@ -3067,7 +3067,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i13:                                ; preds = %do.body.i.i.i.i.i, %_ZNSt10__weak_ptrIN6duckdb8PipelineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !145
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !145
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !145
   call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38, !noalias !145
   unreachable
 
@@ -4473,7 +4473,7 @@ define void @_ZN6duckdb12ExecutorTaskC2ERNS_8ExecutorE(ptr nocapture noundef non
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12ExecutorTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12ExecutorTaskE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %executor = getelementptr inbounds %"class.duckdb::ExecutorTask", ptr %this, i64 0, i32 1
   store ptr %executor_p, ptr %executor, align 8, !tbaa !47
   ret void
@@ -4485,7 +4485,7 @@ entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(384) ptr @_ZN6duckdb13ClientContext11GetExecutorEv(ptr noundef nonnull align 8 dereferenceable(592) %context)
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12ExecutorTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12ExecutorTaskE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %executor.i = getelementptr inbounds %"class.duckdb::ExecutorTask", ptr %this, i64 0, i32 1
   store ptr %call.i, ptr %executor.i, align 8, !tbaa !47
   ret void
@@ -4581,7 +4581,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !183
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !183
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !183
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38, !noalias !183
   unreachable
 
@@ -4911,7 +4911,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !246
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !246
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !246
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38, !noalias !246
   unreachable
 
@@ -6672,7 +6672,7 @@ call5.i.i.i19.i.i.i.i.noexc:                      ; preds = %invoke.cont7
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !94, !noalias !277
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i425, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !97, !noalias !277
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21PipelineCompleteEventESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i425, align 8, !tbaa !48, !noalias !277
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21PipelineCompleteEventESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i425, align 8, !tbaa !48, !noalias !277
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1077", ptr %call5.i.i.i19.i.i.i.i425, i64 0, i32 1
   %42 = load i8, ptr %initial_schedule, align 8, !tbaa !280, !range !136, !noalias !277, !noundef !137
   %tobool.i.i.i.i.i.i.i = icmp ne i8 %42, 0
@@ -8712,7 +8712,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !363
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !363
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !363
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38, !noalias !363
   unreachable
 
@@ -11584,7 +11584,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %_ZNSt10unique_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !94, !noalias !426
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i83, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !97, !noalias !426
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12MetaPipelineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i83, align 8, !tbaa !48, !noalias !426
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12MetaPipelineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i83, align 8, !tbaa !48, !noalias !426
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i83, i64 0, i32 1
   invoke void @_ZN6duckdb12MetaPipelineC1ERNS_8ExecutorERNS_18PipelineBuildStateEPNS_16PhysicalOperatorE(ptr noundef nonnull align 8 dereferenceable(272) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(384) %this, ptr noundef nonnull align 8 dereferenceable(112) %state, ptr noundef null)
           to label %if.then.i.i.i.i82 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb12MetaPipelineESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !426
@@ -14388,7 +14388,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !94, !noalias !447
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !97, !noalias !447
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb8PipelineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !48, !noalias !447
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb8PipelineESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !48, !noalias !447
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1040", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb8PipelineC1ERNS_8ExecutorE(ptr noundef nonnull align 8 dereferenceable(224) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(384) %this)
           to label %if.then.i.i.i.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb8PipelineESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !447
@@ -15870,7 +15870,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont16
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !94, !noalias !536
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i16.i.i.i.i121, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !97, !noalias !536
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb24InterruptDoneSignalStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i121, align 8, !tbaa !48, !noalias !536
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb24InterruptDoneSignalStateESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i121, align 8, !tbaa !48, !noalias !536
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1108", ptr %call5.i.i.i16.i.i.i.i121, i64 0, i32 1
   %cv.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1108", ptr %call5.i.i.i16.i.i.i.i121, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %_M_impl.i.i.i.i.i.i, i8 0, i64 96, i1 false), !noalias !536
@@ -17723,7 +17723,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !575
   %executor.i.i.i = getelementptr inbounds %"class.duckdb::ExecutorTask", ptr %call.i20, i64 0, i32 1
   store ptr %5, ptr %executor.i.i.i, align 8, !tbaa !47, !noalias !575
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12PipelineTaskE, i64 0, inrange i32 0, i64 2), ptr %call.i20, align 8, !tbaa !48, !noalias !575
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12PipelineTaskE, i64 0, i32 0, i64 2), ptr %call.i20, align 8, !tbaa !48, !noalias !575
   %pipeline.i.i = getelementptr inbounds %"class.duckdb::PipelineTask", ptr %call.i20, i64 0, i32 1
   store ptr %this, ptr %pipeline.i.i, align 8, !tbaa !47, !noalias !575
   %event.i.i = getelementptr inbounds %"class.duckdb::PipelineTask", ptr %call.i20, i64 0, i32 2
@@ -18443,7 +18443,7 @@ invoke.cont:                                      ; preds = %if.else.i.i.i.i.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !691
   %executor.i.i.i = getelementptr inbounds %"class.duckdb::ExecutorTask", ptr %call.i3435, i64 0, i32 1
   store ptr %16, ptr %executor.i.i.i, align 8, !tbaa !47, !noalias !691
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12PipelineTaskE, i64 0, inrange i32 0, i64 2), ptr %call.i3435, align 8, !tbaa !48, !noalias !691
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12PipelineTaskE, i64 0, i32 0, i64 2), ptr %call.i3435, align 8, !tbaa !48, !noalias !691
   %pipeline.i.i = getelementptr inbounds %"class.duckdb::PipelineTask", ptr %call.i3435, i64 0, i32 1
   store ptr %this, ptr %pipeline.i.i, align 8, !tbaa !47, !noalias !691
   %event.i.i = getelementptr inbounds %"class.duckdb::PipelineTask", ptr %call.i3435, i64 0, i32 2
@@ -19272,7 +19272,7 @@ do.cond.i.i.i.i:                                  ; preds = %do.body.i.i.i.i
 
 if.then.i.i.i:                                    ; preds = %do.body.i.i.i.i, %for.body
   %exception.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i, align 8, !tbaa !48
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38
   unreachable
 
@@ -20415,7 +20415,7 @@ entry:
   store ptr %executor, ptr %executor.i, align 8, !tbaa !47
   %finished_tasks.i = getelementptr inbounds %"class.duckdb::Event", ptr %this, i64 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(81) %finished_tasks.i, i8 0, i64 81, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb21PipelineCompleteEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb21PipelineCompleteEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %complete_pipeline = getelementptr inbounds %"class.duckdb::PipelineCompleteEvent", ptr %this, i64 0, i32 1
   store i8 %frombool, ptr %complete_pipeline, align 1, !tbaa !748
   ret void
@@ -20465,7 +20465,7 @@ _ZNSt12__shared_ptrIN6duckdb8PipelineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   store ptr %0, ptr %pipeline.i, align 8, !tbaa !3
   %_M_refcount.i.i.i = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1, i32 0, i32 1
   store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !50
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb13PipelineEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb13PipelineEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   ret void
 }
 
@@ -20507,7 +20507,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !750
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !750
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !750
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38, !noalias !750
   unreachable
 
@@ -24825,7 +24825,7 @@ _ZNSt12__shared_ptrIN6duckdb8PipelineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   store ptr %0, ptr %pipeline.i, align 8, !tbaa !3
   %_M_refcount.i.i.i = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1, i32 0, i32 1
   store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !50
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb19PipelineFinishEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb19PipelineFinishEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   ret void
 }
 
@@ -24872,7 +24872,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !836
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !836
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !836
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38
           to label %.noexc unwind label %lpad
 
@@ -24895,7 +24895,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !839
   %executor.i.i.i = getelementptr inbounds %"class.duckdb::ExecutorTask", ptr %call.i25, i64 0, i32 1
   store ptr %8, ptr %executor.i.i.i, align 8, !tbaa !47, !noalias !839
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb18PipelineFinishTaskE, i64 0, inrange i32 0, i64 2), ptr %call.i25, align 8, !tbaa !48, !noalias !839
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb18PipelineFinishTaskE, i64 0, i32 0, i64 2), ptr %call.i25, align 8, !tbaa !48, !noalias !839
   %pipeline.i.i = getelementptr inbounds %"class.duckdb::PipelineFinishTask", ptr %call.i25, i64 0, i32 1
   store ptr %0, ptr %pipeline.i.i, align 8, !tbaa !47, !noalias !839
   %event.i.i = getelementptr inbounds %"class.duckdb::PipelineFinishTask", ptr %call.i25, i64 0, i32 2
@@ -25298,7 +25298,7 @@ _ZNSt12__shared_ptrIN6duckdb8PipelineELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit:
   store ptr %0, ptr %pipeline.i, align 8, !tbaa !3
   %_M_refcount.i.i.i = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1, i32 0, i32 1
   store ptr %1, ptr %_M_refcount.i.i.i, align 8, !tbaa !50
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb23PipelineInitializeEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb23PipelineInitializeEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   ret void
 }
 
@@ -25345,7 +25345,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !842
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !842
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !842
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38
           to label %.noexc unwind label %lpad
 
@@ -25368,7 +25368,7 @@ invoke.cont5:                                     ; preds = %invoke.cont
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false), !noalias !845
   %executor.i.i.i = getelementptr inbounds %"class.duckdb::ExecutorTask", ptr %call.i25, i64 0, i32 1
   store ptr %8, ptr %executor.i.i.i, align 8, !tbaa !47, !noalias !845
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb22PipelineInitializeTaskE, i64 0, inrange i32 0, i64 2), ptr %call.i25, align 8, !tbaa !48, !noalias !845
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb22PipelineInitializeTaskE, i64 0, i32 0, i64 2), ptr %call.i25, align 8, !tbaa !48, !noalias !845
   %pipeline.i.i = getelementptr inbounds %"class.duckdb::PipelineInitializeTask", ptr %call.i25, i64 0, i32 1
   store ptr %0, ptr %pipeline.i.i, align 8, !tbaa !47, !noalias !845
   %event.i.i = getelementptr inbounds %"class.duckdb::PipelineInitializeTask", ptr %call.i25, i64 0, i32 2
@@ -26372,7 +26372,7 @@ call.i115.noexc:                                  ; preds = %for.body44
           to label %call.i.noexc.i unwind label %lpad.i, !noalias !906
 
 call.i.noexc.i:                                   ; preds = %call.i115.noexc
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN6duckdb13TaskSchedulerEPSt6atomicIbEES5_S8_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i6.i, align 8, !tbaa !48, !noalias !906
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN6duckdb13TaskSchedulerEPSt6atomicIbEES5_S8_EEEEEE, i64 0, i32 0, i64 2), ptr %call.i6.i, align 8, !tbaa !48, !noalias !906
   %_M_func.i.i.i = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i6.i, i64 0, i32 1
   store ptr %call45, ptr %_M_func.i.i.i, align 8, !tbaa !911, !noalias !906
   %17 = getelementptr inbounds %"struct.std::thread::_State_impl", ptr %call.i6.i, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
@@ -28079,7 +28079,7 @@ declare void @_ZN6duckdb15SyntaxExceptionC1ERKNSt7__cxx1112basic_stringIcSt11cha
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !122
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2
@@ -28649,7 +28649,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb13PipelineEventD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_refcount.i.i = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !50
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -28723,7 +28723,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb19PipelineFinishEventD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_refcount.i.i = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !50
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -28782,7 +28782,7 @@ _ZN6duckdb17BasePipelineEventD2Ev.exit:           ; preds = %if.then7.i.i.i.i, %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb23PipelineInitializeEventD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_refcount.i.i = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !50
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -28841,7 +28841,7 @@ _ZN6duckdb17BasePipelineEventD2Ev.exit:           ; preds = %if.then7.i.i.i.i, %
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb17BasePipelineEventD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17BasePipelineEventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_refcount.i = getelementptr inbounds %"class.duckdb::BasePipelineEvent", ptr %this, i64 0, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !50
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -28906,7 +28906,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb5EventD2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb5EventE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb5EventE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %parents_raw = getelementptr inbounds %"class.duckdb::Event", ptr %this, i64 0, i32 8
   %0 = load ptr, ptr %parents_raw, align 8, !tbaa !380
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -33768,7 +33768,7 @@ entry:
   store i32 1, ptr %_M_use_count.i, align 8, !tbaa !94
   %_M_weak_count.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i, align 4, !tbaa !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb23PipelineInitializeEventESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb23PipelineInitializeEventESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1057", ptr %this, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %0 = load ptr, ptr %__args, align 8, !tbaa !3
@@ -33924,7 +33924,7 @@ entry:
   store i32 1, ptr %_M_use_count.i, align 8, !tbaa !94
   %_M_weak_count.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i, align 4, !tbaa !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13PipelineEventESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13PipelineEventESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1065", ptr %this, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %0 = load ptr, ptr %__args, align 8, !tbaa !3
@@ -34080,7 +34080,7 @@ entry:
   store i32 1, ptr %_M_use_count.i, align 8, !tbaa !94
   %_M_weak_count.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i, align 4, !tbaa !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19PipelineFinishEventESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19PipelineFinishEventESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_impl.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1071", ptr %this, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i)
   %0 = load ptr, ptr %__args, align 8, !tbaa !3
@@ -35456,7 +35456,7 @@ declare void @_ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE(ptr noun
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb12PipelineTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12PipelineTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12PipelineTaskE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %pipeline_executor = getelementptr inbounds %"class.duckdb::PipelineTask", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %pipeline_executor, align 8, !tbaa !47
   %cmp.not.i = icmp eq ptr %0, null
@@ -35559,7 +35559,7 @@ _ZN6duckdb12ExecutorTaskD2Ev.exit:                ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb12PipelineTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12PipelineTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12PipelineTaskE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %pipeline_executor.i = getelementptr inbounds %"class.duckdb::PipelineTask", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %pipeline_executor.i, align 8, !tbaa !47
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -35734,7 +35734,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %if.end
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !1098
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !1098
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !1098
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38, !noalias !1098
   unreachable
 
@@ -36119,7 +36119,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !94
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i10.i9, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb12PipelineTaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i10.i9, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb12PipelineTaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i10.i9, align 8, !tbaa !48
   %_M_impl.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i10.i9, i64 0, i32 1
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8, !tbaa !1112
   %2 = load ptr, ptr %_M_refcount, align 8, !tbaa !50
@@ -37290,7 +37290,7 @@ unreachable:                                      ; preds = %invoke.cont4
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb18PipelineFinishTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb18PipelineFinishTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb18PipelineFinishTaskE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_refcount.i = getelementptr inbounds %"class.duckdb::PipelineFinishTask", ptr %this, i64 0, i32 2, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !50
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -37381,7 +37381,7 @@ _ZN6duckdb12ExecutorTaskD2Ev.exit:                ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb18PipelineFinishTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb18PipelineFinishTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb18PipelineFinishTaskE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_refcount.i.i = getelementptr inbounds %"class.duckdb::PipelineFinishTask", ptr %this, i64 0, i32 2, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !50
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -37514,7 +37514,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %entry
   %exception.i.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 8) #37, !noalias !1135
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !1135
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !tbaa !48, !noalias !1135
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #38, !noalias !1135
   unreachable
 
@@ -37852,7 +37852,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !94
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i10.i9, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb18PipelineFinishTaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i10.i9, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb18PipelineFinishTaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i10.i9, align 8, !tbaa !48
   %_M_impl.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter.1115", ptr %call5.i.i10.i9, i64 0, i32 1
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8, !tbaa !1138
   %2 = load ptr, ptr %_M_refcount, align 8, !tbaa !50
@@ -38116,7 +38116,7 @@ cond.end:                                         ; preds = %cond.true, %_ZNKSt9
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb22PipelineInitializeTaskD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb22PipelineInitializeTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb22PipelineInitializeTaskE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_refcount.i = getelementptr inbounds %"class.duckdb::PipelineInitializeTask", ptr %this, i64 0, i32 2, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !50
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -38207,7 +38207,7 @@ _ZN6duckdb12ExecutorTaskD2Ev.exit:                ; preds = %if.then.i.i.i.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb22PipelineInitializeTaskD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb22PipelineInitializeTaskE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb22PipelineInitializeTaskE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %_M_refcount.i.i = getelementptr inbounds %"class.duckdb::PipelineInitializeTask", ptr %this, i64 0, i32 2, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !50
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -38341,7 +38341,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !94
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i10.i9, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb22PipelineInitializeTaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i10.i9, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb22PipelineInitializeTaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i10.i9, align 8, !tbaa !48
   %_M_impl.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter.1121", ptr %call5.i.i10.i9, i64 0, i32 1
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8, !tbaa !1144
   %2 = load ptr, ptr %_M_refcount, align 8, !tbaa !50
@@ -39753,7 +39753,7 @@ cond.true.i:                                      ; preds = %cond.true
   store i8 1, ptr %isExplicit.i.i.i, align 8, !tbaa !942
   %parent.i.i.i = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<std::shared_ptr<duckdb::Task>>::ProducerBase", ptr %call.i.i.i, i64 0, i32 8
   store ptr %this, ptr %parent.i.i.i, align 8, !tbaa !1164
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducerE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducerE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8, !tbaa !48
   %blockIndex.i.i = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<std::shared_ptr<duckdb::Task>>::ExplicitProducer", ptr %call.i.i.i, i64 0, i32 1
   %pr_blockIndexSize.i.i = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<std::shared_ptr<duckdb::Task>>::ExplicitProducer", ptr %call.i.i.i, i64 0, i32 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %blockIndex.i.i, i8 0, i64 16, i1 false)
@@ -39826,7 +39826,7 @@ cond.true.i32:                                    ; preds = %cond.false
   %parent.i.i.i35 = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<std::shared_ptr<duckdb::Task>>::ProducerBase", ptr %call.i.i.i30, i64 0, i32 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %token.i.i.i.i34, i8 0, i64 49, i1 false)
   store ptr %this, ptr %parent.i.i.i35, align 8, !tbaa !1164
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i30, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i64 0, i32 0, i64 2), ptr %call.i.i.i30, align 8, !tbaa !48
   %nextBlockIndexCapacity.i.i = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<std::shared_ptr<duckdb::Task>>::ImplicitProducer", ptr %call.i.i.i30, i64 0, i32 1
   store i64 32, ptr %nextBlockIndexCapacity.i.i, align 8, !tbaa !1182
   %blockIndex.i.i36 = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<std::shared_ptr<duckdb::Task>>::ImplicitProducer", ptr %call.i.i.i30, i64 0, i32 2
@@ -39995,7 +39995,7 @@ return:                                           ; preds = %_ZNSt6atomicIPN17du
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ExplicitProducerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %tailBlock = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<std::shared_ptr<duckdb::Task>>::ProducerBase", ptr %this, i64 0, i32 6
   %0 = load ptr, ptr %tailBlock, align 8, !tbaa !1148
   %cmp.not = icmp eq ptr %0, null
@@ -40223,7 +40223,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !48
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17duckdb_moodycamel15ConcurrentQueueISt10shared_ptrIN6duckdb4TaskEENS_28ConcurrentQueueDefaultTraitsEE16ImplicitProducerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !48
   %tailIndex = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<std::shared_ptr<duckdb::Task>>::ProducerBase", ptr %this, i64 0, i32 2
   %0 = load atomic i64, ptr %tailIndex monotonic, align 8
   %headIndex = getelementptr inbounds %"struct.duckdb_moodycamel::ConcurrentQueue<std::shared_ptr<duckdb::Task>>::ProducerBase", ptr %this, i64 0, i32 3

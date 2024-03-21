@@ -74,7 +74,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN10btBoxShapeC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %boxHalfExtents) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV10btBoxShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV10btBoxShape, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %m_shapeType, align 8
   %m_collisionMargin.i = getelementptr inbounds i8, ptr %this, i64 64

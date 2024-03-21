@@ -428,7 +428,7 @@ define internal void @_ZZN5Yosys10PrettyJson11emit_to_logEvEN9LogTargetC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Yosys10PrettyJson6TargetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5Yosys10PrettyJson11emit_to_logEvE9LogTarget, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5Yosys10PrettyJson11emit_to_logEvE9LogTarget, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -555,7 +555,7 @@ define internal void @_ZZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112bas
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Yosys10PrettyJson6TargetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18AppendStringTarget, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5Yosys10PrettyJson16append_to_stringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE18AppendStringTarget, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %struct.AppendStringTarget, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -675,7 +675,7 @@ define internal void @_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Yosys10PrettyJson6TargetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTarget, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTarget, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %struct.WriteFileTarget, ptr %5, i32 0, i32 1
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %6)
           to label %7 unwind label %8
@@ -1528,7 +1528,7 @@ define linkonce_odr void @_ZN5Yosys10PrettyJson6TargetC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys10PrettyJson6TargetE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Yosys10PrettyJson6TargetE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1656,7 +1656,7 @@ define internal void @_ZZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTarget, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVZN5Yosys10PrettyJson13write_to_fileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE15WriteFileTarget, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.WriteFileTarget, ptr %3, i32 0, i32 1
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #3
   call void @_ZN5Yosys10PrettyJson6TargetD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3

@@ -1608,7 +1608,7 @@ entry:
   store ptr %seen, ptr %seen.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN13mbp_tg_pluginC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12mbp_basic_tg, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12mbp_basic_tg, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 80)
           to label %invoke.cont unwind label %lpad
 
@@ -1650,7 +1650,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13mbp_tg_plugin, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13mbp_tg_plugin, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1730,7 +1730,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12mbp_basic_tg, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12mbp_basic_tg, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_impl = getelementptr inbounds %class.mbp_basic_tg, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m_impl, align 8
   invoke void @_Z7deallocIN12mbp_basic_tg4implEEvPT_(ptr noundef %0)

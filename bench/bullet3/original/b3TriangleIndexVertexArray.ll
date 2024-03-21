@@ -108,7 +108,7 @@ entry:
   store i32 %vertexStride, ptr %vertexStride.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23b3StridingMeshInterfaceC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV26b3TriangleIndexVertexArray, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV26b3TriangleIndexVertexArray, i32 0, i32 0, i32 2), ptr %this1, align 16
   %m_indexedMeshes = getelementptr inbounds %class.b3TriangleIndexVertexArray, ptr %this1, i32 0, i32 1
   invoke void @_ZN20b3AlignedObjectArrayI13b3IndexedMeshEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_indexedMeshes)
           to label %invoke.cont unwind label %lpad
@@ -181,7 +181,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV23b3StridingMeshInterface, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV23b3StridingMeshInterface, i32 0, i32 0, i32 2), ptr %this1, align 16
   %m_scaling = getelementptr inbounds %class.b3StridingMeshInterface, ptr %this1, i32 0, i32 2
   %call = call { <2 x float>, <2 x float> } @_Z13b3MakeVector3fff(float noundef 1.000000e+00, float noundef 1.000000e+00, float noundef 1.000000e+00)
   %coerce.dive = getelementptr inbounds %class.b3Vector3, ptr %m_scaling, i32 0, i32 0
@@ -275,7 +275,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV26b3TriangleIndexVertexArray, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV26b3TriangleIndexVertexArray, i32 0, i32 0, i32 2), ptr %this1, align 16
   %m_indexedMeshes = getelementptr inbounds %class.b3TriangleIndexVertexArray, ptr %this1, i32 0, i32 1
   call void @_ZN20b3AlignedObjectArrayI13b3IndexedMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_indexedMeshes) #7
   call void @_ZN23b3StridingMeshInterfaceD2Ev(ptr noundef nonnull align 16 dereferenceable(32) %this1) #7

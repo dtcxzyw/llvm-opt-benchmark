@@ -442,7 +442,7 @@ entry:
   store ptr %fB, ptr %fB.addr, align 8
   store i32 %indexB, ptr %indexB.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9b2Contact, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9b2Contact, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_flags = getelementptr inbounds %class.b2Contact, ptr %this1, i32 0, i32 1
   store i32 4, ptr %m_flags, align 8
   %0 = load ptr, ptr %fA.addr, align 8

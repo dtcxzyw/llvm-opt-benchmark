@@ -1562,9 +1562,9 @@ define void @_ZN11CMainWindowC2EPPc(ptr noundef nonnull align 8 dereferenceable(
   %35 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %36 = load i32, ptr %35, align 4
   call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef null, i32 %36)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11CMainWindow, i32 0, inrange i32 0, i32 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11CMainWindow, i32 0, i32 0, i32 2), ptr %34, align 8
   %37 = getelementptr inbounds i8, ptr %34, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11CMainWindow, i32 0, inrange i32 1, i32 2), ptr %37, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11CMainWindow, i32 0, i32 1, i32 2), ptr %37, align 8
   %38 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #15
           to label %39 unwind label %180
 

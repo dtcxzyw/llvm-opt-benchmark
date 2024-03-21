@@ -746,7 +746,7 @@ define dso_local void @_ZN3con20ConnectionSendThreadC2Ejf(ptr noundef nonnull al
 
 17:                                               ; preds = %16, %13
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con20ConnectionSendThreadE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con20ConnectionSendThreadE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %18 = getelementptr inbounds i8, ptr %0, i64 144
   store ptr null, ptr %18, align 8, !tbaa !16
   %19 = getelementptr inbounds i8, ptr %0, i64 152
@@ -1897,7 +1897,7 @@ define dso_local noundef zeroext i1 @_ZN3con20ConnectionSendThread13packetsQueue
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr %54, align 8, !tbaa !14
-  %59 = icmp eq ptr %58, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %59 = icmp eq ptr %58, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   br i1 %59, label %60, label %90
 
 60:                                               ; preds = %57
@@ -1910,7 +1910,7 @@ define dso_local noundef zeroext i1 @_ZN3con20ConnectionSendThread13packetsQueue
 
 64:                                               ; preds = %62
   %65 = load ptr, ptr %61, align 8, !tbaa !14
-  %66 = icmp eq ptr %65, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %66 = icmp eq ptr %65, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   br i1 %66, label %70, label %69
 
 67:                                               ; preds = %60
@@ -2120,7 +2120,7 @@ define dso_local void @_ZN3con20ConnectionSendThread11runTimeoutsEfj(ptr nocaptu
 
 88:                                               ; preds = %86
   %89 = load ptr, ptr %85, align 8, !tbaa !14
-  %90 = icmp eq ptr %89, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %90 = icmp eq ptr %89, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   br i1 %90, label %93, label %815
 
 91:                                               ; preds = %84
@@ -4609,7 +4609,7 @@ define dso_local void @_ZN3con20ConnectionSendThread22processReliableCommandERSt
   %487 = icmp ne ptr %485, null
   call void @llvm.assume(i1 %487)
   %488 = load ptr, ptr %485, align 8, !tbaa !14
-  %489 = icmp eq ptr %488, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %489 = icmp eq ptr %488, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   call void @llvm.assume(i1 %489)
   %490 = getelementptr inbounds i8, ptr %485, i64 152
   %491 = load ptr, ptr %1, align 8, !tbaa !76
@@ -6791,7 +6791,7 @@ define dso_local void @_ZN3con20ConnectionSendThread11sendPacketsEfj(ptr noundef
 
 181:                                              ; preds = %179
   %182 = load ptr, ptr %178, align 8, !tbaa !14
-  %183 = icmp eq ptr %182, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %183 = icmp eq ptr %182, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   br i1 %183, label %188, label %987
 
 184:                                              ; preds = %211, %176
@@ -10034,7 +10034,7 @@ define dso_local noundef zeroext i1 @_ZN3con20ConnectionSendThread15rawSendAsPac
 
 129:                                              ; preds = %127
   %130 = load ptr, ptr %126, align 8, !tbaa !14
-  %131 = icmp eq ptr %130, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %131 = icmp eq ptr %130, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   br i1 %131, label %135, label %134
 
 132:                                              ; preds = %125
@@ -12968,7 +12968,7 @@ define dso_local void @_ZN3con20ConnectionSendThread15disconnect_peerEt(ptr noun
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %98, align 8, !tbaa !14
-  %103 = icmp eq ptr %102, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %103 = icmp eq ptr %102, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   br i1 %103, label %104, label %111
 
 104:                                              ; preds = %101
@@ -12979,7 +12979,7 @@ define dso_local void @_ZN3con20ConnectionSendThread15disconnect_peerEt(ptr noun
   %107 = icmp ne ptr %105, null
   call void @llvm.assume(i1 %107)
   %108 = load ptr, ptr %105, align 8, !tbaa !14
-  %109 = icmp eq ptr %108, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %109 = icmp eq ptr %108, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   call void @llvm.assume(i1 %109)
   %110 = getelementptr inbounds i8, ptr %105, i64 1688
   store i8 1, ptr %110, align 8, !tbaa !152
@@ -14109,7 +14109,7 @@ define dso_local void @_ZN3con23ConnectionReceiveThreadC2Ej(ptr noundef nonnull 
 
 18:                                               ; preds = %17, %14
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con23ConnectionReceiveThreadE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con23ConnectionReceiveThreadE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %19 = getelementptr inbounds i8, ptr %0, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %19, i8 0, i64 21, i1 false)
   ret void
@@ -15911,7 +15911,7 @@ define dso_local void @_ZN3con23ConnectionReceiveThread7receiveER12SharedBufferI
 
 752:                                              ; preds = %750
   %753 = load ptr, ptr %749, align 8, !tbaa !14
-  %754 = icmp eq ptr %753, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %754 = icmp eq ptr %753, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   br i1 %754, label %807, label %759
 
 755:                                              ; preds = %748
@@ -16520,7 +16520,7 @@ define dso_local noundef zeroext i1 @_ZN3con23ConnectionReceiveThread14getFromBu
 
 52:                                               ; preds = %50
   %53 = load ptr, ptr %49, align 8, !tbaa !14
-  %54 = icmp eq ptr %53, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %54 = icmp eq ptr %53, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   br i1 %54, label %55, label %71
 
 55:                                               ; preds = %52
@@ -17565,7 +17565,7 @@ define linkonce_odr dso_local void @_ZN3con26ProcessedSilentlyExceptionC2EPKc(pt
   %24 = getelementptr inbounds i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %26, ptr %25, align 8, !tbaa !12
@@ -17633,7 +17633,7 @@ define linkonce_odr dso_local void @_ZN3con26ProcessedSilentlyExceptionC2EPKc(pt
 
 53:                                               ; preds = %52, %49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con26ProcessedSilentlyExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con26ProcessedSilentlyExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   ret void
 }
 
@@ -17694,7 +17694,7 @@ define linkonce_odr dso_local void @_ZN3con28InvalidIncomingDataExceptionC2EPKc(
   %24 = getelementptr inbounds i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %26, ptr %25, align 8, !tbaa !12
@@ -17762,7 +17762,7 @@ define linkonce_odr dso_local void @_ZN3con28InvalidIncomingDataExceptionC2EPKc(
 
 53:                                               ; preds = %52, %49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con28InvalidIncomingDataExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con28InvalidIncomingDataExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   ret void
 }
 
@@ -18173,7 +18173,7 @@ define dso_local void @_ZN3con23ConnectionReceiveThread24handlePacketType_Contro
   %126 = icmp ne ptr %4, null
   call void @llvm.assume(i1 %126)
   %127 = load ptr, ptr %4, align 8, !tbaa !14
-  %128 = icmp eq ptr %127, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %128 = icmp eq ptr %127, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   call void @llvm.assume(i1 %128)
   invoke void @_ZN3con7UDPPeer9reportRTTEf(ptr noundef nonnull align 8 dereferenceable(1696) %4, float noundef %125)
           to label %158 unwind label %146
@@ -18232,7 +18232,7 @@ define dso_local void @_ZN3con23ConnectionReceiveThread24handlePacketType_Contro
   %153 = icmp ne ptr %4, null
   call void @llvm.assume(i1 %153)
   %154 = load ptr, ptr %4, align 8, !tbaa !14
-  %155 = icmp eq ptr %154, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, inrange i32 0, i64 2)
+  %155 = icmp eq ptr %154, getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3con7UDPPeerE, i64 0, i32 0, i64 2)
   call void @llvm.assume(i1 %155)
   invoke void @_ZN3con7UDPPeer9reportRTTEf(ptr noundef nonnull align 8 dereferenceable(1696) %4, float noundef %150)
           to label %158 unwind label %156
@@ -20851,7 +20851,7 @@ define linkonce_odr dso_local void @_ZN3con15ProcessedQueuedC2EPKc(ptr noundef n
   %24 = getelementptr inbounds i8, ptr %23, i64 %21
   store i8 0, ptr %24, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %25 = getelementptr inbounds i8, ptr %0, i64 8
   %26 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %26, ptr %25, align 8, !tbaa !12
@@ -20919,13 +20919,13 @@ define linkonce_odr dso_local void @_ZN3con15ProcessedQueuedC2EPKc(ptr noundef n
 
 53:                                               ; preds = %52, %49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con15ProcessedQueuedE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con15ProcessedQueuedE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -20954,7 +20954,7 @@ declare void @_ZN3con17ConnectionCommand15disconnect_peerEt(ptr dead_on_unwind w
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3con20ConnectionSendThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #13 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con20ConnectionSendThreadE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con20ConnectionSendThreadE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds i8, ptr %0, i64 160
@@ -20965,7 +20965,7 @@ define linkonce_odr dso_local void @_ZN3con20ConnectionSendThreadD2Ev(ptr nounde
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3con20ConnectionSendThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) unnamed_addr #13 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con20ConnectionSendThreadE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3con20ConnectionSendThreadE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #25
   %3 = getelementptr inbounds i8, ptr %0, i64 160
@@ -22045,7 +22045,7 @@ declare noundef zeroext i1 @_ZNK7AddresseqERKS_(ptr noundef nonnull align 4 dere
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3con26ProcessedSilentlyExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -22078,7 +22078,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13BaseException4whatEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -22107,7 +22107,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3con28InvalidIncomingDataExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -22135,7 +22135,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_construc
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3con15ProcessedQueuedD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24

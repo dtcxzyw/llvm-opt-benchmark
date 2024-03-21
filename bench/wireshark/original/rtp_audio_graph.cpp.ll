@@ -135,7 +135,7 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef nonnull align 8 de
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %5, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13RtpAudioGraph, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13RtpAudioGraph, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.RtpAudioGraph, ptr %13, i32 0, i32 3
   call void @_ZN6QColorC2Ev(ptr noundef nonnull align 4 dereferenceable(14) %15) #6
   invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)

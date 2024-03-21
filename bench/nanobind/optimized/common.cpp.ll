@@ -86,7 +86,7 @@ define void @_ZN8nanobind6detail5raiseEPKcz(ptr nocapture noundef readonly %0, .
   call void @llvm.va_end(ptr nonnull %2)
   %4 = call ptr @__cxa_allocate_exception(i64 24) #19
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
@@ -191,7 +191,7 @@ define void @_ZN8nanobind6detail16raise_type_errorEPKcz(ptr nocapture noundef re
   call void @llvm.va_end(ptr nonnull %2)
   %4 = call ptr @__cxa_allocate_exception(i64 24) #19
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %3) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   %7 = load i32, ptr %6, align 8
@@ -352,7 +352,7 @@ define linkonce_odr hidden void @_ZN8nanobind13next_overloadEPKc(ptr dead_on_unw
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN8nanobind6detail16raise_cast_errorEv() local_unnamed_addr #0 {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt8bad_cast, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt8bad_cast, i64 0, i32 0, i64 2), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt8bad_cast, ptr nonnull @_ZNSt8bad_castD1Ev) #20
   unreachable
 }

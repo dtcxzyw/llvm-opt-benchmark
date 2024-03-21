@@ -2497,9 +2497,9 @@ entry:
   %ref.tmp = alloca %"struct.std::default_delete.70", align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %callbackSource_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this1, i32 0, i32 9
   store ptr null, ptr %callbackSource_, align 8
   %next_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this1, i32 0, i32 6
@@ -3553,11 +3553,11 @@ entry:
   %0 = load ptr, ptr %timer.addr, align 8
   %1 = load ptr, ptr %httpSessionStats.addr, align 8
   call void @_ZN8proxygen15RateLimitFilterC2EPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEPNS_16HTTPSessionStatsE(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen22HeadersRateLimitFilterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen22HeadersRateLimitFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen22HeadersRateLimitFilterE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen22HeadersRateLimitFilterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 72
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen22HeadersRateLimitFilterE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen22HeadersRateLimitFilterE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %maxEventsInInterval_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 3
   store i32 50000, ptr %maxEventsInInterval_, align 4
   %timeoutDuration_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 4
@@ -3610,11 +3610,11 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15RateLimitFilterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15RateLimitFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15RateLimitFilterE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15RateLimitFilterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 72
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15RateLimitFilterE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15RateLimitFilterE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %numEventsInCurrentInterval_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 2
   store i32 0, ptr %numEventsInCurrentInterval_, align 8
   %maxEventsInInterval_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 3
@@ -3885,9 +3885,9 @@ entry:
   %1 = load i8, ptr %callbacks.addr, align 1
   %tobool3 = trunc i8 %1 to i1
   call void @_ZN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEC2Ebb(ptr noundef nonnull align 8 dereferenceable(72) %this2, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool3)
-  store ptr getelementptr inbounds ({ [83 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen26PassThroughHTTPCodecFilterE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen26PassThroughHTTPCodecFilterE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this2, i64 8
-  store ptr getelementptr inbounds ({ [83 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen26PassThroughHTTPCodecFilterE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen26PassThroughHTTPCodecFilterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   ret void
 }
 
@@ -3908,9 +3908,9 @@ entry:
   call void @_ZN8proxygen9HTTPCodecC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
   %0 = getelementptr inbounds i8, ptr %this2, i64 8
   call void @_ZN8proxygen9HTTPCodec8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
-  store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this2, i64 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [32 x ptr] }, ptr @_ZTVN8proxygen13GenericFilterINS_9HTTPCodecENS1_8CallbackEXadL_ZNS1_11setCallbackEPS2_EELb1ESt14default_deleteIS1_EEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %kWantsCalls_ = getelementptr inbounds %"class.proxygen::GenericFilter", ptr %this2, i32 0, i32 2
   %1 = load i8, ptr %calls.addr, align 1
   %tobool = trunc i8 %1 to i1
@@ -3942,7 +3942,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN8proxygen9HTTPCodecE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN8proxygen9HTTPCodecE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3952,7 +3952,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN8proxygen9HTTPCodec8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN8proxygen9HTTPCodec8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4731,11 +4731,11 @@ entry:
   %0 = load ptr, ptr %timer.addr, align 8
   %1 = load ptr, ptr %httpSessionStats.addr, align 8
   call void @_ZN8proxygen15RateLimitFilterC2EPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEPNS_16HTTPSessionStatsE(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen29ControlMessageRateLimitFilterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen29ControlMessageRateLimitFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen29ControlMessageRateLimitFilterE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen29ControlMessageRateLimitFilterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 72
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen29ControlMessageRateLimitFilterE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen29ControlMessageRateLimitFilterE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %maxEventsInInterval_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 3
   store i32 50000, ptr %maxEventsInInterval_, align 4
   %timeoutDuration_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 4
@@ -5239,7 +5239,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %partialMsg_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 7
   call void @_ZNSt10unique_ptrIN8proxygen11HTTPMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %partialMsg_) #3
   %currentIngressBuf_ = getelementptr inbounds %"class.proxygen::HTTPException", ptr %this1, i32 0, i32 6
@@ -5943,7 +5943,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen9ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %msg_ = getelementptr inbounds %"class.proxygen::Exception", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %msg_) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -6341,11 +6341,11 @@ entry:
   %0 = load ptr, ptr %timer.addr, align 8
   %1 = load ptr, ptr %httpSessionStats.addr, align 8
   call void @_ZN8proxygen15RateLimitFilterC2EPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEPNS_16HTTPSessionStatsE(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen21ResetsRateLimitFilterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen21ResetsRateLimitFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen21ResetsRateLimitFilterE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen21ResetsRateLimitFilterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 72
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen21ResetsRateLimitFilterE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen21ResetsRateLimitFilterE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %maxEventsInInterval_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 3
   store i32 200, ptr %maxEventsInInterval_, align 4
   %timeoutDuration_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 4
@@ -6991,11 +6991,11 @@ entry:
   %0 = load ptr, ptr %timer.addr, align 8
   %1 = load ptr, ptr %httpSessionStats.addr, align 8
   call void @_ZN8proxygen15RateLimitFilterC2EPN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEEPNS_16HTTPSessionStatsE(ptr noundef nonnull align 8 dereferenceable(168) %this1, ptr noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen27DirectErrorsRateLimitFilterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen27DirectErrorsRateLimitFilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen27DirectErrorsRateLimitFilterE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen27DirectErrorsRateLimitFilterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 72
-  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen27DirectErrorsRateLimitFilterE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [89 x ptr], [32 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen27DirectErrorsRateLimitFilterE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %maxEventsInInterval_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 3
   store i32 100, ptr %maxEventsInInterval_, align 4
   %timeoutDuration_ = getelementptr inbounds %"class.proxygen::RateLimitFilter", ptr %this1, i32 0, i32 4

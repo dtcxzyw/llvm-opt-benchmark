@@ -138,7 +138,7 @@ $_ZTVN3irr3gui11IGUIElementE = comdat any
 $_ZTTN3irr3gui11IGUIElementE = comdat any
 
 @_ZTVN3irr3gui9CGUIImageE = unnamed_addr constant { [53 x ptr], [5 x ptr] } { [53 x ptr] [ptr inttoptr (i64 368 to ptr), ptr null, ptr @_ZTIN3irr3gui9CGUIImageE, ptr @_ZN3irr3gui9CGUIImageD1Ev, ptr @_ZN3irr3gui9CGUIImageD0Ev, ptr @_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE, ptr @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv, ptr @_ZN3irr3gui11IGUIElement19getElementFromPointERKNS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE, ptr @_ZN3irr3gui11IGUIElement8addChildEPS1_, ptr @_ZN3irr3gui11IGUIElement11removeChildEPS1_, ptr @_ZN3irr3gui11IGUIElement17removeAllChildrenEv, ptr @_ZN3irr3gui11IGUIElement6removeEv, ptr @_ZN3irr3gui9CGUIImage4drawEv, ptr @_ZN3irr3gui11IGUIElement12OnPostRenderEj, ptr @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement9isVisibleEv, ptr @_ZNK3irr3gui11IGUIElement14isTrulyVisibleEv, ptr @_ZN3irr3gui11IGUIElement10setVisibleEb, ptr @_ZNK3irr3gui11IGUIElement12isSubElementEv, ptr @_ZN3irr3gui11IGUIElement13setSubElementEb, ptr @_ZNK3irr3gui11IGUIElement9isEnabledEv, ptr @_ZN3irr3gui11IGUIElement10setEnabledEb, ptr @_ZN3irr3gui11IGUIElement7setTextEPKw, ptr @_ZNK3irr3gui11IGUIElement7getTextEv, ptr @_ZN3irr3gui11IGUIElement14setToolTipTextEPKw, ptr @_ZNK3irr3gui11IGUIElement14getToolTipTextEv, ptr @_ZNK3irr3gui11IGUIElement5getIDEv, ptr @_ZN3irr3gui11IGUIElement5setIDEi, ptr @_ZN3irr3gui11IGUIElement12bringToFrontEPS1_, ptr @_ZN3irr3gui11IGUIElement10sendToBackEPS1_, ptr @_ZNK3irr3gui11IGUIElement11getChildrenB5cxx11Ev, ptr @_ZNK3irr3gui11IGUIElement16getElementFromIdEib, ptr @_ZNK3irr3gui11IGUIElement7hasTypeENS0_17EGUI_ELEMENT_TYPEE, ptr @_ZNK3irr3gui11IGUIElement11getTypeNameEv, ptr @_ZNK3irr3gui11IGUIElement7getNameEv, ptr @_ZN3irr3gui11IGUIElement7setNameEPKc, ptr @_ZN3irr3gui11IGUIElement7setNameERKNS_4core6stringIcEE, ptr @_ZN3irr3gui11IGUIElement10acceptsIMEEv, ptr @_ZN3irr3gui9CGUIImage8setImageEPNS_5video8ITextureE, ptr @_ZNK3irr3gui9CGUIImage8getImageEv, ptr @_ZN3irr3gui9CGUIImage8setColorENS_5video6SColorE, ptr @_ZN3irr3gui9CGUIImage13setScaleImageEb, ptr @_ZN3irr3gui9CGUIImage18setUseAlphaChannelEb, ptr @_ZNK3irr3gui9CGUIImage8getColorEv, ptr @_ZNK3irr3gui9CGUIImage13isImageScaledEv, ptr @_ZNK3irr3gui9CGUIImage18isAlphaChannelUsedEv, ptr @_ZN3irr3gui9CGUIImage13setSourceRectERKNS_4core4rectIiEE, ptr @_ZNK3irr3gui9CGUIImage13getSourceRectEv, ptr @_ZN3irr3gui9CGUIImage13setDrawBoundsERKNS_4core4rectIfEE, ptr @_ZNK3irr3gui9CGUIImage13getDrawBoundsEv, ptr @_ZN3irr3gui9CGUIImage17setDrawBackgroundEb, ptr @_ZNK3irr3gui9CGUIImage23isDrawBackgroundEnabledEv], [5 x ptr] [ptr inttoptr (i64 -368 to ptr), ptr inttoptr (i64 -368 to ptr), ptr @_ZTIN3irr3gui9CGUIImageE, ptr @_ZTv0_n24_N3irr3gui9CGUIImageD1Ev, ptr @_ZTv0_n24_N3irr3gui9CGUIImageD0Ev] }, align 8
-@_ZTTN3irr3gui9CGUIImageE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui9CGUIImageE0_NS0_9IGUIImageE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui9CGUIImageE0_NS0_11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui9CGUIImageE0_NS0_11IGUIElementE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui9CGUIImageE0_NS0_9IGUIImageE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr3gui9CGUIImageE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui9CGUIImageE0_NS0_9IGUIImageE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui9CGUIImageE0_NS0_11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui9CGUIImageE0_NS0_11IGUIElementE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTCN3irr3gui9CGUIImageE0_NS0_9IGUIImageE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3irr3gui9CGUIImageE0_NS0_9IGUIImageE = unnamed_addr constant { [53 x ptr], [5 x ptr] } { [53 x ptr] [ptr inttoptr (i64 368 to ptr), ptr null, ptr @_ZTIN3irr3gui9IGUIImageE, ptr @_ZN3irr3gui9IGUIImageD1Ev, ptr @_ZN3irr3gui9IGUIImageD0Ev, ptr @_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE, ptr @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv, ptr @_ZN3irr3gui11IGUIElement19getElementFromPointERKNS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE, ptr @_ZN3irr3gui11IGUIElement8addChildEPS1_, ptr @_ZN3irr3gui11IGUIElement11removeChildEPS1_, ptr @_ZN3irr3gui11IGUIElement17removeAllChildrenEv, ptr @_ZN3irr3gui11IGUIElement6removeEv, ptr @_ZN3irr3gui11IGUIElement4drawEv, ptr @_ZN3irr3gui11IGUIElement12OnPostRenderEj, ptr @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement9isVisibleEv, ptr @_ZNK3irr3gui11IGUIElement14isTrulyVisibleEv, ptr @_ZN3irr3gui11IGUIElement10setVisibleEb, ptr @_ZNK3irr3gui11IGUIElement12isSubElementEv, ptr @_ZN3irr3gui11IGUIElement13setSubElementEb, ptr @_ZNK3irr3gui11IGUIElement9isEnabledEv, ptr @_ZN3irr3gui11IGUIElement10setEnabledEb, ptr @_ZN3irr3gui11IGUIElement7setTextEPKw, ptr @_ZNK3irr3gui11IGUIElement7getTextEv, ptr @_ZN3irr3gui11IGUIElement14setToolTipTextEPKw, ptr @_ZNK3irr3gui11IGUIElement14getToolTipTextEv, ptr @_ZNK3irr3gui11IGUIElement5getIDEv, ptr @_ZN3irr3gui11IGUIElement5setIDEi, ptr @_ZN3irr3gui11IGUIElement12bringToFrontEPS1_, ptr @_ZN3irr3gui11IGUIElement10sendToBackEPS1_, ptr @_ZNK3irr3gui11IGUIElement11getChildrenB5cxx11Ev, ptr @_ZNK3irr3gui11IGUIElement16getElementFromIdEib, ptr @_ZNK3irr3gui11IGUIElement7hasTypeENS0_17EGUI_ELEMENT_TYPEE, ptr @_ZNK3irr3gui11IGUIElement11getTypeNameEv, ptr @_ZNK3irr3gui11IGUIElement7getNameEv, ptr @_ZN3irr3gui11IGUIElement7setNameEPKc, ptr @_ZN3irr3gui11IGUIElement7setNameERKNS_4core6stringIcEE, ptr @_ZN3irr3gui11IGUIElement10acceptsIMEEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual], [5 x ptr] [ptr inttoptr (i64 -368 to ptr), ptr inttoptr (i64 -368 to ptr), ptr @_ZTIN3irr3gui9IGUIImageE, ptr @_ZTv0_n24_N3irr3gui9IGUIImageD1Ev, ptr @_ZTv0_n24_N3irr3gui9IGUIImageD0Ev] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN3irr3gui9IGUIImageE = linkonce_odr constant [21 x i8] c"N3irr3gui9IGUIImageE\00", comdat, align 1
@@ -184,7 +184,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @.str.24 = private unnamed_addr constant [5 x i8] c"root\00", align 1
 @.str.25 = private unnamed_addr constant [9 x i8] c"profiler\00", align 1
 @_ZTVN3irr3gui11IGUIElementE = linkonce_odr unnamed_addr constant { [39 x ptr], [5 x ptr] } { [39 x ptr] [ptr inttoptr (i64 312 to ptr), ptr null, ptr @_ZTIN3irr3gui11IGUIElementE, ptr @_ZN3irr3gui11IGUIElementD1Ev, ptr @_ZN3irr3gui11IGUIElementD0Ev, ptr @_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE, ptr @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv, ptr @_ZN3irr3gui11IGUIElement19getElementFromPointERKNS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE, ptr @_ZN3irr3gui11IGUIElement8addChildEPS1_, ptr @_ZN3irr3gui11IGUIElement11removeChildEPS1_, ptr @_ZN3irr3gui11IGUIElement17removeAllChildrenEv, ptr @_ZN3irr3gui11IGUIElement6removeEv, ptr @_ZN3irr3gui11IGUIElement4drawEv, ptr @_ZN3irr3gui11IGUIElement12OnPostRenderEj, ptr @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement9isVisibleEv, ptr @_ZNK3irr3gui11IGUIElement14isTrulyVisibleEv, ptr @_ZN3irr3gui11IGUIElement10setVisibleEb, ptr @_ZNK3irr3gui11IGUIElement12isSubElementEv, ptr @_ZN3irr3gui11IGUIElement13setSubElementEb, ptr @_ZNK3irr3gui11IGUIElement9isEnabledEv, ptr @_ZN3irr3gui11IGUIElement10setEnabledEb, ptr @_ZN3irr3gui11IGUIElement7setTextEPKw, ptr @_ZNK3irr3gui11IGUIElement7getTextEv, ptr @_ZN3irr3gui11IGUIElement14setToolTipTextEPKw, ptr @_ZNK3irr3gui11IGUIElement14getToolTipTextEv, ptr @_ZNK3irr3gui11IGUIElement5getIDEv, ptr @_ZN3irr3gui11IGUIElement5setIDEi, ptr @_ZN3irr3gui11IGUIElement12bringToFrontEPS1_, ptr @_ZN3irr3gui11IGUIElement10sendToBackEPS1_, ptr @_ZNK3irr3gui11IGUIElement11getChildrenB5cxx11Ev, ptr @_ZNK3irr3gui11IGUIElement16getElementFromIdEib, ptr @_ZNK3irr3gui11IGUIElement7hasTypeENS0_17EGUI_ELEMENT_TYPEE, ptr @_ZNK3irr3gui11IGUIElement11getTypeNameEv, ptr @_ZNK3irr3gui11IGUIElement7getNameEv, ptr @_ZN3irr3gui11IGUIElement7setNameEPKc, ptr @_ZN3irr3gui11IGUIElement7setNameERKNS_4core6stringIcEE, ptr @_ZN3irr3gui11IGUIElement10acceptsIMEEv], [5 x ptr] [ptr inttoptr (i64 -312 to ptr), ptr inttoptr (i64 -312 to ptr), ptr @_ZTIN3irr3gui11IGUIElementE, ptr @_ZTv0_n24_N3irr3gui11IGUIElementD1Ev, ptr @_ZTv0_n24_N3irr3gui11IGUIElementD0Ev] }, comdat, align 8
-@_ZTTN3irr3gui11IGUIElementE = linkonce_odr unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN3irr3gui11IGUIElementE = linkonce_odr unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui9CGUIImageC2EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(361) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr nocapture noundef readonly byval(%"class.irr::core::rect") align 8 %5) unnamed_addr #0 align 2 {
@@ -235,7 +235,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define void @_ZN3irr3gui9CGUIImageC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEiNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(361) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i64 %4, i64 %5) unnamed_addr #0 align 2 {
   %7 = alloca %"class.irr::core::rect", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 368
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %0, i64 376
   store ptr null, ptr %9, align 8, !tbaa !42
   %10 = getelementptr inbounds i8, ptr %0, i64 384
@@ -246,8 +246,8 @@ define void @_ZN3irr3gui9CGUIImageC1EPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEi
   store i64 %5, ptr %11, align 8
   call void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr3gui9CGUIImageE, i64 0, i64 2), i32 noundef 9, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef nonnull align 4 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 1, i64 3), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %8, align 8, !tbaa !3
   %12 = getelementptr inbounds i8, ptr %0, i64 312
   store ptr null, ptr %12, align 8, !tbaa !6
   %13 = getelementptr inbounds i8, ptr %0, i64 320
@@ -307,9 +307,9 @@ define void @_ZN3irr3gui9CGUIImageD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui9CGUIImageD1Ev(ptr noundef nonnull align 8 dereferenceable(361) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 368
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = icmp eq ptr %4, null
@@ -345,9 +345,9 @@ define void @_ZTv0_n24_N3irr3gui9CGUIImageD1Ev(ptr noundef %0) unnamed_addr #2 a
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 368
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 312
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = icmp eq ptr %8, null
@@ -379,9 +379,9 @@ define void @_ZTv0_n24_N3irr3gui9CGUIImageD1Ev(ptr noundef %0) unnamed_addr #2 a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr3gui9CGUIImageD0Ev(ptr noundef nonnull align 8 dereferenceable(361) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 368
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8, !tbaa !6
   %5 = icmp eq ptr %4, null
@@ -421,9 +421,9 @@ define void @_ZTv0_n24_N3irr3gui9CGUIImageD0Ev(ptr noundef %0) unnamed_addr #2 a
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 368
-  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [53 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui9CGUIImageE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 312
   %8 = load ptr, ptr %7, align 8, !tbaa !6
   %9 = icmp eq ptr %8, null
@@ -2113,7 +2113,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3irr3gui9CGUIImage23isDrawBackground
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr3gui11IGUIElementC2ENS0_17EGUI_ELEMENT_TYPEEPNS0_15IGUIEnvironmentEPS1_iRKNS_4core4rectIiEE(ptr noundef nonnull align 8 dereferenceable(308) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef nonnull align 4 dereferenceable(16) %6) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3irr14IEventReceiverE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
   %8 = load ptr, ptr %1, align 8
   store ptr %8, ptr %0, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %1, i64 8

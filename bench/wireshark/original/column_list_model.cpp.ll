@@ -879,7 +879,7 @@ define void @_ZN16ColumnProxyModelC2EP7QObject(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ColumnProxyModel, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ColumnProxyModel, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.ColumnProxyModel, ptr %5, i32 0, i32 1
   store i8 0, ptr %7, align 8
   ret void
@@ -1075,7 +1075,7 @@ define void @_ZN18ColumnTypeDelegateC2EP7QObject(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18ColumnTypeDelegate, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18ColumnTypeDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -3076,7 +3076,7 @@ define void @_ZN15ColumnListModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ColumnListModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ColumnListModel, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_ZN15ColumnListModel8populateEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %9 unwind label %10
 

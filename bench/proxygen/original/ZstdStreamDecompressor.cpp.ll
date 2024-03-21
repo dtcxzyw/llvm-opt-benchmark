@@ -329,7 +329,7 @@ entry:
   store i8 %frombool, ptr %reuseOutBuf.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen18StreamDecompressorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %status_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 1
   store i32 0, ptr %status_, align 8
   %dctx_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 3
@@ -371,7 +371,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18StreamDecompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18StreamDecompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1201,7 +1201,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen22ZstdStreamDecompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cachedIOBuf_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %cachedIOBuf_) #11
   %dctx_ = getelementptr inbounds %"class.proxygen::ZstdStreamDecompressor", ptr %this1, i32 0, i32 3
@@ -1606,7 +1606,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

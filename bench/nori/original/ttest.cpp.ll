@@ -1712,7 +1712,7 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTestC2ERKNS_12PropertyListE(
   store ptr %1, ptr %4, align 8
   %39 = load ptr, ptr %3, align 8
   call void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori13StudentsTTestE, i32 0, inrange i32 0, i32 2), ptr %39, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori13StudentsTTestE, i32 0, i32 0, i32 2), ptr %39, align 8
   %40 = getelementptr inbounds %"class.nori::StudentsTTest", ptr %39, i32 0, i32 1
   call void @_ZNSt6vectorIPN4nori4BSDFESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %40) #3
   %41 = getelementptr inbounds %"class.nori::StudentsTTest", ptr %39, i32 0, i32 2
@@ -2203,7 +2203,7 @@ define linkonce_odr hidden void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2523,7 +2523,7 @@ define linkonce_odr hidden void @_ZN4nori13StudentsTTestD2Ev(ptr noundef nonnull
   %10 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %11 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori13StudentsTTestE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori13StudentsTTestE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"class.nori::StudentsTTest", ptr %11, i32 0, i32 1
   store ptr %12, ptr %3, align 8
   %13 = load ptr, ptr %3, align 8
@@ -5538,7 +5538,7 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJNSt7__cxx1112basic_s
 
 13:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %10, align 8
   ret void
 
 14:                                               ; preds = %3
@@ -8376,7 +8376,7 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr nou
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %8, align 8
   ret void
 
 11:                                               ; preds = %2

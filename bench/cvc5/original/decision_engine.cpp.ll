@@ -113,7 +113,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 1 %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal8decision14DecisionEngineE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal8decision14DecisionEngineE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_satSolver = getelementptr inbounds %"class.cvc5::internal::decision::DecisionEngine", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %ss.addr, align 8
   store ptr %1, ptr %d_satSolver, align 8
@@ -162,7 +162,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal8decision14DecisionEngineC2ERNS0_3EnvEPNS0_4prop14CDCLTSatSolverEPNS5_9CnfStreamE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 1 %0, ptr noundef null, ptr noundef null)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal8decision19DecisionEngineEmptyE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal8decision19DecisionEngineEmptyE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

@@ -92,7 +92,7 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25ConjunctCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i30, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25ConjunctCallToSpecialFormE, i64 0, i32 0, i64 2), ptr %call.i30, align 8, !noalias !4
   %isAnd_.i.i = getelementptr inbounds i8, ptr %call.i30, i64 8
   store i8 1, ptr %isAnd_.i.i, align 8, !noalias !4
   store ptr %call.i30, ptr %agg.tmp, align 8
@@ -138,7 +138,7 @@ invoke.cont12:                                    ; preds = %.noexc39
           to label %invoke.cont16 unwind label %lpad15
 
 invoke.cont16:                                    ; preds = %invoke.cont12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec21CastCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i43, align 8, !noalias !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec21CastCallToSpecialFormE, i64 0, i32 0, i64 2), ptr %call.i43, align 8, !noalias !7
   store ptr %call.i43, ptr %agg.tmp13, align 8
   invoke void @_ZN8facebook5velox4exec33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp9, ptr noundef nonnull %agg.tmp13)
           to label %invoke.cont18 unwind label %lpad17
@@ -182,7 +182,7 @@ invoke.cont26:                                    ; preds = %.noexc57
           to label %invoke.cont30 unwind label %lpad29
 
 invoke.cont30:                                    ; preds = %invoke.cont26
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec24TryCastCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i61, align 8, !noalias !10
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec24TryCastCallToSpecialFormE, i64 0, i32 0, i64 2), ptr %call.i61, align 8, !noalias !10
   store ptr %call.i61, ptr %agg.tmp27, align 8
   invoke void @_ZN8facebook5velox4exec33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull %agg.tmp27)
           to label %invoke.cont32 unwind label %lpad31
@@ -226,7 +226,7 @@ invoke.cont40:                                    ; preds = %.noexc75
           to label %invoke.cont44 unwind label %lpad43
 
 invoke.cont44:                                    ; preds = %invoke.cont40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25CoalesceCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i79, align 8, !noalias !13
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25CoalesceCallToSpecialFormE, i64 0, i32 0, i64 2), ptr %call.i79, align 8, !noalias !13
   store ptr %call.i79, ptr %agg.tmp41, align 8
   invoke void @_ZN8facebook5velox4exec33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37, ptr noundef nonnull %agg.tmp41)
           to label %invoke.cont46 unwind label %lpad45
@@ -270,7 +270,7 @@ invoke.cont54:                                    ; preds = %.noexc93
           to label %invoke.cont58 unwind label %lpad57
 
 invoke.cont58:                                    ; preds = %invoke.cont54
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec19IfCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i97, align 8, !noalias !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec19IfCallToSpecialFormE, i64 0, i32 0, i64 2), ptr %call.i97, align 8, !noalias !16
   store ptr %call.i97, ptr %agg.tmp55, align 8
   invoke void @_ZN8facebook5velox4exec33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp51, ptr noundef nonnull %agg.tmp55)
           to label %invoke.cont60 unwind label %lpad59
@@ -314,7 +314,7 @@ invoke.cont68:                                    ; preds = %.noexc111
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont68
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25ConjunctCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i116, align 8, !noalias !19
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25ConjunctCallToSpecialFormE, i64 0, i32 0, i64 2), ptr %call.i116, align 8, !noalias !19
   %isAnd_.i.i114 = getelementptr inbounds i8, ptr %call.i116, i64 8
   store i8 0, ptr %isAnd_.i.i114, align 8, !noalias !19
   store ptr %call.i116, ptr %agg.tmp69, align 8
@@ -360,7 +360,7 @@ invoke.cont83:                                    ; preds = %.noexc133
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %invoke.cont83
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec23SwitchCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i137, align 8, !noalias !22
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec23SwitchCallToSpecialFormE, i64 0, i32 0, i64 2), ptr %call.i137, align 8, !noalias !22
   store ptr %call.i137, ptr %agg.tmp84, align 8
   invoke void @_ZN8facebook5velox4exec33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp80, ptr noundef nonnull %agg.tmp84)
           to label %invoke.cont89 unwind label %lpad88
@@ -404,7 +404,7 @@ invoke.cont97:                                    ; preds = %.noexc151
           to label %invoke.cont101 unwind label %lpad100
 
 invoke.cont101:                                   ; preds = %invoke.cont97
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec20TryCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i155, align 8, !noalias !25
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec20TryCallToSpecialFormE, i64 0, i32 0, i64 2), ptr %call.i155, align 8, !noalias !25
   store ptr %call.i155, ptr %agg.tmp98, align 8
   invoke void @_ZN8facebook5velox4exec33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp94, ptr noundef nonnull %agg.tmp98)
           to label %invoke.cont103 unwind label %lpad102
@@ -448,7 +448,7 @@ invoke.cont111:                                   ; preds = %.noexc169
           to label %invoke.cont115 unwind label %lpad114
 
 invoke.cont115:                                   ; preds = %invoke.cont111
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec31RowConstructorCallToSpecialFormE, i64 0, inrange i32 0, i64 2), ptr %call.i173, align 8, !noalias !28
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec31RowConstructorCallToSpecialFormE, i64 0, i32 0, i64 2), ptr %call.i173, align 8, !noalias !28
   store ptr %call.i173, ptr %agg.tmp112, align 8
   invoke void @_ZN8facebook5velox4exec33registerFunctionCallToSpecialFormERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrINS1_25FunctionCallToSpecialFormESt14default_deleteISB_EE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp108, ptr noundef nonnull %agg.tmp112)
           to label %invoke.cont117 unwind label %lpad116

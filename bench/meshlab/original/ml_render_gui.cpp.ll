@@ -879,9 +879,9 @@ define void @_ZN18MLRenderingToolbarC2EP7QWidget(ptr noundef nonnull align 8 der
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, i32 1, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.MLRenderingToolbar, ptr %8, i32 0, i32 1
   call void @_ZN5QListIP17MLRenderingActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #3
   %12 = getelementptr inbounds %class.MLRenderingToolbar, ptr %8, i32 0, i32 2
@@ -1444,9 +1444,9 @@ define void @_ZN18MLRenderingToolbarC2EiP7QWidget(ptr noundef nonnull align 8 de
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %class.MLRenderingToolbar, ptr %10, i32 0, i32 1
   call void @_ZN5QListIP17MLRenderingActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
   %14 = getelementptr inbounds %class.MLRenderingToolbar, ptr %10, i32 0, i32 2
@@ -1516,9 +1516,9 @@ define void @_ZN18MLRenderingToolbarD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV18MLRenderingToolbar, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.MLRenderingToolbar, ptr %3, i32 0, i32 5
   call void @_ZN4QMapIP40MLRenderingUserDefinedGeneralColorActionP22MLRenderingColorPickerED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
   %6 = getelementptr inbounds %class.MLRenderingToolbar, ptr %3, i32 0, i32 4
@@ -4431,9 +4431,9 @@ define void @_ZN22MLRenderingSideToolbarC2EP7QWidget(ptr noundef nonnull align 8
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN18MLRenderingToolbarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingSideToolbar, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingSideToolbar, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingSideToolbar, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingSideToolbar, i32 0, i32 1, i32 2), ptr %9, align 8
   invoke void @_ZN22MLRenderingSideToolbar7initGuiEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %10 unwind label %11
 
@@ -4618,9 +4618,9 @@ define void @_ZN22MLRenderingSideToolbarC2EiP7QWidget(ptr noundef nonnull align 
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN18MLRenderingToolbarC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(96) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingSideToolbar, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingSideToolbar, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingSideToolbar, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingSideToolbar, i32 0, i32 1, i32 2), ptr %12, align 8
   invoke void @_ZN22MLRenderingSideToolbar7initGuiEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %13 unwind label %14
 
@@ -4901,9 +4901,9 @@ define void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull al
   %10 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %11 = load i32, ptr %10, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %9, i32 %11)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV26MLRenderingParametersFrame, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV26MLRenderingParametersFrame, i32 0, i32 0, i32 2), ptr %8, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV26MLRenderingParametersFrame, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV26MLRenderingParametersFrame, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %class.MLRenderingParametersFrame, ptr %8, i32 0, i32 1
   %14 = load i32, ptr %5, align 4
   store i32 %14, ptr %13, align 8
@@ -5218,9 +5218,9 @@ define void @_ZN31MLRenderingSolidParametersFrameC2EP7QWidget(ptr noundef nonnul
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %7, i32 noundef -1, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, i32 1, i32 2), ptr %9, align 8
   invoke void @_ZN31MLRenderingSolidParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(120) %7)
           to label %10 unwind label %11
 
@@ -6198,9 +6198,9 @@ define void @_ZN31MLRenderingSolidParametersFrameC2EiP7QWidget(ptr noundef nonnu
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, i32 1, i32 2), ptr %12, align 8
   invoke void @_ZN31MLRenderingSolidParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(120) %9)
           to label %13 unwind label %14
 
@@ -6552,9 +6552,9 @@ define void @_ZN31MLRenderingSolidParametersFrameD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV31MLRenderingSolidParametersFrame, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.MLRenderingSolidParametersFrame, ptr %3, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -7390,9 +7390,9 @@ define void @_ZN30MLRenderingWireParametersFrameC2EP7QWidget(ptr noundef nonnull
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %7, i32 noundef -1, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, i32 1, i32 2), ptr %9, align 8
   invoke void @_ZN30MLRenderingWireParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %10 unwind label %11
 
@@ -8229,9 +8229,9 @@ define void @_ZN30MLRenderingWireParametersFrameC2EiP7QWidget(ptr noundef nonnul
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, i32 1, i32 2), ptr %12, align 8
   invoke void @_ZN30MLRenderingWireParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %13 unwind label %14
 
@@ -8261,9 +8261,9 @@ define void @_ZN30MLRenderingWireParametersFrameD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingWireParametersFrame, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.MLRenderingWireParametersFrame, ptr %3, i32 0, i32 6
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -8979,9 +8979,9 @@ define void @_ZN32MLRenderingPointsParametersFrameC2EP7QWidget(ptr noundef nonnu
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %7, i32 noundef -1, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, i32 1, i32 2), ptr %9, align 8
   invoke void @_ZN32MLRenderingPointsParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(112) %7)
           to label %10 unwind label %11
 
@@ -9850,9 +9850,9 @@ define void @_ZN32MLRenderingPointsParametersFrameC2EiP7QWidget(ptr noundef nonn
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, i32 1, i32 2), ptr %12, align 8
   invoke void @_ZN32MLRenderingPointsParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(112) %9)
           to label %13 unwind label %14
 
@@ -9882,9 +9882,9 @@ define void @_ZN32MLRenderingPointsParametersFrameD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV32MLRenderingPointsParametersFrame, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.MLRenderingPointsParametersFrame, ptr %3, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -10252,9 +10252,9 @@ define void @_ZN30MLRenderingBBoxParametersFrameC2EP7QWidget(ptr noundef nonnull
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %7, i32 noundef -1, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, i32 1, i32 2), ptr %9, align 8
   invoke void @_ZN30MLRenderingBBoxParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %10 unwind label %11
 
@@ -10696,9 +10696,9 @@ define void @_ZN30MLRenderingBBoxParametersFrameC2EiP7QWidget(ptr noundef nonnul
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, i32 1, i32 2), ptr %12, align 8
   invoke void @_ZN30MLRenderingBBoxParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %13 unwind label %14
 
@@ -10728,9 +10728,9 @@ define void @_ZN30MLRenderingBBoxParametersFrameD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV30MLRenderingBBoxParametersFrame, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.MLRenderingBBoxParametersFrame, ptr %3, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -10946,9 +10946,9 @@ define void @_ZN42MLRenderingDefaultDecoratorParametersFrameC2EP7QWidget(ptr nou
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %7, i32 noundef -1, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, i32 1, i32 2), ptr %9, align 8
   invoke void @_ZN42MLRenderingDefaultDecoratorParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %10 unwind label %11
 
@@ -11791,9 +11791,9 @@ define void @_ZN42MLRenderingDefaultDecoratorParametersFrameC2EiP7QWidget(ptr no
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, i32 1, i32 2), ptr %12, align 8
   invoke void @_ZN42MLRenderingDefaultDecoratorParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(96) %9)
           to label %13 unwind label %14
 
@@ -11823,9 +11823,9 @@ define void @_ZN42MLRenderingDefaultDecoratorParametersFrameD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV42MLRenderingDefaultDecoratorParametersFrame, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.MLRenderingDefaultDecoratorParametersFrame, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -12200,9 +12200,9 @@ define void @_ZN35MLRenderingSelectionParametersFrameC2EP7QWidget(ptr noundef no
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %7, i32 noundef -1, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, i32 1, i32 2), ptr %9, align 8
   invoke void @_ZN35MLRenderingSelectionParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(72) %7)
           to label %10 unwind label %11
 
@@ -12610,9 +12610,9 @@ define void @_ZN35MLRenderingSelectionParametersFrameC2EiP7QWidget(ptr noundef n
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN26MLRenderingParametersFrameC2EiP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, i32 1, i32 2), ptr %12, align 8
   invoke void @_ZN35MLRenderingSelectionParametersFrame7initGuiEv(ptr noundef nonnull align 8 dereferenceable(72) %9)
           to label %13 unwind label %14
 
@@ -12642,9 +12642,9 @@ define void @_ZN35MLRenderingSelectionParametersFrameD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV35MLRenderingSelectionParametersFrame, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.MLRenderingSelectionParametersFrame, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -12861,9 +12861,9 @@ define void @_ZN24MLRenderingParametersTabC2EiRK5QListIP17MLRenderingActionEP7QW
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN10QTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingParametersTab, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingParametersTab, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingParametersTab, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingParametersTab, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.MLRenderingParametersTab, ptr %11, i32 0, i32 1
   %15 = load i32, ptr %6, align 4
   store i32 %15, ptr %14, align 8
@@ -15247,9 +15247,9 @@ define void @_ZN24MLRenderingParametersTabD2Ev(ptr noundef nonnull align 8 deref
   %4 = alloca %"class.QMap<QString, MLRenderingParametersFrame *>::iterator", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingParametersTab, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingParametersTab, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingParametersTab, i32 0, inrange i32 1, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingParametersTab, i32 0, i32 1, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.MLRenderingParametersTab, ptr %5, i32 0, i32 2
   %8 = invoke ptr @_ZN4QMapI7QStringP26MLRenderingParametersFrameE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
           to label %9 unwind label %32
@@ -15549,9 +15549,9 @@ define void @_ZN22MLRenderingColorPickerC2EiP40MLRenderingUserDefinedGeneralColo
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN11QPushButtonC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingColorPicker, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingColorPicker, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingColorPicker, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingColorPicker, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.MLRenderingColorPicker, ptr %11, i32 0, i32 1
   %15 = load ptr, ptr %7, align 8
   store ptr %15, ptr %14, align 8
@@ -15621,9 +15621,9 @@ define void @_ZN22MLRenderingColorPickerC2EP40MLRenderingUserDefinedGeneralColor
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN11QPushButtonC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingColorPicker, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingColorPicker, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingColorPicker, i32 0, inrange i32 1, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingColorPicker, i32 0, i32 1, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %class.MLRenderingColorPicker, ptr %9, i32 0, i32 1
   %13 = load ptr, ptr %5, align 8
   store ptr %13, ptr %12, align 8
@@ -16174,9 +16174,9 @@ define void @_ZN23MLRenderingOnOffToolbarC2EiP7QWidget(ptr noundef nonnull align
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV23MLRenderingOnOffToolbar, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV23MLRenderingOnOffToolbar, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV23MLRenderingOnOffToolbar, i32 0, inrange i32 1, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV23MLRenderingOnOffToolbar, i32 0, i32 1, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %class.MLRenderingOnOffToolbar, ptr %9, i32 0, i32 1
   %13 = load i32, ptr %5, align 4
   store i32 %13, ptr %12, align 8
@@ -16503,9 +16503,9 @@ define void @_ZN22MLRenderingFloatSliderC2EiP7QWidget(ptr noundef nonnull align 
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN13MLFloatSliderC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingFloatSlider, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingFloatSlider, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingFloatSlider, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingFloatSlider, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %class.MLRenderingFloatSlider, ptr %10, i32 0, i32 1
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds %class.MLRenderingFloatSlider, ptr %10, i32 0, i32 2
@@ -16562,9 +16562,9 @@ define void @_ZN22MLRenderingFloatSliderC2EP7QWidget(ptr noundef nonnull align 8
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN13MLFloatSliderC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingFloatSlider, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingFloatSlider, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingFloatSlider, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV22MLRenderingFloatSlider, i32 0, i32 1, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.MLRenderingFloatSlider, ptr %8, i32 0, i32 1
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds %class.MLRenderingFloatSlider, ptr %8, i32 0, i32 2
@@ -16696,9 +16696,9 @@ define void @_ZN24MLRenderingGlobalToolbarC2EP7QWidget(ptr noundef nonnull align
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingGlobalToolbar, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingGlobalToolbar, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingGlobalToolbar, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV24MLRenderingGlobalToolbar, i32 0, i32 1, i32 2), ptr %9, align 8
   invoke void @_ZN24MLRenderingGlobalToolbar7initGuiEv(ptr noundef nonnull align 8 dereferenceable(96) %7)
           to label %10 unwind label %11
 
@@ -19210,7 +19210,7 @@ define void @_ZN31MLRenderingZeroOrOneActionGroupC2EP7QObject(ptr noundef nonnul
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN12QActionGroupC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV31MLRenderingZeroOrOneActionGroup, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV31MLRenderingZeroOrOneActionGroup, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN31MLRenderingZeroOrOneActionGroup12setExclusiveEb(ptr noundef nonnull align 8 dereferenceable(24) %8, i1 noundef zeroext false)
           to label %10 unwind label %13
 

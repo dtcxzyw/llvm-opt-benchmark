@@ -1852,7 +1852,7 @@ $_ZTVN5vcpkg18IExclusiveFileLockE = comdat any
 @_ZN5vcpkg29FILESYSTEM_INVALID_CHARACTERSE = dso_local constant { ptr, i64 } { ptr @.str.11, i64 9 }, align 8
 @.str.12 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @_ZTVN5vcpkg14RealFilesystemE = linkonce_odr dso_local unnamed_addr constant { [44 x ptr] } { [44 x ptr] [ptr null, ptr @_ZTIN5vcpkg14RealFilesystemE, ptr @_ZNK5vcpkg14RealFilesystem10read_linesB5cxx11ERKNS_4PathE, ptr @_ZNK5vcpkg14RealFilesystem9file_sizeERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem13read_contentsB5cxx11ERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem36best_effort_read_contents_if_shebangB5cxx11ERKNS_4PathE, ptr @_ZNK5vcpkg14RealFilesystem24find_file_recursively_upERKNS_4PathES3_RSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem19get_files_recursiveERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem23get_files_non_recursiveERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem25get_directories_recursiveERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem29get_directories_non_recursiveERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem27get_regular_files_recursiveERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem47get_regular_files_recursive_lexically_proximateERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem31get_regular_files_non_recursiveERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem12is_directoryERKNS_4PathE, ptr @_ZNK5vcpkg14RealFilesystem15is_regular_fileERKNS_4PathE, ptr @_ZNK5vcpkg14RealFilesystem8is_emptyERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem6statusERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem14symlink_statusERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem16almost_canonicalERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem12current_pathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem8absoluteERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem14find_from_PATHENS_4SpanIKNS_10StringViewEEE, ptr @_ZNK5vcpkg14RealFilesystem13open_for_readERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem11write_linesERKNS_4PathERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem14write_contentsERKNS_4PathENS_10StringViewERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem23write_contents_and_dirsERKNS_4PathENS_10StringViewERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem6renameERKNS_4PathES3_RSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem14rename_or_copyERKNS_4PathES3_NS_13StringLiteralERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem6removeERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem10remove_allERKNS_4PathERSt10error_codeRS1_, ptr @_ZNK5vcpkg14RealFilesystem16create_directoryERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem18create_directoriesERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem28create_or_get_temp_directoryERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem14create_symlinkERKNS_4PathES3_RSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem24create_directory_symlinkERKNS_4PathES3_RSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem16create_hard_linkERKNS_4PathES3_RSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem22copy_regular_recursiveERKNS_4PathES3_RSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem9copy_fileERKNS_4PathES3_NS_11CopyOptionsERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem12copy_symlinkERKNS_4PathES3_RSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem12current_pathERKNS_4PathERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem24take_exclusive_file_lockERKNS_4PathERNS_11MessageSinkERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem28try_take_exclusive_file_lockERKNS_4PathERNS_11MessageSinkERSt10error_code, ptr @_ZNK5vcpkg14RealFilesystem14open_for_writeERKNS_4PathENS_6AppendERSt10error_code] }, comdat, align 8
-@_ZN5vcpkgL24real_filesystem_instanceE = internal constant { ptr } { ptr getelementptr inbounds ({ [44 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystemE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN5vcpkgL24real_filesystem_instanceE = internal constant { ptr } { ptr getelementptr inbounds ({ [44 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystemE, i32 0, i32 0, i32 2) }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN5vcpkg14RealFilesystemE = linkonce_odr dso_local constant [25 x i8] c"N5vcpkg14RealFilesystemE\00", comdat, align 1
 @_ZTSN5vcpkg10FilesystemE = linkonce_odr dso_local constant [21 x i8] c"N5vcpkg10FilesystemE\00", comdat, align 1
@@ -23922,7 +23922,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg14RealFilesystem17ExclusiveFileLock
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg18IExclusiveFileLockC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   %10 = call noundef ptr @_ZNK5vcpkg4Path5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %9) #13
@@ -23961,7 +23961,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg18IExclusiveFileLockC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg18IExclusiveFileLockE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg18IExclusiveFileLockE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -23971,7 +23971,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg14RealFilesystem17ExclusiveFileLock
   %3 = alloca %"struct.vcpkg::LineInfo", align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5vcpkg14RealFilesystem17ExclusiveFileLockE, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"struct.vcpkg::RealFilesystem::ExclusiveFileLock", ptr %4, i32 0, i32 2
   %6 = load i8, ptr %5, align 4
   %7 = trunc i8 %6 to i1

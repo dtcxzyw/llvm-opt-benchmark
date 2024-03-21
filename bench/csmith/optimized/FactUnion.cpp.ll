@@ -74,7 +74,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN9FactUnionC2EPK8Variable(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   tail call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -87,7 +87,7 @@ declare void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereference
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN9FactUnionC2EPK8Variablei(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {
   tail call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -685,7 +685,7 @@ define dso_local noundef nonnull ptr @_ZN9FactUnion9make_factEPK8Variablei(ptr n
           to label %4 unwind label %35
 
 4:                                                ; preds = %2
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 24
@@ -786,7 +786,7 @@ define dso_local noundef nonnull ptr @_ZNK9FactUnion5cloneEv(ptr nocapture nound
           to label %7 unwind label %38
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 24
@@ -913,7 +913,7 @@ _ZNK8Variable21is_inside_union_fieldEv.exit.preheader: ; preds = %_ZNK8Variable1
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i32 @_ZNK8Variable12get_field_idEv(ptr noundef nonnull align 8 dereferenceable(200) %.01325)
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %3, align 8
   %19 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %17, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 24
@@ -1117,7 +1117,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
   %12 = getelementptr inbounds ptr, ptr %11, i64 %.01521
   %13 = load ptr, ptr %12, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %4, align 8
   store ptr %13, ptr %8, align 8
   store i32 -2, ptr %9, align 8
   %14 = invoke noundef ptr @_Z17find_related_factRKSt6vectorIPK4FactSaIS2_EES2_(ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull %4)
@@ -1194,7 +1194,7 @@ define dso_local noundef ptr @_ZNK9FactUnion14join_var_factsERKSt6vectorIPK4Fact
 define dso_local noundef zeroext i1 @_ZN9FactUnion17is_field_readableEPK8VariableiRKSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.FactUnion, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i64 0, i32 0, i64 2), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 24

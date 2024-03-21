@@ -365,7 +365,7 @@ define dso_local void @_ZN12RemotePlayerC2EPKcP15IItemDefManager(ptr noundef non
   %33 = alloca %struct.SunParams, align 8
   %34 = alloca %struct.MoonParams, align 8
   tail call void @_ZN6PlayerC2EPKcP15IItemDefManager(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12RemotePlayer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12RemotePlayer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %35 = getelementptr inbounds i8, ptr %0, i64 696
   store i16 0, ptr %35, align 8, !tbaa !14
   %36 = getelementptr inbounds i8, ptr %0, i64 698
@@ -2064,7 +2064,7 @@ declare void @_ZN6PlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(696)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12RemotePlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(1234) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12RemotePlayer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12RemotePlayer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = icmp eq ptr %3, null

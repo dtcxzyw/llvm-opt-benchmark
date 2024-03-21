@@ -1543,7 +1543,7 @@ entry:
   %0 = load ptr, ptr %entity.addr, align 8
   %1 = load ptr, ptr %conv.addr, align 8
   call void @_ZN6Assimp3IFC12BoundedCurveC2ERKNS0_10Schema_2x315IfcBoundedCurveERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(392) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_18PolyLineE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_18PolyLineE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %points = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::PolyLine", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorI10aiVector3tIdESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %points) #15
   %points2 = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::PolyLine", ptr %this1, i32 0, i32 1
@@ -1680,7 +1680,7 @@ entry:
   %0 = load ptr, ptr %entity.addr, align 8
   %1 = load ptr, ptr %conv.addr, align 8
   call void @_ZN6Assimp3IFC12BoundedCurveC2ERKNS0_10Schema_2x315IfcBoundedCurveERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(392) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %range = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::TrimmedCurve", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt4pairIddEC2IddTnNSt9enable_ifIXsr6__and_ISt37__is_implicitly_default_constructibleIT_ES3_IT0_EEE5valueEbE4typeELb1EEEv(ptr noundef nonnull align 8 dereferenceable(16) %range)
           to label %invoke.cont unwind label %lpad
@@ -2187,7 +2187,7 @@ entry:
   %0 = load ptr, ptr %entity.addr, align 8
   %1 = load ptr, ptr %conv.addr, align 8
   call void @_ZN6Assimp3IFC12BoundedCurveC2ERKNS0_10Schema_2x315IfcBoundedCurveERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(392) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_114CompositeCurveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_114CompositeCurveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %curves = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::CompositeCurve", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %curves) #15
   %total = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::CompositeCurve", ptr %this1, i32 0, i32 2
@@ -2488,7 +2488,7 @@ entry:
   %0 = load ptr, ptr %entity.addr, align 8
   %1 = load ptr, ptr %conv.addr, align 8
   call void @_ZN6Assimp3IFC12_GLOBAL__N_15ConicC2ERKNS0_10Schema_2x38IfcConicERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(392) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_16CircleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_16CircleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %entity2 = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::Circle", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %entity.addr, align 8
   store ptr %2, ptr %entity2, align 8
@@ -2529,7 +2529,7 @@ entry:
   %0 = load ptr, ptr %entity.addr, align 8
   %1 = load ptr, ptr %conv.addr, align 8
   call void @_ZN6Assimp3IFC12_GLOBAL__N_15ConicC2ERKNS0_10Schema_2x38IfcConicERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(392) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_17EllipseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_17EllipseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %entity2 = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::Ellipse", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %entity.addr, align 8
   store ptr %2, ptr %entity2, align 8
@@ -2572,7 +2572,7 @@ entry:
   %0 = load ptr, ptr %entity.addr, align 8
   %1 = load ptr, ptr %conv.addr, align 8
   call void @_ZN6Assimp3IFC5CurveC2ERKNS0_10Schema_2x38IfcCurveERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(392) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_14LineE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_14LineE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %p = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::Line", ptr %this1, i32 0, i32 1
   call void @_ZN10aiVector3tIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %p) #15
   %v = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::Line", ptr %this1, i32 0, i32 2
@@ -3373,7 +3373,7 @@ entry:
   %0 = load ptr, ptr %entity.addr, align 8
   %1 = load ptr, ptr %conv.addr, align 8
   call void @_ZN6Assimp3IFC5CurveC2ERKNS0_10Schema_2x38IfcCurveERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(392) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12BoundedCurveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12BoundedCurveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3586,7 +3586,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_18PolyLineE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_18PolyLineE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %points = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::PolyLine", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorI10aiVector3tIdESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %points) #15
   call void @_ZN6Assimp3IFC12BoundedCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #15
@@ -3712,7 +3712,7 @@ entry:
   store ptr %base_entity, ptr %base_entity.addr, align 8
   store ptr %conv, ptr %conv.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC5CurveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC5CurveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %base_entity2 = getelementptr inbounds %"class.Assimp::IFC::Curve", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %base_entity.addr, align 8
   store ptr %0, ptr %base_entity2, align 8
@@ -5161,7 +5161,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %val.addr, align 8
   call void @_ZN6Assimp4STEP7EXPRESS17PrimitiveDataTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4STEP7EXPRESS11ENUMERATIONE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4STEP7EXPRESS11ENUMERATIONE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5212,7 +5212,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_112TrimmedCurveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %base = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::TrimmedCurve", ptr %this1, i32 0, i32 4
   call void @_ZNSt10shared_ptrIKN6Assimp3IFC5CurveEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %base) #15
   call void @_ZN6Assimp3IFC12BoundedCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #15
@@ -5472,7 +5472,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp3IFC5CurveELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6Assimp3IFC5CurveELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8
@@ -5489,7 +5489,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -6470,7 +6470,7 @@ entry:
   store ptr %val, ptr %val.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp4STEP7EXPRESS8DataTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4STEP7EXPRESS17PrimitiveDataTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4STEP7EXPRESS17PrimitiveDataTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val2 = getelementptr inbounds %"class.Assimp::STEP::EXPRESS::PrimitiveDataType.128", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %val.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %val2, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -6514,7 +6514,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4STEP7EXPRESS8DataTypeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4STEP7EXPRESS8DataTypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6524,7 +6524,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4STEP7EXPRESS17PrimitiveDataTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp4STEP7EXPRESS17PrimitiveDataTypeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val = getelementptr inbounds %"class.Assimp::STEP::EXPRESS::PrimitiveDataType.128", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val) #15
   call void @_ZN6Assimp4STEP7EXPRESS8DataTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #15
@@ -7320,7 +7320,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_114CompositeCurveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_114CompositeCurveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %curves = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::CompositeCurve", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt4pairISt10shared_ptrIN6Assimp3IFC12BoundedCurveEEbESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %curves) #15
   call void @_ZN6Assimp3IFC12BoundedCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #15
@@ -10064,7 +10064,7 @@ entry:
   %0 = load ptr, ptr %entity.addr, align 8
   %1 = load ptr, ptr %conv.addr, align 8
   call void @_ZN6Assimp3IFC5CurveC2ERKNS0_10Schema_2x38IfcCurveERNS0_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(392) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_15ConicE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6Assimp3IFC12_GLOBAL__N_15ConicE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %location = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::Conic", ptr %this1, i32 0, i32 1
   call void @_ZN10aiVector3tIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %location) #15
   %p = getelementptr inbounds %"class.Assimp::IFC::(anonymous namespace)::Conic", ptr %this1, i32 0, i32 2

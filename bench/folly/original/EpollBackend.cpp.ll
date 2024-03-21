@@ -831,7 +831,7 @@ define void @_ZN5folly12EpollBackendC2ENS0_7OptionsE(ptr noundef nonnull align 8
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp21 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5folly12EpollBackendE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !74
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5folly12EpollBackendE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !74
   %options_ = getelementptr inbounds %"class.folly::EpollBackend", ptr %this, i64 0, i32 1
   store i64 %options.coerce, ptr %options_, align 8, !tbaa.struct !76
   %epollFd_ = getelementptr inbounds %"class.folly::EpollBackend", ptr %this, i64 0, i32 2
@@ -1516,7 +1516,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly12EpollBackendD2Ev(ptr noundef nonnull align 8 dereferenceable(360) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5folly12EpollBackendE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !74
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5folly12EpollBackendE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !74
   %epollFd_ = getelementptr inbounds %"class.folly::EpollBackend", ptr %this, i64 0, i32 2
   %0 = load i32, ptr %epollFd_, align 8, !tbaa !7
   %call = invoke i32 @close(i32 noundef %0)

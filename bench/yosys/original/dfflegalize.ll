@@ -2431,7 +2431,7 @@ define internal void @_ZN12_GLOBAL__N_115DffLegalizePassC2Ev(ptr noundef nonnull
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115DffLegalizePassE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115DffLegalizePassE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %9, i32 0, i32 19
   invoke void @_ZN5Yosys7hashlib4dictINS_5RTLIL6SigBitEiNS0_8hash_opsIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %13)
           to label %14 unwind label %35
@@ -2553,7 +2553,7 @@ define internal void @_ZN12_GLOBAL__N_115DffLegalizePassD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115DffLegalizePassE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115DffLegalizePassE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 22
   call void @_ZN5Yosys10FfInitValsD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #3
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::DffLegalizePass", ptr %3, i32 0, i32 21

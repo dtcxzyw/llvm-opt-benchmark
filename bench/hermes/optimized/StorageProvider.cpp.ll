@@ -45,7 +45,7 @@ $_ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EE
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN6hermes2vm15StorageProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -65,7 +65,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #17
   %numSucceededAllocs_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numSucceededAllocs_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr %agg.result, align 8
   ret void
 }
@@ -81,7 +81,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %result.i.i), !noalias !4
   %numSucceededAllocs_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numSucceededAllocs_.i.i.i, i8 0, i64 24, i1 false), !noalias !4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !4
   %size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %sub.i.i.i = add i64 %size, 4194303
   %div1.i.i.i = and i64 %sub.i.i.i, -4194304
@@ -127,7 +127,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #17
   %numSucceededAllocs_.i.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %numSucceededAllocs_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_121MallocStorageProviderE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_121MallocStorageProviderE, i64 0, i32 0, i64 2), ptr %call, align 8
   %lowLimToAllocHandle_.i = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %lowLimToAllocHandle_.i, i8 0, i64 20, i1 false)
   store ptr %call, ptr %agg.result, align 8
@@ -370,7 +370,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -447,7 +447,7 @@ entry:
   %lowLimToAllocHandle_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %lowLimToAllocHandle_, align 8
   tail call void @_ZdlPv(ptr noundef %0) #18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -1015,7 +1015,7 @@ if.then.i.i:                                      ; preds = %entry
   br label %_ZN4llvh11SmallVectorIPvLj0EED2Ev.exit
 
 _ZN4llvh11SmallVectorIPvLj0EED2Ev.exit:           ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

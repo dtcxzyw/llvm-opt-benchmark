@@ -22597,7 +22597,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 7)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bitmask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %bitmask_) #13
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 2
@@ -22715,7 +22715,7 @@ entry:
   store i32 %kind, ptr %kind.addr, align 4
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox13ISerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %nullAllowed_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this2, i32 0, i32 1
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -23058,7 +23058,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
   %1 = load i64, ptr %min.addr, align 8
   store i64 %1, ptr %min_, align 8
@@ -25919,7 +25919,7 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this3, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 21)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, inrange i32 0, i32 2), ptr %this3, align 16
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this3, align 16
   %min_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this3, i32 0, i32 1
   %5 = load i128, ptr %min.addr, align 16
   store i128 %5, ptr %min_, align 16
@@ -26624,7 +26624,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 10)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common31NegatedBigintValuesUsingBitmaskE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common31NegatedBigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
   %1 = load i64, ptr %min.addr, align 8
   %conv = trunc i64 %1 to i32
@@ -26843,7 +26843,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 9)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common33NegatedBigintValuesUsingHashTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common33NegatedBigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN8facebook5velox6common26BigintValuesUsingHashTableESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
   %1 = load ptr, ptr %values.addr, align 8
@@ -27617,7 +27617,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 17)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common16BigintMultiRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common16BigintMultiRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ranges_ = getelementptr inbounds %"class.facebook::velox::common::BigintMultiRange", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox6common11BigintRangeESt14default_deleteIS4_EESaIS7_EEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(24) %ranges_, ptr noundef nonnull align 8 dereferenceable(24) %ranges) #13
   %lowerBounds_ = getelementptr inbounds %"class.facebook::velox::common::BigintMultiRange", ptr %this1, i32 0, i32 2
@@ -50177,7 +50177,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -50202,7 +50202,7 @@ entry:
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -50216,7 +50216,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -50809,7 +50809,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly19ConversionErrorBaseC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %code_ = getelementptr inbounds %"class.folly::ConversionError", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %2, i32 0, i32 1
@@ -50828,7 +50828,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11range_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly19ConversionErrorBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly19ConversionErrorBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -50856,7 +50856,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11range_error, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11range_error, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -50964,7 +50964,7 @@ entry:
   store i8 %error, ptr %error.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.411", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %error.addr, align 1
   store i8 %0, ptr %error_, align 8
@@ -50991,7 +50991,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN5folly17BadExpectedAccessIvEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %error_ = getelementptr inbounds %"class.folly::BadExpectedAccess.411", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %error_2 = getelementptr inbounds %"class.folly::BadExpectedAccess.411", ptr %2, i32 0, i32 1
@@ -51381,7 +51381,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9TypeErrorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9TypeErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -62373,7 +62373,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8facebook5velox13ISerializableESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8facebook5velox13ISerializableESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   call void @_ZNSt19_Sp_counted_deleterIPN8facebook5velox13ISerializableESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES3_S5_RKS6_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
@@ -62386,7 +62386,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -64548,7 +64548,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -68387,7 +68387,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -68404,7 +68404,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -68416,7 +68416,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -73055,7 +73055,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 8)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBigintRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBigintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintRange", ptr %this1, i32 0, i32 1
   %1 = load i8, ptr %nullAllowed.addr, align 1
   %tobool2 = trunc i8 %1 to i1
@@ -73178,7 +73178,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 1
   %1 = load i64, ptr %lower.addr, align 8
   store i64 %1, ptr %lower_, align 8
@@ -74465,7 +74465,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -75315,7 +75315,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 20)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %lower.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %lower_, ptr align 8 %1, i64 16, i1 false)
@@ -75505,7 +75505,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common14TimestampRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::TimestampRange", ptr %2, i32 0, i32 1
@@ -75523,7 +75523,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox13ISerializableC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6FilterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %nullAllowed_ = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %nullAllowed_2 = getelementptr inbounds %"class.facebook::velox::common::Filter", ptr %2, i32 0, i32 1
@@ -75539,7 +75539,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook5velox13ISerializableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -75802,7 +75802,7 @@ entry:
   %8 = load i8, ptr %nullAllowed.addr, align 1
   %tobool5 = trunc i8 %8 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5, i32 noundef 13)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this1, i32 0, i32 2
   %9 = load ptr, ptr %other.addr, align 8
   %lower_6 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %9, i32 0, i32 2
@@ -75908,7 +75908,7 @@ entry:
   %tobool = trunc i8 %0 to i1
   %1 = load i32, ptr %kind.addr, align 4
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this5, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, inrange i32 0, i32 2), ptr %this5, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2), ptr %this5, align 8
   %lowerUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this5, i32 0, i32 1
   %2 = load i8, ptr %lowerUnbounded.addr, align 1
   %tobool6 = trunc i8 %2 to i1
@@ -76125,7 +76125,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common13AbstractRangeC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef nonnull align 8 dereferenceable(20) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this1, i32 0, i32 2
   %2 = load ptr, ptr %.addr, align 8
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %2, i32 0, i32 2
@@ -76190,7 +76190,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common13AbstractRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lowerUnbounded_ = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %lowerUnbounded_2 = getelementptr inbounds %"class.facebook::velox::common::AbstractRange", ptr %2, i32 0, i32 1
@@ -76257,7 +76257,7 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesRange", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %other.addr, align 8
   %nonNegated_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesRange", ptr %2, i32 0, i32 1
@@ -76579,7 +76579,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 15)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %1, i32 0, i32 1
@@ -86556,7 +86556,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %2, i32 0, i32 1
@@ -87088,7 +87088,7 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesValues", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %other.addr, align 8
   %nonNegated_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesValues", ptr %2, i32 0, i32 1
@@ -90316,7 +90316,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.facebook::velox::common::BoolValue", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %value_2 = getelementptr inbounds %"class.facebook::velox::common::BoolValue", ptr %2, i32 0, i32 1
@@ -93320,7 +93320,7 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this3, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 19)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, inrange i32 0, i32 2), ptr %this3, align 16
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, i32 0, i32 2), ptr %this3, align 16
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %this3, i32 0, i32 1
   %5 = load i128, ptr %lower.addr, align 16
   store i128 %5, ptr %lower_, align 16
@@ -93504,7 +93504,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common12HugeintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::HugeintRange", ptr %2, i32 0, i32 1
@@ -93845,7 +93845,7 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %other.addr, align 8
   %min_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %2, i32 0, i32 1
@@ -93927,7 +93927,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common26BigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %min_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingHashTable", ptr %2, i32 0, i32 1
@@ -94086,7 +94086,7 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %min_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %other.addr, align 8
   %min_2 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %2, i32 0, i32 1
@@ -98590,7 +98590,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common27HugeintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %min_ = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %min_2 = getelementptr inbounds %"class.facebook::velox::common::HugeintValuesUsingHashTable", ptr %2, i32 0, i32 1
@@ -98715,7 +98715,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 7)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bitmask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %bitmask_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %1, i32 0, i32 1
@@ -100257,7 +100257,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common24BigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bitmask_ = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %bitmask_2 = getelementptr inbounds %"class.facebook::velox::common::BigintValuesUsingBitmask", ptr %2, i32 0, i32 1
@@ -101442,7 +101442,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11AlwaysFalseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -101934,7 +101934,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10AlwaysTrueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10AlwaysTrueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -102328,7 +102328,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext true, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common6IsNullE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -102722,7 +102722,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext false, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9IsNotNullE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9IsNotNullE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -103124,7 +103124,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this2, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common9BoolValueE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %value_ = getelementptr inbounds %"class.facebook::velox::common::BoolValue", ptr %this2, i32 0, i32 1
   %1 = load i8, ptr %value.addr, align 1
   %tobool3 = trunc i8 %1 to i1
@@ -103581,7 +103581,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common6FilterC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BigintRangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::BigintRange", ptr %2, i32 0, i32 1
@@ -105402,7 +105402,7 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common33NegatedBigintValuesUsingHashTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common33NegatedBigintValuesUsingHashTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingHashTable", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %other.addr, align 8
   %nonNegated_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingHashTable", ptr %2, i32 0, i32 1
@@ -105767,7 +105767,7 @@ entry:
   %1 = load ptr, ptr %other.addr, align 8
   %call = call noundef i32 @_ZNK8facebook5velox6common6Filter4kindEv(ptr noundef nonnull align 8 dereferenceable(16) %1)
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef %call)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common31NegatedBigintValuesUsingBitmaskE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common31NegatedBigintValuesUsingBitmaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %min_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %other.addr, align 8
   %min_2 = getelementptr inbounds %"class.facebook::velox::common::NegatedBigintValuesUsingBitmask", ptr %2, i32 0, i32 1
@@ -115525,7 +115525,7 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool9 = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this5, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool6, i1 noundef zeroext %tobool7, i1 noundef zeroext %tobool8, i1 noundef zeroext %tobool9, i32 noundef 11)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, inrange i32 0, i32 2), ptr %this5, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2), ptr %this5, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this5, i32 0, i32 1
   %5 = load double, ptr %lower.addr, align 8
   store double %5, ptr %lower_, align 8
@@ -116197,7 +116197,7 @@ entry:
   %8 = load i8, ptr %nullAllowed.addr, align 1
   %tobool5 = trunc i8 %8 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5, i32 noundef 11)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this1, i32 0, i32 1
   %9 = load ptr, ptr %other.addr, align 8
   %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %9, i32 0, i32 1
@@ -116265,7 +116265,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common13AbstractRangeC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef nonnull align 8 dereferenceable(20) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIdEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange.131", ptr %2, i32 0, i32 1
@@ -118281,7 +118281,7 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool9 = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this5, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool6, i1 noundef zeroext %tobool7, i1 noundef zeroext %tobool8, i1 noundef zeroext %tobool9, i32 noundef 12)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, inrange i32 0, i32 2), ptr %this5, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2), ptr %this5, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this5, i32 0, i32 1
   %5 = load float, ptr %lower.addr, align 4
   store float %5, ptr %lower_, align 4
@@ -118959,7 +118959,7 @@ entry:
   %8 = load i8, ptr %nullAllowed.addr, align 1
   %tobool5 = trunc i8 %8 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this1, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool2, i1 noundef zeroext %tobool3, i1 noundef zeroext %tobool4, i1 noundef zeroext %tobool5, i32 noundef 12)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 1
   %9 = load ptr, ptr %other.addr, align 8
   %lower_6 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %9, i32 0, i32 1
@@ -119027,7 +119027,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN8facebook5velox6common13AbstractRangeC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef nonnull align 8 dereferenceable(20) %1) #13
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18FloatingPointRangeIfEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %lower_2 = getelementptr inbounds %"class.facebook::velox::common::FloatingPointRange", ptr %2, i32 0, i32 1
@@ -120427,7 +120427,7 @@ entry:
   %4 = load i8, ptr %nullAllowed.addr, align 1
   %tobool9 = trunc i8 %4 to i1
   call void @_ZN8facebook5velox6common13AbstractRangeC2EbbbbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(20) %this5, i1 noundef zeroext %tobool, i1 noundef zeroext %tobool6, i1 noundef zeroext %tobool7, i1 noundef zeroext %tobool8, i1 noundef zeroext %tobool9, i32 noundef 13)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, inrange i32 0, i32 2), ptr %this5, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10BytesRangeE, i32 0, i32 0, i32 2), ptr %this5, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesRange", ptr %this5, i32 0, i32 2
   %5 = load ptr, ptr %lower.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %lower_, ptr noundef nonnull align 8 dereferenceable(32) %5)
@@ -120979,7 +120979,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this5, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 14)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, inrange i32 0, i32 2), ptr %this5, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common17NegatedBytesRangeE, i32 0, i32 0, i32 2), ptr %this5, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesRange", ptr %this5, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN8facebook5velox6common10BytesRangeESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
   %1 = load ptr, ptr %lower.addr, align 8
@@ -121990,7 +121990,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 15)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common11BytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lower_) #13
   %upper_ = getelementptr inbounds %"class.facebook::velox::common::BytesValues", ptr %this1, i32 0, i32 2
@@ -126768,7 +126768,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 16)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common18NegatedBytesValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %nonNegated_ = getelementptr inbounds %"class.facebook::velox::common::NegatedBytesValues", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN8facebook5velox6common11BytesValuesESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %nonNegated_) #13
   %1 = load ptr, ptr %values.addr, align 8
@@ -127768,7 +127768,7 @@ entry:
   %0 = load i8, ptr %nullAllowed.addr, align 1
   %tobool = trunc i8 %0 to i1
   call void @_ZN8facebook5velox6common6FilterC2EbbNS1_10FilterKindE(ptr noundef nonnull align 8 dereferenceable(16) %this2, i1 noundef zeroext true, i1 noundef zeroext %tobool, i32 noundef 18)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10MultiRangeE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTVN8facebook5velox6common10MultiRangeE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %filters_ = getelementptr inbounds %"class.facebook::velox::common::MultiRange", ptr %this2, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN8facebook5velox6common6FilterESt14default_deleteIS4_EESaIS7_EEC2EOS9_(ptr noundef nonnull align 8 dereferenceable(24) %filters_, ptr noundef nonnull align 8 dereferenceable(24) %filters) #13
   %nanAllowed_ = getelementptr inbounds %"class.facebook::velox::common::MultiRange", ptr %this2, i32 0, i32 2

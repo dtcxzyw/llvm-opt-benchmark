@@ -491,7 +491,7 @@ declare noundef i64 @write(i32 noundef, ptr nocapture noundef readonly, i64 noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN17grpc_event_engine12experimental12PipeWakeupFdD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12PipeWakeupFdE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12PipeWakeupFdE, i64 0, i32 0, i64 2), ptr %this, align 8
   %read_fd_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %read_fd_.i, align 8
   %cmp.not = icmp eq i32 %0, 0
@@ -555,7 +555,7 @@ entry:
   store i32 0, ptr %read_fd_.i.i, align 8
   %write_fd_.i.i = getelementptr inbounds i8, ptr %pipe_wakeup_fd, i64 12
   store i32 0, ptr %write_fd_.i.i, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12PipeWakeupFdE, i64 0, inrange i32 0, i64 2), ptr %pipe_wakeup_fd, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12PipeWakeupFdE, i64 0, i32 0, i64 2), ptr %pipe_wakeup_fd, align 8
   invoke void @_ZN17grpc_event_engine12experimental12PipeWakeupFd4InitEv(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %pipe_wakeup_fd)
           to label %invoke.cont2 unwind label %lpad
 
@@ -624,7 +624,7 @@ if.then:                                          ; preds = %init.end
   store i32 0, ptr %read_fd_.i.i.i, align 8, !noalias !23
   %write_fd_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 0, ptr %write_fd_.i.i.i, align 4, !noalias !23
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12PipeWakeupFdE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !23
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12PipeWakeupFdE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !23
   invoke void @_ZN17grpc_event_engine12experimental12PipeWakeupFd4InitEv(ptr nonnull sret(%"class.absl::lts_20230802::Status") align 8 %status, ptr noundef nonnull align 8 dereferenceable(16) %call.i)
           to label %invoke.cont6 unwind label %lpad3
 

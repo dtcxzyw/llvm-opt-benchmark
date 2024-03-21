@@ -1417,7 +1417,7 @@ invoke.cont2:                                     ; preds = %if.end
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.321, i64 noundef 21)
@@ -1439,7 +1439,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   store i32 1, ptr %BufferMode.i.i.i.i5, align 8
   %OutBufStart.i.i.i.i6 = getelementptr inbounds i8, ptr %OS.i.i3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i6, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i3, align 8
   %OS.i.i.i7 = getelementptr inbounds i8, ptr %OS.i.i3, i64 40
   store ptr %add.ptr.i4, ptr %OS.i.i.i7, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %env_var) #47
@@ -1488,7 +1488,7 @@ invoke.cont13:                                    ; preds = %if.then10
   store i32 1, ptr %BufferMode.i.i.i.i13, align 8
   %OutBufStart.i.i.i.i14 = getelementptr inbounds i8, ptr %OS.i.i11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i11, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i11, align 8
   %OS.i.i.i15 = getelementptr inbounds i8, ptr %OS.i.i11, i64 40
   store ptr %add.ptr.i12, ptr %OS.i.i.i15, align 8
   %conv.i.i.i = sext i32 %default_value to i64
@@ -1851,12 +1851,12 @@ invoke.cont.i.i:                                  ; preds = %invoke.cont
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i.i9, align 8, !noalias !8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i.i9, align 8, !noalias !8
   store ptr %call.i.i9, ptr %os_stack_trace_getter_.i.i, align 8, !noalias !8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit.i
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit.i: ; preds = %call.i.i.noexc, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i
-  %vtable.i = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %call.i.i.noexc ], [ %vtable.pre.i, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
+  %vtable.i = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %call.i.i.noexc ], [ %vtable.pre.i, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
   %14 = phi ptr [ %call.i.i9, %call.i.i.noexc ], [ %13, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
   %15 = load i32, ptr @_ZN7testing29FLAGS_gtest_stack_trace_depthE, align 4, !noalias !8
   %vfn.i = getelementptr inbounds i8, ptr %vtable.i, i64 16
@@ -1949,7 +1949,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %message) #47
@@ -2027,7 +2027,7 @@ if.then:                                          ; preds = %invoke.cont4
   store i32 1, ptr %BufferMode.i.i.i.i19, align 8
   %OutBufStart.i.i.i.i20 = getelementptr inbounds i8, ptr %OS.i.i17, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i20, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i17, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i17, align 8
   %OS.i.i.i21 = getelementptr inbounds i8, ptr %OS.i.i17, i64 40
   store ptr %add.ptr.i18, ptr %OS.i.i.i21, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i17, ptr noundef nonnull @.str.44, i64 noundef 1)
@@ -2049,7 +2049,7 @@ invoke.cont7:                                     ; preds = %if.then
   store i32 1, ptr %BufferMode.i.i.i.i26, align 8
   %OutBufStart.i.i.i.i27 = getelementptr inbounds i8, ptr %OS.i.i24, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i27, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i24, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i24, align 8
   %OS.i.i.i28 = getelementptr inbounds i8, ptr %OS.i.i24, i64 40
   store ptr %add.ptr.i25, ptr %OS.i.i.i28, align 8
   %call3.i.i2.i.i32 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i24, ptr noundef nonnull @.str.88, i64 noundef 11)
@@ -2071,7 +2071,7 @@ invoke.cont9:                                     ; preds = %invoke.cont7
   store i32 1, ptr %BufferMode.i.i.i.i38, align 8
   %OutBufStart.i.i.i.i39 = getelementptr inbounds i8, ptr %OS.i.i36, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i39, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i36, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i36, align 8
   %OS.i.i.i40 = getelementptr inbounds i8, ptr %OS.i.i36, i64 40
   store ptr %add.ptr.i37, ptr %OS.i.i.i40, align 8
   %call3.i.i2.i.i44 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i36, ptr noundef nonnull @.str.230, i64 noundef 7)
@@ -2135,7 +2135,7 @@ invoke.cont19:                                    ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i62)
   store i32 1, ptr %BufferMode.i.i.i.i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i65, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i62, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i62, align 8
   store ptr %add.ptr.i63, ptr %OS.i.i.i66, align 8
   %call3.i.i2.i.i70 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i62, ptr noundef nonnull @.str.44, i64 noundef 1)
           to label %invoke.cont23 unwind label %lpad.i.i71
@@ -2161,7 +2161,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i75)
   store i32 1, ptr %BufferMode.i.i.i.i77, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i78, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i75, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i75, align 8
   store ptr %add.ptr.i76, ptr %OS.i.i.i79, align 8
   %call.i.i.i80 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
   %call2.i.i.i81 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
@@ -2181,7 +2181,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i86)
   store i32 1, ptr %BufferMode.i.i.i.i88, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i89, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i86, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i86, align 8
   store ptr %add.ptr.i87, ptr %OS.i.i.i90, align 8
   %call3.i.i2.i.i94 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i86, ptr noundef nonnull @.str.192, i64 noundef 1)
           to label %invoke.cont29 unwind label %lpad.i.i95
@@ -2200,7 +2200,7 @@ invoke.cont29:                                    ; preds = %invoke.cont27
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i99)
   store i32 1, ptr %BufferMode.i.i.i.i101, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i102, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i99, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i99, align 8
   store ptr %add.ptr.i100, ptr %OS.i.i.i103, align 8
   %call.i.i.i104 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %message31) #47
   %call2.i.i.i105 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %message31) #47
@@ -2258,7 +2258,7 @@ if.then37:                                        ; preds = %land.lhs.true
   store i32 1, ptr %BufferMode.i.i.i.i113, align 8
   %OutBufStart.i.i.i.i114 = getelementptr inbounds i8, ptr %OS.i.i111, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i114, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i111, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i111, align 8
   %OS.i.i.i115 = getelementptr inbounds i8, ptr %OS.i.i111, i64 40
   store ptr %add.ptr.i112, ptr %OS.i.i.i115, align 8
   %call3.i.i2.i.i119 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i111, ptr noundef nonnull @_ZN7testing8internal17kStackTraceMarkerE, i64 noundef 14)
@@ -2280,7 +2280,7 @@ invoke.cont38:                                    ; preds = %if.then37
   store i32 1, ptr %BufferMode.i.i.i.i125, align 8
   %OutBufStart.i.i.i.i126 = getelementptr inbounds i8, ptr %OS.i.i123, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i126, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i123, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i123, align 8
   %OS.i.i.i127 = getelementptr inbounds i8, ptr %OS.i.i123, i64 40
   store ptr %add.ptr.i124, ptr %OS.i.i.i127, align 8
   %call.i.i.i128 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %os_stack_trace) #47
@@ -2539,12 +2539,12 @@ entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge
 
 invoke.cont.i:                                    ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   store ptr %call.i, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit: ; preds = %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge, %invoke.cont.i
-  %vtable = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i ], [ %vtable.pre, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
+  %vtable = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i ], [ %vtable.pre, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %1 = phi ptr [ %call.i, %invoke.cont.i ], [ %0, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %2 = load i32, ptr @_ZN7testing29FLAGS_gtest_stack_trace_depthE, align 4
   %add = add nsw i32 %skip_count, 1
@@ -3899,7 +3899,7 @@ declare noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7testing32ScopedFakeTestPartResultReporterC2EPNS_19TestPartResultArrayE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %intercept_mode_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %intercept_mode_, align 8
   %result_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -3966,7 +3966,7 @@ if.end:                                           ; preds = %if.else, %if.then
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7testing32ScopedFakeTestPartResultReporterC2ENS0_13InterceptModeEPNS_19TestPartResultArrayE(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %intercept_mode, ptr noundef %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %intercept_mode_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %intercept_mode, ptr %intercept_mode_, align 8
   %result_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -4176,7 +4176,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7testing32ScopedFakeTestPartResultReporterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !7
@@ -4344,7 +4344,7 @@ if.then:                                          ; preds = %invoke.cont4
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i16, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.43, i64 noundef 10)
@@ -4366,7 +4366,7 @@ invoke.cont8:                                     ; preds = %if.then
   store i32 1, ptr %BufferMode.i.i.i.i20, align 8
   %OutBufStart.i.i.i.i21 = getelementptr inbounds i8, ptr %OS.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i21, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i18, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i18, align 8
   %OS.i.i.i22 = getelementptr inbounds i8, ptr %OS.i.i18, i64 40
   store ptr %add.ptr.i19, ptr %OS.i.i.i22, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %expected) #47
@@ -4390,7 +4390,7 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   store i32 1, ptr %BufferMode.i.i.i.i28, align 8
   %OutBufStart.i.i.i.i29 = getelementptr inbounds i8, ptr %OS.i.i26, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i29, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i26, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i26, align 8
   %OS.i.i.i30 = getelementptr inbounds i8, ptr %OS.i.i26, i64 40
   store ptr %add.ptr.i27, ptr %OS.i.i.i30, align 8
   %call3.i.i2.i.i34 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i26, ptr noundef nonnull @.str.44, i64 noundef 1)
@@ -4412,7 +4412,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   store i32 1, ptr %BufferMode.i.i.i.i40, align 8
   %OutBufStart.i.i.i.i41 = getelementptr inbounds i8, ptr %OS.i.i38, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i41, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i38, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i38, align 8
   %OS.i.i.i42 = getelementptr inbounds i8, ptr %OS.i.i38, i64 40
   store ptr %add.ptr.i39, ptr %OS.i.i.i42, align 8
   %call3.i.i2.i.i46 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i38, ptr noundef nonnull @.str.45, i64 noundef 10)
@@ -4440,7 +4440,7 @@ invoke.cont14:                                    ; preds = %invoke.cont12
   store i32 1, ptr %BufferMode.i.i.i.i59, align 8
   %OutBufStart.i.i.i.i60 = getelementptr inbounds i8, ptr %OS.i.i57, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i60, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i57, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i57, align 8
   %OS.i.i.i61 = getelementptr inbounds i8, ptr %OS.i.i57, i64 40
   store ptr %add.ptr.i58, ptr %OS.i.i.i61, align 8
   %sext = shl i64 %sub.ptr.div.i.i55, 32
@@ -4464,7 +4464,7 @@ invoke.cont19:                                    ; preds = %invoke.cont14
   store i32 1, ptr %BufferMode.i.i.i.i67, align 8
   %OutBufStart.i.i.i.i68 = getelementptr inbounds i8, ptr %OS.i.i65, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i68, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i65, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i65, align 8
   %OS.i.i.i69 = getelementptr inbounds i8, ptr %OS.i.i65, i64 40
   store ptr %add.ptr.i66, ptr %OS.i.i.i69, align 8
   %call3.i.i2.i.i73 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i65, ptr noundef nonnull @.str.46, i64 noundef 9)
@@ -4502,7 +4502,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i83)
   store i32 1, ptr %BufferMode.i.i.i.i85, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i86, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i83, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i83, align 8
   store ptr %add.ptr.i84, ptr %OS.i.i.i87, align 8
   %call3.i.i2.i.i91 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i83, ptr noundef nonnull @.str.44, i64 noundef 1)
           to label %invoke.cont26 unwind label %lpad.i.i92
@@ -4867,7 +4867,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -4901,7 +4901,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %1 = load i32, ptr %val, align 4
@@ -5056,7 +5056,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -5129,7 +5129,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %value) #47
@@ -5199,7 +5199,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -5275,7 +5275,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -5348,7 +5348,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -5511,7 +5511,7 @@ terminate.lpad:                                   ; preds = %invoke.cont7, %invo
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN7testing8internal35DefaultGlobalTestPartResultReporterC2EPNS0_12UnitTestImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %unit_test) unnamed_addr #12 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %unit_test_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %unit_test, ptr %unit_test_, align 8
   ret void
@@ -5570,7 +5570,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN7testing8internal38DefaultPerThreadTestPartResultReporterC2EPNS0_12UnitTestImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %unit_test) unnamed_addr #12 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %unit_test_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %unit_test, ptr %unit_test_, align 8
   ret void
@@ -6665,7 +6665,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr %os_stack_trace_getter_, align 8
   br label %if.end
 
@@ -6922,7 +6922,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
@@ -7005,7 +7005,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
@@ -7064,7 +7064,7 @@ if.then.i:                                        ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i.i)
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8
   %call.i.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #47
   %call2.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp.i) #47
@@ -7107,7 +7107,7 @@ if.else.i:                                        ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i13.i)
   store i32 1, ptr %BufferMode.i.i.i.i15.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i16.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i13.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i13.i, align 8
   store ptr %add.ptr.i14.i, ptr %OS.i.i.i17.i, align 8
   %call.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i13.i, i8 noundef zeroext 0)
           to label %_ZN7testing7MessagelsIcEERS0_RKT_.exit.i unwind label %lpad.i.i18.i
@@ -9112,7 +9112,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.53, i64 noundef 16)
@@ -9142,7 +9142,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i13, align 8
   %OutBufStart.i.i.i.i14 = getelementptr inbounds i8, ptr %OS.i.i11, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i14, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i11, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i11, align 8
   %OS.i.i.i15 = getelementptr inbounds i8, ptr %OS.i.i11, i64 40
   store ptr %add.ptr.i12, ptr %OS.i.i.i15, align 8
   %call.i.i.i.i16 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %lhs_expression) #48
@@ -9177,7 +9177,7 @@ if.then:                                          ; preds = %invoke.cont3
   store i32 1, ptr %BufferMode.i.i.i.i27, align 8
   %OutBufStart.i.i.i.i28 = getelementptr inbounds i8, ptr %OS.i.i25, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i28, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i25, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i25, align 8
   %OS.i.i.i29 = getelementptr inbounds i8, ptr %OS.i.i25, i64 40
   store ptr %add.ptr.i26, ptr %OS.i.i.i29, align 8
   %call3.i.i2.i.i33 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i25, ptr noundef nonnull @.str.54, i64 noundef 17)
@@ -9199,7 +9199,7 @@ invoke.cont5:                                     ; preds = %if.then
   store i32 1, ptr %BufferMode.i.i.i.i39, align 8
   %OutBufStart.i.i.i.i40 = getelementptr inbounds i8, ptr %OS.i.i37, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i40, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i37, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i37, align 8
   %OS.i.i.i41 = getelementptr inbounds i8, ptr %OS.i.i37, i64 40
   store ptr %add.ptr.i38, ptr %OS.i.i.i41, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %lhs_value) #47
@@ -9231,7 +9231,7 @@ if.end:                                           ; preds = %_ZN7testing7Message
   store i32 1, ptr %BufferMode.i.i.i.i48, align 8
   %OutBufStart.i.i.i.i49 = getelementptr inbounds i8, ptr %OS.i.i46, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i49, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i46, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i46, align 8
   %OS.i.i.i50 = getelementptr inbounds i8, ptr %OS.i.i46, i64 40
   store ptr %add.ptr.i47, ptr %OS.i.i.i50, align 8
   %call3.i.i2.i.i54 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i46, ptr noundef nonnull @.str.55, i64 noundef 17)
@@ -9261,7 +9261,7 @@ cond.true.i.split.i.i.i62:                        ; preds = %invoke.cont9
   store i32 1, ptr %BufferMode.i.i.i.i63, align 8
   %OutBufStart.i.i.i.i64 = getelementptr inbounds i8, ptr %OS.i.i59, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i64, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i59, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i59, align 8
   %OS.i.i.i65 = getelementptr inbounds i8, ptr %OS.i.i59, i64 40
   store ptr %add.ptr.i61, ptr %OS.i.i.i65, align 8
   %call.i.i.i.i66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %rhs_expression) #48
@@ -9296,7 +9296,7 @@ if.then15:                                        ; preds = %invoke.cont13
   store i32 1, ptr %BufferMode.i.i.i.i83, align 8
   %OutBufStart.i.i.i.i84 = getelementptr inbounds i8, ptr %OS.i.i81, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i84, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i81, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i81, align 8
   %OS.i.i.i85 = getelementptr inbounds i8, ptr %OS.i.i81, i64 40
   store ptr %add.ptr.i82, ptr %OS.i.i.i85, align 8
   %call3.i.i2.i.i89 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i81, ptr noundef nonnull @.str.54, i64 noundef 17)
@@ -9318,7 +9318,7 @@ invoke.cont16:                                    ; preds = %if.then15
   store i32 1, ptr %BufferMode.i.i.i.i96, align 8
   %OutBufStart.i.i.i.i97 = getelementptr inbounds i8, ptr %OS.i.i94, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i97, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i94, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i94, align 8
   %OS.i.i.i98 = getelementptr inbounds i8, ptr %OS.i.i94, i64 40
   store ptr %add.ptr.i95, ptr %OS.i.i.i98, align 8
   %call.i.i.i99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %rhs_value) #47
@@ -9348,7 +9348,7 @@ if.then21:                                        ; preds = %if.end20
   store i32 1, ptr %BufferMode.i.i.i.i109, align 8
   %OutBufStart.i.i.i.i110 = getelementptr inbounds i8, ptr %OS.i.i107, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i110, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i107, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i107, align 8
   %OS.i.i.i111 = getelementptr inbounds i8, ptr %OS.i.i107, i64 40
   store ptr %add.ptr.i108, ptr %OS.i.i.i111, align 8
   %call3.i.i2.i.i115 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i107, ptr noundef nonnull @.str.56, i64 noundef 14)
@@ -9409,7 +9409,7 @@ if.then34:                                        ; preds = %lor.lhs.false, %inv
   store i32 1, ptr %BufferMode.i.i.i.i127, align 8
   %OutBufStart.i.i.i.i128 = getelementptr inbounds i8, ptr %OS.i.i125, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i128, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i125, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i125, align 8
   %OS.i.i.i129 = getelementptr inbounds i8, ptr %OS.i.i125, i64 40
   store ptr %add.ptr.i126, ptr %OS.i.i.i129, align 8
   %call3.i.i2.i.i133 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i125, ptr noundef nonnull @.str.57, i64 noundef 12)
@@ -9435,7 +9435,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36
   store i32 1, ptr %BufferMode.i.i.i.i138, align 8
   %OutBufStart.i.i.i.i139 = getelementptr inbounds i8, ptr %OS.i.i136, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i139, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i136, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i136, align 8
   %OS.i.i.i140 = getelementptr inbounds i8, ptr %OS.i.i136, i64 40
   store ptr %add.ptr.i137, ptr %OS.i.i.i140, align 8
   %call.i.i.i141 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
@@ -9602,7 +9602,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -9636,7 +9636,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -9836,7 +9836,7 @@ _ZNK7testing15AssertionResult7messageEv.exit:     ; preds = %entry, %cond.true.i
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.58, i64 noundef 10)
@@ -9866,7 +9866,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i3, align 8
   %OutBufStart.i.i.i.i4 = getelementptr inbounds i8, ptr %OS.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i4, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i1, align 8
   %OS.i.i.i5 = getelementptr inbounds i8, ptr %OS.i.i1, i64 40
   store ptr %add.ptr.i2, ptr %OS.i.i.i5, align 8
   %call.i.i.i.i6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %expression_text) #48
@@ -9896,7 +9896,7 @@ invoke.cont2:                                     ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i17, align 8
   %OutBufStart.i.i.i.i18 = getelementptr inbounds i8, ptr %OS.i.i15, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i18, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i15, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i15, align 8
   %OS.i.i.i19 = getelementptr inbounds i8, ptr %OS.i.i15, i64 40
   store ptr %add.ptr.i16, ptr %OS.i.i.i19, align 8
   %call3.i.i2.i.i23 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i15, ptr noundef nonnull @.str.59, i64 noundef 11)
@@ -9926,7 +9926,7 @@ cond.true.i.split.i.i.i30:                        ; preds = %invoke.cont4
   store i32 1, ptr %BufferMode.i.i.i.i31, align 8
   %OutBufStart.i.i.i.i32 = getelementptr inbounds i8, ptr %OS.i.i27, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i32, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i27, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i27, align 8
   %OS.i.i.i33 = getelementptr inbounds i8, ptr %OS.i.i27, i64 40
   store ptr %add.ptr.i29, ptr %OS.i.i.i33, align 8
   %call.i.i.i.i34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %actual_predicate_value) #48
@@ -9961,7 +9961,7 @@ if.then:                                          ; preds = %invoke.cont6
   store i32 1, ptr %BufferMode.i.i.i.i49, align 8
   %OutBufStart.i.i.i.i50 = getelementptr inbounds i8, ptr %OS.i.i47, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i50, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i47, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i47, align 8
   %OS.i.i.i51 = getelementptr inbounds i8, ptr %OS.i.i47, i64 40
   store ptr %add.ptr.i48, ptr %OS.i.i.i51, align 8
   %call3.i.i2.i.i55 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i47, ptr noundef nonnull @.str.60, i64 noundef 2)
@@ -9983,7 +9983,7 @@ cond.true.i.split.i.i.i62:                        ; preds = %if.then
   store i32 1, ptr %BufferMode.i.i.i.i63, align 8
   %OutBufStart.i.i.i.i64 = getelementptr inbounds i8, ptr %OS.i.i59, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i64, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i59, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i59, align 8
   %OS.i.i.i65 = getelementptr inbounds i8, ptr %OS.i.i59, i64 40
   store ptr %add.ptr.i61, ptr %OS.i.i.i65, align 8
   %call.i.i.i.i66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond.i) #48
@@ -10010,7 +10010,7 @@ invoke.cont10:                                    ; preds = %if.then.i.i.i.i68, 
   store i32 1, ptr %BufferMode.i.i.i.i81, align 8
   %OutBufStart.i.i.i.i82 = getelementptr inbounds i8, ptr %OS.i.i79, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i82, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i79, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i79, align 8
   %OS.i.i.i83 = getelementptr inbounds i8, ptr %OS.i.i79, i64 40
   store ptr %add.ptr.i80, ptr %OS.i.i.i83, align 8
   %call3.i.i2.i.i87 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i79, ptr noundef nonnull @.str.61, i64 noundef 1)
@@ -10056,7 +10056,7 @@ if.end:                                           ; preds = %_ZN7testing7Message
   store i32 1, ptr %BufferMode.i.i.i.i94, align 8
   %OutBufStart.i.i.i.i95 = getelementptr inbounds i8, ptr %OS.i.i92, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i95, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i92, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i92, align 8
   %OS.i.i.i96 = getelementptr inbounds i8, ptr %OS.i.i92, i64 40
   store ptr %add.ptr.i93, ptr %OS.i.i.i96, align 8
   %call3.i.i2.i.i100 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i92, ptr noundef nonnull @.str.62, i64 noundef 11)
@@ -10086,7 +10086,7 @@ cond.true.i.split.i.i.i108:                       ; preds = %invoke.cont14
   store i32 1, ptr %BufferMode.i.i.i.i109, align 8
   %OutBufStart.i.i.i.i110 = getelementptr inbounds i8, ptr %OS.i.i105, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i110, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i105, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i105, align 8
   %OS.i.i.i111 = getelementptr inbounds i8, ptr %OS.i.i105, i64 40
   store ptr %add.ptr.i107, ptr %OS.i.i.i111, align 8
   %call.i.i.i.i112 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %expected_predicate_value) #48
@@ -10140,7 +10140,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -10228,7 +10228,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEd(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, double noundef %0)
@@ -10310,7 +10310,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   store i32 1, ptr %BufferMode.i.i.i.i.i5, align 8
   %OutBufStart.i.i.i.i.i6 = getelementptr inbounds i8, ptr %OS.i.i.i2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i6, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i2, align 8
   %OS.i.i.i.i7 = getelementptr inbounds i8, ptr %OS.i.i.i2, i64 40
   store ptr %add.ptr.i.i4, ptr %OS.i.i.i.i7, align 8
   %call.i.i.i8 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEd(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i2, double noundef %val1)
@@ -10384,7 +10384,7 @@ invoke.cont27:                                    ; preds = %invoke.cont25
   store i32 1, ptr %BufferMode.i.i.i.i.i31, align 8
   %OutBufStart.i.i.i.i.i32 = getelementptr inbounds i8, ptr %OS.i.i.i28, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i32, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i28, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i28, align 8
   %OS.i.i.i.i33 = getelementptr inbounds i8, ptr %OS.i.i.i28, i64 40
   store ptr %add.ptr.i.i30, ptr %OS.i.i.i.i33, align 8
   %call.i.i.i34 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEd(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i28, double noundef %val2)
@@ -10458,7 +10458,7 @@ invoke.cont35:                                    ; preds = %invoke.cont33
   store i32 1, ptr %BufferMode.i.i.i.i.i57, align 8
   %OutBufStart.i.i.i.i.i58 = getelementptr inbounds i8, ptr %OS.i.i.i54, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i58, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i54, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i54, align 8
   %OS.i.i.i.i59 = getelementptr inbounds i8, ptr %OS.i.i.i54, i64 40
   store ptr %add.ptr.i.i56, ptr %OS.i.i.i.i59, align 8
   %call.i.i.i60 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEd(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i54, double noundef %abs_error)
@@ -10555,7 +10555,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -10637,7 +10637,7 @@ cond.true.i.split.i.i.i:                          ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48
@@ -10713,7 +10713,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -10786,7 +10786,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -10859,7 +10859,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -10932,7 +10932,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -11005,7 +11005,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -11078,7 +11078,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -11743,7 +11743,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -12580,7 +12580,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -12748,7 +12748,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -15124,7 +15124,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.86, i64 noundef 39)
@@ -15146,7 +15146,7 @@ invoke.cont:                                      ; preds = %if.then
   store i32 1, ptr %BufferMode.i.i.i.i10, align 8
   %OutBufStart.i.i.i.i11 = getelementptr inbounds i8, ptr %OS.i.i8, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i11, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i8, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i8, align 8
   %OS.i.i.i12 = getelementptr inbounds i8, ptr %OS.i.i8, i64 40
   store ptr %add.ptr.i9, ptr %OS.i.i.i12, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %property_name) #47
@@ -15170,7 +15170,7 @@ invoke.cont14:                                    ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i18, align 8
   %OutBufStart.i.i.i.i19 = getelementptr inbounds i8, ptr %OS.i.i16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i19, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i16, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i16, align 8
   %OS.i.i.i20 = getelementptr inbounds i8, ptr %OS.i.i16, i64 40
   store ptr %add.ptr.i17, ptr %OS.i.i.i20, align 8
   %call3.i.i2.i.i24 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i16, ptr noundef nonnull @.str.60, i64 noundef 2)
@@ -15233,7 +15233,7 @@ if.then.i:                                        ; preds = %for.body.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i.i28), !noalias !214
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !214
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !214
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i28, align 8, !noalias !214
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i28, align 8, !noalias !214
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !214
   %call3.i.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i28, ptr noundef nonnull @.str.245, i64 noundef 2)
           to label %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit.i unwind label %lpad.i.i.i, !noalias !214
@@ -15286,7 +15286,7 @@ if.then7.i:                                       ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i18.i), !noalias !214
   store i32 1, ptr %BufferMode.i.i.i.i20.i, align 8, !noalias !214
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i21.i, i8 0, i64 24, i1 false), !noalias !214
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i18.i, align 8, !noalias !214
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i18.i, align 8, !noalias !214
   store ptr %add.ptr.i19.i, ptr %OS.i.i.i22.i, align 8, !noalias !214
   %call3.i.i2.i.i26.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i18.i, ptr noundef nonnull @.str.347, i64 noundef 4)
           to label %_ZN7testing7MessagelsIA5_cEERS0_RKT_.exit.i unwind label %lpad.i.i27.i, !noalias !214
@@ -15308,7 +15308,7 @@ if.end10.i:                                       ; preds = %_ZN7testing7Message
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i30.i), !noalias !214
   store i32 1, ptr %BufferMode.i.i.i.i32.i, align 8, !noalias !214
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i33.i, i8 0, i64 24, i1 false), !noalias !214
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i30.i, align 8, !noalias !214
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i30.i, align 8, !noalias !214
   store ptr %add.ptr.i31.i, ptr %OS.i.i.i34.i, align 8, !noalias !214
   %call3.i.i2.i.i38.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i30.i, ptr noundef nonnull @.str.348, i64 noundef 1)
           to label %invoke.cont11.i unwind label %lpad.i.i39.i, !noalias !214
@@ -15329,7 +15329,7 @@ invoke.cont11.i:                                  ; preds = %if.end10.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i43.i), !noalias !214
   store i32 1, ptr %BufferMode.i.i.i.i45.i, align 8, !noalias !214
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i46.i, i8 0, i64 24, i1 false), !noalias !214
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i43.i, align 8, !noalias !214
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i43.i, align 8, !noalias !214
   store ptr %add.ptr.i44.i, ptr %OS.i.i.i47.i, align 8, !noalias !214
   %call.i.i.i.i29 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i42.i) #47, !noalias !214
   %call2.i.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i42.i) #47, !noalias !214
@@ -15350,7 +15350,7 @@ invoke.cont14.i:                                  ; preds = %invoke.cont11.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i51.i), !noalias !214
   store i32 1, ptr %BufferMode.i.i.i.i53.i, align 8, !noalias !214
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i54.i, i8 0, i64 24, i1 false), !noalias !214
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i51.i, align 8, !noalias !214
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i51.i, align 8, !noalias !214
   store ptr %add.ptr.i52.i, ptr %OS.i.i.i55.i, align 8, !noalias !214
   %call3.i.i2.i.i59.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i51.i, ptr noundef nonnull @.str.348, i64 noundef 1)
           to label %for.inc.i unwind label %lpad.i.i60.i, !noalias !214
@@ -15400,7 +15400,7 @@ invoke.cont19:                                    ; preds = %if.end.i.i.i65.i, %
   store i32 1, ptr %BufferMode.i.i.i.i35, align 8
   %OutBufStart.i.i.i.i36 = getelementptr inbounds i8, ptr %OS.i.i33, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i36, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i33, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i33, align 8
   %OS.i.i.i37 = getelementptr inbounds i8, ptr %OS.i.i33, i64 40
   store ptr %add.ptr.i34, ptr %OS.i.i.i37, align 8
   %call.i.i.i38 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp18) #47
@@ -15424,7 +15424,7 @@ invoke.cont21:                                    ; preds = %invoke.cont19
   store i32 1, ptr %BufferMode.i.i.i.i46, align 8
   %OutBufStart.i.i.i.i47 = getelementptr inbounds i8, ptr %OS.i.i44, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i47, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i44, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i44, align 8
   %OS.i.i.i48 = getelementptr inbounds i8, ptr %OS.i.i44, i64 40
   store ptr %add.ptr.i45, ptr %OS.i.i.i48, align 8
   %call3.i.i2.i.i52 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i44, ptr noundef nonnull @.str.87, i64 noundef 17)
@@ -15446,7 +15446,7 @@ invoke.cont23:                                    ; preds = %invoke.cont21
   store i32 1, ptr %BufferMode.i.i.i.i58, align 8
   %OutBufStart.i.i.i.i59 = getelementptr inbounds i8, ptr %OS.i.i56, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i59, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i56, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i56, align 8
   %OS.i.i.i60 = getelementptr inbounds i8, ptr %OS.i.i56, i64 40
   store ptr %add.ptr.i57, ptr %OS.i.i.i60, align 8
   %call3.i.i2.i.i64 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i56, ptr noundef nonnull @.str.88, i64 noundef 11)
@@ -15468,7 +15468,7 @@ invoke.cont25:                                    ; preds = %invoke.cont23
   store i32 1, ptr %BufferMode.i.i.i.i70, align 8
   %OutBufStart.i.i.i.i71 = getelementptr inbounds i8, ptr %OS.i.i68, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i71, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i68, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i68, align 8
   %OS.i.i.i72 = getelementptr inbounds i8, ptr %OS.i.i68, i64 40
   store ptr %add.ptr.i69, ptr %OS.i.i.i72, align 8
   %call3.i.i2.i.i76 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i68, ptr noundef nonnull @.str.61, i64 noundef 1)
@@ -15808,7 +15808,7 @@ _ZN7testing8internal7CountIfISt6vectorINS_14TestPartResultESaIS3_EEPFbRKS3_EEEiR
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7testing4TestC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #50
   invoke void @_ZN7testing8internal14GTestFlagSaverC2Ev(ptr noundef nonnull align 8 dereferenceable(241) %call)
           to label %invoke.cont unwind label %lpad
@@ -15921,7 +15921,7 @@ lpad:                                             ; preds = %invoke.cont21, %inv
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7testing4TestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %gtest_flag_saver_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %gtest_flag_saver_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -16079,7 +16079,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %conv.i.i.i = sext i32 %value to i64
@@ -16369,7 +16369,7 @@ if.then14:                                        ; preds = %if.then
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.90, i64 noundef 63)
@@ -16391,7 +16391,7 @@ invoke.cont:                                      ; preds = %if.then14
   store i32 1, ptr %BufferMode.i.i.i.i20, align 8
   %OutBufStart.i.i.i.i21 = getelementptr inbounds i8, ptr %OS.i.i18, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i21, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i18, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i18, align 8
   %OS.i.i.i22 = getelementptr inbounds i8, ptr %OS.i.i18, i64 40
   store ptr %add.ptr.i19, ptr %OS.i.i.i22, align 8
   %call3.i.i2.i.i26 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i18, ptr noundef nonnull @.str.91, i64 noundef 58)
@@ -16413,7 +16413,7 @@ invoke.cont22:                                    ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i32, align 8
   %OutBufStart.i.i.i.i33 = getelementptr inbounds i8, ptr %OS.i.i30, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i33, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i30, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i30, align 8
   %OS.i.i.i34 = getelementptr inbounds i8, ptr %OS.i.i30, i64 40
   store ptr %add.ptr.i31, ptr %OS.i.i.i34, align 8
   %call3.i.i2.i.i38 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i30, ptr noundef nonnull @.str.92, i64 noundef 23)
@@ -16444,7 +16444,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont24
   store i32 1, ptr %BufferMode.i.i.i.i45, align 8
   %OutBufStart.i.i.i.i46 = getelementptr inbounds i8, ptr %OS.i.i43, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i46, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i43, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i43, align 8
   %OS.i.i.i47 = getelementptr inbounds i8, ptr %OS.i.i43, i64 40
   store ptr %add.ptr.i44, ptr %OS.i.i.i47, align 8
   %call.i.i.i.i48 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i42) #48
@@ -16474,7 +16474,7 @@ invoke.cont29:                                    ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i59, align 8
   %OutBufStart.i.i.i.i60 = getelementptr inbounds i8, ptr %OS.i.i57, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i60, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i57, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i57, align 8
   %OS.i.i.i61 = getelementptr inbounds i8, ptr %OS.i.i57, i64 40
   store ptr %add.ptr.i58, ptr %OS.i.i.i61, align 8
   %call3.i.i2.i.i65 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i57, ptr noundef nonnull @.str.69, i64 noundef 2)
@@ -16496,7 +16496,7 @@ invoke.cont31:                                    ; preds = %invoke.cont29
   store i32 1, ptr %BufferMode.i.i.i.i72, align 8
   %OutBufStart.i.i.i.i73 = getelementptr inbounds i8, ptr %OS.i.i70, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i73, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i70, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i70, align 8
   %OS.i.i.i74 = getelementptr inbounds i8, ptr %OS.i.i70, i64 40
   store ptr %add.ptr.i71, ptr %OS.i.i.i74, align 8
   %call3.i.i2.i.i78 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i70, ptr noundef nonnull @.str.93, i64 noundef 5)
@@ -16526,7 +16526,7 @@ cond.true.i.split.i.i.i85:                        ; preds = %invoke.cont33
   store i32 1, ptr %BufferMode.i.i.i.i86, align 8
   %OutBufStart.i.i.i.i87 = getelementptr inbounds i8, ptr %OS.i.i82, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i87, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i82, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i82, align 8
   %OS.i.i.i88 = getelementptr inbounds i8, ptr %OS.i.i82, i64 40
   store ptr %add.ptr.i84, ptr %OS.i.i.i88, align 8
   %call.i.i.i.i89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond20) #48
@@ -16556,7 +16556,7 @@ invoke.cont35:                                    ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i104, align 8
   %OutBufStart.i.i.i.i105 = getelementptr inbounds i8, ptr %OS.i.i102, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i105, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i102, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i102, align 8
   %OS.i.i.i106 = getelementptr inbounds i8, ptr %OS.i.i102, i64 40
   store ptr %add.ptr.i103, ptr %OS.i.i.i106, align 8
   %call3.i.i2.i.i110 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i102, ptr noundef nonnull @.str.94, i64 noundef 29)
@@ -16578,7 +16578,7 @@ invoke.cont37:                                    ; preds = %invoke.cont35
   store i32 1, ptr %BufferMode.i.i.i.i117, align 8
   %OutBufStart.i.i.i.i118 = getelementptr inbounds i8, ptr %OS.i.i115, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i118, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i115, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i115, align 8
   %OS.i.i.i119 = getelementptr inbounds i8, ptr %OS.i.i115, i64 40
   store ptr %add.ptr.i116, ptr %OS.i.i.i119, align 8
   %call3.i.i2.i.i123 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i115, ptr noundef nonnull @.str.93, i64 noundef 5)
@@ -16608,7 +16608,7 @@ cond.true.i.split.i.i.i131:                       ; preds = %invoke.cont39
   store i32 1, ptr %BufferMode.i.i.i.i132, align 8
   %OutBufStart.i.i.i.i133 = getelementptr inbounds i8, ptr %OS.i.i128, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i133, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i128, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i128, align 8
   %OS.i.i.i134 = getelementptr inbounds i8, ptr %OS.i.i128, i64 40
   store ptr %add.ptr.i130, ptr %OS.i.i.i134, align 8
   %call.i.i.i.i135 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %cond) #48
@@ -16638,7 +16638,7 @@ invoke.cont41:                                    ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i150, align 8
   %OutBufStart.i.i.i.i151 = getelementptr inbounds i8, ptr %OS.i.i148, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i151, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i148, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i148, align 8
   %OS.i.i.i152 = getelementptr inbounds i8, ptr %OS.i.i148, i64 40
   store ptr %add.ptr.i149, ptr %OS.i.i.i152, align 8
   %call3.i.i2.i.i156 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i148, ptr noundef nonnull @.str.95, i64 noundef 38)
@@ -16660,7 +16660,7 @@ invoke.cont43:                                    ; preds = %invoke.cont41
   store i32 1, ptr %BufferMode.i.i.i.i163, align 8
   %OutBufStart.i.i.i.i164 = getelementptr inbounds i8, ptr %OS.i.i161, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i164, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i161, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i161, align 8
   %OS.i.i.i165 = getelementptr inbounds i8, ptr %OS.i.i161, i64 40
   store ptr %add.ptr.i162, ptr %OS.i.i.i165, align 8
   %call3.i.i2.i.i169 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i161, ptr noundef nonnull @.str.96, i64 noundef 61)
@@ -16682,7 +16682,7 @@ invoke.cont45:                                    ; preds = %invoke.cont43
   store i32 1, ptr %BufferMode.i.i.i.i176, align 8
   %OutBufStart.i.i.i.i177 = getelementptr inbounds i8, ptr %OS.i.i174, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i177, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i174, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i174, align 8
   %OS.i.i.i178 = getelementptr inbounds i8, ptr %OS.i.i174, i64 40
   store ptr %add.ptr.i175, ptr %OS.i.i.i178, align 8
   %call3.i.i2.i.i182 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i174, ptr noundef nonnull @.str.97, i64 noundef 5)
@@ -16743,7 +16743,7 @@ if.else:                                          ; preds = %if.then
   store i32 1, ptr %BufferMode.i.i.i.i195, align 8
   %OutBufStart.i.i.i.i196 = getelementptr inbounds i8, ptr %OS.i.i193, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i196, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i193, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i193, align 8
   %OS.i.i.i197 = getelementptr inbounds i8, ptr %OS.i.i193, i64 40
   store ptr %add.ptr.i194, ptr %OS.i.i.i197, align 8
   %call3.i.i2.i.i201 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i193, ptr noundef nonnull @.str.90, i64 noundef 63)
@@ -16765,7 +16765,7 @@ invoke.cont55:                                    ; preds = %if.else
   store i32 1, ptr %BufferMode.i.i.i.i208, align 8
   %OutBufStart.i.i.i.i209 = getelementptr inbounds i8, ptr %OS.i.i206, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i209, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i206, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i206, align 8
   %OS.i.i.i210 = getelementptr inbounds i8, ptr %OS.i.i206, i64 40
   store ptr %add.ptr.i207, ptr %OS.i.i.i210, align 8
   %call3.i.i2.i.i214 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i206, ptr noundef nonnull @.str.98, i64 noundef 30)
@@ -16796,7 +16796,7 @@ cond.true.i.split.i.i.i222:                       ; preds = %invoke.cont57
   store i32 1, ptr %BufferMode.i.i.i.i223, align 8
   %OutBufStart.i.i.i.i224 = getelementptr inbounds i8, ptr %OS.i.i219, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i224, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i219, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i219, align 8
   %OS.i.i.i225 = getelementptr inbounds i8, ptr %OS.i.i219, i64 40
   store ptr %add.ptr.i221, ptr %OS.i.i.i225, align 8
   %call.i.i.i.i226 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i218) #48
@@ -16826,7 +16826,7 @@ invoke.cont62:                                    ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i241, align 8
   %OutBufStart.i.i.i.i242 = getelementptr inbounds i8, ptr %OS.i.i239, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i242, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i239, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i239, align 8
   %OS.i.i.i243 = getelementptr inbounds i8, ptr %OS.i.i239, i64 40
   store ptr %add.ptr.i240, ptr %OS.i.i.i243, align 8
   %call3.i.i2.i.i247 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i239, ptr noundef nonnull @.str.69, i64 noundef 2)
@@ -16848,7 +16848,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
   store i32 1, ptr %BufferMode.i.i.i.i255, align 8
   %OutBufStart.i.i.i.i256 = getelementptr inbounds i8, ptr %OS.i.i253, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i256, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i253, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i253, align 8
   %OS.i.i.i257 = getelementptr inbounds i8, ptr %OS.i.i253, i64 40
   store ptr %add.ptr.i254, ptr %OS.i.i.i257, align 8
   %call3.i.i2.i.i261 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i253, ptr noundef nonnull @.str.99, i64 noundef 17)
@@ -16878,7 +16878,7 @@ cond.true.i.split.i.i.i268:                       ; preds = %invoke.cont66
   store i32 1, ptr %BufferMode.i.i.i.i269, align 8
   %OutBufStart.i.i.i.i270 = getelementptr inbounds i8, ptr %OS.i.i265, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i270, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i265, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i265, align 8
   %OS.i.i.i271 = getelementptr inbounds i8, ptr %OS.i.i265, i64 40
   store ptr %add.ptr.i267, ptr %OS.i.i.i271, align 8
   %call.i.i.i.i272 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #48
@@ -16908,7 +16908,7 @@ invoke.cont68:                                    ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i287, align 8
   %OutBufStart.i.i.i.i288 = getelementptr inbounds i8, ptr %OS.i.i285, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i288, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i285, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i285, align 8
   %OS.i.i.i289 = getelementptr inbounds i8, ptr %OS.i.i285, i64 40
   store ptr %add.ptr.i286, ptr %OS.i.i.i289, align 8
   %call3.i.i2.i.i293 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i285, ptr noundef nonnull @.str.100, i64 noundef 10)
@@ -16938,7 +16938,7 @@ cond.true.i.split.i.i.i300:                       ; preds = %invoke.cont70
   store i32 1, ptr %BufferMode.i.i.i.i301, align 8
   %OutBufStart.i.i.i.i302 = getelementptr inbounds i8, ptr %OS.i.i297, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i302, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i297, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i297, align 8
   %OS.i.i.i303 = getelementptr inbounds i8, ptr %OS.i.i297, i64 40
   store ptr %add.ptr.i299, ptr %OS.i.i.i303, align 8
   %call.i.i.i.i304 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i16) #48
@@ -16968,7 +16968,7 @@ invoke.cont72:                                    ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i319, align 8
   %OutBufStart.i.i.i.i320 = getelementptr inbounds i8, ptr %OS.i.i317, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i320, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i317, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i317, align 8
   %OS.i.i.i321 = getelementptr inbounds i8, ptr %OS.i.i317, i64 40
   store ptr %add.ptr.i318, ptr %OS.i.i.i321, align 8
   %call3.i.i2.i.i325 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i317, ptr noundef nonnull @.str.44, i64 noundef 1)
@@ -16990,7 +16990,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
   store i32 1, ptr %BufferMode.i.i.i.i332, align 8
   %OutBufStart.i.i.i.i333 = getelementptr inbounds i8, ptr %OS.i.i330, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i333, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i330, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i330, align 8
   %OS.i.i.i334 = getelementptr inbounds i8, ptr %OS.i.i330, i64 40
   store ptr %add.ptr.i331, ptr %OS.i.i.i334, align 8
   %call3.i.i2.i.i338 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i330, ptr noundef nonnull @.str.101, i64 noundef 62)
@@ -17012,7 +17012,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
   store i32 1, ptr %BufferMode.i.i.i.i345, align 8
   %OutBufStart.i.i.i.i346 = getelementptr inbounds i8, ptr %OS.i.i343, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i346, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i343, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i343, align 8
   %OS.i.i.i347 = getelementptr inbounds i8, ptr %OS.i.i343, i64 40
   store ptr %add.ptr.i344, ptr %OS.i.i.i347, align 8
   %call3.i.i2.i.i351 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i343, ptr noundef nonnull @.str.102, i64 noundef 61)
@@ -17034,7 +17034,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
   store i32 1, ptr %BufferMode.i.i.i.i359, align 8
   %OutBufStart.i.i.i.i360 = getelementptr inbounds i8, ptr %OS.i.i357, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i360, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i357, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i357, align 8
   %OS.i.i.i361 = getelementptr inbounds i8, ptr %OS.i.i357, i64 40
   store ptr %add.ptr.i358, ptr %OS.i.i.i361, align 8
   %call3.i.i2.i.i365 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i357, ptr noundef nonnull @.str.103, i64 noundef 62)
@@ -17056,7 +17056,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
   store i32 1, ptr %BufferMode.i.i.i.i373, align 8
   %OutBufStart.i.i.i.i374 = getelementptr inbounds i8, ptr %OS.i.i371, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i374, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i371, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i371, align 8
   %OS.i.i.i375 = getelementptr inbounds i8, ptr %OS.i.i371, i64 40
   store ptr %add.ptr.i372, ptr %OS.i.i.i375, align 8
   %call3.i.i2.i.i379 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i371, ptr noundef nonnull @.str.104, i64 noundef 58)
@@ -17131,7 +17131,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #47
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal26GoogleTestFailureExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal26GoogleTestFailureExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -17174,7 +17174,7 @@ invoke.cont4:                                     ; preds = %_ZNK7testing14TestP
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp1) #47
@@ -17198,7 +17198,7 @@ invoke.cont6:                                     ; preds = %invoke.cont4
   store i32 1, ptr %BufferMode.i.i.i.i7, align 8
   %OutBufStart.i.i.i.i8 = getelementptr inbounds i8, ptr %OS.i.i5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i8, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i5, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i5, align 8
   %OS.i.i.i9 = getelementptr inbounds i8, ptr %OS.i.i5, i64 40
   store ptr %add.ptr.i6, ptr %OS.i.i.i9, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i5, ptr noundef nonnull @.str.192, i64 noundef 1)
@@ -17232,7 +17232,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont8, %swit
   store i32 1, ptr %BufferMode.i.i.i.i15, align 8
   %OutBufStart.i.i.i.i16 = getelementptr inbounds i8, ptr %OS.i.i13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i16, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i13, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i13, align 8
   %OS.i.i.i17 = getelementptr inbounds i8, ptr %OS.i.i13, i64 40
   store ptr %add.ptr.i14, ptr %OS.i.i.i17, align 8
   %call.i.i.i.i18 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %retval.0.i) #48
@@ -17269,7 +17269,7 @@ cond.true.i.split.i.i.i30:                        ; preds = %invoke.cont14
   store i32 1, ptr %BufferMode.i.i.i.i31, align 8
   %OutBufStart.i.i.i.i32 = getelementptr inbounds i8, ptr %OS.i.i27, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i32, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i27, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i27, align 8
   %OS.i.i.i33 = getelementptr inbounds i8, ptr %OS.i.i27, i64 40
   store ptr %add.ptr.i29, ptr %OS.i.i.i33, align 8
   %call.i.i.i.i34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i26) #48
@@ -17394,12 +17394,12 @@ _ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl2
 
 invoke.cont.i:                                    ; preds = %_ZN7testing8internal15GetUnitTestImplEv.exit
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   store ptr %call.i, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit: ; preds = %_ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge, %invoke.cont.i
-  %vtable = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i ], [ %vtable.pre, %_ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
+  %vtable = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i ], [ %vtable.pre, %_ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %6 = phi ptr [ %call.i, %invoke.cont.i ], [ %5, %_ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 24
   %7 = load ptr, ptr %vfn, align 8
@@ -17469,12 +17469,12 @@ if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit8_crit_
 
 invoke.cont.i6:                                   ; preds = %if.then5
   %call.i7 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i7, align 8
   store ptr %call.i7, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit8
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit8: ; preds = %if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit8_crit_edge, %invoke.cont.i6
-  %vtable7 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i6 ], [ %vtable7.pre, %if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit8_crit_edge ]
+  %vtable7 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i6 ], [ %vtable7.pre, %if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit8_crit_edge ]
   %18 = phi ptr [ %call.i7, %invoke.cont.i6 ], [ %17, %if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit8_crit_edge ]
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 24
   %19 = load ptr, ptr %vfn8, align 8
@@ -17493,12 +17493,12 @@ if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit13_crit
 
 invoke.cont.i11:                                  ; preds = %if.end10
   %call.i12 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i12, align 8
   store ptr %call.i12, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit13
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit13: ; preds = %if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit13_crit_edge, %invoke.cont.i11
-  %vtable12 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i11 ], [ %vtable12.pre, %if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit13_crit_edge ]
+  %vtable12 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i11 ], [ %vtable12.pre, %if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit13_crit_edge ]
   %21 = phi ptr [ %call.i12, %invoke.cont.i11 ], [ %20, %if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit13_crit_edge ]
   %vfn13 = getelementptr inbounds i8, ptr %vtable12, i64 24
   %22 = load ptr, ptr %vfn13, align 8
@@ -18325,7 +18325,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.108, i64 noundef 36)
@@ -18355,7 +18355,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i4, align 8
   %OutBufStart.i.i.i.i5 = getelementptr inbounds i8, ptr %OS.i.i2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i2, align 8
   %OS.i.i.i6 = getelementptr inbounds i8, ptr %OS.i.i2, i64 40
   store ptr %add.ptr.i3, ptr %OS.i.i.i6, align 8
   %call.i.i.i.i7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %test_case_name) #48
@@ -18385,7 +18385,7 @@ invoke.cont1:                                     ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i18, align 8
   %OutBufStart.i.i.i.i19 = getelementptr inbounds i8, ptr %OS.i.i16, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i19, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i16, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i16, align 8
   %OS.i.i.i20 = getelementptr inbounds i8, ptr %OS.i.i16, i64 40
   store ptr %add.ptr.i17, ptr %OS.i.i.i20, align 8
   %call3.i.i2.i.i24 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i16, ptr noundef nonnull @.str.109, i64 noundef 2)
@@ -18407,7 +18407,7 @@ invoke.cont3:                                     ; preds = %invoke.cont1
   store i32 1, ptr %BufferMode.i.i.i.i31, align 8
   %OutBufStart.i.i.i.i32 = getelementptr inbounds i8, ptr %OS.i.i29, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i32, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i29, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i29, align 8
   %OS.i.i.i33 = getelementptr inbounds i8, ptr %OS.i.i29, i64 40
   store ptr %add.ptr.i30, ptr %OS.i.i.i33, align 8
   %call3.i.i2.i.i37 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i29, ptr noundef nonnull @.str.90, i64 noundef 63)
@@ -18429,7 +18429,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   store i32 1, ptr %BufferMode.i.i.i.i44, align 8
   %OutBufStart.i.i.i.i45 = getelementptr inbounds i8, ptr %OS.i.i42, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i45, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i42, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i42, align 8
   %OS.i.i.i46 = getelementptr inbounds i8, ptr %OS.i.i42, i64 40
   store ptr %add.ptr.i43, ptr %OS.i.i.i46, align 8
   %call3.i.i2.i.i50 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i42, ptr noundef nonnull @.str.98, i64 noundef 30)
@@ -18458,7 +18458,7 @@ cond.true.i.split.i.i.i57:                        ; preds = %invoke.cont7
   store i32 1, ptr %BufferMode.i.i.i.i58, align 8
   %OutBufStart.i.i.i.i59 = getelementptr inbounds i8, ptr %OS.i.i54, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i59, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i54, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i54, align 8
   %OS.i.i.i60 = getelementptr inbounds i8, ptr %OS.i.i54, i64 40
   store ptr %add.ptr.i56, ptr %OS.i.i.i60, align 8
   %call.i.i.i.i61 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %test_case_name) #48
@@ -18488,7 +18488,7 @@ invoke.cont9:                                     ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i76, align 8
   %OutBufStart.i.i.i.i77 = getelementptr inbounds i8, ptr %OS.i.i74, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i77, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i74, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i74, align 8
   %OS.i.i.i78 = getelementptr inbounds i8, ptr %OS.i.i74, i64 40
   store ptr %add.ptr.i75, ptr %OS.i.i.i78, align 8
   %call3.i.i2.i.i82 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i74, ptr noundef nonnull @.str.110, i64 noundef 12)
@@ -18510,7 +18510,7 @@ invoke.cont11:                                    ; preds = %invoke.cont9
   store i32 1, ptr %BufferMode.i.i.i.i89, align 8
   %OutBufStart.i.i.i.i90 = getelementptr inbounds i8, ptr %OS.i.i87, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i90, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i87, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i87, align 8
   %OS.i.i.i91 = getelementptr inbounds i8, ptr %OS.i.i87, i64 40
   store ptr %add.ptr.i88, ptr %OS.i.i.i91, align 8
   %call3.i.i2.i.i95 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i87, ptr noundef nonnull @.str.111, i64 noundef 62)
@@ -18532,7 +18532,7 @@ invoke.cont13:                                    ; preds = %invoke.cont11
   store i32 1, ptr %BufferMode.i.i.i.i102, align 8
   %OutBufStart.i.i.i.i103 = getelementptr inbounds i8, ptr %OS.i.i100, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i103, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i100, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i100, align 8
   %OS.i.i.i104 = getelementptr inbounds i8, ptr %OS.i.i100, i64 40
   store ptr %add.ptr.i101, ptr %OS.i.i.i104, align 8
   %call3.i.i2.i.i108 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i100, ptr noundef nonnull @.str.112, i64 noundef 61)
@@ -18554,7 +18554,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   store i32 1, ptr %BufferMode.i.i.i.i115, align 8
   %OutBufStart.i.i.i.i116 = getelementptr inbounds i8, ptr %OS.i.i113, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i116, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i113, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i113, align 8
   %OS.i.i.i117 = getelementptr inbounds i8, ptr %OS.i.i113, i64 40
   store ptr %add.ptr.i114, ptr %OS.i.i.i117, align 8
   %call3.i.i2.i.i121 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i113, ptr noundef nonnull @.str.113, i64 noundef 61)
@@ -18576,7 +18576,7 @@ invoke.cont17:                                    ; preds = %invoke.cont15
   store i32 1, ptr %BufferMode.i.i.i.i129, align 8
   %OutBufStart.i.i.i.i130 = getelementptr inbounds i8, ptr %OS.i.i127, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i130, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i127, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i127, align 8
   %OS.i.i.i131 = getelementptr inbounds i8, ptr %OS.i.i127, i64 40
   store ptr %add.ptr.i128, ptr %OS.i.i.i131, align 8
   %call3.i.i2.i.i135 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i127, ptr noundef nonnull @.str.114, i64 noundef 67)
@@ -18598,7 +18598,7 @@ invoke.cont19:                                    ; preds = %invoke.cont17
   store i32 1, ptr %BufferMode.i.i.i.i142, align 8
   %OutBufStart.i.i.i.i143 = getelementptr inbounds i8, ptr %OS.i.i140, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i143, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i140, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i140, align 8
   %OS.i.i.i144 = getelementptr inbounds i8, ptr %OS.i.i140, i64 40
   store ptr %add.ptr.i141, ptr %OS.i.i.i144, align 8
   %call3.i.i2.i.i148 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i140, ptr noundef nonnull @.str.115, i64 noundef 11)
@@ -18769,7 +18769,7 @@ invoke.cont6:                                     ; preds = %.noexc13
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !241
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !241
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !241
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !241
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !241
   %conv.i.i.i.i = zext nneg i32 %line to i64
@@ -19024,12 +19024,12 @@ _ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_
 
 invoke.cont.i7:                                   ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit
   %call.i8 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i8, align 8
   store ptr %call.i8, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit: ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge, %invoke.cont.i7
-  %vtable7 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i7 ], [ %vtable7.pre, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
+  %vtable7 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i7 ], [ %vtable7.pre, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %17 = phi ptr [ %call.i8, %invoke.cont.i7 ], [ %16, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %vfn8 = getelementptr inbounds i8, ptr %vtable7, i64 24
   %18 = load ptr, ptr %vfn8, align 8
@@ -19109,12 +19109,12 @@ if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit14_crit
 
 invoke.cont.i12:                                  ; preds = %if.end12
   %call.i13 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i13, align 8
   store ptr %call.i13, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit14
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit14: ; preds = %if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit14_crit_edge, %invoke.cont.i12
-  %vtable14 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i12 ], [ %vtable14.pre, %if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit14_crit_edge ]
+  %vtable14 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i12 ], [ %vtable14.pre, %if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit14_crit_edge ]
   %30 = phi ptr [ %call.i13, %invoke.cont.i12 ], [ %29, %if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit14_crit_edge ]
   %vfn15 = getelementptr inbounds i8, ptr %vtable14, i64 24
   %31 = load ptr, ptr %vfn15, align 8
@@ -19355,7 +19355,7 @@ define void @_ZN7testing8TestCaseC2EPKcS2_PFvvES4_(ptr noundef nonnull align 8 d
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp4 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %name_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #47
   %call.i4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name_)
@@ -19510,7 +19510,7 @@ eh.resume:                                        ; preds = %ehcleanup, %lpad.bo
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7testing8TestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %test_info_list_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %test_info_list_, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -19894,12 +19894,12 @@ _ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_
 
 invoke.cont.i7:                                   ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   store ptr %call.i, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit: ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge, %invoke.cont.i7
-  %vtable6 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i7 ], [ %vtable6.pre, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
+  %vtable6 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i7 ], [ %vtable6.pre, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %15 = phi ptr [ %call.i, %invoke.cont.i7 ], [ %14, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %vfn7 = getelementptr inbounds i8, ptr %vtable6, i64 24
   %16 = load ptr, ptr %vfn7, align 8
@@ -19984,12 +19984,12 @@ for.end._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit_
 
 invoke.cont.i20:                                  ; preds = %for.end
   %call.i21 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i21, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i21, align 8
   store ptr %call.i21, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22: ; preds = %for.end._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit_edge, %invoke.cont.i20
-  %vtable13 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i20 ], [ %vtable13.pre, %for.end._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit_edge ]
+  %vtable13 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i20 ], [ %vtable13.pre, %for.end._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit_edge ]
   %33 = phi ptr [ %call.i21, %invoke.cont.i20 ], [ %32, %for.end._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit_edge ]
   %vfn14 = getelementptr inbounds i8, ptr %vtable13, i64 24
   %34 = load ptr, ptr %vfn14, align 8
@@ -21110,7 +21110,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.246, i64 noundef 34)
@@ -21140,7 +21140,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i4, align 8
   %OutBufStart.i.i.i.i5 = getelementptr inbounds i8, ptr %OS.i.i2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i2, align 8
   %OS.i.i.i6 = getelementptr inbounds i8, ptr %OS.i.i2, i64 40
   store ptr %add.ptr.i3, ptr %OS.i.i.i6, align 8
   %call.i.i.i.i7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %var) #48
@@ -21409,7 +21409,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !263
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !263
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !263
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !263
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !263
   %conv.i.i.i.i = sext i32 %count to i64
@@ -21660,7 +21660,7 @@ if.then9:                                         ; preds = %if.end8
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !269
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !269
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !269
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !269
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !269
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef %10)
@@ -21783,7 +21783,7 @@ _ZNK7testing8TestCase17test_to_run_countEv.exit:  ; preds = %for.body.i.i, %if.e
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !275
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !275
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !275
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !275
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !275
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef %7)
@@ -22484,7 +22484,7 @@ if.then:                                          ; preds = %invoke.cont5
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !283
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !283
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !283
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !283
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !283
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef %19)
@@ -23148,7 +23148,7 @@ _ZNK7testing8internal12UnitTestImpl30reportable_disabled_test_countEv.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing8internal17TestEventRepeaterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %listeners_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %listeners_, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -23194,7 +23194,7 @@ _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EED2Ev.exit: ; preds = %invoke.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing8internal17TestEventRepeaterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %listeners_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %listeners_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -23911,7 +23911,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 define hidden void @_ZN7testing8internal24XmlUnitTestResultPrinterC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %output_file) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %output_file_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #47
   %call.i1 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %output_file_)
@@ -24390,7 +24390,7 @@ invoke.cont14:                                    ; preds = %_ZNK7testing8TestCa
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !304
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !304
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !304
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !304
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !304
   %conv.i.i.i.i = sext i32 %sum.0.lcssa.i.i.i to i64
@@ -24577,7 +24577,7 @@ invoke.cont27:                                    ; preds = %_ZNK7testing8TestCa
   store i32 1, ptr %BufferMode.i.i.i.i.i105, align 8, !noalias !310
   %OutBufStart.i.i.i.i.i106 = getelementptr inbounds i8, ptr %OS.i.i.i102, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i106, i8 0, i64 24, i1 false), !noalias !310
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i102, align 8, !noalias !310
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i102, align 8, !noalias !310
   %OS.i.i.i.i107 = getelementptr inbounds i8, ptr %OS.i.i.i102, i64 40
   store ptr %add.ptr.i.i104, ptr %OS.i.i.i.i107, align 8, !noalias !310
   %conv.i.i.i.i108 = sext i32 %sum.0.lcssa.i.i.i100 to i64
@@ -24729,7 +24729,7 @@ invoke.cont42:                                    ; preds = %_ZNK7testing8TestCa
   store i32 1, ptr %BufferMode.i.i.i.i.i171, align 8, !noalias !316
   %OutBufStart.i.i.i.i.i172 = getelementptr inbounds i8, ptr %OS.i.i.i168, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i172, i8 0, i64 24, i1 false), !noalias !316
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i168, align 8, !noalias !316
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i168, align 8, !noalias !316
   %OS.i.i.i.i173 = getelementptr inbounds i8, ptr %OS.i.i.i168, i64 40
   store ptr %add.ptr.i.i170, ptr %OS.i.i.i.i173, align 8, !noalias !316
   %conv.i.i.i.i174 = sext i32 %sum.0.lcssa.i.i.i167 to i64
@@ -24960,7 +24960,7 @@ invoke.cont99:                                    ; preds = %.noexc239
   store i32 1, ptr %BufferMode.i.i.i.i.i245, align 8, !noalias !325
   %OutBufStart.i.i.i.i.i246 = getelementptr inbounds i8, ptr %OS.i.i.i242, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i246, i8 0, i64 24, i1 false), !noalias !325
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i242, align 8, !noalias !325
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i242, align 8, !noalias !325
   %OS.i.i.i.i247 = getelementptr inbounds i8, ptr %OS.i.i.i242, i64 40
   store ptr %add.ptr.i.i244, ptr %OS.i.i.i.i247, align 8, !noalias !325
   %conv.i.i.i.i248 = sext i32 %76 to i64
@@ -25504,7 +25504,7 @@ sw.bb:                                            ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i)
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.175, i64 noundef 4)
           to label %_ZN7testing7MessagelsIA5_cEERS0_RKT_.exit unwind label %lpad.i.i
@@ -25536,7 +25536,7 @@ sw.bb3:                                           ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i7)
   store i32 1, ptr %BufferMode.i.i.i.i9, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i10, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i7, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i7, align 8
   store ptr %add.ptr.i8, ptr %OS.i.i.i11, align 8
   %call3.i.i2.i.i15 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i7, ptr noundef nonnull @.str.176, i64 noundef 4)
           to label %_ZN7testing7MessagelsIA5_cEERS0_RKT_.exit19 unwind label %lpad.i.i16
@@ -25558,7 +25558,7 @@ sw.bb6:                                           ; preds = %for.body
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i20)
   store i32 1, ptr %BufferMode.i.i.i.i22, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i23, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i20, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i20, align 8
   store ptr %add.ptr.i21, ptr %OS.i.i.i24, align 8
   %call3.i.i2.i.i28 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i20, ptr noundef nonnull @.str.177, i64 noundef 5)
           to label %_ZN7testing7MessagelsIA6_cEERS0_RKT_.exit unwind label %lpad.i.i29
@@ -25583,7 +25583,7 @@ if.then:                                          ; preds = %sw.bb9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i32)
   store i32 1, ptr %BufferMode.i.i.i.i34, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i35, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i32, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i32, align 8
   store ptr %add.ptr.i33, ptr %OS.i.i.i36, align 8
   %call3.i.i2.i.i40 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i32, ptr noundef nonnull @.str.178, i64 noundef 6)
           to label %_ZN7testing7MessagelsIA7_cEERS0_RKT_.exit unwind label %lpad.i.i41
@@ -25603,7 +25603,7 @@ if.else:                                          ; preds = %sw.bb9
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i44)
   store i32 1, ptr %BufferMode.i.i.i.i46, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i47, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i44, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i44, align 8
   store ptr %add.ptr.i33, ptr %OS.i.i.i48, align 8
   %call.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i44, i8 noundef zeroext 39)
           to label %_ZN7testing7MessagelsIcEERS0_RKT_.exit unwind label %lpad.i.i49
@@ -25628,7 +25628,7 @@ if.then16:                                        ; preds = %sw.bb14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i52)
   store i32 1, ptr %BufferMode.i.i.i.i54, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i55, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i52, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i52, align 8
   store ptr %add.ptr.i53, ptr %OS.i.i.i56, align 8
   %call3.i.i2.i.i60 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i52, ptr noundef nonnull @.str.179, i64 noundef 6)
           to label %_ZN7testing7MessagelsIA7_cEERS0_RKT_.exit64 unwind label %lpad.i.i61
@@ -25648,7 +25648,7 @@ if.else19:                                        ; preds = %sw.bb14
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i65)
   store i32 1, ptr %BufferMode.i.i.i.i67, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i68, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i65, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i65, align 8
   store ptr %add.ptr.i53, ptr %OS.i.i.i69, align 8
   %call.i2.i.i70 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i65, i8 noundef zeroext 34)
           to label %_ZN7testing7MessagelsIcEERS0_RKT_.exit74 unwind label %lpad.i.i71
@@ -25691,7 +25691,7 @@ if.then30:                                        ; preds = %land.lhs.true, %lan
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i75)
   store i32 1, ptr %BufferMode.i.i.i.i77, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i78, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i75, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i75, align 8
   store ptr %add.ptr.i76, ptr %OS.i.i.i79, align 8
   %call3.i.i2.i.i83 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i75, ptr noundef nonnull @.str.180, i64 noundef 3)
           to label %invoke.cont31 unwind label %lpad.i.i84
@@ -25714,7 +25714,7 @@ invoke.cont34:                                    ; preds = %invoke.cont31
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i87)
   store i32 1, ptr %BufferMode.i.i.i.i89, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i90, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i87, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i87, align 8
   store ptr %add.ptr.i88, ptr %OS.i.i.i91, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #47
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp33) #47
@@ -25734,7 +25734,7 @@ invoke.cont36:                                    ; preds = %invoke.cont34
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i94)
   store i32 1, ptr %BufferMode.i.i.i.i96, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i97, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i94, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i94, align 8
   store ptr %add.ptr.i95, ptr %OS.i.i.i98, align 8
   %call3.i.i2.i.i102 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i94, ptr noundef nonnull @.str.181, i64 noundef 1)
           to label %invoke.cont38 unwind label %lpad.i.i103
@@ -25763,7 +25763,7 @@ if.else40:                                        ; preds = %land.lhs.true, %if.
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i106)
   store i32 1, ptr %BufferMode.i.i.i.i108, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i109, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i106, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i106, align 8
   store ptr %add.ptr.i107, ptr %OS.i.i.i110, align 8
   %call.i2.i.i111 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i106, i8 noundef zeroext %0)
           to label %_ZN7testing7MessagelsIcEERS0_RKT_.exit115 unwind label %lpad.i.i112
@@ -25839,7 +25839,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -26037,7 +26037,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !337
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !337
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !337
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !337
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !337
   %conv.i.i.i.i = sext i32 %add to i64
@@ -26573,7 +26573,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %1 = load i32, ptr %streamable, align 4
@@ -27806,7 +27806,7 @@ invoke.cont:                                      ; preds = %if.end.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i)
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.192, i64 noundef 1)
           to label %invoke.cont2 unwind label %lpad.i.i
@@ -27834,7 +27834,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i9)
   store i32 1, ptr %BufferMode.i.i.i.i11, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i12, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i9, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i9, align 8
   store ptr %add.ptr.i10, ptr %OS.i.i.i13, align 8
   %call.i.i.i.i14 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %call.i) #48
   %cmp.i.i.not.i.i15 = icmp eq i64 %call.i.i.i.i14, 0
@@ -27861,7 +27861,7 @@ invoke.cont6:                                     ; preds = %_ZN10llvm_gtestlsER
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i25)
   store i32 1, ptr %BufferMode.i.i.i.i27, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i28, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i25, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i25, align 8
   store ptr %add.ptr.i26, ptr %OS.i.i.i29, align 8
   %call3.i.i2.i.i33 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i25, ptr noundef nonnull @.str.223, i64 noundef 1)
           to label %invoke.cont8 unwind label %lpad.i.i34
@@ -27880,7 +27880,7 @@ invoke.cont8:                                     ; preds = %invoke.cont6
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i39)
   store i32 1, ptr %BufferMode.i.i.i.i41, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i42, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i39, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i39, align 8
   store ptr %add.ptr.i40, ptr %OS.i.i.i43, align 8
   %call3.i.i2.i.i47 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i39, ptr noundef nonnull @.str.81, i64 noundef 1)
           to label %invoke.cont10 unwind label %lpad.i.i48
@@ -27946,7 +27946,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i62)
   store i32 1, ptr %BufferMode.i.i.i.i64, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i65, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i62, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i62, align 8
   store ptr %add.ptr.i63, ptr %OS.i.i.i66, align 8
   %call.i.i.i = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #47
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp12) #47
@@ -27966,7 +27966,7 @@ invoke.cont22:                                    ; preds = %invoke.cont20
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i70)
   store i32 1, ptr %BufferMode.i.i.i.i72, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i73, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i70, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i70, align 8
   store ptr %add.ptr.i71, ptr %OS.i.i.i74, align 8
   %call3.i.i2.i.i78 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i70, ptr noundef nonnull @.str.81, i64 noundef 1)
           to label %invoke.cont24 unwind label %lpad.i.i79
@@ -28149,7 +28149,7 @@ invoke.cont5:                                     ; preds = %.noexc8
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !385
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !385
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !385
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !385
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !385
   %conv.i.i.i.i = zext nneg i32 %line to i64
@@ -28433,7 +28433,7 @@ invoke.cont27:                                    ; preds = %for.body.i.i, %invo
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !394
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !394
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !394
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !394
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !394
   %conv.i.i.i.i = sext i32 %count.0.lcssa.i.i to i64
@@ -28590,7 +28590,7 @@ invoke.cont42:                                    ; preds = %_ZN7testing8TestCas
   store i32 1, ptr %BufferMode.i.i.i.i.i98, align 8, !noalias !400
   %OutBufStart.i.i.i.i.i99 = getelementptr inbounds i8, ptr %OS.i.i.i95, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i99, i8 0, i64 24, i1 false), !noalias !400
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i95, align 8, !noalias !400
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i95, align 8, !noalias !400
   %OS.i.i.i.i100 = getelementptr inbounds i8, ptr %OS.i.i.i95, i64 40
   store ptr %add.ptr.i.i97, ptr %OS.i.i.i.i100, align 8, !noalias !400
   %conv.i.i.i.i101 = sext i32 %count.0.lcssa.i.i92 to i64
@@ -28712,7 +28712,7 @@ invoke.cont57:                                    ; preds = %_ZN7testing8TestCas
   store i32 1, ptr %BufferMode.i.i.i.i.i147, align 8, !noalias !406
   %OutBufStart.i.i.i.i.i148 = getelementptr inbounds i8, ptr %OS.i.i.i144, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i148, i8 0, i64 24, i1 false), !noalias !406
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i144, align 8, !noalias !406
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i144, align 8, !noalias !406
   %OS.i.i.i.i149 = getelementptr inbounds i8, ptr %OS.i.i.i144, i64 40
   store ptr %add.ptr.i.i146, ptr %OS.i.i.i.i149, align 8, !noalias !406
   %conv.i.i.i.i150 = sext i32 %count.0.lcssa.i.i143 to i64
@@ -29951,7 +29951,7 @@ entry:
 define void @_ZN7testing18TestEventListenersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #50
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %forwarding_enabled_.i = getelementptr inbounds i8, ptr %call, i64 8
   store i8 1, ptr %forwarding_enabled_.i, align 8
   %listeners_.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -32279,7 +32279,7 @@ entry:
 define void @_ZN7testing8UnitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %ref.tmp.i)
   %call.i = tail call i32 @pthread_mutex_init(ptr noundef nonnull %mutex_, ptr noundef null) #47
@@ -32350,7 +32350,7 @@ ehcleanup:                                        ; preds = %lpad2, %lpad
 define void @_ZN7testing8UnitTestD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %impl_, align 8
   %isnull = icmp eq ptr %0, null
@@ -32415,17 +32415,17 @@ define void @_ZN7testing8internal12UnitTestImplC2EPNS_8UnitTestE(ptr noundef non
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
   %ref.tmp = alloca ptr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %parent_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %parent, ptr %parent_, align 8
   %original_working_dir_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN7testing8internal8FilePathC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %original_working_dir_)
   %default_global_test_part_result_reporter_ = getelementptr inbounds i8, ptr %this, i64 48
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %default_global_test_part_result_reporter_, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %default_global_test_part_result_reporter_, align 8
   %unit_test_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %this, ptr %unit_test_.i, align 8
   %default_per_thread_test_part_result_reporter_ = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %default_per_thread_test_part_result_reporter_, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %default_per_thread_test_part_result_reporter_, align 8
   %unit_test_.i7 = getelementptr inbounds i8, ptr %this, i64 72
   store ptr %this, ptr %unit_test_.i7, align 8
   %global_test_part_result_repoter_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -32507,7 +32507,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal23DefaultDeathTestFactoryE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal23DefaultDeathTestFactoryE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr %death_test_factory_, align 8
   %gtest_trace_stack_ = getelementptr inbounds i8, ptr %this, i64 480
   invoke void @_ZN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %gtest_trace_stack_)
@@ -32520,7 +32520,7 @@ invoke.cont23:                                    ; preds = %invoke.cont20
           to label %invoke.cont27 unwind label %lpad24
 
 invoke.cont27:                                    ; preds = %invoke.cont23
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal27PrettyUnitTestResultPrinterE, i64 0, inrange i32 0, i64 2), ptr %call28, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal27PrettyUnitTestResultPrinterE, i64 0, i32 0, i64 2), ptr %call28, align 8
   invoke void @_ZN7testing18TestEventListeners23SetDefaultResultPrinterEPNS_17TestEventListenerE(ptr noundef nonnull align 8 dereferenceable(24) %listeners_, ptr noundef nonnull %call28)
           to label %invoke.cont31 unwind label %lpad24
 
@@ -32672,7 +32672,7 @@ invoke.cont:                                      ; preds = %invoke.cont5.i, %en
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %this, align 8
   %call2 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #50
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE26InstanceValueHolderFactoryE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE26InstanceValueHolderFactoryE, i64 0, i32 0, i64 2), ptr %call2, align 8
   %value_.i = getelementptr inbounds i8, ptr %call2, i64 8
   %2 = load ptr, ptr %value, align 8
   store ptr %2, ptr %value_.i, align 8
@@ -32721,7 +32721,7 @@ invoke.cont:                                      ; preds = %invoke.cont5.i, %en
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp.i)
   store i32 %1, ptr %this, align 8
   %call2 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE25DefaultValueHolderFactoryE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE25DefaultValueHolderFactoryE, i64 0, i32 0, i64 2), ptr %call2, align 8
   %default_factory_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %call2, ptr %default_factory_, align 8
   ret void
@@ -32958,7 +32958,7 @@ entry:
 define void @_ZN7testing8internal12UnitTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(497) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.testing::internal::GTestLog", align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %test_cases_ = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %test_cases_, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 192
@@ -33443,10 +33443,10 @@ eh.resume:                                        ; preds = %ehcleanup12, %clean
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7testing8internal17StreamingListenerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %port) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %socket_writer_ = getelementptr inbounds i8, ptr %this, i64 8
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #50
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %sockfd_.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 -1, ptr %sockfd_.i, align 8
   %host_name_.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -34841,7 +34841,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -34875,7 +34875,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -34909,7 +34909,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -35002,7 +35002,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -35036,7 +35036,7 @@ cond.true.i.split.i.i:
   store i32 1, ptr %BufferMode.i.i.i, align 8
   %OutBufStart.i.i.i = getelementptr inbounds i8, ptr %OS.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i, align 8
   %OS.i.i = getelementptr inbounds i8, ptr %OS.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i, align 8
   %call.i.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %val) #48
@@ -35095,7 +35095,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.315, i64 noundef 9)
@@ -35137,7 +35137,7 @@ invoke.cont2:                                     ; preds = %.noexc
   store i32 1, ptr %BufferMode.i.i.i.i14, align 8
   %OutBufStart.i.i.i.i15 = getelementptr inbounds i8, ptr %OS.i.i12, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i12, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i12, align 8
   %OS.i.i.i16 = getelementptr inbounds i8, ptr %OS.i.i12, i64 40
   store ptr %add.ptr.i13, ptr %OS.i.i.i16, align 8
   %call3.i.i2.i.i20 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i12, ptr noundef nonnull @.str.316, i64 noundef 49)
@@ -35159,7 +35159,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
   store i32 1, ptr %BufferMode.i.i.i.i26, align 8
   %OutBufStart.i.i.i.i27 = getelementptr inbounds i8, ptr %OS.i.i24, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i27, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i24, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i24, align 8
   %OS.i.i.i28 = getelementptr inbounds i8, ptr %OS.i.i24, i64 40
   store ptr %add.ptr.i25, ptr %OS.i.i.i28, align 8
   %call3.i.i2.i.i32 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i24, ptr noundef nonnull @.str.317, i64 noundef 12)
@@ -35189,7 +35189,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont6
   store i32 1, ptr %BufferMode.i.i.i.i38, align 8
   %OutBufStart.i.i.i.i39 = getelementptr inbounds i8, ptr %OS.i.i36, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i39, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i36, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i36, align 8
   %OS.i.i.i40 = getelementptr inbounds i8, ptr %OS.i.i36, i64 40
   store ptr %add.ptr.i37, ptr %OS.i.i.i40, align 8
   %call.i.i.i.i41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #48
@@ -35219,7 +35219,7 @@ invoke.cont8:                                     ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i52, align 8
   %OutBufStart.i.i.i.i53 = getelementptr inbounds i8, ptr %OS.i.i50, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i53, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i50, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i50, align 8
   %OS.i.i.i54 = getelementptr inbounds i8, ptr %OS.i.i50, i64 40
   store ptr %add.ptr.i51, ptr %OS.i.i.i54, align 8
   %call3.i.i2.i.i58 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i50, ptr noundef nonnull @.str.318, i64 noundef 3)
@@ -35280,7 +35280,7 @@ if.then25:                                        ; preds = %if.end
   store i32 1, ptr %BufferMode.i.i.i.i71, align 8
   %OutBufStart.i.i.i.i72 = getelementptr inbounds i8, ptr %OS.i.i69, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i72, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i69, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i69, align 8
   %OS.i.i.i73 = getelementptr inbounds i8, ptr %OS.i.i69, i64 40
   store ptr %add.ptr.i70, ptr %OS.i.i.i73, align 8
   %call3.i.i2.i.i77 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i69, ptr noundef nonnull @.str.315, i64 noundef 9)
@@ -35322,7 +35322,7 @@ invoke.cont30:                                    ; preds = %.noexc85
   store i32 1, ptr %BufferMode.i.i.i.i92, align 8
   %OutBufStart.i.i.i.i93 = getelementptr inbounds i8, ptr %OS.i.i90, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i93, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i90, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i90, align 8
   %OS.i.i.i94 = getelementptr inbounds i8, ptr %OS.i.i90, i64 40
   store ptr %add.ptr.i91, ptr %OS.i.i.i94, align 8
   %call3.i.i2.i.i98 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i90, ptr noundef nonnull @.str.316, i64 noundef 49)
@@ -35344,7 +35344,7 @@ invoke.cont32:                                    ; preds = %invoke.cont30
   store i32 1, ptr %BufferMode.i.i.i.i106, align 8
   %OutBufStart.i.i.i.i107 = getelementptr inbounds i8, ptr %OS.i.i104, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i107, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i104, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i104, align 8
   %OS.i.i.i108 = getelementptr inbounds i8, ptr %OS.i.i104, i64 40
   store ptr %add.ptr.i105, ptr %OS.i.i.i108, align 8
   %call3.i.i2.i.i112 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i104, ptr noundef nonnull @.str.319, i64 noundef 11)
@@ -35374,7 +35374,7 @@ cond.true.i.split.i.i.i119:                       ; preds = %invoke.cont34
   store i32 1, ptr %BufferMode.i.i.i.i120, align 8
   %OutBufStart.i.i.i.i121 = getelementptr inbounds i8, ptr %OS.i.i116, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i121, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i116, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i116, align 8
   %OS.i.i.i122 = getelementptr inbounds i8, ptr %OS.i.i116, i64 40
   store ptr %add.ptr.i118, ptr %OS.i.i.i122, align 8
   %call.i.i.i.i123 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %str) #48
@@ -35404,7 +35404,7 @@ invoke.cont36:                                    ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i138, align 8
   %OutBufStart.i.i.i.i139 = getelementptr inbounds i8, ptr %OS.i.i136, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i139, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i136, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i136, align 8
   %OS.i.i.i140 = getelementptr inbounds i8, ptr %OS.i.i136, i64 40
   store ptr %add.ptr.i137, ptr %OS.i.i.i140, align 8
   %call3.i.i2.i.i144 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i136, ptr noundef nonnull @.str.320, i64 noundef 19)
@@ -35688,12 +35688,12 @@ entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge
 
 invoke.cont.i.i1:                                 ; preds = %_ZN7testing8internal15GetUnitTestImplEv.exit
   %call.i.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #50, !noalias !462
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !noalias !462
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !462
   store ptr %call.i.i, ptr %os_stack_trace_getter_.i.i, align 8, !noalias !462
   br label %_ZN7testing8internal12UnitTestImpl28CurrentOsStackTraceExceptTopB5cxx11Ei.exit
 
 _ZN7testing8internal12UnitTestImpl28CurrentOsStackTraceExceptTopB5cxx11Ei.exit: ; preds = %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i, %invoke.cont.i.i1
-  %vtable.i = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i.i1 ], [ %vtable.pre.i, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
+  %vtable.i = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i.i1 ], [ %vtable.pre.i, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
   %7 = phi ptr [ %call.i.i, %invoke.cont.i.i1 ], [ %6, %entry._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge.i ]
   %8 = load i32, ptr @_ZN7testing29FLAGS_gtest_stack_trace_depthE, align 4, !noalias !462
   %add.i = add nsw i32 %skip_count, 2
@@ -35871,7 +35871,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.252, i64 noundef 20)
@@ -35901,7 +35901,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i4, align 8
   %OutBufStart.i.i.i.i5 = getelementptr inbounds i8, ptr %OS.i.i2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i2, align 8
   %OS.i.i.i6 = getelementptr inbounds i8, ptr %OS.i.i2, i64 40
   store ptr %add.ptr.i3, ptr %OS.i.i.i6, align 8
   %call.i.i.i.i7 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %flag) #48
@@ -37059,7 +37059,7 @@ define void @_ZN7testing8internal9DeathTestC2Ev(ptr nocapture noundef nonnull wr
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp3 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal9DeathTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal9DeathTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN7testing8internal15GetUnitTestImplEv.exit, !prof !7
@@ -37300,7 +37300,7 @@ while.body.i:                                     ; preds = %invoke.cont.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i.i)
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8
   %call.i.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %buffer.i) #48
   %cmp.i.i.not.i.i.i = icmp eq i64 %call.i.i.i.i.i, 0
@@ -37586,7 +37586,7 @@ invoke.cont61:                                    ; preds = %invoke.cont59
   store i32 1, ptr %BufferMode.i.i.i.i.i32, align 8, !noalias !491
   %OutBufStart.i.i.i.i.i33 = getelementptr inbounds i8, ptr %OS.i.i.i29, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i33, i8 0, i64 24, i1 false), !noalias !491
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i29, align 8, !noalias !491
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i29, align 8, !noalias !491
   %OS.i.i.i.i34 = getelementptr inbounds i8, ptr %OS.i.i.i29, i64 40
   store ptr %add.ptr.i.i31, ptr %OS.i.i.i.i34, align 8, !noalias !491
   %call.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i29, i64 noundef 473)
@@ -37851,7 +37851,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !501
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !501
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !501
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !501
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !501
   %call.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef 489)
@@ -38166,7 +38166,7 @@ invoke.cont:                                      ; preds = %_ZN7testing8interna
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.272, i64 noundef 12)
@@ -38198,7 +38198,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont3
   store i32 1, ptr %BufferMode.i.i.i.i7, align 8
   %OutBufStart.i.i.i.i8 = getelementptr inbounds i8, ptr %OS.i.i5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i8, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i5, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i5, align 8
   %OS.i.i.i9 = getelementptr inbounds i8, ptr %OS.i.i5, i64 40
   store ptr %add.ptr.i6, ptr %OS.i.i.i9, align 8
   %call.i.i.i.i10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #48
@@ -38228,7 +38228,7 @@ invoke.cont7:                                     ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i21, align 8
   %OutBufStart.i.i.i.i22 = getelementptr inbounds i8, ptr %OS.i.i19, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i22, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i19, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i19, align 8
   %OS.i.i.i23 = getelementptr inbounds i8, ptr %OS.i.i19, i64 40
   store ptr %add.ptr.i20, ptr %OS.i.i.i23, align 8
   %call3.i.i2.i.i27 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i19, ptr noundef nonnull @.str.44, i64 noundef 1)
@@ -38270,7 +38270,7 @@ sw.bb:                                            ; preds = %invoke.cont9
   store i32 1, ptr %BufferMode.i.i.i.i34, align 8
   %OutBufStart.i.i.i.i35 = getelementptr inbounds i8, ptr %OS.i.i32, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i35, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i32, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i32, align 8
   %OS.i.i.i36 = getelementptr inbounds i8, ptr %OS.i.i32, i64 40
   store ptr %add.ptr.i33, ptr %OS.i.i.i36, align 8
   %call3.i.i2.i.i40 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i32, ptr noundef nonnull @.str.273, i64 noundef 27)
@@ -38292,7 +38292,7 @@ invoke.cont13:                                    ; preds = %sw.bb
   store i32 1, ptr %BufferMode.i.i.i.i47, align 8
   %OutBufStart.i.i.i.i48 = getelementptr inbounds i8, ptr %OS.i.i45, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i48, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i45, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i45, align 8
   %OS.i.i.i49 = getelementptr inbounds i8, ptr %OS.i.i45, i64 40
   store ptr %add.ptr.i46, ptr %OS.i.i.i49, align 8
   %call3.i.i2.i.i53 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i45, ptr noundef nonnull @.str.274, i64 noundef 12)
@@ -38318,7 +38318,7 @@ invoke.cont18:                                    ; preds = %invoke.cont15
   store i32 1, ptr %BufferMode.i.i.i.i60, align 8
   %OutBufStart.i.i.i.i61 = getelementptr inbounds i8, ptr %OS.i.i58, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i61, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i58, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i58, align 8
   %OS.i.i.i62 = getelementptr inbounds i8, ptr %OS.i.i58, i64 40
   store ptr %add.ptr.i59, ptr %OS.i.i.i62, align 8
   %call.i.i.i63 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp17) #47
@@ -38347,7 +38347,7 @@ sw.bb22:                                          ; preds = %invoke.cont9
   store i32 1, ptr %BufferMode.i.i.i.i70, align 8
   %OutBufStart.i.i.i.i71 = getelementptr inbounds i8, ptr %OS.i.i68, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i71, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i68, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i68, align 8
   %OS.i.i.i72 = getelementptr inbounds i8, ptr %OS.i.i68, i64 40
   store ptr %add.ptr.i69, ptr %OS.i.i.i72, align 8
   %call3.i.i2.i.i76 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i68, ptr noundef nonnull @.str.275, i64 noundef 32)
@@ -38369,7 +38369,7 @@ invoke.cont23:                                    ; preds = %sw.bb22
   store i32 1, ptr %BufferMode.i.i.i.i83, align 8
   %OutBufStart.i.i.i.i84 = getelementptr inbounds i8, ptr %OS.i.i81, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i84, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i81, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i81, align 8
   %OS.i.i.i85 = getelementptr inbounds i8, ptr %OS.i.i81, i64 40
   store ptr %add.ptr.i82, ptr %OS.i.i.i85, align 8
   %call3.i.i2.i.i89 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i81, ptr noundef nonnull @.str.274, i64 noundef 12)
@@ -38395,7 +38395,7 @@ invoke.cont28:                                    ; preds = %invoke.cont25
   store i32 1, ptr %BufferMode.i.i.i.i96, align 8
   %OutBufStart.i.i.i.i97 = getelementptr inbounds i8, ptr %OS.i.i94, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i97, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i94, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i94, align 8
   %OS.i.i.i98 = getelementptr inbounds i8, ptr %OS.i.i94, i64 40
   store ptr %add.ptr.i95, ptr %OS.i.i.i98, align 8
   %call.i.i.i99 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp27) #47
@@ -38424,7 +38424,7 @@ sw.bb32:                                          ; preds = %invoke.cont9
   store i32 1, ptr %BufferMode.i.i.i.i108, align 8
   %OutBufStart.i.i.i.i109 = getelementptr inbounds i8, ptr %OS.i.i106, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i109, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i106, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i106, align 8
   %OS.i.i.i110 = getelementptr inbounds i8, ptr %OS.i.i106, i64 40
   store ptr %add.ptr.i107, ptr %OS.i.i.i110, align 8
   %call3.i.i2.i.i114 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i106, ptr noundef nonnull @.str.276, i64 noundef 46)
@@ -38446,7 +38446,7 @@ invoke.cont33:                                    ; preds = %sw.bb32
   store i32 1, ptr %BufferMode.i.i.i.i121, align 8
   %OutBufStart.i.i.i.i122 = getelementptr inbounds i8, ptr %OS.i.i119, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i122, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i119, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i119, align 8
   %OS.i.i.i123 = getelementptr inbounds i8, ptr %OS.i.i119, i64 40
   store ptr %add.ptr.i120, ptr %OS.i.i.i123, align 8
   %call3.i.i2.i.i127 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i119, ptr noundef nonnull @.str.274, i64 noundef 12)
@@ -38472,7 +38472,7 @@ invoke.cont38:                                    ; preds = %invoke.cont35
   store i32 1, ptr %BufferMode.i.i.i.i134, align 8
   %OutBufStart.i.i.i.i135 = getelementptr inbounds i8, ptr %OS.i.i132, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i135, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i132, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i132, align 8
   %OS.i.i.i136 = getelementptr inbounds i8, ptr %OS.i.i132, i64 40
   store ptr %add.ptr.i133, ptr %OS.i.i.i136, align 8
   %call.i.i.i137 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp37) #47
@@ -38529,7 +38529,7 @@ if.else:                                          ; preds = %invoke.cont47.threa
   store i32 1, ptr %BufferMode.i.i.i.i148, align 8
   %OutBufStart.i.i.i.i149 = getelementptr inbounds i8, ptr %OS.i.i146, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i149, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i146, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i146, align 8
   %OS.i.i.i150 = getelementptr inbounds i8, ptr %OS.i.i146, i64 40
   store ptr %add.ptr.i147, ptr %OS.i.i.i150, align 8
   %call3.i.i2.i.i154 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i146, ptr noundef nonnull @.str.277, i64 noundef 46)
@@ -38551,7 +38551,7 @@ invoke.cont52:                                    ; preds = %if.else
   store i32 1, ptr %BufferMode.i.i.i.i162, align 8
   %OutBufStart.i.i.i.i163 = getelementptr inbounds i8, ptr %OS.i.i160, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i163, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i160, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i160, align 8
   %OS.i.i.i164 = getelementptr inbounds i8, ptr %OS.i.i160, i64 40
   store ptr %add.ptr.i161, ptr %OS.i.i.i164, align 8
   %call3.i.i2.i.i168 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i160, ptr noundef nonnull @.str.278, i64 noundef 12)
@@ -38583,7 +38583,7 @@ cond.true.i.split.i.i.i177:                       ; preds = %invoke.cont54
   store i32 1, ptr %BufferMode.i.i.i.i178, align 8
   %OutBufStart.i.i.i.i179 = getelementptr inbounds i8, ptr %OS.i.i174, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i179, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i174, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i174, align 8
   %OS.i.i.i180 = getelementptr inbounds i8, ptr %OS.i.i174, i64 40
   store ptr %add.ptr.i176, ptr %OS.i.i.i180, align 8
   %call.i.i.i.i181 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %40) #48
@@ -38613,7 +38613,7 @@ invoke.cont61:                                    ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i197, align 8
   %OutBufStart.i.i.i.i198 = getelementptr inbounds i8, ptr %OS.i.i195, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i198, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i195, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i195, align 8
   %OS.i.i.i199 = getelementptr inbounds i8, ptr %OS.i.i195, i64 40
   store ptr %add.ptr.i196, ptr %OS.i.i.i199, align 8
   %call3.i.i2.i.i203 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i195, ptr noundef nonnull @.str.44, i64 noundef 1)
@@ -38635,7 +38635,7 @@ invoke.cont63:                                    ; preds = %invoke.cont61
   store i32 1, ptr %BufferMode.i.i.i.i211, align 8
   %OutBufStart.i.i.i.i212 = getelementptr inbounds i8, ptr %OS.i.i209, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i212, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i209, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i209, align 8
   %OS.i.i.i213 = getelementptr inbounds i8, ptr %OS.i.i209, i64 40
   store ptr %add.ptr.i210, ptr %OS.i.i.i213, align 8
   %call3.i.i2.i.i217 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i209, ptr noundef nonnull @.str.279, i64 noundef 12)
@@ -38661,7 +38661,7 @@ invoke.cont68:                                    ; preds = %invoke.cont65
   store i32 1, ptr %BufferMode.i.i.i.i224, align 8
   %OutBufStart.i.i.i.i225 = getelementptr inbounds i8, ptr %OS.i.i222, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i225, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i222, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i222, align 8
   %OS.i.i.i226 = getelementptr inbounds i8, ptr %OS.i.i222, i64 40
   store ptr %add.ptr.i223, ptr %OS.i.i.i226, align 8
   %call.i.i.i227 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp67) #47
@@ -38690,7 +38690,7 @@ if.else73:                                        ; preds = %sw.bb42
   store i32 1, ptr %BufferMode.i.i.i.i236, align 8
   %OutBufStart.i.i.i.i237 = getelementptr inbounds i8, ptr %OS.i.i234, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i237, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i234, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i234, align 8
   %OS.i.i.i238 = getelementptr inbounds i8, ptr %OS.i.i234, i64 40
   store ptr %add.ptr.i235, ptr %OS.i.i.i238, align 8
   %call3.i.i2.i.i242 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i234, ptr noundef nonnull @.str.280, i64 noundef 50)
@@ -38712,7 +38712,7 @@ invoke.cont74:                                    ; preds = %if.else73
   store i32 1, ptr %BufferMode.i.i.i.i249, align 8
   %OutBufStart.i.i.i.i250 = getelementptr inbounds i8, ptr %OS.i.i247, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i250, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i247, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i247, align 8
   %OS.i.i.i251 = getelementptr inbounds i8, ptr %OS.i.i247, i64 40
   store ptr %add.ptr.i248, ptr %OS.i.i.i251, align 8
   %call3.i.i2.i.i255 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i247, ptr noundef nonnull @.str.281, i64 noundef 12)
@@ -38746,7 +38746,7 @@ if.then.i263:                                     ; preds = %.noexc
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !518
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i260, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !518
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i260, align 8, !noalias !518
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i260, align 8, !noalias !518
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i260, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !518
   %call3.i.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i260, ptr noundef nonnull @.str.390, i64 noundef 24)
@@ -38770,7 +38770,7 @@ invoke.cont.i:                                    ; preds = %if.then.i263
   store i32 1, ptr %BufferMode.i.i.i.i7.i, align 8, !noalias !518
   %OutBufStart.i.i.i.i8.i = getelementptr inbounds i8, ptr %OS.i.i5.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i8.i, i8 0, i64 24, i1 false), !noalias !518
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i5.i, align 8, !noalias !518
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i5.i, align 8, !noalias !518
   %OS.i.i.i9.i = getelementptr inbounds i8, ptr %OS.i.i5.i, i64 40
   store ptr %add.ptr.i6.i, ptr %OS.i.i.i9.i, align 8, !noalias !518
   %conv.i.i.i.i = zext nneg i32 %shr.i to i64
@@ -38820,7 +38820,7 @@ if.then8.i:                                       ; preds = %if.else.i
   store i32 1, ptr %BufferMode.i.i.i.i15.i, align 8, !noalias !518
   %OutBufStart.i.i.i.i16.i = getelementptr inbounds i8, ptr %OS.i.i13.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i16.i, i8 0, i64 24, i1 false), !noalias !518
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i13.i, align 8, !noalias !518
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i13.i, align 8, !noalias !518
   %OS.i.i.i17.i = getelementptr inbounds i8, ptr %OS.i.i13.i, i64 40
   store ptr %add.ptr.i14.i, ptr %OS.i.i.i17.i, align 8, !noalias !518
   %call3.i.i2.i.i21.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i13.i, ptr noundef nonnull @.str.391, i64 noundef 21)
@@ -38842,7 +38842,7 @@ invoke.cont9.i:                                   ; preds = %if.then8.i
   store i32 1, ptr %BufferMode.i.i.i.i27.i, align 8, !noalias !518
   %OutBufStart.i.i.i.i28.i = getelementptr inbounds i8, ptr %OS.i.i25.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i28.i, i8 0, i64 24, i1 false), !noalias !518
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i25.i, align 8, !noalias !518
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i25.i, align 8, !noalias !518
   %OS.i.i.i29.i = getelementptr inbounds i8, ptr %OS.i.i25.i, i64 40
   store ptr %add.ptr.i26.i, ptr %OS.i.i.i29.i, align 8, !noalias !518
   %conv.i.i.i30.i = zext nneg i32 %and.i to i64
@@ -38873,7 +38873,7 @@ if.then17.i:                                      ; preds = %if.end15.i
   store i32 1, ptr %BufferMode.i.i.i.i38.i, align 8, !noalias !518
   %OutBufStart.i.i.i.i39.i = getelementptr inbounds i8, ptr %OS.i.i36.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i39.i, i8 0, i64 24, i1 false), !noalias !518
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i36.i, align 8, !noalias !518
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i36.i, align 8, !noalias !518
   %OS.i.i.i40.i = getelementptr inbounds i8, ptr %OS.i.i36.i, i64 40
   store ptr %add.ptr.i37.i, ptr %OS.i.i.i40.i, align 8, !noalias !518
   %call3.i.i2.i.i44.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i36.i, ptr noundef nonnull @.str.392, i64 noundef 14)
@@ -38916,7 +38916,7 @@ invoke.cont81:                                    ; preds = %if.end.i.i.i49.i, %
   store i32 1, ptr %BufferMode.i.i.i.i268, align 8
   %OutBufStart.i.i.i.i269 = getelementptr inbounds i8, ptr %OS.i.i266, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i269, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i266, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i266, align 8
   %OS.i.i.i270 = getelementptr inbounds i8, ptr %OS.i.i266, i64 40
   store ptr %add.ptr.i267, ptr %OS.i.i.i270, align 8
   %call.i.i.i271 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp78) #47
@@ -38940,7 +38940,7 @@ invoke.cont83:                                    ; preds = %invoke.cont81
   store i32 1, ptr %BufferMode.i.i.i.i280, align 8
   %OutBufStart.i.i.i.i281 = getelementptr inbounds i8, ptr %OS.i.i278, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i281, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i278, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i278, align 8
   %OS.i.i.i282 = getelementptr inbounds i8, ptr %OS.i.i278, i64 40
   store ptr %add.ptr.i279, ptr %OS.i.i.i282, align 8
   %call3.i.i2.i.i286 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i278, ptr noundef nonnull @.str.44, i64 noundef 1)
@@ -38962,7 +38962,7 @@ invoke.cont85:                                    ; preds = %invoke.cont83
   store i32 1, ptr %BufferMode.i.i.i.i294, align 8
   %OutBufStart.i.i.i.i295 = getelementptr inbounds i8, ptr %OS.i.i292, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i295, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i292, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i292, align 8
   %OS.i.i.i296 = getelementptr inbounds i8, ptr %OS.i.i292, i64 40
   store ptr %add.ptr.i293, ptr %OS.i.i.i296, align 8
   %call3.i.i2.i.i300 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i292, ptr noundef nonnull @.str.279, i64 noundef 12)
@@ -38988,7 +38988,7 @@ invoke.cont90:                                    ; preds = %invoke.cont87
   store i32 1, ptr %BufferMode.i.i.i.i307, align 8
   %OutBufStart.i.i.i.i308 = getelementptr inbounds i8, ptr %OS.i.i305, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i308, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i305, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i305, align 8
   %OS.i.i.i309 = getelementptr inbounds i8, ptr %OS.i.i305, i64 40
   store ptr %add.ptr.i306, ptr %OS.i.i.i309, align 8
   %call.i.i.i310 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp89) #47
@@ -39223,7 +39223,7 @@ entry:
   store i8 0, ptr %spawned_.i, align 8
   %status_.i = getelementptr inbounds i8, ptr %this, i64 28
   store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %status_.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal16ForkingDeathTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal16ForkingDeathTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_pid_ = getelementptr inbounds i8, ptr %this, i64 44
   store i32 -1, ptr %child_pid_, align 4
   ret void
@@ -39309,7 +39309,7 @@ invoke.cont18:                                    ; preds = %invoke.cont16
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !532
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !532
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !532
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !532
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !532
   %call.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef 817)
@@ -39580,7 +39580,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !542
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !542
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !542
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !542
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !542
   %call3.i.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, ptr noundef nonnull @.str.393, i64 noundef 52)
@@ -39602,7 +39602,7 @@ invoke.cont.i:                                    ; preds = %.noexc
   store i32 1, ptr %BufferMode.i.i.i.i3.i, align 8, !noalias !542
   %OutBufStart.i.i.i.i4.i = getelementptr inbounds i8, ptr %OS.i.i1.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i4.i, i8 0, i64 24, i1 false), !noalias !542
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i1.i, align 8, !noalias !542
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i1.i, align 8, !noalias !542
   %OS.i.i.i5.i = getelementptr inbounds i8, ptr %OS.i.i1.i, i64 40
   store ptr %add.ptr.i2.i, ptr %OS.i.i.i5.i, align 8, !noalias !542
   %call3.i.i2.i.i9.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i1.i, ptr noundef nonnull @.str.394, i64 noundef 39)
@@ -39624,7 +39624,7 @@ invoke.cont1.i:                                   ; preds = %invoke.cont.i
   store i32 1, ptr %BufferMode.i.i.i.i15.i, align 8, !noalias !542
   %OutBufStart.i.i.i.i16.i = getelementptr inbounds i8, ptr %OS.i.i13.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i16.i, i8 0, i64 24, i1 false), !noalias !542
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i13.i, align 8, !noalias !542
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i13.i, align 8, !noalias !542
   %OS.i.i.i17.i = getelementptr inbounds i8, ptr %OS.i.i13.i, i64 40
   store ptr %add.ptr.i14.i, ptr %OS.i.i.i17.i, align 8, !noalias !542
   %call3.i.i2.i.i21.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i13.i, ptr noundef nonnull @.str.88, i64 noundef 11)
@@ -39646,7 +39646,7 @@ invoke.cont3.i:                                   ; preds = %invoke.cont1.i
   store i32 1, ptr %BufferMode.i.i.i.i27.i, align 8, !noalias !542
   %OutBufStart.i.i.i.i28.i = getelementptr inbounds i8, ptr %OS.i.i25.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i28.i, i8 0, i64 24, i1 false), !noalias !542
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i25.i, align 8, !noalias !542
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i25.i, align 8, !noalias !542
   %OS.i.i.i29.i = getelementptr inbounds i8, ptr %OS.i.i25.i, i64 40
   store ptr %add.ptr.i26.i, ptr %OS.i.i.i29.i, align 8, !noalias !542
   %call3.i.i2.i.i33.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i25.i, ptr noundef nonnull @.str.192, i64 noundef 1)
@@ -39672,7 +39672,7 @@ if.then.i:                                        ; preds = %invoke.cont5.i
   store i32 1, ptr %BufferMode.i.i.i.i39.i, align 8, !noalias !542
   %OutBufStart.i.i.i.i40.i = getelementptr inbounds i8, ptr %OS.i.i37.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i40.i, i8 0, i64 24, i1 false), !noalias !542
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i37.i, align 8, !noalias !542
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i37.i, align 8, !noalias !542
   %OS.i.i.i41.i = getelementptr inbounds i8, ptr %OS.i.i37.i, i64 40
   store ptr %add.ptr.i38.i, ptr %OS.i.i.i41.i, align 8, !noalias !542
   %call3.i.i2.i.i45.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i37.i, ptr noundef nonnull @.str.395, i64 noundef 38)
@@ -39713,7 +39713,7 @@ if.else.i:                                        ; preds = %invoke.cont5.i
   store i32 1, ptr %BufferMode.i.i.i.i51.i, align 8, !noalias !542
   %OutBufStart.i.i.i.i52.i = getelementptr inbounds i8, ptr %OS.i.i49.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i52.i, i8 0, i64 24, i1 false), !noalias !542
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i49.i, align 8, !noalias !542
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i49.i, align 8, !noalias !542
   %OS.i.i.i53.i = getelementptr inbounds i8, ptr %OS.i.i49.i, i64 40
   store ptr %add.ptr.i38.i, ptr %OS.i.i.i53.i, align 8, !noalias !542
   %call3.i.i2.i.i57.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i49.i, ptr noundef nonnull @.str.396, i64 noundef 9)
@@ -39735,7 +39735,7 @@ invoke.cont9.i:                                   ; preds = %if.else.i
   store i32 1, ptr %BufferMode.i.i.i.i63.i, align 8, !noalias !542
   %OutBufStart.i.i.i.i64.i = getelementptr inbounds i8, ptr %OS.i.i61.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i64.i, i8 0, i64 24, i1 false), !noalias !542
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i61.i, align 8, !noalias !542
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i61.i, align 8, !noalias !542
   %OS.i.i.i65.i = getelementptr inbounds i8, ptr %OS.i.i61.i, i64 40
   store ptr %add.ptr.i62.i, ptr %OS.i.i.i65.i, align 8, !noalias !542
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i61.i, i64 noundef %call)
@@ -39757,7 +39757,7 @@ invoke.cont11.i:                                  ; preds = %invoke.cont9.i
   store i32 1, ptr %BufferMode.i.i.i.i71.i, align 8, !noalias !542
   %OutBufStart.i.i.i.i72.i = getelementptr inbounds i8, ptr %OS.i.i69.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i72.i, i8 0, i64 24, i1 false), !noalias !542
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i69.i, align 8, !noalias !542
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i69.i, align 8, !noalias !542
   %OS.i.i.i73.i = getelementptr inbounds i8, ptr %OS.i.i69.i, i64 40
   store ptr %add.ptr.i70.i, ptr %OS.i.i.i73.i, align 8, !noalias !542
   %call3.i.i2.i.i77.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i69.i, ptr noundef nonnull @.str.397, i64 noundef 9)
@@ -39864,7 +39864,7 @@ invoke.cont24:                                    ; preds = %invoke.cont22
   store i32 1, ptr %BufferMode.i.i.i.i.i56, align 8, !noalias !548
   %OutBufStart.i.i.i.i.i57 = getelementptr inbounds i8, ptr %OS.i.i.i54, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i57, i8 0, i64 24, i1 false), !noalias !548
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i54, align 8, !noalias !548
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i54, align 8, !noalias !548
   %OS.i.i.i.i58 = getelementptr inbounds i8, ptr %OS.i.i.i54, i64 40
   store ptr %add.ptr.i.i55, ptr %OS.i.i.i.i58, align 8, !noalias !548
   %call.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i54, i64 noundef 840)
@@ -40104,7 +40104,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
   store i32 1, ptr %BufferMode.i.i.i.i.i111, align 8, !noalias !557
   %OutBufStart.i.i.i.i.i112 = getelementptr inbounds i8, ptr %OS.i.i.i108, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i112, i8 0, i64 24, i1 false), !noalias !557
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i108, align 8, !noalias !557
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i108, align 8, !noalias !557
   %OS.i.i.i.i113 = getelementptr inbounds i8, ptr %OS.i.i.i108, i64 40
   store ptr %add.ptr.i.i110, ptr %OS.i.i.i.i113, align 8, !noalias !557
   %call.i2.i.i.i115 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i108, i64 noundef 854)
@@ -40350,7 +40350,7 @@ invoke.cont122:                                   ; preds = %invoke.cont120
   store i32 1, ptr %BufferMode.i.i.i.i.i175, align 8, !noalias !567
   %OutBufStart.i.i.i.i.i176 = getelementptr inbounds i8, ptr %OS.i.i.i172, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i176, i8 0, i64 24, i1 false), !noalias !567
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i172, align 8, !noalias !567
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i172, align 8, !noalias !567
   %OS.i.i.i.i177 = getelementptr inbounds i8, ptr %OS.i.i.i172, i64 40
   store ptr %add.ptr.i.i174, ptr %OS.i.i.i.i177, align 8, !noalias !567
   %call.i2.i.i.i179 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i172, i64 noundef 857)
@@ -40627,7 +40627,7 @@ invoke.cont180:                                   ; preds = %invoke.cont178
   store i32 1, ptr %BufferMode.i.i.i.i.i242, align 8, !noalias !577
   %OutBufStart.i.i.i.i.i243 = getelementptr inbounds i8, ptr %OS.i.i.i239, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i243, i8 0, i64 24, i1 false), !noalias !577
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i239, align 8, !noalias !577
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i239, align 8, !noalias !577
   %OS.i.i.i.i244 = getelementptr inbounds i8, ptr %OS.i.i.i239, i64 40
   store ptr %add.ptr.i.i241, ptr %OS.i.i.i.i244, align 8, !noalias !577
   %call.i2.i.i.i246 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i239, i64 noundef 869)
@@ -40840,7 +40840,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.297, i64 noundef 6)
@@ -40863,7 +40863,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i4, align 8
   %OutBufStart.i.i.i.i5 = getelementptr inbounds i8, ptr %OS.i.i2, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i2, align 8
   %OS.i.i.i6 = getelementptr inbounds i8, ptr %OS.i.i2, i64 40
   store ptr %add.ptr.i3, ptr %OS.i.i.i6, align 8
   %conv.i.i.i = sext i32 %call2 to i64
@@ -40886,7 +40886,7 @@ invoke.cont3:                                     ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i12, align 8
   %OutBufStart.i.i.i.i13 = getelementptr inbounds i8, ptr %OS.i.i10, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i13, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i10, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i10, align 8
   %OS.i.i.i14 = getelementptr inbounds i8, ptr %OS.i.i10, i64 40
   store ptr %add.ptr.i11, ptr %OS.i.i.i14, align 8
   %call3.i.i2.i.i18 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i10, ptr noundef nonnull @.str.298, i64 noundef 5)
@@ -41265,7 +41265,7 @@ invoke.cont20:                                    ; preds = %invoke.cont18
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !590
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !590
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !590
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !590
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !590
   %call.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef 1131)
@@ -41480,7 +41480,7 @@ invoke.cont58:                                    ; preds = %invoke.cont56
   store i32 1, ptr %BufferMode.i.i.i.i.i93, align 8, !noalias !599
   %OutBufStart.i.i.i.i.i94 = getelementptr inbounds i8, ptr %OS.i.i.i90, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i94, i8 0, i64 24, i1 false), !noalias !599
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i90, align 8, !noalias !599
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i90, align 8, !noalias !599
   %OS.i.i.i.i95 = getelementptr inbounds i8, ptr %OS.i.i.i90, i64 40
   store ptr %add.ptr.i.i92, ptr %OS.i.i.i.i95, align 8, !noalias !599
   %call.i2.i.i.i97 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i90, i64 noundef 1134)
@@ -41797,7 +41797,7 @@ invoke.cont144:                                   ; preds = %invoke.cont142
   store i32 1, ptr %BufferMode.i.i.i.i.i211, align 8, !noalias !611
   %OutBufStart.i.i.i.i.i212 = getelementptr inbounds i8, ptr %OS.i.i.i208, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i212, i8 0, i64 24, i1 false), !noalias !611
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i208, align 8, !noalias !611
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i208, align 8, !noalias !611
   %OS.i.i.i.i213 = getelementptr inbounds i8, ptr %OS.i.i.i208, i64 40
   store ptr %add.ptr.i.i210, ptr %OS.i.i.i.i213, align 8, !noalias !611
   %conv.i.i.i.i214 = sext i32 %7 to i64
@@ -41889,7 +41889,7 @@ invoke.cont151:                                   ; preds = %invoke.cont149
   store i32 1, ptr %BufferMode.i.i.i.i.i256, align 8, !noalias !620
   %OutBufStart.i.i.i.i.i257 = getelementptr inbounds i8, ptr %OS.i.i.i253, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i257, i8 0, i64 24, i1 false), !noalias !620
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i253, align 8, !noalias !620
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i253, align 8, !noalias !620
   %OS.i.i.i.i258 = getelementptr inbounds i8, ptr %OS.i.i.i253, i64 40
   store ptr %add.ptr.i.i255, ptr %OS.i.i.i.i258, align 8, !noalias !620
   %56 = load i32, ptr %arrayidx, align 4, !noalias !620
@@ -42222,7 +42222,7 @@ invoke.cont18.i:                                  ; preds = %invoke.cont16.i
   store i32 1, ptr %BufferMode.i.i.i.i.i.i, align 8, !noalias !634
   %OutBufStart.i.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i.i325, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !634
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i.i325, align 8, !noalias !634
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i.i325, align 8, !noalias !634
   %OS.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i.i325, i64 40
   store ptr %add.ptr.i.i.i, ptr %OS.i.i.i.i.i, align 8, !noalias !634
   %call.i2.i.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i.i325, i64 noundef 1065)
@@ -42474,7 +42474,7 @@ invoke.cont66.i:                                  ; preds = %invoke.cont64.i
   store i32 1, ptr %BufferMode.i.i.i.i.i98.i, align 8, !noalias !643
   %OutBufStart.i.i.i.i.i99.i = getelementptr inbounds i8, ptr %OS.i.i.i95.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i99.i, i8 0, i64 24, i1 false), !noalias !643
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i95.i, align 8, !noalias !643
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i95.i, align 8, !noalias !643
   %OS.i.i.i.i100.i = getelementptr inbounds i8, ptr %OS.i.i.i95.i, i64 40
   store ptr %add.ptr.i.i97.i, ptr %OS.i.i.i.i100.i, align 8, !noalias !643
   %call.i2.i.i.i102.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i95.i, i64 noundef 1077)
@@ -42691,7 +42691,7 @@ invoke.cont111.i:                                 ; preds = %invoke.cont109.i
   store i32 1, ptr %BufferMode.i.i.i.i.i160.i, align 8, !noalias !652
   %OutBufStart.i.i.i.i.i161.i = getelementptr inbounds i8, ptr %OS.i.i.i157.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i161.i, i8 0, i64 24, i1 false), !noalias !652
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i157.i, align 8, !noalias !652
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i157.i, align 8, !noalias !652
   %OS.i.i.i.i162.i = getelementptr inbounds i8, ptr %OS.i.i.i157.i, i64 40
   store ptr %add.ptr.i.i159.i, ptr %OS.i.i.i.i162.i, align 8, !noalias !652
   %call.i2.i.i.i164.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i157.i, i64 noundef 1090)
@@ -42900,7 +42900,7 @@ invoke.cont154.i:                                 ; preds = %invoke.cont152.i
   store i32 1, ptr %BufferMode.i.i.i.i.i222.i, align 8, !noalias !662
   %OutBufStart.i.i.i.i.i223.i = getelementptr inbounds i8, ptr %OS.i.i.i219.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i223.i, i8 0, i64 24, i1 false), !noalias !662
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i219.i, align 8, !noalias !662
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i219.i, align 8, !noalias !662
   %OS.i.i.i.i224.i = getelementptr inbounds i8, ptr %OS.i.i.i219.i, i64 40
   store ptr %add.ptr.i.i221.i, ptr %OS.i.i.i.i224.i, align 8, !noalias !662
   %call.i2.i.i.i226.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i219.i, i64 noundef 1094)
@@ -43130,7 +43130,7 @@ invoke.cont212.i:                                 ; preds = %invoke.cont210.i
   store i32 1, ptr %BufferMode.i.i.i.i.i284.i, align 8, !noalias !672
   %OutBufStart.i.i.i.i.i285.i = getelementptr inbounds i8, ptr %OS.i.i.i281.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i285.i, i8 0, i64 24, i1 false), !noalias !672
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i281.i, align 8, !noalias !672
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i281.i, align 8, !noalias !672
   %OS.i.i.i.i286.i = getelementptr inbounds i8, ptr %OS.i.i.i281.i, i64 40
   store ptr %add.ptr.i.i283.i, ptr %OS.i.i.i.i286.i, align 8, !noalias !672
   %call.i2.i.i.i288.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i281.i, i64 noundef 1107)
@@ -43352,7 +43352,7 @@ invoke.cont256.i:                                 ; preds = %invoke.cont254.i
   store i32 1, ptr %BufferMode.i.i.i.i.i349.i, align 8, !noalias !681
   %OutBufStart.i.i.i.i.i350.i = getelementptr inbounds i8, ptr %OS.i.i.i346.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i350.i, i8 0, i64 24, i1 false), !noalias !681
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i346.i, align 8, !noalias !681
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i346.i, align 8, !noalias !681
   %OS.i.i.i.i351.i = getelementptr inbounds i8, ptr %OS.i.i.i346.i, i64 40
   store ptr %add.ptr.i.i348.i, ptr %OS.i.i.i.i351.i, align 8, !noalias !681
   %call.i2.i.i.i353.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i346.i, i64 noundef 1110)
@@ -43632,7 +43632,7 @@ invoke.cont224:                                   ; preds = %invoke.cont222
   store i32 1, ptr %BufferMode.i.i.i.i.i356, align 8, !noalias !691
   %OutBufStart.i.i.i.i.i357 = getelementptr inbounds i8, ptr %OS.i.i.i353, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i357, i8 0, i64 24, i1 false), !noalias !691
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i353, align 8, !noalias !691
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i353, align 8, !noalias !691
   %OS.i.i.i.i358 = getelementptr inbounds i8, ptr %OS.i.i.i353, i64 40
   store ptr %add.ptr.i.i355, ptr %OS.i.i.i.i358, align 8, !noalias !691
   %call.i2.i.i.i360 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i353, i64 noundef 1157)
@@ -44221,7 +44221,7 @@ if.then7:                                         ; preds = %if.then
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !701
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !701
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !701
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !701
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !701
   %conv.i.i.i.i = sext i32 %inc.i.i to i64
@@ -44296,7 +44296,7 @@ invoke.cont13:                                    ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i.i27, align 8, !noalias !707
   %OutBufStart.i.i.i.i.i28 = getelementptr inbounds i8, ptr %OS.i.i.i24, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i28, i8 0, i64 24, i1 false), !noalias !707
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i24, align 8, !noalias !707
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i24, align 8, !noalias !707
   %OS.i.i.i.i29 = getelementptr inbounds i8, ptr %OS.i.i.i24, i64 40
   store ptr %add.ptr.i.i26, ptr %OS.i.i.i.i29, align 8, !noalias !707
   %conv.i.i.i.i30 = sext i32 %17 to i64
@@ -44485,7 +44485,7 @@ _ZN7testing8internal13ExecDeathTestC2EPKcPKNS0_2REES3_i.exit: ; preds = %if.then
   store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %status_.i.i.i, align 4
   %child_pid_.i.i = getelementptr inbounds i8, ptr %call42, i64 44
   store i32 -1, ptr %child_pid_.i.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13ExecDeathTestE, i64 0, inrange i32 0, i64 2), ptr %call42, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13ExecDeathTestE, i64 0, i32 0, i64 2), ptr %call42, align 8
   %file_.i = getelementptr inbounds i8, ptr %call42, i64 48
   store ptr %file, ptr %file_.i, align 8
   %line_.i60 = getelementptr inbounds i8, ptr %call42, i64 56
@@ -44519,7 +44519,7 @@ _ZN7testing8internal15NoExecDeathTestC2EPKcPKNS0_2REE.exit: ; preds = %if.then47
   store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %status_.i.i.i67, align 4
   %child_pid_.i.i71 = getelementptr inbounds i8, ptr %call48, i64 44
   store i32 -1, ptr %child_pid_.i.i71, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal15NoExecDeathTestE, i64 0, inrange i32 0, i64 2), ptr %call48, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal15NoExecDeathTestE, i64 0, i32 0, i64 2), ptr %call48, align 8
   br label %if.end62
 
 lpad49:                                           ; preds = %if.then47
@@ -45162,7 +45162,7 @@ invoke.cont12:                                    ; preds = %.noexc12
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !716
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !716
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !716
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !716
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !716
   %conv.i.i.i.i = sext i32 %number to i64
@@ -45648,7 +45648,7 @@ invoke.cont15:                                    ; preds = %if.else
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.301, i64 noundef 20)
@@ -45678,7 +45678,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont17
   store i32 1, ptr %BufferMode.i.i.i.i9, align 8
   %OutBufStart.i.i.i.i10 = getelementptr inbounds i8, ptr %OS.i.i7, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i10, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i7, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i7, align 8
   %OS.i.i.i11 = getelementptr inbounds i8, ptr %OS.i.i7, i64 40
   store ptr %add.ptr.i8, ptr %OS.i.i.i11, align 8
   %call.i.i.i.i12 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %regex) #48
@@ -45708,7 +45708,7 @@ invoke.cont19:                                    ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i23, align 8
   %OutBufStart.i.i.i.i24 = getelementptr inbounds i8, ptr %OS.i.i21, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i24, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i21, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i21, align 8
   %OS.i.i.i25 = getelementptr inbounds i8, ptr %OS.i.i21, i64 40
   store ptr %add.ptr.i22, ptr %OS.i.i.i25, align 8
   %call3.i.i2.i.i29 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i21, ptr noundef nonnull @.str.302, i64 noundef 51)
@@ -46158,7 +46158,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.251, i64 noundef 6)
@@ -46188,7 +46188,7 @@ cond.true.i.split.i.i.i:                          ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i7, align 8
   %OutBufStart.i.i.i.i8 = getelementptr inbounds i8, ptr %OS.i.i5, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i8, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i5, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i5, align 8
   %OS.i.i.i9 = getelementptr inbounds i8, ptr %OS.i.i5, i64 40
   store ptr %add.ptr.i6, ptr %OS.i.i.i9, align 8
   %call.i.i.i.i10 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %flag) #48
@@ -46256,7 +46256,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i18)
   store i32 1, ptr %BufferMode.i.i.i.i20, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i21, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i18, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i18, align 8
   store ptr %add.ptr.i19, ptr %OS.i.i.i22, align 8
   %call.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEh(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i18, i8 noundef zeroext %conv1.i)
           to label %for.inc unwind label %lpad.i.i23
@@ -47320,7 +47320,7 @@ _ZNK7testing14TestPartResult9file_nameEv.exit:    ; preds = %entry, %cond.false.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7testing8internal24HasNewFatalFailureHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %has_new_fatal_failure_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %has_new_fatal_failure_, align 8
   %original_reporter_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -47392,7 +47392,7 @@ lpad.body:                                        ; preds = %lpad.i.i6, %lpad.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7testing8internal24HasNewFatalFailureHelperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !7
@@ -47704,7 +47704,7 @@ if.then:                                          ; preds = %invoke.cont8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i)
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.332, i64 noundef 5)
           to label %invoke.cont10 unwind label %lpad.i.i
@@ -47723,7 +47723,7 @@ invoke.cont10:                                    ; preds = %if.then
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i12)
   store i32 1, ptr %BufferMode.i.i.i.i14, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i15, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i12, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i12, align 8
   store ptr %add.ptr.i13, ptr %OS.i.i.i16, align 8
   %call.i.i.i17 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name_it.sroa.0.0181) #47
   %call2.i.i.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name_it.sroa.0.0181) #47
@@ -47744,7 +47744,7 @@ invoke.cont12:                                    ; preds = %invoke.cont10
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i21)
   store i32 1, ptr %BufferMode.i.i.i.i23, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i24, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i21, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i21, align 8
   store ptr %add.ptr.i22, ptr %OS.i.i.i25, align 8
   %call3.i.i2.i.i29 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i21, ptr noundef nonnull @.str.333, i64 noundef 27)
           to label %_ZN7testing7MessagelsIA28_cEERS0_RKT_.exit unwind label %lpad.i.i30
@@ -47815,7 +47815,7 @@ if.else:                                          ; preds = %for.inc, %if.end
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i39)
   store i32 1, ptr %BufferMode.i.i.i.i41, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i42, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i39, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i39, align 8
   store ptr %add.ptr.i40, ptr %OS.i.i.i43, align 8
   %call3.i.i2.i.i47 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i39, ptr noundef nonnull @.str.334, i64 noundef 14)
           to label %invoke.cont35 unwind label %lpad.i.i48
@@ -47834,7 +47834,7 @@ invoke.cont35:                                    ; preds = %if.else
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i51)
   store i32 1, ptr %BufferMode.i.i.i.i53, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i54, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i51, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i51, align 8
   store ptr %add.ptr.i52, ptr %OS.i.i.i55, align 8
   %call.i.i.i56 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %name_it.sroa.0.0181) #47
   %call2.i.i.i57 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %name_it.sroa.0.0181) #47
@@ -47855,7 +47855,7 @@ invoke.cont37:                                    ; preds = %invoke.cont35
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i63)
   store i32 1, ptr %BufferMode.i.i.i.i65, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i66, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i63, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i63, align 8
   store ptr %add.ptr.i64, ptr %OS.i.i.i67, align 8
   %call3.i.i2.i.i71 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i63, ptr noundef nonnull @.str.335, i64 noundef 33)
           to label %_ZN7testing7MessagelsIA34_cEERS0_RKT_.exit unwind label %lpad.i.i72
@@ -47953,7 +47953,7 @@ if.then63:                                        ; preds = %for.body57, %_ZNKSt
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i108)
   store i32 1, ptr %BufferMode.i.i.i.i110, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i111, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i108, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i108, align 8
   store ptr %add.ptr.i109, ptr %OS.i.i.i112, align 8
   %call3.i.i2.i.i116 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i108, ptr noundef nonnull @.str.336, i64 noundef 24)
           to label %invoke.cont64 unwind label %lpad.i.i117
@@ -47972,7 +47972,7 @@ invoke.cont64:                                    ; preds = %if.then63
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i121)
   store i32 1, ptr %BufferMode.i.i.i.i123, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i124, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i121, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i121, align 8
   store ptr %add.ptr.i122, ptr %OS.i.i.i125, align 8
   %call.i.i.i126 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i78) #47
   %call2.i.i.i127 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6lengthEv(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i78) #47
@@ -47993,7 +47993,7 @@ invoke.cont68:                                    ; preds = %invoke.cont64
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %OS.i.i133)
   store i32 1, ptr %BufferMode.i.i.i.i135, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i136, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i133, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i133, align 8
   store ptr %add.ptr.i134, ptr %OS.i.i.i137, align 8
   %call3.i.i2.i.i141 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i133, ptr noundef nonnull @.str.109, i64 noundef 2)
           to label %_ZN7testing7MessagelsIA3_cEERS0_RKT_.exit unwind label %lpad.i.i142
@@ -48210,7 +48210,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal24XmlUnitTestResultPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %output_file_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_file_) #47
   ret void
@@ -48219,7 +48219,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal24XmlUnitTestResultPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %output_file_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_file_.i) #47
   tail call void @_ZdlPv(ptr noundef nonnull %this) #51
@@ -48324,7 +48324,7 @@ do.body:
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::allocator", align 1
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13DeathTestImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13DeathTestImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %read_fd_ = getelementptr inbounds i8, ptr %this, i64 36
   %0 = load i32, ptr %read_fd_, align 4
   %cmp = icmp eq i32 %0, -1
@@ -48372,7 +48372,7 @@ invoke.cont9:                                     ; preds = %invoke.cont8
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !773
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !773
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !773
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !773
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !773
   %call.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef 385)
@@ -49445,7 +49445,7 @@ ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal17StreamingListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %socket_writer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %socket_writer_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -49466,7 +49466,7 @@ _ZN7testing8internal10scoped_ptrINS0_17StreamingListener20AbstractSocketWriterEE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal17StreamingListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %socket_writer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %socket_writer_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -49586,7 +49586,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !785
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !785
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !785
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !785
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !785
   %conv.i.i.i.i = sext i32 %iteration to i64
@@ -49966,7 +49966,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !791
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !791
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !791
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !791
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !791
   %conv.i.i.i.i = sext i32 %0 to i64
@@ -50283,7 +50283,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !803
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !803
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !803
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !803
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !803
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef %5)
@@ -50573,7 +50573,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !812
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !812
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !812
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !812
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !812
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef %11)
@@ -50798,7 +50798,7 @@ invoke.cont11:                                    ; preds = %invoke.cont
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !821
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !821
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !821
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !821
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !821
   %call.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEx(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef %3)
@@ -51065,7 +51065,7 @@ ehcleanup:                                        ; preds = %lpad3.body, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal17StreamingListener12SocketWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %sockfd_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %sockfd_, align 8
   %cmp.not = icmp eq i32 %0, -1
@@ -51097,7 +51097,7 @@ terminate.lpad.body:                              ; preds = %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal17StreamingListener12SocketWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %sockfd_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load i32, ptr %sockfd_.i, align 8
   %cmp.not.i = icmp eq i32 %0, -1
@@ -51630,7 +51630,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   store i32 1, ptr %BufferMode.i.i.i.i.i, align 8, !noalias !832
   %OutBufStart.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !832
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !832
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i, align 8, !noalias !832
   %OS.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i, i64 40
   store ptr %add.ptr.i.i, ptr %OS.i.i.i.i, align 8, !noalias !832
   %call.i2.i.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEl(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i.i, i64 noundef 962)
@@ -53069,7 +53069,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i.i.i.i.i.i, align 8
   %OutBufStart.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i.i.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i.i.i.i.i.i, align 8
   %OS.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i.i.i.i.i.i, i64 40
   store ptr %add.ptr, ptr %OS.i.i.i.i.i.i.i.i, align 8
   %0 = load i64, ptr %value, align 8
@@ -53116,7 +53116,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %value) #48
@@ -53925,7 +53925,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i29, ptr %OS.i.i.i, align 8
   %call3.i.i2.i.i = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i, ptr noundef nonnull @.str.422, i64 noundef 32)
@@ -53947,7 +53947,7 @@ cond.true.i.split.i.i.i:                          ; preds = %if.then
   store i32 1, ptr %BufferMode.i.i.i.i3, align 8
   %OutBufStart.i.i.i.i4 = getelementptr inbounds i8, ptr %OS.i.i1, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i4, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i1, align 8
   %OS.i.i.i5 = getelementptr inbounds i8, ptr %OS.i.i1, i64 40
   store ptr %add.ptr.i2, ptr %OS.i.i.i5, align 8
   %call.i.i.i.i6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %description) #48
@@ -53974,7 +53974,7 @@ invoke.cont1:                                     ; preds = %if.then.i.i.i.i8, %
   store i32 1, ptr %BufferMode.i.i.i.i17, align 8
   %OutBufStart.i.i.i.i18 = getelementptr inbounds i8, ptr %OS.i.i15, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i18, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i15, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i15, align 8
   %OS.i.i.i19 = getelementptr inbounds i8, ptr %OS.i.i15, i64 40
   store ptr %add.ptr.i16, ptr %OS.i.i.i19, align 8
   %call3.i.i2.i.i23 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i15, ptr noundef nonnull @.str.81, i64 noundef 1)
@@ -54018,7 +54018,7 @@ if.else:                                          ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i30, align 8
   %OutBufStart.i.i.i.i31 = getelementptr inbounds i8, ptr %OS.i.i28, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i31, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i28, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i28, align 8
   %OS.i.i.i32 = getelementptr inbounds i8, ptr %OS.i.i28, i64 40
   store ptr %add.ptr.i29, ptr %OS.i.i.i32, align 8
   %call3.i.i2.i.i36 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i28, ptr noundef nonnull @.str.423, i64 noundef 21)
@@ -54043,7 +54043,7 @@ if.end:                                           ; preds = %_ZN7testing7Message
   store i32 1, ptr %BufferMode.i.i.i.i43, align 8
   %OutBufStart.i.i.i.i44 = getelementptr inbounds i8, ptr %OS.i.i41, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i44, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i41, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i41, align 8
   %OS.i.i.i45 = getelementptr inbounds i8, ptr %OS.i.i41, i64 40
   store ptr %add.ptr.i42, ptr %OS.i.i.i45, align 8
   %call3.i.i2.i.i49 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i41, ptr noundef nonnull @.str.424, i64 noundef 11)
@@ -54073,7 +54073,7 @@ cond.true.i.split.i.i.i56:                        ; preds = %invoke.cont7
   store i32 1, ptr %BufferMode.i.i.i.i57, align 8
   %OutBufStart.i.i.i.i58 = getelementptr inbounds i8, ptr %OS.i.i53, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i58, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i53, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i53, align 8
   %OS.i.i.i59 = getelementptr inbounds i8, ptr %OS.i.i53, i64 40
   store ptr %add.ptr.i55, ptr %OS.i.i.i59, align 8
   %call.i.i.i.i60 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %location) #48
@@ -54103,7 +54103,7 @@ invoke.cont9:                                     ; preds = %_ZN10llvm_gtestlsER
   store i32 1, ptr %BufferMode.i.i.i.i75, align 8
   %OutBufStart.i.i.i.i76 = getelementptr inbounds i8, ptr %OS.i.i73, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i76, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i73, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i73, align 8
   %OS.i.i.i77 = getelementptr inbounds i8, ptr %OS.i.i73, i64 40
   store ptr %add.ptr.i74, ptr %OS.i.i.i77, align 8
   %call3.i.i2.i.i81 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostream5writeEPKcm(ptr noundef nonnull align 8 dereferenceable(36) %OS.i.i73, ptr noundef nonnull @.str.39, i64 noundef 1)
@@ -54301,7 +54301,7 @@ define linkonce_odr hidden noundef ptr @_ZNK7testing8internal11ThreadLocalIPNS_3
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #50
   %value_ = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE11ValueHolderE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalIPNS_31TestPartResultReporterInterfaceEE11ValueHolderE, i64 0, i32 0, i64 2), ptr %call, align 8
   %value_.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %value_, align 8
   store ptr %0, ptr %value_.i, align 8
@@ -54338,7 +54338,7 @@ entry:
 define linkonce_odr hidden noundef ptr @_ZNK7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE25DefaultValueHolderFactory13MakeNewHolderEv(ptr noundef nonnull align 8 dereferenceable(8) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #50
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i64 0, i32 0, i64 2), ptr %call, align 8
   %value_.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %value_.i, i8 0, i64 24, i1 false)
   ret ptr %call
@@ -54347,7 +54347,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %value_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %value_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -54383,7 +54383,7 @@ _ZNSt6vectorIN7testing8internal9TraceInfoESaIS2_EED2Ev.exit: ; preds = %invoke.c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal11ThreadLocalISt6vectorINS0_9TraceInfoESaIS3_EEE11ValueHolderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %value_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %value_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -54599,7 +54599,7 @@ cond.true.i.split.i.i.i:                          ; preds = %entry
   store i32 1, ptr %BufferMode.i.i.i.i, align 8
   %OutBufStart.i.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %OS.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %OS.i.i, align 8
   %OS.i.i.i = getelementptr inbounds i8, ptr %OS.i.i, i64 40
   store ptr %add.ptr.i, ptr %OS.i.i.i, align 8
   %call.i.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #48

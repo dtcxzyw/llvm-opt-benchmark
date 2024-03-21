@@ -147,7 +147,7 @@ $_ZTIN3net30QuicConnectionVisitorInterfaceE = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net11QuicSessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2044) %this, ptr noundef %connection, ptr noundef nonnull align 8 dereferenceable(600) %config) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN3net11QuicSessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN3net11QuicSessionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -660,7 +660,7 @@ return:                                           ; preds = %_ZNSt13unordered_ma
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net11QuicSessionD2Ev(ptr noundef nonnull align 8 dereferenceable(2044) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN3net11QuicSessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN3net11QuicSessionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %closed_streams_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %closed_streams_, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 72

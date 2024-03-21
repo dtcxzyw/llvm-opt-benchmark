@@ -1542,7 +1542,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %type, ptr %type.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.base::Value", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %type.addr, align 4
   store i32 %0, ptr %type_, align 8
@@ -1557,7 +1557,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %that, ptr %that.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base5ValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.base::Value", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %that.addr, align 8
   %type_2 = getelementptr inbounds %"class.base::Value", ptr %0, i32 0, i32 1
@@ -1592,7 +1592,7 @@ entry:
   store i8 %frombool, ptr %in_value.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = getelementptr inbounds %"class.base::FundamentalValue", ptr %this1, i32 0, i32 1
   %1 = load i8, ptr %in_value.addr, align 1
   %tobool = trunc i8 %1 to i1
@@ -1610,7 +1610,7 @@ entry:
   store i32 %in_value, ptr %in_value.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = getelementptr inbounds %"class.base::FundamentalValue", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %in_value.addr, align 4
   store i32 %1, ptr %0, align 8
@@ -1628,7 +1628,7 @@ entry:
   store double %in_value, ptr %in_value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = getelementptr inbounds %"class.base::FundamentalValue", ptr %this1, i32 0, i32 1
   %1 = load double, ptr %in_value.addr, align 8
   store double %1, ptr %0, align 8
@@ -1682,7 +1682,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base16FundamentalValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   call void @_ZN4base5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
   ret void
 }
@@ -2057,7 +2057,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.base::StringValue", ptr %this1, i32 0, i32 1
   invoke void @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9as_stringEv(ptr sret(%"class.std::__cxx11::basic_string") align 8 %value_, ptr noundef nonnull align 8 dereferenceable(16) %in_value)
           to label %invoke.cont unwind label %lpad
@@ -2097,7 +2097,7 @@ entry:
   store ptr %in_value, ptr %in_value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.base::StringValue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %in_value.addr, align 8
   invoke void @_ZN4base16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -2142,7 +2142,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11StringValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.base::StringValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %value_) #13
   call void @_ZN4base5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
@@ -2443,7 +2443,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.base::BinaryValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %buffer_) #13
   %size_ = getelementptr inbounds %"class.base::BinaryValue", ptr %this1, i32 0, i32 2
@@ -2474,7 +2474,7 @@ entry:
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.base::BinaryValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %buffer_, ptr noundef nonnull align 8 dereferenceable(8) %buffer) #13
   %size_ = getelementptr inbounds %"class.base::BinaryValue", ptr %this1, i32 0, i32 2
@@ -2504,7 +2504,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base11BinaryValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.base::BinaryValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %buffer_) #13
   call void @_ZN4base5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
@@ -2951,7 +2951,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %dictionary_ = getelementptr inbounds %"class.base::DictionaryValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4base5ValueESt14default_deleteIS8_EESt4lessIS5_ESaISt4pairIKS5_SB_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %dictionary_) #13
   ret void
@@ -2974,7 +2974,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base15DictionaryValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN4base15DictionaryValue5ClearEv(ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -6825,7 +6825,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 7)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %list_ = getelementptr inbounds %"class.base::ListValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN4base5ValueESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %list_) #13
   ret void
@@ -6847,7 +6847,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base9ListValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN4base9ListValue5ClearEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 

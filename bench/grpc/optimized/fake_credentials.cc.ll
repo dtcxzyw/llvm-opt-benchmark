@@ -576,7 +576,7 @@ invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV29grpc_fake_channel_credentials, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV29grpc_fake_channel_credentials, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -597,7 +597,7 @@ invoke.cont:
   store i64 1, ptr %refs_.i.i.i, align 8
   %processor_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %processor_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV28grpc_fake_server_credentials, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV28grpc_fake_server_credentials, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -842,7 +842,7 @@ entry:
   store i64 1, ptr %refs_.i.i.i, align 8
   %min_security_level_.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %min_security_level_.i.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV29grpc_md_only_test_credentials, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV29grpc_md_only_test_credentials, i64 0, i32 0, i64 2), ptr %call, align 8
   %key_.i = getelementptr inbounds i8, ptr %call, i64 24
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %md_key) #25, !noalias !32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp.i.i.i), !noalias !32
@@ -883,7 +883,7 @@ lpad.body:                                        ; preds = %lpad2.i, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN29grpc_md_only_test_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV29grpc_md_only_test_credentials, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV29grpc_md_only_test_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
   %value_ = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %value_, align 8
   %cmp.i.i = icmp ugt ptr %0, inttoptr (i64 1 to ptr)
@@ -938,7 +938,7 @@ _ZN9grpc_core5SliceD2Ev.exit7:                    ; preds = %_ZN9grpc_core5Slice
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN29grpc_md_only_test_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV29grpc_md_only_test_credentials, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV29grpc_md_only_test_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
   %value_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %value_.i, align 8
   %cmp.i.i.i = icmp ugt ptr %0, inttoptr (i64 1 to ptr)
@@ -1157,7 +1157,7 @@ _ZN29grpc_fake_channel_credentials4TypeEv.exit:   ; preds = %entry, %init.check.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN28grpc_fake_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
   %destroy.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %destroy.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1187,7 +1187,7 @@ _ZN23grpc_server_credentialsD2Ev.exit:            ; preds = %entry, %land.lhs.tr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN28grpc_fake_server_credentialsD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
   %destroy.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %destroy.i.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -1263,7 +1263,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, inrange i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -1312,7 +1312,7 @@ declare void @llvm.trap() #13
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN23grpc_server_credentialsD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23grpc_server_credentials, i64 0, i32 0, i64 2), ptr %this, align 8
   %destroy.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %destroy.i, align 8
   %cmp.not.i = icmp eq ptr %0, null

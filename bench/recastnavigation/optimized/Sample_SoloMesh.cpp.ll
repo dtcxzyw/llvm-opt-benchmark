@@ -90,7 +90,7 @@ $_ZN6Sample13getAgentClimbEv = comdat any
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15Sample_SoloMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store i8 1, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 204
@@ -149,7 +149,7 @@ declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15Sample_SoloMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN15Sample_SoloMesh7cleanupEv(ptr noundef nonnull align 8 dereferenceable(356) %0)
           to label %2 unwind label %3
 
@@ -218,7 +218,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15Sample_SoloMeshD0Ev(ptr noundef nonnull align 8 dereferenceable(356) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN15Sample_SoloMesh7cleanupEv(ptr noundef nonnull align 8 dereferenceable(356) %0)
           to label %_ZN15Sample_SoloMeshD2Ev.exit unwind label %2
 

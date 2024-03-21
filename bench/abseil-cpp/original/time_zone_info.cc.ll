@@ -5256,7 +5256,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl13time_internal4cctz10TimeZoneIfC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %transitions_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN4absl13time_internal4cctz10TransitionESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %transitions_) #13
   %transition_types_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this1, i32 0, i32 2
@@ -7563,7 +7563,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12TimeZoneInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %future_spec_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this1, i32 0, i32 6
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %future_spec_) #13
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::TimeZoneInfo", ptr %this1, i32 0, i32 5
@@ -9074,7 +9074,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz10TimeZoneIfE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz10TimeZoneIfE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -16059,7 +16059,7 @@ entry:
   store i64 %len, ptr %len.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl13time_internal4cctz14ZoneInfoSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fp_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(16) %fp_, ptr noundef nonnull align 8 dereferenceable(16) %fp) #13
   %len_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %this1, i32 0, i32 2
@@ -16489,7 +16489,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz14ZoneInfoSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz14ZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -16499,7 +16499,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fp_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FileZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %fp_) #13
   call void @_ZN4absl13time_internal4cctz14ZoneInfoSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
@@ -16857,7 +16857,7 @@ entry:
   %0 = load i64, ptr %len.addr, align 8
   call void @_ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceC2ESt10unique_ptrI8_IO_FILEPFiPS5_EEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %agg.tmp, i64 noundef %0)
   call void @_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121AndroidZoneInfoSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121AndroidZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::AndroidZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %version_, ptr noundef nonnull align 8 dereferenceable(32) %version) #13
   ret void
@@ -17093,7 +17093,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121AndroidZoneInfoSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121AndroidZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::AndroidZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version_) #13
   call void @_ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13
@@ -17197,7 +17197,7 @@ entry:
   %call = call noundef i64 @_ZNSt14numeric_limitsImE3maxEv() #13
   call void @_ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceC2ESt10unique_ptrI8_IO_FILEPFiPS5_EEm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %agg.tmp, i64 noundef %call)
   call void @_ZNSt10unique_ptrI8_IO_FILEPFiPS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FuchsiaZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %version_, ptr noundef nonnull align 8 dereferenceable(32) %version) #13
   ret void
@@ -17211,7 +17211,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl13time_internal4cctz12_GLOBAL__N_121FuchsiaZoneInfoSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %version_ = getelementptr inbounds %"class.absl::time_internal::cctz::(anonymous namespace)::FuchsiaZoneInfoSource", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %version_) #13
   call void @_ZN4absl13time_internal4cctz12_GLOBAL__N_118FileZoneInfoSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #13

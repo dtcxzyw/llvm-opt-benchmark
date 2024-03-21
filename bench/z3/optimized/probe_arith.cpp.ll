@@ -180,7 +180,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118arith_degree_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118arith_degree_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_avg.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 1, ptr %m_avg.i, align 4
   ret ptr %call
@@ -194,7 +194,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118arith_degree_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118arith_degree_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_avg.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %m_avg.i, align 4
   ret ptr %call
@@ -206,7 +206,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114arith_bw_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114arith_bw_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_avg.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 1, ptr %m_avg.i, align 4
   ret ptr %call
@@ -218,7 +218,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %m_ref_count.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 0, ptr %m_ref_count.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114arith_bw_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114arith_bw_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_avg.i = getelementptr inbounds i8, ptr %call, i64 12
   store i8 0, ptr %m_avg.i, align 4
   ret ptr %call
@@ -230,7 +230,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114is_qflia_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114is_qflia_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -243,7 +243,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117is_qfauflia_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117is_qfauflia_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -253,7 +253,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114is_qflra_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114is_qflra_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -263,7 +263,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115is_qflira_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115is_qflira_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -273,7 +273,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_ilp_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_ilp_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -283,7 +283,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_mip_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_mip_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -293,7 +293,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114is_qfnia_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114is_qfnia_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -303,7 +303,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114is_qfnra_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114is_qfnra_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -313,7 +313,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_nia_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_nia_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -323,7 +323,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_nra_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_nra_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -333,7 +333,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113is_nira_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113is_nira_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -343,7 +343,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_lia_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_lia_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -353,7 +353,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_lra_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112is_lra_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -363,7 +363,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113is_lira_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113is_lira_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -373,7 +373,7 @@ entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116is_qfufnra_probeE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116is_qfufnra_probeE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -2133,7 +2133,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #19
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #21
@@ -2211,7 +2211,7 @@ invoke.cont4:                                     ; preds = %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #19
   ret void

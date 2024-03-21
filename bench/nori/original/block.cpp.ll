@@ -2962,7 +2962,7 @@ define linkonce_odr hidden void @_ZN3tbb4flow11interface105graphD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb4flow11interface105graphE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb4flow11interface105graphE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN3tbb4flow11interface105graph12wait_for_allEv(ptr noundef nonnull align 8 dereferenceable(88) %3)
           to label %4 unwind label %27
 
@@ -4008,7 +4008,7 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr nou
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %8, align 8
   ret void
 
 11:                                               ; preds = %2
@@ -6092,7 +6092,7 @@ define linkonce_odr hidden void @_ZN3tbb4flow11interface1110graph_nodeD2Ev(ptr n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tbb4flow11interface1110graph_nodeE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tbb4flow11interface1110graph_nodeE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.tbb::flow::interface11::graph_node", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   invoke void @_ZN3tbb4flow11interface105graph11remove_nodeEPNS0_11interface1110graph_nodeE(ptr noundef nonnull align 8 dereferenceable(88) %5, ptr noundef %3)
@@ -6224,7 +6224,7 @@ define linkonce_odr hidden void @_ZN3tbb10interface78internal18delegated_functio
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3tbb10interface78internal13delegate_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tbb10interface78internal18delegated_functionIKNS_4flow11interface105graph12wait_functorEvEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tbb10interface78internal18delegated_functionIKNS_4flow11interface105graph12wait_functorEvEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.tbb::interface7::internal::delegated_function", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -6266,7 +6266,7 @@ define linkonce_odr hidden void @_ZN3tbb10interface78internal13delegate_baseC2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tbb10interface78internal13delegate_baseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tbb10interface78internal13delegate_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7197,7 +7197,7 @@ define linkonce_odr dso_local void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7209,7 +7209,7 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

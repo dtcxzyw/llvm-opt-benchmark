@@ -307,7 +307,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -751,9 +751,9 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   %26 = getelementptr inbounds i8, ptr %25, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %26, i8 0, i64 144, i1 false)
   %27 = getelementptr inbounds i8, ptr %25, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 0, i64 2), ptr %25, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 1, i64 2), ptr %27, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 2, i64 2), ptr %26, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 0, i64 2), ptr %25, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 1, i64 2), ptr %27, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 2, i64 2), ptr %26, align 8, !tbaa !4
   %28 = getelementptr inbounds i8, ptr %25, i64 32
   %29 = getelementptr inbounds i8, ptr %25, i64 48
   store ptr %28, ptr %29, align 8, !tbaa !29
@@ -776,7 +776,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   %39 = getelementptr inbounds i8, ptr %25, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, i8 0, i64 16, i1 false)
   store ptr %26, ptr %24, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111MockGameDefE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111MockGameDefE, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !4
   %40 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %40, ptr %4, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %40, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
@@ -1443,7 +1443,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #24
   call void @_ZN16VoxelManipulatorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !4
   %366 = load ptr, ptr %24, align 8, !tbaa !41
   %367 = icmp eq ptr %366, null
   br i1 %367, label %372, label %368
@@ -2479,7 +2479,7 @@ declare noundef zeroext i1 @_Z14checkMeshEqualRKSt6vectorIN3irr5video9S3DVertexE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12DummyGameDefD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !41
   %4 = icmp eq ptr %3, null
@@ -6248,9 +6248,9 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %28, i8 0, i64 144, i1 false)
   %29 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 0, i64 2), ptr %27, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 1, i64 2), ptr %29, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 2, i64 2), ptr %28, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 0, i64 2), ptr %27, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 1, i64 2), ptr %29, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 2, i64 2), ptr %28, align 8, !tbaa !4
   %30 = getelementptr inbounds i8, ptr %27, i64 32
   %31 = getelementptr inbounds i8, ptr %27, i64 48
   store ptr %30, ptr %31, align 8, !tbaa !29
@@ -6273,7 +6273,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   %41 = getelementptr inbounds i8, ptr %27, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   store ptr %28, ptr %26, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111MockGameDefE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111MockGameDefE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !4
   %42 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %42, ptr %5, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %42, ptr noundef nonnull align 1 dereferenceable(5) @.str.12, i64 5, i1 false)
@@ -7042,7 +7042,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #24
   call void @_ZN16VoxelManipulatorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !4
   %434 = load ptr, ptr %26, align 8, !tbaa !41
   %435 = icmp eq ptr %434, null
   br i1 %435, label %440, label %436
@@ -7189,9 +7189,9 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   %27 = getelementptr inbounds i8, ptr %26, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %27, i8 0, i64 144, i1 false)
   %28 = getelementptr inbounds i8, ptr %26, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 0, i64 2), ptr %26, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 1, i64 2), ptr %28, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 2, i64 2), ptr %27, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 0, i64 2), ptr %26, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 1, i64 2), ptr %28, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 2, i64 2), ptr %27, align 8, !tbaa !4
   %29 = getelementptr inbounds i8, ptr %26, i64 32
   %30 = getelementptr inbounds i8, ptr %26, i64 48
   store ptr %29, ptr %30, align 8, !tbaa !29
@@ -7214,7 +7214,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   %40 = getelementptr inbounds i8, ptr %26, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   store ptr %27, ptr %25, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111MockGameDefE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111MockGameDefE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !4
   %41 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %41, ptr %5, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %41, ptr noundef nonnull align 1 dereferenceable(5) @.str.30, i64 5, i1 false)
@@ -7939,7 +7939,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #24
   call void @_ZN16VoxelManipulatorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !4
   %412 = load ptr, ptr %25, align 8, !tbaa !41
   %413 = icmp eq ptr %412, null
   br i1 %413, label %418, label %414
@@ -9463,9 +9463,9 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   %28 = getelementptr inbounds i8, ptr %27, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(176) %28, i8 0, i64 144, i1 false)
   %29 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 0, i64 2), ptr %27, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 1, i64 2), ptr %29, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, inrange i32 2, i64 2), ptr %28, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 0, i64 2), ptr %27, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 1, i64 2), ptr %29, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [23 x ptr], [8 x ptr], [15 x ptr] }, ptr @_ZTV14Database_Dummy, i64 0, i32 2, i64 2), ptr %28, align 8, !tbaa !4
   %30 = getelementptr inbounds i8, ptr %27, i64 32
   %31 = getelementptr inbounds i8, ptr %27, i64 48
   store ptr %30, ptr %31, align 8, !tbaa !29
@@ -9488,7 +9488,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   %41 = getelementptr inbounds i8, ptr %27, i64 160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
   store ptr %28, ptr %26, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111MockGameDefE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111MockGameDefE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !4
   %42 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %42, ptr %5, align 8, !tbaa !42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %42, ptr noundef nonnull align 1 dereferenceable(5) @.str.30, i64 5, i1 false)
@@ -10259,7 +10259,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN12_GLOBAL__N_125TestMapblo
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %8) #24
   call void @_ZN16VoxelManipulatorD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %7) #24
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12DummyGameDef, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !4
   %435 = load ptr, ptr %26, align 8, !tbaa !41
   %436 = icmp eq ptr %435, null
   br i1 %436, label %441, label %437
@@ -10374,14 +10374,14 @@ define internal void @_GLOBAL__sub_I_test_content_mapblock.cpp() #18 section ".t
   store ptr getelementptr inbounds (%"class.(anonymous namespace)::TestMapblockMeshGenerator", ptr @_ZN12_GLOBAL__N_115g_test_instanceE, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%"class.(anonymous namespace)::TestMapblockMeshGenerator", ptr @_ZN12_GLOBAL__N_115g_test_instanceE, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !42
   store i64 0, ptr getelementptr inbounds (%"class.(anonymous namespace)::TestMapblockMeshGenerator", ptr @_ZN12_GLOBAL__N_115g_test_instanceE, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%"class.(anonymous namespace)::TestMapblockMeshGenerator", ptr @_ZN12_GLOBAL__N_115g_test_instanceE, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !43
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125TestMapblockMeshGeneratorE, i64 0, inrange i32 0, i64 2), ptr @_ZN12_GLOBAL__N_115g_test_instanceE, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125TestMapblockMeshGeneratorE, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_115g_test_instanceE, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZN12_GLOBAL__N_115g_test_instanceE)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZN12_GLOBAL__N_115g_test_instanceE, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZN12_GLOBAL__N_115g_test_instanceE, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%"class.(anonymous namespace)::TestMapblockMeshGenerator", ptr @_ZN12_GLOBAL__N_115g_test_instanceE, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%"class.(anonymous namespace)::TestMapblockMeshGenerator", ptr @_ZN12_GLOBAL__N_115g_test_instanceE, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

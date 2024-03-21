@@ -474,7 +474,7 @@ define dso_local void @_ZN15cmFileInstallerC2ER17cmExecutionStatus(ptr noundef n
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN12cmFileCopierC2ER17cmExecutionStatusPKc(ptr noundef nonnull align 8 dereferenceable(244) %11, ptr noundef nonnull align 8 dereferenceable(80) %12, ptr noundef @.str)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15cmFileInstaller, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15cmFileInstaller, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 1
   store i32 4, ptr %13, align 4
   %14 = getelementptr inbounds %struct.cmFileInstaller, ptr %11, i32 0, i32 2
@@ -707,7 +707,7 @@ define dso_local void @_ZN15cmFileInstallerD2Ev(ptr noundef nonnull align 8 dere
   %5 = alloca %"class.std::basic_string_view", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15cmFileInstaller, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15cmFileInstaller, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %struct.cmFileCopier, ptr %6, i32 0, i32 2
   %8 = load ptr, ptr %7, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3

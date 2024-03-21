@@ -123,7 +123,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory11quantifiers11SynthFinderC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 dereferenceable(576) %env) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthFinderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthFinderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_eid = getelementptr inbounds i8, ptr %this, i64 16
   %d_buffer = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %d_buffer, i8 0, i64 24, i1 false)
@@ -731,7 +731,7 @@ invoke.cont47:                                    ; preds = %if.then45
           to label %invoke.cont51 unwind label %lpad50
 
 invoke.cont51:                                    ; preds = %invoke.cont47
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers28SygusEnumeratorCallbackNoSymE, i64 0, inrange i32 0, i64 2), ptr %call48, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers28SygusEnumeratorCallbackNoSymE, i64 0, i32 0, i64 2), ptr %call48, align 8
   %43 = load ptr, ptr %d_ecb, align 8
   store ptr %call48, ptr %d_ecb, align 8
   %tobool.not.i.i50 = icmp eq ptr %43, null
@@ -774,7 +774,7 @@ invoke.cont59:                                    ; preds = %invoke.cont55
   store ptr %47, ptr %_M_right.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call56, i64 112
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11ExprMinerIdE, i64 0, inrange i32 0, i64 2), ptr %call56, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11ExprMinerIdE, i64 0, i32 0, i64 2), ptr %call56, align 8
   %48 = load ptr, ptr %d_eid, align 8
   store ptr %call56, ptr %d_eid, align 8
   %tobool.not.i.i54 = icmp eq ptr %48, null
@@ -2008,7 +2008,7 @@ init.end:                                         ; preds = %_ZN4cvc58internal12
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers11SynthFinderD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthFinderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SynthFinderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_buffer = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %d_buffer, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 96

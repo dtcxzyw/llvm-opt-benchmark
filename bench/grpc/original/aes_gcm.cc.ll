@@ -509,7 +509,7 @@ entry:
   store i8 %frombool, ptr %is_rekey.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core23GsecKeyFactoryInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.grpc_core::GsecKeyFactory", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZNK4absl12lts_202308024SpanIKhE5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %key) #12
   %call2 = call noundef ptr @_ZNK4absl12lts_202308024SpanIKhE3endEv(ptr noundef nonnull align 8 dereferenceable(16) %key) #12
@@ -551,7 +551,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core23GsecKeyFactoryInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core23GsecKeyFactoryInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -792,7 +792,7 @@ entry:
   store i8 %frombool, ptr %is_rekey.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core16GsecKeyInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core7GsecKeyE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core7GsecKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %is_rekey_ = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 1
   %2 = load i8, ptr %is_rekey.addr, align 1
   %tobool = trunc i8 %2 to i1
@@ -899,7 +899,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core16GsecKeyInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core16GsecKeyInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1792,7 +1792,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14GsecKeyFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.grpc_core::GsecKeyFactory", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_) #12
   call void @_ZN9grpc_core23GsecKeyFactoryInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
@@ -1816,7 +1816,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core7GsecKeyE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core7GsecKeyE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %kdf_counter_ = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 6
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %kdf_counter_) #12
   %nonce_mask_ = getelementptr inbounds %"class.grpc_core::GsecKey", ptr %this1, i32 0, i32 5

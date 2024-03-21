@@ -487,7 +487,7 @@ define void @_ZN20EthernetAddressModelC2EP7QObject(ptr noundef nonnull align 8 d
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV20EthernetAddressModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV20EthernetAddressModel, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_ZN20EthernetAddressModel8populateEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %9 unwind label %10
 
@@ -2453,7 +2453,7 @@ define void @_ZN10PortsModelC2EP7QObject(ptr noundef nonnull align 8 dereference
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV10PortsModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV10PortsModel, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_ZN10PortsModel8populateEv(ptr noundef nonnull align 8 dereferenceable(64) %7)
           to label %9 unwind label %10
 

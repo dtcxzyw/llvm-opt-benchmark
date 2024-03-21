@@ -316,7 +316,7 @@ define dso_local void @_ZN19cmCPackIFWGeneratorC2Ev(ptr noundef nonnull align 8 
           to label %3 unwind label %53
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackIFWGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackIFWGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 368
   invoke void @_ZN19cmCPackIFWInstallerC1Ev(ptr noundef nonnull align 8 dereferenceable(1112) %4)
           to label %5 unwind label %53
@@ -628,7 +628,7 @@ declare void @_ZN16cmCPackGeneratorD2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN19cmCPackIFWGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(2424) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackIFWGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackIFWGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 2400
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2408

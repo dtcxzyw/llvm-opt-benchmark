@@ -632,7 +632,7 @@ define void @_ZN16ExpertPacketItemC2ERK13expert_info_sP16epan_column_infoPS_(ptr
   store ptr %2, ptr %7, align 8
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ExpertPacketItem, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ExpertPacketItem, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %class.ExpertPacketItem, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %6, align 8
   %14 = getelementptr inbounds %struct.expert_info_s, ptr %13, i32 0, i32 0
@@ -828,7 +828,7 @@ define void @_ZN16ExpertPacketItemD2Ev(ptr noundef nonnull align 8 dereferenceab
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ExpertPacketItem, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16ExpertPacketItem, i32 0, i32 0, i32 2), ptr %4, align 8
   store i32 0, ptr %3, align 4
   br label %5
 
@@ -1560,7 +1560,7 @@ define void @_ZN15ExpertInfoModelC2ER11CaptureFileP7QObject(ptr noundef nonnull 
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ExpertInfoModel, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ExpertInfoModel, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.ExpertInfoModel, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   store ptr %12, ptr %11, align 8
@@ -1668,7 +1668,7 @@ define void @_ZN15ExpertInfoModelD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ExpertInfoModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15ExpertInfoModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ExpertInfoModel, ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

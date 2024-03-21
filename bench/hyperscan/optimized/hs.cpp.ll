@@ -2498,7 +2498,7 @@ invoke.cont64:                                    ; preds = %if.then61
           to label %invoke.cont66 unwind label %ehcleanup68
 
 invoke.cont66:                                    ; preds = %invoke.cont64
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #16
           to label %unreachable unwind label %ehcleanup68
 
@@ -2630,7 +2630,7 @@ invoke.cont106:                                   ; preds = %do.end
           to label %invoke.cont108 unwind label %ehcleanup111
 
 invoke.cont108:                                   ; preds = %invoke.cont106
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception102, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception102, align 8
   invoke void @__cxa_throw(ptr nonnull %exception102, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #16
           to label %unreachable unwind label %ehcleanup111
 

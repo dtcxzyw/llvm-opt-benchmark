@@ -1170,7 +1170,7 @@ define linkonce_odr void @_ZN5faiss3lsq10IcmEncoderD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss3lsq10IcmEncoderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss3lsq10IcmEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::lsq::IcmEncoder", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #4
   ret void
@@ -2869,7 +2869,7 @@ define void @_ZN5faiss20LocalSearchQuantizerC2EmmmNS_17AdditiveQuantizer13Search
 20:                                               ; preds = %18
   call void @_ZNSt6vectorImSaImEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #4
   call void @_ZNSaImED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %12) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5faiss20LocalSearchQuantizerE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5faiss20LocalSearchQuantizerE, i32 0, i32 0, i32 2), ptr %15, align 8
   %21 = getelementptr inbounds %"struct.faiss::LocalSearchQuantizer", ptr %15, i32 0, i32 3
   store i64 25, ptr %21, align 8
   %22 = getelementptr inbounds %"struct.faiss::LocalSearchQuantizer", ptr %15, i32 0, i32 4
@@ -3678,7 +3678,7 @@ define void @_ZN5faiss20LocalSearchQuantizerD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5faiss20LocalSearchQuantizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5faiss20LocalSearchQuantizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::LocalSearchQuantizer", ptr %3, i32 0, i32 13
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -3747,7 +3747,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #4
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #4
@@ -11411,7 +11411,7 @@ define linkonce_odr void @_ZN5faiss3lsq17IcmEncoderFactoryC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss3lsq17IcmEncoderFactoryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss3lsq17IcmEncoderFactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15429,7 +15429,7 @@ define void @_ZN5faiss3lsq10IcmEncoderC2EPKNS_20LocalSearchQuantizerE(ptr nounde
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss3lsq10IcmEncoderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss3lsq10IcmEncoderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::lsq::IcmEncoder", ptr %5, i32 0, i32 1
   call void @_ZNSt6vectorIfSaIfEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #4
   %7 = getelementptr inbounds %"struct.faiss::lsq::IcmEncoder", ptr %5, i32 0, i32 2

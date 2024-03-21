@@ -1164,7 +1164,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl17TangentPlaneCheckE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl17TangentPlaneCheckE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_data = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::TangentPlaneCheck", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %data.addr, align 8
   store ptr %1, ptr %d_data, align 8
@@ -5146,7 +5146,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl17TangentPlaneCheckE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith2nl17TangentPlaneCheckE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_tangent_val_bound = getelementptr inbounds %"class.cvc5::internal::theory::arith::nl::TangentPlaneCheck", ptr %this1, i32 0, i32 2
   %array.begin = getelementptr inbounds [4 x %"class.std::map"], ptr %d_tangent_val_bound, i32 0, i32 0
   %0 = getelementptr inbounds %"class.std::map", ptr %array.begin, i64 4

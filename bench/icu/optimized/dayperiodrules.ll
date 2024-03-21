@@ -641,12 +641,12 @@ invoke.cont5:                                     ; preds = %if.end, %new.notnul
   store ptr %call2, ptr %1, align 8
   %call3 = tail call ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull %errorCode)
   store ptr %call3, ptr %rb_dayPeriods, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7523DayPeriodRulesCountSinkE, i64 0, inrange i32 0, i64 2), ptr %countSink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7523DayPeriodRulesCountSinkE, i64 0, i32 0, i64 2), ptr %countSink, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call3, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %countSink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
           to label %invoke.cont9 unwind label %lpad6
 
 invoke.cont9:                                     ; preds = %invoke.cont5
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522DayPeriodRulesDataSinkE, i64 0, inrange i32 0, i64 2), ptr %sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522DayPeriodRulesDataSinkE, i64 0, i32 0, i64 2), ptr %sink, align 8
   %cutoffs.i = getelementptr inbounds i8, ptr %sink, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(100) %cutoffs.i, i8 0, i64 100, i1 false)
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call3, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)

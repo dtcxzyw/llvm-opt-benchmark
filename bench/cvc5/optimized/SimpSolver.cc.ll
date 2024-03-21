@@ -233,7 +233,7 @@ entry:
   %ref.tmp.i = alloca i8, align 1
   %dummy = alloca %"class.cvc5::internal::Minisat::vec.4", align 8
   tail call void @_ZN4cvc58internal7Minisat6SolverC2ERNS0_3EnvEPNS0_4prop11TheoryProxyEPNS_7context7ContextEPNS8_11UserContextEPNS0_16ProofNodeManagerEb(ptr noundef nonnull align 8 dereferenceable(850) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %proxy, ptr noundef %context, ptr noundef %userContext, ptr noundef %pnm, i1 noundef zeroext %enableIncremental)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i64 0, i32 0, i64 2), ptr %this, align 8
   %grow = getelementptr inbounds i8, ptr %this, i64 852
   %0 = load i32, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL8opt_grow, i64 0, i32 2), align 8
   store i32 %0, ptr %grow, align 4
@@ -1190,7 +1190,7 @@ declare void @_ZN4cvc58internal7Minisat6SolverD2Ev(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal7Minisat10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(1108) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i64 0, i32 0, i64 2), ptr %this, align 8
   %eliminated = getelementptr inbounds i8, ptr %this, i64 1080
   %0 = load ptr, ptr %eliminated, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -6718,7 +6718,7 @@ terminate.lpad:                                   ; preds = %if.then13.i
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %name_, ptr noundef %desc_, ptr noundef %cate_, ptr noundef %type_) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %name = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %name_, ptr %name, align 8
   %description = getelementptr inbounds i8, ptr %this, i64 16
@@ -8046,25 +8046,25 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #25
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13opt_use_asymm, ptr noundef nonnull @.str, ptr noundef nonnull @.str.3, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL13opt_use_asymm, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i64 0, i32 0, i64 2), ptr @_ZL13opt_use_asymm, align 8
   store i8 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::BoolOption", ptr @_ZL13opt_use_asymm, i64 0, i32 1), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL14opt_use_rcheck, ptr noundef nonnull @.str.5, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL14opt_use_rcheck, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i64 0, i32 0, i64 2), ptr @_ZL14opt_use_rcheck, align 8
   store i8 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::BoolOption", ptr @_ZL14opt_use_rcheck, i64 0, i32 1), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL8opt_grow, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.38)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL8opt_grow, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL8opt_grow, align 8
   store i64 9223372034707292160, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL8opt_grow, i64 0, i32 1, i32 0), align 8
   store i32 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL8opt_grow, i64 0, i32 2), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL14opt_clause_lim, ptr noundef nonnull @.str.11, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.38)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL14opt_clause_lim, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL14opt_clause_lim, align 8
   store i64 9223372036854775807, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL14opt_clause_lim, i64 0, i32 1, i32 0), align 8
   store i32 20, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL14opt_clause_lim, i64 0, i32 2), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL19opt_subsumption_lim, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.38)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL19opt_subsumption_lim, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL19opt_subsumption_lim, align 8
   store i64 9223372036854775807, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL19opt_subsumption_lim, i64 0, i32 1, i32 0), align 8
   store i32 1000, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::IntOption", ptr @_ZL19opt_subsumption_lim, i64 0, i32 2), align 8
   tail call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL21opt_simp_garbage_frac, ptr noundef nonnull @.str.17, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.48)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat12DoubleOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL21opt_simp_garbage_frac, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL21opt_simp_garbage_frac, align 8
   store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::DoubleOption", ptr @_ZL21opt_simp_garbage_frac, i64 0, i32 1, i32 0), align 8
   store i8 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::DoubleOption", ptr @_ZL21opt_simp_garbage_frac, i64 0, i32 1, i32 2), align 8
   store i8 0, ptr getelementptr inbounds (%"class.cvc5::internal::Minisat::DoubleOption", ptr @_ZL21opt_simp_garbage_frac, i64 0, i32 1, i32 3), align 1

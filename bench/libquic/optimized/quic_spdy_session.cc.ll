@@ -127,7 +127,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define dso_local void @_ZN3net15QuicSpdySessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2057) %this, ptr noundef %connection, ptr noundef nonnull align 8 dereferenceable(600) %config) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3net11QuicSessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2044) %this, ptr noundef %connection, ptr noundef nonnull align 8 dereferenceable(600) %config)
-  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %headers_stream_ = getelementptr inbounds i8, ptr %this, i64 2048
   store ptr null, ptr %headers_stream_, align 8
   %force_hol_blocking_ = getelementptr inbounds i8, ptr %this, i64 2056
@@ -140,7 +140,7 @@ declare void @_ZN3net11QuicSessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net15QuicSpdySessionD2Ev(ptr noundef nonnull align 8 dereferenceable(2057) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr] }, ptr @_ZTVN3net15QuicSpdySessionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %closed_streams_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %closed_streams_.i, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72

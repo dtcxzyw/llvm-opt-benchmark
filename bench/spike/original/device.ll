@@ -1162,7 +1162,7 @@ define void @_ZN8device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0
   %15 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %16 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.device_t, ptr %16, i32 0, i32 1
   call void @_ZNSaISt8functionIFv9command_tEEEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #3
   invoke void @_ZNSt6vectorISt8functionIFv9command_tEESaIS3_EEC2EmRKS4_(ptr noundef nonnull align 8 dereferenceable(24) %17, i64 noundef 256, ptr noundef nonnull align 1 dereferenceable(1) %3)
@@ -1856,7 +1856,7 @@ define void @_ZN5bcd_tC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %0) 
   store ptr %0, ptr %2, align 8
   %13 = load ptr, ptr %2, align 8
   call void @_ZN8device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %13)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5bcd_t, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5bcd_t, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.bcd_t, ptr %13, i32 0, i32 1
   invoke void @_ZNSt5queueI9command_tSt5dequeIS0_SaIS0_EEEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(80) %14)
           to label %15 unwind label %22
@@ -2169,7 +2169,7 @@ define void @_ZN6disk_tC2EPKc(ptr noundef nonnull align 8 dereferenceable(100) %
   store ptr %1, ptr %4, align 8
   %26 = load ptr, ptr %3, align 8
   call void @_ZN8device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %26)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV6disk_t, i32 0, inrange i32 0, i32 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV6disk_t, i32 0, i32 0, i32 2), ptr %26, align 8
   %27 = getelementptr inbounds %class.disk_t, ptr %26, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %27) #3
   %28 = load ptr, ptr %4, align 8
@@ -3284,7 +3284,7 @@ define void @_ZN6disk_tD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %0)
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV6disk_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV6disk_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.disk_t, ptr %3, i32 0, i32 3
   %5 = load i32, ptr %4, align 8
   %6 = invoke i32 @close(i32 noundef %5)
@@ -3725,7 +3725,7 @@ define linkonce_odr void @_ZN13null_device_tC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13null_device_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13null_device_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3887,7 +3887,7 @@ define linkonce_odr void @_ZN5bcd_tD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5bcd_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5bcd_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.bcd_t, ptr %3, i32 0, i32 1
   call void @_ZNSt5queueI9command_tSt5dequeIS0_SaIS0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #3
   call void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
@@ -3933,7 +3933,7 @@ define linkonce_odr void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 1

@@ -83,7 +83,7 @@ entry:
   store i32 %startup, ptr %startup.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net20StrikeRegisterClientC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this1, i32 0, i32 1
   invoke void @_ZN4base4LockC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_)
           to label %invoke.cont unwind label %lpad
@@ -138,7 +138,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20StrikeRegisterClientE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net20StrikeRegisterClientE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -408,7 +408,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net25LocalStrikeRegisterClientE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %strike_register_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this1, i32 0, i32 2
   call void @_ZN3net14StrikeRegisterD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %strike_register_) #8
   %m_ = getelementptr inbounds %"class.net::LocalStrikeRegisterClient", ptr %this1, i32 0, i32 1

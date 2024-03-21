@@ -406,8 +406,8 @@ define void @_ZN19QualityMapperPluginC2Ev(ptr noundef nonnull align 8 dereferenc
           to label %3 unwind label %5
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr] }, ptr @_ZTV19QualityMapperPlugin, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr] }, ptr @_ZTV19QualityMapperPlugin, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr] }, ptr @_ZTV19QualityMapperPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [20 x ptr] }, ptr @_ZTV19QualityMapperPlugin, i64 0, i32 1, i64 2), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   ret void

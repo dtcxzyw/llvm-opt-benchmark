@@ -66,7 +66,7 @@ define dso_local noundef nonnull ptr @_ZN23FunctionInvocationUnary29CreateFuncti
           to label %.noexc unwind label %22
 
 .noexc:                                           ; preds = %15
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 56
   store i32 %1, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 64
@@ -110,7 +110,7 @@ _ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_strin
           to label %.noexc21 unwind label %31
 
 .noexc21:                                         ; preds = %25
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, inrange i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %26, i64 56
   store i32 %1, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 64
@@ -170,7 +170,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::allocator.8", align 1
   tail call void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef 1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -206,7 +206,7 @@ declare void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23FunctionInvocationUnaryC2E9eUnaryOpsP11SafeOpFlagsRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef %1, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef 1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
@@ -228,7 +228,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23FunctionInvocationUnaryC2ERKS_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %1)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 56
   %4 = getelementptr inbounds i8, ptr %1, i64 56
   %5 = load i32, ptr %4, align 8
@@ -252,7 +252,7 @@ declare void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 derefer
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23FunctionInvocationUnaryD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
@@ -261,7 +261,7 @@ define dso_local void @_ZN23FunctionInvocationUnaryD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23FunctionInvocationUnaryD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   tail call void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) #11
@@ -276,7 +276,7 @@ define dso_local noundef nonnull ptr @_ZNK23FunctionInvocationUnary5cloneEv(ptr 
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23FunctionInvocationUnary, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 56
   %4 = getelementptr inbounds i8, ptr %0, i64 56
   %5 = load i32, ptr %4, align 8

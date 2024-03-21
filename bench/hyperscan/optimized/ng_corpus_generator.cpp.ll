@@ -222,7 +222,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i), !noalias !7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorUtf8E, i64 0, inrange i32 0, i64 2), ptr %call.i6, align 8, !noalias !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorUtf8E, i64 0, i32 0, i64 2), ptr %call.i6, align 8, !noalias !7
   %expr.i.i = getelementptr inbounds i8, ptr %call.i6, i64 8
   store ptr %expr, ptr %expr.i.i, align 8, !noalias !7
   %graph.i.i = getelementptr inbounds i8, ptr %call.i6, i64 16
@@ -298,7 +298,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_119CorpusGeneratorUtf8ESt14default_deleteIS1_EED
   br label %return
 
 if.else:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorImplE, i64 0, inrange i32 0, i64 2), ptr %call.i6, align 8, !noalias !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_119CorpusGeneratorImplE, i64 0, i32 0, i64 2), ptr %call.i6, align 8, !noalias !10
   %expr.i.i7 = getelementptr inbounds i8, ptr %call.i6, i64 8
   store ptr %expr, ptr %expr.i.i7, align 8, !noalias !10
   %graph.i.i8 = getelementptr inbounds i8, ptr %call.i6, i64 16

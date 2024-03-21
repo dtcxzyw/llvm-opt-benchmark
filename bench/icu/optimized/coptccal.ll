@@ -41,7 +41,7 @@ entry:
 define void @_ZN6icu_7514CopticCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7510CECalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [58 x ptr] }, ptr @_ZTVN6icu_7514CopticCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr] }, ptr @_ZTVN6icu_7514CopticCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -51,7 +51,7 @@ declare void @_ZN6icu_7510CECalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef no
 define void @_ZN6icu_7514CopticCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %other) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7510CECalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %other)
-  store ptr getelementptr inbounds ({ [58 x ptr] }, ptr @_ZTVN6icu_7514CopticCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr] }, ptr @_ZTVN6icu_7514CopticCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

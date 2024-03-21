@@ -1310,7 +1310,7 @@ define void @_ZN14RtpAudioStreamC2EP7QObjectP13_rtpstream_idb(ptr noundef nonnul
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14RtpAudioStream, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14RtpAudioStream, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 3
   store i8 1, ptr %14, align 8
   %15 = getelementptr inbounds %class.RtpAudioStream, ptr %12, i32 0, i32 4
@@ -1669,7 +1669,7 @@ define void @_ZN14RtpAudioStreamD2Ev(ptr noundef nonnull align 8 dereferenceable
   %4 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14RtpAudioStream, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV14RtpAudioStream, i32 0, i32 0, i32 2), ptr %5, align 8
   store i32 0, ptr %3, align 4
   br label %6
 

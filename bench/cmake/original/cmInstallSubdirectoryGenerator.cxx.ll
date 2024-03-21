@@ -349,7 +349,7 @@ define dso_local void @_ZN30cmInstallSubdirectoryGeneratorC2EP10cmMakefileNSt7__
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV30cmInstallSubdirectoryGenerator, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV30cmInstallSubdirectoryGenerator, i32 0, i32 0, i32 2), ptr %17, align 8
   %21 = getelementptr inbounds %class.cmInstallSubdirectoryGenerator, ptr %17, i32 0, i32 1
   %22 = load ptr, ptr %6, align 8
   store ptr %22, ptr %21, align 8
@@ -547,7 +547,7 @@ define dso_local void @_ZN30cmInstallSubdirectoryGeneratorD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV30cmInstallSubdirectoryGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV30cmInstallSubdirectoryGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmInstallSubdirectoryGenerator, ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %3) #3

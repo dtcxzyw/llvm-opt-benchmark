@@ -5927,9 +5927,9 @@ define void @_ZN8SplitterC2EP7QWidget(ptr noundef nonnull align 8 dereferenceabl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN9QSplitterC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV8Splitter, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV8Splitter, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV8Splitter, i32 0, inrange i32 1, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV8Splitter, i32 0, i32 1, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -5947,9 +5947,9 @@ define void @_ZN8SplitterC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull alig
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN9QSplitterC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV8Splitter, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV8Splitter, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV8Splitter, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV8Splitter, i32 0, i32 1, i32 2), ptr %10, align 8
   ret void
 }
 
@@ -6091,9 +6091,9 @@ define void @_ZN21MultiViewer_ContainerC2ERN3vcg22QtThreadSafeMemoryInfoEbmmP7QW
   %16 = load ptr, ptr %7, align 8
   %17 = load ptr, ptr %12, align 8
   call void @_ZN8SplitterC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV21MultiViewer_Container, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV21MultiViewer_Container, i32 0, i32 0, i32 2), ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV21MultiViewer_Container, i32 0, inrange i32 1, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV21MultiViewer_Container, i32 0, i32 1, i32 2), ptr %18, align 8
   %19 = getelementptr inbounds %class.MultiViewer_Container, ptr %16, i32 0, i32 1
   invoke void @_ZN12MeshDocumentC1Ev(ptr noundef nonnull align 8 dereferenceable(192) %19)
           to label %20 unwind label %44
@@ -6447,9 +6447,9 @@ define void @_ZN21MultiViewer_ContainerD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV21MultiViewer_Container, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV21MultiViewer_Container, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV21MultiViewer_Container, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV21MultiViewer_Container, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.MultiViewer_Container, ptr %3, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
   invoke void @_ZN7QObject11deleteLaterEv(ptr noundef nonnull align 8 dereferenceable(16) %6)

@@ -54,7 +54,7 @@ define dso_local void @_ZN12Sample_DebugC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %6)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12Sample_Debug, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12Sample_Debug, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 1
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds %class.Sample_Debug, ptr %6, i32 0, i32 2
@@ -229,7 +229,7 @@ define dso_local void @_ZN12Sample_DebugD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12Sample_Debug, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12Sample_Debug, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.Sample_Debug, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   invoke void @_Z24rcFreeCompactHeightfieldP20rcCompactHeightfield(ptr noundef %5)

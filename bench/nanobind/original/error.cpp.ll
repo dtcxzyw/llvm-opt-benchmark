@@ -351,7 +351,7 @@ define void @_ZN8nanobind12python_errorC2Ev(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 2
@@ -403,7 +403,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -424,7 +424,7 @@ define void @_ZN8nanobind12python_errorD2Ev(ptr noundef nonnull align 8 derefere
   %4 = alloca %"struct.nanobind::error_scope", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
@@ -608,7 +608,7 @@ define void @_ZN8nanobind12python_errorC2ERKS0_(ptr noundef nonnull align 8 dere
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
   %12 = getelementptr inbounds %"class.nanobind::python_error", ptr %11, i32 0, i32 1
@@ -714,7 +714,7 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -758,7 +758,7 @@ define void @_ZN8nanobind12python_errorC2EOS0_(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind12python_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.nanobind::python_error", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.nanobind::python_error", ptr %8, i32 0, i32 1
@@ -1942,7 +1942,7 @@ define void @_ZN8nanobind17builtin_exceptionC2ENS_14exception_typeEPKc(ptr nound
 13:                                               ; preds = %12, %10
   %14 = phi ptr [ %11, %10 ], [ @.str.6, %12 ]
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nanobind17builtin_exceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %15 = getelementptr inbounds %"class.nanobind::builtin_exception", ptr %7, i32 0, i32 1
   %16 = load i32, ptr %5, align 4
   store i32 %16, ptr %15, align 8

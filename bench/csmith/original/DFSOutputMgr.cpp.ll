@@ -59,7 +59,7 @@ define dso_local void @_ZN12DFSOutputMgrC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV12DFSOutputMgr, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV12DFSOutputMgr, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.DFSOutputMgr, ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   ret void
@@ -75,7 +75,7 @@ define dso_local void @_ZN12DFSOutputMgrD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV12DFSOutputMgr, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV12DFSOutputMgr, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.DFSOutputMgr, ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN9OutputMgrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3

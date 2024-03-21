@@ -2851,7 +2851,7 @@ return:                                           ; preds = %if.end23, %if.then2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15CacheDumperImplD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb15CacheDumperImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb15CacheDumperImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %writer_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %writer_, align 8
   store ptr null, ptr %writer_, align 8
@@ -2981,7 +2981,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21CacheDumpedLoaderImplD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb21CacheDumpedLoaderImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb21CacheDumpedLoaderImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %reader_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %reader_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3076,7 +3076,7 @@ _ZNSt10shared_ptrIN7rocksdb14SecondaryCacheEED2Ev.exit: ; preds = %_ZNSt10unique
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb21CacheDumpedLoaderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb21CacheDumpedLoaderImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb21CacheDumpedLoaderImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %reader_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %reader_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

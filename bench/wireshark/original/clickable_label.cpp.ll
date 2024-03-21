@@ -162,9 +162,9 @@ define void @_ZN14ClickableLabelC2EP7QWidget(ptr noundef nonnull align 8 derefer
   %12 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %13 = load i32, ptr %12, align 4
   call void @_ZN6QLabelC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %11, i32 %13)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14ClickableLabel, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14ClickableLabel, i32 0, i32 0, i32 2), ptr %10, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14ClickableLabel, i32 0, inrange i32 1, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14ClickableLabel, i32 0, i32 1, i32 2), ptr %14, align 8
   invoke void @_ZN7QWidget15setMinimumWidthEi(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef 0)
           to label %15 unwind label %19
 

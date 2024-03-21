@@ -1373,7 +1373,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 _ZN4pstd6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_3pmr21polymorphic_allocatorIS8_EEED2Ev.exit: ; preds = %entry, %if.end.i.i.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr %this, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr %this, align 64
   %block_list.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %block_list.i.i, align 8
   %tobool.not3.i.i = icmp eq ptr %6, null
@@ -1648,7 +1648,7 @@ entry:
   %agg.tmp115 = alloca %"class.pbrt::ParameterDictionary", align 8
   %errorExit.i = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %errorExit.i, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 64
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i64 0, i32 0, i64 2), ptr %this, align 64
   %scene2 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %scene, ptr %scene2, align 16
   %currentBlock = getelementptr inbounds i8, ptr %this, i64 24
@@ -1681,7 +1681,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %.noexc
   %transformCache = getelementptr inbounds i8, ptr %this, i64 1280
   %call.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr %transformCache, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr %transformCache, align 64
   %upstream2.i.i = getelementptr inbounds i8, ptr %this, i64 1288
   store ptr %call.i, ptr %upstream2.i.i, align 8
   %block_size.i.i = getelementptr inbounds i8, ptr %this, i64 1296
@@ -2979,7 +2979,7 @@ terminate.lpad.i:                                 ; preds = %if.end.i.i.i.i
   unreachable
 
 _ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEED2Ev.exit: ; preds = %entry, %if.end.i.i.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr %this, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr %this, align 64
   %block_list.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %block_list.i.i, align 8
   %tobool.not3.i.i = icmp eq ptr %6, null
@@ -5719,7 +5719,7 @@ _ZNSt8functionIFN4pbrt7SamplerEvEED2Ev.exit.i:    ; preds = %if.else.i.i.i.i.i.i
   store i32 0, ptr %activeWorkers.i.i.i, align 8
   %prev.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i.i, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %func.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt7SamplerEvESt5_BindIFZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES5_NS0_17CameraSceneEntityES5_S5_S5_E3$_0vEEE9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i, align 8
@@ -5947,7 +5947,7 @@ _ZNSt8functionIFN4pbrt6CameraEvEED2Ev.exit.i:     ; preds = %if.else.i.i.i.i.i.i
   store i32 0, ptr %activeWorkers.i.i.i42, align 8
   %prev.i.i.i43 = getelementptr inbounds i8, ptr %call.i33, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i.i43, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i64 0, inrange i32 0, i64 2), ptr %call.i33, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i64 0, i32 0, i64 2), ptr %call.i33, align 8
   %func.i.i44 = getelementptr inbounds i8, ptr %call.i33, i64 40
   %_M_invoker.i.i.i45 = getelementptr inbounds i8, ptr %call.i33, i64 64
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt6CameraEvESt5_BindIFZNS0_10BasicScene10SetOptionsENS0_11SceneEntityES5_NS0_17CameraSceneEntityES5_S5_S5_E3$_1vEEE9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i45, align 8
@@ -6591,7 +6591,7 @@ _ZNSt8functionIFN4pbrt6MediumEvEED2Ev.exit.i:     ; preds = %if.else.i.i.i.i.i.i
   store i32 0, ptr %activeWorkers.i.i.i, align 8
   %prev.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i.i, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %func.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt6MediumEvESt5_BindIFZNS0_10BasicScene9AddMediumENS0_22TransformedSceneEntityEE3$_0vEEE9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i, align 8
@@ -7360,7 +7360,7 @@ _ZNSt8functionIFN4pbrt5LightEvEED2Ev.exit.i:      ; preds = %if.else.i.i.i.i.i.i
   store i32 0, ptr %activeWorkers.i.i.i, align 8
   %prev.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i.i, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %func.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt5LightEvESt5_BindIFZNS0_10BasicScene8AddLightENS0_16LightSceneEntityEE3$_0vEEE9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i, align 8
@@ -14643,7 +14643,7 @@ _ZNSt8functionIFN4pbrt12FloatTextureEvEED2Ev.exit.i: ; preds = %if.else.i.i.i.i.
   store i32 0, ptr %activeWorkers.i.i.i, align 8
   %prev.i.i.i = getelementptr inbounds i8, ptr %call.i92, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i.i, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i64 0, inrange i32 0, i64 2), ptr %call.i92, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i64 0, i32 0, i64 2), ptr %call.i92, align 8
   %func.i.i = getelementptr inbounds i8, ptr %call.i92, i64 40
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %call.i92, i64 64
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt12FloatTextureEvESt5_BindIFZNS0_10BasicScene15AddFloatTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0SB_EEE9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i, align 8
@@ -15479,7 +15479,7 @@ _ZNSt8functionIFN4pbrt15SpectrumTextureEvEED2Ev.exit.i: ; preds = %if.else.i.i.i
   store i32 0, ptr %activeWorkers.i.i.i, align 8
   %prev.i.i.i = getelementptr inbounds i8, ptr %call.i146, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i.i, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i64 0, inrange i32 0, i64 2), ptr %call.i146, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i64 0, i32 0, i64 2), ptr %call.i146, align 8
   %func.i.i = getelementptr inbounds i8, ptr %call.i146, i64 40
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %call.i146, i64 64
   store ptr @"_ZNSt17_Function_handlerIFN4pbrt15SpectrumTextureEvESt5_BindIFZNS0_10BasicScene18AddSpectrumTextureENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_22TransformedSceneEntityEE3$_0SB_EEE9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i, align 8
@@ -18375,7 +18375,7 @@ _ZNSt8functionIFPN4pbrt5ImageEvEED2Ev.exit.i:     ; preds = %invoke.cont.i
   store i32 0, ptr %activeWorkers.i.i.i, align 8
   %prev.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %prev.i.i.i, i8 0, i64 17, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %func.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %_M_invoker.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 64
   store ptr @"_ZNSt17_Function_handlerIFPN4pbrt5ImageEvESt5_BindIFZNS0_10BasicScene22startLoadingNormalMapsERKNS0_19ParameterDictionaryEE3$_0NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE9_M_invokeERKSt9_Any_data", ptr %_M_invoker.i.i.i, align 8
@@ -24847,7 +24847,7 @@ _ZNSt8_Rb_treeIN4pbrt14InternedStringESt4pairIKS1_NS0_9PrimitiveEESt10_Select1st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt17BasicSceneBuilderD2Ev(ptr noundef nonnull align 64 dereferenceable(3544) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 64
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i64 0, i32 0, i64 2), ptr %this, align 64
   %medium.i = getelementptr inbounds i8, ptr %this, i64 3512
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %medium.i) #27
   %nStored.le.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 2664
@@ -25160,7 +25160,7 @@ terminate.lpad.i.i61:                             ; preds = %if.end.i.i.i.i.i
   unreachable
 
 _ZN4pstd6vectorIPKN4pbrt9TransformENS_3pmr21polymorphic_allocatorIS4_EEED2Ev.exit.i: ; preds = %if.end.i.i.i.i.i, %_ZNSt6vectorIN4pbrt17BasicSceneBuilder13GraphicsStateESaIS2_EED2Ev.exit
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr %transformCache, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr %transformCache, align 64
   %block_list.i.i.i = getelementptr inbounds i8, ptr %this, i64 1320
   %62 = load ptr, ptr %block_list.i.i.i, align 8
   %tobool.not3.i.i.i = icmp eq ptr %62, null
@@ -25300,7 +25300,7 @@ terminate.lpad:                                   ; preds = %if.end.i.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pstd3pmr25monotonic_buffer_resourceD2Ev(ptr noundef nonnull align 64 dereferenceable(48) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr %this, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr %this, align 64
   %block_list.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %block_list.i, align 8
   %tobool.not3.i = icmp eq ptr %0, null
@@ -29019,7 +29019,7 @@ declare void @_ZNSt18condition_variableC1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_7SamplerEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #27
   %set.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -29051,14 +29051,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFN4pbrt7SamplerEvEED2Ev.exit:      ; preds = %_ZN4pstd8optionalIN4pbrt7SamplerEED2Ev.exit, %if.then.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_7SamplerEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i) #27
   %set.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -29189,7 +29189,7 @@ _ZN4pbrt12StringPrintfIJRKbEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt11ParallelJobD2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -29798,7 +29798,7 @@ declare void @_ZN4pbrt6Camera6CreateERKNSt7__cxx1112basic_stringIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_6CameraEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #27
   %set.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -29830,14 +29830,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFN4pbrt6CameraEvEED2Ev.exit:       ; preds = %_ZN4pstd8optionalIN4pbrt6CameraEED2Ev.exit, %if.then.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_6CameraEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i) #27
   %set.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -30339,7 +30339,7 @@ declare void @_ZN4pbrt6Medium6CreateERKNSt7__cxx1112basic_stringIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_6MediumEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #27
   %set.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -30371,14 +30371,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFN4pbrt6MediumEvEED2Ev.exit:       ; preds = %_ZN4pstd8optionalIN4pbrt6MediumEED2Ev.exit, %if.then.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_6MediumEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i) #27
   %set.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -32125,7 +32125,7 @@ while.end:                                        ; preds = %while.body, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobIPNS_5ImageEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #27
   %set.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -32157,14 +32157,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFPN4pbrt5ImageEvEED2Ev.exit:       ; preds = %_ZN4pstd8optionalIPN4pbrt5ImageEED2Ev.exit, %if.then.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobIPNS_5ImageEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i) #27
   %set.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -32552,7 +32552,7 @@ sw.epilog:                                        ; preds = %"_ZNSt5_BindIFZN4pb
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_12FloatTextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #27
   %set.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -32584,14 +32584,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFN4pbrt12FloatTextureEvEED2Ev.exit: ; preds = %_ZN4pstd8optionalIN4pbrt12FloatTextureEED2Ev.exit, %if.then.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_12FloatTextureEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i) #27
   %set.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -32982,7 +32982,7 @@ sw.epilog:                                        ; preds = %"_ZNSt5_BindIFZN4pb
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_15SpectrumTextureEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #27
   %set.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -33014,14 +33014,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFN4pbrt15SpectrumTextureEvEED2Ev.exit: ; preds = %_ZN4pstd8optionalIN4pbrt15SpectrumTextureEED2Ev.exit, %if.then.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_15SpectrumTextureEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i) #27
   %set.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -33504,7 +33504,7 @@ declare noundef zeroext i1 @_ZN4pbrt14DoParallelWorkEv() local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_5LightEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #27
   %set.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -33536,14 +33536,14 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFN4pbrt5LightEvEED2Ev.exit:        ; preds = %_ZN4pstd8optionalIN4pbrt5LightEED2Ev.exit, %if.then.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt8AsyncJobINS_5LightEED0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cv.i = getelementptr inbounds i8, ptr %this, i64 136
   tail call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv.i) #27
   %set.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -46441,7 +46441,7 @@ define internal noalias noundef nonnull ptr @"_ZNSt17_Function_handlerIFN4pstd3p
 entry:
   %call.i.i.i = tail call noundef ptr @_ZN4pstd3pmr20get_default_resourceEv() #27
   %call2.i.i.i = tail call noalias noundef nonnull align 64 dereferenceable(64) ptr @_ZnwmSt11align_val_t(i64 noundef 64, i64 noundef 64) #30
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr %call2.i.i.i, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr %call2.i.i.i, align 64
   %upstream2.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 8
   store ptr %call.i.i.i, ptr %upstream2.i.i.i.i, align 8
   %block_size3.i.i.i.i = getelementptr inbounds i8, ptr %call2.i.i.i, i64 16
@@ -53942,7 +53942,7 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #27
   %call.i.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, align 64
   store ptr %call.i.i, ptr getelementptr inbounds (%"class.pbrt::InternCache", ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, i64 0, i32 0, i32 1), align 8
   store i64 262144, ptr getelementptr inbounds (%"class.pbrt::InternCache", ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, i64 0, i32 0, i32 2), align 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.pbrt::InternCache", ptr @_ZN4pbrt11SceneEntity15internedStringsB5cxx11E, i64 0, i32 0, i32 3), i8 0, i64 24, i1 false)

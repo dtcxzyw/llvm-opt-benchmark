@@ -2918,7 +2918,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb11StackableDBC2EPNS_2DBE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [161 x ptr] }, ptr @_ZTVN7rocksdb7blob_db6BlobDBE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [161 x ptr] }, ptr @_ZTVN7rocksdb7blob_db6BlobDBE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2931,7 +2931,7 @@ entry:
   store ptr %db, ptr %db.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb2DBC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %db_ = getelementptr inbounds %"class.rocksdb::StackableDB", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %db.addr, align 8
   store ptr %0, ptr %db_, align 8
@@ -13648,7 +13648,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [152 x ptr] }, ptr @_ZTVN7rocksdb2DBE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [152 x ptr] }, ptr @_ZTVN7rocksdb2DBE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13685,7 +13685,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %shared_db_ptr_ = getelementptr inbounds %"class.rocksdb::StackableDB", ptr %this1, i32 0, i32 2
   %call = call noundef zeroext i1 @_ZSteqIN7rocksdb2DBEEbRKSt10shared_ptrIT_EDn(ptr noundef nonnull align 8 dereferenceable(16) %shared_db_ptr_, ptr null) #3
   br i1 %call, label %if.then, label %if.else

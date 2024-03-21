@@ -608,7 +608,7 @@ if.end16:                                         ; preds = %if.end
   store i8 %14, ptr @_ZN6icu_7513haveCopyrightE, align 1
   %errorCode.i.i = getelementptr inbounds i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %errorCode, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, i32 0, i64 2), ptr %errorCode, align 8
   %location.i = getelementptr inbounds i8, ptr %errorCode, i64 16
   store ptr @.str.6, ptr %location.i, align 8
   %call17 = invoke noalias noundef nonnull dereferenceable(864) ptr @_Znwm(i64 noundef 864) #19
@@ -1073,7 +1073,7 @@ entry:
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
   %errorCode.i.i = getelementptr inbounds i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %errorCode, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, i32 0, i64 2), ptr %errorCode, align 8
   %location.i = getelementptr inbounds i8, ptr %errorCode, i64 16
   store ptr @.str.11, ptr %location.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %lineString) #15

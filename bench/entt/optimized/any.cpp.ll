@@ -126423,7 +126423,7 @@ invoke.cont3:                                     ; preds = %if.then
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %agg.tmp, align 8, !tbaa !4
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %2 = load ptr, ptr %vtable_.i.i.i, align 8, !tbaa !899
   %cmp.not.i.i.i = icmp eq ptr %2, null
@@ -126830,7 +126830,7 @@ invoke.cont98:                                    ; preds = %if.then94
           to label %invoke.cont100 unwind label %lpad99
 
 invoke.cont100:                                   ; preds = %invoke.cont98
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp96, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %agg.tmp96, align 8, !tbaa !4
   %vtable_.i.i.i585 = getelementptr inbounds i8, ptr %agg.tmp96, i64 8
   %69 = load ptr, ptr %vtable_.i.i.i585, align 8, !tbaa !899
   %cmp.not.i.i.i586 = icmp eq ptr %69, null
@@ -127252,7 +127252,7 @@ invoke.cont231:                                   ; preds = %if.then227
           to label %invoke.cont233 unwind label %lpad232
 
 invoke.cont233:                                   ; preds = %invoke.cont231
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp229, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %agg.tmp229, align 8, !tbaa !4
   %vtable_.i.i.i25 = getelementptr inbounds i8, ptr %agg.tmp229, i64 8
   %131 = load ptr, ptr %vtable_.i.i.i25, align 8, !tbaa !899
   %cmp.not.i.i.i26 = icmp eq ptr %131, null
@@ -128100,7 +128100,7 @@ entry:
           to label %call.i.noexc unwind label %lpad
 
 call.i.noexc:                                     ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i2, align 8, !tbaa !4, !noalias !913
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %call.i2, align 8, !tbaa !4, !noalias !913
   %impl_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 8
   %0 = load ptr, ptr %ref.tmp, align 8, !tbaa !916, !noalias !913
   store ptr %0, ptr %impl_.i.i, align 8, !tbaa !916, !noalias !913
@@ -128132,7 +128132,7 @@ _ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15Monomorphic
   %full_match_3.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %5 = load i8, ptr %full_match_3.i.i.i, align 8, !tbaa !920, !range !39, !noalias !913, !noundef !48
   store i8 %5, ptr %full_match_.i.i.i, align 8, !tbaa !920, !noalias !913
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4, !alias.scope !913
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4, !alias.scope !913
   %vtable_.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr @_ZZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9GetVTableINSA_11ValuePolicyIPKNS_16MatcherInterfaceIS9_EELb1EEEEEPKNSA_6VTableEvE7kVTableB5cxx11, ptr %vtable_.i.i.i.i, align 8, !tbaa !899, !alias.scope !913
   %call.i.i3.i.i.i3 = invoke noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #25
@@ -128145,7 +128145,7 @@ invoke.cont:                                      ; preds = %_ZN7testing18Polymo
   store i64 %6, ptr %value.i.i.i.i.i.i, align 8, !tbaa !38, !noalias !913
   %buffer_.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store ptr %call.i.i3.i.i.i3, ptr %buffer_.i.i.i.i.i, align 8, !tbaa !17, !alias.scope !913
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4, !alias.scope !913
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !4, !alias.scope !913
   %7 = load ptr, ptr %_M_refcount3.i.i.i.i.i, align 8, !tbaa !919
   %cmp.not.i.i.i.i = icmp eq ptr %7, null
   br i1 %cmp.not.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit, label %if.then.i.i.i.i
@@ -128209,7 +128209,7 @@ lpad:                                             ; preds = %_ZN7testing18Polymo
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
   %vtable_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i, align 8, !tbaa !899
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -153186,7 +153186,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12Any_SBO_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12Any_SBO_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153213,7 +153213,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_NoSBO_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_NoSBO_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153238,7 +153238,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_Empty_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_Empty_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153263,7 +153263,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35Any_SBOInPlaceTypeConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35Any_SBOInPlaceTypeConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153288,7 +153288,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Any_SBOAsRefConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Any_SBOAsRefConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153313,7 +153313,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34Any_SBOAsConstRefConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34Any_SBOAsConstRefConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153338,7 +153338,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBOCopyConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBOCopyConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153363,7 +153363,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26Any_SBOCopyAssignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26Any_SBOCopyAssignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153388,7 +153388,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBOMoveConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBOMoveConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153413,7 +153413,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26Any_SBOMoveAssignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26Any_SBOMoveAssignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153438,7 +153438,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBODirectAssignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBODirectAssignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153463,7 +153463,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_SBOAssignValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_SBOAssignValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153488,7 +153488,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBOAsRefAssignValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBOAsRefAssignValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153513,7 +153513,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33Any_SBOAsConstRefAssignValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33Any_SBOAsConstRefAssignValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153538,7 +153538,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_SBOTransferValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_SBOTransferValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153563,7 +153563,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_SBOTransferConstValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_SBOTransferConstValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153588,7 +153588,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_SBOAsRefTransferValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_SBOAsRefTransferValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153613,7 +153613,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35Any_SBOAsConstRefTransferValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35Any_SBOAsConstRefTransferValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153638,7 +153638,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV37Any_NoSBOInPlaceTypeConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV37Any_NoSBOInPlaceTypeConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153663,7 +153663,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31Any_NoSBOAsRefConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31Any_NoSBOAsRefConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153688,7 +153688,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36Any_NoSBOAsConstRefConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36Any_NoSBOAsConstRefConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153713,7 +153713,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBOCopyConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBOCopyConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153738,7 +153738,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_NoSBOCopyAssignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_NoSBOCopyAssignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153763,7 +153763,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBOMoveConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBOMoveConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153788,7 +153788,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_NoSBOMoveAssignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_NoSBOMoveAssignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153813,7 +153813,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBODirectAssignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBODirectAssignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153838,7 +153838,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_NoSBOAssignValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_NoSBOAssignValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153863,7 +153863,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBOAsRefAssignValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBOAsRefAssignValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153888,7 +153888,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35Any_NoSBOAsConstRefAssignValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35Any_NoSBOAsConstRefAssignValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153913,7 +153913,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_NoSBOTransferValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_NoSBOTransferValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153938,7 +153938,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32Any_NoSBOTransferConstValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32Any_NoSBOTransferConstValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153963,7 +153963,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32Any_NoSBOAsRefTransferValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32Any_NoSBOAsRefTransferValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -153988,7 +153988,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV37Any_NoSBOAsConstRefTransferValue_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV37Any_NoSBOAsConstRefTransferValue_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154013,7 +154013,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36Any_VoidInPlaceTypeConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36Any_VoidInPlaceTypeConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154038,7 +154038,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Any_VoidCopyConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Any_VoidCopyConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154063,7 +154063,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_VoidCopyAssignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_VoidCopyAssignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154088,7 +154088,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Any_VoidMoveConstruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Any_VoidMoveConstruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154113,7 +154113,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_VoidMoveAssignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_VoidMoveAssignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154138,7 +154138,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40Any_SBOMoveValidButUnspecifiedState_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40Any_SBOMoveValidButUnspecifiedState_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154163,7 +154163,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV42Any_NoSBOMoveValidButUnspecifiedState_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV42Any_NoSBOMoveValidButUnspecifiedState_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154188,7 +154188,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41Any_VoidMoveValidButUnspecifiedState_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41Any_VoidMoveValidButUnspecifiedState_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154213,7 +154213,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_SBODestruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_SBODestruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154238,7 +154238,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_NoSBODestruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_NoSBODestruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154263,7 +154263,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24Any_VoidDestruction_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24Any_VoidDestruction_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154288,7 +154288,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16Any_Emplace_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16Any_Emplace_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154313,7 +154313,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20Any_EmplaceVoid_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20Any_EmplaceVoid_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154338,7 +154338,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_Reset_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_Reset_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154363,7 +154363,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16Any_SBOSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16Any_SBOSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154388,7 +154388,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18Any_NoSBOSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18Any_NoSBOSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154413,7 +154413,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17Any_VoidSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17Any_VoidSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154438,7 +154438,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_SBOWithNoSBOSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_SBOWithNoSBOSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154463,7 +154463,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_SBOWithRefSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_SBOWithRefSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154488,7 +154488,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBOWithConstRefSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_SBOWithConstRefSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154513,7 +154513,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_SBOWithEmptySwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_SBOWithEmptySwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154538,7 +154538,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24Any_SBOWithVoidSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24Any_SBOWithVoidSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154563,7 +154563,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_NoSBOWithRefSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_NoSBOWithRefSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154588,7 +154588,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBOWithConstRefSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Any_NoSBOWithConstRefSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154613,7 +154613,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_NoSBOWithEmptySwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_NoSBOWithEmptySwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154638,7 +154638,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26Any_NoSBOWithVoidSwap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26Any_NoSBOWithVoidSwap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154663,7 +154663,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_AsRef_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_AsRef_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154688,7 +154688,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19Any_Comparable_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19Any_Comparable_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154713,7 +154713,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24Any_NoSBOComparable_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24Any_NoSBOComparable_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154738,7 +154738,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22Any_RefComparable_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22Any_RefComparable_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154763,7 +154763,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_ConstRefComparable_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_ConstRefComparable_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154788,7 +154788,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_UnrelatedComparable_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Any_UnrelatedComparable_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154813,7 +154813,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22Any_NonComparable_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22Any_NonComparable_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154838,7 +154838,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44Any_AssociativeContainerOfNonComparable_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44Any_AssociativeContainerOfNonComparable_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154888,7 +154888,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41Any_SequenceContainerOfNonComparable_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41Any_SequenceContainerOfNonComparable_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154913,7 +154913,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20Any_CompareVoid_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20Any_CompareVoid_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154938,7 +154938,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16Any_AnyCast_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16Any_AnyCast_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -154963,7 +154963,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34AnyDeathTest_DISABLED_AnyCast_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34AnyDeathTest_DISABLED_AnyCast_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -155074,7 +155074,7 @@ if.then.i.i.i.i.i.i.i:                            ; preds = %invoke.cont3
   store i32 1, ptr %_M_use_count.i.i.i, align 8, !tbaa !925
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4, !tbaa !927
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !4
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %call, ptr %_M_ptr.i.i, align 8, !tbaa !1066
   call void @llvm.experimental.noalias.scope.decl(metadata !1068)
@@ -155355,7 +155355,7 @@ declare void @_ZN7testing8internal2RE4InitEPKc(ptr noundef nonnull align 8 deref
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !919
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -155412,7 +155412,7 @@ _ZN7testing8internal19MatchesRegexMatcherD2Ev.exit: ; preds = %if.then7.i.i.i.i,
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !919
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -155736,7 +155736,7 @@ declare noundef zeroext i1 @_ZN7testing8internal2RE12PartialMatchEPKcRKS1_(ptr n
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8, !tbaa !899
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -155850,7 +155850,7 @@ if.end:                                           ; preds = %invoke.cont, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
   %vtable_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %vtable_.i.i.i, align 8, !tbaa !899
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -155977,7 +155977,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16Any_MakeAny_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16Any_MakeAny_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156002,7 +156002,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21Any_ForwardAsAny_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21Any_ForwardAsAny_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156027,7 +156027,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24Any_NonCopyableType_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24Any_NonCopyableType_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156052,7 +156052,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Any_NonCopyableValueType_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29Any_NonCopyableValueType_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156077,7 +156077,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_NonMovableType_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_NonMovableType_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156102,7 +156102,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_Array_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14Any_Array_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156127,7 +156127,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26Any_CopyMoveReference_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26Any_CopyMoveReference_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156152,7 +156152,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31Any_CopyMoveConstReference_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31Any_CopyMoveConstReference_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156177,7 +156177,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_SBOVsZeroedSBOSize_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_SBOVsZeroedSBOSize_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156202,7 +156202,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21Any_SboAlignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21Any_SboAlignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156227,7 +156227,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_NoSboAlignment_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Any_NoSboAlignment_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156252,7 +156252,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_AggregatesMustWork_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27Any_AggregatesMustWork_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156283,7 +156283,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_DeducedArrayType_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25Any_DeducedArrayType_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -156555,7 +156555,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %9, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %10 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %11 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -156574,7 +156574,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -156833,7 +156833,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %9, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %10 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %11 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -156852,7 +156852,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -157096,7 +157096,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -157115,7 +157115,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -157217,7 +157217,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %9, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %10 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %11 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -157236,7 +157236,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -157439,7 +157439,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -157458,7 +157458,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -157797,7 +157797,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %9, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %10 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %11 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -157816,7 +157816,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -158060,7 +158060,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -158079,7 +158079,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -158395,7 +158395,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -158414,7 +158414,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -158727,7 +158727,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -158746,7 +158746,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -158855,7 +158855,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -158874,7 +158874,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -159289,7 +159289,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -159308,7 +159308,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -160593,7 +160593,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -160612,7 +160612,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -160721,7 +160721,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -160740,7 +160740,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -163686,7 +163686,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %9, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %10 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %11 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -163705,7 +163705,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -166031,7 +166031,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -166050,7 +166050,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -166335,7 +166335,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -166354,7 +166354,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -167675,7 +167675,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -167694,7 +167694,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -168653,7 +168653,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -168672,7 +168672,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -168916,7 +168916,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -168935,7 +168935,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -169179,7 +169179,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !34
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -169198,7 +169198,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #22
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -171639,7 +171639,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI12Any_SBO_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI12Any_SBO_TestEE, i64 0, i32 0, i64 2), ptr %call11.i, align 8, !tbaa !4
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %invoke.cont14.i unwind label %lpad4.i
 
@@ -171797,7 +171797,7 @@ invoke.cont8.i19:                                 ; preds = %invoke.cont6.i17
           to label %invoke.cont10.i unwind label %lpad4.i14
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_NoSBO_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i20, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_NoSBO_TestEE, i64 0, i32 0, i64 2), ptr %call11.i20, align 8, !tbaa !4
   %call15.i21 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i13, ptr noundef %call9.i18, ptr noundef nonnull %call11.i20)
           to label %invoke.cont14.i22 unwind label %lpad4.i14
 
@@ -171951,7 +171951,7 @@ invoke.cont8.i62:                                 ; preds = %invoke.cont6.i60
           to label %invoke.cont10.i64 unwind label %lpad4.i48
 
 invoke.cont10.i64:                                ; preds = %invoke.cont8.i62
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_Empty_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i63, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_Empty_TestEE, i64 0, i32 0, i64 2), ptr %call11.i63, align 8, !tbaa !4
   %call15.i65 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i36, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i47, ptr noundef %call9.i61, ptr noundef nonnull %call11.i63)
           to label %invoke.cont14.i66 unwind label %lpad4.i48
 
@@ -172105,7 +172105,7 @@ invoke.cont8.i110:                                ; preds = %invoke.cont6.i108
           to label %invoke.cont10.i112 unwind label %lpad4.i96
 
 invoke.cont10.i112:                               ; preds = %invoke.cont8.i110
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35Any_SBOInPlaceTypeConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i111, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35Any_SBOInPlaceTypeConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i111, align 8, !tbaa !4
   %call15.i113 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i84, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i95, ptr noundef %call9.i109, ptr noundef nonnull %call11.i111)
           to label %invoke.cont14.i114 unwind label %lpad4.i96
 
@@ -172259,7 +172259,7 @@ invoke.cont8.i158:                                ; preds = %invoke.cont6.i156
           to label %invoke.cont10.i160 unwind label %lpad4.i144
 
 invoke.cont10.i160:                               ; preds = %invoke.cont8.i158
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Any_SBOAsRefConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i159, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Any_SBOAsRefConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i159, align 8, !tbaa !4
   %call15.i161 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i132, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i143, ptr noundef %call9.i157, ptr noundef nonnull %call11.i159)
           to label %invoke.cont14.i162 unwind label %lpad4.i144
 
@@ -172413,7 +172413,7 @@ invoke.cont8.i206:                                ; preds = %invoke.cont6.i204
           to label %invoke.cont10.i208 unwind label %lpad4.i192
 
 invoke.cont10.i208:                               ; preds = %invoke.cont8.i206
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34Any_SBOAsConstRefConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i207, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34Any_SBOAsConstRefConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i207, align 8, !tbaa !4
   %call15.i209 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i180, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i191, ptr noundef %call9.i205, ptr noundef nonnull %call11.i207)
           to label %invoke.cont14.i210 unwind label %lpad4.i192
 
@@ -172567,7 +172567,7 @@ invoke.cont8.i254:                                ; preds = %invoke.cont6.i252
           to label %invoke.cont10.i256 unwind label %lpad4.i240
 
 invoke.cont10.i256:                               ; preds = %invoke.cont8.i254
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBOCopyConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i255, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBOCopyConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i255, align 8, !tbaa !4
   %call15.i257 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.50, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i228, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i239, ptr noundef %call9.i253, ptr noundef nonnull %call11.i255)
           to label %invoke.cont14.i258 unwind label %lpad4.i240
 
@@ -172721,7 +172721,7 @@ invoke.cont8.i302:                                ; preds = %invoke.cont6.i300
           to label %invoke.cont10.i304 unwind label %lpad4.i288
 
 invoke.cont10.i304:                               ; preds = %invoke.cont8.i302
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26Any_SBOCopyAssignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i303, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26Any_SBOCopyAssignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i303, align 8, !tbaa !4
   %call15.i305 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i276, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i287, ptr noundef %call9.i301, ptr noundef nonnull %call11.i303)
           to label %invoke.cont14.i306 unwind label %lpad4.i288
 
@@ -172875,7 +172875,7 @@ invoke.cont8.i350:                                ; preds = %invoke.cont6.i348
           to label %invoke.cont10.i352 unwind label %lpad4.i336
 
 invoke.cont10.i352:                               ; preds = %invoke.cont8.i350
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBOMoveConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i351, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBOMoveConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i351, align 8, !tbaa !4
   %call15.i353 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i324, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i335, ptr noundef %call9.i349, ptr noundef nonnull %call11.i351)
           to label %invoke.cont14.i354 unwind label %lpad4.i336
 
@@ -173029,7 +173029,7 @@ invoke.cont8.i398:                                ; preds = %invoke.cont6.i396
           to label %invoke.cont10.i400 unwind label %lpad4.i384
 
 invoke.cont10.i400:                               ; preds = %invoke.cont8.i398
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26Any_SBOMoveAssignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i399, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26Any_SBOMoveAssignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i399, align 8, !tbaa !4
   %call15.i401 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.57, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i372, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i383, ptr noundef %call9.i397, ptr noundef nonnull %call11.i399)
           to label %invoke.cont14.i402 unwind label %lpad4.i384
 
@@ -173183,7 +173183,7 @@ invoke.cont8.i446:                                ; preds = %invoke.cont6.i444
           to label %invoke.cont10.i448 unwind label %lpad4.i432
 
 invoke.cont10.i448:                               ; preds = %invoke.cont8.i446
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBODirectAssignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i447, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBODirectAssignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i447, align 8, !tbaa !4
   %call15.i449 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.59, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i420, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i431, ptr noundef %call9.i445, ptr noundef nonnull %call11.i447)
           to label %invoke.cont14.i450 unwind label %lpad4.i432
 
@@ -173337,7 +173337,7 @@ invoke.cont8.i494:                                ; preds = %invoke.cont6.i492
           to label %invoke.cont10.i496 unwind label %lpad4.i480
 
 invoke.cont10.i496:                               ; preds = %invoke.cont8.i494
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_SBOAssignValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i495, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_SBOAssignValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i495, align 8, !tbaa !4
   %call15.i497 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.61, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i468, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i479, ptr noundef %call9.i493, ptr noundef nonnull %call11.i495)
           to label %invoke.cont14.i498 unwind label %lpad4.i480
 
@@ -173491,7 +173491,7 @@ invoke.cont8.i542:                                ; preds = %invoke.cont6.i540
           to label %invoke.cont10.i544 unwind label %lpad4.i528
 
 invoke.cont10.i544:                               ; preds = %invoke.cont8.i542
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBOAsRefAssignValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i543, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBOAsRefAssignValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i543, align 8, !tbaa !4
   %call15.i545 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.66, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i516, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i527, ptr noundef %call9.i541, ptr noundef nonnull %call11.i543)
           to label %invoke.cont14.i546 unwind label %lpad4.i528
 
@@ -173645,7 +173645,7 @@ invoke.cont8.i590:                                ; preds = %invoke.cont6.i588
           to label %invoke.cont10.i592 unwind label %lpad4.i576
 
 invoke.cont10.i592:                               ; preds = %invoke.cont8.i590
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33Any_SBOAsConstRefAssignValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i591, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33Any_SBOAsConstRefAssignValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i591, align 8, !tbaa !4
   %call15.i593 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i564, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i575, ptr noundef %call9.i589, ptr noundef nonnull %call11.i591)
           to label %invoke.cont14.i594 unwind label %lpad4.i576
 
@@ -173799,7 +173799,7 @@ invoke.cont8.i638:                                ; preds = %invoke.cont6.i636
           to label %invoke.cont10.i640 unwind label %lpad4.i624
 
 invoke.cont10.i640:                               ; preds = %invoke.cont8.i638
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_SBOTransferValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i639, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_SBOTransferValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i639, align 8, !tbaa !4
   %call15.i641 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.71, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i612, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i623, ptr noundef %call9.i637, ptr noundef nonnull %call11.i639)
           to label %invoke.cont14.i642 unwind label %lpad4.i624
 
@@ -173953,7 +173953,7 @@ invoke.cont8.i686:                                ; preds = %invoke.cont6.i684
           to label %invoke.cont10.i688 unwind label %lpad4.i672
 
 invoke.cont10.i688:                               ; preds = %invoke.cont8.i686
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_SBOTransferConstValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i687, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_SBOTransferConstValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i687, align 8, !tbaa !4
   %call15.i689 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.75, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i660, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i671, ptr noundef %call9.i685, ptr noundef nonnull %call11.i687)
           to label %invoke.cont14.i690 unwind label %lpad4.i672
 
@@ -174107,7 +174107,7 @@ invoke.cont8.i734:                                ; preds = %invoke.cont6.i732
           to label %invoke.cont10.i736 unwind label %lpad4.i720
 
 invoke.cont10.i736:                               ; preds = %invoke.cont8.i734
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_SBOAsRefTransferValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i735, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_SBOAsRefTransferValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i735, align 8, !tbaa !4
   %call15.i737 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.78, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i708, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i719, ptr noundef %call9.i733, ptr noundef nonnull %call11.i735)
           to label %invoke.cont14.i738 unwind label %lpad4.i720
 
@@ -174261,7 +174261,7 @@ invoke.cont8.i782:                                ; preds = %invoke.cont6.i780
           to label %invoke.cont10.i784 unwind label %lpad4.i768
 
 invoke.cont10.i784:                               ; preds = %invoke.cont8.i782
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35Any_SBOAsConstRefTransferValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i783, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35Any_SBOAsConstRefTransferValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i783, align 8, !tbaa !4
   %call15.i785 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.80, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i756, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i767, ptr noundef %call9.i781, ptr noundef nonnull %call11.i783)
           to label %invoke.cont14.i786 unwind label %lpad4.i768
 
@@ -174415,7 +174415,7 @@ invoke.cont8.i830:                                ; preds = %invoke.cont6.i828
           to label %invoke.cont10.i832 unwind label %lpad4.i816
 
 invoke.cont10.i832:                               ; preds = %invoke.cont8.i830
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37Any_NoSBOInPlaceTypeConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i831, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37Any_NoSBOInPlaceTypeConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i831, align 8, !tbaa !4
   %call15.i833 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.82, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i804, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i815, ptr noundef %call9.i829, ptr noundef nonnull %call11.i831)
           to label %invoke.cont14.i834 unwind label %lpad4.i816
 
@@ -174569,7 +174569,7 @@ invoke.cont8.i878:                                ; preds = %invoke.cont6.i876
           to label %invoke.cont10.i880 unwind label %lpad4.i864
 
 invoke.cont10.i880:                               ; preds = %invoke.cont8.i878
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31Any_NoSBOAsRefConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i879, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31Any_NoSBOAsRefConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i879, align 8, !tbaa !4
   %call15.i881 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.86, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i852, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i863, ptr noundef %call9.i877, ptr noundef nonnull %call11.i879)
           to label %invoke.cont14.i882 unwind label %lpad4.i864
 
@@ -174723,7 +174723,7 @@ invoke.cont8.i926:                                ; preds = %invoke.cont6.i924
           to label %invoke.cont10.i928 unwind label %lpad4.i912
 
 invoke.cont10.i928:                               ; preds = %invoke.cont8.i926
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36Any_NoSBOAsConstRefConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i927, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36Any_NoSBOAsConstRefConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i927, align 8, !tbaa !4
   %call15.i929 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.94, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i900, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i911, ptr noundef %call9.i925, ptr noundef nonnull %call11.i927)
           to label %invoke.cont14.i930 unwind label %lpad4.i912
 
@@ -174877,7 +174877,7 @@ invoke.cont8.i974:                                ; preds = %invoke.cont6.i972
           to label %invoke.cont10.i976 unwind label %lpad4.i960
 
 invoke.cont10.i976:                               ; preds = %invoke.cont8.i974
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBOCopyConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i975, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBOCopyConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i975, align 8, !tbaa !4
   %call15.i977 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.96, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i948, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i959, ptr noundef %call9.i973, ptr noundef nonnull %call11.i975)
           to label %invoke.cont14.i978 unwind label %lpad4.i960
 
@@ -175031,7 +175031,7 @@ invoke.cont8.i1022:                               ; preds = %invoke.cont6.i1020
           to label %invoke.cont10.i1024 unwind label %lpad4.i1008
 
 invoke.cont10.i1024:                              ; preds = %invoke.cont8.i1022
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_NoSBOCopyAssignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1023, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_NoSBOCopyAssignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1023, align 8, !tbaa !4
   %call15.i1025 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.98, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i996, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1007, ptr noundef %call9.i1021, ptr noundef nonnull %call11.i1023)
           to label %invoke.cont14.i1026 unwind label %lpad4.i1008
 
@@ -175185,7 +175185,7 @@ invoke.cont8.i1070:                               ; preds = %invoke.cont6.i1068
           to label %invoke.cont10.i1072 unwind label %lpad4.i1056
 
 invoke.cont10.i1072:                              ; preds = %invoke.cont8.i1070
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBOMoveConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1071, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBOMoveConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1071, align 8, !tbaa !4
   %call15.i1073 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.100, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1044, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1055, ptr noundef %call9.i1069, ptr noundef nonnull %call11.i1071)
           to label %invoke.cont14.i1074 unwind label %lpad4.i1056
 
@@ -175339,7 +175339,7 @@ invoke.cont8.i1118:                               ; preds = %invoke.cont6.i1116
           to label %invoke.cont10.i1120 unwind label %lpad4.i1104
 
 invoke.cont10.i1120:                              ; preds = %invoke.cont8.i1118
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_NoSBOMoveAssignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1119, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_NoSBOMoveAssignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1119, align 8, !tbaa !4
   %call15.i1121 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.102, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1092, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1103, ptr noundef %call9.i1117, ptr noundef nonnull %call11.i1119)
           to label %invoke.cont14.i1122 unwind label %lpad4.i1104
 
@@ -175493,7 +175493,7 @@ invoke.cont8.i1166:                               ; preds = %invoke.cont6.i1164
           to label %invoke.cont10.i1168 unwind label %lpad4.i1152
 
 invoke.cont10.i1168:                              ; preds = %invoke.cont8.i1166
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBODirectAssignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1167, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBODirectAssignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1167, align 8, !tbaa !4
   %call15.i1169 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.104, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1140, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1151, ptr noundef %call9.i1165, ptr noundef nonnull %call11.i1167)
           to label %invoke.cont14.i1170 unwind label %lpad4.i1152
 
@@ -175647,7 +175647,7 @@ invoke.cont8.i1214:                               ; preds = %invoke.cont6.i1212
           to label %invoke.cont10.i1216 unwind label %lpad4.i1200
 
 invoke.cont10.i1216:                              ; preds = %invoke.cont8.i1214
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_NoSBOAssignValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1215, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_NoSBOAssignValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1215, align 8, !tbaa !4
   %call15.i1217 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.106, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1188, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1199, ptr noundef %call9.i1213, ptr noundef nonnull %call11.i1215)
           to label %invoke.cont14.i1218 unwind label %lpad4.i1200
 
@@ -175801,7 +175801,7 @@ invoke.cont8.i1262:                               ; preds = %invoke.cont6.i1260
           to label %invoke.cont10.i1264 unwind label %lpad4.i1248
 
 invoke.cont10.i1264:                              ; preds = %invoke.cont8.i1262
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBOAsRefAssignValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1263, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBOAsRefAssignValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1263, align 8, !tbaa !4
   %call15.i1265 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.110, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1236, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1247, ptr noundef %call9.i1261, ptr noundef nonnull %call11.i1263)
           to label %invoke.cont14.i1266 unwind label %lpad4.i1248
 
@@ -175955,7 +175955,7 @@ invoke.cont8.i1310:                               ; preds = %invoke.cont6.i1308
           to label %invoke.cont10.i1312 unwind label %lpad4.i1296
 
 invoke.cont10.i1312:                              ; preds = %invoke.cont8.i1310
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35Any_NoSBOAsConstRefAssignValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1311, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35Any_NoSBOAsConstRefAssignValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1311, align 8, !tbaa !4
   %call15.i1313 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.112, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1284, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1295, ptr noundef %call9.i1309, ptr noundef nonnull %call11.i1311)
           to label %invoke.cont14.i1314 unwind label %lpad4.i1296
 
@@ -176109,7 +176109,7 @@ invoke.cont8.i1358:                               ; preds = %invoke.cont6.i1356
           to label %invoke.cont10.i1360 unwind label %lpad4.i1344
 
 invoke.cont10.i1360:                              ; preds = %invoke.cont8.i1358
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_NoSBOTransferValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1359, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_NoSBOTransferValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1359, align 8, !tbaa !4
   %call15.i1361 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.114, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1332, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1343, ptr noundef %call9.i1357, ptr noundef nonnull %call11.i1359)
           to label %invoke.cont14.i1362 unwind label %lpad4.i1344
 
@@ -176263,7 +176263,7 @@ invoke.cont8.i1406:                               ; preds = %invoke.cont6.i1404
           to label %invoke.cont10.i1408 unwind label %lpad4.i1392
 
 invoke.cont10.i1408:                              ; preds = %invoke.cont8.i1406
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32Any_NoSBOTransferConstValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1407, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32Any_NoSBOTransferConstValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1407, align 8, !tbaa !4
   %call15.i1409 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.117, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1380, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1391, ptr noundef %call9.i1405, ptr noundef nonnull %call11.i1407)
           to label %invoke.cont14.i1410 unwind label %lpad4.i1392
 
@@ -176417,7 +176417,7 @@ invoke.cont8.i1454:                               ; preds = %invoke.cont6.i1452
           to label %invoke.cont10.i1456 unwind label %lpad4.i1440
 
 invoke.cont10.i1456:                              ; preds = %invoke.cont8.i1454
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32Any_NoSBOAsRefTransferValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1455, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32Any_NoSBOAsRefTransferValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1455, align 8, !tbaa !4
   %call15.i1457 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.120, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1428, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1439, ptr noundef %call9.i1453, ptr noundef nonnull %call11.i1455)
           to label %invoke.cont14.i1458 unwind label %lpad4.i1440
 
@@ -176571,7 +176571,7 @@ invoke.cont8.i1502:                               ; preds = %invoke.cont6.i1500
           to label %invoke.cont10.i1504 unwind label %lpad4.i1488
 
 invoke.cont10.i1504:                              ; preds = %invoke.cont8.i1502
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37Any_NoSBOAsConstRefTransferValue_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1503, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37Any_NoSBOAsConstRefTransferValue_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1503, align 8, !tbaa !4
   %call15.i1505 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.122, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1476, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1487, ptr noundef %call9.i1501, ptr noundef nonnull %call11.i1503)
           to label %invoke.cont14.i1506 unwind label %lpad4.i1488
 
@@ -176725,7 +176725,7 @@ invoke.cont8.i1550:                               ; preds = %invoke.cont6.i1548
           to label %invoke.cont10.i1552 unwind label %lpad4.i1536
 
 invoke.cont10.i1552:                              ; preds = %invoke.cont8.i1550
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36Any_VoidInPlaceTypeConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1551, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36Any_VoidInPlaceTypeConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1551, align 8, !tbaa !4
   %call15.i1553 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.124, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1524, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1535, ptr noundef %call9.i1549, ptr noundef nonnull %call11.i1551)
           to label %invoke.cont14.i1554 unwind label %lpad4.i1536
 
@@ -176879,7 +176879,7 @@ invoke.cont8.i1598:                               ; preds = %invoke.cont6.i1596
           to label %invoke.cont10.i1600 unwind label %lpad4.i1584
 
 invoke.cont10.i1600:                              ; preds = %invoke.cont8.i1598
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Any_VoidCopyConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1599, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Any_VoidCopyConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1599, align 8, !tbaa !4
   %call15.i1601 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.126, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1572, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1583, ptr noundef %call9.i1597, ptr noundef nonnull %call11.i1599)
           to label %invoke.cont14.i1602 unwind label %lpad4.i1584
 
@@ -177033,7 +177033,7 @@ invoke.cont8.i1646:                               ; preds = %invoke.cont6.i1644
           to label %invoke.cont10.i1648 unwind label %lpad4.i1632
 
 invoke.cont10.i1648:                              ; preds = %invoke.cont8.i1646
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_VoidCopyAssignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1647, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_VoidCopyAssignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1647, align 8, !tbaa !4
   %call15.i1649 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.128, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1620, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1631, ptr noundef %call9.i1645, ptr noundef nonnull %call11.i1647)
           to label %invoke.cont14.i1650 unwind label %lpad4.i1632
 
@@ -177187,7 +177187,7 @@ invoke.cont8.i1694:                               ; preds = %invoke.cont6.i1692
           to label %invoke.cont10.i1696 unwind label %lpad4.i1680
 
 invoke.cont10.i1696:                              ; preds = %invoke.cont8.i1694
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Any_VoidMoveConstruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1695, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Any_VoidMoveConstruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1695, align 8, !tbaa !4
   %call15.i1697 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.130, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1668, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1679, ptr noundef %call9.i1693, ptr noundef nonnull %call11.i1695)
           to label %invoke.cont14.i1698 unwind label %lpad4.i1680
 
@@ -177341,7 +177341,7 @@ invoke.cont8.i1742:                               ; preds = %invoke.cont6.i1740
           to label %invoke.cont10.i1744 unwind label %lpad4.i1728
 
 invoke.cont10.i1744:                              ; preds = %invoke.cont8.i1742
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_VoidMoveAssignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1743, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_VoidMoveAssignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1743, align 8, !tbaa !4
   %call15.i1745 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.132, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1716, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1727, ptr noundef %call9.i1741, ptr noundef nonnull %call11.i1743)
           to label %invoke.cont14.i1746 unwind label %lpad4.i1728
 
@@ -177495,7 +177495,7 @@ invoke.cont8.i1790:                               ; preds = %invoke.cont6.i1788
           to label %invoke.cont10.i1792 unwind label %lpad4.i1776
 
 invoke.cont10.i1792:                              ; preds = %invoke.cont8.i1790
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40Any_SBOMoveValidButUnspecifiedState_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1791, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40Any_SBOMoveValidButUnspecifiedState_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1791, align 8, !tbaa !4
   %call15.i1793 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.134, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1764, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1775, ptr noundef %call9.i1789, ptr noundef nonnull %call11.i1791)
           to label %invoke.cont14.i1794 unwind label %lpad4.i1776
 
@@ -177649,7 +177649,7 @@ invoke.cont8.i1838:                               ; preds = %invoke.cont6.i1836
           to label %invoke.cont10.i1840 unwind label %lpad4.i1824
 
 invoke.cont10.i1840:                              ; preds = %invoke.cont8.i1838
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42Any_NoSBOMoveValidButUnspecifiedState_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1839, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42Any_NoSBOMoveValidButUnspecifiedState_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1839, align 8, !tbaa !4
   %call15.i1841 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.137, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1812, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1823, ptr noundef %call9.i1837, ptr noundef nonnull %call11.i1839)
           to label %invoke.cont14.i1842 unwind label %lpad4.i1824
 
@@ -177803,7 +177803,7 @@ invoke.cont8.i1886:                               ; preds = %invoke.cont6.i1884
           to label %invoke.cont10.i1888 unwind label %lpad4.i1872
 
 invoke.cont10.i1888:                              ; preds = %invoke.cont8.i1886
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41Any_VoidMoveValidButUnspecifiedState_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1887, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41Any_VoidMoveValidButUnspecifiedState_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1887, align 8, !tbaa !4
   %call15.i1889 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.139, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1860, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1871, ptr noundef %call9.i1885, ptr noundef nonnull %call11.i1887)
           to label %invoke.cont14.i1890 unwind label %lpad4.i1872
 
@@ -177957,7 +177957,7 @@ invoke.cont8.i1934:                               ; preds = %invoke.cont6.i1932
           to label %invoke.cont10.i1936 unwind label %lpad4.i1920
 
 invoke.cont10.i1936:                              ; preds = %invoke.cont8.i1934
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_SBODestruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1935, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_SBODestruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1935, align 8, !tbaa !4
   %call15.i1937 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.141, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1908, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1919, ptr noundef %call9.i1933, ptr noundef nonnull %call11.i1935)
           to label %invoke.cont14.i1938 unwind label %lpad4.i1920
 
@@ -178111,7 +178111,7 @@ invoke.cont8.i1982:                               ; preds = %invoke.cont6.i1980
           to label %invoke.cont10.i1984 unwind label %lpad4.i1968
 
 invoke.cont10.i1984:                              ; preds = %invoke.cont8.i1982
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_NoSBODestruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i1983, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_NoSBODestruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i1983, align 8, !tbaa !4
   %call15.i1985 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.145, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1956, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i1967, ptr noundef %call9.i1981, ptr noundef nonnull %call11.i1983)
           to label %invoke.cont14.i1986 unwind label %lpad4.i1968
 
@@ -178265,7 +178265,7 @@ invoke.cont8.i2030:                               ; preds = %invoke.cont6.i2028
           to label %invoke.cont10.i2032 unwind label %lpad4.i2016
 
 invoke.cont10.i2032:                              ; preds = %invoke.cont8.i2030
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Any_VoidDestruction_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2031, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Any_VoidDestruction_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2031, align 8, !tbaa !4
   %call15.i2033 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.149, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2004, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2015, ptr noundef %call9.i2029, ptr noundef nonnull %call11.i2031)
           to label %invoke.cont14.i2034 unwind label %lpad4.i2016
 
@@ -178419,7 +178419,7 @@ invoke.cont8.i2078:                               ; preds = %invoke.cont6.i2076
           to label %invoke.cont10.i2080 unwind label %lpad4.i2064
 
 invoke.cont10.i2080:                              ; preds = %invoke.cont8.i2078
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI16Any_Emplace_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2079, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI16Any_Emplace_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2079, align 8, !tbaa !4
   %call15.i2081 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.151, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2052, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2063, ptr noundef %call9.i2077, ptr noundef nonnull %call11.i2079)
           to label %invoke.cont14.i2082 unwind label %lpad4.i2064
 
@@ -178573,7 +178573,7 @@ invoke.cont8.i2126:                               ; preds = %invoke.cont6.i2124
           to label %invoke.cont10.i2128 unwind label %lpad4.i2112
 
 invoke.cont10.i2128:                              ; preds = %invoke.cont8.i2126
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20Any_EmplaceVoid_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2127, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20Any_EmplaceVoid_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2127, align 8, !tbaa !4
   %call15.i2129 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.153, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2100, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2111, ptr noundef %call9.i2125, ptr noundef nonnull %call11.i2127)
           to label %invoke.cont14.i2130 unwind label %lpad4.i2112
 
@@ -178727,7 +178727,7 @@ invoke.cont8.i2174:                               ; preds = %invoke.cont6.i2172
           to label %invoke.cont10.i2176 unwind label %lpad4.i2160
 
 invoke.cont10.i2176:                              ; preds = %invoke.cont8.i2174
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_Reset_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2175, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_Reset_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2175, align 8, !tbaa !4
   %call15.i2177 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.155, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2148, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2159, ptr noundef %call9.i2173, ptr noundef nonnull %call11.i2175)
           to label %invoke.cont14.i2178 unwind label %lpad4.i2160
 
@@ -178881,7 +178881,7 @@ invoke.cont8.i2222:                               ; preds = %invoke.cont6.i2220
           to label %invoke.cont10.i2224 unwind label %lpad4.i2208
 
 invoke.cont10.i2224:                              ; preds = %invoke.cont8.i2222
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI16Any_SBOSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2223, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI16Any_SBOSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2223, align 8, !tbaa !4
   %call15.i2225 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.157, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2196, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2207, ptr noundef %call9.i2221, ptr noundef nonnull %call11.i2223)
           to label %invoke.cont14.i2226 unwind label %lpad4.i2208
 
@@ -179035,7 +179035,7 @@ invoke.cont8.i2270:                               ; preds = %invoke.cont6.i2268
           to label %invoke.cont10.i2272 unwind label %lpad4.i2256
 
 invoke.cont10.i2272:                              ; preds = %invoke.cont8.i2270
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI18Any_NoSBOSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2271, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI18Any_NoSBOSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2271, align 8, !tbaa !4
   %call15.i2273 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.169, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2244, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2255, ptr noundef %call9.i2269, ptr noundef nonnull %call11.i2271)
           to label %invoke.cont14.i2274 unwind label %lpad4.i2256
 
@@ -179189,7 +179189,7 @@ invoke.cont8.i2318:                               ; preds = %invoke.cont6.i2316
           to label %invoke.cont10.i2320 unwind label %lpad4.i2304
 
 invoke.cont10.i2320:                              ; preds = %invoke.cont8.i2318
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI17Any_VoidSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2319, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI17Any_VoidSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2319, align 8, !tbaa !4
   %call15.i2321 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.174, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2292, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2303, ptr noundef %call9.i2317, ptr noundef nonnull %call11.i2319)
           to label %invoke.cont14.i2322 unwind label %lpad4.i2304
 
@@ -179343,7 +179343,7 @@ invoke.cont8.i2366:                               ; preds = %invoke.cont6.i2364
           to label %invoke.cont10.i2368 unwind label %lpad4.i2352
 
 invoke.cont10.i2368:                              ; preds = %invoke.cont8.i2366
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_SBOWithNoSBOSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2367, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_SBOWithNoSBOSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2367, align 8, !tbaa !4
   %call15.i2369 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.178, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2340, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2351, ptr noundef %call9.i2365, ptr noundef nonnull %call11.i2367)
           to label %invoke.cont14.i2370 unwind label %lpad4.i2352
 
@@ -179497,7 +179497,7 @@ invoke.cont8.i2414:                               ; preds = %invoke.cont6.i2412
           to label %invoke.cont10.i2416 unwind label %lpad4.i2400
 
 invoke.cont10.i2416:                              ; preds = %invoke.cont8.i2414
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_SBOWithRefSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2415, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_SBOWithRefSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2415, align 8, !tbaa !4
   %call15.i2417 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.183, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2388, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2399, ptr noundef %call9.i2413, ptr noundef nonnull %call11.i2415)
           to label %invoke.cont14.i2418 unwind label %lpad4.i2400
 
@@ -179651,7 +179651,7 @@ invoke.cont8.i2462:                               ; preds = %invoke.cont6.i2460
           to label %invoke.cont10.i2464 unwind label %lpad4.i2448
 
 invoke.cont10.i2464:                              ; preds = %invoke.cont8.i2462
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBOWithConstRefSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2463, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_SBOWithConstRefSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2463, align 8, !tbaa !4
   %call15.i2465 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.188, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2436, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2447, ptr noundef %call9.i2461, ptr noundef nonnull %call11.i2463)
           to label %invoke.cont14.i2466 unwind label %lpad4.i2448
 
@@ -179805,7 +179805,7 @@ invoke.cont8.i2510:                               ; preds = %invoke.cont6.i2508
           to label %invoke.cont10.i2512 unwind label %lpad4.i2496
 
 invoke.cont10.i2512:                              ; preds = %invoke.cont8.i2510
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_SBOWithEmptySwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2511, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_SBOWithEmptySwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2511, align 8, !tbaa !4
   %call15.i2513 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.191, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2484, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2495, ptr noundef %call9.i2509, ptr noundef nonnull %call11.i2511)
           to label %invoke.cont14.i2514 unwind label %lpad4.i2496
 
@@ -179959,7 +179959,7 @@ invoke.cont8.i2558:                               ; preds = %invoke.cont6.i2556
           to label %invoke.cont10.i2560 unwind label %lpad4.i2544
 
 invoke.cont10.i2560:                              ; preds = %invoke.cont8.i2558
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Any_SBOWithVoidSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2559, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Any_SBOWithVoidSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2559, align 8, !tbaa !4
   %call15.i2561 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.197, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2532, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2543, ptr noundef %call9.i2557, ptr noundef nonnull %call11.i2559)
           to label %invoke.cont14.i2562 unwind label %lpad4.i2544
 
@@ -180113,7 +180113,7 @@ invoke.cont8.i2606:                               ; preds = %invoke.cont6.i2604
           to label %invoke.cont10.i2608 unwind label %lpad4.i2592
 
 invoke.cont10.i2608:                              ; preds = %invoke.cont8.i2606
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_NoSBOWithRefSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2607, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_NoSBOWithRefSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2607, align 8, !tbaa !4
   %call15.i2609 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.199, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2580, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2591, ptr noundef %call9.i2605, ptr noundef nonnull %call11.i2607)
           to label %invoke.cont14.i2610 unwind label %lpad4.i2592
 
@@ -180267,7 +180267,7 @@ invoke.cont8.i2654:                               ; preds = %invoke.cont6.i2652
           to label %invoke.cont10.i2656 unwind label %lpad4.i2640
 
 invoke.cont10.i2656:                              ; preds = %invoke.cont8.i2654
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBOWithConstRefSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2655, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Any_NoSBOWithConstRefSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2655, align 8, !tbaa !4
   %call15.i2657 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.202, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2628, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2639, ptr noundef %call9.i2653, ptr noundef nonnull %call11.i2655)
           to label %invoke.cont14.i2658 unwind label %lpad4.i2640
 
@@ -180421,7 +180421,7 @@ invoke.cont8.i2702:                               ; preds = %invoke.cont6.i2700
           to label %invoke.cont10.i2704 unwind label %lpad4.i2688
 
 invoke.cont10.i2704:                              ; preds = %invoke.cont8.i2702
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_NoSBOWithEmptySwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2703, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_NoSBOWithEmptySwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2703, align 8, !tbaa !4
   %call15.i2705 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.204, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2676, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2687, ptr noundef %call9.i2701, ptr noundef nonnull %call11.i2703)
           to label %invoke.cont14.i2706 unwind label %lpad4.i2688
 
@@ -180575,7 +180575,7 @@ invoke.cont8.i2750:                               ; preds = %invoke.cont6.i2748
           to label %invoke.cont10.i2752 unwind label %lpad4.i2736
 
 invoke.cont10.i2752:                              ; preds = %invoke.cont8.i2750
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26Any_NoSBOWithVoidSwap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2751, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26Any_NoSBOWithVoidSwap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2751, align 8, !tbaa !4
   %call15.i2753 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.206, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2724, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2735, ptr noundef %call9.i2749, ptr noundef nonnull %call11.i2751)
           to label %invoke.cont14.i2754 unwind label %lpad4.i2736
 
@@ -180729,7 +180729,7 @@ invoke.cont8.i2798:                               ; preds = %invoke.cont6.i2796
           to label %invoke.cont10.i2800 unwind label %lpad4.i2784
 
 invoke.cont10.i2800:                              ; preds = %invoke.cont8.i2798
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_AsRef_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2799, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_AsRef_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2799, align 8, !tbaa !4
   %call15.i2801 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.208, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2772, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2783, ptr noundef %call9.i2797, ptr noundef nonnull %call11.i2799)
           to label %invoke.cont14.i2802 unwind label %lpad4.i2784
 
@@ -180883,7 +180883,7 @@ invoke.cont8.i2846:                               ; preds = %invoke.cont6.i2844
           to label %invoke.cont10.i2848 unwind label %lpad4.i2832
 
 invoke.cont10.i2848:                              ; preds = %invoke.cont8.i2846
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI19Any_Comparable_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2847, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI19Any_Comparable_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2847, align 8, !tbaa !4
   %call15.i2849 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.228, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2820, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2831, ptr noundef %call9.i2845, ptr noundef nonnull %call11.i2847)
           to label %invoke.cont14.i2850 unwind label %lpad4.i2832
 
@@ -181037,7 +181037,7 @@ invoke.cont8.i2894:                               ; preds = %invoke.cont6.i2892
           to label %invoke.cont10.i2896 unwind label %lpad4.i2880
 
 invoke.cont10.i2896:                              ; preds = %invoke.cont8.i2894
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Any_NoSBOComparable_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2895, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Any_NoSBOComparable_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2895, align 8, !tbaa !4
   %call15.i2897 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.235, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2868, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2879, ptr noundef %call9.i2893, ptr noundef nonnull %call11.i2895)
           to label %invoke.cont14.i2898 unwind label %lpad4.i2880
 
@@ -181191,7 +181191,7 @@ invoke.cont8.i2942:                               ; preds = %invoke.cont6.i2940
           to label %invoke.cont10.i2944 unwind label %lpad4.i2928
 
 invoke.cont10.i2944:                              ; preds = %invoke.cont8.i2942
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22Any_RefComparable_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2943, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22Any_RefComparable_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2943, align 8, !tbaa !4
   %call15.i2945 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.237, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2916, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2927, ptr noundef %call9.i2941, ptr noundef nonnull %call11.i2943)
           to label %invoke.cont14.i2946 unwind label %lpad4.i2928
 
@@ -181345,7 +181345,7 @@ invoke.cont8.i2990:                               ; preds = %invoke.cont6.i2988
           to label %invoke.cont10.i2992 unwind label %lpad4.i2976
 
 invoke.cont10.i2992:                              ; preds = %invoke.cont8.i2990
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_ConstRefComparable_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i2991, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_ConstRefComparable_TestEE, i64 0, i32 0, i64 2), ptr %call11.i2991, align 8, !tbaa !4
   %call15.i2993 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.239, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i2964, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i2975, ptr noundef %call9.i2989, ptr noundef nonnull %call11.i2991)
           to label %invoke.cont14.i2994 unwind label %lpad4.i2976
 
@@ -181499,7 +181499,7 @@ invoke.cont8.i3038:                               ; preds = %invoke.cont6.i3036
           to label %invoke.cont10.i3040 unwind label %lpad4.i3024
 
 invoke.cont10.i3040:                              ; preds = %invoke.cont8.i3038
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_UnrelatedComparable_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3039, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Any_UnrelatedComparable_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3039, align 8, !tbaa !4
   %call15.i3041 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.241, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3012, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3023, ptr noundef %call9.i3037, ptr noundef nonnull %call11.i3039)
           to label %invoke.cont14.i3042 unwind label %lpad4.i3024
 
@@ -181653,7 +181653,7 @@ invoke.cont8.i3086:                               ; preds = %invoke.cont6.i3084
           to label %invoke.cont10.i3088 unwind label %lpad4.i3072
 
 invoke.cont10.i3088:                              ; preds = %invoke.cont8.i3086
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22Any_NonComparable_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3087, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22Any_NonComparable_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3087, align 8, !tbaa !4
   %call15.i3089 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.243, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3060, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3071, ptr noundef %call9.i3085, ptr noundef nonnull %call11.i3087)
           to label %invoke.cont14.i3090 unwind label %lpad4.i3072
 
@@ -181807,7 +181807,7 @@ invoke.cont8.i3134:                               ; preds = %invoke.cont6.i3132
           to label %invoke.cont10.i3136 unwind label %lpad4.i3120
 
 invoke.cont10.i3136:                              ; preds = %invoke.cont8.i3134
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44Any_AssociativeContainerOfNonComparable_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3135, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44Any_AssociativeContainerOfNonComparable_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3135, align 8, !tbaa !4
   %call15.i3137 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.247, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3108, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3119, ptr noundef %call9.i3133, ptr noundef nonnull %call11.i3135)
           to label %invoke.cont14.i3138 unwind label %lpad4.i3120
 
@@ -181961,7 +181961,7 @@ invoke.cont8.i3182:                               ; preds = %invoke.cont6.i3180
           to label %invoke.cont10.i3184 unwind label %lpad4.i3168
 
 invoke.cont10.i3184:                              ; preds = %invoke.cont8.i3182
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41Any_SequenceContainerOfNonComparable_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3183, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41Any_SequenceContainerOfNonComparable_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3183, align 8, !tbaa !4
   %call15.i3185 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.249, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3156, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3167, ptr noundef %call9.i3181, ptr noundef nonnull %call11.i3183)
           to label %invoke.cont14.i3186 unwind label %lpad4.i3168
 
@@ -182115,7 +182115,7 @@ invoke.cont8.i3230:                               ; preds = %invoke.cont6.i3228
           to label %invoke.cont10.i3232 unwind label %lpad4.i3216
 
 invoke.cont10.i3232:                              ; preds = %invoke.cont8.i3230
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20Any_CompareVoid_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3231, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20Any_CompareVoid_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3231, align 8, !tbaa !4
   %call15.i3233 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.251, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3204, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3215, ptr noundef %call9.i3229, ptr noundef nonnull %call11.i3231)
           to label %invoke.cont14.i3234 unwind label %lpad4.i3216
 
@@ -182269,7 +182269,7 @@ invoke.cont8.i3278:                               ; preds = %invoke.cont6.i3276
           to label %invoke.cont10.i3280 unwind label %lpad4.i3264
 
 invoke.cont10.i3280:                              ; preds = %invoke.cont8.i3278
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI16Any_AnyCast_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3279, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI16Any_AnyCast_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3279, align 8, !tbaa !4
   %call15.i3281 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.258, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3252, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3263, ptr noundef %call9.i3277, ptr noundef nonnull %call11.i3279)
           to label %invoke.cont14.i3282 unwind label %lpad4.i3264
 
@@ -182423,7 +182423,7 @@ invoke.cont8.i3326:                               ; preds = %invoke.cont6.i3324
           to label %invoke.cont10.i3328 unwind label %lpad4.i3312
 
 invoke.cont10.i3328:                              ; preds = %invoke.cont8.i3326
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34AnyDeathTest_DISABLED_AnyCast_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3327, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34AnyDeathTest_DISABLED_AnyCast_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3327, align 8, !tbaa !4
   %call15.i3329 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3300, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3311, ptr noundef %call9.i3325, ptr noundef nonnull %call11.i3327)
           to label %invoke.cont14.i3330 unwind label %lpad4.i3312
 
@@ -182577,7 +182577,7 @@ invoke.cont8.i3374:                               ; preds = %invoke.cont6.i3372
           to label %invoke.cont10.i3376 unwind label %lpad4.i3360
 
 invoke.cont10.i3376:                              ; preds = %invoke.cont8.i3374
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI16Any_MakeAny_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3375, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI16Any_MakeAny_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3375, align 8, !tbaa !4
   %call15.i3377 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.278, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3348, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3359, ptr noundef %call9.i3373, ptr noundef nonnull %call11.i3375)
           to label %invoke.cont14.i3378 unwind label %lpad4.i3360
 
@@ -182731,7 +182731,7 @@ invoke.cont8.i3422:                               ; preds = %invoke.cont6.i3420
           to label %invoke.cont10.i3424 unwind label %lpad4.i3408
 
 invoke.cont10.i3424:                              ; preds = %invoke.cont8.i3422
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21Any_ForwardAsAny_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3423, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21Any_ForwardAsAny_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3423, align 8, !tbaa !4
   %call15.i3425 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.291, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3396, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3407, ptr noundef %call9.i3421, ptr noundef nonnull %call11.i3423)
           to label %invoke.cont14.i3426 unwind label %lpad4.i3408
 
@@ -182885,7 +182885,7 @@ invoke.cont8.i3470:                               ; preds = %invoke.cont6.i3468
           to label %invoke.cont10.i3472 unwind label %lpad4.i3456
 
 invoke.cont10.i3472:                              ; preds = %invoke.cont8.i3470
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Any_NonCopyableType_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3471, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24Any_NonCopyableType_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3471, align 8, !tbaa !4
   %call15.i3473 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.294, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3444, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3455, ptr noundef %call9.i3469, ptr noundef nonnull %call11.i3471)
           to label %invoke.cont14.i3474 unwind label %lpad4.i3456
 
@@ -183039,7 +183039,7 @@ invoke.cont8.i3518:                               ; preds = %invoke.cont6.i3516
           to label %invoke.cont10.i3520 unwind label %lpad4.i3504
 
 invoke.cont10.i3520:                              ; preds = %invoke.cont8.i3518
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Any_NonCopyableValueType_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3519, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29Any_NonCopyableValueType_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3519, align 8, !tbaa !4
   %call15.i3521 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.300, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3492, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3503, ptr noundef %call9.i3517, ptr noundef nonnull %call11.i3519)
           to label %invoke.cont14.i3522 unwind label %lpad4.i3504
 
@@ -183193,7 +183193,7 @@ invoke.cont8.i3566:                               ; preds = %invoke.cont6.i3564
           to label %invoke.cont10.i3568 unwind label %lpad4.i3552
 
 invoke.cont10.i3568:                              ; preds = %invoke.cont8.i3566
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_NonMovableType_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3567, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_NonMovableType_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3567, align 8, !tbaa !4
   %call15.i3569 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.308, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3540, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3551, ptr noundef %call9.i3565, ptr noundef nonnull %call11.i3567)
           to label %invoke.cont14.i3570 unwind label %lpad4.i3552
 
@@ -183347,7 +183347,7 @@ invoke.cont8.i3614:                               ; preds = %invoke.cont6.i3612
           to label %invoke.cont10.i3616 unwind label %lpad4.i3600
 
 invoke.cont10.i3616:                              ; preds = %invoke.cont8.i3614
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_Array_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3615, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI14Any_Array_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3615, align 8, !tbaa !4
   %call15.i3617 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.310, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3588, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3599, ptr noundef %call9.i3613, ptr noundef nonnull %call11.i3615)
           to label %invoke.cont14.i3618 unwind label %lpad4.i3600
 
@@ -183501,7 +183501,7 @@ invoke.cont8.i3662:                               ; preds = %invoke.cont6.i3660
           to label %invoke.cont10.i3664 unwind label %lpad4.i3648
 
 invoke.cont10.i3664:                              ; preds = %invoke.cont8.i3662
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26Any_CopyMoveReference_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3663, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26Any_CopyMoveReference_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3663, align 8, !tbaa !4
   %call15.i3665 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.317, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3636, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3647, ptr noundef %call9.i3661, ptr noundef nonnull %call11.i3663)
           to label %invoke.cont14.i3666 unwind label %lpad4.i3648
 
@@ -183655,7 +183655,7 @@ invoke.cont8.i3710:                               ; preds = %invoke.cont6.i3708
           to label %invoke.cont10.i3712 unwind label %lpad4.i3696
 
 invoke.cont10.i3712:                              ; preds = %invoke.cont8.i3710
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31Any_CopyMoveConstReference_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3711, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31Any_CopyMoveConstReference_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3711, align 8, !tbaa !4
   %call15.i3713 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.330, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3684, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3695, ptr noundef %call9.i3709, ptr noundef nonnull %call11.i3711)
           to label %invoke.cont14.i3714 unwind label %lpad4.i3696
 
@@ -183809,7 +183809,7 @@ invoke.cont8.i3758:                               ; preds = %invoke.cont6.i3756
           to label %invoke.cont10.i3760 unwind label %lpad4.i3744
 
 invoke.cont10.i3760:                              ; preds = %invoke.cont8.i3758
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_SBOVsZeroedSBOSize_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3759, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_SBOVsZeroedSBOSize_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3759, align 8, !tbaa !4
   %call15.i3761 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.334, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3732, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3743, ptr noundef %call9.i3757, ptr noundef nonnull %call11.i3759)
           to label %invoke.cont14.i3762 unwind label %lpad4.i3744
 
@@ -183963,7 +183963,7 @@ invoke.cont8.i3806:                               ; preds = %invoke.cont6.i3804
           to label %invoke.cont10.i3808 unwind label %lpad4.i3792
 
 invoke.cont10.i3808:                              ; preds = %invoke.cont8.i3806
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21Any_SboAlignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3807, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21Any_SboAlignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3807, align 8, !tbaa !4
   %call15.i3809 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.338, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3780, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3791, ptr noundef %call9.i3805, ptr noundef nonnull %call11.i3807)
           to label %invoke.cont14.i3810 unwind label %lpad4.i3792
 
@@ -184117,7 +184117,7 @@ invoke.cont8.i3854:                               ; preds = %invoke.cont6.i3852
           to label %invoke.cont10.i3856 unwind label %lpad4.i3840
 
 invoke.cont10.i3856:                              ; preds = %invoke.cont8.i3854
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_NoSboAlignment_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3855, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Any_NoSboAlignment_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3855, align 8, !tbaa !4
   %call15.i3857 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.344, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3828, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3839, ptr noundef %call9.i3853, ptr noundef nonnull %call11.i3855)
           to label %invoke.cont14.i3858 unwind label %lpad4.i3840
 
@@ -184271,7 +184271,7 @@ invoke.cont8.i3902:                               ; preds = %invoke.cont6.i3900
           to label %invoke.cont10.i3904 unwind label %lpad4.i3888
 
 invoke.cont10.i3904:                              ; preds = %invoke.cont8.i3902
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_AggregatesMustWork_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3903, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27Any_AggregatesMustWork_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3903, align 8, !tbaa !4
   %call15.i3905 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.349, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3876, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3887, ptr noundef %call9.i3901, ptr noundef nonnull %call11.i3903)
           to label %invoke.cont14.i3906 unwind label %lpad4.i3888
 
@@ -184425,7 +184425,7 @@ invoke.cont8.i3950:                               ; preds = %invoke.cont6.i3948
           to label %invoke.cont10.i3952 unwind label %lpad4.i3936
 
 invoke.cont10.i3952:                              ; preds = %invoke.cont8.i3950
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_DeducedArrayType_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i3951, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25Any_DeducedArrayType_TestEE, i64 0, i32 0, i64 2), ptr %call11.i3951, align 8, !tbaa !4
   %call15.i3953 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.351, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3924, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperI3AnyE6dummy_E, ptr noundef %call7.i3935, ptr noundef %call9.i3949, ptr noundef nonnull %call11.i3951)
           to label %invoke.cont14.i3954 unwind label %lpad4.i3936
 

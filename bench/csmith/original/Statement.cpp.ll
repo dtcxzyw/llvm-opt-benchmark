@@ -1863,7 +1863,7 @@ define dso_local void @_ZN15StatementFilterC2ERK9CGContext(ptr noundef nonnull a
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15StatementFilter, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15StatementFilter, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.StatementFilter, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   store ptr %9, ptr %8, align 8
@@ -3617,7 +3617,7 @@ define dso_local void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnu
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV9Statement, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV9Statement, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.Statement, ptr %7, i32 0, i32 1
   %9 = load i32, ptr %5, align 4
   store i32 %9, ptr %8, align 8

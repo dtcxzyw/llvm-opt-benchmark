@@ -698,7 +698,7 @@ define dso_local void @_ZN22cmNinjaTargetGeneratorC2EP17cmGeneratorTarget(ptr no
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::vector.211", align 8
   tail call void @_ZN23cmCommonTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmNinjaTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmNinjaTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr null, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 128
@@ -799,7 +799,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %.body
 
 38:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i64 0, inrange i32 0, i64 2), ptr %35, align 8, !noalias !17
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i64 0, i32 0, i64 2), ptr %35, align 8, !noalias !17
   %39 = getelementptr inbounds i8, ptr %35, i64 8
   store ptr %0, ptr %39, align 8, !noalias !17
   %40 = getelementptr inbounds i8, ptr %35, i64 16
@@ -1015,7 +1015,7 @@ declare void @_ZN23cmCommonTargetGeneratorD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN22cmNinjaTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(240) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmNinjaTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmNinjaTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 192
   %3 = getelementptr inbounds i8, ptr %0, i64 208
   %4 = load ptr, ptr %3, align 8
@@ -29280,7 +29280,7 @@ declare noundef zeroext i1 @_ZN5cmsys11SystemTools6HasEnvERKNSt7__cxx1112basic_s
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   ret void
@@ -29288,7 +29288,7 @@ define linkonce_odr dso_local void @_ZN22cmNinjaTargetGenerator26MacOSXContentGe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   tail call void @_ZdlPv(ptr noundef nonnull %0) #23

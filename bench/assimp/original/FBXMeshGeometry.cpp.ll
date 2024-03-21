@@ -1711,7 +1711,7 @@ entry:
   %1 = load ptr, ptr %element.addr, align 8
   %2 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX6ObjectC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %skin = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this1, i32 0, i32 1
   store ptr null, ptr %skin, align 8
   %blendShapes = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this1, i32 0, i32 2
@@ -2795,7 +2795,7 @@ entry:
   %2 = load ptr, ptr %name.addr, align 8
   %3 = load ptr, ptr %doc.addr, align 8
   call void @_ZN6Assimp3FBX8GeometryC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentE(ptr noundef nonnull align 8 dereferenceable(120) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(336) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12MeshGeometryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12MeshGeometryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_materials = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_materials) #7
   %m_vertices = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this1, i32 0, i32 2
@@ -10497,7 +10497,7 @@ entry:
   %2 = load ptr, ptr %name.addr, align 8
   %3 = load ptr, ptr %doc.addr, align 8
   call void @_ZN6Assimp3FBX8GeometryC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentE(ptr noundef nonnull align 8 dereferenceable(120) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(336) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX13ShapeGeometryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX13ShapeGeometryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_vertices = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorI10aiVector3tIfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_vertices) #7
   %m_normals = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this1, i32 0, i32 2
@@ -10713,7 +10713,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX13ShapeGeometryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX13ShapeGeometryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_indices = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_indices) #7
   %m_normals = getelementptr inbounds %"class.Assimp::FBX::ShapeGeometry", ptr %this1, i32 0, i32 2
@@ -10798,7 +10798,7 @@ entry:
   %2 = load ptr, ptr %name.addr, align 8
   %3 = load ptr, ptr %doc.addr, align 8
   call void @_ZN6Assimp3FBX8GeometryC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8DocumentE(ptr noundef nonnull align 8 dereferenceable(120) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(336) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12LineGeometryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12LineGeometryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_vertices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorI10aiVector3tIfESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_vertices) #7
   %m_indices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this1, i32 0, i32 2
@@ -10966,7 +10966,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12LineGeometryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12LineGeometryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_indices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_indices) #7
   %m_vertices = getelementptr inbounds %"class.Assimp::FBX::LineGeometry", ptr %this1, i32 0, i32 1
@@ -11038,7 +11038,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX8GeometryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %blendShapes = getelementptr inbounds %"class.Assimp::FBX::Geometry", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_setIPKN6Assimp3FBX10BlendShapeESt4hashIS4_ESt8equal_toIS4_ESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %blendShapes) #7
   call void @_ZN6Assimp3FBX6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #7
@@ -11062,7 +11062,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12MeshGeometryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX12MeshGeometryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_mappings = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this1, i32 0, i32 13
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_mappings) #7
   %m_mapping_offsets = getelementptr inbounds %"class.Assimp::FBX::MeshGeometry", ptr %this1, i32 0, i32 12
@@ -11757,7 +11757,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #7
   ret void

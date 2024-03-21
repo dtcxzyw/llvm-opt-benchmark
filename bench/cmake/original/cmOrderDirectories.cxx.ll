@@ -6615,7 +6615,7 @@ define linkonce_odr dso_local void @_ZN34cmOrderDirectoriesConstraintSONameD2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmOrderDirectoriesConstraintSOName, ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN28cmOrderDirectoriesConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(124) %3) #3
@@ -9007,7 +9007,7 @@ define linkonce_odr dso_local void @_ZN28cmOrderDirectoriesConstraintD2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV28cmOrderDirectoriesConstraint, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV28cmOrderDirectoriesConstraint, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmOrderDirectoriesConstraint, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmOrderDirectoriesConstraint, ptr %3, i32 0, i32 4
@@ -11684,7 +11684,7 @@ define linkonce_odr dso_local void @_ZN34cmOrderDirectoriesConstraintSONameC2EP1
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZN28cmOrderDirectoriesConstraintC2EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(124) %13, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV34cmOrderDirectoriesConstraintSOName, i32 0, i32 0, i32 2), ptr %13, align 8
   %16 = getelementptr inbounds %class.cmOrderDirectoriesConstraintSOName, ptr %13, i32 0, i32 1
   %17 = load ptr, ptr %8, align 8
   %18 = icmp ne ptr %17, null
@@ -11813,7 +11813,7 @@ define linkonce_odr dso_local void @_ZN28cmOrderDirectoriesConstraintC2EP18cmOrd
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %22 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV28cmOrderDirectoriesConstraint, i32 0, inrange i32 0, i32 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV28cmOrderDirectoriesConstraint, i32 0, i32 0, i32 2), ptr %22, align 8
   %23 = getelementptr inbounds %class.cmOrderDirectoriesConstraint, ptr %22, i32 0, i32 1
   %24 = load ptr, ptr %5, align 8
   store ptr %24, ptr %23, align 8
@@ -13731,7 +13731,7 @@ define linkonce_odr dso_local void @_ZN35cmOrderDirectoriesConstraintLibraryC2EP
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN28cmOrderDirectoriesConstraintC2EP18cmOrderDirectoriesRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(124) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV35cmOrderDirectoriesConstraintLibrary, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV35cmOrderDirectoriesConstraintLibrary, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 

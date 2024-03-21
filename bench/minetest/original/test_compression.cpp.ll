@@ -148,7 +148,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1776,7 +1776,7 @@ define dso_local void @_ZN15TestCompression18testRLECompressionEv(ptr nocapture 
   %674 = getelementptr inbounds i8, ptr %27, i64 %673
   store ptr %671, ptr %674, align 8, !tbaa !4
   %675 = getelementptr inbounds i8, ptr %27, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %675, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %675, align 8, !tbaa !4
   %676 = getelementptr inbounds i8, ptr %27, i64 80
   %677 = load ptr, ptr %676, align 8, !tbaa !7
   %678 = getelementptr inbounds i8, ptr %27, i64 96
@@ -1795,7 +1795,7 @@ define dso_local void @_ZN15TestCompression18testRLECompressionEv(ptr nocapture 
   br label %685
 
 685:                                              ; preds = %684, %680
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %675, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %675, align 8, !tbaa !4
   %686 = getelementptr inbounds i8, ptr %27, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %686) #23
   %687 = getelementptr inbounds i8, ptr %27, i64 112
@@ -1809,7 +1809,7 @@ define dso_local void @_ZN15TestCompression18testRLECompressionEv(ptr nocapture 
   %692 = getelementptr inbounds i8, ptr %26, i64 %691
   store ptr %689, ptr %692, align 8, !tbaa !4
   %693 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %693, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %693, align 8, !tbaa !4
   %694 = getelementptr inbounds i8, ptr %26, i64 88
   %695 = load ptr, ptr %694, align 8, !tbaa !7
   %696 = getelementptr inbounds i8, ptr %26, i64 104
@@ -1828,7 +1828,7 @@ define dso_local void @_ZN15TestCompression18testRLECompressionEv(ptr nocapture 
   br label %703
 
 703:                                              ; preds = %702, %698
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %693, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %693, align 8, !tbaa !4
   %704 = getelementptr inbounds i8, ptr %26, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %704) #23
   %705 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -1864,7 +1864,7 @@ define dso_local void @_ZN15TestCompression18testRLECompressionEv(ptr nocapture 
   %720 = getelementptr inbounds i8, ptr %2, i64 %719
   store ptr %671, ptr %720, align 8, !tbaa !4
   %721 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %721, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %721, align 8, !tbaa !4
   %722 = getelementptr inbounds i8, ptr %2, i64 80
   %723 = load ptr, ptr %722, align 8, !tbaa !7
   %724 = getelementptr inbounds i8, ptr %2, i64 96
@@ -1883,7 +1883,7 @@ define dso_local void @_ZN15TestCompression18testRLECompressionEv(ptr nocapture 
   br label %731
 
 731:                                              ; preds = %730, %726
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %721, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %721, align 8, !tbaa !4
   %732 = getelementptr inbounds i8, ptr %2, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %732) #23
   %733 = getelementptr inbounds i8, ptr %2, i64 112
@@ -2981,7 +2981,7 @@ define dso_local void @_ZN15TestCompression19testZlibCompressionEv(ptr nocapture
   %400 = getelementptr inbounds i8, ptr %5, i64 %399
   store ptr %397, ptr %400, align 8, !tbaa !4
   %401 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %401, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %401, align 8, !tbaa !4
   %402 = getelementptr inbounds i8, ptr %5, i64 80
   %403 = load ptr, ptr %402, align 8, !tbaa !7
   %404 = getelementptr inbounds i8, ptr %5, i64 96
@@ -3000,7 +3000,7 @@ define dso_local void @_ZN15TestCompression19testZlibCompressionEv(ptr nocapture
   br label %411
 
 411:                                              ; preds = %410, %406
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %401, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %401, align 8, !tbaa !4
   %412 = getelementptr inbounds i8, ptr %5, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %412) #23
   %413 = getelementptr inbounds i8, ptr %5, i64 112
@@ -3014,7 +3014,7 @@ define dso_local void @_ZN15TestCompression19testZlibCompressionEv(ptr nocapture
   %418 = getelementptr inbounds i8, ptr %4, i64 %417
   store ptr %415, ptr %418, align 8, !tbaa !4
   %419 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %419, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %419, align 8, !tbaa !4
   %420 = getelementptr inbounds i8, ptr %4, i64 88
   %421 = load ptr, ptr %420, align 8, !tbaa !7
   %422 = getelementptr inbounds i8, ptr %4, i64 104
@@ -3033,7 +3033,7 @@ define dso_local void @_ZN15TestCompression19testZlibCompressionEv(ptr nocapture
   br label %429
 
 429:                                              ; preds = %428, %424
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %419, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %419, align 8, !tbaa !4
   %430 = getelementptr inbounds i8, ptr %4, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %430) #23
   %431 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -3069,7 +3069,7 @@ define dso_local void @_ZN15TestCompression19testZlibCompressionEv(ptr nocapture
   %446 = getelementptr inbounds i8, ptr %2, i64 %445
   store ptr %397, ptr %446, align 8, !tbaa !4
   %447 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %447, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %447, align 8, !tbaa !4
   %448 = getelementptr inbounds i8, ptr %2, i64 80
   %449 = load ptr, ptr %448, align 8, !tbaa !7
   %450 = getelementptr inbounds i8, ptr %2, i64 96
@@ -3088,7 +3088,7 @@ define dso_local void @_ZN15TestCompression19testZlibCompressionEv(ptr nocapture
   br label %457
 
 457:                                              ; preds = %456, %452
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %447, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %447, align 8, !tbaa !4
   %458 = getelementptr inbounds i8, ptr %2, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %458) #23
   %459 = getelementptr inbounds i8, ptr %2, i64 112
@@ -4075,7 +4075,7 @@ define dso_local void @_ZN15TestCompression17testZlibLargeDataEv(ptr nocapture n
   %464 = getelementptr inbounds i8, ptr %7, i64 %463
   store ptr %461, ptr %464, align 8, !tbaa !4
   %465 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %465, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %465, align 8, !tbaa !4
   %466 = getelementptr inbounds i8, ptr %7, i64 80
   %467 = load ptr, ptr %466, align 8, !tbaa !7
   %468 = getelementptr inbounds i8, ptr %7, i64 96
@@ -4094,7 +4094,7 @@ define dso_local void @_ZN15TestCompression17testZlibLargeDataEv(ptr nocapture n
   br label %475
 
 475:                                              ; preds = %474, %470
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %465, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %465, align 8, !tbaa !4
   %476 = getelementptr inbounds i8, ptr %7, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %476) #23
   %477 = getelementptr inbounds i8, ptr %7, i64 112
@@ -4108,7 +4108,7 @@ define dso_local void @_ZN15TestCompression17testZlibLargeDataEv(ptr nocapture n
   %482 = getelementptr inbounds i8, ptr %5, i64 %481
   store ptr %479, ptr %482, align 8, !tbaa !4
   %483 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %483, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %483, align 8, !tbaa !4
   %484 = getelementptr inbounds i8, ptr %5, i64 88
   %485 = load ptr, ptr %484, align 8, !tbaa !7
   %486 = getelementptr inbounds i8, ptr %5, i64 104
@@ -4127,7 +4127,7 @@ define dso_local void @_ZN15TestCompression17testZlibLargeDataEv(ptr nocapture n
   br label %493
 
 493:                                              ; preds = %492, %488
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %483, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %483, align 8, !tbaa !4
   %494 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %494) #23
   %495 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -4147,7 +4147,7 @@ define dso_local void @_ZN15TestCompression17testZlibLargeDataEv(ptr nocapture n
   %503 = getelementptr inbounds i8, ptr %3, i64 %502
   store ptr %461, ptr %503, align 8, !tbaa !4
   %504 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %504, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %504, align 8, !tbaa !4
   %505 = getelementptr inbounds i8, ptr %3, i64 80
   %506 = load ptr, ptr %505, align 8, !tbaa !7
   %507 = getelementptr inbounds i8, ptr %3, i64 96
@@ -4166,7 +4166,7 @@ define dso_local void @_ZN15TestCompression17testZlibLargeDataEv(ptr nocapture n
   br label %514
 
 514:                                              ; preds = %513, %509
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %504, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %504, align 8, !tbaa !4
   %515 = getelementptr inbounds i8, ptr %3, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %515) #23
   %516 = getelementptr inbounds i8, ptr %3, i64 112
@@ -5204,7 +5204,7 @@ define dso_local void @_ZN15TestCompression17testZstdLargeDataEv(ptr nocapture n
   %464 = getelementptr inbounds i8, ptr %7, i64 %463
   store ptr %461, ptr %464, align 8, !tbaa !4
   %465 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %465, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %465, align 8, !tbaa !4
   %466 = getelementptr inbounds i8, ptr %7, i64 80
   %467 = load ptr, ptr %466, align 8, !tbaa !7
   %468 = getelementptr inbounds i8, ptr %7, i64 96
@@ -5223,7 +5223,7 @@ define dso_local void @_ZN15TestCompression17testZstdLargeDataEv(ptr nocapture n
   br label %475
 
 475:                                              ; preds = %474, %470
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %465, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %465, align 8, !tbaa !4
   %476 = getelementptr inbounds i8, ptr %7, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %476) #23
   %477 = getelementptr inbounds i8, ptr %7, i64 112
@@ -5237,7 +5237,7 @@ define dso_local void @_ZN15TestCompression17testZstdLargeDataEv(ptr nocapture n
   %482 = getelementptr inbounds i8, ptr %5, i64 %481
   store ptr %479, ptr %482, align 8, !tbaa !4
   %483 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %483, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %483, align 8, !tbaa !4
   %484 = getelementptr inbounds i8, ptr %5, i64 88
   %485 = load ptr, ptr %484, align 8, !tbaa !7
   %486 = getelementptr inbounds i8, ptr %5, i64 104
@@ -5256,7 +5256,7 @@ define dso_local void @_ZN15TestCompression17testZstdLargeDataEv(ptr nocapture n
   br label %493
 
 493:                                              ; preds = %492, %488
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %483, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %483, align 8, !tbaa !4
   %494 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %494) #23
   %495 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -5276,7 +5276,7 @@ define dso_local void @_ZN15TestCompression17testZstdLargeDataEv(ptr nocapture n
   %503 = getelementptr inbounds i8, ptr %3, i64 %502
   store ptr %461, ptr %503, align 8, !tbaa !4
   %504 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %504, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %504, align 8, !tbaa !4
   %505 = getelementptr inbounds i8, ptr %3, i64 80
   %506 = load ptr, ptr %505, align 8, !tbaa !7
   %507 = getelementptr inbounds i8, ptr %3, i64 96
@@ -5295,7 +5295,7 @@ define dso_local void @_ZN15TestCompression17testZstdLargeDataEv(ptr nocapture n
   br label %514
 
 514:                                              ; preds = %513, %509
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %504, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %504, align 8, !tbaa !4
   %515 = getelementptr inbounds i8, ptr %3, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %515) #23
   %516 = getelementptr inbounds i8, ptr %3, i64 112
@@ -6400,7 +6400,7 @@ define dso_local void @_ZN15TestCompression14_testZlibLimitEjj(ptr nocapture non
   %498 = getelementptr inbounds i8, ptr %9, i64 %497
   store ptr %495, ptr %498, align 8, !tbaa !4
   %499 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %499, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %499, align 8, !tbaa !4
   %500 = getelementptr inbounds i8, ptr %9, i64 80
   %501 = load ptr, ptr %500, align 8, !tbaa !7
   %502 = getelementptr inbounds i8, ptr %9, i64 96
@@ -6419,7 +6419,7 @@ define dso_local void @_ZN15TestCompression14_testZlibLimitEjj(ptr nocapture non
   br label %509
 
 509:                                              ; preds = %508, %504
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %499, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %499, align 8, !tbaa !4
   %510 = getelementptr inbounds i8, ptr %9, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %510) #23
   %511 = getelementptr inbounds i8, ptr %9, i64 112
@@ -6433,7 +6433,7 @@ define dso_local void @_ZN15TestCompression14_testZlibLimitEjj(ptr nocapture non
   %516 = getelementptr inbounds i8, ptr %7, i64 %515
   store ptr %513, ptr %516, align 8, !tbaa !4
   %517 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %517, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %517, align 8, !tbaa !4
   %518 = getelementptr inbounds i8, ptr %7, i64 88
   %519 = load ptr, ptr %518, align 8, !tbaa !7
   %520 = getelementptr inbounds i8, ptr %7, i64 104
@@ -6452,7 +6452,7 @@ define dso_local void @_ZN15TestCompression14_testZlibLimitEjj(ptr nocapture non
   br label %527
 
 527:                                              ; preds = %526, %522
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %517, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %517, align 8, !tbaa !4
   %528 = getelementptr inbounds i8, ptr %7, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %528) #23
   %529 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -6472,7 +6472,7 @@ define dso_local void @_ZN15TestCompression14_testZlibLimitEjj(ptr nocapture non
   %537 = getelementptr inbounds i8, ptr %5, i64 %536
   store ptr %495, ptr %537, align 8, !tbaa !4
   %538 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %538, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %538, align 8, !tbaa !4
   %539 = getelementptr inbounds i8, ptr %5, i64 80
   %540 = load ptr, ptr %539, align 8, !tbaa !7
   %541 = getelementptr inbounds i8, ptr %5, i64 96
@@ -6491,7 +6491,7 @@ define dso_local void @_ZN15TestCompression14_testZlibLimitEjj(ptr nocapture non
   br label %548
 
 548:                                              ; preds = %547, %543
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %538, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %538, align 8, !tbaa !4
   %549 = getelementptr inbounds i8, ptr %5, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %549) #23
   %550 = getelementptr inbounds i8, ptr %5, i64 112
@@ -7009,14 +7009,14 @@ define internal void @_GLOBAL__sub_I_test_compression.cpp() #18 section ".text.s
   store ptr getelementptr inbounds (%class.TestCompression, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestCompression, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !26
   store i64 0, ptr getelementptr inbounds (%class.TestCompression, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestCompression, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !19
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15TestCompression, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15TestCompression, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%class.TestCompression, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestCompression, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

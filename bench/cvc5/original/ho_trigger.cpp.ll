@@ -4004,7 +4004,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst18HigherOrderTriggerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst18HigherOrderTriggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_ho_var_apps = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::HigherOrderTrigger", ptr %this1, i32 0, i32 1
   %6 = load ptr, ptr %ho_apps.addr, align 8
   invoke void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4lessIS3_ESaISt4pairIKS3_S6_EEEC2ERKSD_(ptr noundef nonnull align 8 dereferenceable(48) %d_ho_var_apps, ptr noundef nonnull align 8 dereferenceable(48) %6)
@@ -6383,7 +6383,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst18HigherOrderTriggerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers4inst18HigherOrderTriggerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_arg_vector = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::HigherOrderTrigger", ptr %this1, i32 0, i32 8
   call void @_ZNSt3mapIjS_IjSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESt4lessIjESaISt4pairIKjS6_EEES8_SaIS9_ISA_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_arg_vector) #3
   %d_arg_to_arg_rep = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::inst::HigherOrderTrigger", ptr %this1, i32 0, i32 7

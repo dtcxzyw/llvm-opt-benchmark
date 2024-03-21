@@ -451,7 +451,7 @@ invoke.cont5:
   %ref.tmp120 = alloca %"class.std::set.176", align 8
   %ref.tmp174 = alloca %"class.std::set.176", align 8
   %ref.tmp301 = alloca %"class.std::set.176", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217RoseDedupeAuxImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217RoseDedupeAuxImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %build = getelementptr inbounds %"class.ue2::RoseDedupeAuxImpl", ptr %this, i64 0, i32 1
   store ptr %build_in, ptr %build, align 8
   %vert_map = getelementptr inbounds %"class.ue2::RoseDedupeAuxImpl", ptr %this, i64 0, i32 2
@@ -3654,7 +3654,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3ue217RoseDedupeAuxImplD2Ev(ptr noundef nonnull align 8 dereferenceable(312) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217RoseDedupeAuxImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217RoseDedupeAuxImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %live_reports = getelementptr inbounds %"class.ue2::RoseDedupeAuxImpl", ptr %this, i64 0, i32 7
   %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.ue2::RoseDedupeAuxImpl", ptr %this, i64 0, i32 7, i32 0, i32 2
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8

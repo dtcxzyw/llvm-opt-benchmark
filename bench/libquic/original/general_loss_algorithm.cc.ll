@@ -225,7 +225,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net22LossDetectionInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net20GeneralLossAlgorithmE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net20GeneralLossAlgorithmE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %loss_detection_timeout_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this1, i32 0, i32 1
   %call = invoke i64 @_ZN3net8QuicTime4ZeroEv()
           to label %invoke.cont unwind label %lpad
@@ -265,7 +265,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net22LossDetectionInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net22LossDetectionInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -292,7 +292,7 @@ entry:
   store i32 %loss_type, ptr %loss_type.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net22LossDetectionInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net20GeneralLossAlgorithmE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net20GeneralLossAlgorithmE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %loss_detection_timeout_ = getelementptr inbounds %"class.net::GeneralLossAlgorithm", ptr %this1, i32 0, i32 1
   %call = invoke i64 @_ZN3net8QuicTime4ZeroEv()
           to label %invoke.cont unwind label %lpad

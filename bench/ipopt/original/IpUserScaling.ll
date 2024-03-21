@@ -227,7 +227,7 @@ define linkonce_odr void @_ZN5Ipopt11UserScalingD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Ipopt11UserScalingE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Ipopt11UserScalingE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Ipopt::UserScaling", ptr %3, i32 0, i32 1
   call void @_ZN5Ipopt8SmartPtrIKNS_3NLPEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN5Ipopt19StandardScalingBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3

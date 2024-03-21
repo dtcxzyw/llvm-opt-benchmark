@@ -1946,7 +1946,7 @@ define linkonce_odr dso_local void @_ZN12DyndepParserD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV12DyndepParser, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV12DyndepParser, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.DyndepParser, ptr %3, i32 0, i32 2
   call void @_ZN10BindingEnvD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #11
   ret void
@@ -3217,7 +3217,7 @@ define linkonce_odr dso_local void @_ZN10BindingEnvD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #11
   %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1

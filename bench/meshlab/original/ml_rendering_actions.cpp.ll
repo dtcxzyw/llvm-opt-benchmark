@@ -5743,7 +5743,7 @@ define void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dere
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17MLRenderingAction, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17MLRenderingAction, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_ZN7QAction12setCheckableEb(ptr noundef nonnull align 8 dereferenceable(16) %7, i1 noundef zeroext true)
           to label %9 unwind label %12
 
@@ -5835,7 +5835,7 @@ define void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 der
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17MLRenderingAction, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17MLRenderingAction, i32 0, i32 0, i32 2), ptr %9, align 8
   invoke void @_ZN7QAction12setCheckableEb(ptr noundef nonnull align 8 dereferenceable(16) %9, i1 noundef zeroext true)
           to label %11 unwind label %15
 
@@ -6387,7 +6387,7 @@ define linkonce_odr void @_ZN3vcg20GLMeshAttributesInfo9ExceptionC2EPKc(ptr noun
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
@@ -6424,7 +6424,7 @@ define linkonce_odr void @_ZN3vcg20GLMeshAttributesInfo9ExceptionD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg20GLMeshAttributesInfo9ExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.vcg::GLMeshAttributesInfo::Exception", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -6438,7 +6438,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6493,7 +6493,7 @@ define void @_ZN21MLRenderingBBoxActionC2EP7QObject(ptr noundef nonnull align 8 
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21MLRenderingBBoxAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21MLRenderingBBoxAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef @.str.7)
           to label %12 unwind label %17
 
@@ -6834,7 +6834,7 @@ define void @_ZN21MLRenderingBBoxActionC2EiP7QObject(ptr noundef nonnull align 8
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21MLRenderingBBoxAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21MLRenderingBBoxAction, i32 0, i32 0, i32 2), ptr %12, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef @.str.7)
           to label %15 unwind label %20
 
@@ -7030,7 +7030,7 @@ define linkonce_odr void @_ZN18MLPerViewGLOptionsC2Ev(ptr noundef nonnull align 
   store ptr %0, ptr %2, align 8
   %10 = load ptr, ptr %2, align 8
   call void @_ZN3vcg26RenderingModalityGLOptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(52) %10)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18MLPerViewGLOptions, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18MLPerViewGLOptions, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %struct.MLPerViewGLOptions, ptr %10, i32 0, i32 15
   invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %11)
           to label %12 unwind label %49
@@ -7194,7 +7194,7 @@ define linkonce_odr void @_ZN3vcg26RenderingModalityGLOptionsC2Ev(ptr noundef no
   %6 = alloca %"class.vcg::Color4", align 1
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg26RenderingModalityGLOptionsE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg26RenderingModalityGLOptionsE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.vcg::RenderingModalityGLOptions", ptr %7, i32 0, i32 6
   call void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %8)
   %9 = getelementptr inbounds %"struct.vcg::RenderingModalityGLOptions", ptr %7, i32 0, i32 7
@@ -7696,7 +7696,7 @@ define void @_ZN23MLRenderingPointsActionC2EP7QObject(ptr noundef nonnull align 
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV23MLRenderingPointsAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV23MLRenderingPointsAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef @.str.9)
           to label %12 unwind label %17
 
@@ -7793,7 +7793,7 @@ define void @_ZN23MLRenderingPointsActionC2EiP7QObject(ptr noundef nonnull align
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV23MLRenderingPointsAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV23MLRenderingPointsAction, i32 0, i32 0, i32 2), ptr %12, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef @.str.9)
           to label %15 unwind label %20
 
@@ -8138,7 +8138,7 @@ define void @_ZN21MLRenderingWireActionC2EP7QObject(ptr noundef nonnull align 8 
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21MLRenderingWireAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21MLRenderingWireAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef @.str.13)
           to label %12 unwind label %17
 
@@ -8235,7 +8235,7 @@ define void @_ZN21MLRenderingWireActionC2EiP7QObject(ptr noundef nonnull align 8
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21MLRenderingWireAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21MLRenderingWireAction, i32 0, i32 0, i32 2), ptr %12, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef @.str.13)
           to label %15 unwind label %20
 
@@ -8483,7 +8483,7 @@ define void @_ZN22MLRenderingSolidActionC2EP7QObject(ptr noundef nonnull align 8
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV22MLRenderingSolidAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV22MLRenderingSolidAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef @.str.15)
           to label %12 unwind label %17
 
@@ -8580,7 +8580,7 @@ define void @_ZN22MLRenderingSolidActionC2EiP7QObject(ptr noundef nonnull align 
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV22MLRenderingSolidAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV22MLRenderingSolidAction, i32 0, i32 0, i32 2), ptr %12, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef @.str.15)
           to label %15 unwind label %20
 
@@ -8739,7 +8739,7 @@ define void @_ZN29MLRenderingFauxEdgeWireActionC2EP7QObject(ptr noundef nonnull 
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingFauxEdgeWireAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingFauxEdgeWireAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.17)
           to label %10 unwind label %12
 
@@ -8797,7 +8797,7 @@ define void @_ZN29MLRenderingFauxEdgeWireActionC2EiP7QObject(ptr noundef nonnull
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingFauxEdgeWireAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingFauxEdgeWireAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.17)
           to label %13 unwind label %15
 
@@ -9021,7 +9021,7 @@ define void @_ZN30MLRenderingPerFaceNormalActionC2EP7QObject(ptr noundef nonnull
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingPerFaceNormalAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingPerFaceNormalAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.18)
           to label %12 unwind label %17
 
@@ -9118,7 +9118,7 @@ define void @_ZN30MLRenderingPerFaceNormalActionC2EiP7QObject(ptr noundef nonnul
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingPerFaceNormalAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingPerFaceNormalAction, i32 0, i32 0, i32 2), ptr %12, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.18)
           to label %15 unwind label %20
 
@@ -9368,7 +9368,7 @@ define void @_ZN32MLRenderingPerVertexNormalActionC2EN3vcg20GLMeshAttributesInfo
   %12 = load ptr, ptr %4, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV32MLRenderingPerVertexNormalAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV32MLRenderingPerVertexNormalAction, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %class.MLRenderingPerVertexNormalAction, ptr %12, i32 0, i32 1
   %15 = load i32, ptr %5, align 4
   store i32 %15, ptr %14, align 8
@@ -9470,7 +9470,7 @@ define void @_ZN32MLRenderingPerVertexNormalActionC2EN3vcg20GLMeshAttributesInfo
   %15 = load i32, ptr %7, align 4
   %16 = load ptr, ptr %8, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV32MLRenderingPerVertexNormalAction, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV32MLRenderingPerVertexNormalAction, i32 0, i32 0, i32 2), ptr %14, align 8
   %17 = getelementptr inbounds %class.MLRenderingPerVertexNormalAction, ptr %14, i32 0, i32 1
   %18 = load i32, ptr %6, align 4
   store i32 %18, ptr %17, align 8
@@ -9688,7 +9688,7 @@ define void @_ZN33MLRenderingPerVertTextCoordActionC2EN3vcg20GLMeshAttributesInf
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef -1, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV33MLRenderingPerVertTextCoordAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV33MLRenderingPerVertTextCoordAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.MLRenderingPerVertTextCoordAction, ptr %10, i32 0, i32 1
   %13 = load i32, ptr %5, align 4
   store i32 %13, ptr %12, align 8
@@ -9751,7 +9751,7 @@ define void @_ZN33MLRenderingPerVertTextCoordActionC2EN3vcg20GLMeshAttributesInf
   %13 = load i32, ptr %7, align 4
   %14 = load ptr, ptr %8, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV33MLRenderingPerVertTextCoordAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV33MLRenderingPerVertTextCoordAction, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.MLRenderingPerVertTextCoordAction, ptr %12, i32 0, i32 1
   %16 = load i32, ptr %6, align 4
   store i32 %16, ptr %15, align 8
@@ -9917,7 +9917,7 @@ define void @_ZN34MLRenderingPerWedgeTextCoordActionC2EP7QObject(ptr noundef non
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV34MLRenderingPerWedgeTextCoordAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV34MLRenderingPerWedgeTextCoordAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.22)
           to label %12 unwind label %17
 
@@ -10014,7 +10014,7 @@ define void @_ZN34MLRenderingPerWedgeTextCoordActionC2EiP7QObject(ptr noundef no
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV34MLRenderingPerWedgeTextCoordAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV34MLRenderingPerWedgeTextCoordAction, i32 0, i32 0, i32 2), ptr %12, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.22)
           to label %15 unwind label %20
 
@@ -10193,7 +10193,7 @@ define void @_ZN31MLRenderingDoubleLightingActionC2EP7QObject(ptr noundef nonnul
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingDoubleLightingAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingDoubleLightingAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.24)
           to label %10 unwind label %12
 
@@ -10251,7 +10251,7 @@ define void @_ZN31MLRenderingDoubleLightingActionC2EiP7QObject(ptr noundef nonnu
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingDoubleLightingAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingDoubleLightingAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.24)
           to label %13 unwind label %15
 
@@ -10460,7 +10460,7 @@ define void @_ZN31MLRenderingSingleLightingActionC2EP7QObject(ptr noundef nonnul
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingSingleLightingAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingSingleLightingAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.25)
           to label %10 unwind label %12
 
@@ -10518,7 +10518,7 @@ define void @_ZN31MLRenderingSingleLightingActionC2EiP7QObject(ptr noundef nonnu
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingSingleLightingAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingSingleLightingAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.25)
           to label %13 unwind label %15
 
@@ -10727,7 +10727,7 @@ define void @_ZN30MLRenderingFancyLightingActionC2EP7QObject(ptr noundef nonnull
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingFancyLightingAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingFancyLightingAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.26)
           to label %10 unwind label %12
 
@@ -10785,7 +10785,7 @@ define void @_ZN30MLRenderingFancyLightingActionC2EiP7QObject(ptr noundef nonnul
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingFancyLightingAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingFancyLightingAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.26)
           to label %13 unwind label %15
 
@@ -10997,7 +10997,7 @@ define void @_ZN26MLRenderingNoShadingActionC2EN3vcg20GLMeshAttributesInfo18PRIM
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingNoShadingAction, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingNoShadingAction, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.MLRenderingNoShadingAction, ptr %11, i32 0, i32 1
   %14 = load i32, ptr %5, align 4
   store i32 %14, ptr %13, align 8
@@ -11082,7 +11082,7 @@ define void @_ZN26MLRenderingNoShadingActionC2EN3vcg20GLMeshAttributesInfo18PRIM
   %14 = load i32, ptr %7, align 4
   %15 = load ptr, ptr %8, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %13, i32 noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingNoShadingAction, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingNoShadingAction, i32 0, i32 0, i32 2), ptr %13, align 8
   %16 = getelementptr inbounds %class.MLRenderingNoShadingAction, ptr %13, i32 0, i32 1
   %17 = load i32, ptr %6, align 4
   store i32 %17, ptr %16, align 8
@@ -11406,7 +11406,7 @@ define void @_ZN25MLRenderingFaceCullActionC2EP7QObject(ptr noundef nonnull alig
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV25MLRenderingFaceCullAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV25MLRenderingFaceCullAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.29)
           to label %10 unwind label %12
 
@@ -11464,7 +11464,7 @@ define void @_ZN25MLRenderingFaceCullActionC2EiP7QObject(ptr noundef nonnull ali
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV25MLRenderingFaceCullAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV25MLRenderingFaceCullAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.29)
           to label %13 unwind label %15
 
@@ -11675,7 +11675,7 @@ define void @_ZN29MLRenderingPerMeshColorActionC2EN3vcg20GLMeshAttributesInfo18P
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef -1, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingPerMeshColorAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingPerMeshColorAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.MLRenderingPerMeshColorAction, ptr %10, i32 0, i32 1
   invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %12)
           to label %13 unwind label %18
@@ -11743,7 +11743,7 @@ define void @_ZN29MLRenderingPerMeshColorActionC2EN3vcg20GLMeshAttributesInfo18P
   %13 = load i32, ptr %7, align 4
   %14 = load ptr, ptr %8, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingPerMeshColorAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingPerMeshColorAction, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.MLRenderingPerMeshColorAction, ptr %12, i32 0, i32 1
   invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %15)
           to label %16 unwind label %21
@@ -12133,7 +12133,7 @@ define void @_ZN31MLRenderingPerVertexColorActionC2EN3vcg20GLMeshAttributesInfo1
   %12 = load ptr, ptr %4, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef -1, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingPerVertexColorAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingPerVertexColorAction, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %class.MLRenderingPerVertexColorAction, ptr %12, i32 0, i32 1
   %15 = load i32, ptr %5, align 4
   store i32 %15, ptr %14, align 8
@@ -12235,7 +12235,7 @@ define void @_ZN31MLRenderingPerVertexColorActionC2EN3vcg20GLMeshAttributesInfo1
   %15 = load i32, ptr %7, align 4
   %16 = load ptr, ptr %8, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %14, i32 noundef %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingPerVertexColorAction, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingPerVertexColorAction, i32 0, i32 0, i32 2), ptr %14, align 8
   %17 = getelementptr inbounds %class.MLRenderingPerVertexColorAction, ptr %14, i32 0, i32 1
   %18 = load i32, ptr %6, align 4
   store i32 %18, ptr %17, align 8
@@ -12453,7 +12453,7 @@ define void @_ZN29MLRenderingPerFaceColorActionC2EP7QObject(ptr noundef nonnull 
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingPerFaceColorAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingPerFaceColorAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.18)
           to label %12 unwind label %17
 
@@ -12550,7 +12550,7 @@ define void @_ZN29MLRenderingPerFaceColorActionC2EiP7QObject(ptr noundef nonnull
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingPerFaceColorAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingPerFaceColorAction, i32 0, i32 0, i32 2), ptr %12, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.18)
           to label %15 unwind label %20
 
@@ -12743,7 +12743,7 @@ define void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EP7QObject(ptr nound
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV40MLRenderingUserDefinedGeneralColorAction, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV40MLRenderingUserDefinedGeneralColorAction, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.MLRenderingUserDefinedGeneralColorAction, ptr %7, i32 0, i32 1
   invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %9)
           to label %10 unwind label %11
@@ -12783,7 +12783,7 @@ define void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EiP7QObject(ptr noun
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV40MLRenderingUserDefinedGeneralColorAction, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV40MLRenderingUserDefinedGeneralColorAction, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.MLRenderingUserDefinedGeneralColorAction, ptr %9, i32 0, i32 1
   invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %12)
           to label %13 unwind label %14
@@ -12824,7 +12824,7 @@ define void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EPS_P7QObject(ptr no
   %11 = call noundef i32 @_ZNK17MLRenderingAction6meshIdEv(ptr noundef nonnull align 8 dereferenceable(16) %10)
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV40MLRenderingUserDefinedGeneralColorAction, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV40MLRenderingUserDefinedGeneralColorAction, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds %class.MLRenderingUserDefinedGeneralColorAction, ptr %9, i32 0, i32 1
   invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %13)
           to label %14 unwind label %19
@@ -12913,7 +12913,7 @@ define void @_ZN33MLRenderingUserDefinedColorActionC2EN3vcg20GLMeshAttributesInf
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef -1, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV33MLRenderingUserDefinedColorAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV33MLRenderingUserDefinedColorAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.MLRenderingUserDefinedColorAction, ptr %10, i32 0, i32 1
   %13 = load i32, ptr %5, align 4
   store i32 %13, ptr %12, align 4
@@ -12985,7 +12985,7 @@ define void @_ZN33MLRenderingUserDefinedColorActionC2EN3vcg20GLMeshAttributesInf
   %13 = load i32, ptr %7, align 4
   %14 = load ptr, ptr %8, align 8
   call void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV33MLRenderingUserDefinedColorAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV33MLRenderingUserDefinedColorAction, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.MLRenderingUserDefinedColorAction, ptr %12, i32 0, i32 1
   %16 = load i32, ptr %6, align 4
   store i32 %16, ptr %15, align 4
@@ -13047,7 +13047,7 @@ define void @_ZN33MLRenderingUserDefinedColorActionC2EPS_P7QObject(ptr noundef n
   %12 = call noundef i32 @_ZNK17MLRenderingAction6meshIdEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   %13 = load ptr, ptr %6, align 8
   call void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV33MLRenderingUserDefinedColorAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV33MLRenderingUserDefinedColorAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %14 = load ptr, ptr %5, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %15 unwind label %21
@@ -13443,7 +13443,7 @@ define void @_ZN26MLRenderingSelectionActionC2EP7QObject(ptr noundef nonnull ali
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef -1, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingSelectionAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingSelectionAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef @.str.34)
           to label %12 unwind label %17
 
@@ -13540,7 +13540,7 @@ define void @_ZN26MLRenderingSelectionActionC2EiP7QObject(ptr noundef nonnull al
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingSelectionAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingSelectionAction, i32 0, i32 0, i32 2), ptr %12, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef @.str.34)
           to label %15 unwind label %20
 
@@ -13786,7 +13786,7 @@ define void @_ZN26MLRenderingPointsDotActionC2EP7QObject(ptr noundef nonnull ali
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingPointsDotAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingPointsDotAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.36)
           to label %10 unwind label %12
 
@@ -13844,7 +13844,7 @@ define void @_ZN26MLRenderingPointsDotActionC2EiP7QObject(ptr noundef nonnull al
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingPointsDotAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingPointsDotAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.36)
           to label %13 unwind label %15
 
@@ -14053,7 +14053,7 @@ define void @_ZN30MLRenderingVertSelectionActionC2EP7QObject(ptr noundef nonnull
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingVertSelectionAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingVertSelectionAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.37)
           to label %10 unwind label %12
 
@@ -14111,7 +14111,7 @@ define void @_ZN30MLRenderingVertSelectionActionC2EiP7QObject(ptr noundef nonnul
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingVertSelectionAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingVertSelectionAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.37)
           to label %13 unwind label %15
 
@@ -14320,7 +14320,7 @@ define void @_ZN30MLRenderingFaceSelectionActionC2EP7QObject(ptr noundef nonnull
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingFaceSelectionAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingFaceSelectionAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.38)
           to label %10 unwind label %12
 
@@ -14378,7 +14378,7 @@ define void @_ZN30MLRenderingFaceSelectionActionC2EiP7QObject(ptr noundef nonnul
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingFaceSelectionAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingFaceSelectionAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.38)
           to label %13 unwind label %15
 
@@ -14587,7 +14587,7 @@ define void @_ZN33MLRenderingBBoxPerMeshColorActionC2EP7QObject(ptr noundef nonn
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV33MLRenderingBBoxPerMeshColorAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV33MLRenderingBBoxPerMeshColorAction, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %class.MLRenderingBBoxPerMeshColorAction, ptr %8, i32 0, i32 1
   invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %10)
           to label %11 unwind label %14
@@ -14650,7 +14650,7 @@ define void @_ZN33MLRenderingBBoxPerMeshColorActionC2EiP7QObject(ptr noundef non
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV33MLRenderingBBoxPerMeshColorAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV33MLRenderingBBoxPerMeshColorAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %13 = getelementptr inbounds %class.MLRenderingBBoxPerMeshColorAction, ptr %10, i32 0, i32 1
   invoke void @_ZN3vcg6Color4IhEC2Ev(ptr noundef nonnull align 1 dereferenceable(4) %13)
           to label %14 unwind label %17
@@ -14904,7 +14904,7 @@ define void @_ZN37MLRenderingBBoxUserDefinedColorActionC2EP7QObject(ptr noundef 
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.33)
           to label %10 unwind label %12
 
@@ -14962,7 +14962,7 @@ define void @_ZN37MLRenderingBBoxUserDefinedColorActionC2EiP7QObject(ptr noundef
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.33)
           to label %13 unwind label %15
 
@@ -15021,7 +15021,7 @@ define void @_ZN37MLRenderingBBoxUserDefinedColorActionC2EPS_P7QObject(ptr nound
   %12 = call noundef i32 @_ZNK17MLRenderingAction6meshIdEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   %13 = load ptr, ptr %6, align 8
   call void @_ZN40MLRenderingUserDefinedGeneralColorActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV37MLRenderingBBoxUserDefinedColorAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %14 = load ptr, ptr %5, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %15 unwind label %20
@@ -15297,7 +15297,7 @@ define void @_ZN30MLRenderingEdgeDecoratorActionC2EP7QObject(ptr noundef nonnull
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef -1, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingEdgeDecoratorAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingEdgeDecoratorAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef @.str.39)
           to label %12 unwind label %17
 
@@ -15394,7 +15394,7 @@ define void @_ZN30MLRenderingEdgeDecoratorActionC2EiP7QObject(ptr noundef nonnul
   %13 = load i32, ptr %5, align 4
   %14 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, i32 noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingEdgeDecoratorAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV30MLRenderingEdgeDecoratorAction, i32 0, i32 0, i32 2), ptr %12, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef @.str.39)
           to label %15 unwind label %20
 
@@ -15649,7 +15649,7 @@ define void @_ZN29MLRenderingEdgeBoundaryActionC2EP7QObject(ptr noundef nonnull 
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingEdgeBoundaryAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingEdgeBoundaryAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.41)
           to label %10 unwind label %12
 
@@ -15707,7 +15707,7 @@ define void @_ZN29MLRenderingEdgeBoundaryActionC2EiP7QObject(ptr noundef nonnull
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingEdgeBoundaryAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingEdgeBoundaryAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.41)
           to label %13 unwind label %15
 
@@ -15925,7 +15925,7 @@ define void @_ZN29MLRenderingFaceBoundaryActionC2EP7QObject(ptr noundef nonnull 
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingFaceBoundaryAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingFaceBoundaryAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.42)
           to label %10 unwind label %12
 
@@ -15983,7 +15983,7 @@ define void @_ZN29MLRenderingFaceBoundaryActionC2EiP7QObject(ptr noundef nonnull
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingFaceBoundaryAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingFaceBoundaryAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.42)
           to label %13 unwind label %15
 
@@ -16201,7 +16201,7 @@ define void @_ZN29MLRenderingEdgeManifoldActionC2EP7QObject(ptr noundef nonnull 
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingEdgeManifoldAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingEdgeManifoldAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.43)
           to label %10 unwind label %12
 
@@ -16259,7 +16259,7 @@ define void @_ZN29MLRenderingEdgeManifoldActionC2EiP7QObject(ptr noundef nonnull
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingEdgeManifoldAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingEdgeManifoldAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.43)
           to label %13 unwind label %15
 
@@ -16477,7 +16477,7 @@ define void @_ZN29MLRenderingVertManifoldActionC2EP7QObject(ptr noundef nonnull 
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingVertManifoldAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingVertManifoldAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.44)
           to label %10 unwind label %12
 
@@ -16535,7 +16535,7 @@ define void @_ZN29MLRenderingVertManifoldActionC2EiP7QObject(ptr noundef nonnull
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingVertManifoldAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV29MLRenderingVertManifoldAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.44)
           to label %13 unwind label %15
 
@@ -16753,7 +16753,7 @@ define void @_ZN26MLRenderingTexBorderActionC2EP7QObject(ptr noundef nonnull ali
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingTexBorderAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingTexBorderAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.45)
           to label %10 unwind label %12
 
@@ -16811,7 +16811,7 @@ define void @_ZN26MLRenderingTexBorderActionC2EiP7QObject(ptr noundef nonnull al
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingTexBorderAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV26MLRenderingTexBorderAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.45)
           to label %13 unwind label %15
 
@@ -17029,7 +17029,7 @@ define void @_ZN20MLRenderingDotActionC2EP7QObject(ptr noundef nonnull align 8 d
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV20MLRenderingDotAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV20MLRenderingDotAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.46)
           to label %10 unwind label %12
 
@@ -17087,7 +17087,7 @@ define void @_ZN20MLRenderingDotActionC2EiP7QObject(ptr noundef nonnull align 8 
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV20MLRenderingDotAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV20MLRenderingDotAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.46)
           to label %13 unwind label %15
 
@@ -17305,7 +17305,7 @@ define void @_ZN27MLRenderingPointsSizeActionC2EP7QObject(ptr noundef nonnull al
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN22MLRenderingFloatActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV27MLRenderingPointsSizeAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV27MLRenderingPointsSizeAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.47)
           to label %10 unwind label %12
 
@@ -17360,7 +17360,7 @@ define void @_ZN22MLRenderingFloatActionC2EiP7QObject(ptr noundef nonnull align 
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV22MLRenderingFloatAction, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV22MLRenderingFloatAction, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -17388,7 +17388,7 @@ define void @_ZN27MLRenderingPointsSizeActionC2EiP7QObject(ptr noundef nonnull a
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN22MLRenderingFloatActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV27MLRenderingPointsSizeAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV27MLRenderingPointsSizeAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.47)
           to label %13 unwind label %15
 
@@ -17447,7 +17447,7 @@ define void @_ZN27MLRenderingPointsSizeActionC2EPS_P7QObject(ptr noundef nonnull
   %12 = call noundef i32 @_ZNK17MLRenderingAction6meshIdEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   %13 = load ptr, ptr %6, align 8
   call void @_ZN22MLRenderingFloatActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV27MLRenderingPointsSizeAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV27MLRenderingPointsSizeAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %14 = load ptr, ptr %5, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %15 unwind label %21
@@ -17672,7 +17672,7 @@ define void @_ZN26MLRenderingWireWidthActionC2EP7QObject(ptr noundef nonnull ali
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN22MLRenderingFloatActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %8, i32 noundef -1, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV26MLRenderingWireWidthAction, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV26MLRenderingWireWidthAction, i32 0, i32 0, i32 2), ptr %8, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef @.str.48)
           to label %10 unwind label %12
 
@@ -17730,7 +17730,7 @@ define void @_ZN26MLRenderingWireWidthActionC2EiP7QObject(ptr noundef nonnull al
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN22MLRenderingFloatActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV26MLRenderingWireWidthAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV26MLRenderingWireWidthAction, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.48)
           to label %13 unwind label %15
 
@@ -17789,7 +17789,7 @@ define void @_ZN26MLRenderingWireWidthActionC2EPS_P7QObject(ptr noundef nonnull 
   %12 = call noundef i32 @_ZNK17MLRenderingAction6meshIdEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   %13 = load ptr, ptr %6, align 8
   call void @_ZN22MLRenderingFloatActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(20) %10, i32 noundef %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV26MLRenderingWireWidthAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV26MLRenderingWireWidthAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %14 = load ptr, ptr %5, align 8
   invoke void @_ZNK7QAction4textEv(ptr dead_on_unwind writable sret(%class.QString) align 8 %7, ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %15 unwind label %21
@@ -18011,7 +18011,7 @@ define void @_ZN22MLRenderingFloatActionC2EP7QObject(ptr noundef nonnull align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef -1, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV22MLRenderingFloatAction, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV22MLRenderingFloatAction, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -18024,7 +18024,7 @@ define void @_ZN31MLRenderingBBoxQuotedInfoActionC2EP7QObject(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, i32 noundef -1, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingBBoxQuotedInfoAction, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingBBoxQuotedInfoAction, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -18040,7 +18040,7 @@ define void @_ZN31MLRenderingBBoxQuotedInfoActionC2EiP7QObject(ptr noundef nonnu
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN17MLRenderingActionC2EiP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingBBoxQuotedInfoAction, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV31MLRenderingBBoxQuotedInfoAction, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -18230,7 +18230,7 @@ define void @_ZN23MLRenderingGlobalActionC2ERK7QStringRK5QIconP7QObject(ptr noun
 
 16:                                               ; preds = %4
   call void @_ZN5QIconD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV23MLRenderingGlobalAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV23MLRenderingGlobalAction, i32 0, i32 0, i32 2), ptr %12, align 8
   %17 = getelementptr inbounds %class.MLRenderingGlobalAction, ptr %12, i32 0, i32 1
   call void @_ZN5QListIP17MLRenderingActionEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #3
   %18 = getelementptr inbounds %class.MLRenderingGlobalAction, ptr %12, i32 0, i32 2

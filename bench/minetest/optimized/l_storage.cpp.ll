@@ -300,7 +300,7 @@ define dso_local noundef i32 @_ZN13ModApiStorage17l_get_mod_storageEP9lua_State(
           to label %13 unwind label %22
 
 13:                                               ; preds = %11
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10StorageRef, i64 0, inrange i32 0, i64 2), ptr %12, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10StorageRef, i64 0, i32 0, i64 2), ptr %12, align 8, !tbaa !12
   %14 = getelementptr inbounds i8, ptr %12, i64 8
   invoke void @_ZN10ModStorageC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP18ModStorageDatabase(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef %10)
           to label %15 unwind label %20
@@ -384,7 +384,7 @@ declare noundef ptr @_ZN10ModApiBase10getGameDefEP9lua_State(ptr noundef) local_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN10StorageRef6createEP9lua_StateRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP18ModStorageDatabase(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #16
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10StorageRef, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10StorageRef, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !12
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   invoke void @_ZN10ModStorageC1ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP18ModStorageDatabase(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2)
           to label %6 unwind label %9
@@ -474,9 +474,9 @@ declare noundef i32 @_ZN11MetaDataRef8l_equalsEP9lua_State(ptr noundef) #0
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10StorageRefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10StorageRef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10StorageRef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10ModStorage, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10ModStorage, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -500,9 +500,9 @@ define linkonce_odr dso_local void @_ZN10StorageRefD2Ev(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10StorageRefD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10StorageRef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV10StorageRef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10ModStorage, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10ModStorage, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !12
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %0, i64 32

@@ -88,7 +88,7 @@ entry:
   %0 = load ptr, ptr %text.addr, align 8
   %1 = load ptr, ptr %breakiter.addr, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %pattern.addr, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -345,7 +345,7 @@ entry:
   %0 = load ptr, ptr %text.addr, align 8
   %1 = load ptr, ptr %breakiter.addr, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %pattern.addr, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -504,7 +504,7 @@ entry:
   %0 = load ptr, ptr %text.addr, align 8
   %1 = load ptr, ptr %breakiter.addr, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %pattern.addr, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -642,7 +642,7 @@ entry:
   %0 = load ptr, ptr %text.addr, align 8
   %1 = load ptr, ptr %breakiter.addr, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %pattern.addr, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %m_pattern_, ptr noundef nonnull align 8 dereferenceable(64) %2)
@@ -786,7 +786,7 @@ entry:
   %m_breakiterator_ = getelementptr inbounds %"class.icu_75::SearchIterator", ptr %1, i32 0, i32 2
   %2 = load ptr, ptr %m_breakiterator_, align 8
   call void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(64) %m_text_, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7512StringSearchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pattern_ = getelementptr inbounds %"class.icu_75::StringSearch", ptr %this1, i32 0, i32 1
   %3 = load ptr, ptr %that.addr, align 8
   %m_pattern_2 = getelementptr inbounds %"class.icu_75::StringSearch", ptr %3, i32 0, i32 1

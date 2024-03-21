@@ -951,7 +951,7 @@ entry:
   store ptr %delegate, ptr %delegate.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net30QuicSentPacketManagerInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %unacked_packets_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 1
   invoke void @_ZN3net20QuicUnackedPacketMapC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %unacked_packets_)
           to label %invoke.cont unwind label %lpad
@@ -1143,7 +1143,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1318,7 +1318,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr] }, ptr @_ZTVN3net21QuicSentPacketManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pacing_sender_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 33
   call void @_ZN3net12PacingSenderD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %pacing_sender_) #11
   %packets_lost_ = getelementptr inbounds %"class.net::QuicSentPacketManager", ptr %this1, i32 0, i32 29

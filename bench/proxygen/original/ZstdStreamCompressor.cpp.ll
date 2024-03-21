@@ -277,7 +277,7 @@ entry:
   store i8 %frombool, ptr %independentChunks.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen16StreamCompressorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %codec_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EEC2IS4_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %codec_, ptr null) #11
   %compressionLevel_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this1, i32 0, i32 2
@@ -299,7 +299,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen16StreamCompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen16StreamCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1355,7 +1355,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen20ZstdStreamCompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %codec_ = getelementptr inbounds %"class.proxygen::ZstdStreamCompressor", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5folly2io11StreamCodecESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %codec_) #11
   call void @_ZN8proxygen16StreamCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11

@@ -274,7 +274,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   call void @_ZN9Imath_3_28Matrix33IfEC2ERKS1_(ptr noundef nonnull align 4 dereferenceable(36) %_value, ptr noundef nonnull align 4 dereferenceable(36) %0) #3
@@ -481,7 +481,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IfEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute", ptr %this1, i32 0, i32 1
   call void @_ZN9Imath_3_28Matrix33IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(36) %_value) #3
   ret void
@@ -816,7 +816,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute.0", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   call void @_ZN9Imath_3_28Matrix33IdEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %_value, ptr noundef nonnull align 8 dereferenceable(72) %0) #3
@@ -1009,7 +1009,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix33IdEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute.0", ptr %this1, i32 0, i32 1
   call void @_ZN9Imath_3_28Matrix33IdEC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %_value) #3
   ret void
@@ -1324,7 +1324,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute.2", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   call void @_ZN9Imath_3_28Matrix44IfEC2ERKS1_(ptr noundef nonnull align 4 dereferenceable(64) %_value, ptr noundef nonnull align 4 dereferenceable(64) %0) #3
@@ -1580,7 +1580,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IfEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute.2", ptr %this1, i32 0, i32 1
   call void @_ZN9Imath_3_28Matrix44IfEC2Ev(ptr noundef nonnull align 4 dereferenceable(64) %_value) #3
   ret void
@@ -1958,7 +1958,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute.3", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   call void @_ZN9Imath_3_28Matrix44IdEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(128) %_value, ptr noundef nonnull align 8 dereferenceable(128) %0) #3
@@ -2214,7 +2214,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeIN9Imath_3_28Matrix44IdEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_value = getelementptr inbounds %"class.Imf_3_2::TypedAttribute.3", ptr %this1, i32 0, i32 1
   call void @_ZN9Imath_3_28Matrix44IdEC2Ev(ptr noundef nonnull align 8 dereferenceable(128) %_value) #3
   ret void

@@ -2528,7 +2528,7 @@ if.end37:                                         ; preds = %invoke.cont36, %if.
           to label %call.i.noexc unwind label %lpad42
 
 call.i.noexc:                                     ; preds = %if.end37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN7rocksdb12ErrorHandlerEFvvEPS4_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN7rocksdb12ErrorHandlerEFvvEPS4_EEEEEE, i64 0, i32 0, i64 2), ptr %call.i9, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i9, i64 8
   store ptr %this, ptr %_M_func.i.i, align 8
   %23 = getelementptr inbounds i8, ptr %call.i9, i64 16

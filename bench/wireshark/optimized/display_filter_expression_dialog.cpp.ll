@@ -400,8 +400,8 @@ define void @_ZN29DisplayFilterExpressionDialogC2EP7QWidget(ptr noundef nonnull 
   %58 = getelementptr inbounds i8, ptr %0, i64 16
   %59 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV29DisplayFilterExpressionDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV29DisplayFilterExpressionDialog, i64 0, inrange i32 1, i64 2), ptr %58, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV29DisplayFilterExpressionDialog, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV29DisplayFilterExpressionDialog, i64 0, i32 1, i64 2), ptr %58, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 64
   %61 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20
           to label %62 unwind label %97
@@ -411,7 +411,7 @@ define void @_ZN29DisplayFilterExpressionDialogC2EP7QWidget(ptr noundef nonnull 
           to label %.noexc unwind label %99
 
 .noexc:                                           ; preds = %62
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV14QFutureWatcherIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %61, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV14QFutureWatcherIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %61, align 8
   %63 = getelementptr inbounds i8, ptr %61, i64 16
   invoke void @_ZN20QFutureInterfaceBaseC2ENS_5StateE(ptr noundef nonnull align 8 dereferenceable(16) %63, i32 noundef 14)
           to label %66 unwind label %64
@@ -423,7 +423,7 @@ define void @_ZN29DisplayFilterExpressionDialogC2EP7QWidget(ptr noundef nonnull 
   br label %.body
 
 66:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %63, align 8, !alias.scope !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %63, align 8, !alias.scope !4
   %67 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase4refTEv(ptr noundef nonnull align 8 dereferenceable(16) %63) #21
   store ptr %61, ptr %60, align 8
   %68 = getelementptr inbounds i8, ptr %0, i64 72
@@ -1456,7 +1456,7 @@ _ZN7QStringD2Ev.exit209:                          ; preds = %378, %_ZN17QArrayDa
           to label %_ZN14QFutureWatcherIP15QTreeWidgetItemE9setFutureERK7QFutureIS1_E.exit unwind label %462
 
 _ZN14QFutureWatcherIP15QTreeWidgetItemE9setFutureERK7QFutureIS1_E.exit: ; preds = %433, %.noexc255
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %32, align 8
   %443 = call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %32) #21
   br i1 %443, label %_ZN7QFutureIP15QTreeWidgetItemED2Ev.exit, label %444
 
@@ -2627,7 +2627,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i165:   ; preds = %232
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %239, ptr noundef %240, i32 noundef 0, i32 0)
   %241 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   %242 = getelementptr inbounds i8, ptr %241, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %241, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %241, align 8
   store <4 x i32> <i32 0, i32 40, i32 20, i32 1507328>, ptr %242, align 8
   %243 = getelementptr inbounds i8, ptr %241, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %243, align 4
@@ -2646,7 +2646,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i165:   ; preds = %232
   call void @_ZN10QBoxLayout9addLayoutEP7QLayouti(ptr noundef nonnull align 8 dereferenceable(28) %251, ptr noundef %252, i32 noundef 0)
   %253 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   %254 = getelementptr inbounds i8, ptr %253, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %253, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %253, align 8
   store <4 x i32> <i32 0, i32 20, i32 12, i32 7405568>, ptr %254, align 8
   %255 = getelementptr inbounds i8, ptr %253, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %255, align 4
@@ -2839,7 +2839,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i201:   ; preds = %312
   call void @_ZN10QBoxLayout9addLayoutEP7QLayouti(ptr noundef nonnull align 8 dereferenceable(28) %320, ptr noundef %321, i32 noundef 0)
   %322 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #20
   %323 = getelementptr inbounds i8, ptr %322, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %322, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %322, align 8
   store <4 x i32> <i32 0, i32 20, i32 12, i32 7405568>, ptr %323, align 8
   %324 = getelementptr inbounds i8, ptr %322, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %324, align 4
@@ -6233,13 +6233,13 @@ define void @_ZN29DisplayFilterExpressionDialog11addTreeItemEi(ptr nocapture nou
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZN20QFutureInterfaceBaseC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %6)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !51
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !51
   %7 = call noundef zeroext i1 @_ZNK20QFutureInterfaceBase4refTEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   %8 = invoke noundef ptr @_ZNK7QFutureIP15QTreeWidgetItemE8resultAtIS1_vEES1_i(ptr noundef nonnull align 8 dereferenceable(16) %3, i32 noundef %1)
           to label %9 unwind label %22
 
 9:                                                ; preds = %2
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %3, align 8
   %10 = call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br i1 %10, label %_ZN7QFutureIP15QTreeWidgetItemED2Ev.exit, label %11
 
@@ -6293,7 +6293,7 @@ define void @_ZN29DisplayFilterExpressionDialog8fillTreeEv(ptr nocapture noundef
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7QFutureIP15QTreeWidgetItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br i1 %2, label %_ZN16QFutureInterfaceIP15QTreeWidgetItemED2Ev.exit, label %3
 
@@ -6325,9 +6325,9 @@ define void @_ZN29DisplayFilterExpressionDialogD2Ev(ptr noundef nonnull align 8 
   %2 = alloca %class.QFuture, align 8
   %3 = alloca %class.QList.6, align 8
   %4 = alloca %class.QFuture, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV29DisplayFilterExpressionDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV29DisplayFilterExpressionDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV29DisplayFilterExpressionDialog, i64 0, inrange i32 1, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV29DisplayFilterExpressionDialog, i64 0, i32 1, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -6339,13 +6339,13 @@ define void @_ZN29DisplayFilterExpressionDialogD2Ev(ptr noundef nonnull align 8 
           to label %10 unwind label %61
 
 10:                                               ; preds = %8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !alias.scope !54
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %2, align 8, !alias.scope !54
   %11 = call noundef zeroext i1 @_ZNK20QFutureInterfaceBase4refTEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
   invoke void @_ZN20QFutureInterfaceBase6cancelEv(ptr noundef nonnull align 8 dereferenceable(16) %2)
           to label %_ZN7QFutureIP15QTreeWidgetItemE6cancelEv.exit unwind label %61
 
 _ZN7QFutureIP15QTreeWidgetItemE6cancelEv.exit:    ; preds = %10
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %2, align 8
   %12 = call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
   br i1 %12, label %_ZN7QFutureIP15QTreeWidgetItemED2Ev.exit, label %13
 
@@ -6372,7 +6372,7 @@ _ZN7QFutureIP15QTreeWidgetItemED2Ev.exit:         ; preds = %_ZN7QFutureIP15QTre
           to label %21 unwind label %61
 
 21:                                               ; preds = %_ZN7QFutureIP15QTreeWidgetItemED2Ev.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !57
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !57
   %22 = call noundef zeroext i1 @_ZNK20QFutureInterfaceBase4refTEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   invoke void @_ZN16QFutureInterfaceIP15QTreeWidgetItemE7resultsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.6) align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %_ZNK7QFutureIP15QTreeWidgetItemE7resultsIS1_vEE5QListIS1_Ev.exit unwind label %61
@@ -6421,7 +6421,7 @@ _ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i: ; preds = %_Z10qDel
   br label %_ZN5QListIP15QTreeWidgetItemED2Ev.exit
 
 _ZN5QListIP15QTreeWidgetItemED2Ev.exit:           ; preds = %_Z10qDeleteAllI5QListIP15QTreeWidgetItemEEvRKT_.exit, %_ZN17QArrayDataPointerIP15QTreeWidgetItemE5derefEv.exit.i.i, %38
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %4, align 8
   %40 = call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #21
   br i1 %40, label %_ZN7QFutureIP15QTreeWidgetItemED2Ev.exit4, label %41
 
@@ -10664,7 +10664,7 @@ define linkonce_odr void @_ZN12QtConcurrent19PromiseTaskResolverIJPFvR8QPromiseI
   %4 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i8 1, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 16
   invoke void @_ZN20QFutureInterfaceBaseC2ENS_5StateE(ptr noundef nonnull align 8 dereferenceable(16) %6, i32 noundef 0)
           to label %_ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEC2Ev.exit.i.i.i unwind label %7
@@ -10676,9 +10676,9 @@ define linkonce_odr void @_ZN12QtConcurrent19PromiseTaskResolverIJPFvR8QPromiseI
   br label %.body
 
 _ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEC2Ev.exit.i.i.i: ; preds = %3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %6, align 8
   %9 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase4refTEv(ptr noundef nonnull align 8 dereferenceable(16) %6) #21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %10 = getelementptr inbounds i8, ptr %4, i64 32
   invoke void @_ZN20QFutureInterfaceBaseC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %13 unwind label %11
@@ -10690,7 +10690,7 @@ _ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEC2Ev.exit.i.i.i: ; pre
   br label %.body
 
 13:                                               ; preds = %_ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEC2Ev.exit.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %10, align 8
   %14 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase4refTEv(ptr noundef nonnull align 8 dereferenceable(16) %10) #21
   %15 = getelementptr inbounds i8, ptr %4, i64 48
   %16 = load ptr, ptr %1, align 8, !noalias !73
@@ -10716,7 +10716,7 @@ define linkonce_odr void @_ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetI
   tail call void @_ZN20QFutureInterfaceBase11setRunnableEP9QRunnable(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %1)
   tail call void @_ZN20QFutureInterfaceBase13reportStartedEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
   tail call void @_ZN20QFutureInterfaceBaseC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %4)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !alias.scope !76
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %0, align 8, !alias.scope !76
   %6 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase4refTEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   %7 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %7, null
@@ -10788,7 +10788,7 @@ _ZN8QPromiseIP15QTreeWidgetItemE6finishEv.exit.invoke: ; preds = %.noexc, %3
           to label %9 unwind label %17
 
 9:                                                ; preds = %_ZN8QPromiseIP15QTreeWidgetItemE6finishEv.exit.invoke, %5
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br i1 %10, label %_ZN16QFutureInterfaceIP15QTreeWidgetItemED2Ev.exit, label %11
 
@@ -10922,12 +10922,12 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit9:  ; preds = %26, %29
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN8QPromiseIP15QTreeWidgetItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br i1 %4, label %_ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemED2Ev.exit, label %5
 
@@ -10954,12 +10954,12 @@ _ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemED2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZN8QPromiseIP15QTreeWidgetItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br i1 %4, label %_ZN12QtConcurrent29StoredFunctionCallWithPromiseIPFvR8QPromiseIP15QTreeWidgetItemEES3_JEED2Ev.exit, label %5
 
@@ -11000,9 +11000,9 @@ declare void @_ZN9QRunnableD2Ev(ptr noundef nonnull align 8 dereferenceable(9)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12QtConcurrent19RunFunctionTaskBaseIP15QTreeWidgetItemEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %2) #21
   br i1 %3, label %_ZN16QFutureInterfaceIP15QTreeWidgetItemED2Ev.exit, label %4
 
@@ -11042,7 +11042,7 @@ declare noundef zeroext i1 @_ZNK20QFutureInterfaceBase4refTEv(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16QFutureInterfaceIP15QTreeWidgetItemED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br i1 %2, label %6, label %3
 
@@ -11068,7 +11068,7 @@ define linkonce_odr void @_ZN16QFutureInterfaceIP15QTreeWidgetItemED2Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN16QFutureInterfaceIP15QTreeWidgetItemED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #21
   br i1 %2, label %_ZN16QFutureInterfaceIP15QTreeWidgetItemED2Ev.exit, label %3
 
@@ -13711,13 +13711,13 @@ declare noundef i32 @_ZN18QFutureWatcherBase11qt_metacallEN11QMetaObject4CallEiP
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14QFutureWatcherIP15QTreeWidgetItemED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV14QFutureWatcherIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV14QFutureWatcherIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN18QFutureWatcherBase25disconnectOutputInterfaceEb(ptr noundef nonnull align 8 dereferenceable(16) %0, i1 noundef zeroext false)
           to label %2 unwind label %11
 
 2:                                                ; preds = %1
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = tail call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br i1 %4, label %_ZN7QFutureIP15QTreeWidgetItemED2Ev.exit, label %5
 
@@ -13922,10 +13922,10 @@ declare void @_ZN18QFutureWatcherBase22connectOutputInterfaceEv(ptr noundef nonn
 define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN16QFutureInterfaceIP15QTreeWidgetItemEaSERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QFutureInterface, align 8
   call void @_ZN20QFutureInterfaceBaseC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = call noundef zeroext i1 @_ZNK20QFutureInterfaceBase4refTEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   call void @_ZN20QFutureInterfaceBase4swapERS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3) #21
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16QFutureInterfaceIP15QTreeWidgetItemE, i64 0, i32 0, i64 2), ptr %3, align 8
   %5 = call noundef zeroext i1 @_ZNK20QFutureInterfaceBase6derefTEv(ptr noundef nonnull align 8 dereferenceable(16) %3) #21
   br i1 %5, label %_ZN16QFutureInterfaceIP15QTreeWidgetItemED2Ev.exit, label %6
 

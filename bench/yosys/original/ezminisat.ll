@@ -781,7 +781,7 @@ define void @_ZN9ezMiniSATC2Ev(ptr noundef nonnull align 8 dereferenceable(376) 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ezSATC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 1
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds %class.ezMiniSAT, ptr %5, i32 0, i32 2
@@ -898,7 +898,7 @@ define void @_ZN9ezMiniSATD2Ev(ptr noundef nonnull align 8 dereferenceable(376) 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9ezMiniSAT, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ezMiniSAT, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null

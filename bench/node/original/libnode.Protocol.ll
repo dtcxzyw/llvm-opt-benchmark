@@ -5963,7 +5963,7 @@ entry:
   store ptr %binary, ptr %binary.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 8)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_serializedJSON = getelementptr inbounds %"class.node::inspector::protocol::SerializedValue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %json.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_serializedJSON, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -6038,7 +6038,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15DictionaryValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15DictionaryValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_order = getelementptr inbounds %"class.node::inspector::protocol::DictionaryValue", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_order) #13
   %m_data = getelementptr inbounds %"class.node::inspector::protocol::DictionaryValue", ptr %this1, i32 0, i32 1
@@ -7372,7 +7372,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15DictionaryValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15DictionaryValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_data = getelementptr inbounds %"class.node::inspector::protocol::DictionaryValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteISA_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SD_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_data) #13
   %m_order = getelementptr inbounds %"class.node::inspector::protocol::DictionaryValue", ptr %this1, i32 0, i32 2
@@ -7389,7 +7389,7 @@ entry:
   store i32 %type, ptr %type.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol5ValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol5ValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_type = getelementptr inbounds %"class.node::inspector::protocol::Value", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %type.addr, align 4
   store i32 %0, ptr %m_type, align 8
@@ -7413,7 +7413,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol9ListValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol9ListValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_data = getelementptr inbounds %"class.node::inspector::protocol::ListValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_data) #13
   call void @_ZN4node9inspector8protocol5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
@@ -7824,7 +7824,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 7)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol9ListValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol9ListValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_data = getelementptr inbounds %"class.node::inspector::protocol::ListValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN4node9inspector8protocol5ValueESt14default_deleteIS4_EESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_data) #13
   ret void
@@ -8481,7 +8481,7 @@ entry:
   store ptr %method, ptr %method.addr, align 8
   store ptr %message, ptr %message.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol14DispatcherBase8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol14DispatcherBase8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_backendImpl = getelementptr inbounds %"class.node::inspector::protocol::DispatcherBase::Callback", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector8protocol14DispatcherBase7WeakPtrESt14default_deleteIS4_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(8) %m_backendImpl, ptr noundef nonnull align 8 dereferenceable(8) %backendImpl) #13
   %m_callId = getelementptr inbounds %"class.node::inspector::protocol::DispatcherBase::Callback", ptr %this1, i32 0, i32 2
@@ -8517,7 +8517,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol14DispatcherBase8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol14DispatcherBase8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_message = getelementptr inbounds %"class.node::inspector::protocol::DispatcherBase::Callback", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_message) #13
   %m_method = getelementptr inbounds %"class.node::inspector::protocol::DispatcherBase::Callback", ptr %this1, i32 0, i32 3
@@ -8784,7 +8784,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %frontendChannel, ptr %frontendChannel.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol14DispatcherBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol14DispatcherBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_frontendChannel = getelementptr inbounds %"class.node::inspector::protocol::DispatcherBase", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %frontendChannel.addr, align 8
   store ptr %0, ptr %m_frontendChannel, align 8
@@ -8810,7 +8810,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol14DispatcherBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol14DispatcherBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   call void @_ZN4node9inspector8protocol14DispatcherBase13clearFrontendEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
   %m_weakPtrs = getelementptr inbounds %"class.node::inspector::protocol::DispatcherBase", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_setIPN4node9inspector8protocol14DispatcherBase7WeakPtrESt4hashIS5_ESt8equal_toIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_weakPtrs) #13
@@ -9305,7 +9305,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %frontendChannel, ptr %frontendChannel.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol14UberDispatcherE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol14UberDispatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_frontendChannel = getelementptr inbounds %"class.node::inspector::protocol::UberDispatcher", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %frontendChannel.addr, align 8
   store ptr %0, ptr %m_frontendChannel, align 8
@@ -10198,7 +10198,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol14UberDispatcherE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol14UberDispatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_dispatchers = getelementptr inbounds %"class.node::inspector::protocol::UberDispatcher", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN4node9inspector8protocol14DispatcherBaseESt14default_deleteISA_EESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SD_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %m_dispatchers) #13
   %m_redirects = getelementptr inbounds %"class.node::inspector::protocol::UberDispatcher", ptr %this1, i32 0, i32 2
@@ -10597,7 +10597,7 @@ entry:
   store ptr %params, ptr %params.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_callId = getelementptr inbounds %"class.node::inspector::protocol::InternalResponse", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %callId.addr, align 4
   store i32 %0, ptr %m_callId, align 8
@@ -10626,7 +10626,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol12SerializableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol12SerializableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13009,7 +13009,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol22StreamingParserHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %out_ = getelementptr inbounds %"class.node::inspector::protocol::cbor::(anonymous namespace)::CBOREncoder", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %out.addr, align 8
   store ptr %0, ptr %out_, align 8
@@ -13069,7 +13069,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol22StreamingParserHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %out_ = getelementptr inbounds %"class.node::inspector::protocol::cbor::(anonymous namespace)::CBOREncoder.188", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %out.addr, align 8
   store ptr %0, ptr %out_, align 8
@@ -14824,7 +14824,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol22StreamingParserHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %platform_ = getelementptr inbounds %"class.node::inspector::protocol::json::(anonymous namespace)::JSONEncoder", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %platform.addr, align 8
   store ptr %0, ptr %platform_, align 8
@@ -14882,7 +14882,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol22StreamingParserHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %platform_ = getelementptr inbounds %"class.node::inspector::protocol::json::(anonymous namespace)::JSONEncoder.193", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %platform.addr, align 8
   store ptr %0, ptr %platform_, align 8
@@ -15525,7 +15525,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   call void @_ZN4node9inspector8protocol5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
   ret void
 }
@@ -15547,7 +15547,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol11StringValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol11StringValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_stringValue = getelementptr inbounds %"class.node::inspector::protocol::StringValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_stringValue) #13
   call void @_ZN4node9inspector8protocol5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
@@ -15592,7 +15592,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_serializedBinary = getelementptr inbounds %"class.node::inspector::protocol::SerializedValue", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_serializedBinary) #13
   %m_serializedJSON = getelementptr inbounds %"class.node::inspector::protocol::SerializedValue", ptr %this1, i32 0, i32 1
@@ -15618,7 +15618,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol16InternalResponseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_params = getelementptr inbounds %"class.node::inspector::protocol::InternalResponse", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN4node9inspector8protocol12SerializableESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_params) #13
   %m_notification = getelementptr inbounds %"class.node::inspector::protocol::InternalResponse", ptr %this1, i32 0, i32 2
@@ -16600,7 +16600,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol5ValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol5ValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_type = getelementptr inbounds %"class.node::inspector::protocol::Value", ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_type, align 8
   ret void
@@ -16988,7 +16988,7 @@ entry:
   store double %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = getelementptr inbounds %"class.node::inspector::protocol::FundamentalValue", ptr %this1, i32 0, i32 1
   %1 = load double, ptr %value.addr, align 8
   store double %1, ptr %0, align 8
@@ -17148,7 +17148,7 @@ entry:
   store i32 %value, ptr %value.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = getelementptr inbounds %"class.node::inspector::protocol::FundamentalValue", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %value.addr, align 4
   store i32 %1, ptr %0, align 8
@@ -17165,7 +17165,7 @@ entry:
   store i8 %frombool, ptr %value.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol16FundamentalValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = getelementptr inbounds %"class.node::inspector::protocol::FundamentalValue", ptr %this1, i32 0, i32 1
   %1 = load i8, ptr %value.addr, align 1
   %tobool = trunc i8 %1 to i1
@@ -17228,7 +17228,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol11StringValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol11StringValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_stringValue = getelementptr inbounds %"class.node::inspector::protocol::StringValue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %value.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_stringValue, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -17388,7 +17388,7 @@ entry:
   store ptr %value, ptr %value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol11BinaryValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol11BinaryValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -19673,7 +19673,7 @@ entry:
   store ptr %errorMessage, ptr %errorMessage.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol12SerializableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_code = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::ProtocolError", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %code.addr, align 4
   store i32 %0, ptr %m_code, align 8
@@ -19757,7 +19757,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_113ProtocolErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_data = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::ProtocolError", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_data) #13
   %m_errorMessage = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::ProtocolError", ptr %this1, i32 0, i32 3
@@ -21601,7 +21601,7 @@ entry:
   store ptr %json, ptr %json.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 8)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_serializedJSON = getelementptr inbounds %"class.node::inspector::protocol::SerializedValue", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %json.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_serializedJSON, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -21632,7 +21632,7 @@ entry:
   store ptr %binary, ptr %binary.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol5ValueC2ENS2_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 8)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4node9inspector8protocol15SerializedValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_serializedJSON = getelementptr inbounds %"class.node::inspector::protocol::SerializedValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_serializedJSON) #13
   %m_serializedBinary = getelementptr inbounds %"class.node::inspector::protocol::SerializedValue", ptr %this1, i32 0, i32 2
@@ -44764,7 +44764,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol22StreamingParserHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol22StreamingParserHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -44784,7 +44784,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderISt6vectorIhSaIhEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %envelopes_ = getelementptr inbounds %"class.node::inspector::protocol::cbor::(anonymous namespace)::CBOREncoder", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN4node9inspector8protocol4cbor15EnvelopeEncoderESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %envelopes_) #13
   call void @_ZN4node9inspector8protocol22StreamingParserHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
@@ -46305,7 +46305,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4cbor12_GLOBAL__N_111CBOREncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %envelopes_ = getelementptr inbounds %"class.node::inspector::protocol::cbor::(anonymous namespace)::CBOREncoder.188", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN4node9inspector8protocol4cbor15EnvelopeEncoderESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %envelopes_) #13
   call void @_ZN4node9inspector8protocol22StreamingParserHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
@@ -46866,7 +46866,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderISt6vectorIhSaIhEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.node::inspector::protocol::json::(anonymous namespace)::JSONEncoder", ptr %this1, i32 0, i32 4
   call void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %state_) #13
   call void @_ZN4node9inspector8protocol22StreamingParserHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
@@ -51438,7 +51438,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4node9inspector8protocol4json12_GLOBAL__N_111JSONEncoderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.node::inspector::protocol::json::(anonymous namespace)::JSONEncoder.193", ptr %this1, i32 0, i32 4
   call void @_ZNSt5stackIN4node9inspector8protocol4json12_GLOBAL__N_15StateESt5dequeIS5_SaIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %state_) #13
   call void @_ZN4node9inspector8protocol22StreamingParserHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13

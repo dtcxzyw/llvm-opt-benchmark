@@ -1141,9 +1141,9 @@ define void @_ZN9ProtoTreeC2EP7QWidgetP12epan_dissect(ptr noundef nonnull align 
   %26 = load ptr, ptr %4, align 8
   %27 = load ptr, ptr %5, align 8
   call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %26, ptr noundef %27)
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV9ProtoTree, i32 0, inrange i32 0, i32 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV9ProtoTree, i32 0, i32 0, i32 2), ptr %26, align 8
   %28 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV9ProtoTree, i32 0, inrange i32 1, i32 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV9ProtoTree, i32 0, i32 1, i32 2), ptr %28, align 8
   %29 = getelementptr inbounds %class.ProtoTree, ptr %26, i32 0, i32 1
   %30 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #14
           to label %31 unwind label %91
@@ -1631,9 +1631,9 @@ define linkonce_odr void @_ZN23ProtocolPreferencesMenuD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV23ProtocolPreferencesMenu, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.ProtocolPreferencesMenu, ptr %3, i32 0, i32 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #15
   call void @_ZN5QMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #15

@@ -1248,7 +1248,7 @@ define dso_local void @_ZN17AutoHideButtonBar9addButtonE19touch_gui_button_idPKw
   store i32 1, ptr %195, align 8, !tbaa !74
   %196 = getelementptr inbounds i8, ptr %181, i64 12
   store i32 1, ptr %196, align 4, !tbaa !76
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %181, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %181, align 8, !tbaa !37
   %197 = getelementptr inbounds i8, ptr %181, i64 16
   store ptr %177, ptr %197, align 8, !tbaa !107
   store ptr %181, ptr %180, align 8, !tbaa !72
@@ -11408,7 +11408,7 @@ define linkonce_odr dso_local void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_po
   store i32 1, ptr %5, align 8, !tbaa !74
   %6 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %6, align 4, !tbaa !76
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP11button_infoLN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !37
   %7 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %7, align 8, !tbaa !107
   store ptr %3, ptr %0, align 8, !tbaa !72

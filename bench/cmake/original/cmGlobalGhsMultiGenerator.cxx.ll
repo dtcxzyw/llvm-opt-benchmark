@@ -2764,7 +2764,7 @@ define dso_local void @_ZN25cmGlobalGhsMultiGeneratorC2EP5cmake(ptr noundef nonn
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN17cmGlobalGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(1778) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.cmGlobalGhsMultiGenerator, ptr %7, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   %10 = getelementptr inbounds %class.cmGlobalGhsMultiGenerator, ptr %7, i32 0, i32 2
@@ -2860,7 +2860,7 @@ define dso_local void @_ZN25cmGlobalGhsMultiGeneratorD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmGlobalGhsMultiGenerator, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.cmGlobalGhsMultiGenerator, ptr %3, i32 0, i32 1

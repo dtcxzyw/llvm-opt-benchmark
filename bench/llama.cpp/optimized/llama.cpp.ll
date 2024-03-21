@@ -19219,7 +19219,7 @@ if.then.i.i166.i:                                 ; preds = %for.body.i163.i
           to label %call.i.i.i.i.i.noexc.i unwind label %lpad121.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 call.i.i.i.i.i.noexc.i:                           ; preds = %if.then.i.i166.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS7_EERS5_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i.i190.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS7_EERS5_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEEEE", i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i190.i, align 8
   %_M_func.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i190.i, i64 8
   store i64 %mul76.i.i, ptr %_M_func.i.i.i.i.i.i.i, align 8
   %111 = getelementptr inbounds i8, ptr %call.i.i.i.i.i190.i, i64 16
@@ -19313,7 +19313,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i.i: ; preds = %co
           to label %call.i.i.i.noexc.i.i.i.i unwind label %lpad.i.i.i.i
 
 call.i.i.i.noexc.i.i.i.i:                         ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS7_EERS5_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i.i.i18.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_convert_tensor_internalP11ggml_tensorRSt6vectorI7no_initIfESaIS7_EERS5_IS_SaIS_EEmiE3$_09ggml_typePhPfmEEEEEE", i64 0, i32 0, i64 2), ptr %call.i.i.i18.i.i.i.i, align 8
   %_M_func.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i18.i.i.i.i, i64 8
   store i64 %mul76.i.i, ptr %_M_func.i.i.i.i.i.i.i.i, align 8
   %124 = getelementptr inbounds i8, ptr %call.i.i.i18.i.i.i.i, i64 16
@@ -19621,7 +19621,7 @@ if.then.i250.i:                                   ; preds = %for.body268.i
           to label %call.i.i.i.i251.noexc.i unwind label %lpad121.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.i
 
 call.i.i.i.i251.noexc.i:                          ; preds = %if.then.i250.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i251279.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEEE", i64 0, i32 0, i64 2), ptr %call.i.i.i.i251279.i, align 8
   %_M_func.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i251279.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_M_func.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(64) %compute.i, i64 64, i1 false)
   store ptr %call.i.i.i.i251279.i, ptr %agg.tmp.i.i.i.i.i, align 8
@@ -19701,7 +19701,7 @@ _ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i: ; preds = %cond
           to label %call.i.i.i.noexc.i.i.i unwind label %lpad.i.i.i
 
 call.i.i.i.noexc.i.i.i:                           ; preds = %_ZNSt12_Vector_baseISt6threadSaIS0_EE11_M_allocateEm.exit.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i.i.i18.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZL29llama_model_quantize_internalRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_PK27llama_model_quantize_paramsE3$_0EEEEEE", i64 0, i32 0, i64 2), ptr %call.i.i.i18.i.i.i, align 8
   %_M_func.i.i.i.i.i.i260.i = getelementptr inbounds i8, ptr %call.i.i.i18.i.i.i, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_M_func.i.i.i.i.i.i260.i, ptr noundef nonnull align 8 dereferenceable(64) %compute.i, i64 64, i1 false)
   store ptr %call.i.i.i18.i.i.i, ptr %agg.tmp.i.i.i.i.i248.i, align 8
@@ -22977,7 +22977,7 @@ entry:
 define i64 @llama_copy_state_data(ptr noundef %ctx, ptr noundef %dst) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %data_ctx = alloca %struct.llama_data_buffer_context, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV25llama_data_buffer_context, i64 0, inrange i32 0, i64 2), ptr %data_ctx, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV25llama_data_buffer_context, i64 0, i32 0, i64 2), ptr %data_ctx, align 8
   %ptr.i = getelementptr inbounds i8, ptr %data_ctx, i64 8
   store ptr %dst, ptr %ptr.i, align 8
   %size_written.i = getelementptr inbounds i8, ptr %data_ctx, i64 16
@@ -24452,7 +24452,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
           to label %invoke.cont4 unwind label %lpad
 
 invoke.cont4:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23llama_data_file_context, i64 0, inrange i32 0, i64 2), ptr %data_ctx, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23llama_data_file_context, i64 0, i32 0, i64 2), ptr %data_ctx, align 8
   %file.i = getelementptr inbounds i8, ptr %data_ctx, i64 8
   store ptr %file, ptr %file.i, align 8
   %size_written.i = getelementptr inbounds i8, ptr %data_ctx, i64 16

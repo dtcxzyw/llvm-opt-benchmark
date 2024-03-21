@@ -381,7 +381,7 @@ define dso_local void @_ZN9FactUnionC2EPK8Variable(ptr noundef nonnull align 8 d
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.FactUnion, ptr %5, i32 0, i32 2
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -402,7 +402,7 @@ define dso_local void @_ZN9FactUnionC2EPK8Variablei(ptr noundef nonnull align 8 
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV9FactUnion, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.FactUnion, ptr %7, i32 0, i32 2
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8

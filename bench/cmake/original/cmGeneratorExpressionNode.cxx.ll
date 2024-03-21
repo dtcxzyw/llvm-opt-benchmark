@@ -8113,7 +8113,7 @@ define linkonce_odr dso_local void @_ZN8ZeroNodeC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ZeroNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ZeroNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8139,7 +8139,7 @@ define linkonce_odr dso_local void @_ZN7OneNodeC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7OneNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7OneNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8192,7 +8192,7 @@ define linkonce_odr dso_local void @_ZN13BooleanOpNodeC2EPKcS1_S1_(ptr noundef n
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13BooleanOpNode, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13BooleanOpNode, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %struct.BooleanOpNode, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
@@ -8234,7 +8234,7 @@ define linkonce_odr dso_local void @_ZN7NotNodeC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7NotNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7NotNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8260,7 +8260,7 @@ define linkonce_odr dso_local void @_ZN8BoolNodeC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8BoolNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8BoolNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8286,7 +8286,7 @@ define linkonce_odr dso_local void @_ZN6IfNodeC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6IfNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6IfNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8312,7 +8312,7 @@ define linkonce_odr dso_local void @_ZN12StrEqualNodeC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12StrEqualNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12StrEqualNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8338,7 +8338,7 @@ define linkonce_odr dso_local void @_ZN9EqualNodeC2Ev(ptr noundef nonnull align 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9EqualNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9EqualNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8364,7 +8364,7 @@ define linkonce_odr dso_local void @_ZN10InListNodeC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10InListNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10InListNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8390,7 +8390,7 @@ define linkonce_odr dso_local void @_ZN10FilterNodeC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10FilterNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10FilterNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8416,7 +8416,7 @@ define linkonce_odr dso_local void @_ZN20RemoveDuplicatesNodeC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20RemoveDuplicatesNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20RemoveDuplicatesNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8442,7 +8442,7 @@ define linkonce_odr dso_local void @_ZN16TargetExistsNodeC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16TargetExistsNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16TargetExistsNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8468,7 +8468,7 @@ define linkonce_odr dso_local void @_ZN22TargetNameIfExistsNodeC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22TargetNameIfExistsNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22TargetNameIfExistsNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8494,7 +8494,7 @@ define linkonce_odr dso_local void @_ZN19TargetGenexEvalNodeC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN14GenexEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19TargetGenexEvalNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19TargetGenexEvalNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8520,7 +8520,7 @@ define linkonce_odr dso_local void @_ZN13GenexEvalNodeC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN14GenexEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GenexEvalNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GenexEvalNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8546,7 +8546,7 @@ define linkonce_odr dso_local void @_ZN13LowerCaseNodeC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13LowerCaseNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13LowerCaseNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8572,7 +8572,7 @@ define linkonce_odr dso_local void @_ZN13UpperCaseNodeC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13UpperCaseNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13UpperCaseNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8598,7 +8598,7 @@ define linkonce_odr dso_local void @_ZN8PathNodeC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8PathNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8PathNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8624,7 +8624,7 @@ define linkonce_odr dso_local void @_ZN13PathEqualNodeC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13PathEqualNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13PathEqualNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8650,7 +8650,7 @@ define linkonce_odr dso_local void @_ZN8ListNodeC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ListNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ListNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8676,7 +8676,7 @@ define linkonce_odr dso_local void @_ZN19MakeCIdentifierNodeC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19MakeCIdentifierNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19MakeCIdentifierNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8702,7 +8702,7 @@ define linkonce_odr dso_local void @_ZN13CharacterNodeILc62EEC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc62EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc62EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8728,7 +8728,7 @@ define linkonce_odr dso_local void @_ZN13CharacterNodeILc44EEC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc44EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc44EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8754,7 +8754,7 @@ define linkonce_odr dso_local void @_ZN13CharacterNodeILc59EEC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc59EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc59EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8780,7 +8780,7 @@ define linkonce_odr dso_local void @_ZN13CharacterNodeILc34EEC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc34EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc34EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8808,7 +8808,7 @@ define linkonce_odr dso_local void @_ZN14CompilerIdNodeC2EPKc(ptr noundef nonnul
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %struct.CompilerIdNode, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -8888,7 +8888,7 @@ define linkonce_odr dso_local void @_ZN19CompilerVersionNodeC2EPKc(ptr noundef n
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %struct.CompilerVersionNode, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -8966,7 +8966,7 @@ define linkonce_odr dso_local void @_ZN14PlatformIdNodeC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14PlatformIdNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14PlatformIdNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8992,7 +8992,7 @@ define linkonce_odr dso_local void @_ZN11VersionNodeILN13cmSystemTools9CompareOp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE4EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE4EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9018,7 +9018,7 @@ define linkonce_odr dso_local void @_ZN11VersionNodeILN13cmSystemTools9CompareOp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE5EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE5EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9044,7 +9044,7 @@ define linkonce_odr dso_local void @_ZN11VersionNodeILN13cmSystemTools9CompareOp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9070,7 +9070,7 @@ define linkonce_odr dso_local void @_ZN11VersionNodeILN13cmSystemTools9CompareOp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE3EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE3EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9096,7 +9096,7 @@ define linkonce_odr dso_local void @_ZN11VersionNodeILN13cmSystemTools9CompareOp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE1EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE1EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9122,7 +9122,7 @@ define linkonce_odr dso_local void @_ZN15CompileOnlyNodeC2Ev(ptr noundef nonnull
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15CompileOnlyNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15CompileOnlyNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9148,7 +9148,7 @@ define linkonce_odr dso_local void @_ZN12LinkOnlyNodeC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12LinkOnlyNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12LinkOnlyNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9174,7 +9174,7 @@ define linkonce_odr dso_local void @_ZN17ConfigurationNodeC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ConfigurationNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ConfigurationNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9200,7 +9200,7 @@ define linkonce_odr dso_local void @_ZN21ConfigurationTestNodeC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21ConfigurationTestNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21ConfigurationTestNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9226,7 +9226,7 @@ define linkonce_odr dso_local void @_ZN8JoinNodeC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8JoinNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8JoinNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9252,7 +9252,7 @@ define linkonce_odr dso_local void @_ZN19CompileLanguageNodeC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompileLanguageNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompileLanguageNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9278,7 +9278,7 @@ define linkonce_odr dso_local void @_ZN24CompileLanguageAndIdNodeC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24CompileLanguageAndIdNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24CompileLanguageAndIdNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9304,7 +9304,7 @@ define linkonce_odr dso_local void @_ZN16LinkLanguageNodeC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16LinkLanguageNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16LinkLanguageNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9330,7 +9330,7 @@ define linkonce_odr dso_local void @_ZN21LinkLanguageAndIdNodeC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21LinkLanguageAndIdNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21LinkLanguageAndIdNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9356,7 +9356,7 @@ define linkonce_odr dso_local void @_ZN15LinkLibraryNodeC2Ev(ptr noundef nonnull
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15LinkLibraryNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15LinkLibraryNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9382,7 +9382,7 @@ define linkonce_odr dso_local void @_ZN13LinkGroupNodeC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13LinkGroupNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13LinkGroupNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9408,7 +9408,7 @@ define linkonce_odr dso_local void @_ZN12HostLinkNodeC2Ev(ptr noundef nonnull al
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12HostLinkNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12HostLinkNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9434,7 +9434,7 @@ define linkonce_odr dso_local void @_ZN14DeviceLinkNodeC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14DeviceLinkNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14DeviceLinkNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9460,7 +9460,7 @@ define linkonce_odr dso_local void @_ZN18TargetPropertyNodeC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetPropertyNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetPropertyNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9486,7 +9486,7 @@ define linkonce_odr dso_local void @_ZN14TargetNameNodeC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14TargetNameNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14TargetNameNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9512,7 +9512,7 @@ define linkonce_odr dso_local void @_ZN17TargetObjectsNodeC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17TargetObjectsNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17TargetObjectsNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9538,7 +9538,7 @@ define linkonce_odr dso_local void @_ZN21TargetRuntimeDllsNodeC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25TargetRuntimeDllsBaseNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21TargetRuntimeDllsNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21TargetRuntimeDllsNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9564,7 +9564,7 @@ define linkonce_odr dso_local void @_ZN24TargetRuntimeDllDirsNodeC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25TargetRuntimeDllsBaseNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetRuntimeDllDirsNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetRuntimeDllDirsNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9590,7 +9590,7 @@ define linkonce_odr dso_local void @_ZN19CompileFeaturesNodeC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompileFeaturesNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompileFeaturesNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9616,7 +9616,7 @@ define linkonce_odr dso_local void @_ZN16TargetPolicyNodeC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16TargetPolicyNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16TargetPolicyNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9642,7 +9642,7 @@ define linkonce_odr dso_local void @_ZN17InstallPrefixNodeC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17InstallPrefixNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17InstallPrefixNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10252,7 +10252,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI20ArtifactBund
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI20ArtifactBundleDirTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI20ArtifactBundleDirTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10278,7 +10278,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI24ArtifactBund
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactBundleDirNameTag15ArtifactNameTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactBundleDirNameTag15ArtifactNameTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10304,7 +10304,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI27ArtifactBund
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI27ArtifactBundleContentDirTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI27ArtifactBundleContentDirTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10330,7 +10330,7 @@ define linkonce_odr dso_local void @_ZN26TargetFileBaseNameArtifactI15ArtifactNa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI15ArtifactNameTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI15ArtifactNameTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10356,7 +10356,7 @@ define linkonce_odr dso_local void @_ZN26TargetFileBaseNameArtifactI17ArtifactIm
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI17ArtifactImportTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI17ArtifactImportTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10382,7 +10382,7 @@ define linkonce_odr dso_local void @_ZN26TargetFileBaseNameArtifactI17ArtifactLi
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI17ArtifactLinkerTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI17ArtifactLinkerTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10408,7 +10408,7 @@ define linkonce_odr dso_local void @_ZN26TargetFileBaseNameArtifactI24ArtifactLi
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI24ArtifactLinkerLibraryTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI24ArtifactLinkerLibraryTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10434,7 +10434,7 @@ define linkonce_odr dso_local void @_ZN26TargetFileBaseNameArtifactI23ArtifactLi
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI23ArtifactLinkerImportTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI23ArtifactLinkerImportTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10460,7 +10460,7 @@ define linkonce_odr dso_local void @_ZN26TargetFileBaseNameArtifactI14ArtifactPd
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI14ArtifactPdbTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI14ArtifactPdbTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10486,7 +10486,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI21ArtifactFilePrefix
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI21ArtifactFilePrefixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI21ArtifactFilePrefixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10512,7 +10512,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI27ArtifactImportFile
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactImportFilePrefixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactImportFilePrefixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10538,7 +10538,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI27ArtifactLinkerFile
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactLinkerFilePrefixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactLinkerFilePrefixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10564,7 +10564,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI34ArtifactLinkerLibr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI34ArtifactLinkerLibraryFilePrefixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI34ArtifactLinkerLibraryFilePrefixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10590,7 +10590,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI33ArtifactLinkerImpo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI33ArtifactLinkerImportFilePrefixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI33ArtifactLinkerImportFilePrefixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10616,7 +10616,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI21ArtifactFileSuffix
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI21ArtifactFileSuffixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI21ArtifactFileSuffixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10642,7 +10642,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI27ArtifactImportFile
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactImportFileSuffixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactImportFileSuffixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10668,7 +10668,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI27ArtifactLinkerFile
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactLinkerFileSuffixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactLinkerFileSuffixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10694,7 +10694,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI34ArtifactLinkerLibr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI34ArtifactLinkerLibraryFileSuffixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI34ArtifactLinkerLibraryFileSuffixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10720,7 +10720,7 @@ define linkonce_odr dso_local void @_ZN18TargetFileArtifactI33ArtifactLinkerImpo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI33ArtifactLinkerImportFileSuffixTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI33ArtifactLinkerImportFileSuffixTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10746,7 +10746,7 @@ define linkonce_odr dso_local void @_ZN13ShellPathNodeC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13ShellPathNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13ShellPathNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17448,7 +17448,7 @@ define linkonce_odr dso_local void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25cmGeneratorExpressionNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25cmGeneratorExpressionNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -22244,7 +22244,7 @@ define linkonce_odr dso_local void @_ZN14GenexEvaluatorC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14GenexEvaluator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14GenexEvaluator, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -87843,7 +87843,7 @@ define linkonce_odr dso_local void @_ZN25TargetRuntimeDllsBaseNodeC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25TargetRuntimeDllsBaseNode, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25TargetRuntimeDllsBaseNode, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -96550,7 +96550,7 @@ define linkonce_odr dso_local void @_ZN17cmOutputConverterD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmOutputConverter, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmOutputConverter, ptr %3, i32 0, i32 4
@@ -97723,7 +97723,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI15ArtifactName
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -97733,7 +97733,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI15ArtifactName
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTagS0_E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTagS0_E, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -97743,7 +97743,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI15ArtifactName
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTag14ArtifactDirTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTag14ArtifactDirTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -97753,7 +97753,7 @@ define linkonce_odr dso_local void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25cmGeneratorExpressionNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetArtifactBase, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetArtifactBase, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -99337,7 +99337,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI17ArtifactImpo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -99347,7 +99347,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI17ArtifactImpo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag15ArtifactNameTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag15ArtifactNameTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -99357,7 +99357,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI17ArtifactImpo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag14ArtifactDirTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag14ArtifactDirTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -99738,7 +99738,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI17ArtifactLink
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -99748,7 +99748,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI17ArtifactLink
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag15ArtifactNameTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag15ArtifactNameTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -99758,7 +99758,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI17ArtifactLink
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag14ArtifactDirTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag14ArtifactDirTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -100196,7 +100196,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI24ArtifactLink
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -100206,7 +100206,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI24ArtifactLink
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag15ArtifactNameTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag15ArtifactNameTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -100216,7 +100216,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI24ArtifactLink
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag14ArtifactDirTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag14ArtifactDirTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -100667,7 +100667,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI23ArtifactLink
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -100677,7 +100677,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI23ArtifactLink
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag15ArtifactNameTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag15ArtifactNameTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -100687,7 +100687,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI23ArtifactLink
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag14ArtifactDirTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag14ArtifactDirTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -101126,7 +101126,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI17ArtifactSona
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -101136,7 +101136,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI17ArtifactSona
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag15ArtifactNameTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag15ArtifactNameTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -101146,7 +101146,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI17ArtifactSona
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag14ArtifactDirTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag14ArtifactDirTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -101745,7 +101745,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI23ArtifactSona
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -101755,7 +101755,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI23ArtifactSona
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag15ArtifactNameTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag15ArtifactNameTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -101765,7 +101765,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI23ArtifactSona
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag14ArtifactDirTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag14ArtifactDirTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -102296,7 +102296,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI14ArtifactPdbT
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag15ArtifactPathTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag15ArtifactPathTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -102306,7 +102306,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI14ArtifactPdbT
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag15ArtifactNameTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag15ArtifactNameTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -102316,7 +102316,7 @@ define linkonce_odr dso_local void @_ZN24TargetFilesystemArtifactI14ArtifactPdbT
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN18TargetArtifactBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag14ArtifactDirTagE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag14ArtifactDirTagE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

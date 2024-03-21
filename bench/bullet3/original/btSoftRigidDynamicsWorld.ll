@@ -456,7 +456,7 @@ entry:
   %2 = load ptr, ptr %constraintSolver.addr, align 8
   %3 = load ptr, ptr %collisionConfiguration.addr, align 8
   call void @_ZN23btDiscreteDynamicsWorldC2EP12btDispatcherP21btBroadphaseInterfaceP18btConstraintSolverP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(508) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTV24btSoftRigidDynamicsWorld, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTV24btSoftRigidDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_softBodies = getelementptr inbounds %class.btSoftRigidDynamicsWorld, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayIP10btSoftBodyEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodies)
           to label %invoke.cont unwind label %lpad
@@ -877,7 +877,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTV24btSoftRigidDynamicsWorld, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr] }, ptr @_ZTV24btSoftRigidDynamicsWorld, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ownsSolver = getelementptr inbounds %class.btSoftRigidDynamicsWorld, ptr %this1, i32 0, i32 10
   %0 = load i8, ptr %m_ownsSolver, align 8
   %tobool = trunc i8 %0 to i1
@@ -1636,7 +1636,7 @@ entry:
   store ptr %resultCallback, ptr %resultCallback.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23btBroadphaseRayCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23btSoftSingleRayCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23btSoftSingleRayCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rayFromWorld = getelementptr inbounds %struct.btSoftSingleRayCallback, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %rayFromWorld.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_rayFromWorld, ptr align 4 %0, i64 16, i1 false)
@@ -3038,7 +3038,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN24btBroadphaseAabbCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23btBroadphaseRayCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV23btBroadphaseRayCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rayDirectionInverse = getelementptr inbounds %struct.btBroadphaseRayCallback, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_rayDirectionInverse)
           to label %invoke.cont unwind label %lpad
@@ -3204,7 +3204,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btBroadphaseAabbCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btBroadphaseAabbCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

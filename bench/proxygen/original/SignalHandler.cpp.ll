@@ -112,7 +112,7 @@ entry:
   %call = call noundef ptr @_ZN5folly16EventBaseManager3getEv()
   %call2 = call noundef ptr @_ZNK5folly16EventBaseManager12getEventBaseEv(ptr noundef nonnull align 8 dereferenceable(112) %call)
   call void @_ZN5folly18AsyncSignalHandlerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(64) %this1, ptr noundef %call2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13SignalHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13SignalHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %server_ = getelementptr inbounds %"class.proxygen::SignalHandler", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %server.addr, align 8
   store ptr %0, ptr %server_, align 8

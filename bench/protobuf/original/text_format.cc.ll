@@ -7504,7 +7504,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat17FieldValuePrinterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat17FieldValuePrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %delegate_ = getelementptr inbounds %"class.google::protobuf::TextFormat::FieldValuePrinter", ptr %this1, i32 0, i32 1
   call void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %delegate_)
   ret void
@@ -7586,7 +7586,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf10TextFormat17BaseTextGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %output_ = getelementptr inbounds %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_) #3
   ret void
@@ -7639,7 +7639,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123StringBaseTextGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %output_ = getelementptr inbounds %"class.google::protobuf::(anonymous namespace)::StringBaseTextGenerator", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_) #3
   call void @_ZN6google8protobuf10TextFormat17BaseTextGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -8877,7 +8877,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat21FastFieldValuePrinterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat21FastFieldValuePrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9580,7 +9580,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf10TextFormat7Printer28DebugStringFieldValuePrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer33FastFieldValuePrinterUtf8EscapingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer33FastFieldValuePrinterUtf8EscapingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9591,7 +9591,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer28DebugStringFieldValuePrinterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer28DebugStringFieldValuePrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9656,7 +9656,7 @@ entry:
   store ptr %delegate, ptr %delegate.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %delegate_ = getelementptr inbounds %"class.google::protobuf::(anonymous namespace)::FieldValuePrinterWrapper", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %delegate.addr, align 8
   call void @_ZNSt10unique_ptrIKN6google8protobuf10TextFormat17FieldValuePrinterESt14default_deleteIS4_EEC2IS6_vEEPS4_(ptr noundef nonnull align 8 dereferenceable(8) %delegate_, ptr noundef %0) #3
@@ -10252,7 +10252,7 @@ entry:
   store i32 %initial_indent_level, ptr %initial_indent_level.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf10TextFormat17BaseTextGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer13TextGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer13TextGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %output_ = getelementptr inbounds %"class.google::protobuf::TextFormat::Printer::TextGenerator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %output.addr, align 8
   store ptr %0, ptr %output_, align 8
@@ -10443,7 +10443,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer13TextGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer13TextGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %failed_ = getelementptr inbounds %"class.google::protobuf::TextFormat::Printer::TextGenerator", ptr %this1, i32 0, i32 5
   %0 = load i8, ptr %failed_, align 1
   %tobool = trunc i8 %0 to i1
@@ -10486,7 +10486,7 @@ entry:
   store i32 %initial_indent_level, ptr %initial_indent_level.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf10TextFormat17BaseTextGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer13TextGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat7Printer13TextGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %output_ = getelementptr inbounds %"class.google::protobuf::TextFormat::Printer::TextGenerator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %output.addr, align 8
   store ptr %0, ptr %output_, align 8
@@ -19100,7 +19100,7 @@ entry:
   store ptr %parser, ptr %parser.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io14ErrorCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat6Parser10ParserImpl20ParserErrorCollectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat6Parser10ParserImpl20ParserErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %parser_ = getelementptr inbounds %"class.google::protobuf::TextFormat::Parser::ParserImpl::ParserErrorCollector", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %parser.addr, align 8
   store ptr %0, ptr %parser_, align 8
@@ -19195,7 +19195,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io14ErrorCollectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io14ErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -32595,7 +32595,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat17BaseTextGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf10TextFormat17BaseTextGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -35174,7 +35174,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_124FieldValuePrinterWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %delegate_ = getelementptr inbounds %"class.google::protobuf::(anonymous namespace)::FieldValuePrinterWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIKN6google8protobuf10TextFormat17FieldValuePrinterESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delegate_) #3
   call void @_ZN6google8protobuf10TextFormat21FastFieldValuePrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

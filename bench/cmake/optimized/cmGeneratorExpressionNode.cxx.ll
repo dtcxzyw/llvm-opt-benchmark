@@ -34671,7 +34671,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2IN9__gnu_cxx17__normal_iteratorIPKS5_S7_EEvEET_SE_RKS6_.exit: ; preds = %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %89 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %20) #23
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, inrange i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, i32 0, i64 2), ptr %15, align 8
   %90 = getelementptr inbounds i8, ptr %15, i64 8
   store ptr %89, ptr %90, align 8
   invoke void @_ZNK14CompilerIdNode20EvaluateWithLanguageERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EEP28cmGeneratorExpressionContextPK26GeneratorExpressionContentP31cmGeneratorExpressionDAGCheckerRKS6_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull align 8 dereferenceable(32) %20)
@@ -45302,7 +45302,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %98
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i64 0, inrange i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i64 0, i32 0, i64 2), ptr %13, align 8
   %99 = getelementptr inbounds i8, ptr %13, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %99) #23
   %100 = getelementptr inbounds i8, ptr %13, i64 40
@@ -45316,7 +45316,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 102:                                              ; preds = %101, %68
   %.pn25.pn = phi { ptr, i32 } [ %.pn25, %101 ], [ %69, %68 ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i64 0, inrange i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i64 0, i32 0, i64 2), ptr %13, align 8
   %103 = getelementptr inbounds i8, ptr %13, i64 72
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %103) #23
   %104 = getelementptr inbounds i8, ptr %13, i64 40
@@ -45378,7 +45378,7 @@ declare void @_Z6cmJoinRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17cmOutputConverterD2Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -45388,7 +45388,7 @@ define linkonce_odr dso_local void @_ZN17cmOutputConverterD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17cmOutputConverterD0Ev(ptr noundef nonnull align 8 dereferenceable(108) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17cmOutputConverter, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -52659,140 +52659,140 @@ define internal void @_GLOBAL__sub_I_cmGeneratorExpressionNode.cxx() #18 section
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5cmsys18SystemToolsManagerD1Ev, ptr nonnull @_ZN5cmsysL26SystemToolsManagerInstanceE, ptr nonnull @__dso_handle) #23
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) @_ZL18cmPropertySentinalB5cxx11) #23
   %2 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev, ptr nonnull @_ZL18cmPropertySentinalB5cxx11, ptr nonnull @__dso_handle) #23
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ZeroNode, i64 0, inrange i32 0, i64 2), ptr @_ZL8zeroNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7OneNode, i64 0, inrange i32 0, i64 2), ptr @_ZL7oneNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7OneNode, i64 0, inrange i32 0, i64 2), ptr @_ZL18buildInterfaceNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ZeroNode, i64 0, inrange i32 0, i64 2), ptr @_ZL20installInterfaceNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7OneNode, i64 0, inrange i32 0, i64 2), ptr @_ZL23buildLocalInterfaceNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13BooleanOpNode, i64 0, inrange i32 0, i64 2), ptr @_ZL7andNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ZeroNode, i64 0, i32 0, i64 2), ptr @_ZL8zeroNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7OneNode, i64 0, i32 0, i64 2), ptr @_ZL7oneNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7OneNode, i64 0, i32 0, i64 2), ptr @_ZL18buildInterfaceNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ZeroNode, i64 0, i32 0, i64 2), ptr @_ZL20installInterfaceNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7OneNode, i64 0, i32 0, i64 2), ptr @_ZL23buildLocalInterfaceNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13BooleanOpNode, i64 0, i32 0, i64 2), ptr @_ZL7andNode, align 8
   store ptr @.str, ptr getelementptr inbounds (%struct.BooleanOpNode, ptr @_ZL7andNode, i64 0, i32 1), align 8
   store ptr @.str.8, ptr getelementptr inbounds (%struct.BooleanOpNode, ptr @_ZL7andNode, i64 0, i32 2), align 8
   store ptr @.str.9, ptr getelementptr inbounds (%struct.BooleanOpNode, ptr @_ZL7andNode, i64 0, i32 3), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13BooleanOpNode, i64 0, inrange i32 0, i64 2), ptr @_ZL6orNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13BooleanOpNode, i64 0, i32 0, i64 2), ptr @_ZL6orNode, align 8
   store ptr @.str.11, ptr getelementptr inbounds (%struct.BooleanOpNode, ptr @_ZL6orNode, i64 0, i32 1), align 8
   store ptr @.str.9, ptr getelementptr inbounds (%struct.BooleanOpNode, ptr @_ZL6orNode, i64 0, i32 2), align 8
   store ptr @.str.8, ptr getelementptr inbounds (%struct.BooleanOpNode, ptr @_ZL6orNode, i64 0, i32 3), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7NotNode, i64 0, inrange i32 0, i64 2), ptr @_ZL7notNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8BoolNode, i64 0, inrange i32 0, i64 2), ptr @_ZL8boolNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6IfNode, i64 0, inrange i32 0, i64 2), ptr @_ZL6ifNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12StrEqualNode, i64 0, inrange i32 0, i64 2), ptr @_ZL12strEqualNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9EqualNode, i64 0, inrange i32 0, i64 2), ptr @_ZL9equalNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10InListNode, i64 0, inrange i32 0, i64 2), ptr @_ZL10inListNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10FilterNode, i64 0, inrange i32 0, i64 2), ptr @_ZL10filterNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20RemoveDuplicatesNode, i64 0, inrange i32 0, i64 2), ptr @_ZL20removeDuplicatesNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16TargetExistsNode, i64 0, inrange i32 0, i64 2), ptr @_ZL16targetExistsNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22TargetNameIfExistsNode, i64 0, inrange i32 0, i64 2), ptr @_ZL22targetNameIfExistsNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19TargetGenexEvalNode, i64 0, inrange i32 0, i64 2), ptr @_ZL19targetGenexEvalNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GenexEvalNode, i64 0, inrange i32 0, i64 2), ptr @_ZL13genexEvalNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13LowerCaseNode, i64 0, inrange i32 0, i64 2), ptr @_ZL13lowerCaseNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13UpperCaseNode, i64 0, inrange i32 0, i64 2), ptr @_ZL13upperCaseNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8PathNode, i64 0, inrange i32 0, i64 2), ptr @_ZL8pathNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13PathEqualNode, i64 0, inrange i32 0, i64 2), ptr @_ZL13pathEqualNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ListNode, i64 0, inrange i32 0, i64 2), ptr @_ZL8listNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19MakeCIdentifierNode, i64 0, inrange i32 0, i64 2), ptr @_ZL19makeCIdentifierNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc62EE, i64 0, inrange i32 0, i64 2), ptr @_ZL11angle_rNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc44EE, i64 0, inrange i32 0, i64 2), ptr @_ZL9commaNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc59EE, i64 0, inrange i32 0, i64 2), ptr @_ZL13semicolonNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc34EE, i64 0, inrange i32 0, i64 2), ptr @_ZL9quoteNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL15cCompilerIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7NotNode, i64 0, i32 0, i64 2), ptr @_ZL7notNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8BoolNode, i64 0, i32 0, i64 2), ptr @_ZL8boolNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6IfNode, i64 0, i32 0, i64 2), ptr @_ZL6ifNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12StrEqualNode, i64 0, i32 0, i64 2), ptr @_ZL12strEqualNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9EqualNode, i64 0, i32 0, i64 2), ptr @_ZL9equalNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10InListNode, i64 0, i32 0, i64 2), ptr @_ZL10inListNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10FilterNode, i64 0, i32 0, i64 2), ptr @_ZL10filterNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20RemoveDuplicatesNode, i64 0, i32 0, i64 2), ptr @_ZL20removeDuplicatesNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16TargetExistsNode, i64 0, i32 0, i64 2), ptr @_ZL16targetExistsNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22TargetNameIfExistsNode, i64 0, i32 0, i64 2), ptr @_ZL22targetNameIfExistsNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19TargetGenexEvalNode, i64 0, i32 0, i64 2), ptr @_ZL19targetGenexEvalNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GenexEvalNode, i64 0, i32 0, i64 2), ptr @_ZL13genexEvalNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13LowerCaseNode, i64 0, i32 0, i64 2), ptr @_ZL13lowerCaseNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13UpperCaseNode, i64 0, i32 0, i64 2), ptr @_ZL13upperCaseNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8PathNode, i64 0, i32 0, i64 2), ptr @_ZL8pathNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13PathEqualNode, i64 0, i32 0, i64 2), ptr @_ZL13pathEqualNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ListNode, i64 0, i32 0, i64 2), ptr @_ZL8listNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19MakeCIdentifierNode, i64 0, i32 0, i64 2), ptr @_ZL19makeCIdentifierNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc62EE, i64 0, i32 0, i64 2), ptr @_ZL11angle_rNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc44EE, i64 0, i32 0, i64 2), ptr @_ZL9commaNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc59EE, i64 0, i32 0, i64 2), ptr @_ZL13semicolonNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13CharacterNodeILc34EE, i64 0, i32 0, i64 2), ptr @_ZL9quoteNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, i32 0, i64 2), ptr @_ZL15cCompilerIdNode, align 8
   store ptr @.str.35, ptr getelementptr inbounds (%struct.CompilerIdNode, ptr @_ZL15cCompilerIdNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL17cxxCompilerIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, i32 0, i64 2), ptr @_ZL17cxxCompilerIdNode, align 8
   store ptr @.str.37, ptr getelementptr inbounds (%struct.CompilerIdNode, ptr @_ZL17cxxCompilerIdNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL18cudaCompilerIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, i32 0, i64 2), ptr @_ZL18cudaCompilerIdNode, align 8
   store ptr @.str.39, ptr getelementptr inbounds (%struct.CompilerIdNode, ptr @_ZL18cudaCompilerIdNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL18objcCompilerIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, i32 0, i64 2), ptr @_ZL18objcCompilerIdNode, align 8
   store ptr @.str.41, ptr getelementptr inbounds (%struct.CompilerIdNode, ptr @_ZL18objcCompilerIdNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL20objcxxCompilerIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, i32 0, i64 2), ptr @_ZL20objcxxCompilerIdNode, align 8
   store ptr @.str.43, ptr getelementptr inbounds (%struct.CompilerIdNode, ptr @_ZL20objcxxCompilerIdNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL21fortranCompilerIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, i32 0, i64 2), ptr @_ZL21fortranCompilerIdNode, align 8
   store ptr @.str.45, ptr getelementptr inbounds (%struct.CompilerIdNode, ptr @_ZL21fortranCompilerIdNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL17hipCompilerIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CompilerIdNode, i64 0, i32 0, i64 2), ptr @_ZL17hipCompilerIdNode, align 8
   store ptr @.str.47, ptr getelementptr inbounds (%struct.CompilerIdNode, ptr @_ZL17hipCompilerIdNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, inrange i32 0, i64 2), ptr @_ZL20cCompilerVersionNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, i32 0, i64 2), ptr @_ZL20cCompilerVersionNode, align 8
   store ptr @.str.35, ptr getelementptr inbounds (%struct.CompilerVersionNode, ptr @_ZL20cCompilerVersionNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, inrange i32 0, i64 2), ptr @_ZL22cxxCompilerVersionNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, i32 0, i64 2), ptr @_ZL22cxxCompilerVersionNode, align 8
   store ptr @.str.37, ptr getelementptr inbounds (%struct.CompilerVersionNode, ptr @_ZL22cxxCompilerVersionNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, inrange i32 0, i64 2), ptr @_ZL23cudaCompilerVersionNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, i32 0, i64 2), ptr @_ZL23cudaCompilerVersionNode, align 8
   store ptr @.str.39, ptr getelementptr inbounds (%struct.CompilerVersionNode, ptr @_ZL23cudaCompilerVersionNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, inrange i32 0, i64 2), ptr @_ZL23objcCompilerVersionNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, i32 0, i64 2), ptr @_ZL23objcCompilerVersionNode, align 8
   store ptr @.str.41, ptr getelementptr inbounds (%struct.CompilerVersionNode, ptr @_ZL23objcCompilerVersionNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, inrange i32 0, i64 2), ptr @_ZL25objcxxCompilerVersionNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, i32 0, i64 2), ptr @_ZL25objcxxCompilerVersionNode, align 8
   store ptr @.str.43, ptr getelementptr inbounds (%struct.CompilerVersionNode, ptr @_ZL25objcxxCompilerVersionNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, inrange i32 0, i64 2), ptr @_ZL26fortranCompilerVersionNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, i32 0, i64 2), ptr @_ZL26fortranCompilerVersionNode, align 8
   store ptr @.str.45, ptr getelementptr inbounds (%struct.CompilerVersionNode, ptr @_ZL26fortranCompilerVersionNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, inrange i32 0, i64 2), ptr @_ZL22hipCompilerVersionNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompilerVersionNode, i64 0, i32 0, i64 2), ptr @_ZL22hipCompilerVersionNode, align 8
   store ptr @.str.47, ptr getelementptr inbounds (%struct.CompilerVersionNode, ptr @_ZL22hipCompilerVersionNode, i64 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14PlatformIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL14platformIdNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE4EE, i64 0, inrange i32 0, i64 2), ptr @_ZL18versionGreaterNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE5EE, i64 0, inrange i32 0, i64 2), ptr @_ZL20versionGreaterEqNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE2EE, i64 0, inrange i32 0, i64 2), ptr @_ZL15versionLessNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE3EE, i64 0, inrange i32 0, i64 2), ptr @_ZL17versionLessEqNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE1EE, i64 0, inrange i32 0, i64 2), ptr @_ZL16versionEqualNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15CompileOnlyNode, i64 0, inrange i32 0, i64 2), ptr @_ZL15compileOnlyNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12LinkOnlyNode, i64 0, inrange i32 0, i64 2), ptr @_ZL12linkOnlyNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ConfigurationNode, i64 0, inrange i32 0, i64 2), ptr @_ZL17configurationNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21ConfigurationTestNode, i64 0, inrange i32 0, i64 2), ptr @_ZL21configurationTestNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8JoinNode, i64 0, inrange i32 0, i64 2), ptr @_ZL8joinNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompileLanguageNode, i64 0, inrange i32 0, i64 2), ptr @_ZL12languageNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24CompileLanguageAndIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL17languageAndIdNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16LinkLanguageNode, i64 0, inrange i32 0, i64 2), ptr @_ZL16linkLanguageNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21LinkLanguageAndIdNode, i64 0, inrange i32 0, i64 2), ptr @_ZL21linkLanguageAndIdNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15LinkLibraryNode, i64 0, inrange i32 0, i64 2), ptr @_ZL15linkLibraryNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13LinkGroupNode, i64 0, inrange i32 0, i64 2), ptr @_ZL13linkGroupNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12HostLinkNode, i64 0, inrange i32 0, i64 2), ptr @_ZL12hostLinkNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14DeviceLinkNode, i64 0, inrange i32 0, i64 2), ptr @_ZL14deviceLinkNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetPropertyNode, i64 0, inrange i32 0, i64 2), ptr @_ZL18targetPropertyNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14TargetNameNode, i64 0, inrange i32 0, i64 2), ptr @_ZL14targetNameNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17TargetObjectsNode, i64 0, inrange i32 0, i64 2), ptr @_ZL17targetObjectsNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21TargetRuntimeDllsNode, i64 0, inrange i32 0, i64 2), ptr @_ZL21targetRuntimeDllsNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetRuntimeDllDirsNode, i64 0, inrange i32 0, i64 2), ptr @_ZL24targetRuntimeDllDirsNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompileFeaturesNode, i64 0, inrange i32 0, i64 2), ptr @_ZL19compileFeaturesNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16TargetPolicyNode, i64 0, inrange i32 0, i64 2), ptr @_ZL16targetPolicyNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17InstallPrefixNode, i64 0, inrange i32 0, i64 2), ptr @_ZL17installPrefixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL15targetNodeGroup, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTagS0_E, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup, ptr @_ZL15targetNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTag14ArtifactDirTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup, ptr @_ZL15targetNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL21targetImportNodeGroup, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag15ArtifactNameTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.208, ptr @_ZL21targetImportNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag14ArtifactDirTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.208, ptr @_ZL21targetImportNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL21targetLinkerNodeGroup, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag15ArtifactNameTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.212, ptr @_ZL21targetLinkerNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag14ArtifactDirTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.212, ptr @_ZL21targetLinkerNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL28targetLinkerLibraryNodeGroup, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag15ArtifactNameTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.216, ptr @_ZL28targetLinkerLibraryNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag14ArtifactDirTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.216, ptr @_ZL28targetLinkerLibraryNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL27targetLinkerImportNodeGroup, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag15ArtifactNameTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.220, ptr @_ZL27targetLinkerImportNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag14ArtifactDirTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.220, ptr @_ZL27targetLinkerImportNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL21targetSoNameNodeGroup, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag15ArtifactNameTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.224, ptr @_ZL21targetSoNameNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag14ArtifactDirTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.224, ptr @_ZL21targetSoNameNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL27targetSoNameImportNodeGroup, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag15ArtifactNameTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.228, ptr @_ZL27targetSoNameImportNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag14ArtifactDirTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.228, ptr @_ZL27targetSoNameImportNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL18targetPdbNodeGroup, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag15ArtifactNameTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.232, ptr @_ZL18targetPdbNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag14ArtifactDirTagE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.232, ptr @_ZL18targetPdbNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI20ArtifactBundleDirTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL19targetBundleDirNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactBundleDirNameTag15ArtifactNameTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL23targetBundleDirNameNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI27ArtifactBundleContentDirTag15ArtifactPathTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL26targetBundleContentDirNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI15ArtifactNameTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL22targetFileBaseNameNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI17ArtifactImportTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL28targetImportFileBaseNameNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI17ArtifactLinkerTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL28targetLinkerFileBaseNameNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI24ArtifactLinkerLibraryTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL35targetLinkerLibraryFileBaseNameNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI23ArtifactLinkerImportTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL34targetLinkerImportFileBaseNameNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI14ArtifactPdbTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL25targetPdbFileBaseNameNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI21ArtifactFilePrefixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL20targetFilePrefixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactImportFilePrefixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL26targetImportFilePrefixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactLinkerFilePrefixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL26targetLinkerFilePrefixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI34ArtifactLinkerLibraryFilePrefixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL33targetLinkerLibraryFilePrefixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI33ArtifactLinkerImportFilePrefixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL32targetLinkerImportFilePrefixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI21ArtifactFileSuffixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL20targetFileSuffixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactImportFileSuffixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL26targetImportFileSuffixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactLinkerFileSuffixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL26targetLinkerFileSuffixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI34ArtifactLinkerLibraryFileSuffixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL33targetLinkerLibraryFileSuffixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI33ArtifactLinkerImportFileSuffixTagE, i64 0, inrange i32 0, i64 2), ptr @_ZL32targetLinkerImportFileSuffixNode, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13ShellPathNode, i64 0, inrange i32 0, i64 2), ptr @_ZL13shellPathNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14PlatformIdNode, i64 0, i32 0, i64 2), ptr @_ZL14platformIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE4EE, i64 0, i32 0, i64 2), ptr @_ZL18versionGreaterNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE5EE, i64 0, i32 0, i64 2), ptr @_ZL20versionGreaterEqNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE2EE, i64 0, i32 0, i64 2), ptr @_ZL15versionLessNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE3EE, i64 0, i32 0, i64 2), ptr @_ZL17versionLessEqNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11VersionNodeILN13cmSystemTools9CompareOpE1EE, i64 0, i32 0, i64 2), ptr @_ZL16versionEqualNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15CompileOnlyNode, i64 0, i32 0, i64 2), ptr @_ZL15compileOnlyNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12LinkOnlyNode, i64 0, i32 0, i64 2), ptr @_ZL12linkOnlyNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ConfigurationNode, i64 0, i32 0, i64 2), ptr @_ZL17configurationNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21ConfigurationTestNode, i64 0, i32 0, i64 2), ptr @_ZL21configurationTestNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8JoinNode, i64 0, i32 0, i64 2), ptr @_ZL8joinNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompileLanguageNode, i64 0, i32 0, i64 2), ptr @_ZL12languageNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24CompileLanguageAndIdNode, i64 0, i32 0, i64 2), ptr @_ZL17languageAndIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16LinkLanguageNode, i64 0, i32 0, i64 2), ptr @_ZL16linkLanguageNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21LinkLanguageAndIdNode, i64 0, i32 0, i64 2), ptr @_ZL21linkLanguageAndIdNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15LinkLibraryNode, i64 0, i32 0, i64 2), ptr @_ZL15linkLibraryNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13LinkGroupNode, i64 0, i32 0, i64 2), ptr @_ZL13linkGroupNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12HostLinkNode, i64 0, i32 0, i64 2), ptr @_ZL12hostLinkNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14DeviceLinkNode, i64 0, i32 0, i64 2), ptr @_ZL14deviceLinkNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetPropertyNode, i64 0, i32 0, i64 2), ptr @_ZL18targetPropertyNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14TargetNameNode, i64 0, i32 0, i64 2), ptr @_ZL14targetNameNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17TargetObjectsNode, i64 0, i32 0, i64 2), ptr @_ZL17targetObjectsNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21TargetRuntimeDllsNode, i64 0, i32 0, i64 2), ptr @_ZL21targetRuntimeDllsNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetRuntimeDllDirsNode, i64 0, i32 0, i64 2), ptr @_ZL24targetRuntimeDllDirsNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19CompileFeaturesNode, i64 0, i32 0, i64 2), ptr @_ZL19compileFeaturesNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16TargetPolicyNode, i64 0, i32 0, i64 2), ptr @_ZL16targetPolicyNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17InstallPrefixNode, i64 0, i32 0, i64 2), ptr @_ZL17installPrefixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL15targetNodeGroup, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTagS0_E, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup, ptr @_ZL15targetNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI15ArtifactNameTag14ArtifactDirTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup, ptr @_ZL15targetNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL21targetImportNodeGroup, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag15ArtifactNameTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.208, ptr @_ZL21targetImportNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactImportTag14ArtifactDirTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.208, ptr @_ZL21targetImportNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL21targetLinkerNodeGroup, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag15ArtifactNameTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.212, ptr @_ZL21targetLinkerNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactLinkerTag14ArtifactDirTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.212, ptr @_ZL21targetLinkerNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL28targetLinkerLibraryNodeGroup, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag15ArtifactNameTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.216, ptr @_ZL28targetLinkerLibraryNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactLinkerLibraryTag14ArtifactDirTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.216, ptr @_ZL28targetLinkerLibraryNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL27targetLinkerImportNodeGroup, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag15ArtifactNameTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.220, ptr @_ZL27targetLinkerImportNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactLinkerImportTag14ArtifactDirTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.220, ptr @_ZL27targetLinkerImportNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL21targetSoNameNodeGroup, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag15ArtifactNameTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.224, ptr @_ZL21targetSoNameNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI17ArtifactSonameTag14ArtifactDirTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.224, ptr @_ZL21targetSoNameNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL27targetSoNameImportNodeGroup, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag15ArtifactNameTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.228, ptr @_ZL27targetSoNameImportNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI23ArtifactSonameImportTag14ArtifactDirTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.228, ptr @_ZL27targetSoNameImportNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL18targetPdbNodeGroup, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag15ArtifactNameTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.232, ptr @_ZL18targetPdbNodeGroup, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI14ArtifactPdbTag14ArtifactDirTagE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%struct.TargetFilesystemArtifactNodeGroup.232, ptr @_ZL18targetPdbNodeGroup, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI20ArtifactBundleDirTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL19targetBundleDirNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI24ArtifactBundleDirNameTag15ArtifactNameTagE, i64 0, i32 0, i64 2), ptr @_ZL23targetBundleDirNameNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24TargetFilesystemArtifactI27ArtifactBundleContentDirTag15ArtifactPathTagE, i64 0, i32 0, i64 2), ptr @_ZL26targetBundleContentDirNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI15ArtifactNameTagE, i64 0, i32 0, i64 2), ptr @_ZL22targetFileBaseNameNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI17ArtifactImportTagE, i64 0, i32 0, i64 2), ptr @_ZL28targetImportFileBaseNameNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI17ArtifactLinkerTagE, i64 0, i32 0, i64 2), ptr @_ZL28targetLinkerFileBaseNameNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI24ArtifactLinkerLibraryTagE, i64 0, i32 0, i64 2), ptr @_ZL35targetLinkerLibraryFileBaseNameNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI23ArtifactLinkerImportTagE, i64 0, i32 0, i64 2), ptr @_ZL34targetLinkerImportFileBaseNameNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26TargetFileBaseNameArtifactI14ArtifactPdbTagE, i64 0, i32 0, i64 2), ptr @_ZL25targetPdbFileBaseNameNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI21ArtifactFilePrefixTagE, i64 0, i32 0, i64 2), ptr @_ZL20targetFilePrefixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactImportFilePrefixTagE, i64 0, i32 0, i64 2), ptr @_ZL26targetImportFilePrefixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactLinkerFilePrefixTagE, i64 0, i32 0, i64 2), ptr @_ZL26targetLinkerFilePrefixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI34ArtifactLinkerLibraryFilePrefixTagE, i64 0, i32 0, i64 2), ptr @_ZL33targetLinkerLibraryFilePrefixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI33ArtifactLinkerImportFilePrefixTagE, i64 0, i32 0, i64 2), ptr @_ZL32targetLinkerImportFilePrefixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI21ArtifactFileSuffixTagE, i64 0, i32 0, i64 2), ptr @_ZL20targetFileSuffixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactImportFileSuffixTagE, i64 0, i32 0, i64 2), ptr @_ZL26targetImportFileSuffixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI27ArtifactLinkerFileSuffixTagE, i64 0, i32 0, i64 2), ptr @_ZL26targetLinkerFileSuffixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI34ArtifactLinkerLibraryFileSuffixTagE, i64 0, i32 0, i64 2), ptr @_ZL33targetLinkerLibraryFileSuffixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18TargetFileArtifactI33ArtifactLinkerImportFileSuffixTagE, i64 0, i32 0, i64 2), ptr @_ZL32targetLinkerImportFileSuffixNode, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13ShellPathNode, i64 0, i32 0, i64 2), ptr @_ZL13shellPathNode, align 8
   ret void
 }
 

@@ -1324,7 +1324,7 @@ define dso_local noundef i32 @_ZN10ModApiHttp18l_http_fetch_asyncEP9lua_State(pt
   %118 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %118, ptr %62, align 8, !tbaa !55
   %119 = getelementptr inbounds i8, ptr %3, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %119, align 8, !tbaa !55
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %119, align 8, !tbaa !55
   %120 = getelementptr inbounds i8, ptr %3, i64 96
   %121 = load ptr, ptr %120, align 8, !tbaa !29
   %122 = getelementptr inbounds i8, ptr %3, i64 112
@@ -1343,7 +1343,7 @@ define dso_local noundef i32 @_ZN10ModApiHttp18l_http_fetch_asyncEP9lua_State(pt
   br label %129
 
 129:                                              ; preds = %128, %124
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %119, align 8, !tbaa !55
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %119, align 8, !tbaa !55
   %130 = getelementptr inbounds i8, ptr %3, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %130) #20
   %131 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -1583,7 +1583,7 @@ define dso_local noundef i32 @_ZN10ModApiHttp22l_http_fetch_async_getEP9lua_Stat
   %76 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %76, ptr %28, align 8, !tbaa !55
   %77 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %77, align 8, !tbaa !55
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %77, align 8, !tbaa !55
   %78 = getelementptr inbounds i8, ptr %5, i64 96
   %79 = load ptr, ptr %78, align 8, !tbaa !29
   %80 = getelementptr inbounds i8, ptr %5, i64 112
@@ -1602,7 +1602,7 @@ define dso_local noundef i32 @_ZN10ModApiHttp22l_http_fetch_async_getEP9lua_Stat
   br label %87
 
 87:                                               ; preds = %86, %82
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %77, align 8, !tbaa !55
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %77, align 8, !tbaa !55
   %88 = getelementptr inbounds i8, ptr %5, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %88) #20
   %89 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8

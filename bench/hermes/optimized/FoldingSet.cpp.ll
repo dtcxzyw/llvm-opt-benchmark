@@ -790,7 +790,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh14FoldingSetBaseC2Ej(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, i32 noundef %Log2InitSize) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %shl = shl nuw i32 1, %Log2InitSize
   %NumBuckets = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %shl, ptr %NumBuckets, align 8
@@ -818,7 +818,7 @@ _ZL15AllocateBucketsj.exit:                       ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4llvh14FoldingSetBaseC2EOS0_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull align 8 dereferenceable(24) %Arg) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %Buckets2 = getelementptr inbounds i8, ptr %Arg, i64 8
   %0 = load ptr, ptr %Buckets2, align 8
@@ -862,7 +862,7 @@ declare void @free(ptr allocptr nocapture noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define hidden void @_ZN4llvh14FoldingSetBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Buckets = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %Buckets, align 8
   tail call void @free(ptr noundef %0) #21

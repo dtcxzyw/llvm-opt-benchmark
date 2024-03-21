@@ -89,7 +89,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6cineon9OutStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6cineon9OutStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fp = getelementptr inbounds %"class.cineon::OutStream", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fp, align 8
   ret void

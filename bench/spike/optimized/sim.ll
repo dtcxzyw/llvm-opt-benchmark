@@ -360,8 +360,8 @@ define void @_ZN5sim_tC2EPK5cfg_tbSt6vectorISt4pairImP14abstract_mem_tESaIS7_EES
   %33 = zext i1 %8 to i8
   tail call void @_ZN6htif_tC2ERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS6_EE(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef nonnull align 8 dereferenceable(24) %5)
   %34 = getelementptr inbounds i8, ptr %0, i64 696
-  store ptr getelementptr inbounds ({ [25 x ptr], [13 x ptr] }, ptr @_ZTV5sim_t, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr], [13 x ptr] }, ptr @_ZTV5sim_t, i64 0, inrange i32 1, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [13 x ptr] }, ptr @_ZTV5sim_t, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [13 x ptr] }, ptr @_ZTV5sim_t, i64 0, i32 1, i64 2), ptr %34, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 712
   %36 = getelementptr inbounds i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
@@ -515,7 +515,7 @@ _ZSt6fill_nIPP11processor_tmS1_ET_S3_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds =
   %104 = getelementptr inbounds i8, ptr %0, i64 1064
   %105 = getelementptr inbounds i8, ptr %0, i64 1080
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %102, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV5bus_t, i64 0, inrange i32 0, i64 2), ptr %105, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV5bus_t, i64 0, i32 0, i64 2), ptr %105, align 8
   %106 = getelementptr inbounds i8, ptr %0, i64 1096
   store i32 0, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 1104
@@ -1637,7 +1637,7 @@ _ZNSt6vectorIP11processor_tSaIS1_EED2Ev.exit194:  ; preds = %.loopexit275, %.loo
   store i32 1, ptr %536, align 8
   %537 = getelementptr inbounds i8, ptr %521, i64 12
   store i32 1, ptr %537, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP17abstract_device_tLN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %521, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP17abstract_device_tLN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %521, align 8
   %538 = getelementptr inbounds i8, ptr %521, i64 16
   store ptr %518, ptr %538, align 8
   store ptr %521, ptr %506, align 8
@@ -3128,7 +3128,7 @@ declare void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5bus_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV5bus_t, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV5bus_t, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
@@ -3312,9 +3312,9 @@ declare void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5sim_tD2Ev(ptr noundef nonnull align 8 dereferenceable(2888) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [25 x ptr], [13 x ptr] }, ptr @_ZTV5sim_t, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [13 x ptr] }, ptr @_ZTV5sim_t, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 696
-  store ptr getelementptr inbounds ({ [25 x ptr], [13 x ptr] }, ptr @_ZTV5sim_t, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [13 x ptr] }, ptr @_ZTV5sim_t, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 864
   %4 = getelementptr inbounds i8, ptr %0, i64 872
   %5 = load ptr, ptr %4, align 8
@@ -3414,7 +3414,7 @@ _ZNSt8optionalISt8functionIFvvEEED2Ev.exit:       ; preds = %29, %35, %38
 _ZN10log_file_tD2Ev.exit:                         ; preds = %_ZNSt8optionalISt8functionIFvvEEED2Ev.exit, %46
   store ptr null, ptr %44, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 1080
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV5bus_t, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV5bus_t, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 1088
   %55 = getelementptr inbounds i8, ptr %0, i64 1104
   %56 = load ptr, ptr %55, align 8
@@ -4437,7 +4437,7 @@ _ZNSt6vectorIcSaIcEE6resizeEm.exit:               ; preds = %117, %115, %113, %_
   store i32 1, ptr %138, align 8
   %139 = getelementptr inbounds i8, ptr %123, i64 12
   store i32 1, ptr %139, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12rom_device_tLN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %123, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12rom_device_tLN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %123, align 8
   %140 = getelementptr inbounds i8, ptr %123, i64 16
   store ptr %118, ptr %140, align 8
   store ptr %123, ptr %122, align 8

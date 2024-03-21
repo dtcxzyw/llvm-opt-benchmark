@@ -2852,7 +2852,7 @@ entry:
   %p = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog11instructionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog11instructionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_fn_cache = getelementptr inbounds %"class.datalog::instruction", ptr %this1, i32 0, i32 3
   store ptr %m_fn_cache, ptr %__range1, align 8
   %0 = load ptr, ptr %__range1, align 8
@@ -3339,7 +3339,7 @@ entry:
   store i32 %reg, ptr %reg.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog8instr_ioE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog8instr_ioE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_store = getelementptr inbounds %"class.datalog::instr_io", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %store.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -3456,7 +3456,7 @@ entry:
   store i32 %reg, ptr %reg.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog13instr_deallocE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog13instr_deallocE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_reg = getelementptr inbounds %"class.datalog::instr_dealloc", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %reg.addr, align 4
   store i32 %0, ptr %m_reg, align 8
@@ -3491,7 +3491,7 @@ entry:
   store i32 %tgt, ptr %tgt.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog16instr_clone_moveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog16instr_clone_moveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_clone = getelementptr inbounds %"class.datalog::instr_clone_move", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %clone.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -3552,7 +3552,7 @@ entry:
   store ptr %body, ptr %body.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog16instr_while_loopE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog16instr_while_loopE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_controls = getelementptr inbounds %"class.datalog::instr_while_loop", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %control_reg_cnt.addr, align 4
   %1 = load ptr, ptr %control_regs.addr, align 8
@@ -3630,7 +3630,7 @@ entry:
   store i32 %result, ptr %result.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog10instr_joinE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog10instr_joinE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rel1 = getelementptr inbounds %"class.datalog::instr_join", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %rel1.addr, align 4
   store i32 %0, ptr %m_rel1, align 8
@@ -3724,7 +3724,7 @@ entry:
   store i32 %col, ptr %col.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog18instr_filter_equalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog18instr_filter_equalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_reg = getelementptr inbounds %"class.datalog::instr_filter_equal", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %reg.addr, align 4
   store i32 %0, ptr %m_reg, align 8
@@ -3791,7 +3791,7 @@ entry:
   store ptr %identical_cols, ptr %identical_cols.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog22instr_filter_identicalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog22instr_filter_identicalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_reg = getelementptr inbounds %"class.datalog::instr_filter_identical", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %reg.addr, align 4
   store i32 %0, ptr %m_reg, align 8
@@ -3849,7 +3849,7 @@ entry:
   store ptr %condition, ptr %condition.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_filter_interpretedE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_filter_interpretedE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_reg = getelementptr inbounds %"class.datalog::instr_filter_interpreted", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %reg.addr, align 4
   store i32 %0, ptr %m_reg, align 8
@@ -3921,7 +3921,7 @@ entry:
   store i32 %result, ptr %result.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog36instr_filter_interpreted_and_projectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog36instr_filter_interpreted_and_projectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_src = getelementptr inbounds %"class.datalog::instr_filter_interpreted_and_project", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %src.addr, align 4
   store i32 %0, ptr %m_src, align 8
@@ -4007,7 +4007,7 @@ entry:
   store i8 %frombool, ptr %widen.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog11instr_unionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog11instr_unionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_src = getelementptr inbounds %"class.datalog::instr_union", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %src.addr, align 4
   store i32 %0, ptr %m_src, align 8
@@ -4082,7 +4082,7 @@ entry:
   store i32 %tgt, ptr %tgt.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog20instr_project_renameE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog20instr_project_renameE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_projection = getelementptr inbounds %"class.datalog::instr_project_rename", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %projection.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -4198,7 +4198,7 @@ entry:
   store i32 %result, ptr %result.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog18instr_join_projectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog18instr_join_projectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rel1 = getelementptr inbounds %"class.datalog::instr_join_project", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %rel1.addr, align 4
   store i32 %0, ptr %m_rel1, align 8
@@ -4317,7 +4317,7 @@ entry:
   store i32 %result, ptr %result.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog30instr_select_equal_and_projectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog30instr_select_equal_and_projectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_src = getelementptr inbounds %"class.datalog::instr_select_equal_and_project", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %src.addr, align 4
   store i32 %0, ptr %m_src, align 8
@@ -4397,7 +4397,7 @@ entry:
   store ptr %cols2, ptr %cols2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_filter_by_negationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_filter_by_negationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_tgt = getelementptr inbounds %"class.datalog::instr_filter_by_negation", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %tgt.addr, align 4
   store i32 %0, ptr %m_tgt, align 8
@@ -4493,7 +4493,7 @@ entry:
   store i32 %tgt, ptr %tgt.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_mk_unary_singletonE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_mk_unary_singletonE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sig = getelementptr inbounds %"class.datalog::instr_mk_unary_singleton", ptr %this1, i32 0, i32 1
   invoke void @_ZN7datalog18relation_signatureC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_sig)
           to label %invoke.cont unwind label %lpad
@@ -4602,7 +4602,7 @@ entry:
   store i32 %tgt, ptr %tgt.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog14instr_mk_totalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog14instr_mk_totalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sig = getelementptr inbounds %"class.datalog::instr_mk_total", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %sig.addr, align 8
   invoke void @_ZN7datalog18relation_signatureC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_sig, ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -4662,7 +4662,7 @@ entry:
   store ptr %pred, ptr %pred.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog20instr_mark_saturatedE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog20instr_mark_saturatedE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pred = getelementptr inbounds %"class.datalog::instr_mark_saturated", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pred.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
@@ -4717,7 +4717,7 @@ entry:
   store i32 %tgt, ptr %tgt.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7datalog11instructionC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog22instr_assert_signatureE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog22instr_assert_signatureE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sig = getelementptr inbounds %"class.datalog::instr_assert_signature", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %s.addr, align 8
   invoke void @_ZN7datalog18relation_signatureC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %m_sig, ptr noundef nonnull align 8 dereferenceable(8) %0)
@@ -6851,7 +6851,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN7datalog16accounted_objectC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog11instructionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog11instructionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_fn_cache = getelementptr inbounds %"class.datalog::instruction", ptr %this1, i32 0, i32 3
   invoke void @_ZN5u_mapIPN7datalog17tr_infrastructureINS0_15relation_traitsEE7base_fnEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_fn_cache)
           to label %invoke.cont unwind label %lpad
@@ -6962,7 +6962,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog8instr_ioE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog8instr_ioE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pred = getelementptr inbounds %"class.datalog::instr_io", ptr %this1, i32 0, i32 3
   call void @_ZN7obj_refI9func_decl11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_pred) #3
   call void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -8065,7 +8065,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -8078,7 +8078,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -8093,7 +8093,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9151,7 +9151,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog16instr_while_loopE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog16instr_while_loopE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_body = getelementptr inbounds %"class.datalog::instr_while_loop", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %m_body, align 8
   invoke void @_Z7deallocIN7datalog17instruction_blockEEvPT_(ptr noundef %0)
@@ -10021,7 +10021,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog10instr_joinE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog10instr_joinE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cols2 = getelementptr inbounds %"class.datalog::instr_join", ptr %this1, i32 0, i32 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2) #3
   %m_cols1 = getelementptr inbounds %"class.datalog::instr_join", ptr %this1, i32 0, i32 3
@@ -12037,7 +12037,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog18instr_filter_equalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog18instr_filter_equalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_value = getelementptr inbounds %"class.datalog::instr_filter_equal", ptr %this1, i32 0, i32 3
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_value) #3
   call void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -12545,7 +12545,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog22instr_filter_identicalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog22instr_filter_identicalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cols = getelementptr inbounds %"class.datalog::instr_filter_identical", ptr %this1, i32 0, i32 2
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols) #3
   call void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -12854,7 +12854,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_filter_interpretedE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_filter_interpretedE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cond = getelementptr inbounds %"class.datalog::instr_filter_interpreted", ptr %this1, i32 0, i32 2
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_cond) #3
   call void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -13243,7 +13243,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog36instr_filter_interpreted_and_projectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog36instr_filter_interpreted_and_projectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cols = getelementptr inbounds %"class.datalog::instr_filter_interpreted_and_project", ptr %this1, i32 0, i32 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols) #3
   %m_cond = getelementptr inbounds %"class.datalog::instr_filter_interpreted_and_project", ptr %this1, i32 0, i32 3
@@ -14384,7 +14384,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog20instr_project_renameE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog20instr_project_renameE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cols = getelementptr inbounds %"class.datalog::instr_project_rename", ptr %this1, i32 0, i32 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols) #3
   call void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -14814,7 +14814,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog18instr_join_projectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog18instr_join_projectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_removed_cols = getelementptr inbounds %"class.datalog::instr_join_project", ptr %this1, i32 0, i32 5
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_removed_cols) #3
   %m_cols2 = getelementptr inbounds %"class.datalog::instr_join_project", ptr %this1, i32 0, i32 4
@@ -15337,7 +15337,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog30instr_select_equal_and_projectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog30instr_select_equal_and_projectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_value = getelementptr inbounds %"class.datalog::instr_select_equal_and_project", ptr %this1, i32 0, i32 3
   call void @_ZN7obj_refI3app11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_value) #3
   call void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -15708,7 +15708,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_filter_by_negationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_filter_by_negationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cols2 = getelementptr inbounds %"class.datalog::instr_filter_by_negation", ptr %this1, i32 0, i32 4
   call void @_ZN7svectorIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_cols2) #3
   %m_cols1 = getelementptr inbounds %"class.datalog::instr_filter_by_negation", ptr %this1, i32 0, i32 3
@@ -16271,7 +16271,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_mk_unary_singletonE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog24instr_mk_unary_singletonE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_fact = getelementptr inbounds %"class.datalog::instr_mk_unary_singleton", ptr %this1, i32 0, i32 4
   call void @_ZN7datalog13relation_factD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_fact) #3
   %m_sig = getelementptr inbounds %"class.datalog::instr_mk_unary_singleton", ptr %this1, i32 0, i32 1
@@ -17361,7 +17361,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog14instr_mk_totalE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog14instr_mk_totalE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sig = getelementptr inbounds %"class.datalog::instr_mk_total", ptr %this1, i32 0, i32 1
   call void @_ZN7datalog18relation_signatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_sig) #3
   call void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -17879,7 +17879,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog20instr_mark_saturatedE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog20instr_mark_saturatedE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pred = getelementptr inbounds %"class.datalog::instr_mark_saturated", ptr %this1, i32 0, i32 1
   call void @_ZN7obj_refI9func_decl11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_pred) #3
   call void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -18706,7 +18706,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog22instr_assert_signatureE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7datalog22instr_assert_signatureE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sig = getelementptr inbounds %"class.datalog::instr_assert_signature", ptr %this1, i32 0, i32 1
   call void @_ZN7datalog18relation_signatureD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_sig) #3
   call void @_ZN7datalog11instructionD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3

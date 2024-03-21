@@ -272,7 +272,7 @@ define dso_local void @_ZN26cmCPackPropertiesGeneratorC2EP16cmLocalGeneratorRK15
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26cmCPackPropertiesGenerator, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV26cmCPackPropertiesGenerator, i32 0, i32 0, i32 2), ptr %14, align 8
   %19 = getelementptr inbounds %class.cmCPackPropertiesGenerator, ptr %14, i32 0, i32 1
   %20 = load ptr, ptr %6, align 8
   store ptr %20, ptr %19, align 8

@@ -529,9 +529,9 @@ define void @_ZN18ConversationDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnu
   %29 = load ptr, ptr %5, align 8
   %30 = load ptr, ptr %6, align 8
   call void @_ZN18TrafficTableDialogC2ER7QWidgetR11CaptureFileRK7QString(ptr noundef nonnull align 8 dereferenceable(152) %28, ptr noundef nonnull align 8 dereferenceable(40) %29, ptr noundef nonnull align 8 dereferenceable(48) %30, ptr noundef nonnull align 8 dereferenceable(24) @_ZL11table_name_)
-  store ptr getelementptr inbounds ({ [66 x ptr], [10 x ptr] }, ptr @_ZTV18ConversationDialog, i32 0, inrange i32 0, i32 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [66 x ptr], [10 x ptr] }, ptr @_ZTV18ConversationDialog, i32 0, i32 0, i32 2), ptr %28, align 8
   %31 = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr getelementptr inbounds ({ [66 x ptr], [10 x ptr] }, ptr @_ZTV18ConversationDialog, i32 0, inrange i32 1, i32 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [66 x ptr], [10 x ptr] }, ptr @_ZTV18ConversationDialog, i32 0, i32 1, i32 2), ptr %31, align 8
   %32 = getelementptr inbounds %class.ConversationDialog, ptr %28, i32 0, i32 3
   store i8 0, ptr %32, align 8
   %33 = invoke noundef ptr @_ZNK18TrafficTableDialog11trafficListEv(ptr noundef nonnull align 8 dereferenceable(152) %28)

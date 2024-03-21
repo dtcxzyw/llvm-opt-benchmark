@@ -825,7 +825,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14FormatMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18FormatMetadataImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18FormatMetadataImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_name = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %this1, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #9
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %m_name, ptr noundef @_ZN19OpenColorIO_v2_4devL13METADATA_ROOTE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -888,7 +888,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14FormatMetadataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev14FormatMetadataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -927,7 +927,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14FormatMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18FormatMetadataImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18FormatMetadataImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_name = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %name.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_name, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -1104,7 +1104,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN19OpenColorIO_v2_4dev14FormatMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18FormatMetadataImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18FormatMetadataImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_name = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %m_name2 = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %1, i32 0, i32 1
@@ -1377,7 +1377,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18FormatMetadataImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev18FormatMetadataImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_elements = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIN19OpenColorIO_v2_4dev18FormatMetadataImplESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_elements) #9
   %m_attributes = getelementptr inbounds %"class.OpenColorIO_v2_4dev::FormatMetadataImpl", ptr %this1, i32 0, i32 3

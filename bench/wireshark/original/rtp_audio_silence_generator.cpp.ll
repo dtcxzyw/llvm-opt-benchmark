@@ -42,7 +42,7 @@ define void @_ZN21AudioSilenceGeneratorC2EP7QObject(ptr noundef nonnull align 8 
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN9QIODeviceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV21AudioSilenceGenerator, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV21AudioSilenceGenerator, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %class.AudioSilenceGenerator, ptr %8, i32 0, i32 1
   store i64 0, ptr %10, align 8
   call void @_ZN6QFlagsIN13QIODeviceBase12OpenModeFlagEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 1) #6

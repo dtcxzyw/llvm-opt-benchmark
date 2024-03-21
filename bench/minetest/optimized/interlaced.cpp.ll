@@ -186,7 +186,7 @@ $_ZTI10ShaderInfo = comdat any
 @.str.12 = private unnamed_addr constant [21 x i8] c"Server shutting down\00", align 1
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
 @_ZTV22InitInterlacedMaskStep = dso_local unnamed_addr constant { [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTI22InitInterlacedMaskStep, ptr @_ZN22InitInterlacedMaskStepD1Ev, ptr @_ZN22InitInterlacedMaskStepD0Ev, ptr @_ZN17TrivialRenderStep5resetER15PipelineContext, ptr @_ZN17TrivialRenderStep15setRenderSourceEP12RenderSource, ptr @_ZN17TrivialRenderStep15setRenderTargetEP12RenderTarget, ptr @_ZN22InitInterlacedMaskStep3runER15PipelineContext] }, align 8
-@_ZTT22InitInterlacedMaskStep = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22InitInterlacedMaskStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC22InitInterlacedMaskStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC22InitInterlacedMaskStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC22InitInterlacedMaskStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC22InitInterlacedMaskStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22InitInterlacedMaskStep, i32 0, inrange i32 0, i32 5)], align 8
+@_ZTT22InitInterlacedMaskStep = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22InitInterlacedMaskStep, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC22InitInterlacedMaskStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC22InitInterlacedMaskStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC22InitInterlacedMaskStep0_10RenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTC22InitInterlacedMaskStep0_17TrivialRenderStep, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22InitInterlacedMaskStep, i32 0, inrange i32 0, i32 5)], align 8
 @_ZZ26populateInterlacedPipelineP14RenderPipelineP6ClientE12TEXTURE_MASK = internal constant i8 2, align 1
 @.str.14 = private unnamed_addr constant [15 x i8] c"3d_render_left\00", align 1
 @.str.15 = private unnamed_addr constant [16 x i8] c"3d_render_right\00", align 1
@@ -479,7 +479,7 @@ define dso_local void @_ZN22InitInterlacedMaskStepC2EP13TextureBufferh(ptr nocap
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN22InitInterlacedMaskStepC1EP13TextureBufferh(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(25) %0, ptr noundef %1, i8 noundef zeroext %2) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22InitInterlacedMaskStep, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22InitInterlacedMaskStep, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -618,7 +618,7 @@ define dso_local void @_Z26populateInterlacedPipelineP14RenderPipelineP6Client(p
   %26 = load i64, ptr %25, align 8, !noalias !26
   %27 = getelementptr inbounds i8, ptr %21, i64 %26
   store ptr %24, ptr %27, align 8, !tbaa !12, !noalias !26
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TextureBuffer, i64 0, inrange i32 0, i64 5), ptr %21, align 8, !tbaa !12, !noalias !26
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13TextureBuffer, i64 0, i32 0, i64 5), ptr %21, align 8, !tbaa !12, !noalias !26
   %28 = getelementptr inbounds i8, ptr %21, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false), !noalias !26
   store ptr %21, ptr %6, align 8, !tbaa !29, !alias.scope !26
@@ -1145,7 +1145,7 @@ define dso_local void @_Z26populateInterlacedPipelineP14RenderPipelineP6Client(p
   call void %280(ptr dead_on_unwind nonnull writable sret(%struct.ShaderInfo) align 8 %18, ptr noundef nonnull align 8 dereferenceable(8) %267, i32 noundef %109)
   %281 = getelementptr inbounds i8, ptr %18, i64 44
   %282 = load i32, ptr %281, align 4, !tbaa !48
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %18, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %18, align 8, !tbaa !12
   %283 = getelementptr inbounds i8, ptr %18, i64 8
   %284 = load ptr, ptr %283, align 8, !tbaa !4
   %285 = getelementptr inbounds i8, ptr %18, i64 24
@@ -1194,7 +1194,7 @@ define dso_local void @_Z26populateInterlacedPipelineP14RenderPipelineP6Client(p
   store ptr %303, ptr %306, align 8, !tbaa !12, !noalias !57
   %307 = getelementptr inbounds i8, ptr %301, i64 8
   store i8 1, ptr %307, align 8, !tbaa !60, !noalias !57
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV12ScreenTarget, i64 0, inrange i32 0, i64 5), ptr %301, align 8, !tbaa !12, !noalias !57
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV12ScreenTarget, i64 0, i32 0, i64 5), ptr %301, align 8, !tbaa !12, !noalias !57
   %308 = getelementptr inbounds i8, ptr %301, i64 12
   store i32 0, ptr %308, align 4, !tbaa !62, !noalias !57
   %309 = getelementptr inbounds i8, ptr %301, i64 16
@@ -1295,7 +1295,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI22InitInt
   %5 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24, !noalias !65
   %6 = load ptr, ptr %1, align 8, !tbaa !29, !noalias !65
   %7 = load i8, ptr %2, align 1, !tbaa !31, !noalias !65
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22InitInterlacedMaskStep, i64 0, inrange i32 0, i64 5), ptr %5, align 8, !tbaa !12, !noalias !65
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22InitInterlacedMaskStep, i64 0, i32 0, i64 5), ptr %5, align 8, !tbaa !12, !noalias !65
   %8 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %6, ptr %8, align 8, !tbaa !14, !noalias !65
   %9 = getelementptr inbounds i8, ptr %5, i64 16
@@ -1868,7 +1868,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI9DrawWiel
   %7 = load i64, ptr %6, align 8, !noalias !92
   %8 = getelementptr inbounds i8, ptr %3, i64 %7
   store ptr %5, ptr %8, align 8, !tbaa !12, !noalias !92
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV9DrawWield, i64 0, inrange i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !92
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV9DrawWield, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !92
   %9 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr null, ptr %9, align 8, !tbaa !95, !noalias !92
   store ptr %3, ptr %2, align 8, !tbaa !29, !alias.scope !92
@@ -2000,7 +2000,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI13MapPost
   %12 = load i64, ptr %11, align 8, !noalias !97
   %13 = getelementptr inbounds i8, ptr %3, i64 %12
   store ptr %10, ptr %13, align 8, !tbaa !12, !noalias !97
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13MapPostFxStep, i64 0, inrange i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !97
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13MapPostFxStep, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !97
   store ptr %3, ptr %2, align 8, !tbaa !29, !alias.scope !97
   %14 = invoke noundef ptr @_ZN14RenderPipeline3ownI13MapPostFxStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %15 unwind label %63
@@ -2244,7 +2244,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI16OffsetC
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2465,7 +2465,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI7DrawHUDJ
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #23
   tail call void @llvm.experimental.noalias.scope.decl(metadata !110)
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #24, !noalias !110
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV7DrawHUD, i64 0, inrange i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !110
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV7DrawHUD, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !12, !noalias !110
   store ptr %3, ptr %2, align 8, !tbaa !29, !alias.scope !110
   %4 = invoke noundef ptr @_ZN14RenderPipeline3ownI7DrawHUDEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %5 unwind label %53
@@ -2680,7 +2680,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24

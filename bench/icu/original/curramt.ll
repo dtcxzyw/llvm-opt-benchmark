@@ -79,7 +79,7 @@ cleanup.action:                                   ; preds = %invoke.cont3
   br label %cleanup.done
 
 cleanup.done:                                     ; preds = %cleanup.action, %invoke.cont3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7514CurrencyAmountE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7514CurrencyAmountE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %new.cont, %new.notnull
@@ -196,7 +196,7 @@ cleanup.action:                                   ; preds = %invoke.cont3
 
 cleanup.done:                                     ; preds = %cleanup.action, %invoke.cont3
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #5
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7514CurrencyAmountE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7514CurrencyAmountE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %new.cont, %new.notnull
@@ -248,7 +248,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757MeasureC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this1, ptr noundef nonnull align 8 dereferenceable(128) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7514CurrencyAmountE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7514CurrencyAmountE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

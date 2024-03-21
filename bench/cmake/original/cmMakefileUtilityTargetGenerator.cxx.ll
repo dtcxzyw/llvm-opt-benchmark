@@ -479,7 +479,7 @@ define dso_local void @_ZN32cmMakefileUtilityTargetGeneratorC2EP17cmGeneratorTar
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN25cmMakefileTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(1064) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV32cmMakefileUtilityTargetGenerator, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV32cmMakefileUtilityTargetGenerator, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %class.cmMakefileTargetGenerator, ptr %8, i32 0, i32 3
   store i32 2, ptr %10, align 8
   invoke void @_ZSt11make_uniqueI20cmOSXBundleGeneratorJRP17cmGeneratorTargetEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.22") align 8 %5, ptr noundef nonnull align 8 dereferenceable(8) %4)

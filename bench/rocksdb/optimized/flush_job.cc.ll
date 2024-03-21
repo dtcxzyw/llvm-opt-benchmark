@@ -3807,7 +3807,7 @@ if.end4:                                          ; preds = %if.end
   store i64 72057594037927935, ptr %sequence.i, align 8
   %type.i = getelementptr inbounds i8, ptr %res, i64 24
   store i8 0, ptr %type.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 0, inrange i32 0, i64 2), ptr %min_snapshot, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 0, i32 0, i64 2), ptr %min_snapshot, align 8
   %min_uncommitted_.i = getelementptr inbounds i8, ptr %min_snapshot, i64 16
   store i64 1, ptr %min_uncommitted_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %vget) #21
@@ -4782,7 +4782,7 @@ invoke.cont91:                                    ; preds = %invoke.cont81
   store ptr %32, ptr %_M_right.i.i.i.i.i.i.i, align 8
   %_M_node_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call86, i64 56
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb28CompactionRangeDelAggregatorE, i64 0, inrange i32 0, i64 2), ptr %call86, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb28CompactionRangeDelAggregatorE, i64 0, i32 0, i64 2), ptr %call86, align 8
   %parent_iters_.i = getelementptr inbounds i8, ptr %call86, i64 64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %parent_iters_.i, i8 0, i64 24, i1 false)
   %33 = getelementptr inbounds i8, ptr %call86, i64 96

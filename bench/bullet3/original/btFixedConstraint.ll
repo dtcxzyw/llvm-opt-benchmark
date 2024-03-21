@@ -162,7 +162,7 @@ entry:
   %2 = load ptr, ptr %frameInA.addr, align 8
   %3 = load ptr, ptr %frameInB.addr, align 8
   call void @_ZN30btGeneric6DofSpring2ConstraintC2ER11btRigidBodyS1_RK11btTransformS4_11RotateOrder(ptr noundef nonnull align 8 dereferenceable(1484) %this1, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(64) %2, ptr noundef nonnull align 4 dereferenceable(64) %3, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btFixedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btFixedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   store float 0.000000e+00, ptr %ref.tmp2, align 4
   store float 0.000000e+00, ptr %ref.tmp3, align 4
   store float 0.000000e+00, ptr %ref.tmp4, align 4
@@ -437,7 +437,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

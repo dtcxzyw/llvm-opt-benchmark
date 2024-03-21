@@ -428,7 +428,7 @@ define void @_ZN5draco15StdioFileReaderD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco15StdioFileReaderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco15StdioFileReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::StdioFileReader", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = invoke i32 @fclose(ptr noundef %5)
@@ -506,7 +506,7 @@ define linkonce_odr void @_ZN5draco15StdioFileReaderC2EP8_IO_FILE(ptr noundef no
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5draco19FileReaderInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco15StdioFileReaderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco15StdioFileReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.draco::StdioFileReader", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -989,7 +989,7 @@ define linkonce_odr void @_ZN5draco19FileReaderInterfaceC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco19FileReaderInterfaceE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5draco19FileReaderInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

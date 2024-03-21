@@ -731,7 +731,7 @@ $_ZTI11MLException = comdat any
 $_ZTV11MLException = comdat any
 
 @_ZTV8IOPlugin = unnamed_addr constant { [24 x ptr], [11 x ptr], [5 x ptr] } { [24 x ptr] [ptr inttoptr (i64 40 to ptr), ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTI8IOPlugin, ptr @_ZN8IOPluginD1Ev, ptr @_ZN8IOPluginD0Ev, ptr @__cxa_pure_virtual, ptr @_ZNK8IOPlugin20initPreOpenParameterERK7QString, ptr @_ZNK8IOPlugin27numberMeshesContainedInFileERK7QStringS2_RK17RichParameterList, ptr @_ZN8IOPlugin4openERK7QStringS2_RKNSt7__cxx114listIP9MeshModelSaIS6_EEERNS4_IiSaIiEEERK17RichParameterListPFbiPKcE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK8IOPlugin17initSaveParameterERK7QStringRK9MeshModel, ptr @__cxa_pure_virtual, ptr @_ZNK8IOPlugin18importImageFormatsB5cxx11Ev, ptr @_ZN8IOPlugin9openImageERK7QStringS2_PFbiPKcE, ptr @_ZNK8IOPlugin18exportImageFormatsB5cxx11Ev, ptr @_ZN8IOPlugin9saveImageERK7QStringS2_RK6QImageiPFbiPKcE, ptr @_ZNK8IOPlugin20importProjectFormatsB5cxx11Ev, ptr @_ZN8IOPlugin34projectFileRequiresAdditionalFilesB5cxx11ERK7QStringS2_, ptr @_ZN8IOPlugin11openProjectERK7QStringRK11QStringListR12MeshDocumentRSt6vectorI15MLRenderingDataSaIS9_EEPFbiPKcE, ptr @_ZNK8IOPlugin20exportProjectFormatsB5cxx11Ev, ptr @_ZN8IOPlugin11saveProjectERK7QStringS2_RK12MeshDocumentbRKSt6vectorI15MLRenderingDataSaIS7_EEPFbiPKcE], [11 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTI8IOPlugin, ptr @_ZTv0_n24_N8IOPluginD1Ev, ptr @_ZTv0_n24_N8IOPluginD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK13MeshLabPlugin6vendorEv], [5 x ptr] [ptr inttoptr (i64 -40 to ptr), ptr inttoptr (i64 -40 to ptr), ptr @_ZTI8IOPlugin, ptr @_ZTv0_n24_N8IOPluginD1Ev, ptr @_ZTv0_n24_N8IOPluginD0Ev] }, align 8
-@_ZTT8IOPlugin = unnamed_addr constant [3 x ptr] [ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV8IOPlugin, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV8IOPlugin, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV8IOPlugin, i32 0, inrange i32 2, i32 3)], align 8
+@_ZTT8IOPlugin = unnamed_addr constant [3 x ptr] [ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV8IOPlugin, i32 0, i32 0, i32 4), ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV8IOPlugin, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [24 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV8IOPlugin, i32 0, inrange i32 2, i32 3)], align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTS8IOPlugin = constant [10 x i8] c"8IOPlugin\00", align 1
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -7338,7 +7338,7 @@ define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull alig
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #6
@@ -7379,7 +7379,7 @@ define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 2
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #6
   %5 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 1
@@ -7500,7 +7500,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

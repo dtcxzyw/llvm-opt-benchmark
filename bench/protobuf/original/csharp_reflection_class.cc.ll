@@ -1525,7 +1525,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %options.addr, align 8
   call void @_ZN6google8protobuf8compiler6csharp19SourceGeneratorBaseC2EPKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %file_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %file.addr, align 8
   store ptr %1, ptr %file_, align 8
@@ -1610,7 +1610,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6csharp24ReflectionClassGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %extensionClassname_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %extensionClassname_) #3
   %reflectionClassname_ = getelementptr inbounds %"class.google::protobuf::compiler::csharp::ReflectionClassGenerator", ptr %this1, i32 0, i32 3

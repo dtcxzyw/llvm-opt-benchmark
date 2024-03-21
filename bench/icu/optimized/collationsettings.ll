@@ -23,7 +23,7 @@ entry:
   %errorCode = alloca i32, align 4
   %softRefCount.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517CollationSettingsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517CollationSettingsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %options = getelementptr inbounds i8, ptr %this, i64 24
   %options2 = getelementptr inbounds i8, ptr %other, i64 24
   %0 = load i32, ptr %options2, align 8
@@ -236,7 +236,7 @@ declare void @_ZN6icu_7512SharedObjectD2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7517CollationSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(852) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517CollationSettingsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7517CollationSettingsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %reorderCodesCapacity = getelementptr inbounds i8, ptr %this, i64 76
   %0 = load i32, ptr %reorderCodesCapacity, align 4
   %cmp.not = icmp eq i32 %0, 0

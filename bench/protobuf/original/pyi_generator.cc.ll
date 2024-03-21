@@ -2842,7 +2842,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf8compiler13CodeGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %opensource_runtime_ = getelementptr inbounds %"class.google::protobuf::compiler::python::PyiGenerator", ptr %this1, i32 0, i32 1
   store i8 1, ptr %opensource_runtime_, align 8
   %mutex_ = getelementptr inbounds %"class.google::protobuf::compiler::python::PyiGenerator", ptr %this1, i32 0, i32 2
@@ -2898,7 +2898,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler13CodeGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler13CodeGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2937,7 +2937,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf8compiler6python12PyiGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %import_map_ = getelementptr inbounds %"class.google::protobuf::compiler::python::PyiGenerator", ptr %this1, i32 0, i32 6
   call void @_ZN4absl12lts_2023080213flat_hash_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_NS0_18container_internal10StringHashENS8_8StringEqESaISt4pairIKS7_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %import_map_) #3
   %mutex_ = getelementptr inbounds %"class.google::protobuf::compiler::python::PyiGenerator", ptr %this1, i32 0, i32 2
@@ -10902,7 +10902,7 @@ entry:
   store ptr %annotation_proto, ptr %annotation_proto.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io19AnnotationCollectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf2io24AnnotationProtoCollectorINS0_17GeneratedCodeInfoEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf2io24AnnotationProtoCollectorINS0_17GeneratedCodeInfoEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %annotation_proto_ = getelementptr inbounds %"class.google::protobuf::io::AnnotationProtoCollector", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %annotation_proto.addr, align 8
   store ptr %0, ptr %annotation_proto_, align 8
@@ -31800,7 +31800,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf2io19AnnotationCollectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6google8protobuf2io19AnnotationCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

@@ -1878,7 +1878,7 @@ define dso_local void @_ZN3LhsC2ERK8Variable(ptr noundef nonnull align 8 derefer
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -1902,7 +1902,7 @@ define dso_local void @_ZN3LhsC2ERKS_(ptr noundef nonnull align 8 dereferenceabl
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %5, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.Lhs, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %class.Lhs, ptr %7, i32 0, i32 1
@@ -1936,7 +1936,7 @@ define dso_local void @_ZN3LhsC2ERK8VariablePK4Typeb(ptr noundef nonnull align 8
   store i8 %9, ptr %8, align 1
   %10 = load ptr, ptr %5, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %10, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV3Lhs, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.Lhs, ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   store ptr %12, ptr %11, align 8

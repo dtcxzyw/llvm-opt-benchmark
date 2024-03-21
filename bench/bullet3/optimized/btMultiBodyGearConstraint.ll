@@ -45,7 +45,7 @@ $_ZNK11btMatrix3x311getRotationER12btQuaternion = comdat any
 define dso_local void @_ZN25btMultiBodyGearConstraintC2EP11btMultiBodyiS1_iRK9btVector3S4_RK11btMatrix3x3S7_(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %bodyA, i32 noundef %linkA, ptr noundef %bodyB, i32 noundef %linkB, ptr nocapture nonnull readnone align 4 %pivotInA, ptr nocapture nonnull readnone align 4 %pivotInB, ptr nocapture nonnull readnone align 4 %frameInA, ptr nocapture nonnull readnone align 4 %frameInB) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont4:
   tail call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %bodyA, ptr noundef %bodyB, i32 noundef %linkA, i32 noundef %linkB, i32 noundef 1, i1 noundef zeroext false, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV25btMultiBodyGearConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV25btMultiBodyGearConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_gearRatio = getelementptr inbounds i8, ptr %this, i64 240
   store float 1.000000e+00, ptr %m_gearRatio, align 8
   %m_gearAuxLink = getelementptr inbounds i8, ptr %this, i64 244

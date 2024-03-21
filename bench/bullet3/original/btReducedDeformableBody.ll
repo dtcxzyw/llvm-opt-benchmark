@@ -674,7 +674,7 @@ entry:
   %2 = load ptr, ptr %x.addr, align 8
   %3 = load ptr, ptr %m.addr, align 8
   call void @_ZN10btSoftBodyC2EP19btSoftBodyWorldInfoiPK9btVector3PKf(ptr noundef nonnull align 8 dereferenceable(2064) %this1, ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rigidOnly = getelementptr inbounds %class.btReducedDeformableBody, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_rigidOnly, align 8
   %m_projPA = getelementptr inbounds %class.btReducedDeformableBody, ptr %this1, i32 0, i32 6
@@ -7914,7 +7914,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV23btReducedDeformableBody, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_contactNodesList = getelementptr inbounds %class.btReducedDeformableBody, ptr %this1, i32 0, i32 50
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_contactNodesList) #4
   %m_fixedNodes = getelementptr inbounds %class.btReducedDeformableBody, ptr %this1, i32 0, i32 47

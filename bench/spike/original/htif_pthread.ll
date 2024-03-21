@@ -414,7 +414,7 @@ define void @_ZN14htif_pthread_tC2EiPPc(ptr noundef nonnull align 8 dereferencea
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN6htif_tC2EiPPc(ptr noundef nonnull align 8 dereferenceable(696) %9, i32 noundef %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.htif_pthread_t, ptr %9, i32 0, i32 1
   invoke void @_ZN9context_tC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12)
           to label %13 unwind label %23
@@ -555,7 +555,7 @@ define void @_ZN14htif_pthread_tD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV14htif_pthread_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.htif_pthread_t, ptr %3, i32 0, i32 4
   call void @_ZNSt5dequeIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #11
   %5 = getelementptr inbounds %class.htif_pthread_t, ptr %3, i32 0, i32 3

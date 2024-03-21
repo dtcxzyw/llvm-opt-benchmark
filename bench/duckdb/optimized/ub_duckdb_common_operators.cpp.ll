@@ -55897,7 +55897,7 @@ entry:
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %0 = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !861
   store i64 500, ptr %capacity_.i.i, align 8, !tbaa !863
@@ -56010,7 +56010,7 @@ invoke.cont4:                                     ; preds = %if.end.i.i.i.i.i.i,
   %arrayidx.i.i.i.i = getelementptr inbounds i8, ptr %11, i64 %10
   store i8 0, ptr %arrayidx.i.i.i.i, align 1, !tbaa !7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i) #24, !noalias !880
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %12 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
   %cmp.not.i.i = icmp eq ptr %12, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i8
@@ -56030,7 +56030,7 @@ lpad2:                                            ; preds = %if.then.i.i.i, %if.
 
 lpad2.body:                                       ; preds = %lpad2, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEED2Ev.exit21.i.i
   %eh.lpad-body = phi { ptr, i32 } [ %13, %lpad2 ], [ %2, %_ZN10duckdb_fmt2v614format_handlerINS0_13arg_formatterINS0_12buffer_rangeIcEEEEcNS0_20basic_format_contextISt20back_insert_iteratorINS0_8internal6bufferIcEEEcEEED2Ev.exit21.i.i ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %14 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
   %cmp.not.i.i11 = icmp eq ptr %14, %store_.i
   br i1 %cmp.not.i.i11, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit13, label %if.then.i.i12
@@ -56047,7 +56047,7 @@ _ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit13: ; preds = %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(532) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !859
   %ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
   %store_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -56108,7 +56108,7 @@ if.end9:                                          ; preds = %if.then8, %_ZSt18un
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(532) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !859
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_.i.i.i, align 8, !tbaa !861
   %store_.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -95448,7 +95448,7 @@ if.end89:                                         ; preds = %if.end89.sink.split
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %12 = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !861
   store i64 500, ptr %capacity_.i.i, align 8, !tbaa !863
@@ -95597,7 +95597,7 @@ invoke.cont202:                                   ; preds = %invoke.cont201
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont202, %invoke.cont119
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %27 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
   %cmp.not.i.i = icmp eq ptr %27, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i265
@@ -95626,7 +95626,7 @@ lpad200:                                          ; preds = %invoke.cont201, %if
 
 ehcleanup205:                                     ; preds = %lpad200, %lpad190, %lpad162, %lpad118, %lpad108
   %.pn236 = phi { ptr, i32 } [ %18, %lpad118 ], [ %14, %lpad108 ], [ %21, %lpad162 ], [ %29, %lpad200 ], [ %28, %lpad190 ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %30 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
   %cmp.not.i.i268 = icmp eq ptr %30, %store_.i
   br i1 %cmp.not.i.i268, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit270, label %if.then.i.i269
@@ -97573,7 +97573,7 @@ if.end89:                                         ; preds = %if.end89.sink.split
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %12 = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !861
   store i64 500, ptr %capacity_.i.i, align 8, !tbaa !863
@@ -97720,7 +97720,7 @@ invoke.cont200:                                   ; preds = %invoke.cont199
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont200, %invoke.cont119
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %27 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
   %cmp.not.i.i = icmp eq ptr %27, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i261
@@ -97749,7 +97749,7 @@ lpad198:                                          ; preds = %invoke.cont199, %if
 
 ehcleanup203:                                     ; preds = %lpad198, %lpad188, %lpad161, %lpad118, %lpad108
   %.pn234 = phi { ptr, i32 } [ %18, %lpad118 ], [ %14, %lpad108 ], [ %21, %lpad161 ], [ %29, %lpad198 ], [ %28, %lpad188 ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %30 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
   %cmp.not.i.i264 = icmp eq ptr %30, %store_.i
   br i1 %cmp.not.i.i264, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266, label %if.then.i.i265
@@ -97889,7 +97889,7 @@ if.end89:                                         ; preds = %if.end89.sink.split
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   %12 = getelementptr inbounds i8, ptr %buffer, i64 16
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8, !tbaa !861
   store i64 500, ptr %capacity_.i.i, align 8, !tbaa !863
@@ -98036,7 +98036,7 @@ invoke.cont200:                                   ; preds = %invoke.cont199
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont200, %invoke.cont119
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %27 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
   %cmp.not.i.i = icmp eq ptr %27, %store_.i
   br i1 %cmp.not.i.i, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit, label %if.then.i.i261
@@ -98065,7 +98065,7 @@ lpad198:                                          ; preds = %invoke.cont199, %if
 
 ehcleanup203:                                     ; preds = %lpad198, %lpad188, %lpad161, %lpad118, %lpad108
   %.pn234 = phi { ptr, i32 } [ %18, %lpad118 ], [ %14, %lpad108 ], [ %21, %lpad161 ], [ %29, %lpad198 ], [ %28, %lpad188 ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8, !tbaa !859
   %30 = load ptr, ptr %ptr_.i.i, align 8, !tbaa !861
   %cmp.not.i.i264 = icmp eq ptr %30, %store_.i
   br i1 %cmp.not.i.i264, label %_ZN10duckdb_fmt2v619basic_memory_bufferIcLm500ESaIcEED2Ev.exit266, label %if.then.i.i265
@@ -111415,7 +111415,7 @@ declare void @_ZN6duckdb21InvalidInputExceptionC1ERKNSt7__cxx1112basic_stringIcS
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !859
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !859
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !178
   %1 = getelementptr inbounds i8, ptr %this, i64 64

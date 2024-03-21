@@ -4734,7 +4734,7 @@ define linkonce_odr dso_local void @_ZN7EdgeEnvC2EPK4EdgeNS_10EscapeKindE(ptr no
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZN3EnvC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV7EdgeEnv, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV7EdgeEnv, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %struct.EdgeEnv, ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #5
   %9 = getelementptr inbounds %struct.EdgeEnv, ptr %7, i32 0, i32 2
@@ -4753,7 +4753,7 @@ define linkonce_odr dso_local void @_ZN7EdgeEnvD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV7EdgeEnv, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV7EdgeEnv, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.EdgeEnv, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #5
   call void @_ZN3EnvD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
@@ -6801,7 +6801,7 @@ define linkonce_odr dso_local void @_ZN3EnvC2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV3Env, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV3Env, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

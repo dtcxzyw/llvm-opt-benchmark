@@ -34,7 +34,7 @@ $_ZZNK6google8protobuf8internal19ImplicitWeakMessage12GetClassDataEvE4data = com
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE = unnamed_addr constant { [12 x ptr] } { [12 x ptr] [ptr null, ptr @_ZTIN6google8protobuf8internal19ImplicitWeakMessageE, ptr @_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev, ptr @_ZN6google8protobuf8internal19ImplicitWeakMessageD0Ev, ptr @_ZNK6google8protobuf8internal19ImplicitWeakMessage3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf8internal19ImplicitWeakMessage5ClearEv, ptr @_ZNK6google8protobuf8internal19ImplicitWeakMessage13IsInitializedEv, ptr @_ZN6google8protobuf8internal19ImplicitWeakMessage21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf8internal19ImplicitWeakMessage12ByteSizeLongEv, ptr @_ZN6google8protobuf8internal19ImplicitWeakMessage14_InternalParseEPKcPNS1_12ParseContextE, ptr @_ZNK6google8protobuf8internal19ImplicitWeakMessage12GetClassDataEv, ptr @_ZNK6google8protobuf8internal19ImplicitWeakMessage18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE] }, align 8
-@_ZN6google8protobuf8internal38implicit_weak_message_default_instanceE = hidden global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", ptr, %"class.google::protobuf::internal::CachedSize" } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", ptr, %"class.google::protobuf::internal::CachedSize" } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", ptr, %"class.google::protobuf::internal::CachedSize" } { ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, ptr null, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } }, align 8
+@_ZN6google8protobuf8internal38implicit_weak_message_default_instanceE = hidden global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", ptr, %"class.google::protobuf::internal::CachedSize" } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", ptr, %"class.google::protobuf::internal::CachedSize" } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", ptr, %"class.google::protobuf::internal::CachedSize" } { ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, ptr null, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN6google8protobuf8internal19ImplicitWeakMessageE = constant [49 x i8] c"N6google8protobuf8internal19ImplicitWeakMessageE\00", align 1
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -125,7 +125,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal19ImplicitWeakMessageD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
   %isnull = icmp eq ptr %0, null
@@ -143,7 +143,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8internal19ImplicitWeakMessageD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -180,7 +180,7 @@ cond.false.i:                                     ; preds = %entry
 
 _ZN6google8protobuf5Arena16DefaultConstructINS0_8internal19ImplicitWeakMessageEEEPvPS1_.exit: ; preds = %cond.true.i, %cond.false.i
   %call1.sink.i = phi ptr [ %call1.i, %cond.false.i ], [ %call2.i.i, %cond.true.i ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, inrange i32 0, i64 2), ptr %call1.sink.i, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf8internal19ImplicitWeakMessageE, i64 0, i32 0, i64 2), ptr %call1.sink.i, align 8
   %call.i4.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
   %data_.i5.i = getelementptr inbounds i8, ptr %call1.sink.i, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %call.i4.i) #10

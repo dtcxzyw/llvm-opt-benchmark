@@ -735,7 +735,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %options_, ptr %options_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq11mechanism_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq11mechanism_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %options = getelementptr inbounds %"class.zmq::mechanism_t", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %options_.addr, align 8
   call void @_ZN3zmq9options_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1336) %options, ptr noundef nonnull align 8 dereferenceable(1336) %0)
@@ -1388,7 +1388,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq11mechanism_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq11mechanism_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_user_id = getelementptr inbounds %"class.zmq::mechanism_t", ptr %this1, i32 0, i32 5
   call void @_ZN3zmq6blob_tD2Ev(ptr noundef nonnull align 8 dereferenceable(17) %_user_id) #13
   %_routing_id = getelementptr inbounds %"class.zmq::mechanism_t", ptr %this1, i32 0, i32 4

@@ -2552,7 +2552,7 @@ declare ptr @uloc_getDefault_75() local_unnamed_addr #5
 define void @ures_getAllChildrenWithFallback_75(ptr noundef %bundle, ptr noundef %path, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %allChildrenSink = alloca %"struct.(anonymous namespace)::GetAllChildrenSink", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118GetAllChildrenSinkE, i64 0, inrange i32 0, i64 2), ptr %allChildrenSink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118GetAllChildrenSinkE, i64 0, i32 0, i64 2), ptr %allChildrenSink, align 8
   %dest2.i = getelementptr inbounds i8, ptr %allChildrenSink, i64 8
   store ptr %sink, ptr %dest2.i, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %bundle, ptr noundef %path, ptr noundef nonnull align 8 dereferenceable(8) %allChildrenSink, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -2608,7 +2608,7 @@ lpad:                                             ; preds = %if.else
 
 invoke.cont14:                                    ; preds = %invoke.cont6, %if.end2
   %rb.0 = phi ptr [ %call7, %invoke.cont6 ], [ %bundle, %if.end2 ]
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 0, inrange i32 0, i64 2), ptr %value, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 0, i32 0, i64 2), ptr %value, align 8
   %pResData.i = getelementptr inbounds i8, ptr %value, i64 8
   %res.i = getelementptr inbounds i8, ptr %value, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pResData.i, i8 0, i64 16, i1 false)
@@ -6555,7 +6555,7 @@ invoke.cont15:                                    ; preds = %if.then7
   br i1 %cmp.i57, label %cleanup113.thread, label %invoke.cont20
 
 invoke.cont20:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 0, inrange i32 0, i64 2), ptr %aliasedValue, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517ResourceDataValueE, i64 0, i32 0, i64 2), ptr %aliasedValue, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %pResData.i59, i8 0, i64 16, i1 false)
   store i32 -1, ptr %res.i60, align 8
   %fData.i = getelementptr inbounds i8, ptr %call16, i64 8

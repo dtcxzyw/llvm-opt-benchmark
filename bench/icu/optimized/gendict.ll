@@ -689,7 +689,7 @@ if.then27:                                        ; preds = %if.end23
 if.end29:                                         ; preds = %if.end23
   %errorCode.i.i = getelementptr inbounds i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %status, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, i32 0, i64 2), ptr %status, align 8
   %location.i = getelementptr inbounds i8, ptr %status, i64 16
   store ptr @.str.5, ptr %location.i, align 8
   %tobool30.not = icmp eq i8 %11, 0
@@ -828,7 +828,7 @@ if.then73:                                        ; preds = %if.end71
           to label %invoke.cont76 unwind label %lpad60
 
 invoke.cont76:                                    ; preds = %if.end71, %if.then73
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fileLine, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fileLine, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %fileLine, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br i1 %tobool30.not, label %if.end82, label %if.then78
@@ -1249,7 +1249,7 @@ if.then212:                                       ; preds = %if.end210
   br label %invoke.cont217
 
 invoke.cont217:                                   ; preds = %if.end210, %if.then212
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %usp, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %usp, align 8
   %fUnion2.i141 = getelementptr inbounds i8, ptr %usp, i64 8
   store i16 2, ptr %fUnion2.i141, align 8
   br i1 %tobool.not.i, label %if.else229, label %if.then219

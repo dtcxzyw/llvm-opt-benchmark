@@ -5894,9 +5894,9 @@ define void @_ZN17EditMeasurePluginC2Ev(ptr noundef nonnull align 8 dereferencea
           to label %9 unwind label %29
 
 9:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV17EditMeasurePlugin, i32 0, i32 1, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.EditMeasurePlugin, ptr %7, i32 0, i32 2
   invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %11)
           to label %12 unwind label %33
@@ -6002,7 +6002,7 @@ define linkonce_odr void @_ZN8EditToolC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN19MeshLabPluginLoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV8EditTool, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

@@ -1715,7 +1715,7 @@ entry:
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp2, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp2, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -1863,7 +1863,7 @@ do.end.i.i:                                       ; preds = %if.end, %_ZNKSt14de
   %ptr_.i.i.i29 = getelementptr inbounds i8, ptr %ref.tmp21, i64 8
   %capacity_.i.i.i30 = getelementptr inbounds i8, ptr %ref.tmp21, i64 24
   %16 = getelementptr inbounds i8, ptr %ref.tmp21, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp21, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp21, align 8
   %store_.i.i31 = getelementptr inbounds i8, ptr %ref.tmp21, i64 32
   store ptr %store_.i.i31, ptr %ptr_.i.i.i29, align 8
   store i64 32, ptr %capacity_.i.i.i30, align 8
@@ -2023,7 +2023,7 @@ _ZN7testing15AssertionResultD2Ev.exit73:          ; preds = %if.end44, %_ZNKSt14
   %capacity_.i.i.i75 = getelementptr inbounds i8, ptr %ref.tmp48, i64 24
   %32 = getelementptr inbounds i8, ptr %ref.tmp48, i64 16
   store i64 0, ptr %32, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp48, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp48, align 8
   %store_.i.i76 = getelementptr inbounds i8, ptr %ref.tmp48, i64 32
   store ptr %store_.i.i76, ptr %ptr_.i.i.i74, align 8
   store i64 32, ptr %capacity_.i.i.i75, align 8
@@ -2237,7 +2237,7 @@ invoke.cont2:
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -2413,7 +2413,7 @@ do.end.i.i:
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %n1, i64 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %n1, i64 24
   %0 = getelementptr inbounds i8, ptr %n1, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n1, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %n1, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -2424,7 +2424,7 @@ do.end.i.i:
   %ptr_.i.i.i22 = getelementptr inbounds i8, ptr %n2, i64 8
   %capacity_.i.i.i23 = getelementptr inbounds i8, ptr %n2, i64 24
   %1 = getelementptr inbounds i8, ptr %n2, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n2, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n2, align 8
   %store_.i.i24 = getelementptr inbounds i8, ptr %n2, i64 32
   store ptr %store_.i.i24, ptr %ptr_.i.i.i22, align 8
   store i64 32, ptr %capacity_.i.i.i23, align 8
@@ -2669,7 +2669,7 @@ do.end.i.i89:                                     ; preds = %if.end43, %_ZNKSt14
   %ptr_.i.i.i78 = getelementptr inbounds i8, ptr %n3, i64 8
   %capacity_.i.i.i79 = getelementptr inbounds i8, ptr %n3, i64 24
   %26 = getelementptr inbounds i8, ptr %n3, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n3, align 8
   %store_.i.i80 = getelementptr inbounds i8, ptr %n3, i64 32
   store ptr %store_.i.i80, ptr %ptr_.i.i.i78, align 8
   store i64 32, ptr %capacity_.i.i.i79, align 8
@@ -2914,7 +2914,7 @@ _ZN7testing15AssertionResultD2Ev.exit155:         ; preds = %if.end93, %_ZNKSt14
   %capacity_.i.i.i157 = getelementptr inbounds i8, ptr %n4, i64 24
   %50 = getelementptr inbounds i8, ptr %n4, i64 16
   store i64 0, ptr %50, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n4, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n4, align 8
   %store_.i.i158 = getelementptr inbounds i8, ptr %n4, i64 32
   store ptr %store_.i.i158, ptr %ptr_.i.i.i156, align 8
   store i64 32, ptr %capacity_.i.i.i157, align 8
@@ -3562,7 +3562,7 @@ do.end.i.i:
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 24
   %0 = getelementptr inbounds i8, ptr %ref.tmp2, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp2, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp2, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %ref.tmp2, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -3573,7 +3573,7 @@ do.end.i.i:
   %ptr_.i.i.i73 = getelementptr inbounds i8, ptr %ref.tmp3, i64 8
   %capacity_.i.i.i74 = getelementptr inbounds i8, ptr %ref.tmp3, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp3, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp3, align 8
   %store_.i.i75 = getelementptr inbounds i8, ptr %ref.tmp3, i64 32
   store ptr %store_.i.i75, ptr %ptr_.i.i.i73, align 8
   store i64 32, ptr %capacity_.i.i.i74, align 8
@@ -3584,7 +3584,7 @@ do.end.i.i:
   %ptr_.i.i.i97 = getelementptr inbounds i8, ptr %ref.tmp4, i64 8
   %capacity_.i.i.i98 = getelementptr inbounds i8, ptr %ref.tmp4, i64 24
   %2 = getelementptr inbounds i8, ptr %ref.tmp4, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp4, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp4, align 8
   %store_.i.i99 = getelementptr inbounds i8, ptr %ref.tmp4, i64 32
   store ptr %store_.i.i99, ptr %ptr_.i.i.i97, align 8
   store i64 32, ptr %capacity_.i.i.i98, align 8
@@ -3764,7 +3764,7 @@ do.end.i.i175:                                    ; preds = %if.end, %_ZNKSt14de
   %ptr_.i.i.i164 = getelementptr inbounds i8, ptr %ref.tmp31, i64 8
   %capacity_.i.i.i165 = getelementptr inbounds i8, ptr %ref.tmp31, i64 24
   %21 = getelementptr inbounds i8, ptr %ref.tmp31, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp31, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp31, align 8
   %store_.i.i166 = getelementptr inbounds i8, ptr %ref.tmp31, i64 32
   store ptr %store_.i.i166, ptr %ptr_.i.i.i164, align 8
   store i64 32, ptr %capacity_.i.i.i165, align 8
@@ -3775,7 +3775,7 @@ do.end.i.i175:                                    ; preds = %if.end, %_ZNKSt14de
   %ptr_.i.i.i190 = getelementptr inbounds i8, ptr %ref.tmp35, i64 8
   %capacity_.i.i.i191 = getelementptr inbounds i8, ptr %ref.tmp35, i64 24
   %22 = getelementptr inbounds i8, ptr %ref.tmp35, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp35, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp35, align 8
   %store_.i.i192 = getelementptr inbounds i8, ptr %ref.tmp35, i64 32
   store ptr %store_.i.i192, ptr %ptr_.i.i.i190, align 8
   store i64 32, ptr %capacity_.i.i.i191, align 8
@@ -3786,7 +3786,7 @@ do.end.i.i175:                                    ; preds = %if.end, %_ZNKSt14de
   %ptr_.i.i.i215 = getelementptr inbounds i8, ptr %ref.tmp37, i64 8
   %capacity_.i.i.i216 = getelementptr inbounds i8, ptr %ref.tmp37, i64 24
   %23 = getelementptr inbounds i8, ptr %ref.tmp37, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp37, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp37, align 8
   %store_.i.i217 = getelementptr inbounds i8, ptr %ref.tmp37, i64 32
   store ptr %store_.i.i217, ptr %ptr_.i.i.i215, align 8
   store i64 32, ptr %capacity_.i.i.i216, align 8
@@ -3967,7 +3967,7 @@ do.end.i.i316:                                    ; preds = %if.end66, %_ZNKSt14
   %ptr_.i.i.i305 = getelementptr inbounds i8, ptr %ref.tmp70, i64 8
   %capacity_.i.i.i306 = getelementptr inbounds i8, ptr %ref.tmp70, i64 24
   %42 = getelementptr inbounds i8, ptr %ref.tmp70, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp70, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp70, align 8
   %store_.i.i307 = getelementptr inbounds i8, ptr %ref.tmp70, i64 32
   store ptr %store_.i.i307, ptr %ptr_.i.i.i305, align 8
   store i64 32, ptr %capacity_.i.i.i306, align 8
@@ -3978,7 +3978,7 @@ do.end.i.i316:                                    ; preds = %if.end66, %_ZNKSt14
   %ptr_.i.i.i331 = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
   %capacity_.i.i.i332 = getelementptr inbounds i8, ptr %ref.tmp74, i64 24
   %43 = getelementptr inbounds i8, ptr %ref.tmp74, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp74, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp74, align 8
   %store_.i.i333 = getelementptr inbounds i8, ptr %ref.tmp74, i64 32
   store ptr %store_.i.i333, ptr %ptr_.i.i.i331, align 8
   store i64 32, ptr %capacity_.i.i.i332, align 8
@@ -3989,7 +3989,7 @@ do.end.i.i316:                                    ; preds = %if.end66, %_ZNKSt14
   %ptr_.i.i.i356 = getelementptr inbounds i8, ptr %ref.tmp76, i64 8
   %capacity_.i.i.i357 = getelementptr inbounds i8, ptr %ref.tmp76, i64 24
   %44 = getelementptr inbounds i8, ptr %ref.tmp76, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp76, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp76, align 8
   %store_.i.i358 = getelementptr inbounds i8, ptr %ref.tmp76, i64 32
   store ptr %store_.i.i358, ptr %ptr_.i.i.i356, align 8
   store i64 32, ptr %capacity_.i.i.i357, align 8
@@ -4170,7 +4170,7 @@ do.end.i.i454:                                    ; preds = %if.end103, %_ZNKSt1
   %ptr_.i.i.i443 = getelementptr inbounds i8, ptr %ref.tmp107, i64 8
   %capacity_.i.i.i444 = getelementptr inbounds i8, ptr %ref.tmp107, i64 24
   %63 = getelementptr inbounds i8, ptr %ref.tmp107, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp107, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp107, align 8
   %store_.i.i445 = getelementptr inbounds i8, ptr %ref.tmp107, i64 32
   store ptr %store_.i.i445, ptr %ptr_.i.i.i443, align 8
   store i64 32, ptr %capacity_.i.i.i444, align 8
@@ -4181,7 +4181,7 @@ do.end.i.i454:                                    ; preds = %if.end103, %_ZNKSt1
   %ptr_.i.i.i467 = getelementptr inbounds i8, ptr %ref.tmp108, i64 8
   %capacity_.i.i.i468 = getelementptr inbounds i8, ptr %ref.tmp108, i64 24
   %64 = getelementptr inbounds i8, ptr %ref.tmp108, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp108, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp108, align 8
   %store_.i.i469 = getelementptr inbounds i8, ptr %ref.tmp108, i64 32
   store ptr %store_.i.i469, ptr %ptr_.i.i.i467, align 8
   store i64 32, ptr %capacity_.i.i.i468, align 8
@@ -4192,7 +4192,7 @@ do.end.i.i454:                                    ; preds = %if.end103, %_ZNKSt1
   %ptr_.i.i.i494 = getelementptr inbounds i8, ptr %ref.tmp114, i64 8
   %capacity_.i.i.i495 = getelementptr inbounds i8, ptr %ref.tmp114, i64 24
   %65 = getelementptr inbounds i8, ptr %ref.tmp114, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp114, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp114, align 8
   %store_.i.i496 = getelementptr inbounds i8, ptr %ref.tmp114, i64 32
   store ptr %store_.i.i496, ptr %ptr_.i.i.i494, align 8
   store i64 32, ptr %capacity_.i.i.i495, align 8
@@ -4373,7 +4373,7 @@ do.end.i.i593:                                    ; preds = %if.end140, %_ZNKSt1
   %ptr_.i.i.i582 = getelementptr inbounds i8, ptr %ref.tmp144, i64 8
   %capacity_.i.i.i583 = getelementptr inbounds i8, ptr %ref.tmp144, i64 24
   %84 = getelementptr inbounds i8, ptr %ref.tmp144, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp144, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp144, align 8
   %store_.i.i584 = getelementptr inbounds i8, ptr %ref.tmp144, i64 32
   store ptr %store_.i.i584, ptr %ptr_.i.i.i582, align 8
   store i64 32, ptr %capacity_.i.i.i583, align 8
@@ -4384,7 +4384,7 @@ do.end.i.i593:                                    ; preds = %if.end140, %_ZNKSt1
   %ptr_.i.i.i606 = getelementptr inbounds i8, ptr %ref.tmp145, i64 8
   %capacity_.i.i.i607 = getelementptr inbounds i8, ptr %ref.tmp145, i64 24
   %85 = getelementptr inbounds i8, ptr %ref.tmp145, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp145, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp145, align 8
   %store_.i.i608 = getelementptr inbounds i8, ptr %ref.tmp145, i64 32
   store ptr %store_.i.i608, ptr %ptr_.i.i.i606, align 8
   store i64 32, ptr %capacity_.i.i.i607, align 8
@@ -4395,7 +4395,7 @@ do.end.i.i593:                                    ; preds = %if.end140, %_ZNKSt1
   %ptr_.i.i.i631 = getelementptr inbounds i8, ptr %ref.tmp148, i64 8
   %capacity_.i.i.i632 = getelementptr inbounds i8, ptr %ref.tmp148, i64 24
   %86 = getelementptr inbounds i8, ptr %ref.tmp148, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp148, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp148, align 8
   %store_.i.i633 = getelementptr inbounds i8, ptr %ref.tmp148, i64 32
   store ptr %store_.i.i633, ptr %ptr_.i.i.i631, align 8
   store i64 32, ptr %capacity_.i.i.i632, align 8
@@ -4576,7 +4576,7 @@ do.end.i.i730:                                    ; preds = %if.end175, %_ZNKSt1
   %ptr_.i.i.i719 = getelementptr inbounds i8, ptr %ref.tmp179, i64 8
   %capacity_.i.i.i720 = getelementptr inbounds i8, ptr %ref.tmp179, i64 24
   %105 = getelementptr inbounds i8, ptr %ref.tmp179, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp179, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp179, align 8
   %store_.i.i721 = getelementptr inbounds i8, ptr %ref.tmp179, i64 32
   store ptr %store_.i.i721, ptr %ptr_.i.i.i719, align 8
   store i64 32, ptr %capacity_.i.i.i720, align 8
@@ -4587,7 +4587,7 @@ do.end.i.i730:                                    ; preds = %if.end175, %_ZNKSt1
   %ptr_.i.i.i743 = getelementptr inbounds i8, ptr %ref.tmp180, i64 8
   %capacity_.i.i.i744 = getelementptr inbounds i8, ptr %ref.tmp180, i64 24
   %106 = getelementptr inbounds i8, ptr %ref.tmp180, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp180, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp180, align 8
   %store_.i.i745 = getelementptr inbounds i8, ptr %ref.tmp180, i64 32
   store ptr %store_.i.i745, ptr %ptr_.i.i.i743, align 8
   store i64 32, ptr %capacity_.i.i.i744, align 8
@@ -4598,7 +4598,7 @@ do.end.i.i730:                                    ; preds = %if.end175, %_ZNKSt1
   %ptr_.i.i.i768 = getelementptr inbounds i8, ptr %ref.tmp183, i64 8
   %capacity_.i.i.i769 = getelementptr inbounds i8, ptr %ref.tmp183, i64 24
   %107 = getelementptr inbounds i8, ptr %ref.tmp183, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp183, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp183, align 8
   %store_.i.i770 = getelementptr inbounds i8, ptr %ref.tmp183, i64 32
   store ptr %store_.i.i770, ptr %ptr_.i.i.i768, align 8
   store i64 32, ptr %capacity_.i.i.i769, align 8
@@ -4779,7 +4779,7 @@ do.end.i.i867:                                    ; preds = %if.end210, %_ZNKSt1
   %ptr_.i.i.i856 = getelementptr inbounds i8, ptr %ref.tmp214, i64 8
   %capacity_.i.i.i857 = getelementptr inbounds i8, ptr %ref.tmp214, i64 24
   %126 = getelementptr inbounds i8, ptr %ref.tmp214, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp214, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp214, align 8
   %store_.i.i858 = getelementptr inbounds i8, ptr %ref.tmp214, i64 32
   store ptr %store_.i.i858, ptr %ptr_.i.i.i856, align 8
   store i64 32, ptr %capacity_.i.i.i857, align 8
@@ -4790,7 +4790,7 @@ do.end.i.i867:                                    ; preds = %if.end210, %_ZNKSt1
   %ptr_.i.i.i880 = getelementptr inbounds i8, ptr %ref.tmp215, i64 8
   %capacity_.i.i.i881 = getelementptr inbounds i8, ptr %ref.tmp215, i64 24
   %127 = getelementptr inbounds i8, ptr %ref.tmp215, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp215, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp215, align 8
   %store_.i.i882 = getelementptr inbounds i8, ptr %ref.tmp215, i64 32
   store ptr %store_.i.i882, ptr %ptr_.i.i.i880, align 8
   store i64 32, ptr %capacity_.i.i.i881, align 8
@@ -4801,7 +4801,7 @@ do.end.i.i867:                                    ; preds = %if.end210, %_ZNKSt1
   %ptr_.i.i.i905 = getelementptr inbounds i8, ptr %ref.tmp218, i64 8
   %capacity_.i.i.i906 = getelementptr inbounds i8, ptr %ref.tmp218, i64 24
   %128 = getelementptr inbounds i8, ptr %ref.tmp218, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp218, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp218, align 8
   %store_.i.i907 = getelementptr inbounds i8, ptr %ref.tmp218, i64 32
   store ptr %store_.i.i907, ptr %ptr_.i.i.i905, align 8
   store i64 32, ptr %capacity_.i.i.i906, align 8
@@ -4983,7 +4983,7 @@ _ZN7testing15AssertionResultD2Ev.exit992:         ; preds = %if.end245, %_ZNKSt1
   %capacity_.i.i.i994 = getelementptr inbounds i8, ptr %ref.tmp249, i64 24
   %147 = getelementptr inbounds i8, ptr %ref.tmp249, i64 16
   store i64 0, ptr %147, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp249, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp249, align 8
   %store_.i.i995 = getelementptr inbounds i8, ptr %ref.tmp249, i64 32
   store ptr %store_.i.i995, ptr %ptr_.i.i.i993, align 8
   store i64 32, ptr %capacity_.i.i.i994, align 8
@@ -5037,7 +5037,7 @@ _ZN3fmt3v106detail6bigintC2Em.exit1016:           ; preds = %do.end.i.i1004, %.n
   %capacity_.i.i.i1018 = getelementptr inbounds i8, ptr %ref.tmp250, i64 24
   %154 = getelementptr inbounds i8, ptr %ref.tmp250, i64 16
   store i64 0, ptr %154, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp250, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp250, align 8
   %store_.i.i1019 = getelementptr inbounds i8, ptr %ref.tmp250, i64 32
   store ptr %store_.i.i1019, ptr %ptr_.i.i.i1017, align 8
   store i64 32, ptr %capacity_.i.i.i1018, align 8
@@ -5087,7 +5087,7 @@ invoke.cont252:                                   ; preds = %.noexc.i1036, %do.e
   %capacity_.i.i.i1043 = getelementptr inbounds i8, ptr %ref.tmp253, i64 24
   %161 = getelementptr inbounds i8, ptr %ref.tmp253, i64 16
   store i64 0, ptr %161, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp253, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp253, align 8
   %store_.i.i1044 = getelementptr inbounds i8, ptr %ref.tmp253, i64 32
   store ptr %store_.i.i1044, ptr %ptr_.i.i.i1042, align 8
   store i64 32, ptr %capacity_.i.i.i1043, align 8
@@ -5313,7 +5313,7 @@ _ZN7testing15AssertionResultD2Ev.exit1129:        ; preds = %if.end280, %_ZNKSt1
   %capacity_.i.i.i1131 = getelementptr inbounds i8, ptr %ref.tmp284, i64 24
   %186 = getelementptr inbounds i8, ptr %ref.tmp284, i64 16
   store i64 0, ptr %186, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp284, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp284, align 8
   %store_.i.i1132 = getelementptr inbounds i8, ptr %ref.tmp284, i64 32
   store ptr %store_.i.i1132, ptr %ptr_.i.i.i1130, align 8
   store i64 32, ptr %capacity_.i.i.i1131, align 8
@@ -5367,7 +5367,7 @@ _ZN3fmt3v106detail6bigintC2Em.exit1153:           ; preds = %do.end.i.i1141, %.n
   %capacity_.i.i.i1155 = getelementptr inbounds i8, ptr %ref.tmp285, i64 24
   %193 = getelementptr inbounds i8, ptr %ref.tmp285, i64 16
   store i64 0, ptr %193, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp285, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp285, align 8
   %store_.i.i1156 = getelementptr inbounds i8, ptr %ref.tmp285, i64 32
   store ptr %store_.i.i1156, ptr %ptr_.i.i.i1154, align 8
   store i64 32, ptr %capacity_.i.i.i1155, align 8
@@ -5417,7 +5417,7 @@ invoke.cont287:                                   ; preds = %.noexc.i1173, %do.e
   %capacity_.i.i.i1180 = getelementptr inbounds i8, ptr %ref.tmp288, i64 24
   %200 = getelementptr inbounds i8, ptr %ref.tmp288, i64 16
   store i64 0, ptr %200, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp288, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp288, align 8
   %store_.i.i1181 = getelementptr inbounds i8, ptr %ref.tmp288, i64 32
   store ptr %store_.i.i1181, ptr %ptr_.i.i.i1179, align 8
   store i64 32, ptr %capacity_.i.i.i1180, align 8
@@ -5643,7 +5643,7 @@ _ZN7testing15AssertionResultD2Ev.exit1266:        ; preds = %if.end315, %_ZNKSt1
   %capacity_.i.i.i1268 = getelementptr inbounds i8, ptr %ref.tmp319, i64 24
   %225 = getelementptr inbounds i8, ptr %ref.tmp319, i64 16
   store i64 0, ptr %225, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp319, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp319, align 8
   %store_.i.i1269 = getelementptr inbounds i8, ptr %ref.tmp319, i64 32
   store ptr %store_.i.i1269, ptr %ptr_.i.i.i1267, align 8
   store i64 32, ptr %capacity_.i.i.i1268, align 8
@@ -5697,7 +5697,7 @@ _ZN3fmt3v106detail6bigintC2Em.exit1290:           ; preds = %do.end.i.i1278, %.n
   %capacity_.i.i.i1292 = getelementptr inbounds i8, ptr %ref.tmp320, i64 24
   %232 = getelementptr inbounds i8, ptr %ref.tmp320, i64 16
   store i64 0, ptr %232, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp320, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp320, align 8
   %store_.i.i1293 = getelementptr inbounds i8, ptr %ref.tmp320, i64 32
   store ptr %store_.i.i1293, ptr %ptr_.i.i.i1291, align 8
   store i64 32, ptr %capacity_.i.i.i1292, align 8
@@ -5747,7 +5747,7 @@ invoke.cont322:                                   ; preds = %.noexc.i1310, %do.e
   %capacity_.i.i.i1317 = getelementptr inbounds i8, ptr %ref.tmp323, i64 24
   %239 = getelementptr inbounds i8, ptr %ref.tmp323, i64 16
   store i64 0, ptr %239, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp323, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp323, align 8
   %store_.i.i1318 = getelementptr inbounds i8, ptr %ref.tmp323, i64 32
   store ptr %store_.i.i1318, ptr %ptr_.i.i.i1316, align 8
   store i64 32, ptr %capacity_.i.i.i1317, align 8
@@ -5973,7 +5973,7 @@ _ZN7testing15AssertionResultD2Ev.exit1399:        ; preds = %if.end350, %_ZNKSt1
   %capacity_.i.i.i1401 = getelementptr inbounds i8, ptr %ref.tmp354, i64 24
   %264 = getelementptr inbounds i8, ptr %ref.tmp354, i64 16
   store i64 0, ptr %264, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp354, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp354, align 8
   %store_.i.i1402 = getelementptr inbounds i8, ptr %ref.tmp354, i64 32
   store ptr %store_.i.i1402, ptr %ptr_.i.i.i1400, align 8
   store i64 32, ptr %capacity_.i.i.i1401, align 8
@@ -6027,7 +6027,7 @@ _ZN3fmt3v106detail6bigintC2Em.exit1423:           ; preds = %do.end.i.i1411, %.n
   %capacity_.i.i.i1425 = getelementptr inbounds i8, ptr %ref.tmp355, i64 24
   %271 = getelementptr inbounds i8, ptr %ref.tmp355, i64 16
   store i64 0, ptr %271, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp355, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp355, align 8
   %store_.i.i1426 = getelementptr inbounds i8, ptr %ref.tmp355, i64 32
   store ptr %store_.i.i1426, ptr %ptr_.i.i.i1424, align 8
   store i64 32, ptr %capacity_.i.i.i1425, align 8
@@ -6077,7 +6077,7 @@ invoke.cont357:                                   ; preds = %.noexc.i1443, %do.e
   %capacity_.i.i.i1450 = getelementptr inbounds i8, ptr %ref.tmp358, i64 24
   %278 = getelementptr inbounds i8, ptr %ref.tmp358, i64 16
   store i64 0, ptr %278, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp358, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp358, align 8
   %store_.i.i1451 = getelementptr inbounds i8, ptr %ref.tmp358, i64 32
   store ptr %store_.i.i1451, ptr %ptr_.i.i.i1449, align 8
   store i64 32, ptr %capacity_.i.i.i1450, align 8
@@ -6303,7 +6303,7 @@ _ZN7testing15AssertionResultD2Ev.exit1536:        ; preds = %if.end385, %_ZNKSt1
   %capacity_.i.i.i1538 = getelementptr inbounds i8, ptr %ref.tmp389, i64 24
   %303 = getelementptr inbounds i8, ptr %ref.tmp389, i64 16
   store i64 0, ptr %303, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp389, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp389, align 8
   %store_.i.i1539 = getelementptr inbounds i8, ptr %ref.tmp389, i64 32
   store ptr %store_.i.i1539, ptr %ptr_.i.i.i1537, align 8
   store i64 32, ptr %capacity_.i.i.i1538, align 8
@@ -6357,7 +6357,7 @@ _ZN3fmt3v106detail6bigintC2Em.exit1560:           ; preds = %do.end.i.i1548, %.n
   %capacity_.i.i.i1562 = getelementptr inbounds i8, ptr %ref.tmp390, i64 24
   %310 = getelementptr inbounds i8, ptr %ref.tmp390, i64 16
   store i64 0, ptr %310, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp390, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp390, align 8
   %store_.i.i1563 = getelementptr inbounds i8, ptr %ref.tmp390, i64 32
   store ptr %store_.i.i1563, ptr %ptr_.i.i.i1561, align 8
   store i64 32, ptr %capacity_.i.i.i1562, align 8
@@ -6407,7 +6407,7 @@ invoke.cont392:                                   ; preds = %.noexc.i1580, %do.e
   %capacity_.i.i.i1587 = getelementptr inbounds i8, ptr %ref.tmp393, i64 24
   %317 = getelementptr inbounds i8, ptr %ref.tmp393, i64 16
   store i64 0, ptr %317, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp393, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp393, align 8
   %store_.i.i1588 = getelementptr inbounds i8, ptr %ref.tmp393, i64 32
   store ptr %store_.i.i1588, ptr %ptr_.i.i.i1586, align 8
   store i64 32, ptr %capacity_.i.i.i1587, align 8
@@ -6834,7 +6834,7 @@ do.end.i.i:
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %n, i64 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %n, i64 24
   %0 = getelementptr inbounds i8, ptr %n, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %n, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -7368,7 +7368,7 @@ do.end.i.i:
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %n, i64 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %n, i64 24
   %0 = getelementptr inbounds i8, ptr %n, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %n, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -7393,7 +7393,7 @@ if.then5:                                         ; preds = %invoke.cont3
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %lpad2
 
@@ -8039,7 +8039,7 @@ invoke.cont145:                                   ; preds = %_ZNKSt14default_del
   %ptr_.i.i.i170 = getelementptr inbounds i8, ptr %bigmax, i64 8
   %capacity_.i.i.i171 = getelementptr inbounds i8, ptr %bigmax, i64 24
   %75 = getelementptr inbounds i8, ptr %bigmax, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %bigmax, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %bigmax, align 8
   %store_.i.i172 = getelementptr inbounds i8, ptr %bigmax, i64 32
   store ptr %store_.i.i172, ptr %ptr_.i.i.i170, align 8
   store i64 32, ptr %capacity_.i.i.i171, align 8
@@ -8942,7 +8942,7 @@ do.end.i.i:
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %n0, i64 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %n0, i64 24
   %0 = getelementptr inbounds i8, ptr %n0, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n0, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n0, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %n0, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -9080,7 +9080,7 @@ do.end.i.i40:                                     ; preds = %if.end, %_ZNKSt14de
   %ptr_.i.i.i29 = getelementptr inbounds i8, ptr %n1, i64 8
   %capacity_.i.i.i30 = getelementptr inbounds i8, ptr %n1, i64 24
   %14 = getelementptr inbounds i8, ptr %n1, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n1, align 8
   %store_.i.i31 = getelementptr inbounds i8, ptr %n1, i64 32
   store ptr %store_.i.i31, ptr %ptr_.i.i.i29, align 8
   store i64 32, ptr %capacity_.i.i.i30, align 8
@@ -9221,7 +9221,7 @@ _ZN7testing15AssertionResultD2Ev.exit79:          ; preds = %if.end42, %_ZNKSt14
   %capacity_.i.i.i81 = getelementptr inbounds i8, ptr %n2, i64 24
   %28 = getelementptr inbounds i8, ptr %n2, i64 16
   store i64 0, ptr %28, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n2, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n2, align 8
   %store_.i.i82 = getelementptr inbounds i8, ptr %n2, i64 32
   store ptr %store_.i.i82, ptr %ptr_.i.i.i80, align 8
   store i64 32, ptr %capacity_.i.i.i81, align 8
@@ -9404,7 +9404,7 @@ _ZN7testing15AssertionResultD2Ev.exit131:         ; preds = %if.end69, %_ZNKSt14
   %capacity_.i.i.i133 = getelementptr inbounds i8, ptr %n3, i64 24
   %48 = getelementptr inbounds i8, ptr %n3, i64 16
   store i64 0, ptr %48, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n3, align 8
   %store_.i.i134 = getelementptr inbounds i8, ptr %n3, i64 32
   store ptr %store_.i.i134, ptr %ptr_.i.i.i132, align 8
   store i64 32, ptr %capacity_.i.i.i133, align 8
@@ -9587,7 +9587,7 @@ invoke.cont100:                                   ; preds = %_ZNKSt14default_del
   %capacity_.i.i.i185 = getelementptr inbounds i8, ptr %n4, i64 24
   %68 = getelementptr inbounds i8, ptr %n4, i64 16
   store i64 0, ptr %68, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n4, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n4, align 8
   %store_.i.i186 = getelementptr inbounds i8, ptr %n4, i64 32
   store ptr %store_.i.i186, ptr %ptr_.i.i.i184, align 8
   store i64 32, ptr %capacity_.i.i.i185, align 8
@@ -9836,7 +9836,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds i8, ptr %n, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %n, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n, align 8
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load ptr, ptr %ptr_.i.i.i, align 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -10086,7 +10086,7 @@ if.then.i.i58:                                    ; preds = %while.end.i
 
 invoke.cont.i.i.i61.invoke:                       ; preds = %if.then.i.i58, %if.then.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %if.then.i ], [ %exception.i.i.i59, %if.then.i.i58 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.sink, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %invoke.cont.i.i.i61.cont unwind label %lpad
 
@@ -10311,7 +10311,7 @@ do.end.i.i:
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %zero, i64 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %zero, i64 24
   %0 = getelementptr inbounds i8, ptr %zero, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %zero, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %zero, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %zero, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -10334,7 +10334,7 @@ do.end.i.i30:                                     ; preds = %invoke.cont3
   %ptr_.i.i.i19 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %capacity_.i.i.i20 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %store_.i.i21 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr %store_.i.i21, ptr %ptr_.i.i.i19, align 8
   store i64 32, ptr %capacity_.i.i.i20, align 8
@@ -10536,7 +10536,7 @@ do.end.i.i69:                                     ; preds = %invoke.cont71
   %ptr_.i.i.i58 = getelementptr inbounds i8, ptr %ref.tmp74, i64 8
   %capacity_.i.i.i59 = getelementptr inbounds i8, ptr %ref.tmp74, i64 24
   %23 = getelementptr inbounds i8, ptr %ref.tmp74, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp74, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp74, align 8
   %store_.i.i60 = getelementptr inbounds i8, ptr %ref.tmp74, i64 32
   store ptr %store_.i.i60, ptr %ptr_.i.i.i58, align 8
   store i64 32, ptr %capacity_.i.i.i59, align 8
@@ -10841,7 +10841,7 @@ do.end.i.i:
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %n, i64 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %n, i64 24
   %0 = getelementptr inbounds i8, ptr %n, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %n, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -10866,7 +10866,7 @@ if.then5:                                         ; preds = %invoke.cont3
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then5
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %lpad2
 
@@ -11085,7 +11085,7 @@ invoke.cont2:
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %n1, i64 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %n1, i64 24
   %0 = getelementptr inbounds i8, ptr %n1, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n1, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %n1, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -11097,7 +11097,7 @@ invoke.cont2:
   %capacity_.i.i.i11 = getelementptr inbounds i8, ptr %n2, i64 24
   %1 = getelementptr inbounds i8, ptr %n2, i64 16
   store i64 0, ptr %1, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n2, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n2, align 8
   %store_.i.i12 = getelementptr inbounds i8, ptr %n2, i64 32
   store ptr %store_.i.i12, ptr %ptr_.i.i.i10, align 8
   store i64 32, ptr %capacity_.i.i.i11, align 8
@@ -11424,7 +11424,7 @@ do.end.i.i:
   %ptr_.i.i.i = getelementptr inbounds i8, ptr %n1, i64 8
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %n1, i64 24
   %0 = getelementptr inbounds i8, ptr %n1, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n1, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %n1, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -11435,7 +11435,7 @@ do.end.i.i:
   %ptr_.i.i.i20 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %capacity_.i.i.i21 = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %1 = getelementptr inbounds i8, ptr %ref.tmp, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %store_.i.i22 = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr %store_.i.i22, ptr %ptr_.i.i.i20, align 8
   store i64 32, ptr %capacity_.i.i.i21, align 8
@@ -11707,7 +11707,7 @@ do.end.i.i98:                                     ; preds = %_ZN7testing15Assert
   %ptr_.i.i.i87 = getelementptr inbounds i8, ptr %ref.tmp44, i64 8
   %capacity_.i.i.i88 = getelementptr inbounds i8, ptr %ref.tmp44, i64 24
   %29 = getelementptr inbounds i8, ptr %ref.tmp44, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp44, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp44, align 8
   %store_.i.i89 = getelementptr inbounds i8, ptr %ref.tmp44, i64 32
   store ptr %store_.i.i89, ptr %ptr_.i.i.i87, align 8
   store i64 32, ptr %capacity_.i.i.i88, align 8
@@ -11974,7 +11974,7 @@ do.end.i.i190:                                    ; preds = %if.end95, %_ZNKSt14
   %ptr_.i.i.i179 = getelementptr inbounds i8, ptr %n2, i64 8
   %capacity_.i.i.i180 = getelementptr inbounds i8, ptr %n2, i64 24
   %57 = getelementptr inbounds i8, ptr %n2, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %n2, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %n2, align 8
   %store_.i.i181 = getelementptr inbounds i8, ptr %n2, i64 32
   store ptr %store_.i.i181, ptr %ptr_.i.i.i179, align 8
   store i64 32, ptr %capacity_.i.i.i180, align 8
@@ -13309,7 +13309,7 @@ call4.i.noexc:                                    ; preds = %.noexc46
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp5) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -13501,7 +13501,7 @@ _ZN3fmt3v1019basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %_ZN7testing1
   %ptr_.i.i64 = getelementptr inbounds i8, ptr %buffer41, i64 8
   %capacity_.i.i65 = getelementptr inbounds i8, ptr %buffer41, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i64, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer41, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer41, align 8
   %alloc_.i66 = getelementptr inbounds i8, ptr %buffer41, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i66, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp42) #26
   %store_.i67 = getelementptr inbounds i8, ptr %buffer41, i64 32
@@ -13715,7 +13715,7 @@ invoke.cont85:                                    ; preds = %call2.i.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp81) #26
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp88) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i113, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer87, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer87, align 8
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i115, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp88) #26
   store ptr %store_.i116, ptr %ptr_.i.i113, align 8
   store i64 500, ptr %capacity_.i.i114, align 8
@@ -14302,7 +14302,7 @@ if.then36:                                        ; preds = %_ZN3fmt3v109format_
 
 invoke.cont.i.invoke:                             ; preds = %if.then36, %if.then.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %if.then.i ], [ %exception.i, %if.then36 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.sink, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %invoke.cont.i.cont unwind label %terminate.lpad
 
@@ -18296,7 +18296,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %this, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -18826,7 +18826,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26bigint_test_construct_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26bigint_test_construct_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -18939,7 +18939,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24bigint_test_compare_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24bigint_test_compare_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -18973,7 +18973,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr hidden void @_ZN17assertion_failureC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %message) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %message)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -19004,7 +19004,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28bigint_test_add_compare_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28bigint_test_add_compare_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19035,7 +19035,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27bigint_test_shift_left_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27bigint_test_shift_left_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19066,7 +19066,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25bigint_test_multiply_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25bigint_test_multiply_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19112,7 +19112,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23bigint_test_square_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23bigint_test_square_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19143,7 +19143,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV43bigint_test_divmod_assign_zero_divisor_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV43bigint_test_divmod_assign_zero_divisor_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19468,7 +19468,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35bigint_test_divmod_assign_self_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35bigint_test_divmod_assign_self_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19499,7 +19499,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40bigint_test_divmod_assign_unaligned_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40bigint_test_divmod_assign_unaligned_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19530,7 +19530,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30bigint_test_divmod_assign_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30bigint_test_divmod_assign_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19561,7 +19561,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25fp_test_double_tests_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25fp_test_double_tests_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19592,7 +19592,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22fp_test_normalize_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22fp_test_normalize_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19623,7 +19623,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21fp_test_multiply_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21fp_test_multiply_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19654,7 +19654,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28fp_test_dragonbox_max_k_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28fp_test_dragonbox_max_k_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19685,7 +19685,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39format_impl_test_format_error_code_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39format_impl_test_format_error_code_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -19709,7 +19709,7 @@ entry:
   store i64 0, ptr %size_.i.i.i, align 8, !alias.scope !238
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   store i64 256, ptr %capacity_.i.i.i, align 8, !alias.scope !238
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !238
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferINS0_8appenderEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !238
   %out_.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 32
   store ptr %out.coerce, ptr %out_.i.i, align 8, !alias.scope !238
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp, ptr %fmt.coerce0, i64 %fmt.coerce1, i64 %args.coerce0, ptr %args.coerce1, ptr null)
@@ -20366,7 +20366,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr hidden void @_ZN3fmt3v1012format_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0) unnamed_addr #4 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_errorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_errorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -21628,7 +21628,7 @@ invoke.cont9:                                     ; preds = %if.end
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_facetISt6localeEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_facetISt6localeEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %decimal_point_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 80
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decimal_point_.i) #26
   %grouping_.i = getelementptr inbounds i8, ptr %ref.tmp, i64 48
@@ -22101,7 +22101,7 @@ entry:
   %ref.tmp10 = alloca %"class.std::allocator", align 1
   %_M_refcount.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 0, ptr %_M_refcount.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_facetISt6localeEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_facetISt6localeEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %separator_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %separator_) #26
   %grouping_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -22180,7 +22180,7 @@ ehcleanup:                                        ; preds = %lpad11.body, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3fmt3v1012format_facetISt6localeED2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_facetISt6localeEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_facetISt6localeEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %decimal_point_ = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decimal_point_) #26
   %grouping_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -22226,7 +22226,7 @@ declare void @_ZNSt6locale5facetD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN3fmt3v1012format_facetISt6localeED0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #7 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_facetISt6localeEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_facetISt6localeEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %decimal_point_.i = getelementptr inbounds i8, ptr %this, i64 80
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %decimal_point_.i) #26
   %grouping_.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -22756,7 +22756,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -23008,7 +23008,7 @@ if.then.i54:                                      ; preds = %invoke.cont90
 
 invoke.cont.i.i57.invoke:                         ; preds = %if.then.i54, %if.then.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %if.then.i ], [ %exception.i.i55, %if.then.i54 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.sink, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %invoke.cont.i.i57.cont unwind label %lpad2
 
@@ -24492,7 +24492,7 @@ invoke.cont5:
   %ptr_.i.i = getelementptr inbounds i8, ptr %separators, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %separators, i64 24
   %0 = getelementptr inbounds i8, ptr %separators, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i64 0, inrange i32 0, i64 2), ptr %separators, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i64 0, i32 0, i64 2), ptr %separators, align 8
   %store_.i = getelementptr inbounds i8, ptr %separators, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
@@ -24759,7 +24759,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -25036,7 +25036,7 @@ if.then.i63:                                      ; preds = %invoke.cont96
 
 invoke.cont.i.i66.invoke:                         ; preds = %if.then.i63, %if.then.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %if.then.i ], [ %exception.i.i64, %if.then.i63 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.sink, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %invoke.cont.i.i66.cont unwind label %lpad3
 
@@ -27072,7 +27072,7 @@ if.then.i118:                                     ; preds = %if.then8.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i118
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %terminate.lpad.i
 
@@ -27226,7 +27226,7 @@ if.then.i132:                                     ; preds = %if.end68
           to label %invoke.cont.i161 unwind label %lpad.i160
 
 invoke.cont.i161:                                 ; preds = %if.then.i132
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i159, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i159, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i159, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc162 unwind label %terminate.lpad.i133
 
@@ -27285,7 +27285,7 @@ if.then.i168:                                     ; preds = %small_divisor_case_
           to label %invoke.cont.i.i173 unwind label %lpad.i.i170
 
 invoke.cont.i.i173:                               ; preds = %if.then.i168
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i169, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i169, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i169, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc.i175 unwind label %terminate.lpad.i174
 
@@ -27565,7 +27565,7 @@ if.then2:                                         ; preds = %if.end
 
 invoke.cont.i7.invoke:                            ; preds = %if.then2, %if.then
   %exception.i.sink = phi ptr [ %exception.i, %if.then ], [ %exception.i5, %if.then2 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.sink, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %invoke.cont.i7.cont unwind label %terminate.lpad
 
@@ -27895,7 +27895,7 @@ if.then.i62:                                      ; preds = %invoke.cont
           to label %invoke.cont.i.i65 unwind label %lpad.i.i64
 
 invoke.cont.i.i65:                                ; preds = %if.then.i62
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i63, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i63, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i63, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %lpad
 
@@ -28017,7 +28017,7 @@ if.then.i98:                                      ; preds = %invoke.cont164
           to label %invoke.cont.i.i101 unwind label %lpad.i.i100
 
 invoke.cont.i.i101:                               ; preds = %if.then.i98
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i99, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i99, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i99, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc102 unwind label %lpad163
 
@@ -29147,7 +29147,7 @@ invoke.cont17:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -29581,7 +29581,7 @@ invoke.cont9:                                     ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -29671,7 +29671,7 @@ if.then.i:                                        ; preds = %invoke.cont12
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %lpad8
 
@@ -30095,7 +30095,7 @@ if.then.i124:                                     ; preds = %if.then8.i
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i124
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %terminate.lpad.i
 
@@ -30311,7 +30311,7 @@ if.then.i154:                                     ; preds = %if.end72
           to label %invoke.cont.i200 unwind label %lpad.i199
 
 invoke.cont.i200:                                 ; preds = %if.then.i154
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i198, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i198, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i198, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc201 unwind label %terminate.lpad.i155
 
@@ -30336,7 +30336,7 @@ if.then.i.i187:                                   ; preds = %if.then5.i182
           to label %invoke.cont.i208 unwind label %lpad.i207
 
 invoke.cont.i208:                                 ; preds = %if.then.i.i187
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i206, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i206, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i206, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc209 unwind label %terminate.lpad.i.i188
 
@@ -30429,7 +30429,7 @@ if.then.i221:                                     ; preds = %small_divisor_case_
           to label %invoke.cont.i.i226 unwind label %lpad.i.i223
 
 invoke.cont.i.i226:                               ; preds = %if.then.i221
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i222, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i222, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i222, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc.i228 unwind label %terminate.lpad.i227
 
@@ -30579,7 +30579,7 @@ if.then40:                                        ; preds = %if.end15
 
 invoke.cont.i52.invoke:                           ; preds = %if.then40, %if.then13, %if.then
   %exception.i.sink = phi ptr [ %exception.i, %if.then ], [ %exception.i29, %if.then13 ], [ %exception.i50, %if.then40 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.sink, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %invoke.cont.i52.cont unwind label %terminate.lpad
 
@@ -30651,7 +30651,7 @@ if.then2:                                         ; preds = %if.end
 
 invoke.cont.i7.invoke:                            ; preds = %if.then2, %if.then
   %exception.i.sink = phi ptr [ %exception.i, %if.then ], [ %exception.i5, %if.then2 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.sink, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %invoke.cont.i7.cont unwind label %terminate.lpad
 
@@ -30995,7 +30995,7 @@ if.then.i63:                                      ; preds = %invoke.cont
           to label %invoke.cont.i.i66 unwind label %lpad.i.i65
 
 invoke.cont.i.i66:                                ; preds = %if.then.i63
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i64, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i64, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i64, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %lpad
 
@@ -31117,7 +31117,7 @@ if.then.i99:                                      ; preds = %invoke.cont164
           to label %invoke.cont.i.i102 unwind label %lpad.i.i101
 
 invoke.cont.i.i102:                               ; preds = %if.then.i99
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i100, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i100, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i100, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc103 unwind label %lpad163
 
@@ -31911,7 +31911,7 @@ invoke.cont17:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -32344,7 +32344,7 @@ invoke.cont9:                                     ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -32433,7 +32433,7 @@ if.then.i:                                        ; preds = %invoke.cont12
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %lpad8
 
@@ -32926,7 +32926,7 @@ if.end75:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i11 = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i11, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -33895,7 +33895,7 @@ invoke.cont4:
   %capacity_.i.i.i = getelementptr inbounds i8, ptr %numerator, i64 24
   %0 = getelementptr inbounds i8, ptr %numerator, i64 16
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %numerator, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %numerator, align 8
   %store_.i.i = getelementptr inbounds i8, ptr %numerator, i64 32
   store ptr %store_.i.i, ptr %ptr_.i.i.i, align 8
   store i64 32, ptr %capacity_.i.i.i, align 8
@@ -33905,7 +33905,7 @@ invoke.cont4:
   %capacity_.i.i.i62 = getelementptr inbounds i8, ptr %denominator, i64 24
   %1 = getelementptr inbounds i8, ptr %denominator, i64 16
   store i64 0, ptr %1, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %denominator, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %denominator, align 8
   %store_.i.i63 = getelementptr inbounds i8, ptr %denominator, i64 32
   store ptr %store_.i.i63, ptr %ptr_.i.i.i61, align 8
   store i64 32, ptr %capacity_.i.i.i62, align 8
@@ -33915,7 +33915,7 @@ invoke.cont4:
   %capacity_.i.i.i66 = getelementptr inbounds i8, ptr %lower, i64 24
   %2 = getelementptr inbounds i8, ptr %lower, i64 16
   store i64 0, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %lower, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %lower, align 8
   %store_.i.i67 = getelementptr inbounds i8, ptr %lower, i64 32
   store ptr %store_.i.i67, ptr %ptr_.i.i.i65, align 8
   store i64 32, ptr %capacity_.i.i.i66, align 8
@@ -33925,7 +33925,7 @@ invoke.cont4:
   %capacity_.i.i.i70 = getelementptr inbounds i8, ptr %upper_store, i64 24
   %3 = getelementptr inbounds i8, ptr %upper_store, i64 16
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, inrange i32 0, i64 2), ptr %upper_store, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIjLm32ESaIjEEE, i64 0, i32 0, i64 2), ptr %upper_store, align 8
   %store_.i.i71 = getelementptr inbounds i8, ptr %upper_store, i64 32
   store ptr %store_.i.i71, ptr %ptr_.i.i.i69, align 8
   store i64 32, ptr %capacity_.i.i.i70, align 8
@@ -33950,7 +33950,7 @@ if.then.i:                                        ; preds = %if.then
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8
   br label %invoke.cont.i.invoke
 
 lpad.i.i:                                         ; preds = %if.then.i
@@ -34288,7 +34288,7 @@ if.then.i167:                                     ; preds = %if.else45
           to label %invoke.cont.i.i170 unwind label %lpad.i.i169
 
 invoke.cont.i.i170:                               ; preds = %if.then.i167
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i168, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i168, align 8
   br label %invoke.cont.i.invoke
 
 lpad.i.i169:                                      ; preds = %if.then.i167
@@ -34609,7 +34609,7 @@ if.then.i285:                                     ; preds = %if.then94
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then.i285
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_errorE, i64 0, inrange i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt3v1012format_errorE, i64 0, i32 0, i64 2), ptr %exception.i, align 8
   br label %invoke.cont.i.invoke
 
 invoke.cont.i.invoke:                             ; preds = %invoke.cont.i.i, %invoke.cont.i.i170, %invoke.cont.i
@@ -35549,7 +35549,7 @@ if.then.i62:                                      ; preds = %invoke.cont
           to label %invoke.cont.i.i65 unwind label %lpad.i.i64
 
 invoke.cont.i.i65:                                ; preds = %if.then.i62
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i63, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i63, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i63, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %lpad
 
@@ -35671,7 +35671,7 @@ if.then.i98:                                      ; preds = %invoke.cont164
           to label %invoke.cont.i.i101 unwind label %lpad.i.i100
 
 invoke.cont.i.i101:                               ; preds = %if.then.i98
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i99, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i99, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i99, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc102 unwind label %lpad163
 
@@ -36430,7 +36430,7 @@ invoke.cont17:                                    ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp14) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -36822,7 +36822,7 @@ invoke.cont9:                                     ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -36879,7 +36879,7 @@ if.then.i:                                        ; preds = %invoke.cont12
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc32 unwind label %lpad8
 
@@ -39671,7 +39671,7 @@ if.then:                                          ; preds = %land.lhs.true, %ent
           to label %invoke.cont.i unwind label %lpad.i
 
 invoke.cont.i:                                    ; preds = %if.then
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %terminate.lpad
 
@@ -43625,7 +43625,7 @@ if.end75:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i11 = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i11, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -45025,7 +45025,7 @@ if.end75:                                         ; preds = %_ZNSt20back_insert_
   %ptr_.i.i11 = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i11, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp76) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -46414,7 +46414,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34format_impl_test_count_digits_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34format_impl_test_count_digits_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46445,7 +46445,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33format_impl_test_countl_zero_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33format_impl_test_countl_zero_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46476,7 +46476,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41format_impl_test_write_double_double_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41format_impl_test_write_double_double_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46507,7 +46507,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39format_impl_test_write_dragon_even_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39format_impl_test_write_dragon_even_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46538,7 +46538,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44format_impl_test_utf8_decode_decode_all_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44format_impl_test_utf8_decode_decode_all_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46569,7 +46569,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV46format_impl_test_utf8_decode_out_of_range_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV46format_impl_test_utf8_decode_out_of_range_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46600,7 +46600,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV50format_impl_test_utf8_decode_surrogate_halves_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV50format_impl_test_utf8_decode_surrogate_halves_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46631,7 +46631,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV57format_impl_test_utf8_decode_non_canonical_encodings_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV57format_impl_test_utf8_decode_non_canonical_encodings_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46662,7 +46662,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV54format_impl_test_utf8_decode_bogus_byte_sequences_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV54format_impl_test_utf8_decode_bogus_byte_sequences_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -46693,7 +46693,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29format_impl_test_to_utf8_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29format_impl_test_to_utf8_Test, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -48619,7 +48619,7 @@ entry:
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -49112,7 +49112,7 @@ if.end67:                                         ; preds = %if.then44, %if.then
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp68) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -50047,7 +50047,7 @@ if.then.i63:                                      ; preds = %invoke.cont
           to label %invoke.cont.i.i66 unwind label %lpad.i.i65
 
 invoke.cont.i.i66:                                ; preds = %if.then.i63
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i64, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i64, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i64, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc unwind label %lpad
 
@@ -50167,7 +50167,7 @@ if.then.i99:                                      ; preds = %invoke.cont151
           to label %invoke.cont.i.i102 unwind label %lpad.i.i101
 
 invoke.cont.i.i102:                               ; preds = %if.then.i99
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i100, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i100, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i100, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc103 unwind label %lpad150
 
@@ -50872,7 +50872,7 @@ invoke.cont4:                                     ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -50970,7 +50970,7 @@ invoke.cont4:
   %ptr_.i.i = getelementptr inbounds i8, ptr %separators, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %separators, i64 24
   %0 = getelementptr inbounds i8, ptr %separators, i64 16
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i64 0, inrange i32 0, i64 2), ptr %separators, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIiLm500ESaIiEEE, i64 0, i32 0, i64 2), ptr %separators, align 8
   %store_.i = getelementptr inbounds i8, ptr %separators, i64 32
   store ptr %store_.i, ptr %ptr_.i.i, align 8
   store i64 500, ptr %capacity_.i.i, align 8
@@ -51106,7 +51106,7 @@ if.then.i.i32:                                    ; preds = %if.then16
           to label %invoke.cont.i.i.i unwind label %lpad.i.i.i
 
 invoke.cont.i.i.i:                                ; preds = %if.then.i.i32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %.noexc34 unwind label %lpad3.loopexit.split-lp
 
@@ -51327,7 +51327,7 @@ invoke.cont3:                                     ; preds = %entry
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -51414,7 +51414,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont13
 
 invoke.cont.i.i.i.i.invoke:                       ; preds = %if.then.i.i.i, %if.then.i
   %exception.i.i.sink = phi ptr [ %exception.i.i, %if.then.i ], [ %exception.i.i.i.i, %if.then.i.i.i ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17assertion_failure, i64 0, i32 0, i64 2), ptr %exception.i.i.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.sink, ptr nonnull @_ZTI17assertion_failure, ptr nonnull @_ZN17assertion_failureD2Ev) #28
           to label %invoke.cont.i.i.i.i.cont unwind label %lpad2
 
@@ -51792,7 +51792,7 @@ if.end72:                                         ; preds = %if.then49, %if.then
   %ptr_.i.i = getelementptr inbounds i8, ptr %buffer, i64 8
   %capacity_.i.i = getelementptr inbounds i8, ptr %buffer, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ptr_.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %buffer, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v1019basic_memory_bufferIcLm500ESaIcEEE, i64 0, i32 0, i64 2), ptr %buffer, align 8
   %alloc_.i = getelementptr inbounds i8, ptr %buffer, i64 532
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp73) #26
   %store_.i = getelementptr inbounds i8, ptr %buffer, i64 32
@@ -53274,7 +53274,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26bigint_test_construct_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26bigint_test_construct_TestEE, i64 0, i32 0, i64 2), ptr %call11.i, align 8
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef %call.i, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %__cxx_global_var_init.1.exit unwind label %lpad4.i
 
@@ -53357,7 +53357,7 @@ invoke.cont8.i21:                                 ; preds = %invoke.cont6.i19
           to label %invoke.cont10.i unwind label %lpad4.i16
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24bigint_test_compare_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i22, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24bigint_test_compare_TestEE, i64 0, i32 0, i64 2), ptr %call11.i22, align 8
   %call15.i23 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i1, ptr noundef %call.i15, ptr noundef %call7.i18, ptr noundef %call9.i20, ptr noundef nonnull %call11.i22)
           to label %__cxx_global_var_init.13.exit unwind label %lpad4.i16
 
@@ -53434,7 +53434,7 @@ invoke.cont8.i46:                                 ; preds = %invoke.cont6.i44
           to label %invoke.cont10.i48 unwind label %lpad4.i41
 
 invoke.cont10.i48:                                ; preds = %invoke.cont8.i46
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28bigint_test_add_compare_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i47, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28bigint_test_add_compare_TestEE, i64 0, i32 0, i64 2), ptr %call11.i47, align 8
   %call15.i49 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i24, ptr noundef %call.i40, ptr noundef %call7.i43, ptr noundef %call9.i45, ptr noundef nonnull %call11.i47)
           to label %__cxx_global_var_init.21.exit unwind label %lpad4.i41
 
@@ -53511,7 +53511,7 @@ invoke.cont8.i72:                                 ; preds = %invoke.cont6.i70
           to label %invoke.cont10.i74 unwind label %lpad4.i67
 
 invoke.cont10.i74:                                ; preds = %invoke.cont8.i72
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27bigint_test_shift_left_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i73, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27bigint_test_shift_left_TestEE, i64 0, i32 0, i64 2), ptr %call11.i73, align 8
   %call15.i75 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i50, ptr noundef %call.i66, ptr noundef %call7.i69, ptr noundef %call9.i71, ptr noundef nonnull %call11.i73)
           to label %__cxx_global_var_init.35.exit unwind label %lpad4.i67
 
@@ -53588,7 +53588,7 @@ invoke.cont8.i98:                                 ; preds = %invoke.cont6.i96
           to label %invoke.cont10.i100 unwind label %lpad4.i93
 
 invoke.cont10.i100:                               ; preds = %invoke.cont8.i98
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25bigint_test_multiply_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i99, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25bigint_test_multiply_TestEE, i64 0, i32 0, i64 2), ptr %call11.i99, align 8
   %call15.i101 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i76, ptr noundef %call.i92, ptr noundef %call7.i95, ptr noundef %call9.i97, ptr noundef nonnull %call11.i99)
           to label %__cxx_global_var_init.42.exit unwind label %lpad4.i93
 
@@ -53665,7 +53665,7 @@ invoke.cont8.i124:                                ; preds = %invoke.cont6.i122
           to label %invoke.cont10.i126 unwind label %lpad4.i119
 
 invoke.cont10.i126:                               ; preds = %invoke.cont8.i124
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23bigint_test_square_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i125, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23bigint_test_square_TestEE, i64 0, i32 0, i64 2), ptr %call11.i125, align 8
   %call15.i127 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.59, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i102, ptr noundef %call.i118, ptr noundef %call7.i121, ptr noundef %call9.i123, ptr noundef nonnull %call11.i125)
           to label %__cxx_global_var_init.58.exit unwind label %lpad4.i119
 
@@ -53742,7 +53742,7 @@ invoke.cont8.i150:                                ; preds = %invoke.cont6.i148
           to label %invoke.cont10.i152 unwind label %lpad4.i145
 
 invoke.cont10.i152:                               ; preds = %invoke.cont8.i150
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43bigint_test_divmod_assign_zero_divisor_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i151, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43bigint_test_divmod_assign_zero_divisor_TestEE, i64 0, i32 0, i64 2), ptr %call11.i151, align 8
   %call15.i153 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.73, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i128, ptr noundef %call.i144, ptr noundef %call7.i147, ptr noundef %call9.i149, ptr noundef nonnull %call11.i151)
           to label %__cxx_global_var_init.72.exit unwind label %lpad4.i145
 
@@ -53819,7 +53819,7 @@ invoke.cont8.i176:                                ; preds = %invoke.cont6.i174
           to label %invoke.cont10.i178 unwind label %lpad4.i171
 
 invoke.cont10.i178:                               ; preds = %invoke.cont8.i176
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35bigint_test_divmod_assign_self_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i177, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35bigint_test_divmod_assign_self_TestEE, i64 0, i32 0, i64 2), ptr %call11.i177, align 8
   %call15.i179 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.81, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i154, ptr noundef %call.i170, ptr noundef %call7.i173, ptr noundef %call9.i175, ptr noundef nonnull %call11.i177)
           to label %__cxx_global_var_init.80.exit unwind label %lpad4.i171
 
@@ -53896,7 +53896,7 @@ invoke.cont8.i202:                                ; preds = %invoke.cont6.i200
           to label %invoke.cont10.i204 unwind label %lpad4.i197
 
 invoke.cont10.i204:                               ; preds = %invoke.cont8.i202
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40bigint_test_divmod_assign_unaligned_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i203, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40bigint_test_divmod_assign_unaligned_TestEE, i64 0, i32 0, i64 2), ptr %call11.i203, align 8
   %call15.i205 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.86, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i180, ptr noundef %call.i196, ptr noundef %call7.i199, ptr noundef %call9.i201, ptr noundef nonnull %call11.i203)
           to label %__cxx_global_var_init.85.exit unwind label %lpad4.i197
 
@@ -53973,7 +53973,7 @@ invoke.cont8.i228:                                ; preds = %invoke.cont6.i226
           to label %invoke.cont10.i230 unwind label %lpad4.i223
 
 invoke.cont10.i230:                               ; preds = %invoke.cont8.i228
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30bigint_test_divmod_assign_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i229, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30bigint_test_divmod_assign_TestEE, i64 0, i32 0, i64 2), ptr %call11.i229, align 8
   %call15.i231 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.92, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i206, ptr noundef %call.i222, ptr noundef %call7.i225, ptr noundef %call9.i227, ptr noundef nonnull %call11.i229)
           to label %__cxx_global_var_init.91.exit unwind label %lpad4.i223
 
@@ -54050,7 +54050,7 @@ invoke.cont8.i254:                                ; preds = %invoke.cont6.i252
           to label %invoke.cont10.i256 unwind label %lpad4.i249
 
 invoke.cont10.i256:                               ; preds = %invoke.cont8.i254
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25fp_test_double_tests_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i255, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25fp_test_double_tests_TestEE, i64 0, i32 0, i64 2), ptr %call11.i255, align 8
   %call15.i257 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.103, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i232, ptr noundef %call.i248, ptr noundef %call7.i251, ptr noundef %call9.i253, ptr noundef nonnull %call11.i255)
           to label %__cxx_global_var_init.101.exit unwind label %lpad4.i249
 
@@ -54127,7 +54127,7 @@ invoke.cont8.i280:                                ; preds = %invoke.cont6.i278
           to label %invoke.cont10.i282 unwind label %lpad4.i275
 
 invoke.cont10.i282:                               ; preds = %invoke.cont8.i280
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22fp_test_normalize_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i281, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22fp_test_normalize_TestEE, i64 0, i32 0, i64 2), ptr %call11.i281, align 8
   %call15.i283 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.105, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i258, ptr noundef %call.i274, ptr noundef %call7.i277, ptr noundef %call9.i279, ptr noundef nonnull %call11.i281)
           to label %__cxx_global_var_init.104.exit unwind label %lpad4.i275
 
@@ -54204,7 +54204,7 @@ invoke.cont8.i306:                                ; preds = %invoke.cont6.i304
           to label %invoke.cont10.i308 unwind label %lpad4.i301
 
 invoke.cont10.i308:                               ; preds = %invoke.cont8.i306
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21fp_test_multiply_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i307, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21fp_test_multiply_TestEE, i64 0, i32 0, i64 2), ptr %call11.i307, align 8
   %call15.i309 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i284, ptr noundef %call.i300, ptr noundef %call7.i303, ptr noundef %call9.i305, ptr noundef nonnull %call11.i307)
           to label %__cxx_global_var_init.110.exit unwind label %lpad4.i301
 
@@ -54281,7 +54281,7 @@ invoke.cont8.i332:                                ; preds = %invoke.cont6.i330
           to label %invoke.cont10.i334 unwind label %lpad4.i327
 
 invoke.cont10.i334:                               ; preds = %invoke.cont8.i332
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28fp_test_dragonbox_max_k_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i333, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28fp_test_dragonbox_max_k_TestEE, i64 0, i32 0, i64 2), ptr %call11.i333, align 8
   %call15.i335 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.102, ptr noundef nonnull @.str.118, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i310, ptr noundef %call.i326, ptr noundef %call7.i329, ptr noundef %call9.i331, ptr noundef nonnull %call11.i333)
           to label %__cxx_global_var_init.117.exit unwind label %lpad4.i327
 
@@ -54358,7 +54358,7 @@ invoke.cont8.i358:                                ; preds = %invoke.cont6.i356
           to label %invoke.cont10.i360 unwind label %lpad4.i353
 
 invoke.cont10.i360:                               ; preds = %invoke.cont8.i358
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39format_impl_test_format_error_code_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i359, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39format_impl_test_format_error_code_TestEE, i64 0, i32 0, i64 2), ptr %call11.i359, align 8
   %call15.i361 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i336, ptr noundef %call.i352, ptr noundef %call7.i355, ptr noundef %call9.i357, ptr noundef nonnull %call11.i359)
           to label %__cxx_global_var_init.123.exit unwind label %lpad4.i353
 
@@ -54435,7 +54435,7 @@ invoke.cont8.i384:                                ; preds = %invoke.cont6.i382
           to label %invoke.cont10.i386 unwind label %lpad4.i379
 
 invoke.cont10.i386:                               ; preds = %invoke.cont8.i384
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34format_impl_test_count_digits_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i385, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34format_impl_test_count_digits_TestEE, i64 0, i32 0, i64 2), ptr %call11.i385, align 8
   %call15.i387 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.139, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i362, ptr noundef %call.i378, ptr noundef %call7.i381, ptr noundef %call9.i383, ptr noundef nonnull %call11.i385)
           to label %__cxx_global_var_init.138.exit unwind label %lpad4.i379
 
@@ -54512,7 +54512,7 @@ invoke.cont8.i410:                                ; preds = %invoke.cont6.i408
           to label %invoke.cont10.i412 unwind label %lpad4.i405
 
 invoke.cont10.i412:                               ; preds = %invoke.cont8.i410
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33format_impl_test_countl_zero_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i411, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33format_impl_test_countl_zero_TestEE, i64 0, i32 0, i64 2), ptr %call11.i411, align 8
   %call15.i413 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.141, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i388, ptr noundef %call.i404, ptr noundef %call7.i407, ptr noundef %call9.i409, ptr noundef nonnull %call11.i411)
           to label %__cxx_global_var_init.140.exit unwind label %lpad4.i405
 
@@ -54589,7 +54589,7 @@ invoke.cont8.i436:                                ; preds = %invoke.cont6.i434
           to label %invoke.cont10.i438 unwind label %lpad4.i431
 
 invoke.cont10.i438:                               ; preds = %invoke.cont8.i436
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41format_impl_test_write_double_double_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i437, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41format_impl_test_write_double_double_TestEE, i64 0, i32 0, i64 2), ptr %call11.i437, align 8
   %call15.i439 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.147, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i414, ptr noundef %call.i430, ptr noundef %call7.i433, ptr noundef %call9.i435, ptr noundef nonnull %call11.i437)
           to label %__cxx_global_var_init.146.exit unwind label %lpad4.i431
 
@@ -54666,7 +54666,7 @@ invoke.cont8.i462:                                ; preds = %invoke.cont6.i460
           to label %invoke.cont10.i464 unwind label %lpad4.i457
 
 invoke.cont10.i464:                               ; preds = %invoke.cont8.i462
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39format_impl_test_write_dragon_even_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i463, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39format_impl_test_write_dragon_even_TestEE, i64 0, i32 0, i64 2), ptr %call11.i463, align 8
   %call15.i465 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.150, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i440, ptr noundef %call.i456, ptr noundef %call7.i459, ptr noundef %call9.i461, ptr noundef nonnull %call11.i463)
           to label %__cxx_global_var_init.149.exit unwind label %lpad4.i457
 
@@ -54743,7 +54743,7 @@ invoke.cont8.i488:                                ; preds = %invoke.cont6.i486
           to label %invoke.cont10.i490 unwind label %lpad4.i483
 
 invoke.cont10.i490:                               ; preds = %invoke.cont8.i488
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44format_impl_test_utf8_decode_decode_all_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i489, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44format_impl_test_utf8_decode_decode_all_TestEE, i64 0, i32 0, i64 2), ptr %call11.i489, align 8
   %call15.i491 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.154, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i466, ptr noundef %call.i482, ptr noundef %call7.i485, ptr noundef %call9.i487, ptr noundef nonnull %call11.i489)
           to label %__cxx_global_var_init.153.exit unwind label %lpad4.i483
 
@@ -54820,7 +54820,7 @@ invoke.cont8.i514:                                ; preds = %invoke.cont6.i512
           to label %invoke.cont10.i516 unwind label %lpad4.i509
 
 invoke.cont10.i516:                               ; preds = %invoke.cont8.i514
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI46format_impl_test_utf8_decode_out_of_range_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i515, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI46format_impl_test_utf8_decode_out_of_range_TestEE, i64 0, i32 0, i64 2), ptr %call11.i515, align 8
   %call15.i517 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.161, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i492, ptr noundef %call.i508, ptr noundef %call7.i511, ptr noundef %call9.i513, ptr noundef nonnull %call11.i515)
           to label %__cxx_global_var_init.160.exit unwind label %lpad4.i509
 
@@ -54897,7 +54897,7 @@ invoke.cont8.i540:                                ; preds = %invoke.cont6.i538
           to label %invoke.cont10.i542 unwind label %lpad4.i535
 
 invoke.cont10.i542:                               ; preds = %invoke.cont8.i540
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI50format_impl_test_utf8_decode_surrogate_halves_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i541, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI50format_impl_test_utf8_decode_surrogate_halves_TestEE, i64 0, i32 0, i64 2), ptr %call11.i541, align 8
   %call15.i543 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.165, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i518, ptr noundef %call.i534, ptr noundef %call7.i537, ptr noundef %call9.i539, ptr noundef nonnull %call11.i541)
           to label %__cxx_global_var_init.164.exit unwind label %lpad4.i535
 
@@ -54974,7 +54974,7 @@ invoke.cont8.i566:                                ; preds = %invoke.cont6.i564
           to label %invoke.cont10.i568 unwind label %lpad4.i561
 
 invoke.cont10.i568:                               ; preds = %invoke.cont8.i566
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57format_impl_test_utf8_decode_non_canonical_encodings_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i567, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57format_impl_test_utf8_decode_non_canonical_encodings_TestEE, i64 0, i32 0, i64 2), ptr %call11.i567, align 8
   %call15.i569 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.167, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i544, ptr noundef %call.i560, ptr noundef %call7.i563, ptr noundef %call9.i565, ptr noundef nonnull %call11.i567)
           to label %__cxx_global_var_init.166.exit unwind label %lpad4.i561
 
@@ -55051,7 +55051,7 @@ invoke.cont8.i592:                                ; preds = %invoke.cont6.i590
           to label %invoke.cont10.i594 unwind label %lpad4.i587
 
 invoke.cont10.i594:                               ; preds = %invoke.cont8.i592
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI54format_impl_test_utf8_decode_bogus_byte_sequences_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i593, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI54format_impl_test_utf8_decode_bogus_byte_sequences_TestEE, i64 0, i32 0, i64 2), ptr %call11.i593, align 8
   %call15.i595 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.172, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i570, ptr noundef %call.i586, ptr noundef %call7.i589, ptr noundef %call9.i591, ptr noundef nonnull %call11.i593)
           to label %__cxx_global_var_init.171.exit unwind label %lpad4.i587
 
@@ -55128,7 +55128,7 @@ invoke.cont8.i618:                                ; preds = %invoke.cont6.i616
           to label %invoke.cont10.i620 unwind label %lpad4.i613
 
 invoke.cont10.i620:                               ; preds = %invoke.cont8.i618
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29format_impl_test_to_utf8_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i619, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29format_impl_test_to_utf8_TestEE, i64 0, i32 0, i64 2), ptr %call11.i619, align 8
   %call15.i621 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.177, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i596, ptr noundef %call.i612, ptr noundef %call7.i615, ptr noundef %call9.i617, ptr noundef nonnull %call11.i619)
           to label %__cxx_global_var_init.176.exit unwind label %lpad4.i613
 

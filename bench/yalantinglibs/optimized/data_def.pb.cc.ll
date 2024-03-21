@@ -251,7 +251,7 @@ define internal void @_ZL47InitDefaultsscc_info_Monster_data_5fdef_2eprotov() #3
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::MonsterDefaultTypeInternal", ptr @_ZN6mygame26_Monster_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr @_ZN6mygame26_Monster_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, i32 0, i64 2), ptr @_ZN6mygame26_Monster_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.mygame::MonsterDefaultTypeInternal", ptr @_ZN6mygame26_Monster_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 100), align 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) getelementptr inbounds (%"class.mygame::MonsterDefaultTypeInternal", ptr @_ZN6mygame26_Monster_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 48, i1 false)
   %0 = load atomic i32, ptr @scc_info_Monster_data_5fdef_2eproto acquire, align 8
@@ -294,7 +294,7 @@ define internal void @_ZL48InitDefaultsscc_info_Monsters_data_5fdef_2eprotov() #
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::MonstersDefaultTypeInternal", ptr @_ZN6mygame27_Monsters_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr @_ZN6mygame27_Monsters_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, i32 0, i64 2), ptr @_ZN6mygame27_Monsters_default_instance_E, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"class.mygame::MonstersDefaultTypeInternal", ptr @_ZN6mygame27_Monsters_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_Monsters_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -320,7 +320,7 @@ define internal void @_ZL44InitDefaultsscc_info_Vec3_data_5fdef_2eprotov() #3 pe
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::Vec3DefaultTypeInternal", ptr @_ZN6mygame23_Vec3_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr @_ZN6mygame23_Vec3_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr @_ZN6mygame23_Vec3_default_instance_E, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.mygame::Vec3DefaultTypeInternal", ptr @_ZN6mygame23_Vec3_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 16, i1 false)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN6mygame23_Vec3_default_instance_E)
   ret void
@@ -331,7 +331,7 @@ define internal void @_ZL46InitDefaultsscc_info_Weapon_data_5fdef_2eprotov() #3 
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::WeaponDefaultTypeInternal", ptr @_ZN6mygame25_Weapon_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr @_ZN6mygame25_Weapon_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, i32 0, i64 2), ptr @_ZN6mygame25_Weapon_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.mygame::WeaponDefaultTypeInternal", ptr @_ZN6mygame25_Weapon_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 20), align 4
   %0 = load atomic i32, ptr @scc_info_Weapon_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -353,7 +353,7 @@ define internal void @_ZL46InitDefaultsscc_info_person_data_5fdef_2eprotov() #3 
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::personDefaultTypeInternal", ptr @_ZN6mygame25_person_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr @_ZN6mygame25_person_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, i32 0, i64 2), ptr @_ZN6mygame25_person_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.mygame::personDefaultTypeInternal", ptr @_ZN6mygame25_person_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
   %0 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -375,7 +375,7 @@ define internal void @_ZL47InitDefaultsscc_info_persons_data_5fdef_2eprotov() #3
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::personsDefaultTypeInternal", ptr @_ZN6mygame26_persons_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr @_ZN6mygame26_persons_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, i32 0, i64 2), ptr @_ZN6mygame26_persons_default_instance_E, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"class.mygame::personsDefaultTypeInternal", ptr @_ZN6mygame26_persons_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_persons_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -401,7 +401,7 @@ define internal void @_ZL46InitDefaultsscc_info_rect32_data_5fdef_2eprotov() #3 
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::rect32DefaultTypeInternal", ptr @_ZN6mygame25_rect32_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr @_ZN6mygame25_rect32_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr @_ZN6mygame25_rect32_default_instance_E, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.mygame::rect32DefaultTypeInternal", ptr @_ZN6mygame25_rect32_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 20, i1 false)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN6mygame25_rect32_default_instance_E)
   ret void
@@ -412,7 +412,7 @@ define internal void @_ZL47InitDefaultsscc_info_rect32s_data_5fdef_2eprotov() #3
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.mygame::rect32sDefaultTypeInternal", ptr @_ZN6mygame26_rect32s_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr @_ZN6mygame26_rect32s_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, i32 0, i64 2), ptr @_ZN6mygame26_rect32s_default_instance_E, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"class.mygame::rect32sDefaultTypeInternal", ptr @_ZN6mygame26_rect32s_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_rect32s_data_5fdef_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -473,7 +473,7 @@ define dso_local void @_ZN6mygame4Vec3C2EPN6google8protobuf5ArenaE(ptr nocapture
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %this, align 8
   %x_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i, i8 0, i64 16, i1 false)
   ret void
@@ -486,7 +486,7 @@ define dso_local void @_ZN6mygame4Vec3C2ERKS0_(ptr nocapture noundef nonnull wri
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -1424,7 +1424,7 @@ define dso_local void @_ZN6mygame6WeaponC2EPN6google8protobuf5ArenaE(ptr nocaptu
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
   %0 = load atomic i32, ptr @scc_info_Weapon_data_5fdef_2eproto acquire, align 8
@@ -1448,7 +1448,7 @@ define dso_local void @_ZN6mygame6WeaponC2ERKS0_(ptr noundef nonnull align 8 der
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -2583,7 +2583,7 @@ define dso_local void @_ZN6mygame7MonsterC2EPN6google8protobuf5ArenaE(ptr nounde
 invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %weapons_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %arena, ptr %weapons_, align 8
   %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2686,7 +2686,7 @@ define dso_local void @_ZN6mygame7MonsterC2ERKS0_(ptr noundef nonnull align 8 de
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %weapons_ = getelementptr inbounds i8, ptr %this, i64 16
   %weapons_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %weapons_, i8 0, i64 24, i1 false)
@@ -2848,7 +2848,7 @@ if.then42:                                        ; preds = %invoke.cont40
 invoke.cont43:                                    ; preds = %if.then42
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call44, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call44, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call44, align 8
   %_cached_size_.i = getelementptr inbounds i8, ptr %call44, i64 28
   store i32 0, ptr %_cached_size_.i, align 4
   %_internal_metadata_2.i = getelementptr inbounds i8, ptr %23, i64 8
@@ -2904,7 +2904,7 @@ if.then52:                                        ; preds = %invoke.cont50
 invoke.cont53:                                    ; preds = %if.then52
   %_internal_metadata_.i.i.i41 = getelementptr inbounds i8, ptr %call54, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i41, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %call54, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, i32 0, i64 2), ptr %call54, align 8
   %_cached_size_.i42 = getelementptr inbounds i8, ptr %call54, i64 28
   store i32 0, ptr %_cached_size_.i42, align 4
   %_internal_metadata_2.i43 = getelementptr inbounds i8, ptr %31, i64 8
@@ -3732,7 +3732,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5Ar
   %call.i.sink8.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 8
   store ptr %retval.i.0.i.i, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i.sink8.i.i.i, ptr %pos_.i, align 8
@@ -5655,7 +5655,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5Ar
   %call.i.sink8.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 8
   store ptr %retval.i.0.i.i33, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   store ptr %call.i.sink8.i.i.i, ptr %pos_.i, align 8
@@ -5988,7 +5988,7 @@ define dso_local void @_ZN6mygame8MonstersC2EPN6google8protobuf5ArenaE(ptr nound
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, i32 0, i64 2), ptr %this, align 8
   %monsters_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %arena, ptr %monsters_, align 8
   %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -6068,7 +6068,7 @@ define dso_local void @_ZN6mygame8MonstersC2ERKS0_(ptr noundef nonnull align 8 d
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, i32 0, i64 2), ptr %this, align 8
   %monsters_ = getelementptr inbounds i8, ptr %this, i64 16
   %monsters_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %monsters_, i8 0, i64 24, i1 false)
@@ -7181,7 +7181,7 @@ define dso_local void @_ZN6mygame6rect32C2EPN6google8protobuf5ArenaE(ptr nocaptu
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %this, align 8
   %x_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i, i8 0, i64 20, i1 false)
   ret void
@@ -7192,7 +7192,7 @@ define dso_local void @_ZN6mygame6rect32C2ERKS0_(ptr nocapture noundef nonnull w
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %_cached_size_, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -8512,7 +8512,7 @@ define dso_local void @_ZN6mygame7rect32sC2EPN6google8protobuf5ArenaE(ptr nounde
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, i32 0, i64 2), ptr %this, align 8
   %rect32_list_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %arena, ptr %rect32_list_, align 8
   %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -8550,7 +8550,7 @@ define dso_local void @_ZN6mygame7rect32sC2ERKS0_(ptr noundef nonnull align 8 de
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, i32 0, i64 2), ptr %this, align 8
   %rect32_list_ = getelementptr inbounds i8, ptr %this, i64 16
   %rect32_list_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_, i8 0, i64 24, i1 false)
@@ -9650,7 +9650,7 @@ define dso_local void @_ZN6mygame6personC2EPN6google8protobuf5ArenaE(ptr nocaptu
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_, align 8
   %0 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
@@ -9674,7 +9674,7 @@ define dso_local void @_ZN6mygame6personC2ERKS0_(ptr noundef nonnull align 8 der
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %_cached_size_, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -10938,7 +10938,7 @@ define dso_local void @_ZN6mygame7personsC2EPN6google8protobuf5ArenaE(ptr nounde
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %person_list_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %arena, ptr %person_list_, align 8
   %current_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -11018,7 +11018,7 @@ define dso_local void @_ZN6mygame7personsC2ERKS0_(ptr noundef nonnull align 8 de
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %person_list_ = getelementptr inbounds i8, ptr %this, i64 16
   %person_list_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %person_list_, i8 0, i64 24, i1 false)
@@ -12365,7 +12365,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame4Vec3EEEPT_PS1_.exit: ;
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 8
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8, align 8
   %x_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink8
@@ -12381,7 +12381,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 0, ptr %_cached_size_.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_Weapon_data_5fdef_2eproto acquire, align 8
@@ -12412,7 +12412,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 32)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %_cached_size_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 28
   store i32 0, ptr %_cached_size_.i.i6, align 4
   %3 = load atomic i32, ptr @scc_info_Weapon_data_5fdef_2eproto acquire, align 8
@@ -12442,7 +12442,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %weapons_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   %path_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 108
@@ -12492,7 +12492,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 112)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %weapons_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 16
   store ptr %arena, ptr %weapons_.i.i6, align 8
   %current_size_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 24
@@ -12549,7 +12549,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %monsters_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %monsters_.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_Monsters_data_5fdef_2eproto acquire, align 8
@@ -12585,7 +12585,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 48)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %monsters_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 16
   store ptr %arena, ptr %monsters_.i.i6, align 8
   %current_size_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 24
@@ -12638,7 +12638,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN6mygame6rect32EEEPT_PS1_.exit:
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 8
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.sink8, align 8
   %x_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.sink8
@@ -12654,7 +12654,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %rect32_list_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %rect32_list_.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_rect32s_data_5fdef_2eproto acquire, align 8
@@ -12700,7 +12700,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 48)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %rect32_list_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 16
   store ptr %arena, ptr %rect32_list_.i.i6, align 8
   %current_size_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 24
@@ -12741,7 +12741,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
   store i32 0, ptr %_cached_size_.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
@@ -12772,7 +12772,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 48)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %_cached_size_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 40
   store i32 0, ptr %_cached_size_.i.i6, align 4
   %3 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
@@ -12802,7 +12802,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %person_list_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %person_list_.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_persons_data_5fdef_2eproto acquire, align 8
@@ -12838,7 +12838,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 48)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %person_list_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 16
   store ptr %arena, ptr %person_list_.i.i6, align 8
   %current_size_.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8, i64 24
@@ -12870,7 +12870,7 @@ entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.i.i
@@ -12904,7 +12904,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame4Vec3EEEPT_PNS0_5Ar
   %call.i.sink8.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i, i8 0, i64 16, i1 false)
   ret ptr %call.i.sink8.i.i
@@ -12938,7 +12938,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 28
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_Weapon_data_5fdef_2eproto acquire, align 8
@@ -12984,7 +12984,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #23
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %weapons_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   %path_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 108
@@ -13047,7 +13047,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %monsters_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %monsters_.i.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_Monsters_data_5fdef_2eproto acquire, align 8
@@ -13090,7 +13090,7 @@ entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.i.i
@@ -13124,7 +13124,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN6mygame6rect32EEEPT_PNS0_5
   %call.i.sink8.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
   %x_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i, i8 0, i64 20, i1 false)
   ret ptr %call.i.sink8.i.i
@@ -13144,7 +13144,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %rect32_list_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %rect32_list_.i.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_rect32s_data_5fdef_2eproto acquire, align 8
@@ -13197,7 +13197,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_person_data_5fdef_2eproto acquire, align 8
@@ -13243,7 +13243,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #23
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %person_list_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %person_list_.i.i.i, i8 0, i64 28, i1 false)
   %0 = load atomic i32, ptr @scc_info_persons_data_5fdef_2eproto acquire, align 8
@@ -13664,7 +13664,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame4Vec3EE16NewFromPrototy
   %call.i.sink8.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 8
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   %10 = load ptr, ptr %rep_, align 8
@@ -13757,7 +13757,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN6mygame6rect32EE16NewFromProto
   %call.i.sink8.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 8
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   %10 = load ptr, ptr %rep_, align 8
@@ -14060,7 +14060,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #23
   %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i.us, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.us, align 8
   %x_.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i.us, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -14087,7 +14087,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %call2.i8.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef 32)
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, inrange i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i64 0, i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %x_.i.i.i.i.i.i, i8 0, i64 16, i1 false)
   tail call void @_ZN6mygame4Vec39MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %11)
@@ -14350,7 +14350,7 @@ for.body8.i.us:                                   ; preds = %for.body8.i.lr.ph, 
   %call.i.i.i.i.us = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #23
   %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i.us, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.us, align 8
   %x_.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.i.i.i.us, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i.us, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call.i.i.i.i.us, ptr noundef nonnull align 8 dereferenceable(40) %10)
@@ -14377,7 +14377,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %call2.i8.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %8, i64 noundef 40)
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, inrange i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i64 0, i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
   %x_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %x_.i.i.i.i.i.i, i8 0, i64 20, i1 false)
   tail call void @_ZN6mygame6rect329MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %call2.i8.i.i.i, ptr noundef nonnull align 8 dereferenceable(40) %11)

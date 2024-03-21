@@ -166,7 +166,7 @@ define void @_ZN12RtpAudioFileC2Ebb(ptr noundef nonnull align 8 dereferenceable(
   store i8 %28, ptr %6, align 1
   %29 = load ptr, ptr %4, align 8
   call void @_ZN9QIODeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %29)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV12RtpAudioFile, i32 0, inrange i32 0, i32 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV12RtpAudioFile, i32 0, i32 0, i32 2), ptr %29, align 8
   %30 = getelementptr inbounds %class.RtpAudioFile, ptr %29, i32 0, i32 3
   store i64 0, ptr %30, align 8
   %31 = getelementptr inbounds %class.RtpAudioFile, ptr %29, i32 0, i32 4
@@ -778,7 +778,7 @@ define void @_ZN12RtpAudioFileD2Ev(ptr noundef nonnull align 8 dereferenceable(9
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV12RtpAudioFile, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV12RtpAudioFile, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.RtpAudioFile, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null

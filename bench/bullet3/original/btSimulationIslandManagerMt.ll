@@ -374,7 +374,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN25btSimulationIslandManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_allocatedIslands = getelementptr inbounds %class.btSimulationIslandManagerMt, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayIPN27btSimulationIslandManagerMt6IslandEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_allocatedIslands)
           to label %invoke.cont unwind label %lpad
@@ -676,7 +676,7 @@ entry:
   %ref.tmp9 = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV27btSimulationIslandManagerMt, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
@@ -3843,7 +3843,7 @@ entry:
   store ptr %solverParams, ptr %solverParams.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN18btIParallelForBodyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22UpdateIslandDispatcher, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22UpdateIslandDispatcher, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_islandsPtr = getelementptr inbounds %struct.UpdateIslandDispatcher, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %islandsPtr.addr, align 8
   store ptr %0, ptr %m_islandsPtr, align 8
@@ -4250,7 +4250,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4810,7 +4810,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18btIParallelForBody, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

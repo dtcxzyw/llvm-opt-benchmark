@@ -3602,7 +3602,7 @@ define linkonce_odr void @_ZN11EnvironmentC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing11EnvironmentC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV11Environment, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV11Environment, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3994,7 +3994,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI42machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42machines_getMachinesWithEmptyBuilders_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42machines_getMachinesWithEmptyBuilders_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4668,7 +4668,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI32machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32machines_getMachinesUriOnly_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32machines_getMachinesUriOnly_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7396,7 +7396,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI33machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33machines_getMachinesDefaults_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33machines_getMachinesDefaults_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8650,7 +8650,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI45machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45machines_getMachinesWithNewLineSeparator_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45machines_getMachinesWithNewLineSeparator_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9769,7 +9769,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI47machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47machines_getMachinesWithSemicolonSeparator_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47machines_getMachinesWithSemicolonSeparator_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10340,7 +10340,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI57machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57machines_getMachinesWithCorrectCompleteSingleBuilder_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57machines_getMachinesWithCorrectCompleteSingleBuilder_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -11628,7 +11628,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI79machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI79machines_getMachinesWithCorrectCompleteSingleBuilderWithTabColumnDelimiter_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI79machines_getMachinesWithCorrectCompleteSingleBuilderWithTabColumnDelimiter_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -12883,7 +12883,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI41machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41machines_getMachinesWithMultiOptions_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41machines_getMachinesWithMultiOptions_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -13748,7 +13748,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI44machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44machines_getMachinesWithIncorrectFormat_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44machines_getMachinesWithIncorrectFormat_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15509,7 +15509,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI49machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49machines_getMachinesWithCorrectFileReference_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49machines_getMachinesWithCorrectFileReference_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -16554,7 +16554,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI60machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI60machines_getMachinesWithCorrectFileReferenceToEmptyFile_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI60machines_getMachinesWithCorrectFileReferenceToEmptyFile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17035,7 +17035,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI51machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI51machines_getMachinesWithIncorrectFileReference_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI51machines_getMachinesWithIncorrectFileReference_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17439,7 +17439,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplI64machines_getMa
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI64machines_getMachinesWithCorrectFileReferenceToIncorrectFile_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI64machines_getMachinesWithCorrectFileReferenceToIncorrectFile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18067,7 +18067,7 @@ define linkonce_odr void @_ZN7testing11EnvironmentC2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing11EnvironmentE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing11EnvironmentE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -19172,7 +19172,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -19252,7 +19252,7 @@ define linkonce_odr void @_ZN42machines_getMachinesWithEmptyBuilders_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV42machines_getMachinesWithEmptyBuilders_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV42machines_getMachinesWithEmptyBuilders_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20220,7 +20220,7 @@ define linkonce_odr void @_ZN32machines_getMachinesUriOnly_TestC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32machines_getMachinesUriOnly_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32machines_getMachinesUriOnly_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20278,7 +20278,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %5
 
@@ -20574,7 +20574,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx11
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %5
 
@@ -20789,7 +20789,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKjED2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKjE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %5
 
@@ -21004,7 +21004,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKfED2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKfEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKfEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKfE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %5
 
@@ -21221,7 +21221,7 @@ define linkonce_odr void @_ZN33machines_getMachinesDefaults_TestC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33machines_getMachinesDefaults_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33machines_getMachinesDefaults_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21281,7 +21281,7 @@ define linkonce_odr void @_ZN45machines_getMachinesWithNewLineSeparator_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV45machines_getMachinesWithNewLineSeparator_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV45machines_getMachinesWithNewLineSeparator_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21351,7 +21351,7 @@ define linkonce_odr void @_ZN47machines_getMachinesWithSemicolonSeparator_TestC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV47machines_getMachinesWithSemicolonSeparator_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV47machines_getMachinesWithSemicolonSeparator_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21411,7 +21411,7 @@ define linkonce_odr void @_ZN57machines_getMachinesWithCorrectCompleteSingleBuil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV57machines_getMachinesWithCorrectCompleteSingleBuilder_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV57machines_getMachinesWithCorrectCompleteSingleBuilder_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21471,7 +21471,7 @@ define linkonce_odr void @_ZN79machines_getMachinesWithCorrectCompleteSingleBuil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV79machines_getMachinesWithCorrectCompleteSingleBuilderWithTabColumnDelimiter_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV79machines_getMachinesWithCorrectCompleteSingleBuilderWithTabColumnDelimiter_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21531,7 +21531,7 @@ define linkonce_odr void @_ZN41machines_getMachinesWithMultiOptions_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41machines_getMachinesWithMultiOptions_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41machines_getMachinesWithMultiOptions_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21591,7 +21591,7 @@ define linkonce_odr void @_ZN44machines_getMachinesWithIncorrectFormat_TestC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44machines_getMachinesWithIncorrectFormat_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44machines_getMachinesWithIncorrectFormat_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -22930,7 +22930,7 @@ define linkonce_odr void @_ZN49machines_getMachinesWithCorrectFileReference_Test
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV49machines_getMachinesWithCorrectFileReference_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV49machines_getMachinesWithCorrectFileReference_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -23028,7 +23028,7 @@ define linkonce_odr void @_ZN60machines_getMachinesWithCorrectFileReferenceToEmp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV60machines_getMachinesWithCorrectFileReferenceToEmptyFile_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV60machines_getMachinesWithCorrectFileReferenceToEmptyFile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -23088,7 +23088,7 @@ define linkonce_odr void @_ZN51machines_getMachinesWithIncorrectFileReference_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV51machines_getMachinesWithIncorrectFileReference_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV51machines_getMachinesWithIncorrectFileReference_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -23190,7 +23190,7 @@ define linkonce_odr void @_ZN64machines_getMachinesWithCorrectFileReferenceToInc
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV64machines_getMachinesWithCorrectFileReferenceToIncorrectFile_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV64machines_getMachinesWithCorrectFileReferenceToIncorrectFile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -23384,7 +23384,7 @@ define linkonce_odr void @_ZN7testing25StringMatchResultListenerC2Ev(ptr noundef
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %5, i32 0, i32 1
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
@@ -23396,7 +23396,7 @@ define linkonce_odr void @_ZN7testing25StringMatchResultListenerC2Ev(ptr noundef
 10:                                               ; preds = %8, %1
   %11 = phi ptr [ %9, %8 ], [ null, %1 ]
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %12 = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %5, i32 0, i32 1
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12)
           to label %13 unwind label %14
@@ -23629,7 +23629,7 @@ define linkonce_odr void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #1
   call void @_ZN7testing19MatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #1
@@ -23727,7 +23727,7 @@ define linkonce_odr void @_ZN7testing8internal13SizeIsMatcherIiE4ImplIRKSt6vecto
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKSt6vectorIN3nix7MachineESaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKSt6vectorIN3nix7MachineESaIS6_EEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKSt6vectorIN3nix7MachineESaIS6_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::internal::SizeIsMatcher<int>::Impl", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing11MatcherCastImiEENS_7MatcherIT_EERKT0_(ptr dead_on_unwind writable sret(%"class.testing::Matcher.142") align 8 %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -23763,7 +23763,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKSt6vectorIN3nix7MachineESaIS3_EE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIN3nix7MachineESaIS4_EEEC2IS8_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorIN3nix7MachineESaIS3_EEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt6vectorIN3nix7MachineESaIS3_EEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -23773,7 +23773,7 @@ define linkonce_odr void @_ZN7testing16MatcherInterfaceIRKSt6vectorIN3nix7Machin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt6vectorIN3nix7MachineESaIS3_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt6vectorIN3nix7MachineESaIS3_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -23793,7 +23793,7 @@ define linkonce_odr void @_ZN7testing8internal13SizeIsMatcherIiE4ImplIRKSt6vecto
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKSt6vectorIN3nix7MachineESaIS6_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKSt6vectorIN3nix7MachineESaIS6_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::internal::SizeIsMatcher<int>::Impl", ptr %3, i32 0, i32 1
   call void @_ZN7testing7MatcherImED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKSt6vectorIN3nix7MachineESaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
@@ -23936,7 +23936,7 @@ define linkonce_odr void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -24027,7 +24027,7 @@ define linkonce_odr void @_ZN7testing7MatcherImEC2Em(ptr noundef nonnull align 8
   store i64 %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN7testing8internal11MatcherBaseImEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherImEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherImEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = load i64, ptr %4, align 8
   %11 = invoke i64 @_ZN7testing2EqImEENS_8internal9EqMatcherIT_EES3_(i64 noundef %10)
           to label %12 unwind label %18
@@ -24084,7 +24084,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseImEC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseImEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseImEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::internal::MatcherBase.143", ptr %3, i32 0, i32 1
   store ptr null, ptr %4, align 8
   ret void
@@ -24111,7 +24111,7 @@ define linkonce_odr void @_ZN7testing7MatcherImEC2INS_8internal9EqMatcherImEEvEE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseImEC2INS0_9EqMatcherImEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherImEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherImEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -24263,7 +24263,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseImED2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseImEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseImEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN7testing8internal11MatcherBaseImE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %5
 
@@ -24325,7 +24325,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseImEC2INS0_9EqMatcherI
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseImEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseImEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing8internal11MatcherBaseImE4InitINS0_9EqMatcherImEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %9 unwind label %10
@@ -25091,7 +25091,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIN3nix7Ma
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIN3nix7MachineESaIS4_EEE4InitIRPKNS_16MatcherInterfaceIS8_EEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %9
 
@@ -25203,7 +25203,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIN3nix7Ma
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKSt6vectorIN3nix7MachineESaIS4_EEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %5
 
@@ -26055,7 +26055,7 @@ define linkonce_odr void @_ZN7testing8internal24DummyMatchResultListenerC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -26134,7 +26134,7 @@ define linkonce_odr void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef non
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.testing::MatchResultListener", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -26923,7 +26923,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11c
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKSA_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -26937,7 +26937,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %9, i32 0, i32 1
@@ -27081,7 +27081,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11c
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IRKNS0_9EqMatcherIPKcEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -27095,7 +27095,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4InitIRKNS0_9EqMatcherIPKcEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %9 unwind label %10
@@ -27887,7 +27887,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal12FieldMat
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix7MachineEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS4_EE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS4_EE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::FieldMatcher<nix::Machine, const std::__cxx11::basic_string<char>>>::MonomorphicImpl", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing8internal12FieldMatcherIN3nix7MachineEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKSB_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9)
@@ -27923,7 +27923,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKN3nix7MachineEEC2EPKNS_16Matcher
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKN3nix7MachineEEC2IS5_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN3nix7MachineEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN3nix7MachineEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -27933,7 +27933,7 @@ define linkonce_odr void @_ZN7testing16MatcherInterfaceIRKN3nix7MachineEEC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN3nix7MachineEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN3nix7MachineEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -27942,7 +27942,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal12FieldMat
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS4_EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS4_EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::FieldMatcher<nix::Machine, const std::__cxx11::basic_string<char>>>::MonomorphicImpl", ptr %3, i32 0, i32 1
   call void @_ZN7testing8internal12FieldMatcherIN3nix7MachineEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKN3nix7MachineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
@@ -28427,7 +28427,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKN3nix7MachineEEC2I
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN3nix7MachineEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN3nix7MachineEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKN3nix7MachineEE4InitIRPKNS_16MatcherInterfaceIS5_EEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %9
 
@@ -28539,7 +28539,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKN3nix7MachineEED2E
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN3nix7MachineEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN3nix7MachineEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKN3nix7MachineEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %5
 
@@ -29627,7 +29627,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKSt3setINSt7__cxx1112basic_string
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEC2ERKSF_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -29639,7 +29639,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx11
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.testing::internal::MatcherBase.83", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.testing::internal::MatcherBase.83", ptr %7, i32 0, i32 1
@@ -29954,7 +29954,7 @@ define linkonce_odr void @_ZN7testing8internal22ElementsAreMatcherImplIRKSt3setI
   store ptr %0, ptr %6, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN7testing16MatcherInterfaceIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"class.testing::internal::ElementsAreMatcherImpl", ptr %13, i32 0, i32 1
   call void @_ZNSt6vectorIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaISA_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #1
   br label %15
@@ -30025,7 +30025,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKSt3setINSt7__cxx1112basic_string
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEC2ISE_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -31182,7 +31182,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11c
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOSA_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -31194,7 +31194,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.testing::internal::MatcherBase", ptr %7, i32 0, i32 1
@@ -31417,7 +31417,7 @@ define linkonce_odr void @_ZN7testing16MatcherInterfaceIRKSt3setINSt7__cxx1112ba
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -31473,7 +31473,7 @@ define linkonce_odr void @_ZN7testing8internal22ElementsAreMatcherImplIRKSt3setI
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal22ElementsAreMatcherImplIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::internal::ElementsAreMatcherImpl", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
@@ -33616,7 +33616,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx11
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS8_ESaIS8_EEE4InitIRPKNS_16MatcherInterfaceISE_EEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %9
 
@@ -34602,7 +34602,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal12FieldMat
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix7MachineEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEEEE15MonomorphicImplIRKS4_EE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEEEE15MonomorphicImplIRKS4_EE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::FieldMatcher<nix::Machine, const std::set<std::__cxx11::basic_string<char>>>>::MonomorphicImpl", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing8internal12FieldMatcherIN3nix7MachineEKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEC2ERKSG_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9)
@@ -34634,7 +34634,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal12FieldMat
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEEEE15MonomorphicImplIRKS4_EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISB_ESaISB_EEEEE15MonomorphicImplIRKS4_EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::FieldMatcher<nix::Machine, const std::set<std::__cxx11::basic_string<char>>>>::MonomorphicImpl", ptr %3, i32 0, i32 1
   call void @_ZN7testing8internal12FieldMatcherIN3nix7MachineEKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKN3nix7MachineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
@@ -35220,7 +35220,7 @@ define linkonce_odr void @_ZN7testing8internal13SizeIsMatcherIiE4ImplIRKNSt7__cx
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::internal::SizeIsMatcher<int>::Impl.228", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing11MatcherCastImiEENS_7MatcherIT_EERKT0_(ptr dead_on_unwind writable sret(%"class.testing::Matcher.142") align 8 %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -35256,7 +35256,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11c
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IS9_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -35266,7 +35266,7 @@ define linkonce_odr void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_str
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -35275,7 +35275,7 @@ define linkonce_odr void @_ZN7testing8internal13SizeIsMatcherIiE4ImplIRKNSt7__cx
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::internal::SizeIsMatcher<int>::Impl.228", ptr %3, i32 0, i32 1
   call void @_ZN7testing7MatcherImED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
@@ -35440,7 +35440,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4InitIRPKNS_16MatcherInterfaceIS9_EEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %9
 
@@ -36362,7 +36362,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKjEC2ERKS3_(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKjEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKjEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKjEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -36374,7 +36374,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKjEC2ERKS4_(ptr nou
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.testing::internal::MatcherBase.91", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.testing::internal::MatcherBase.91", ptr %7, i32 0, i32 1
@@ -36438,7 +36438,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKjEC2IRKNS_8internal9EqMatcherIiE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKjEC2IRKNS0_9EqMatcherIiEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKjEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKjEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -36452,7 +36452,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKjEC2IRKNS0_9EqMatc
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKjEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKjE4InitIRKNS0_9EqMatcherIiEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %9 unwind label %10
@@ -37039,7 +37039,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal12FieldMat
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix7MachineEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKjEEE15MonomorphicImplIRKS4_EE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKjEEE15MonomorphicImplIRKS4_EE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::FieldMatcher<nix::Machine, const unsigned int>>::MonomorphicImpl", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing8internal12FieldMatcherIN3nix7MachineEKjEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9)
@@ -37071,7 +37071,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal12FieldMat
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKjEEE15MonomorphicImplIRKS4_EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKjEEE15MonomorphicImplIRKS4_EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::FieldMatcher<nix::Machine, const unsigned int>>::MonomorphicImpl", ptr %3, i32 0, i32 1
   call void @_ZN7testing8internal12FieldMatcherIN3nix7MachineEKjED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKN3nix7MachineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
@@ -37642,7 +37642,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKfEC2ERKS3_(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKfEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKfEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKfEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -37654,7 +37654,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKfEC2ERKS4_(ptr nou
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKfEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKfEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.testing::internal::MatcherBase.98", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.testing::internal::MatcherBase.98", ptr %7, i32 0, i32 1
@@ -37718,7 +37718,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKfEC2IRKNS_8internal9EqMatcherIiE
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKfEC2IRKNS0_9EqMatcherIiEEvEEOT_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 4 dereferenceable(4) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKfEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKfEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -37732,7 +37732,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKfEC2IRKNS0_9EqMatc
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKfEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKfEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKfE4InitIRKNS0_9EqMatcherIiEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 4 dereferenceable(4) %8)
           to label %9 unwind label %10
@@ -38179,7 +38179,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal12FieldMat
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix7MachineEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKfEEE15MonomorphicImplIRKS4_EE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKfEEE15MonomorphicImplIRKS4_EE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::FieldMatcher<nix::Machine, const float>>::MonomorphicImpl", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing8internal12FieldMatcherIN3nix7MachineEKfEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 8 dereferenceable(64) %9)
@@ -38211,7 +38211,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal12FieldMat
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKfEEE15MonomorphicImplIRKS4_EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKfEEE15MonomorphicImplIRKS4_EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::FieldMatcher<nix::Machine, const float>>::MonomorphicImpl", ptr %3, i32 0, i32 1
   call void @_ZN7testing8internal12FieldMatcherIN3nix7MachineEKfED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKN3nix7MachineEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
@@ -38726,7 +38726,7 @@ define linkonce_odr void @_ZN7testing8internal13SizeIsMatcherIiE4ImplIRKSt3setIN
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::internal::SizeIsMatcher<int>::Impl.263", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing11MatcherCastImiEENS_7MatcherIT_EERKT0_(ptr dead_on_unwind writable sret(%"class.testing::Matcher.142") align 8 %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -38758,7 +38758,7 @@ define linkonce_odr void @_ZN7testing8internal13SizeIsMatcherIiE4ImplIRKSt3setIN
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal13SizeIsMatcherIiE4ImplIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessISA_ESaISA_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::internal::SizeIsMatcher<int>::Impl.263", ptr %3, i32 0, i32 1
   call void @_ZN7testing7MatcherImED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS7_ESaIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
@@ -39048,7 +39048,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal15EndsWith
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal15EndsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal15EndsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::EndsWithMatcher<std::__cxx11::basic_string<char>>>::MonomorphicImpl", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN7testing8internal15EndsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERKS8_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -39080,7 +39080,7 @@ define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal15EndsWith
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal15EndsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal15EndsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEE15MonomorphicImplIRKS8_EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::PolymorphicMatcher<testing::internal::EndsWithMatcher<std::__cxx11::basic_string<char>>>::MonomorphicImpl", ptr %3, i32 0, i32 1
   call void @_ZN7testing8internal15EndsWithMatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
@@ -39522,7 +39522,7 @@ define linkonce_odr void @_ZN7testing8internal19ContainsMatcherImplIRKSt6vectorI
 
 9:                                                ; preds = %2
   call void @_ZN7testing18PolymorphicMatcherINS_8internal12FieldMatcherIN3nix7MachineEKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal19ContainsMatcherImplIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal19ContainsMatcherImplIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, i32 0, i32 2), ptr %8, align 8
   ret void
 
 10:                                               ; preds = %2
@@ -39553,7 +39553,7 @@ define linkonce_odr void @_ZN7testing8internal21QuantifierMatcherImplIRKSt6vecto
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKSt6vectorIN3nix7MachineESaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal21QuantifierMatcherImplIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal21QuantifierMatcherImplIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.testing::internal::QuantifierMatcherImpl", ptr %7, i32 0, i32 1
   invoke void @_ZN7testing15SafeMatcherCastIRKN3nix7MachineENS_18PolymorphicMatcherINS_8internal12FieldMatcherIS2_KNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEEEENS_7MatcherIT_EERKT0_(ptr dead_on_unwind writable sret(%"class.testing::Matcher.175") align 8 %8, ptr noundef nonnull align 8 dereferenceable(64) %1)
           to label %9 unwind label %10
@@ -39648,7 +39648,7 @@ define linkonce_odr void @_ZN7testing8internal21QuantifierMatcherImplIRKSt6vecto
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal21QuantifierMatcherImplIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal21QuantifierMatcherImplIRKSt6vectorIN3nix7MachineESaIS4_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::internal::QuantifierMatcherImpl", ptr %3, i32 0, i32 1
   call void @_ZN7testing7MatcherIRKN3nix7MachineEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #1
   call void @_ZN7testing16MatcherInterfaceIRKSt6vectorIN3nix7MachineESaIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1

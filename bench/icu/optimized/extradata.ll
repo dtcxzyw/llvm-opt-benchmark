@@ -45,9 +45,9 @@ invoke.cont:
   %status.i = alloca i32, align 4
   %norms.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %n, ptr %norms.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ExtraDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ExtraDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %maybeYesCompositions = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %maybeYesCompositions, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %maybeYesCompositions, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 24
   store i16 2, ptr %fUnion2.i, align 8
   %yesYesCompositions = getelementptr inbounds i8, ptr %this, i64 80
@@ -66,19 +66,19 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 invoke.cont15:                                    ; preds = %invoke.cont5
   %noNoMappingsCompYes = getelementptr inbounds i8, ptr %this, i64 272
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %noNoMappingsCompYes, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %noNoMappingsCompYes, align 8
   %fUnion2.i13 = getelementptr inbounds i8, ptr %this, i64 280
   store i16 2, ptr %fUnion2.i13, align 8
   %noNoMappingsCompBoundaryBefore = getelementptr inbounds i8, ptr %this, i64 336
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %noNoMappingsCompBoundaryBefore, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %noNoMappingsCompBoundaryBefore, align 8
   %fUnion2.i14 = getelementptr inbounds i8, ptr %this, i64 344
   store i16 2, ptr %fUnion2.i14, align 8
   %noNoMappingsCompNoMaybeCC = getelementptr inbounds i8, ptr %this, i64 400
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %noNoMappingsCompNoMaybeCC, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %noNoMappingsCompNoMaybeCC, align 8
   %fUnion2.i15 = getelementptr inbounds i8, ptr %this, i64 408
   store i16 2, ptr %fUnion2.i15, align 8
   %noNoMappingsEmpty = getelementptr inbounds i8, ptr %this, i64 464
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %noNoMappingsEmpty, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %noNoMappingsEmpty, align 8
   %fUnion2.i16 = getelementptr inbounds i8, ptr %this, i64 472
   store i16 2, ptr %fUnion2.i16, align 8
   %optimizeFast = getelementptr inbounds i8, ptr %this, i64 528
@@ -473,7 +473,7 @@ entry:
   %newMapping = alloca %"class.icu_75::UnicodeString", align 8
   %found = alloca i8, align 1
   %errorCode = alloca %"class.icu_75::IcuToolErrorCode", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %newMapping, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %newMapping, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %newMapping, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef i32 @_ZN6icu_759ExtraData12writeMappingEiRKNS_4NormERNS_13UnicodeStringE(ptr nonnull align 8 poison, i32 noundef %c, ptr noundef nonnull align 8 dereferenceable(64) %norm, ptr noundef nonnull align 8 dereferenceable(64) %newMapping)
@@ -518,7 +518,7 @@ invoke.cont4:                                     ; preds = %invoke.cont2
 invoke.cont8:                                     ; preds = %invoke.cont4
   %errorCode.i.i = getelementptr inbounds i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %errorCode, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, i32 0, i64 2), ptr %errorCode, align 8
   %location.i = getelementptr inbounds i8, ptr %errorCode, i64 16
   store ptr @.str.1, ptr %location.i, align 8
   %9 = load ptr, ptr %previousMappings, align 8
@@ -962,7 +962,7 @@ sw.epilog:                                        ; preds = %_ZNK6icu_759ExtraDa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6icu_759ExtraDataD2Ev(ptr noundef nonnull align 8 dereferenceable(888) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ExtraDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ExtraDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %previousNoNoMappingsEmpty = getelementptr inbounds i8, ptr %this, i64 800
   %0 = load ptr, ptr %previousNoNoMappingsEmpty, align 8
   %cmp.not.i = icmp eq ptr %0, null

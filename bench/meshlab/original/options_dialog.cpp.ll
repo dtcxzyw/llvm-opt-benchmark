@@ -397,9 +397,9 @@ define void @_ZN20MeshLabOptionsDialogC2ER17RichParameterListRKS0_P7QWidget(ptr 
   %24 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %25 = load i32, ptr %24, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef %23, i32 %25)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV20MeshLabOptionsDialog, i32 0, inrange i32 0, i32 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV20MeshLabOptionsDialog, i32 0, i32 0, i32 2), ptr %22, align 8
   %26 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV20MeshLabOptionsDialog, i32 0, inrange i32 1, i32 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV20MeshLabOptionsDialog, i32 0, i32 1, i32 2), ptr %26, align 8
   %27 = getelementptr inbounds %class.MeshLabOptionsDialog, ptr %22, i32 0, i32 1
   %28 = load ptr, ptr %6, align 8
   store ptr %28, ptr %27, align 8

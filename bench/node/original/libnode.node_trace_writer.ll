@@ -457,7 +457,7 @@ entry:
   store ptr %log_file_pattern, ptr %log_file_pattern.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7tracing16AsyncTraceWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %tracing_loop_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 1
   store ptr null, ptr %tracing_loop_, align 8
   %stream_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 4
@@ -498,7 +498,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing16AsyncTraceWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing16AsyncTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -823,7 +823,7 @@ entry:
   %scoped_lock = alloca %"class.node::MutexBase<node::LibuvMutexTraits>::ScopedLock", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   call void @_ZN4node7tracing15NodeTraceWriter11WriteSuffixEv(ptr noundef nonnull align 8 dereferenceable(1409) %this1)
   %fd_ = getelementptr inbounds %"class.node::tracing::NodeTraceWriter", ptr %this1, i32 0, i32 8
   %0 = load i32, ptr %fd_, align 8

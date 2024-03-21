@@ -384,7 +384,7 @@ define void @_ZN11CaptureFileC2EP7QObjectP13_capture_file(ptr noundef nonnull al
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11CaptureFile, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11CaptureFile, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.CaptureFile, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   store ptr %12, ptr %11, align 8
@@ -458,7 +458,7 @@ define void @_ZN11CaptureFileD2Ev(ptr noundef nonnull align 8 dereferenceable(48
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11CaptureFile, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11CaptureFile, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @cf_callback_remove(ptr noundef @_ZN11CaptureFile19captureFileCallbackEiPvS0_, ptr noundef %3)
           to label %4 unwind label %6
 

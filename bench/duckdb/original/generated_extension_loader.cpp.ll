@@ -70,7 +70,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %extension) #15
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb16ParquetExtensionE, i64 0, inrange i32 0, i64 2), ptr %extension, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb16ParquetExtensionE, i64 0, i32 0, i64 2), ptr %extension, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #15
   invoke void @_ZN6duckdb16ParquetExtension4NameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %extension)
           to label %invoke.cont unwind label %lpad
@@ -217,7 +217,7 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %extension) #15
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb17JemallocExtensionE, i64 0, inrange i32 0, i64 2), ptr %extension, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb17JemallocExtensionE, i64 0, i32 0, i64 2), ptr %extension, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp) #15
   invoke void @_ZN6duckdb17JemallocExtension4NameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(8) %extension)
           to label %invoke.cont unwind label %lpad

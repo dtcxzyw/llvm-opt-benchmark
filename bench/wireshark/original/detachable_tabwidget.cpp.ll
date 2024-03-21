@@ -581,9 +581,9 @@ define void @_ZN19DetachableTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 de
   %14 = load ptr, ptr %3, align 8
   %15 = load ptr, ptr %4, align 8
   call void @_ZN10QTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.DetachableTabWidget, ptr %14, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #9
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #10
@@ -1490,9 +1490,9 @@ define void @_ZN10ToolDialogC2EP7QWidgetS1_6QFlagsIN2Qt10WindowTypeEE(ptr nounde
   %17 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %18 = load i32, ptr %17, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %16, i32 %18)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV10ToolDialog, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV10ToolDialog, i32 0, i32 0, i32 2), ptr %15, align 8
   %19 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV10ToolDialog, i32 0, inrange i32 1, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV10ToolDialog, i32 0, i32 1, i32 2), ptr %19, align 8
   %20 = load ptr, ptr %7, align 8
   %21 = getelementptr inbounds %class.ToolDialog, ptr %15, i32 0, i32 1
   store ptr %20, ptr %21, align 8
@@ -1686,9 +1686,9 @@ define void @_ZN14DragDropTabBarC2EP7QWidget(ptr noundef nonnull align 8 derefer
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN7QTabBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV14DragDropTabBar, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV14DragDropTabBar, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV14DragDropTabBar, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV14DragDropTabBar, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 1
   call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %13) #9
   %14 = getelementptr inbounds %class.DragDropTabBar, ptr %10, i32 0, i32 2

@@ -119,7 +119,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN8ConstantC2EPK4TypeRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -148,7 +148,7 @@ declare void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN8ConstantC2ERKS_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -170,7 +170,7 @@ define dso_local void @_ZN8ConstantC2ERKS_(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN8ConstantD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
@@ -182,7 +182,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN8ConstantD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   tail call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #16
@@ -200,7 +200,7 @@ define dso_local noundef nonnull ptr @_ZNK8Constant5cloneEv(ptr noundef nonnull 
           to label %.noexc unwind label %10
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -671,7 +671,7 @@ define dso_local noundef ptr @_ZN8Constant11make_randomEPK4Type(ptr noundef %0) 
           to label %.noexc unwind label %13
 
 .noexc:                                           ; preds = %8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, i32 0, i64 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 32
@@ -1708,7 +1708,7 @@ define dso_local noundef ptr @_ZN8Constant16make_random_uptoEj(i32 noundef %0) l
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %16
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, i32 0, i64 2), ptr %12, align 8
   %17 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %14, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 32
@@ -1807,7 +1807,7 @@ define dso_local noundef ptr @_ZN8Constant19make_random_nonzeroEPK4Type(ptr noun
           to label %.noexc unwind label %18
 
 .noexc:                                           ; preds = %13
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, i32 0, i64 2), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 24
   store ptr %0, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 32
@@ -1901,7 +1901,7 @@ define dso_local noundef ptr @_ZN8Constant8make_intEi(i32 noundef %0) local_unna
           to label %.noexc unwind label %37
 
 .noexc:                                           ; preds = %21
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, inrange i32 0, i64 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i64 0, i32 0, i64 2), ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %20, i64 24
   store ptr %6, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %20, i64 32

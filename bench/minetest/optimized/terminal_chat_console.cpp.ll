@@ -242,7 +242,7 @@ define linkonce_odr dso_local void @_ZN19TerminalChatConsoleC2Ev(ptr noundef non
 
 13:                                               ; preds = %12, %9
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19TerminalChatConsole, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19TerminalChatConsole, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %14 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 3, ptr %14, align 8, !tbaa !16
   %15 = getelementptr inbounds i8, ptr %0, i64 152
@@ -278,7 +278,7 @@ define linkonce_odr dso_local void @_ZN19TerminalChatConsoleC2Ev(ptr noundef non
 
 30:                                               ; preds = %13
   %31 = getelementptr inbounds i8, ptr %0, i64 664
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TermLogOutput, i64 0, inrange i32 0, i64 2), ptr %31, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TermLogOutput, i64 0, i32 0, i64 2), ptr %31, align 8, !tbaa !14
   %32 = getelementptr inbounds i8, ptr %0, i64 672
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %32, i8 0, i64 80, i1 false)
   invoke void @_ZNSt11_Deque_baseISt4pairI8LogLevelNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS8_EE17_M_initialize_mapEm(ptr noundef nonnull align 8 dereferenceable(80) %32, i64 noundef 0)
@@ -387,9 +387,9 @@ define linkonce_odr dso_local void @_ZN19TerminalChatConsoleC2Ev(ptr noundef non
 define linkonce_odr dso_local void @_ZN19TerminalChatConsoleD2Ev(ptr noundef nonnull align 8 dereferenceable(844) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::_Deque_iterator", align 16
   %3 = alloca %"struct.std::_Deque_iterator", align 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19TerminalChatConsole, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19TerminalChatConsole, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !14
   %4 = getelementptr inbounds i8, ptr %0, i64 664
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TermLogOutput, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TermLogOutput, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds i8, ptr %0, i64 672
   %6 = getelementptr inbounds i8, ptr %0, i64 792
   tail call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #22
@@ -3861,7 +3861,7 @@ define linkonce_odr dso_local void @_ZN13TermLogOutput3logE8LogLevelRKNSt7__cxx1
   %92 = getelementptr inbounds i8, ptr %7, i64 %91
   store ptr %89, ptr %92, align 8, !tbaa !14
   %93 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %93, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %93, align 8, !tbaa !14
   %94 = getelementptr inbounds i8, ptr %7, i64 80
   %95 = load ptr, ptr %94, align 8, !tbaa !13
   %96 = getelementptr inbounds i8, ptr %7, i64 96
@@ -3880,7 +3880,7 @@ define linkonce_odr dso_local void @_ZN13TermLogOutput3logE8LogLevelRKNSt7__cxx1
   br label %103
 
 103:                                              ; preds = %102, %98
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %93, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %93, align 8, !tbaa !14
   %104 = getelementptr inbounds i8, ptr %7, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %104) #22
   %105 = getelementptr inbounds i8, ptr %7, i64 112

@@ -1517,7 +1517,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv7BBProofE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv7BBProofE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_bb = getelementptr inbounds %"class.cvc5::internal::theory::bv::BBProof", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 6112) #14
           to label %invoke.cont unwind label %lpad
@@ -1750,7 +1750,7 @@ entry:
   store i32 %id, ptr %id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal11TermContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal21TheoryLeafTermContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal21TheoryLeafTermContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_theoryId = getelementptr inbounds %"class.cvc5::internal::TheoryLeafTermContext", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %id.addr, align 4
   store i32 %0, ptr %d_theoryId, align 8
@@ -2066,7 +2066,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv7BBProofE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv7BBProofE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_bbMap = getelementptr inbounds %"class.cvc5::internal::theory::bv::BBProof", ptr %this1, i32 0, i32 5
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_bbMap) #3
   %d_bbpg = getelementptr inbounds %"class.cvc5::internal::theory::bv::BBProof", ptr %this1, i32 0, i32 4
@@ -5602,7 +5602,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal11TermContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal11TermContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

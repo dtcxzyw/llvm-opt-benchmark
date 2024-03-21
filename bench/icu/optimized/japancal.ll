@@ -66,7 +66,7 @@ entry:
 define void @_ZN6icu_7516JapaneseCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7517GregorianCalendarC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   invoke fastcc void @_ZN6icu_75L4initER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %success)
           to label %invoke.cont unwind label %lpad
 
@@ -183,7 +183,7 @@ define void @_ZN6icu_7516JapaneseCalendarC2ERKS0_(ptr noundef nonnull align 8 de
 entry:
   %status = alloca i32, align 4
   tail call void @_ZN6icu_7517GregorianCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(654) %this, ptr noundef nonnull align 8 dereferenceable(654) %source)
-  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr] }, ptr @_ZTVN6icu_7516JapaneseCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   store i32 0, ptr %status, align 4
   invoke fastcc void @_ZN6icu_75L4initER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad

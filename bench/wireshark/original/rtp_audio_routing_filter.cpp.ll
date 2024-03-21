@@ -46,7 +46,7 @@ define void @_ZN18AudioRoutingFilterC2EP9QIODeviceb12AudioRouting(ptr noundef no
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN9QIODeviceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV18AudioRoutingFilter, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV18AudioRoutingFilter, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.AudioRoutingFilter, ptr %13, i32 0, i32 1
   %16 = load ptr, ptr %7, align 8
   store ptr %16, ptr %15, align 8

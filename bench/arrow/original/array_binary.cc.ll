@@ -598,7 +598,7 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15BaseBinaryArrayINS_10BinaryTypeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11BinaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11BinaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %data.addr, align 8
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
   %type = getelementptr inbounds %"struct.arrow::ArrayData", ptr %call, i32 0, i32 0
@@ -700,7 +700,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow9FlatArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BaseBinaryArrayINS_10BinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BaseBinaryArrayINS_10BinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %raw_value_offsets_ = getelementptr inbounds %"class.arrow::BaseBinaryArray", ptr %this1, i32 0, i32 1
   store ptr null, ptr %raw_value_offsets_, align 8
   %raw_data_ = getelementptr inbounds %"class.arrow::BaseBinaryArray", ptr %this1, i32 0, i32 2
@@ -871,7 +871,7 @@ entry:
   store i64 %offset, ptr %offset.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15BaseBinaryArrayINS_10BinaryTypeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11BinaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11BinaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow6binaryEv()
           to label %invoke.cont unwind label %lpad
 
@@ -1167,7 +1167,7 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeBinaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeBinaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %data.addr, align 8
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
   %type = getelementptr inbounds %"struct.arrow::ArrayData", ptr %call, i32 0, i32 0
@@ -1269,7 +1269,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow9FlatArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %raw_value_offsets_ = getelementptr inbounds %"class.arrow::BaseBinaryArray.18", ptr %this1, i32 0, i32 1
   store ptr null, ptr %raw_value_offsets_, align 8
   %raw_data_ = getelementptr inbounds %"class.arrow::BaseBinaryArray.18", ptr %this1, i32 0, i32 2
@@ -1384,7 +1384,7 @@ entry:
   store i64 %offset, ptr %offset.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeBinaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeBinaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow12large_binaryEv()
           to label %invoke.cont unwind label %lpad
 
@@ -1531,7 +1531,7 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow11BinaryArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11StringArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11StringArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %data.addr, align 8
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
   %type = getelementptr inbounds %"struct.arrow::ArrayData", ptr %call, i32 0, i32 0
@@ -1632,7 +1632,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 48, i1 false)
   call void @_ZN5arrow15BaseBinaryArrayINS_10BinaryTypeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11BinaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11BinaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1692,7 +1692,7 @@ entry:
   store i64 %offset, ptr %offset.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow11BinaryArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11StringArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow11StringArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow4utf8Ev()
           to label %invoke.cont unwind label %lpad
 
@@ -1874,7 +1874,7 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow16LargeBinaryArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeStringArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeStringArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %data.addr, align 8
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #11
   %type = getelementptr inbounds %"struct.arrow::ArrayData", ptr %call, i32 0, i32 0
@@ -1975,7 +1975,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 48, i1 false)
   call void @_ZN5arrow15BaseBinaryArrayINS_15LargeBinaryTypeEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeBinaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeBinaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2035,7 +2035,7 @@ entry:
   store i64 %offset, ptr %offset.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow16LargeBinaryArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeStringArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow16LargeStringArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow10large_utf8Ev()
           to label %invoke.cont unwind label %lpad
 
@@ -2197,7 +2197,7 @@ entry:
   store ptr %data, ptr %data.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow9FlatArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BinaryViewArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BinaryViewArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %data) #11
   %type = getelementptr inbounds %"struct.arrow::ArrayData", ptr %call, i32 0, i32 0
   %call2 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %type) #11
@@ -2306,7 +2306,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow5ArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow9FlatArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow9FlatArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2400,7 +2400,7 @@ entry:
   store i64 %offset, ptr %offset.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow9FlatArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BinaryViewArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BinaryViewArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call ptr @_ZNSt6vectorISt10shared_ptrIN5arrow6BufferEESaIS3_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %buffers) #11
   %coerce.dive = getelementptr inbounds %"class.__gnu_cxx::__normal_iterator", ptr %ref.tmp, i32 0, i32 0
   store ptr %call, ptr %coerce.dive, align 8
@@ -2677,7 +2677,7 @@ entry:
   store ptr %data, ptr %data.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow15BinaryViewArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15StringViewArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15StringViewArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %data) #11
   %type = getelementptr inbounds %"struct.arrow::ArrayData", ptr %call, i32 0, i32 0
   %call2 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %type) #11
@@ -2786,7 +2786,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow9FlatArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BinaryViewArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15BinaryViewArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2815,7 +2815,7 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow14PrimitiveArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow20FixedSizeBinaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow20FixedSizeBinaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %data.addr, align 8
   invoke void @_ZN5arrow20FixedSizeBinaryArray7SetDataERKSt10shared_ptrINS_9ArrayDataEE(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %invoke.cont unwind label %lpad
@@ -2848,7 +2848,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow9FlatArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #11
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow14PrimitiveArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow14PrimitiveArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %raw_values_ = getelementptr inbounds %"class.arrow::PrimitiveArray", ptr %this1, i32 0, i32 1
   store ptr null, ptr %raw_values_, align 8
   ret void
@@ -2903,7 +2903,7 @@ entry:
   %4 = load i64, ptr %null_count.addr, align 8
   %5 = load i64, ptr %offset.addr, align 8
   call void @_ZN5arrow14PrimitiveArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_INS_6BufferEES9_ll(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %4, i64 noundef %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow20FixedSizeBinaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow20FixedSizeBinaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %byte_width_ = getelementptr inbounds %"class.arrow::FixedSizeBinaryArray", ptr %this1, i32 0, i32 1
   %6 = load ptr, ptr %type.addr, align 8
   %call = call noundef nonnull align 8 dereferenceable(72) ptr @_ZNKSt19__shared_ptr_accessIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEdeEv(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
@@ -3588,7 +3588,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.arrow::Array", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN5arrow9ArrayDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_) #11
   %null_bitmap_data_ = getelementptr inbounds %"class.arrow::Array", ptr %this1, i32 0, i32 2
@@ -3633,7 +3633,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.arrow::Array", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_) #11
   ret void

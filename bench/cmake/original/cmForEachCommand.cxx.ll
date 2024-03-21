@@ -6351,7 +6351,7 @@ define internal void @_ZN12_GLOBAL__N_124cmForEachFunctionBlockerC2EP10cmMakefil
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN17cmFunctionBlockerC2Ev(ptr noundef nonnull align 8 dereferenceable(148) %7) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124cmForEachFunctionBlockerE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124cmForEachFunctionBlockerE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   %9 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %7, i32 0, i32 3
@@ -6416,7 +6416,7 @@ define linkonce_odr dso_local void @_ZN17cmFunctionBlockerC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1
   call void @_ZN17cmListFileContextC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %4) #3
   %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
@@ -6469,7 +6469,7 @@ define internal void @_ZN12_GLOBAL__N_124cmForEachFunctionBlockerD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124cmForEachFunctionBlockerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124cmForEachFunctionBlockerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.(anonymous namespace)::cmForEachFunctionBlocker", ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
   invoke void @_ZN10cmMakefile12PopLoopBlockEv(ptr noundef nonnull align 8 dereferenceable(3520) %5)
@@ -6656,7 +6656,7 @@ define linkonce_odr dso_local void @_ZN17cmFunctionBlockerD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17cmFunctionBlocker, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorI18cmListFileFunctionSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.cmFunctionBlocker, ptr %3, i32 0, i32 1

@@ -30,7 +30,7 @@ $_ZN4llvh22PrettyStackTraceFormatD0Ev = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh21PrettyStackTraceEntryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh21PrettyStackTraceEntryE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -113,7 +113,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit16:               ; preds = %if.then.i.i14, %if.
 define hidden void @_ZN4llvh22PrettyStackTraceFormatC2EPKcz(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr nocapture noundef readonly %Format, ...) unnamed_addr #4 align 2 {
 entry:
   %AP = alloca [1 x %struct.__va_list_tag], align 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Str = getelementptr inbounds i8, ptr %this, i64 16
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %add.ptr.i.i.i.i.i, ptr %Str, align 8
@@ -383,7 +383,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh22PrettyStackTraceFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Str = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Str, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -401,7 +401,7 @@ _ZN4llvh11SmallVectorIcLj32EED2Ev.exit:           ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh22PrettyStackTraceFormatD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh22PrettyStackTraceFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Str.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Str.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32

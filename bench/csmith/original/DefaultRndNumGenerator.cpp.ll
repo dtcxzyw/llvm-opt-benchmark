@@ -65,7 +65,7 @@ define dso_local void @_ZN22DefaultRndNumGeneratorC2EmP8Sequence(ptr noundef non
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN18AbsRndNumGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV22DefaultRndNumGenerator, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV22DefaultRndNumGenerator, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.DefaultRndNumGenerator, ptr %10, i32 0, i32 1
   store i64 0, ptr %11, align 8
   %12 = getelementptr inbounds %class.DefaultRndNumGenerator, ptr %10, i32 0, i32 2
@@ -119,7 +119,7 @@ define dso_local void @_ZN22DefaultRndNumGeneratorD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV22DefaultRndNumGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV22DefaultRndNumGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN15SequenceFactory17destroy_sequencesEv()
           to label %4 unwind label %6
 

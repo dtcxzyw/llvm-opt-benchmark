@@ -542,11 +542,11 @@ $_ZTISt19_Sp_counted_deleterIPN5arrow10FutureImplESt14default_deleteIS1_ESaIvELN
 $_ZTSSt14default_deleteIN5arrow10FutureImplEE = comdat any
 
 @_ZTVN5arrow2io12ReadableFileE = unnamed_addr constant { [30 x ptr], [5 x ptr], [15 x ptr] } { [30 x ptr] [ptr null, ptr inttoptr (i64 48 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5arrow2io12ReadableFileE, ptr @_ZN5arrow2io12ReadableFileD1Ev, ptr @_ZN5arrow2io12ReadableFileD0Ev, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4ReadElPv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4ReadEl, ptr @_ZNK5arrow2io8Readable10io_contextEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4PeekEl, ptr @_ZNK5arrow2io11InputStream18supports_zero_copyEv, ptr @_ZN5arrow2io11InputStream12ReadMetadataEv, ptr @_ZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextE, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE7GetSizeEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE6ReadAtEllPv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE6ReadAtEll, ptr @_ZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEll, ptr @_ZN5arrow2io16RandomAccessFile13ReadManyAsyncERKNS0_9IOContextERKSt6vectorINS0_9ReadRangeESaIS6_EE, ptr @_ZN5arrow2io12ReadableFile8WillNeedERKSt6vectorINS0_9ReadRangeESaIS3_EE, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE5CloseEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE5AbortEv, ptr @_ZNK5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4TellEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4SeekEl, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE7DoAbortEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE6DoPeekEl, ptr @_ZNK5arrow2io12ReadableFile6closedEv], [5 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN5arrow2io12ReadableFileE, ptr @_ZThn8_N5arrow2io12ReadableFileD1Ev, ptr @_ZThn8_N5arrow2io12ReadableFileD0Ev, ptr @_ZThn8_N5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4SeekEl], [15 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr null, ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN5arrow2io12ReadableFileE, ptr @_ZTv0_n24_N5arrow2io12ReadableFileD1Ev, ptr @_ZTv0_n24_N5arrow2io12ReadableFileD0Ev, ptr @_ZTv0_n32_N5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE5CloseEv, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZTv0_n48_N5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE5AbortEv, ptr @_ZTv0_n56_NK5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4TellEv, ptr @_ZTv0_n64_NK5arrow2io12ReadableFile6closedEv] }, align 8
-@_ZTTN5arrow2io12ReadableFileE = unnamed_addr constant [12 x ptr] [ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i32 0, inrange i32 2, i32 8), ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i32 0, inrange i32 0, i32 8)], align 8
+@_ZTTN5arrow2io12ReadableFileE = unnamed_addr constant [12 x ptr] [ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i32 0, i32 0, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i32 0, inrange i32 2, i32 8), ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i32 0, inrange i32 0, i32 8)], align 8
 @_ZTVN5arrow2io16FileOutputStreamE = unnamed_addr constant { [11 x ptr], [15 x ptr] } { [11 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIN5arrow2io16FileOutputStreamE, ptr @_ZN5arrow2io16FileOutputStreamD1Ev, ptr @_ZN5arrow2io16FileOutputStreamD0Ev, ptr @_ZN5arrow2io16FileOutputStream5WriteEPKvl, ptr @_ZN5arrow2io8Writable5WriteERKSt10shared_ptrINS_6BufferEE, ptr @_ZN5arrow2io8Writable5FlushEv, ptr @_ZN5arrow2io16FileOutputStream5CloseEv, ptr @_ZNK5arrow2io16FileOutputStream6closedEv, ptr @_ZNK5arrow2io16FileOutputStream4TellEv], [15 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr null, ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5arrow2io16FileOutputStreamE, ptr @_ZTv0_n24_N5arrow2io16FileOutputStreamD1Ev, ptr @_ZTv0_n24_N5arrow2io16FileOutputStreamD0Ev, ptr @_ZTv0_n32_N5arrow2io16FileOutputStream5CloseEv, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZN5arrow2io13FileInterface5AbortEv, ptr @_ZTv0_n56_NK5arrow2io16FileOutputStream4TellEv, ptr @_ZTv0_n64_NK5arrow2io16FileOutputStream6closedEv] }, align 8
-@_ZTTN5arrow2io16FileOutputStreamE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16FileOutputStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16FileOutputStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i32 0, inrange i32 1, i32 8)], align 8
+@_ZTTN5arrow2io16FileOutputStreamE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16FileOutputStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16FileOutputStreamE0_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i32 0, inrange i32 1, i32 8)], align 8
 @_ZTVN5arrow2io16MemoryMappedFileE = unnamed_addr constant { [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] } { [29 x ptr] [ptr null, ptr inttoptr (i64 56 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5arrow2io16MemoryMappedFileE, ptr @_ZN5arrow2io16MemoryMappedFileD1Ev, ptr @_ZN5arrow2io16MemoryMappedFileD0Ev, ptr @_ZN5arrow2io16MemoryMappedFile4ReadElPv, ptr @_ZN5arrow2io16MemoryMappedFile4ReadEl, ptr @_ZNK5arrow2io8Readable10io_contextEv, ptr @_ZN5arrow2io11InputStream4PeekEl, ptr @_ZNK5arrow2io16MemoryMappedFile18supports_zero_copyEv, ptr @_ZN5arrow2io11InputStream12ReadMetadataEv, ptr @_ZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextE, ptr @_ZN5arrow2io16MemoryMappedFile7GetSizeEv, ptr @_ZN5arrow2io16MemoryMappedFile6ReadAtEllPv, ptr @_ZN5arrow2io16MemoryMappedFile6ReadAtEll, ptr @_ZN5arrow2io16MemoryMappedFile9ReadAsyncERKNS0_9IOContextEll, ptr @_ZN5arrow2io16RandomAccessFile13ReadManyAsyncERKNS0_9IOContextERKSt6vectorINS0_9ReadRangeESaIS6_EE, ptr @_ZN5arrow2io16MemoryMappedFile8WillNeedERKSt6vectorINS0_9ReadRangeESaIS3_EE, ptr @_ZN5arrow2io16MemoryMappedFile5CloseEv, ptr @_ZNK5arrow2io16MemoryMappedFile6closedEv, ptr @_ZNK5arrow2io16MemoryMappedFile4TellEv, ptr @_ZN5arrow2io16MemoryMappedFile4SeekEl, ptr @_ZN5arrow2io16MemoryMappedFile5WriteEPKvl, ptr @_ZN5arrow2io16MemoryMappedFile7WriteAtElPKvl], [5 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN5arrow2io16MemoryMappedFileE, ptr @_ZThn8_N5arrow2io16MemoryMappedFileD1Ev, ptr @_ZThn8_N5arrow2io16MemoryMappedFileD0Ev, ptr @_ZThn8_N5arrow2io16MemoryMappedFile4SeekEl], [9 x ptr] [ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN5arrow2io16MemoryMappedFileE, ptr @_ZThn24_N5arrow2io16MemoryMappedFileD1Ev, ptr @_ZThn24_N5arrow2io16MemoryMappedFileD0Ev, ptr @_ZThn24_N5arrow2io16MemoryMappedFile5WriteEPKvl, ptr @_ZN5arrow2io8Writable5WriteERKSt10shared_ptrINS_6BufferEE, ptr @_ZN5arrow2io8Writable5FlushEv, ptr @_ZThn24_N5arrow2io16MemoryMappedFile7WriteAtElPKvl], [5 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr @_ZTIN5arrow2io16MemoryMappedFileE, ptr @_ZThn32_N5arrow2io16MemoryMappedFileD1Ev, ptr @_ZThn32_N5arrow2io16MemoryMappedFileD0Ev, ptr @_ZThn32_N5arrow2io16MemoryMappedFile4SeekEl], [15 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr null, ptr null, ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN5arrow2io16MemoryMappedFileE, ptr @_ZTv0_n24_N5arrow2io16MemoryMappedFileD1Ev, ptr @_ZTv0_n24_N5arrow2io16MemoryMappedFileD0Ev, ptr @_ZTv0_n32_N5arrow2io16MemoryMappedFile5CloseEv, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZN5arrow2io13FileInterface5AbortEv, ptr @_ZTv0_n56_NK5arrow2io16MemoryMappedFile4TellEv, ptr @_ZTv0_n64_NK5arrow2io16MemoryMappedFile6closedEv] }, align 8
-@_ZTTN5arrow2io16MemoryMappedFileE = unnamed_addr constant [18 x ptr] [ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_22ReadWriteFileInterfaceE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_11InputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE24_NS0_12WritableFileE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE24_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE24_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE24_NS0_12WritableFileE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_22ReadWriteFileInterfaceE, i32 0, inrange i32 2, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_22ReadWriteFileInterfaceE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_22ReadWriteFileInterfaceE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i32 0, inrange i32 4, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i32 0, inrange i32 2, i32 3)], align 8
+@_ZTTN5arrow2io16MemoryMappedFileE = unnamed_addr constant [18 x ptr] [ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i32 0, i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_22ReadWriteFileInterfaceE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_11InputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_11InputStreamE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_16RandomAccessFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE24_NS0_12WritableFileE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE24_NS0_12OutputStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE24_NS0_12OutputStreamE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE24_NS0_12WritableFileE, i32 0, inrange i32 1, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_22ReadWriteFileInterfaceE, i32 0, inrange i32 2, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_22ReadWriteFileInterfaceE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [23 x ptr], [9 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io16MemoryMappedFileE0_NS0_22ReadWriteFileInterfaceE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i32 0, inrange i32 4, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i32 0, inrange i32 2, i32 3)], align 8
 @.str = private unnamed_addr constant [16 x i8] c"Unable to write\00", align 1
 @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE = unnamed_addr constant { [29 x ptr], [15 x ptr] } { [29 x ptr] [ptr null, ptr inttoptr (i64 48 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEED1Ev, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEED0Ev, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4ReadElPv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4ReadEl, ptr @_ZNK5arrow2io8Readable10io_contextEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4PeekEl, ptr @_ZNK5arrow2io11InputStream18supports_zero_copyEv, ptr @_ZN5arrow2io11InputStream12ReadMetadataEv, ptr @_ZN5arrow2io11InputStream17ReadMetadataAsyncERKNS0_9IOContextE, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE7GetSizeEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE6ReadAtEllPv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE6ReadAtEll, ptr @_ZN5arrow2io16RandomAccessFile9ReadAsyncERKNS0_9IOContextEll, ptr @_ZN5arrow2io16RandomAccessFile13ReadManyAsyncERKNS0_9IOContextERKSt6vectorINS0_9ReadRangeESaIS6_EE, ptr @_ZN5arrow2io16RandomAccessFile8WillNeedERKSt6vectorINS0_9ReadRangeESaIS3_EE, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE5CloseEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE5AbortEv, ptr @_ZNK5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4TellEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4SeekEl, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE7DoAbortEv, ptr @_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE6DoPeekEl], [15 x ptr] [ptr null, ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr null, ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, ptr @_ZTv0_n24_N5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEED1Ev, ptr @_ZTv0_n24_N5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEED0Ev, ptr @_ZTv0_n32_N5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE5CloseEv, ptr @_ZN5arrow2io13FileInterface10CloseAsyncEv, ptr @_ZTv0_n48_N5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE5AbortEv, ptr @_ZTv0_n56_NK5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEE4TellEv, ptr @__cxa_pure_virtual] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -676,7 +676,7 @@ entry:
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5.i
   store ptr %6, ptr %add.ptr6.i, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7.i, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, i32 1, i64 2), ptr %add.ptr7.i, align 8
   %lock_.i = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN5arrow2io8internal22SharedExclusiveCheckerC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %lock_.i)
           to label %_ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEC2Ev.exit unwind label %lpad.i
@@ -707,7 +707,7 @@ _ZN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEC2
   %vbase.offset5 = load i64, ptr %vbase.offset.ptr4, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %12, ptr %add.ptr6, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7.i, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %impl_, align 8
   %call = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #23
@@ -808,7 +808,7 @@ entry:
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %4, ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, i32 1, i64 2), ptr %add.ptr7, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %5 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %5, null
@@ -894,18 +894,18 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 48
   %1 = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i64 0, i32 0, i64 2), ptr %0, align 8
   %mode_.i = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %mode_.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i64 0, i32 0, i64 2), ptr %this, align 8
   invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull getelementptr inbounds ([12 x ptr], ptr @_ZTTN5arrow2io12ReadableFileE, i64 0, i64 2))
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, inrange i32 1, i64 8), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, inrange i32 0, i64 8), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, i32 1, i64 8), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [15 x ptr] }, ptr @_ZTCN5arrow2io12ReadableFileE0_NS0_8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, i32 0, i64 8), ptr %this, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7.i, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, i32 1, i64 2), ptr %add.ptr7.i, align 8
   %lock_.i = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN5arrow2io8internal22SharedExclusiveCheckerC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %lock_.i)
           to label %invoke.cont unwind label %lpad.i
@@ -917,9 +917,9 @@ lpad.i:                                           ; preds = %.noexc
   br label %ehcleanup9
 
 invoke.cont:                                      ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, inrange i32 2, i64 8), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, inrange i32 0, i64 8), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7.i, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, i32 2, i64 8), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, i32 0, i64 8), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %impl_, align 8
   %call = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #23
@@ -1006,7 +1006,7 @@ entry:
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %4, ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12ReadableFileE, i64 0, i32 1, i64 2), ptr %add.ptr7, align 8
   %vtable8 = load ptr, ptr %this, align 8
   %vbase.offset.ptr9 = getelementptr i8, ptr %vtable8, i64 -56
   %vbase.offset10 = load i64, ptr %vbase.offset.ptr9, align 8
@@ -1045,7 +1045,7 @@ _ZNSt10unique_ptrIN5arrow2io12ReadableFile16ReadableFileImplESt14default_deleteI
   %vbase.offset5.i = load i64, ptr %vbase.offset.ptr4.i, align 8
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5.i
   store ptr %11, ptr %add.ptr6.i, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io8internal34RandomAccessFileConcurrencyWrapperINS0_12ReadableFileEEE, i64 0, i32 1, i64 2), ptr %add.ptr7, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %12 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %12, null
@@ -3434,7 +3434,7 @@ entry:
 define void @_ZN5arrow2io16FileOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr nocapture noundef readonly %vtt) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %vtt, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = load ptr, ptr %0, align 8
   store ptr %1, ptr %this, align 8
   %2 = getelementptr inbounds i8, ptr %vtt, i64 16
@@ -3532,8 +3532,8 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %mode_.i = getelementptr inbounds i8, ptr %this, i64 40
   store i32 0, ptr %mode_.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 0, i64 3), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 1, i64 8), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 1, i64 8), ptr %0, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %impl_, align 8
   %call = invoke noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #23
@@ -3632,9 +3632,9 @@ terminate.lpad:                                   ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5arrow2io16FileOutputStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 0, i64 3), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 1, i64 8), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 1, i64 8), ptr %add.ptr.i, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i)
           to label %invoke.cont.i unwind label %terminate.lpad.i
 
@@ -3671,9 +3671,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 0, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 0, i64 3), ptr %3, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 1, i64 8), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 1, i64 8), ptr %add.ptr.i.i, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -3706,9 +3706,9 @@ _ZN5arrow2io16FileOutputStreamD1Ev.exit:          ; preds = %invoke.cont.i.i, %_
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5arrow2io16FileOutputStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 0, i64 3), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 1, i64 8), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 1, i64 8), ptr %add.ptr.i.i, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i)
           to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
 
@@ -3746,9 +3746,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 0, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 0, i64 3), ptr %3, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, inrange i32 1, i64 8), ptr %add.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16FileOutputStreamE, i64 0, i32 1, i64 8), ptr %add.ptr.i.i.i, align 8
   invoke void @_ZN5arrow2io8internal19CloseFromDestructorEPNS0_13FileInterfaceE(ptr noundef nonnull %add.ptr.i.i.i)
           to label %invoke.cont.i.i.i unwind label %terminate.lpad.i.i.i
 
@@ -4617,7 +4617,7 @@ entry:
   %2 = getelementptr inbounds i8, ptr %this, i64 24
   %3 = getelementptr inbounds i8, ptr %vtt, i64 64
   %4 = getelementptr inbounds i8, ptr %vtt, i64 72
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8WritableE, i64 0, i32 0, i64 2), ptr %2, align 8
   %5 = load ptr, ptr %4, align 8
   store ptr %5, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %vtt, i64 80
@@ -4627,7 +4627,7 @@ entry:
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %vbase.offset.i.i.i
   store ptr %7, ptr %add.ptr.i.i.i, align 8
   %8 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io8SeekableE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io8SeekableE, i64 0, i32 0, i64 2), ptr %8, align 8
   %9 = load ptr, ptr %3, align 8
   store ptr %9, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %vtt, i64 88
@@ -4636,7 +4636,7 @@ entry:
   %vbase.offset.i.i = load i64, ptr %vbase.offset.ptr.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %2, i64 %vbase.offset.i.i
   store ptr %11, ptr %add.ptr.i.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12WritableFileE, i64 0, inrange i32 1, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io12WritableFileE, i64 0, i32 1, i64 2), ptr %8, align 8
   %12 = load ptr, ptr %0, align 8
   store ptr %12, ptr %this, align 8
   %13 = getelementptr inbounds i8, ptr %vtt, i64 96
@@ -4653,11 +4653,11 @@ entry:
   %add.ptr6.i = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5.i
   store ptr %16, ptr %add.ptr6.i, align 8
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io22ReadWriteFileInterfaceE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7.i, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io22ReadWriteFileInterfaceE, i64 0, i32 1, i64 2), ptr %add.ptr7.i, align 8
   %17 = getelementptr inbounds i8, ptr %vtt, i64 112
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io22ReadWriteFileInterfaceE, i64 0, inrange i32 3, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io22ReadWriteFileInterfaceE, i64 0, i32 3, i64 2), ptr %8, align 8
   %vtable10.i = load ptr, ptr %this, align 8
   %vbase.offset.ptr11.i = getelementptr i8, ptr %vtable10.i, i64 -56
   %vbase.offset12.i = load i64, ptr %vbase.offset.ptr11.i, align 8
@@ -4679,11 +4679,11 @@ entry:
   %vbase.offset5 = load i64, ptr %vbase.offset.ptr4, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %23, ptr %add.ptr6, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7.i, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i, align 8
   %24 = getelementptr inbounds i8, ptr %vtt, i64 136
   %25 = load ptr, ptr %24, align 8
   store ptr %25, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 3, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 3, i64 2), ptr %8, align 8
   %memory_map_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_map_, i8 0, i64 16, i1 false)
   ret void
@@ -4695,10 +4695,10 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 56
   %1 = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i64 0, i32 0, i64 2), ptr %0, align 8
   %mode_.i = getelementptr inbounds i8, ptr %this, i64 80
   store i32 0, ptr %mode_.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i64 0, i32 0, i64 2), ptr %this, align 8
   invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull getelementptr inbounds ([18 x ptr], ptr @_ZTTN5arrow2io16MemoryMappedFileE, i64 0, i64 2))
           to label %invoke.cont unwind label %lpad
 
@@ -4707,11 +4707,11 @@ invoke.cont:                                      ; preds = %entry
   %3 = getelementptr inbounds i8, ptr %this, i64 32
   %add.ptr7.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %mode_.i, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 4, i64 8), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 0, i64 8), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7.i, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 2, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 3, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 4, i64 8), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 0, i64 8), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 2, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 3, i64 2), ptr %3, align 8
   %memory_map_ = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_map_, i8 0, i64 16, i1 false)
   ret void
@@ -4742,13 +4742,13 @@ entry:
   %add.ptr6 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset5
   store ptr %4, ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 1, i64 2), ptr %add.ptr7, align 8
   %5 = getelementptr inbounds i8, ptr %vtt, i64 136
   %6 = load ptr, ptr %5, align 8
   %add.ptr8 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %6, ptr %add.ptr8, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 3, i64 2), ptr %add.ptr9, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 3, i64 2), ptr %add.ptr9, align 8
   %vtable10 = load ptr, ptr %this, align 8
   %vbase.offset.ptr11 = getelementptr i8, ptr %vtable10, i64 -56
   %vbase.offset12 = load i64, ptr %vbase.offset.ptr11, align 8
@@ -5503,10 +5503,10 @@ entry:
   %0 = getelementptr inbounds i8, ptr %call, i64 56
   %1 = getelementptr inbounds i8, ptr %call, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i64 0, i32 0, i64 2), ptr %0, align 8
   %mode_.i.i = getelementptr inbounds i8, ptr %call, i64 80
   store i32 0, ptr %mode_.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i64 0, i32 0, i64 2), ptr %call, align 8
   invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull getelementptr inbounds ([18 x ptr], ptr @_ZTTN5arrow2io16MemoryMappedFileE, i64 0, i64 2))
           to label %invoke.cont unwind label %lpad.i
 
@@ -5522,11 +5522,11 @@ invoke.cont:                                      ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %call, i64 32
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 2, ptr %mode_.i.i, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 4, i64 8), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 0, i64 8), ptr %call, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7.i.i, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 2, i64 3), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 3, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 4, i64 8), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 0, i64 8), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i.i, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 2, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 3, i64 2), ptr %4, align 8
   %memory_map_.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_map_.i, i8 0, i64 16, i1 false)
   call void @_ZNSt12__shared_ptrIN5arrow2io16MemoryMappedFileELN9__gnu_cxx12_Lock_policyE2EEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %call)
@@ -5963,7 +5963,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN5arrow2io16MemoryMapped
   store i32 1, ptr %_M_use_count.i.i.i6, align 8
   %_M_weak_count.i.i.i7 = getelementptr inbounds i8, ptr %call.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i7, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16MemoryMappedFile9MemoryMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16MemoryMappedFile9MemoryMapELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i, align 8
   %tobool.not.i.i = icmp eq ptr %__p, null
@@ -6299,10 +6299,10 @@ entry:
   %0 = getelementptr inbounds i8, ptr %call, i64 56
   %1 = getelementptr inbounds i8, ptr %call, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5arrow2io13FileInterfaceE, i64 0, i32 0, i64 2), ptr %0, align 8
   %mode_.i.i = getelementptr inbounds i8, ptr %call, i64 80
   store i32 0, ptr %mode_.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow2io8ReadableE, i64 0, i32 0, i64 2), ptr %call, align 8
   invoke void @_ZN5arrow2io16RandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %call, ptr noundef nonnull getelementptr inbounds ([18 x ptr], ptr @_ZTTN5arrow2io16MemoryMappedFileE, i64 0, i64 2))
           to label %invoke.cont unwind label %lpad.i
 
@@ -6318,11 +6318,11 @@ invoke.cont:                                      ; preds = %entry
   %4 = getelementptr inbounds i8, ptr %call, i64 32
   %add.ptr7.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 2, ptr %mode_.i.i, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 4, i64 8), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 0, i64 8), ptr %call, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 1, i64 2), ptr %add.ptr7.i.i, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 2, i64 3), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, inrange i32 3, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 4, i64 8), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 0, i64 8), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 1, i64 2), ptr %add.ptr7.i.i, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 2, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [5 x ptr], [9 x ptr], [5 x ptr], [15 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFileE, i64 0, i32 3, i64 2), ptr %4, align 8
   %memory_map_.i = getelementptr inbounds i8, ptr %call, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory_map_.i, i8 0, i64 16, i1 false)
   call void @_ZNSt12__shared_ptrIN5arrow2io16MemoryMappedFileELN9__gnu_cxx12_Lock_policyE2EEC2IS2_vEEPT_(ptr noundef nonnull align 8 dereferenceable(16) %result, ptr noundef nonnull %call)
@@ -7954,7 +7954,7 @@ call5.i.i.i3.i.i.i.i.i.noexc:                     ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !276
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i4, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !276
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i4, align 8, !noalias !276
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i.i4, align 8, !noalias !276
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i.i4, i64 16
   invoke void @_ZN5arrow6BufferC2ERKSt10shared_ptrIS0_Ell(ptr noundef nonnull align 8 dereferenceable(80) %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp11, i64 noundef %offset, i64 noundef %.sroa.speculated84)
           to label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !276
@@ -8063,7 +8063,7 @@ if.else:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !281
   %_M_weak_count.i.i.i.i.i.i44 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i44, align 4, !noalias !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !281
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i, align 8, !noalias !281
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i, i64 16
   invoke void @_ZN5arrow6BufferC2EPKhl(ptr noundef nonnull align 8 dereferenceable(80) %_M_impl.i.i.i.i.i.i, ptr noundef null, i64 noundef 0)
           to label %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit79 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow6BufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !281
@@ -10449,7 +10449,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i85:                                ; preds = %do.body.i.i.i.i.i, %do.end57
   %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 8) #22, !noalias !396
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !noalias !396
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !noalias !396
   call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #26, !noalias !396
   unreachable
 
@@ -10466,7 +10466,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZNSt23enable_share
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i86, align 8, !noalias !400
   %_M_weak_count.i.i.i.i.i.i87 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i89, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i87, align 4, !noalias !400
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io16MemoryMappedFile9MemoryMap6RegionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i89, align 8, !noalias !400
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io16MemoryMappedFile9MemoryMap6RegionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i89, align 8, !noalias !400
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i89, i64 16
   invoke void @_ZSt10_ConstructIN5arrow2io16MemoryMappedFile9MemoryMap6RegionEJSt10shared_ptrIS3_EPhRKlEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp61, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp62, ptr noundef nonnull align 8 dereferenceable(8) %new_size.addr)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow2io16MemoryMappedFile9MemoryMap6RegionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !400
@@ -13086,7 +13086,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -14016,7 +14016,7 @@ do.cond.i.i.i.i.i:                                ; preds = %do.body.i.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %do.body.i.i.i.i.i, %if.end30
   %exception.i.i.i.i.i = call ptr @__cxa_allocate_exception(i64 8) #22, !noalias !547
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !noalias !547
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i.i, align 8, !noalias !547
   call void @__cxa_throw(ptr nonnull %exception.i.i.i.i.i, ptr nonnull @_ZTISt12bad_weak_ptr, ptr nonnull @_ZNSt12bad_weak_ptrD1Ev) #26, !noalias !547
   unreachable
 
@@ -14032,7 +14032,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZNSt23enable_share
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i49, align 8, !noalias !550
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i51, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !550
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io16MemoryMappedFile9MemoryMap6RegionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i51, align 8, !noalias !550
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow2io16MemoryMappedFile9MemoryMap6RegionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i51, align 8, !noalias !550
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i51, i64 16
   invoke void @_ZSt10_ConstructIN5arrow2io16MemoryMappedFile9MemoryMap6RegionEJSt10shared_ptrIS3_EPhRlEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp32, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp33, ptr noundef nonnull align 8 dereferenceable(8) %map_len_)
           to label %invoke.cont36 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow2io16MemoryMappedFile9MemoryMap6RegionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !550
@@ -14397,7 +14397,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFile9MemoryMap6RegionE, i64 0, inrange i32 0, i64 2), ptr %__p, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFile9MemoryMap6RegionE, i64 0, i32 0, i64 2), ptr %__p, align 8
   %file_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %file_.i.i, align 8
   %mode_.i.i.i = getelementptr inbounds i8, ptr %4, i64 52
@@ -14491,7 +14491,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr hidden void @_ZN5arrow2io16MemoryMappedFile9MemoryMap6RegionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp6 = alloca %"class.arrow::util::ArrowLog", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFile9MemoryMap6RegionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFile9MemoryMap6RegionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %data_, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -14666,7 +14666,7 @@ _ZNSt12__shared_ptrIN5arrow13MemoryManagerELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -15283,7 +15283,7 @@ lpad:                                             ; preds = %_ZNSt10shared_ptrIN
 define linkonce_odr void @_ZN5arrow6BufferC2EPKhl(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %data, i64 noundef %size) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.84", align 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %is_mutable_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_mutable_, align 8
   %is_cpu_ = getelementptr inbounds i8, ptr %this, i64 9
@@ -15598,7 +15598,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFile9MemoryMap6RegionE, i64 0, inrange i32 0, i64 2), ptr %__p, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow2io16MemoryMappedFile9MemoryMap6RegionE, i64 0, i32 0, i64 2), ptr %__p, align 8
   %file_.i.i = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %file_.i.i, align 8
   %mode_.i.i.i = getelementptr inbounds i8, ptr %4, i64 52
@@ -15868,7 +15868,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN5arrow2io12ReadableFile
   store i32 1, ptr %_M_use_count.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io12ReadableFileELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io12ReadableFileELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %_M_ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i.i, align 8
   store ptr %call.i.i, ptr %_M_refcount, align 8
@@ -16060,7 +16060,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN5arrow2io16FileOutputSt
   store i32 1, ptr %_M_use_count.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16FileOutputStreamELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16FileOutputStreamELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %_M_ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i.i, align 8
   store ptr %call.i.i, ptr %_M_refcount, align 8
@@ -16248,7 +16248,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN5arrow2io16MemoryMapped
   store i32 1, ptr %_M_use_count.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16MemoryMappedFileELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5arrow2io16MemoryMappedFileELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %_M_ptr.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   store ptr %__p, ptr %_M_ptr.i.i.i, align 8
   store ptr %call.i.i, ptr %_M_refcount, align 8
@@ -17345,7 +17345,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow10FutureImplESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow10FutureImplESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8

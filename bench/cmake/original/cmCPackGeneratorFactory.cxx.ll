@@ -2393,7 +2393,7 @@ define linkonce_odr dso_local void @_ZN21cmCPackNuGetGeneratorC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16cmCPackGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360) %3)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV21cmCPackNuGetGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV21cmCPackNuGetGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2405,7 +2405,7 @@ define linkonce_odr dso_local void @_ZN24cmCPackExternalGeneratorC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16cmCPackGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360) %3)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV24cmCPackExternalGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV24cmCPackExternalGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCPackExternalGenerator, ptr %3, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN24cmCPackExternalGenerator31cmCPackExternalVersionGeneratorESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   ret void

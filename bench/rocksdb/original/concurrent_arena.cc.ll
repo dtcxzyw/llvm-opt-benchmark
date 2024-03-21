@@ -245,7 +245,7 @@ entry:
   store i64 %huge_page_size, ptr %huge_page_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb9AllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %shard_block_size_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this1, i32 0, i32 2
   %0 = load i64, ptr %block_size.addr, align 8
   %div = udiv i64 %0, 8
@@ -330,7 +330,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb9AllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb9AllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -740,7 +740,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb15ConcurrentArenaE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %arena_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this1, i32 0, i32 5
   call void @_ZN7rocksdb5ArenaD1Ev(ptr noundef nonnull align 16 dereferenceable(2288) %arena_) #13
   %shards_ = getelementptr inbounds %"class.rocksdb::ConcurrentArena", ptr %this1, i32 0, i32 3

@@ -99,7 +99,7 @@ define weak_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2C2IjEERKNS0_7detail
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF2PE19LoadConfigurationV1C2IjEERKNS0_7details21load_configuration_v1IT_EE(ptr noundef nonnull align 8 dereferenceable(156) %7, ptr noundef nonnull align 4 dereferenceable(92) %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.LIEF::PE::LoadConfigurationV2", ptr %7, i32 0, i32 2
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration_v2", ptr %10, i32 0, i32 1
@@ -153,7 +153,7 @@ define weak_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2C2ImEERKNS0_7detail
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF2PE19LoadConfigurationV1C2ImEERKNS0_7details21load_configuration_v1IT_EE(ptr noundef nonnull align 8 dereferenceable(156) %7, ptr noundef nonnull align 4 dereferenceable(148) %8)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.LIEF::PE::LoadConfigurationV2", ptr %7, i32 0, i32 2
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"struct.LIEF::PE::details::load_configuration_v2.0", ptr %10, i32 0, i32 1
@@ -256,7 +256,7 @@ define linkonce_odr hidden void @_ZN4LIEF2PE19LoadConfigurationV2D2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF2PE19LoadConfigurationV2E, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::PE::LoadConfigurationV2", ptr %3, i32 0, i32 2
   call void @_ZN4LIEF2PE13CodeIntegrityD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %4) #5
   call void @_ZN4LIEF2PE19LoadConfigurationV1D2Ev(ptr noundef nonnull align 8 dereferenceable(156) %3) #5

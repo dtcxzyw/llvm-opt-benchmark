@@ -432,7 +432,7 @@ define void @_ZN21RelatedPacketDelegateC2EP7QWidget(ptr noundef nonnull align 8 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.RelatedPacketDelegate, ptr %7, i32 0, i32 1
   call void @_ZN5QHashIi16ft_framenum_typeEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #11
   %10 = getelementptr inbounds %class.RelatedPacketDelegate, ptr %7, i32 0, i32 2

@@ -226,7 +226,7 @@ define dso_local noundef nonnull ptr @_ZN5Block16make_dummy_blockER9CGContext(pt
           to label %8 unwind label %95
 
 8:                                                ; preds = %7
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i64 0, i32 0, i64 2), ptr %5, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 32
   %10 = getelementptr inbounds i8, ptr %5, i64 112
   store i32 0, ptr %10, align 8
@@ -1089,7 +1089,7 @@ define dso_local noundef ptr @_ZN5Block11make_randomER9CGContextb(ptr noundef no
           to label %16 unwind label %125
 
 16:                                               ; preds = %15
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i64 0, i32 0, i64 2), ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %11, i64 32
   %18 = getelementptr inbounds i8, ptr %11, i64 112
   store i32 0, ptr %18, align 8
@@ -2092,7 +2092,7 @@ _ZNSt6vectorIPK4FactSaIS2_EED2Ev.exit67:          ; preds = %154, %156
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5BlockC2EPS_i(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   %5 = getelementptr inbounds i8, ptr %0, i64 112
   store i32 0, ptr %5, align 8
@@ -2118,7 +2118,7 @@ declare void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN5BlockD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 40

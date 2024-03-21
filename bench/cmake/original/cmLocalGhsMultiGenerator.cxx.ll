@@ -465,7 +465,7 @@ define dso_local void @_ZN24cmLocalGhsMultiGeneratorC2EP17cmGlobalGeneratorP10cm
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN16cmLocalGeneratorC2EP17cmGlobalGeneratorP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(824) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV24cmLocalGhsMultiGenerator, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV24cmLocalGhsMultiGenerator, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 

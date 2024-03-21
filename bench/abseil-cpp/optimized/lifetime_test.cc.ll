@@ -153,7 +153,7 @@ entry:
           to label %call.i.noexc unwind label %lpad6
 
 call.i.noexc:                                     ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN4absl5MutexEPNS3_7CondVarEPNS3_12NotificationEPbES5_S7_S9_SA_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN4absl5MutexEPNS3_7CondVarEPNS3_12NotificationEPbES5_S7_S9_SA_EEEEEE, i64 0, i32 0, i64 2), ptr %call.i4, align 8
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i4, i64 8
   store ptr %state, ptr %_M_func.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %call.i4, i64 16
@@ -202,7 +202,7 @@ invoke.cont7:                                     ; preds = %_ZNKSt14default_del
           to label %call.i.noexc18 unwind label %lpad10
 
 call.i.noexc18:                                   ; preds = %invoke.cont7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN4absl5MutexEPNS3_7CondVarEPNS3_12NotificationEPbES5_S7_S9_SA_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i19, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJPFvPN4absl5MutexEPNS3_7CondVarEPNS3_12NotificationEPbES5_S7_S9_SA_EEEEEE, i64 0, i32 0, i64 2), ptr %call.i19, align 8
   %_M_func.i.i6 = getelementptr inbounds i8, ptr %call.i19, i64 8
   store ptr %state, ptr %_M_func.i.i6, align 8
   %9 = getelementptr inbounds i8, ptr %call.i19, i64 16

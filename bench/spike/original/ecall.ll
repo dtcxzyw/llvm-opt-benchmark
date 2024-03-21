@@ -493,7 +493,7 @@ define linkonce_odr void @_ZN15trap_user_ecallC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 8)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15trap_user_ecall, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV15trap_user_ecall, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -518,7 +518,7 @@ define linkonce_odr void @_ZN29trap_virtual_supervisor_ecallC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 10)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_virtual_supervisor_ecall, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV29trap_virtual_supervisor_ecall, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -537,7 +537,7 @@ define linkonce_odr void @_ZN21trap_supervisor_ecallC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 9)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_supervisor_ecall, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21trap_supervisor_ecall, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -556,7 +556,7 @@ define linkonce_odr void @_ZN18trap_machine_ecallC2Ev(ptr noundef nonnull align 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef 11)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18trap_machine_ecall, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18trap_machine_ecall, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1440,7 +1440,7 @@ define linkonce_odr void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
   %7 = load i64, ptr %4, align 8
   store i64 %7, ptr %6, align 8

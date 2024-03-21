@@ -177,7 +177,7 @@ define void @_ZN21ColoringRulesDelegateC2EP7QObject(ptr noundef nonnull align 8 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21ColoringRulesDelegate, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21ColoringRulesDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 

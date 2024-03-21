@@ -5529,9 +5529,9 @@ define void @_ZN15AlignPairDialogC2EP6GLAreaP7QWidget(ptr noundef nonnull align 
   %42 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %43 = load i32, ptr %42, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef %41, i32 %43)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15AlignPairDialog, i32 0, inrange i32 0, i32 2), ptr %40, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15AlignPairDialog, i32 0, i32 0, i32 2), ptr %40, align 8
   %44 = getelementptr inbounds i8, ptr %40, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15AlignPairDialog, i32 0, inrange i32 1, i32 2), ptr %44, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15AlignPairDialog, i32 0, i32 1, i32 2), ptr %44, align 8
   %45 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #16
           to label %46 unwind label %171
 

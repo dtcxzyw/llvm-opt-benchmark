@@ -1004,7 +1004,7 @@ define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_
   %18 = zext i1 %3 to i8
   store i8 %18, ptr %13, align 1
   %19 = load ptr, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, i32 0, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %19, i32 0, i32 1
   store ptr @_ZN10cmDebugger19cmDebuggerVariables6NextIdE, ptr %5, align 8
   store i64 1, ptr %6, align 8
@@ -1271,7 +1271,7 @@ define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesC2ESt10shared_ptrINS_
   store i8 %20, ptr %14, align 1
   store ptr %4, ptr %15, align 8
   %21 = load ptr, ptr %11, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, i32 0, i32 2), ptr %21, align 8
   %22 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %21, i32 0, i32 1
   store ptr @_ZN10cmDebugger19cmDebuggerVariables6NextIdE, ptr %6, align 8
   store i64 1, ptr %7, align 8
@@ -2597,7 +2597,7 @@ define dso_local void @_ZN10cmDebugger19cmDebuggerVariablesD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10cmDebugger19cmDebuggerVariablesE, i32 0, i32 0, i32 2), ptr %3, align 8
   call void @_ZN10cmDebugger19cmDebuggerVariables17ClearSubVariablesEv(ptr noundef nonnull align 8 dereferenceable(160) %3)
   %4 = getelementptr inbounds %"class.cmDebugger::cmDebuggerVariables", ptr %3, i32 0, i32 9
   %5 = call noundef ptr @_ZNKSt19__shared_ptr_accessIN10cmDebugger26cmDebuggerVariablesManagerELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %4) #4

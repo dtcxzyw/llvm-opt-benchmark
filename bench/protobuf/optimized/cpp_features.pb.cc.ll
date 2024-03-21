@@ -31,7 +31,7 @@ $_ZNK2pb11CppFeatures3NewEPN6google8protobuf5ArenaE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN2pb11CppFeaturesE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN2pb11CppFeaturesE, ptr @_ZN2pb11CppFeaturesD1Ev, ptr @_ZN2pb11CppFeaturesD0Ev, ptr @_ZNK2pb11CppFeatures3NewEPN6google8protobuf5ArenaE, ptr @_ZN2pb11CppFeatures5ClearEv, ptr @_ZNK2pb11CppFeatures13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK2pb11CppFeatures12ByteSizeLongEv, ptr @_ZN2pb11CppFeatures14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE, ptr @_ZNK2pb11CppFeatures12GetClassDataEv, ptr @_ZNK2pb11CppFeatures18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE, ptr @_ZNK2pb11CppFeatures11GetMetadataEv] }, align 8
-@_ZN2pb30_CppFeatures_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", i8 } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", i8 } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", i8 } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb11CppFeaturesE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", i8 } } zeroinitializer } } }, align 8
+@_ZN2pb30_CppFeatures_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", i8 } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", i8 } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", i8 } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb11CppFeaturesE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", i8 } } zeroinitializer } } }, align 8
 @_ZN54TableStruct_google_2fprotobuf_2fcpp_5ffeatures_2eproto7offsetsE = constant [10 x i32] [i32 16, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 24, i32 0], section "protodesc_cold", align 16
 @_ZL68descriptor_table_protodef_google_2fprotobuf_2fcpp_5ffeatures_2eproto = internal constant [214 x i8] c"\0A\22google/protobuf/cpp_features.proto\12\02pb\1A google/protobuf/descriptor.proto\22M\0A\0BCppFeatures\12>\0A\12legacy_closed_enum\18\01 \01(\08B\22\88\01\01\98\01\04\98\01\01\A2\01\09\12\04true\18\E6\07\A2\01\0A\12\05false\18\E7\07::\0A\03cpp\12\1B.google.protobuf.FeatureSet\18\E8\07 \01(\0B2\0F.pb.CppFeatures\00", section "protodesc_cold", align 16
 @.str = private unnamed_addr constant [35 x i8] c"google/protobuf/cpp_features.proto\00", align 1
@@ -76,7 +76,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb11CppFeaturesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb11CppFeaturesE, i64 0, i32 0, i64 2), ptr %this, align 8
   %arrayinit.cur.i.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %arrayinit.cur.i.ptr.i, i8 0, i64 9, i1 false)
   ret void
@@ -90,7 +90,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb11CppFeaturesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb11CppFeaturesE, i64 0, i32 0, i64 2), ptr %this, align 8
   %arrayinit.cur.i.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %arrayinit.cur.i.ptr.i.i, i8 0, i64 9, i1 false)
   %1 = getelementptr inbounds i8, ptr %from, i64 16

@@ -222,7 +222,7 @@ entry:
   store ptr %halfExtents, ptr %halfExtents.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV15btCylinderShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV15btCylinderShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_upAxis = getelementptr inbounds %class.btCylinderShape, ptr %this1, i32 0, i32 1
   store i32 1, ptr %m_upAxis, align 8
   %vtable = load ptr, ptr %this1, align 8
@@ -485,7 +485,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %halfExtents.addr, align 8
   call void @_ZN15btCylinderShapeC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV16btCylinderShapeX, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV16btCylinderShapeX, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_upAxis = getelementptr inbounds %class.btCylinderShape, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_upAxis, align 8
   ret void
@@ -501,7 +501,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %halfExtents.addr, align 8
   call void @_ZN15btCylinderShapeC2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(76) %this1, ptr noundef nonnull align 4 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV16btCylinderShapeZ, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV16btCylinderShapeZ, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_upAxis = getelementptr inbounds %class.btCylinderShape, ptr %this1, i32 0, i32 1
   store i32 2, ptr %m_upAxis, align 8
   ret void

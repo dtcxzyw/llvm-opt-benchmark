@@ -123,9 +123,9 @@ $_ZN9QtPrivate25QMetaTypeInterfaceWrapperIcE8metaTypeE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16PacketListHeaderC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11QHeaderViewC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i64 0, inrange i32 1, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i64 0, i32 1, i64 2), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 -1, ptr %5, align 8
   invoke void @_ZN7QWidget14setAcceptDropsEb(ptr noundef nonnull align 8 dereferenceable(40) %0, i1 noundef zeroext true)

@@ -2265,7 +2265,7 @@ define linkonce_odr hidden void @_ZN6casadi6OmpMapC2ERKNSt7__cxx1112basic_string
   %11 = load ptr, ptr %7, align 8
   %12 = load i64, ptr %8, align 8
   call void @_ZN6casadi3MapC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEx(ptr noundef nonnull align 8 dereferenceable(1320) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %12)
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 }
 
@@ -2284,7 +2284,7 @@ define linkonce_odr hidden void @_ZN6casadi9ThreadMapC2ERKNSt7__cxx1112basic_str
   %11 = load ptr, ptr %7, align 8
   %12 = load i64, ptr %8, align 8
   call void @_ZN6casadi3MapC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEx(ptr noundef nonnull align 8 dereferenceable(1320) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 noundef %12)
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 }
 
@@ -2584,7 +2584,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -2616,7 +2616,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -2672,7 +2672,7 @@ define void @_ZN6casadi3MapC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaI
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN6casadi16FunctionInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1304) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %"class.casadi::Map", ptr %11, i32 0, i32 1
   %14 = load ptr, ptr %7, align 8
   invoke void @_ZN6casadi8FunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -3678,7 +3678,7 @@ define void @_ZN6casadi3MapC2ERNS_19DeserializingStreamE(ptr noundef nonnull ali
   %11 = load ptr, ptr %3, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN6casadi16FunctionInternalC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1304) %11, ptr noundef nonnull align 8 dereferenceable(41) %12)
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %"class.casadi::Map", ptr %11, i32 0, i32 1
   invoke void @_ZN6casadi8FunctionC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
           to label %14 unwind label %23
@@ -4974,7 +4974,7 @@ define linkonce_odr hidden void @_ZN6casadi6OmpMapC2ERNS_19DeserializingStreamE(
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi3MapC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1320) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -4987,7 +4987,7 @@ define linkonce_odr hidden void @_ZN6casadi9ThreadMapC2ERNS_19DeserializingStrea
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN6casadi3MapC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1320) %5, ptr noundef nonnull align 8 dereferenceable(41) %6)
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -4996,7 +4996,7 @@ define void @_ZN6casadi3MapD2Ev(ptr noundef nonnull align 8 dereferenceable(1320
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi3MapE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %4 unwind label %6
 
@@ -8130,7 +8130,7 @@ define void @_ZN6casadi6OmpMapD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi6OmpMapE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %4 unwind label %5
 
@@ -8859,7 +8859,7 @@ define void @_ZN6casadi9ThreadMapD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [113 x ptr] }, ptr @_ZTVN6casadi9ThreadMapE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %4 unwind label %5
 
@@ -11015,7 +11015,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

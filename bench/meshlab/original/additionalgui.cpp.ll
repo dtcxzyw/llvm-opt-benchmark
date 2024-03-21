@@ -486,9 +486,9 @@ define void @_ZN10SearchMenuC2ERK14ActionSearcheriP7QWidgeti(ptr noundef nonnull
 
 20:                                               ; preds = %5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #9
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10SearchMenu, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10SearchMenu, i32 0, i32 0, i32 2), ptr %18, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10SearchMenu, i32 0, inrange i32 1, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10SearchMenu, i32 0, i32 1, i32 2), ptr %21, align 8
   %22 = getelementptr inbounds %class.SearchMenu, ptr %18, i32 0, i32 1
   store ptr null, ptr %22, align 8
   %23 = getelementptr inbounds %class.SearchMenu, ptr %18, i32 0, i32 2
@@ -630,9 +630,9 @@ define void @_ZN15MenuWithToolTipC2ERK7QStringP7QWidget(ptr noundef nonnull alig
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5QMenuC2ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV15MenuWithToolTip, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV15MenuWithToolTip, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV15MenuWithToolTip, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV15MenuWithToolTip, i32 0, i32 1, i32 2), ptr %10, align 8
   ret void
 }
 
@@ -4000,9 +4000,9 @@ define void @_ZN12MyToolButtonC2EiP7QWidget(ptr noundef nonnull align 8 derefere
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN11QToolButtonC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV12MyToolButton, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV12MyToolButton, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV12MyToolButton, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV12MyToolButton, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = load i32, ptr %5, align 4
   %14 = icmp ne i32 %13, 0
   br i1 %14, label %15, label %31
@@ -4095,9 +4095,9 @@ define void @_ZN12MyToolButtonC2EP7QActioniP7QWidget(ptr noundef nonnull align 8
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %8, align 8
   call void @_ZN11QToolButtonC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV12MyToolButton, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV12MyToolButton, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %12, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV12MyToolButton, i32 0, inrange i32 1, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV12MyToolButton, i32 0, i32 1, i32 2), ptr %14, align 8
   %15 = load i32, ptr %7, align 4
   %16 = icmp ne i32 %15, 0
   br i1 %16, label %17, label %33
@@ -4465,9 +4465,9 @@ define void @_ZN12MenuLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferen
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV12MenuLineEdit, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV12MenuLineEdit, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV12MenuLineEdit, i32 0, inrange i32 1, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV12MenuLineEdit, i32 0, i32 1, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4605,7 +4605,7 @@ define void @_ZN27DelayedToolButtonPopUpStyleC2Ei(ptr noundef nonnull align 8 de
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN11QProxyStyleC2EP6QStyle(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
-  store ptr getelementptr inbounds ({ [37 x ptr] }, ptr @_ZTV27DelayedToolButtonPopUpStyle, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [37 x ptr] }, ptr @_ZTV27DelayedToolButtonPopUpStyle, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = load i32, ptr %4, align 4
   %7 = getelementptr inbounds %class.DelayedToolButtonPopUpStyle, ptr %5, i32 0, i32 1
   store i32 %6, ptr %7, align 8
@@ -4628,9 +4628,9 @@ define void @_ZN13MLFloatSliderC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN7QSliderC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13MLFloatSlider, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13MLFloatSlider, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13MLFloatSlider, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13MLFloatSlider, i32 0, i32 1, i32 2), ptr %10, align 8
   invoke void @_ZN7QObject7connectEPKS_PKcS1_S3_N2Qt14ConnectionTypeE(ptr dead_on_unwind writable sret(%"class.QMetaObject::Connection") align 8 %5, ptr noundef %8, ptr noundef @.str.6, ptr noundef %8, ptr noundef @.str.7, i32 noundef 0)
           to label %11 unwind label %12
 

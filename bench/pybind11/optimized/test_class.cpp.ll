@@ -23920,7 +23920,7 @@ _ZN8pybind116detail12generic_typeD2Ev.exit:       ; preds = %0, %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -24001,7 +24001,7 @@ _ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -25876,7 +25876,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
           to label %4 unwind label %24
@@ -25925,7 +25925,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr @_ZN8pybind1117error_already_set23m_fetched_error_deleterEPNS_6detail25error_fetch_and_normalizeE, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %7, i64 24
@@ -27444,7 +27444,7 @@ _ZNO8pybind116object4castINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
           to label %17 unwind label %24
 
 17:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #29
           to label %31 unwind label %24
 
@@ -27838,7 +27838,7 @@ define linkonce_odr hidden void @_ZN8pybind114moveINSt7__cxx1112basic_stringIcSt
           to label %21 unwind label %28
 
 21:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %12, align 8
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #29
           to label %37 unwind label %28
 
@@ -40306,7 +40306,7 @@ define linkonce_odr hidden void @_ZN8pybind1137cast_error_unable_to_convert_call
           to label %7 unwind label %10
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #26
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #26
   ret void
@@ -41489,7 +41489,7 @@ select.unfold:                                    ; preds = %19, %_ZN8pybind116d
 
 46:                                               ; preds = %._crit_edge
   %47 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #29
   unreachable
 
@@ -45062,7 +45062,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
           to label %33 unwind label %40
 
 33:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %24, align 8
   invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #29
           to label %46 unwind label %40
 
@@ -46564,7 +46564,7 @@ _ZN8pybind116detail11type_casterIZ21test_submodule_class_RNS_7module_EE23Convert
           to label %28 unwind label %35
 
 28:                                               ; preds = %27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %19, align 8
   invoke void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #29
           to label %39 unwind label %35
 
@@ -46653,7 +46653,7 @@ _ZN8pybind114castIRKZ21test_submodule_class_RNS_7module_EE23ConvertibleFromUserT
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.130)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
@@ -47448,7 +47448,7 @@ declare void @llvm.assume(i1 noundef) #19
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
@@ -50746,7 +50746,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind114moveIbEENSt9enable_i
           to label %20 unwind label %27
 
 20:                                               ; preds = %19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #29
           to label %38 unwind label %27
 
@@ -54381,7 +54381,7 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %35, %31
 
 .invoke:                                          ; preds = %70, %60, %52
   %.sink = phi ptr [ %53, %52 ], [ %61, %60 ], [ %71, %70 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #29
           to label %.cont unwind label %38
 
@@ -55941,7 +55941,7 @@ common.resume.i:                                  ; preds = %13, %9
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1110type_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
@@ -59904,7 +59904,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %4 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i, i64 24
   %.val15.val.i = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, i32 0, i64 2), ptr %5, align 8
   store ptr %5, ptr %.val15.val.i, align 8
   %storemerge.in.i = load i64, ptr @_Py_NoneStruct, align 8
   %storemerge.i = add nsw i64 %storemerge.in.i, 1
@@ -60246,7 +60246,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %4 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i, i64 24
   %.val15.val.i = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass1, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass1, i64 0, i32 0, i64 2), ptr %5, align 8
   store ptr %5, ptr %.val15.val.i, align 8
   %storemerge.in.i = load i64, ptr @_Py_NoneStruct, align 8
   %storemerge.i = add nsw i64 %storemerge.in.i, 1
@@ -60588,7 +60588,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %4 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i, i64 24
   %.val15.val.i = load ptr, ptr %4, align 8
   %5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass2, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass2, i64 0, i32 0, i64 2), ptr %5, align 8
   store ptr %5, ptr %.val15.val.i, align 8
   %storemerge.in.i = load i64, ptr @_Py_NoneStruct, align 8
   %storemerge.i = add nsw i64 %storemerge.in.i, 1
@@ -60628,7 +60628,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   %9 = getelementptr inbounds i8, ptr %.val, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass1, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass1, i64 0, i32 0, i64 2), ptr %11, align 8
   %12 = tail call fastcc ptr @_ZN8pybind116detail16type_caster_baseIZ21test_submodule_class_RNS_7module_EE9BaseClassE4castEPKS4_NS_19return_value_policyENS_6handleE(ptr noundef nonnull %11, i8 noundef zeroext %10, ptr %.val2)
   br label %"_ZZN8pybind1112cpp_function10initializeIZ21test_submodule_class_RNS_7module_EE3$_5PZ21test_submodule_class_S3_E9BaseClassJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit"
 
@@ -60705,14 +60705,14 @@ _ZN8pybind116detail16type_caster_baseIZ21test_submodule_class_RNS_7module_EE9Bas
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIZ21test_submodule_class_RNS_7module_EE9BaseClassE21make_copy_constructorIS4_vEEDTcmnw_T_piclsr3stdE7declvalIKS7_EEEtlPFPvPKvEEEPS8_ENUlSB_E_8__invokeESB_(ptr nocapture readnone %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress uwtable
 define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_baseIZ21test_submodule_class_RNS_7module_EE9BaseClassE21make_move_constructorIS4_vEEDTcmnw_T_piclsr3stdE7declvalIOS7_EEEtlPFPvPKvEEEPKS7_ENUlSB_E_8__invokeESB_(ptr nocapture readnone %0) #1 align 2 {
   %2 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 }
 
@@ -60737,7 +60737,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %1
   %9 = getelementptr inbounds i8, ptr %.val, i64 88
   %10 = load i8, ptr %9, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass2, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass2, i64 0, i32 0, i64 2), ptr %11, align 8
   %12 = tail call fastcc ptr @_ZN8pybind116detail16type_caster_baseIZ21test_submodule_class_RNS_7module_EE9BaseClassE4castEPKS4_NS_19return_value_policyENS_6handleE(ptr noundef nonnull %11, i8 noundef zeroext %10, ptr %.val2)
   br label %"_ZZN8pybind1112cpp_function10initializeIZ21test_submodule_class_RNS_7module_EE3$_6PZ21test_submodule_class_S3_E9BaseClassJEJNS_4nameENS_5scopeENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_ENKUlRNS_6detail13function_callEE_clESN_.exit"
 
@@ -60782,9 +60782,9 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %11
   %.val15.i = load i32, ptr %2, align 4
   %21 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
   %switch.selectcmp.i.i16.i = icmp eq i32 %.val15.i, 2
-  %switch.select.i.i17.i = select i1 %switch.selectcmp.i.i16.i, ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass2, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, inrange i32 0, i64 2)
+  %switch.select.i.i17.i = select i1 %switch.selectcmp.i.i16.i, ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass2, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE9BaseClass, i64 0, inrange i32 0, i64 2)
   %switch.selectcmp1.i.i18.i = icmp eq i32 %.val15.i, 1
-  %switch.select2.i.i19.i = select i1 %switch.selectcmp1.i.i18.i, ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass1, i64 0, inrange i32 0, i64 2), ptr %switch.select.i.i17.i
+  %switch.select2.i.i19.i = select i1 %switch.selectcmp1.i.i18.i, ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE13DerivedClass1, i64 0, i32 0, i64 2), ptr %switch.select.i.i17.i
   store ptr %switch.select2.i.i19.i, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 88
   %.sroa.01.0.copyload.i = load ptr, ptr %22, align 8
@@ -62652,7 +62652,7 @@ _ZN8pybind116objectC2ERKS0_.exit:                 ; preds = %2, %8
           to label %26 unwind label %31
 
 26:                                               ; preds = %25
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %17, align 8
   invoke void @__cxa_throw(ptr nonnull %17, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #29
           to label %37 unwind label %31
 
@@ -63274,7 +63274,7 @@ _ZNSt10shared_ptrIZ21test_submodule_class_RN8pybind117module_EE13MismatchBase1EC
   store i32 1, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %119, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZ21test_submodule_class_RN8pybind117module_EE13MismatchBase1LN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZ21test_submodule_class_RN8pybind117module_EE13MismatchBase1LN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
   %120 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %120, align 8
   store ptr %104, ptr %103, align 8
@@ -64712,7 +64712,7 @@ _ZNSt10shared_ptrIZ21test_submodule_class_RN8pybind117module_EE16MismatchDerived
   store i32 1, ptr %118, align 8
   %119 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 1, ptr %119, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZ21test_submodule_class_RN8pybind117module_EE16MismatchDerived2LN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPZ21test_submodule_class_RN8pybind117module_EE16MismatchDerived2LN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %104, align 8
   %120 = getelementptr inbounds i8, ptr %104, i64 16
   store ptr %102, ptr %120, align 8
   store ptr %104, ptr %103, align 8
@@ -68764,7 +68764,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   %23 = getelementptr inbounds i8, ptr %22, i64 8
   store i64 0, ptr %23, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE22AliasedHasOpNewDelSize, i64 0, inrange i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE22AliasedHasOpNewDelSize, i64 0, i32 0, i64 2), ptr %22, align 8
   br label %_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ21test_submodule_class_RNS_7module_EE22AliasedHasOpNewDelSizeJZ21test_submodule_class_S9_E24PyAliasedHasOpNewDelSizeEEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSE_4typeEEE5valueEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES15_.exit
 
 24:                                               ; preds = %19
@@ -68776,7 +68776,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   %27 = getelementptr inbounds i8, ptr %26, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE24PyAliasedHasOpNewDelSize, i64 0, inrange i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE24PyAliasedHasOpNewDelSize, i64 0, i32 0, i64 2), ptr %26, align 8
   br label %_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ21test_submodule_class_RNS_7module_EE22AliasedHasOpNewDelSizeJZ21test_submodule_class_S9_E24PyAliasedHasOpNewDelSizeEEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSE_4typeEEE5valueEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES15_.exit
 
 28:                                               ; preds = %1
@@ -68791,7 +68791,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   %32 = getelementptr inbounds i8, ptr %31, i64 8
   store i64 0, ptr %32, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE22AliasedHasOpNewDelSize, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE22AliasedHasOpNewDelSize, i64 0, i32 0, i64 2), ptr %31, align 8
   br label %_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ21test_submodule_class_RNS_7module_EE22AliasedHasOpNewDelSizeJZ21test_submodule_class_S9_E24PyAliasedHasOpNewDelSizeEEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSE_4typeEEE5valueEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES15_.exit
 
 33:                                               ; preds = %28
@@ -68803,7 +68803,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2)
   %36 = getelementptr inbounds i8, ptr %35, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE24PyAliasedHasOpNewDelSize, i64 0, inrange i32 0, i64 2), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE24PyAliasedHasOpNewDelSize, i64 0, i32 0, i64 2), ptr %35, align 8
   br label %_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ21test_submodule_class_RNS_7module_EE22AliasedHasOpNewDelSizeJZ21test_submodule_class_S9_E24PyAliasedHasOpNewDelSizeEEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSE_4typeEEE5valueEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES15_.exit
 
 _ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ21test_submodule_class_RNS_7module_EE22AliasedHasOpNewDelSizeJZ21test_submodule_class_S9_E24PyAliasedHasOpNewDelSizeEEEJETnNSt9enable_ifIXaasrT_9has_aliassr3std16is_constructibleINSE_4typeEEE5valueEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_ENKUlRNS2_13function_callEE_clES15_.exit: ; preds = %20, %24, %29, %33
@@ -70907,7 +70907,7 @@ define internal noundef nonnull ptr @_ZZN8pybind1112cpp_function10initializeIZNS
   %10 = icmp eq ptr %6, %9
   %11 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, i8 0, i64 16, i1 false)
-  %spec.select.i.i16.i = select i1 %10, ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE10ProtectedB, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE11TrampolineB, i64 0, inrange i32 0, i64 2)
+  %spec.select.i.i16.i = select i1 %10, ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE10ProtectedB, i64 0, i32 0, i64 2), ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZ21test_submodule_class_RN8pybind117module_EE11TrampolineB, i64 0, inrange i32 0, i64 2)
   store ptr %spec.select.i.i16.i, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 42, ptr %12, align 8
@@ -72327,7 +72327,7 @@ define linkonce_odr hidden void @_ZN8pybind118functionC2EONS_6objectE(ptr nounde
           to label %21 unwind label %28
 
 21:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %12, align 8
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #29
           to label %34 unwind label %28
 
@@ -72775,7 +72775,7 @@ define linkonce_odr hidden noundef i32 @_ZN8pybind114moveIiEENSt9enable_ifIXntsr
           to label %20 unwind label %27
 
 20:                                               ; preds = %19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #29
           to label %36 unwind label %27
 
@@ -72877,7 +72877,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN8p
           to label %18 unwind label %25
 
 18:                                               ; preds = %17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #29
           to label %32 unwind label %25
 
@@ -72975,7 +72975,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8
           to label %18 unwind label %25
 
 18:                                               ; preds = %17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #29
           to label %32 unwind label %25
 
@@ -74957,7 +74957,7 @@ _ZN8pybind116detail15argument_loaderIJRZ21test_submodule_class_RNS_7module_EE19B
 
 .invoke.i:                                        ; preds = %46, %41
   %.sink.i = phi ptr [ %42, %41 ], [ %47, %46 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %.sink.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %.sink.i, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink.i, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #29
           to label %.cont.i unwind label %32
 

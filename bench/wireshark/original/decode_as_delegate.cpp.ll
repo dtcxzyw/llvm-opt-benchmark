@@ -1222,7 +1222,7 @@ define void @_ZN16DecodeAsDelegateC2EP7QObjectP13_capture_file(ptr noundef nonnu
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV16DecodeAsDelegate, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV16DecodeAsDelegate, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.DecodeAsDelegate, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   store ptr %12, ptr %11, align 8
@@ -4642,7 +4642,7 @@ define linkonce_odr void @_ZN16DecodeAsDelegateD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV16DecodeAsDelegate, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV16DecodeAsDelegate, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.DecodeAsDelegate, ptr %3, i32 0, i32 2
   call void @_ZN5QListI20_packet_proto_data_tED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   call void @_ZN19QStyledItemDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #14

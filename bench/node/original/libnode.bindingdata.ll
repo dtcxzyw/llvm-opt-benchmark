@@ -4580,9 +4580,9 @@ entry:
   call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
   %2 = getelementptr inbounds i8, ptr %this3, i64 32
   call void @_ZN4node3mem18NgLibMemoryManagerINS_4quic11BindingDataE10ngtcp2_memEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic11BindingDataE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic11BindingDataE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 32
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic11BindingDataE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr] }, ptr @_ZTVN4node4quic11BindingDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %packet_freelist = getelementptr inbounds %"class.node::quic::BindingData", ptr %this3, i32 0, i32 2
   call void @_ZNSt6vectorIN4node17BaseObjectPtrImplINS0_10BaseObjectELb0EEESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %packet_freelist) #3
   %listening_endpoints = getelementptr inbounds %"class.node::quic::BindingData", ptr %this3, i32 0, i32 3
@@ -5290,7 +5290,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node3mem22NgLibMemoryManagerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem18NgLibMemoryManagerINS_4quic11BindingDataE10ngtcp2_memEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem18NgLibMemoryManagerINS_4quic11BindingDataE10ngtcp2_memEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -19711,7 +19711,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem22NgLibMemoryManagerBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN4node3mem22NgLibMemoryManagerBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

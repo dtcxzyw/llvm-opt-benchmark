@@ -28,7 +28,7 @@ $_ZTI25cmGeneratedFileStreamBase = comdat any
 @_ZN5cmsysL26SystemToolsManagerInstanceE = internal global %"class.cmsys::SystemToolsManager" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTV21cmGeneratedFileStream = dso_local unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 352 to ptr), ptr null, ptr @_ZTI21cmGeneratedFileStream, ptr @_ZN21cmGeneratedFileStreamD1Ev, ptr @_ZN21cmGeneratedFileStreamD0Ev], [5 x ptr] [ptr inttoptr (i64 -352 to ptr), ptr inttoptr (i64 -352 to ptr), ptr @_ZTI21cmGeneratedFileStream, ptr @_ZTv0_n24_N21cmGeneratedFileStreamD1Ev, ptr @_ZTv0_n24_N21cmGeneratedFileStreamD0Ev] }, align 8
-@_ZTT21cmGeneratedFileStream = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC21cmGeneratedFileStream0_St14basic_ofstreamIcSt11char_traitsIcEE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC21cmGeneratedFileStream0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC21cmGeneratedFileStream0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC21cmGeneratedFileStream0_St14basic_ofstreamIcSt11char_traitsIcEE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTT21cmGeneratedFileStream = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC21cmGeneratedFileStream0_St14basic_ofstreamIcSt11char_traitsIcEE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC21cmGeneratedFileStream0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC21cmGeneratedFileStream0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC21cmGeneratedFileStream0_St14basic_ofstreamIcSt11char_traitsIcEE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i32 0, inrange i32 1, i32 3)], align 8
 @.str = private unnamed_addr constant [29 x i8] c"Cannot open file for write: \00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @__const.cmGeneratedFileStream.magic = private unnamed_addr constant [3 x i8] c"\EF\BB\BF", align 1
@@ -299,8 +299,8 @@ define dso_local void @_ZN21cmGeneratedFileStreamC1E16codecvt_Encoding(ptr nound
           to label %11 unwind label %19
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, inrange i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, inrange i32 1, i64 3), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 1, i64 3), ptr %6, align 8
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %28, label %12
 
@@ -643,15 +643,15 @@ define dso_local void @_ZN21cmGeneratedFileStreamC1ERKNSt7__cxx1112basic_stringI
   br label %.body
 
 _ZN25cmGeneratedFileStreamBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; preds = %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, inrange i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, inrange i32 1, i64 3), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 1, i64 3), ptr %10, align 8
   %17 = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %13) #15
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC2EPKcSt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTT21cmGeneratedFileStream, i64 0, i64 1), ptr noundef %17, i32 noundef 16)
           to label %18 unwind label %24
 
 18:                                               ; preds = %_ZN25cmGeneratedFileStreamBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, inrange i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, inrange i32 1, i64 3), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV21cmGeneratedFileStream, i64 0, i32 1, i64 3), ptr %10, align 8
   %19 = invoke noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEEntEv(ptr noundef nonnull align 8 dereferenceable(264) %10)
           to label %20 unwind label %26
 

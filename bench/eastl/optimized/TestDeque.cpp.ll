@@ -19431,7 +19431,7 @@ _ZN5eastl5dequeIiNS_9allocatorELj64EED2Ev.exit2119: ; preds = %_ZN5eastl5dequeIi
   %mnPtrArraySize.i3930 = getelementptr inbounds i8, ptr %d573, i64 8
   %mAllocator.i3931 = getelementptr inbounds i8, ptr %d573, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %d573, i8 0, i64 80, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mAllocator.i3931, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mAllocator.i3931, align 8
   %inc.i.i3932 = add i64 %687, 2
   store i64 %inc.i.i3932, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %689 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -67377,7 +67377,7 @@ entry:
   store i64 %inc2.i.i, ptr @_ZN17CountingAllocator16defaultCtorCountE, align 8
   %mAllocator.i.i = getelementptr inbounds i8, ptr %x, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %x, i8 0, i64 80, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mAllocator.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mAllocator.i.i, align 8
   %inc.i.i.i = add i64 %0, 2
   store i64 %inc.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8

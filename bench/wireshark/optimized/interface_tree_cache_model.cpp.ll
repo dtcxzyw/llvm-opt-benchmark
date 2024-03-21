@@ -78,7 +78,7 @@ define void @_ZN23InterfaceTreeCacheModelC2EP7QObject(ptr noundef nonnull align 
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   tail call void @_ZN19QIdentityProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV23InterfaceTreeCacheModel, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV23InterfaceTreeCacheModel, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %8, i8 0, i64 48, i1 false)
@@ -208,7 +208,7 @@ declare void @_ZN19QIdentityProxyModelD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN23InterfaceTreeCacheModelD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV23InterfaceTreeCacheModel, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTV23InterfaceTreeCacheModel, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

@@ -1495,7 +1495,7 @@ define void @_ZN15PacketListModelC2EP7QObjectP13_capture_file(ptr noundef nonnul
   %20 = load ptr, ptr %4, align 8
   %21 = load ptr, ptr %5, align 8
   call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %21)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15PacketListModel, i32 0, inrange i32 0, i32 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15PacketListModel, i32 0, i32 0, i32 2), ptr %20, align 8
   %22 = getelementptr inbounds %class.PacketListModel, ptr %20, i32 0, i32 2
   call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #16
   %23 = getelementptr inbounds %class.PacketListModel, ptr %20, i32 0, i32 3
@@ -2332,7 +2332,7 @@ define void @_ZN15PacketListModelD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15PacketListModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15PacketListModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.PacketListModel, ptr %3, i32 0, i32 9
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -7117,7 +7117,7 @@ define linkonce_odr void @_ZN9SortAbortCI2St13runtime_errorEPKc(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9SortAbort, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9SortAbort, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 

@@ -770,7 +770,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN29cmLocalUnixMakefileGenerator3C2EP17cmGlobalGeneratorP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(1112) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN22cmLocalCommonGeneratorC2EP17cmGlobalGeneratorP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(848) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 856
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 864
@@ -824,7 +824,7 @@ declare void @_ZN22cmLocalCommonGeneratorC2EP17cmGlobalGeneratorP10cmMakefile(pt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN29cmLocalUnixMakefileGenerator3D2Ev(ptr noundef nonnull align 8 dereferenceable(1112) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1064
   %3 = getelementptr inbounds i8, ptr %0, i64 1080
   %4 = load ptr, ptr %3, align 8

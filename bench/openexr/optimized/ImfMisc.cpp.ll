@@ -5471,7 +5471,7 @@ _ZNSt7__cxx1115wstring_convertISt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEw
   store i64 1114111, ptr %_M_maxcode.i.i.i, align 8
   %_M_mode.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i32 0, ptr %_M_mode.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   store ptr %call.i, ptr %converter, align 8
   %_M_byte_err_string.i = getelementptr inbounds i8, ptr %converter, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_byte_err_string.i) #19

@@ -664,7 +664,7 @@ define linkonce_odr void @_ZN12dummy_rocc_tC2Ev(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6rocc_tC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV12dummy_rocc_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV12dummy_rocc_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.dummy_rocc_t, ptr %3, i32 0, i32 1
   %5 = getelementptr inbounds [4 x i64], ptr %4, i64 0, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 32, i1 false)
@@ -680,7 +680,7 @@ define linkonce_odr void @_ZN6rocc_tC2Ev(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11extension_tC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV6rocc_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV6rocc_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -950,7 +950,7 @@ define linkonce_odr void @_ZN11extension_tC2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11extension_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11extension_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

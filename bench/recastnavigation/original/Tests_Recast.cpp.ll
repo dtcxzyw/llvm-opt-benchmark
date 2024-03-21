@@ -39297,7 +39297,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIiiEC2EbiNS_9StringRefE
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr", ptr %15, i32 0, i32 2
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %18, align 4
@@ -39320,7 +39320,7 @@ define linkonce_odr dso_local void @_ZN5Catch20ITransientExpressionC2Ebb(ptr nou
   %8 = zext i1 %2 to i8
   store i8 %8, ptr %6, align 1
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch20ITransientExpressionE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch20ITransientExpressionE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.Catch::ITransientExpression", ptr %9, i32 0, i32 1
   %11 = load i8, ptr %5, align 1
   %12 = trunc i8 %11 to i1
@@ -39675,7 +39675,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIfRKNS_6ApproxEEC2EbfNS
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIfRKNS_6ApproxEEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.0", ptr %15, i32 0, i32 1
   %19 = load float, ptr %10, align 4
   store float %19, ptr %18, align 4
@@ -40637,7 +40637,7 @@ define linkonce_odr dso_local void @_ZN5Catch9UnaryExprIbEC2Eb(ptr noundef nonnu
   %7 = load i8, ptr %4, align 1
   %8 = trunc i8 %7 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %6, i1 noundef zeroext false, i1 noundef zeroext %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9UnaryExprIbEE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9UnaryExprIbEE, i32 0, i32 0, i32 2), ptr %6, align 8
   %9 = getelementptr inbounds %"class.Catch::UnaryExpr", ptr %6, i32 0, i32 1
   %10 = load i8, ptr %4, align 1
   %11 = trunc i8 %10 to i1
@@ -40818,7 +40818,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIRPP6rcSpaniEC2EbS4_NS_
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIRPP6rcSpaniEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIRPP6rcSpaniEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.3", ptr %15, i32 0, i32 2
   %19 = load ptr, ptr %10, align 8
   store ptr %19, ptr %18, align 8
@@ -41278,7 +41278,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIRP10rcSpanPooliEC2EbS3
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIRP10rcSpanPooliEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIRP10rcSpanPooliEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.6", ptr %15, i32 0, i32 2
   %19 = load ptr, ptr %10, align 8
   store ptr %19, ptr %18, align 8
@@ -41469,7 +41469,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIRP6rcSpaniEC2EbS3_NS_9
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpaniEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.9", ptr %15, i32 0, i32 2
   %19 = load ptr, ptr %10, align 8
   store ptr %19, ptr %18, align 8
@@ -41763,7 +41763,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIhhEC2EbhNS_9StringRefE
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIhhEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIhhEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.12", ptr %15, i32 0, i32 1
   %19 = load i8, ptr %10, align 1
   store i8 %19, ptr %18, align 2
@@ -41897,7 +41897,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIhiEC2EbhNS_9StringRefE
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIhiEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIhiEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.15", ptr %15, i32 0, i32 1
   %19 = load i8, ptr %10, align 1
   store i8 %19, ptr %18, align 2
@@ -41994,7 +41994,7 @@ define linkonce_odr dso_local void @_ZN9rcContextC2Eb(ptr noundef nonnull align 
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 1
   %6 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9rcContext, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9rcContext, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.rcContext, ptr %6, i32 0, i32 1
   %8 = load i8, ptr %4, align 1
   %9 = trunc i8 %8 to i1
@@ -42221,7 +42221,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIjtEC2EbjNS_9StringRefE
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIjtEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIjtEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.17", ptr %15, i32 0, i32 2
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %18, align 4
@@ -42430,7 +42430,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIjhEC2EbjNS_9StringRefE
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIjhEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIjhEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.20", ptr %15, i32 0, i32 2
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %18, align 4
@@ -42537,7 +42537,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIjiEC2EbjNS_9StringRefE
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIjiEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIjiEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.22", ptr %15, i32 0, i32 2
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %18, align 4
@@ -42696,7 +42696,7 @@ define linkonce_odr dso_local void @_ZN5Catch9UnaryExprIRP6rcSpanEC2ES3_(ptr nou
   %7 = load ptr, ptr %6, align 8
   %8 = icmp ne ptr %7, null
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %5, i1 noundef zeroext false, i1 noundef zeroext %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9UnaryExprIRP6rcSpanEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %9 = getelementptr inbounds %"class.Catch::UnaryExpr.24", ptr %5, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   store ptr %10, ptr %9, align 8
@@ -42823,7 +42823,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIRP6rcSpanlEC2EbS3_NS_9
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpanlEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIRP6rcSpanlEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr.25", ptr %15, i32 0, i32 1
   %19 = load ptr, ptr %10, align 8
   store ptr %19, ptr %18, align 8

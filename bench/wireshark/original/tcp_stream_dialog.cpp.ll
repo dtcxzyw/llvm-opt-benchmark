@@ -2010,9 +2010,9 @@ define void @_ZN25QCPErrorBarsNotSelectableC2EP7QCPAxisS1_(ptr noundef nonnull a
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN12QCPErrorBarsC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(248) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV25QCPErrorBarsNotSelectable, i32 0, i32 1, i32 2), ptr %10, align 8
   ret void
 }
 
@@ -2168,9 +2168,9 @@ define void @_ZN15TCPStreamDialogC2EP7QWidgetP13_capture_file15tcp_graph_type_(p
   %86 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %87 = load i32, ptr %86, align 4
   call void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(64) %84, ptr noundef %85, i32 %87)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, inrange i32 0, i32 2), ptr %84, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 0, i32 2), ptr %84, align 8
   %88 = getelementptr inbounds i8, ptr %84, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, inrange i32 1, i32 2), ptr %88, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 1, i32 2), ptr %88, align 8
   %89 = getelementptr inbounds %class.TCPStreamDialog, ptr %84, i32 0, i32 1
   %90 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 456) #19
           to label %91 unwind label %149
@@ -4363,9 +4363,9 @@ define linkonce_odr void @_ZN19GeometryStateDialogC2EP7QWidget6QFlagsIN2Qt10Wind
   %10 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %11 = load i32, ptr %10, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef null, i32 %11)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV19GeometryStateDialog, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %class.GeometryStateDialog, ptr %9, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #3
   ret void
@@ -8902,9 +8902,9 @@ define void @_ZN15TCPStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15TCPStreamDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.TCPStreamDialog, ptr %3, i32 0, i32 9
   invoke void @graph_segment_list_free(ptr noundef %5)
           to label %6 unwind label %16
@@ -19288,7 +19288,7 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.98, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %15, align 4
@@ -22546,7 +22546,7 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
   ret void

@@ -748,7 +748,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3zmq12ypipe_base_tINS_5msg_tEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq16ypipe_conflate_tINS_5msg_tEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %dbuffer = getelementptr inbounds %"class.zmq::ypipe_conflate_t", ptr %this1, i32 0, i32 1
   invoke void @_ZN3zmq9dbuffer_tINS_5msg_tEEC2Ev(ptr noundef nonnull align 8 dereferenceable(193) %dbuffer)
           to label %invoke.cont unwind label %lpad
@@ -790,7 +790,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3zmq12ypipe_base_tINS_5msg_tEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq7ypipe_tINS_5msg_tELi256EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq7ypipe_tINS_5msg_tELi256EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_queue = getelementptr inbounds %"class.zmq::ypipe_t", ptr %this1, i32 0, i32 1
   invoke void @_ZN3zmq8yqueue_tINS_5msg_tELi256ELm64EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %_queue)
           to label %invoke.cont unwind label %lpad
@@ -1245,13 +1245,13 @@ invoke.cont3:                                     ; preds = %invoke.cont
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this1, i64 40
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, inrange i32 2, i32 2), ptr %add.ptr6, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 2, i32 2), ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, inrange i32 3, i32 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr], [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVN3zmq6pipe_tE, i32 0, i32 3, i32 2), ptr %add.ptr7, align 8
   %_in_pipe = getelementptr inbounds %"class.zmq::pipe_t", ptr %this1, i32 0, i32 7
   %4 = load ptr, ptr %inpipe_.addr, align 8
   store ptr %4, ptr %_in_pipe, align 8
@@ -1408,7 +1408,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi1EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi1EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_array_index = getelementptr inbounds %"class.zmq::array_item_t", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %_array_index, align 8
   ret void
@@ -1420,7 +1420,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi2EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi2EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_array_index = getelementptr inbounds %"class.zmq::array_item_t.10", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %_array_index, align 8
   ret void
@@ -1432,7 +1432,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi3EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3zmq12array_item_tILi3EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_array_index = getelementptr inbounds %"class.zmq::array_item_t.12", ptr %this1, i32 0, i32 1
   store i32 -1, ptr %_array_index, align 8
   ret void
@@ -3751,7 +3751,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq12ypipe_base_tINS_5msg_tEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN3zmq12ypipe_base_tINS_5msg_tEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

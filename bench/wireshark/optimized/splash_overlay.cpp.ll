@@ -92,9 +92,9 @@ define void @_ZN13SplashOverlayC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %12 = alloca %class.QColor, align 4
   %13 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, i32 0)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13SplashOverlay, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13SplashOverlay, i64 0, i32 0, i64 2), ptr %0, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13SplashOverlay, i64 0, inrange i32 1, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13SplashOverlay, i64 0, i32 1, i64 2), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 40
   %16 = invoke noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #10
           to label %17 unwind label %59
@@ -450,7 +450,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i24:    ; preds = %35
   call void @_ZN7QLayout18setContentsMarginsEiiii(ptr noundef nonnull align 8 dereferenceable(28) %41, i32 noundef 0, i32 noundef -1, i32 noundef 0, i32 noundef -1)
   %42 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   %43 = getelementptr inbounds i8, ptr %42, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %42, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %42, align 8
   store <4 x i32> <i32 0, i32 20, i32 53, i32 7405568>, ptr %43, align 8
   %44 = getelementptr inbounds i8, ptr %42, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %44, align 4
@@ -524,7 +524,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36:    ; preds = %65
 70:                                               ; preds = %68, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i36, %65
   %71 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   %72 = getelementptr inbounds i8, ptr %71, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %71, align 8
   store <4 x i32> <i32 0, i32 116, i32 50, i32 1507328>, ptr %72, align 8
   %73 = getelementptr inbounds i8, ptr %71, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %73, align 4
@@ -633,7 +633,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54:    ; preds = %102
   call void @_ZN10QBoxLayout9addLayoutEP7QLayouti(ptr noundef nonnull align 8 dereferenceable(28) %112, ptr noundef %113, i32 noundef 0)
   %114 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   %115 = getelementptr inbounds i8, ptr %114, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %114, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %114, align 8
   store <4 x i32> <i32 0, i32 116, i32 50, i32 1507328>, ptr %115, align 8
   %116 = getelementptr inbounds i8, ptr %114, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %116, align 4
@@ -649,7 +649,7 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i54:    ; preds = %102
   call void @_ZN10QBoxLayout9addWidgetEP7QWidgeti6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(28) %122, ptr noundef %123, i32 noundef 0, i32 0)
   %124 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #10
   %125 = getelementptr inbounds i8, ptr %124, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %124, align 8
   store <4 x i32> <i32 0, i32 20, i32 108, i32 7405568>, ptr %125, align 8
   %126 = getelementptr inbounds i8, ptr %124, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %126, align 4
@@ -1342,9 +1342,9 @@ declare void @_ZN7QWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13SplashOverlayD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13SplashOverlay, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13SplashOverlay, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13SplashOverlay, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13SplashOverlay, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

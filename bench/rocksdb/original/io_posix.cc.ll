@@ -1806,7 +1806,7 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb16FSSequentialFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb19PosixSequentialFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb19PosixSequentialFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %filename_ = getelementptr inbounds %"class.rocksdb::PosixSequentialFile", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fname.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -1855,7 +1855,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb16FSSequentialFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb16FSSequentialFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1865,7 +1865,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb19PosixSequentialFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7rocksdb19PosixSequentialFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 4
   %0 = load ptr, ptr %vfn, align 8
@@ -5391,7 +5391,7 @@ entry:
   store ptr %thread_local_io_urings, ptr %thread_local_io_urings.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb18FSRandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb21PosixRandomAccessFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb21PosixRandomAccessFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %filename_ = getelementptr inbounds %"class.rocksdb::PosixRandomAccessFile", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fname.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -5440,7 +5440,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb18FSRandomAccessFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb18FSRandomAccessFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5450,7 +5450,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb21PosixRandomAccessFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb21PosixRandomAccessFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fd_ = getelementptr inbounds %"class.rocksdb::PosixRandomAccessFile", ptr %this1, i32 0, i32 2
   %0 = load i32, ptr %fd_, align 8
   %call = invoke i32 @close(i32 noundef %0)
@@ -8695,7 +8695,7 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb18FSRandomAccessFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb21PosixMmapReadableFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb21PosixMmapReadableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fd_ = getelementptr inbounds %"class.rocksdb::PosixMmapReadableFile", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %fd.addr, align 4
   store i32 %0, ptr %fd_, align 8
@@ -8743,7 +8743,7 @@ entry:
   %ret = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb21PosixMmapReadableFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN7rocksdb21PosixMmapReadableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mmapped_region_ = getelementptr inbounds %"class.rocksdb::PosixMmapReadableFile", ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %mmapped_region_, align 8
   %length_ = getelementptr inbounds %"class.rocksdb::PosixMmapReadableFile", ptr %this1, i32 0, i32 4
@@ -9901,7 +9901,7 @@ entry:
   store ptr %options, ptr %options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb14FSWritableFileC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb13PosixMmapFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb13PosixMmapFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %filename_ = getelementptr inbounds %"class.rocksdb::PosixMmapFile", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %fname.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -9984,7 +9984,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb14FSWritableFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb14FSWritableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %last_preallocated_block_ = getelementptr inbounds %"class.rocksdb::FSWritableFile", ptr %this1, i32 0, i32 1
   store i64 0, ptr %last_preallocated_block_, align 8
   %preallocation_block_size_ = getelementptr inbounds %"class.rocksdb::FSWritableFile", ptr %this1, i32 0, i32 2
@@ -10024,7 +10024,7 @@ entry:
   %ref.tmp = alloca %"struct.rocksdb::IOOptions", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb13PosixMmapFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb13PosixMmapFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fd_ = getelementptr inbounds %"class.rocksdb::PosixMmapFile", ptr %this1, i32 0, i32 3
   %0 = load i32, ptr %fd_, align 8
   %cmp = icmp sge i32 %0, 0
@@ -11004,7 +11004,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN7rocksdb11FileOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(146) %ref.tmp) #15
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb17PosixWritableFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb17PosixWritableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %filename_ = getelementptr inbounds %"class.rocksdb::PosixWritableFile", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %fname.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -11119,7 +11119,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %options, ptr %options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb14FSWritableFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb14FSWritableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %last_preallocated_block_ = getelementptr inbounds %"class.rocksdb::FSWritableFile", ptr %this1, i32 0, i32 1
   store i64 0, ptr %last_preallocated_block_, align 8
   %preallocation_block_size_ = getelementptr inbounds %"class.rocksdb::FSWritableFile", ptr %this1, i32 0, i32 2
@@ -11209,7 +11209,7 @@ entry:
   %ref.tmp = alloca %"struct.rocksdb::IOOptions", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb17PosixWritableFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb17PosixWritableFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fd_ = getelementptr inbounds %"class.rocksdb::PosixWritableFile", ptr %this1, i32 0, i32 5
   %0 = load i32, ptr %fd_, align 4
   %cmp = icmp sge i32 %0, 0
@@ -12730,7 +12730,7 @@ entry:
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb14FSRandomRWFileC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb17PosixRandomRWFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb17PosixRandomRWFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %filename_ = getelementptr inbounds %"class.rocksdb::PosixRandomRWFile", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %fname.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %filename_, ptr noundef nonnull align 8 dereferenceable(32) %1)
@@ -12766,7 +12766,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb14FSRandomRWFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb14FSRandomRWFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -12778,7 +12778,7 @@ entry:
   %ref.tmp = alloca %"struct.rocksdb::IOOptions", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb17PosixRandomRWFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN7rocksdb17PosixRandomRWFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fd_ = getelementptr inbounds %"class.rocksdb::PosixRandomRWFile", ptr %this1, i32 0, i32 2
   %0 = load i32, ptr %fd_, align 8
   %cmp = icmp sge i32 %0, 0
@@ -13382,7 +13382,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb27PosixMemoryMappedFileBufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb27PosixMemoryMappedFileBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %base_ = getelementptr inbounds %"class.rocksdb::MemoryMappedFileBuffer", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %base_, align 8
   %length_ = getelementptr inbounds %"class.rocksdb::MemoryMappedFileBuffer", ptr %this1, i32 0, i32 2
@@ -13421,7 +13421,7 @@ entry:
   store ptr %directory_name, ptr %directory_name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb11FSDirectoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #15
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb14PosixDirectoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb14PosixDirectoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fd_ = getelementptr inbounds %"class.rocksdb::PosixDirectory", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %fd.addr, align 4
   store i32 %0, ptr %fd_, align 8
@@ -13477,7 +13477,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb11FSDirectoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb11FSDirectoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13492,7 +13492,7 @@ entry:
   %ref.tmp = alloca %"struct.rocksdb::IOOptions", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb14PosixDirectoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb14PosixDirectoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fd_ = getelementptr inbounds %"class.rocksdb::PosixDirectory", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %fd_, align 8
   %cmp = icmp sge i32 %0, 0

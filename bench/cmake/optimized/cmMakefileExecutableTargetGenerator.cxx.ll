@@ -143,7 +143,7 @@ define dso_local void @_ZN35cmMakefileExecutableTargetGeneratorC2EP17cmGenerator
   %3 = alloca %"struct.cmGeneratorTarget::Names", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN25cmMakefileTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(1064) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35cmMakefileExecutableTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35cmMakefileExecutableTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 1064
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #17
   %6 = getelementptr inbounds i8, ptr %0, i64 136
@@ -273,7 +273,7 @@ declare void @_ZN25cmMakefileTargetGeneratorD2Ev(ptr noundef nonnull align 8 der
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN35cmMakefileExecutableTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35cmMakefileExecutableTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35cmMakefileExecutableTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1064
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZN25cmMakefileTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) #17
@@ -282,7 +282,7 @@ define dso_local void @_ZN35cmMakefileExecutableTargetGeneratorD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN35cmMakefileExecutableTargetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1096) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35cmMakefileExecutableTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35cmMakefileExecutableTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1064
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   tail call void @_ZN25cmMakefileTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) #17

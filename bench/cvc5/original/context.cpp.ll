@@ -2794,7 +2794,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %pContext, ptr %pContext.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc57context10ContextObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_pScope = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 1
   store ptr null, ptr %d_pScope, align 8
   %d_pContextObjRestore = getelementptr inbounds %"class.cvc5::context::ContextObj", ptr %this1, i32 0, i32 2
@@ -3023,7 +3023,7 @@ entry:
   %frombool = zext i1 %preNotify to i8
   store i8 %frombool, ptr %preNotify.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load i8, ptr %preNotify.addr, align 1
   %tobool = trunc i8 %0 to i1
   br i1 %tobool, label %if.then, label %if.else
@@ -3048,7 +3048,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_pCNOnext = getelementptr inbounds %"class.cvc5::context::ContextNotifyObj", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %d_pCNOnext, align 8
   %cmp = icmp ne ptr %0, null

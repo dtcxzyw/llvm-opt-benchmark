@@ -120,7 +120,7 @@ $_ZTI20BroadphaseAabbTester = comdat any
 define dso_local void @_ZN16btDbvtBroadphaseC2EP22btOverlappingPairCache(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef %paircache) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %class.btAlignedObjectArray.12, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i64 0, i32 0, i64 2), ptr %this, align 8
   br label %arrayctor.loop
 
 arrayctor.loop:                                   ; preds = %invoke.cont, %entry
@@ -568,7 +568,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16btDbvtBroadphaseD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_releasepaircache = getelementptr inbounds i8, ptr %this, i64 220
   %0 = load i8, ptr %m_releasepaircache, align 4
   %1 = and i8 %0, 1
@@ -625,7 +625,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16btDbvtBroadphaseD0Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV16btDbvtBroadphase, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_releasepaircache.i = getelementptr inbounds i8, ptr %this, i64 220
   %0 = load i8, ptr %m_releasepaircache.i, align 4
   %1 = and i8 %0, 1
@@ -729,7 +729,7 @@ _ZL10listappendI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %invoke.cont, %if.th
   br i1 %tobool.not, label %if.then, label %if.end
 
 if.then:                                          ; preds = %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, inrange i32 0, i64 2), ptr %collider, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, i32 0, i64 2), ptr %collider, align 8
   %pbp.i = getelementptr inbounds i8, ptr %collider, i64 8
   store ptr %this, ptr %pbp.i, align 8
   %proxy7 = getelementptr inbounds i8, ptr %collider, i64 16
@@ -1083,7 +1083,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 define dso_local void @_ZN16btDbvtBroadphase7rayTestERK9btVector3S2_R23btBroadphaseRayCallbackS2_S2_(ptr noundef nonnull align 8 dereferenceable(256) %this, ptr noundef nonnull align 4 dereferenceable(16) %rayFrom, ptr noundef nonnull align 4 dereferenceable(16) %rayTo, ptr noundef nonnull align 8 dereferenceable(40) %rayCallback, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, ptr noundef nonnull align 4 dereferenceable(16) %aabbMax) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %callback = alloca %struct.BroadphaseRayTester, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19BroadphaseRayTester, i64 0, inrange i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19BroadphaseRayTester, i64 0, i32 0, i64 2), ptr %callback, align 8
   %m_rayCallback.i = getelementptr inbounds i8, ptr %callback, i64 8
   store ptr %rayCallback, ptr %m_rayCallback.i, align 8
   %m_data.i = getelementptr inbounds i8, ptr %this, i64 240
@@ -1436,7 +1436,7 @@ define dso_local void @_ZN16btDbvtBroadphase8aabbTestERK9btVector3S2_R24btBroadp
 invoke.cont:
   %callback = alloca %struct.BroadphaseAabbTester, align 8
   %bounds = alloca %struct.btDbvtAabbMm, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20BroadphaseAabbTester, i64 0, inrange i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV20BroadphaseAabbTester, i64 0, i32 0, i64 2), ptr %callback, align 8
   %m_aabbCallback.i = getelementptr inbounds i8, ptr %callback, i64 8
   store ptr %aabbCallback, ptr %m_aabbCallback.i, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %bounds, ptr noundef nonnull align 4 dereferenceable(16) %aabbMin, i64 16, i1 false)
@@ -1674,7 +1674,7 @@ if.then70:                                        ; preds = %_ZL10listappendI11b
   br i1 %tobool71.not, label %if.then72, label %if.end86
 
 if.then72:                                        ; preds = %if.then70
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, inrange i32 0, i64 2), ptr %collider, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, i32 0, i64 2), ptr %collider, align 8
   %pbp.i = getelementptr inbounds i8, ptr %collider, i64 8
   store ptr %this, ptr %pbp.i, align 8
   %arrayidx74 = getelementptr inbounds i8, ptr %this, i64 72
@@ -2119,7 +2119,7 @@ _ZL10listappendI11btDbvtProxyEvPT_RS2_.exit:      ; preds = %_ZL10listremoveI11b
   br i1 %tobool17.not, label %if.then18, label %if.end32
 
 if.then18:                                        ; preds = %_ZL10listappendI11btDbvtProxyEvPT_RS2_.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, inrange i32 0, i64 2), ptr %collider, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, i32 0, i64 2), ptr %collider, align 8
   %pbp.i = getelementptr inbounds i8, ptr %collider, i64 8
   store ptr %this, ptr %pbp.i, align 8
   %arrayidx20 = getelementptr inbounds i8, ptr %this, i64 72
@@ -2257,7 +2257,7 @@ do.end:                                           ; preds = %_ZL10listappendI11b
   br label %if.end46
 
 if.end46:                                         ; preds = %do.end, %if.end
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, inrange i32 0, i64 2), ptr %collider, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18btDbvtTreeCollider, i64 0, i32 0, i64 2), ptr %collider, align 8
   %pbp.i = getelementptr inbounds i8, ptr %collider, i64 8
   store ptr %this, ptr %pbp.i, align 8
   %m_deferedcollide = getelementptr inbounds i8, ptr %this, i64 221

@@ -91,7 +91,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7519FilteredNor
 entry:
   %tempDest = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tempDest, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tempDest, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tempDest, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %src, i64 8
@@ -1262,7 +1262,7 @@ if.end2:                                          ; preds = %if.end
   br i1 %new.isnull, label %if.then7, label %new.cont
 
 new.cont:                                         ; preds = %if.end2
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 0, i32 0, i64 2), ptr %call3, align 8
   %norm2.i = getelementptr inbounds i8, ptr %call3, i64 8
   store ptr %norm2, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds i8, ptr %call3, i64 16

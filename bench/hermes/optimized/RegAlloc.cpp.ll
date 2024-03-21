@@ -10885,12 +10885,12 @@ entry:
   store i64 0, ptr %_M_node_count.i.i.i.i.i.i9.i.i, align 8
   %Counter.i10.i.i = getelementptr inbounds i8, ptr %Printer, i64 200
   store i32 0, ptr %Counter.i10.i.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV25LivenessRegAllocIRPrinter, i64 0, inrange i32 0, i64 2), ptr %Printer, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV25LivenessRegAllocIRPrinter, i64 0, i32 0, i64 2), ptr %Printer, align 8
   %allocator.i = getelementptr inbounds i8, ptr %Printer, i64 208
   store ptr %this, ptr %allocator.i, align 8
   %5 = load ptr, ptr %F.i.i, align 8
   call void @_ZN6hermes9IRPrinter13visitFunctionERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(208) %Printer, ptr noundef nonnull align 8 dereferenceable(304) %5) #18
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %Printer, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %Printer, align 8
   %ScopeNamer.i.i = getelementptr inbounds i8, ptr %Printer, i64 152
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i.i, ptr noundef %6)
@@ -10908,7 +10908,7 @@ declare void @_ZN6hermes9IRPrinter13visitFunctionERKNS_8FunctionE(ptr noundef no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25LivenessRegAllocIRPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ScopeNamer.i = getelementptr inbounds i8, ptr %this, i64 152
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i, align 8
@@ -11868,7 +11868,7 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN25LivenessRegAllocIRPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ScopeNamer.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %_M_parent.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i.i.i, align 8

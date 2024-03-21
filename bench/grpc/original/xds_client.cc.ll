@@ -7779,7 +7779,7 @@ entry:
   %call = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core30grpc_xds_client_refcount_traceE)
   %cond = select i1 %call, ptr @.str.4, ptr null
   call void @_ZN9grpc_core14DualRefCountedINS_9XdsClient12ChannelStateEEC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelStateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %xds_client_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core17WeakRefCountedPtrINS_9XdsClientEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(8) %xds_client_, ptr noundef nonnull align 8 dereferenceable(8) %xds_client) #3
   %server_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState", ptr %this1, i32 0, i32 2
@@ -8015,7 +8015,7 @@ entry:
   store i32 %initial_refcount, ptr %initial_refcount.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14DualRefCountedINS_9XdsClient12ChannelStateEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14DualRefCountedINS_9XdsClient12ChannelStateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::DualRefCounted", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %initial_refcount.addr, align 4
   %call = invoke noundef i64 @_ZN9grpc_core14DualRefCountedINS_9XdsClient12ChannelStateEE11MakeRefPairEjj(i32 noundef %1, i32 noundef 0)
@@ -8974,7 +8974,7 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::DebugLocation", align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelStateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core21grpc_xds_client_traceE)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -9399,7 +9399,7 @@ entry:
   store ptr %chand, ptr %chand.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState13RetryableCallINS2_12LrsCallStateEEENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState13RetryableCallINS1_12LrsCallStateEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState13RetryableCallINS1_12LrsCallStateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %calld_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::RetryableCall.96", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN9grpc_core9XdsClient12ChannelState12LrsCallStateENS0_16OrphanableDeleteEEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %calld_) #3
   %chand_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::RetryableCall.96", ptr %this1, i32 0, i32 2
@@ -9660,7 +9660,7 @@ entry:
   store ptr %chand, ptr %chand.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState13RetryableCallINS2_12AdsCallStateEEENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState13RetryableCallINS1_12AdsCallStateEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState13RetryableCallINS1_12AdsCallStateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %calld_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::RetryableCall", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN9grpc_core9XdsClient12ChannelState12AdsCallStateENS0_16OrphanableDeleteEEC2IS4_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %calld_) #3
   %chand_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::RetryableCall", ptr %this1, i32 0, i32 2
@@ -14236,7 +14236,7 @@ entry:
   %call = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core30grpc_xds_client_refcount_traceE)
   %cond = select i1 %call, ptr @.str.29, ptr null
   call void @_ZN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12AdsCallStateENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallStateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %parent_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState13RetryableCallINS2_12AdsCallStateEEEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %parent_, ptr noundef nonnull align 8 dereferenceable(8) %parent) #3
   %call_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState", ptr %this1, i32 0, i32 2
@@ -14609,7 +14609,7 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12AdsCallStateENS_11UnrefDeleteEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12AdsCallStateENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.105", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %initial_refcount.addr, align 8
   %1 = load ptr, ptr %trace.addr, align 8
@@ -17474,7 +17474,7 @@ entry:
   store ptr %ads_call_state, ptr %ads_call_state.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core6XdsApi26AdsResponseParserInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState17AdsResponseParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState17AdsResponseParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ads_call_state_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::AdsResponseParser", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ads_call_state.addr, align 8
   store ptr %0, ptr %ads_call_state_, align 8
@@ -18245,7 +18245,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState17AdsResponseParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState17AdsResponseParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %result_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::AdsResponseParser", ptr %this1, i32 0, i32 3
   call void @_ZN9grpc_core9XdsClient12ChannelState12AdsCallState17AdsResponseParser6ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(177) %result_) #3
   call void @_ZN9grpc_core6XdsApi26AdsResponseParserInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -20100,7 +20100,7 @@ entry:
   %call = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core30grpc_xds_client_refcount_traceE)
   %cond = select i1 %call, ptr @.str.46, ptr null
   call void @_ZN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12LrsCallStateENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallStateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %parent_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState13RetryableCallINS2_12LrsCallStateEEEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(8) %parent_, ptr noundef nonnull align 8 dereferenceable(8) %parent) #3
   %call_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState", ptr %this1, i32 0, i32 2
@@ -20326,7 +20326,7 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12LrsCallStateENS_11UnrefDeleteEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12LrsCallStateENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.259", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %initial_refcount.addr, align 8
   %1 = load ptr, ptr %trace.addr, align 8
@@ -21684,7 +21684,7 @@ entry:
   %call = call noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core30grpc_xds_client_refcount_traceE)
   %cond = select i1 %call, ptr @.str.57, ptr null
   call void @_ZN9grpc_core14DualRefCountedINS_9XdsClientEEC2EPKci(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %cond, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClientE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClientE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bootstrap_ = getelementptr inbounds %"class.grpc_core::XdsClient", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN9grpc_core12XdsBootstrapESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %bootstrap_, ptr noundef nonnull align 8 dereferenceable(8) %bootstrap) #3
   %transport_factory_ = getelementptr inbounds %"class.grpc_core::XdsClient", ptr %this1, i32 0, i32 2
@@ -21924,7 +21924,7 @@ entry:
   store i32 %initial_refcount, ptr %initial_refcount.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14DualRefCountedINS_9XdsClientEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core14DualRefCountedINS_9XdsClientEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::DualRefCounted.21", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %initial_refcount.addr, align 4
   %call = call noundef i64 @_ZN9grpc_core14DualRefCountedINS_9XdsClientEE11MakeRefPairEjj(i32 noundef %1, i32 noundef 0)
@@ -22263,7 +22263,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClientE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClientE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @_ZN9grpc_core21grpc_xds_client_traceE)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -29480,7 +29480,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallState8ReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallState8ReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %parent_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState::Reporter", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12LrsCallStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %parent_) #3
   call void @_ZN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12LrsCallState8ReporterENS_11UnrefDeleteEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
@@ -29504,7 +29504,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallStateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %state_map_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState", ptr %this1, i32 0, i32 7
   call void @_ZNSt3mapIPKN9grpc_core15XdsResourceTypeENS0_9XdsClient12ChannelState12AdsCallState17ResourceTypeStateESt4lessIS3_ESaISt4pairIKS3_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %state_map_) #3
   %buffered_requests_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState", ptr %this1, i32 0, i32 6
@@ -29534,7 +29534,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallStateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallStateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %reporter_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState", ptr %this1, i32 0, i32 8
   call void @_ZNSt10unique_ptrIN9grpc_core9XdsClient12ChannelState12LrsCallState8ReporterENS0_16OrphanableDeleteEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reporter_) #3
   %cluster_names_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState", ptr %this1, i32 0, i32 6
@@ -35742,7 +35742,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %closure_list_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 1
   %head = getelementptr inbounds %struct.grpc_closure_list, ptr %closure_list_, i32 0, i32 0
   store ptr null, ptr %head, align 8
@@ -36026,7 +36026,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core7ExecCtxE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.grpc_core::ExecCtx", ptr %this1, i32 0, i32 3
   %0 = load i64, ptr %flags_, align 8
   %or = or i64 %0, 1
@@ -36232,7 +36232,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp12ScopedSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core15ScopedTimeCacheE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cached_time_ = getelementptr inbounds %"class.grpc_core::ScopedTimeCache", ptr %this1, i32 0, i32 1
   call void @_ZNSt8optionalIN9grpc_core9TimestampEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %cached_time_) #3
   ret void
@@ -36293,7 +36293,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core9Timestamp6SourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
   %0 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
   %1 = load ptr, ptr %0, align 8
@@ -36319,7 +36319,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp6SourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -36422,7 +36422,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core9Timestamp12ScopedSourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %previous_ = getelementptr inbounds %"class.grpc_core::Timestamp::ScopedSource", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %previous_, align 8
   %1 = call ptr @_ZTWN9grpc_core9Timestamp25thread_local_time_source_E()
@@ -36582,7 +36582,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core6XdsApi26AdsResponseParserInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core6XdsApi26AdsResponseParserInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -55040,7 +55040,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -57320,7 +57320,7 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState13RetryableCallINS2_12LrsCallStateEEENS_11UnrefDeleteEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState13RetryableCallINS2_12LrsCallStateEEENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.97", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %initial_refcount.addr, align 8
   %1 = load ptr, ptr %trace.addr, align 8
@@ -57647,7 +57647,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState13RetryableCallINS1_12LrsCallStateEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState13RetryableCallINS1_12LrsCallStateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %chand_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::RetryableCall.96", ptr %this1, i32 0, i32 2
   call void @_ZN9grpc_core17WeakRefCountedPtrINS_9XdsClient12ChannelStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %chand_) #3
   %calld_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::RetryableCall.96", ptr %this1, i32 0, i32 1
@@ -58975,7 +58975,7 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState13RetryableCallINS2_12AdsCallStateEEENS_11UnrefDeleteEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState13RetryableCallINS2_12AdsCallStateEEENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.89", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %initial_refcount.addr, align 8
   %1 = load ptr, ptr %trace.addr, align 8
@@ -59205,7 +59205,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState13RetryableCallINS1_12AdsCallStateEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState13RetryableCallINS1_12AdsCallStateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %chand_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::RetryableCall", ptr %this1, i32 0, i32 2
   call void @_ZN9grpc_core17WeakRefCountedPtrINS_9XdsClient12ChannelStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %chand_) #3
   %calld_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::RetryableCall", ptr %this1, i32 0, i32 1
@@ -65792,7 +65792,7 @@ entry:
   store ptr %ads_calld, ptr %ads_calld.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19XdsTransportFactory12XdsTransport13StreamingCall12EventHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState18StreamEventHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState18StreamEventHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ads_calld_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::StreamEventHandler", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12AdsCallStateEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %ads_calld_, ptr noundef nonnull align 8 dereferenceable(8) %ads_calld) #3
   ret void
@@ -65828,7 +65828,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core19XdsTransportFactory12XdsTransport13StreamingCall12EventHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core19XdsTransportFactory12XdsTransport13StreamingCall12EventHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -65838,7 +65838,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState18StreamEventHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState18StreamEventHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ads_calld_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::StreamEventHandler", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12AdsCallStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ads_calld_) #3
   call void @_ZN9grpc_core19XdsTransportFactory12XdsTransport13StreamingCall12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -71604,7 +71604,7 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12AdsCallState13ResourceTimerENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState13ResourceTimerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState13ResourceTimerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::ResourceTimer", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %type.addr, align 8
   store ptr %0, ptr %type_, align 8
@@ -71695,7 +71695,7 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12AdsCallState13ResourceTimerENS_11UnrefDeleteEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12AdsCallState13ResourceTimerENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.211", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %initial_refcount.addr, align 8
   %1 = load ptr, ptr %trace.addr, align 8
@@ -71794,7 +71794,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState13ResourceTimerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12AdsCallState13ResourceTimerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ads_calld_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::ResourceTimer", ptr %this1, i32 0, i32 3
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12AdsCallStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ads_calld_) #3
   %name_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::AdsCallState::ResourceTimer", ptr %this1, i32 0, i32 2
@@ -74586,7 +74586,7 @@ entry:
   store ptr %lrs_calld, ptr %lrs_calld.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19XdsTransportFactory12XdsTransport13StreamingCall12EventHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallState18StreamEventHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallState18StreamEventHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lrs_calld_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState::StreamEventHandler", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12LrsCallStateEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %lrs_calld_, ptr noundef nonnull align 8 dereferenceable(8) %lrs_calld) #3
   ret void
@@ -74622,7 +74622,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallState18StreamEventHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallState18StreamEventHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lrs_calld_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState::StreamEventHandler", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12LrsCallStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %lrs_calld_) #3
   call void @_ZN9grpc_core19XdsTransportFactory12XdsTransport13StreamingCall12EventHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -75123,7 +75123,7 @@ entry:
   store ptr %parent, ptr %parent.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12LrsCallState8ReporterENS_11UnrefDeleteEEC2EPKcl(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null, i64 noundef 1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallState8ReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core9XdsClient12ChannelState12LrsCallState8ReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %parent_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState::Reporter", ptr %this1, i32 0, i32 1
   call void @_ZN9grpc_core13RefCountedPtrINS_9XdsClient12ChannelState12LrsCallStateEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %parent_, ptr noundef nonnull align 8 dereferenceable(8) %parent) #3
   %report_interval_ = getelementptr inbounds %"class.grpc_core::XdsClient::ChannelState::LrsCallState::Reporter", ptr %this1, i32 0, i32 2
@@ -75194,7 +75194,7 @@ entry:
   store i64 %initial_refcount, ptr %initial_refcount.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12LrsCallState8ReporterENS_11UnrefDeleteEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core20InternallyRefCountedINS_9XdsClient12ChannelState12LrsCallState8ReporterENS_11UnrefDeleteEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %refs_ = getelementptr inbounds %"class.grpc_core::InternallyRefCounted.273", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %initial_refcount.addr, align 8
   %1 = load ptr, ptr %trace.addr, align 8

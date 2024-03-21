@@ -1965,7 +1965,7 @@ define dso_local void @_ZN17NonVoidTypeFilterC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17NonVoidTypeFilter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17NonVoidTypeFilter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.NonVoidTypeFilter, ptr %3, i32 0, i32 1
   store ptr null, ptr %4, align 8
   ret void
@@ -2111,7 +2111,7 @@ define dso_local void @_ZN28NonVoidNonVolatileTypeFilterC2Ev(ptr noundef nonnull
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV28NonVoidNonVolatileTypeFilter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.NonVoidNonVolatileTypeFilter, ptr %3, i32 0, i32 1
   store ptr null, ptr %4, align 8
   ret void
@@ -2380,7 +2380,7 @@ define dso_local void @_ZN22ChooseRandomTypeFilterC2Ebb(ptr noundef nonnull alig
   store i8 %8, ptr %6, align 1
   %9 = load ptr, ptr %4, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ChooseRandomTypeFilter, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ChooseRandomTypeFilter, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.ChooseRandomTypeFilter, ptr %9, i32 0, i32 1
   %11 = load i8, ptr %5, align 1
   %12 = trunc i8 %11 to i1

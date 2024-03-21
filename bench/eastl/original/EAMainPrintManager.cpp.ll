@@ -33,7 +33,7 @@ $_ZTIN2EA6EAMain8IChannelE = comdat any
 
 @_ZN2EA6EAMainL13gPrintManagerE = internal global %"class.EA::EAMain::PrintManager" zeroinitializer, align 8
 @_ZTVN2EA6EAMain13PrintfChannelE = external unnamed_addr constant { [7 x ptr] }, align 8
-@_ZN2EA6EAMainL14gPrintfChannelE = internal global { ptr } { ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2EA6EAMain13PrintfChannelE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN2EA6EAMainL14gPrintfChannelE = internal global { ptr } { ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2EA6EAMain13PrintfChannelE, i32 0, i32 0, i32 2) }, align 8
 @__dso_handle = external hidden global i8
 @_ZN2EA6EAMainL12gFileChannelE = internal global %"class.EA::EAMain::FileChannel" zeroinitializer, align 8
 @.str = private unnamed_addr constant [26 x i8] c"EAMAIN_NETWORK_CHANNEL_IP\00", align 1
@@ -88,7 +88,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2EA6EAMain8IChannelC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2EA6EAMain11FileChannelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2EA6EAMain11FileChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -449,7 +449,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2EA6EAMain8IChannelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2EA6EAMain8IChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

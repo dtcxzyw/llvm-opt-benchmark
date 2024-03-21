@@ -5577,7 +5577,7 @@ entry:
   %1 = load ptr, ptr %parent_.i, align 8
   %Ctx.i.i = getelementptr inbounds i8, ptr %1, i64 40
   %2 = load ptr, ptr %Ctx.i.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %D, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %D, align 8
   %Indent.i = getelementptr inbounds i8, ptr %D, i64 8
   store i32 0, ptr %Indent.i, align 8
   %sm_.i = getelementptr inbounds i8, ptr %D, i64 16
@@ -5626,7 +5626,7 @@ entry:
   store i32 0, ptr %Counter.i10.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZN6hermes9IRVisitorINS_9IRPrinterEvE5visitERKNS_5ValueE(ptr noundef nonnull align 1 dereferenceable(1) %D, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %D, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %D, align 8
   %ScopeNamer.i = getelementptr inbounds i8, ptr %D, i64 152
   %7 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i, ptr noundef %7)
@@ -6389,7 +6389,7 @@ entry:
   %2 = load ptr, ptr %parent_.i.i, align 8
   %Ctx.i.i.i = getelementptr inbounds i8, ptr %2, i64 40
   %3 = load ptr, ptr %Ctx.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %D, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %D, align 8
   %Indent.i = getelementptr inbounds i8, ptr %D, i64 8
   store i32 0, ptr %Indent.i, align 8
   %sm_.i = getelementptr inbounds i8, ptr %D, i64 16
@@ -6438,7 +6438,7 @@ entry:
   store i32 0, ptr %Counter.i10.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZN6hermes9IRVisitorINS_9IRPrinterEvE5visitERKNS_5ValueE(ptr noundef nonnull align 1 dereferenceable(1) %D, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %D, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %D, align 8
   %ScopeNamer.i = getelementptr inbounds i8, ptr %D, i64 152
   %8 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i, ptr noundef %8)
@@ -10637,7 +10637,7 @@ entry:
   %0 = load ptr, ptr %parent_.i, align 8
   %Ctx.i = getelementptr inbounds i8, ptr %0, i64 40
   %1 = load ptr, ptr %Ctx.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %D, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %D, align 8
   %Indent.i = getelementptr inbounds i8, ptr %D, i64 8
   store i32 0, ptr %Indent.i, align 8
   %sm_.i = getelementptr inbounds i8, ptr %D, i64 16
@@ -10686,7 +10686,7 @@ entry:
   store i32 0, ptr %Counter.i10.i, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZN6hermes9IRVisitorINS_9IRPrinterEvE5visitERKNS_5ValueE(ptr noundef nonnull align 1 dereferenceable(1) %D, ptr noundef nonnull align 8 dereferenceable(40) %add.ptr)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %D, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %D, align 8
   %ScopeNamer.i = getelementptr inbounds i8, ptr %D, i64 152
   %6 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i, ptr noundef %6)
@@ -10738,7 +10738,7 @@ entry:
   %D = alloca %"struct.hermes::IRPrinter", align 8
   %Ctx.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %Ctx.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %D, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %D, align 8
   %Indent.i = getelementptr inbounds i8, ptr %D, i64 8
   store i32 0, ptr %Indent.i, align 8
   %sm_.i = getelementptr inbounds i8, ptr %D, i64 16
@@ -10786,7 +10786,7 @@ entry:
   %Counter.i10.i = getelementptr inbounds i8, ptr %D, i64 200
   store i32 0, ptr %Counter.i10.i, align 8
   call void @_ZN6hermes9IRVisitorINS_9IRPrinterEvE5visitERKNS_5ValueE(ptr noundef nonnull align 1 dereferenceable(1) %D, ptr noundef nonnull align 8 dereferenceable(40) %this)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, inrange i32 0, i64 2), ptr %D, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6hermes9IRPrinterE, i64 0, i32 0, i64 2), ptr %D, align 8
   %ScopeNamer.i = getelementptr inbounds i8, ptr %D, i64 152
   %5 = load ptr, ptr %_M_parent.i.i.i.i.i.i6.i, align 8
   call void @_ZNSt8_Rb_treeIPN6hermes5ValueESt4pairIKS2_jESt10_Select1stIS5_ESt4lessIS2_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E(ptr noundef nonnull align 8 dereferenceable(48) %ScopeNamer.i, ptr noundef %5)

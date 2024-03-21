@@ -2078,7 +2078,7 @@ define dso_local void @_ZN17ProbabilityFilterC2E8ProbName(ptr noundef nonnull al
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17ProbabilityFilter, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.ProbabilityFilter, ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -2523,7 +2523,7 @@ define dso_local void @_ZN14SingleProbElemC2ERKNSt7__cxx1112basic_stringIcSt11ch
   store i32 %4, ptr %10, align 4
   %13 = load ptr, ptr %6, align 8
   call void @_ZN8ProbElemC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.SingleProbElem, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %7, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %15)
@@ -2564,7 +2564,7 @@ define linkonce_odr dso_local void @_ZN8ProbElemC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ProbElem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV8ProbElem, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2577,7 +2577,7 @@ define dso_local void @_ZN14SingleProbElemD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14SingleProbElem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.SingleProbElem, ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN8ProbElemD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -2722,7 +2722,7 @@ define dso_local void @_ZN13GroupProbElemC2EbRKNSt7__cxx1112basic_stringIcSt11ch
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN8ProbElemC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GroupProbElem, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GroupProbElem, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.GroupProbElem, ptr %10, i32 0, i32 1
   %12 = load i8, ptr %5, align 1
   %13 = trunc i8 %12 to i1
@@ -2774,7 +2774,7 @@ define dso_local void @_ZN13GroupProbElemD2Ev(ptr noundef nonnull align 8 derefe
   %5 = alloca %"struct.std::_Rb_tree_iterator", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GroupProbElem, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13GroupProbElem, i32 0, i32 0, i32 2), ptr %6, align 8
   call void @_ZNSt17_Rb_tree_iteratorISt4pairIK8ProbNameP14SingleProbElemEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   %7 = getelementptr inbounds %class.GroupProbElem, ptr %6, i32 0, i32 3
   %8 = call ptr @_ZNSt3mapI8ProbNameP14SingleProbElemSt4lessIS0_ESaISt4pairIKS0_S2_EEE5beginEv(ptr noundef nonnull align 8 dereferenceable(48) %7) #3

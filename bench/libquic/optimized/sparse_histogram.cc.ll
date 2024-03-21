@@ -176,7 +176,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base15SparseHistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, i32 0, i64 2), ptr %this, align 8
   %logged_samples_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %logged_samples_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -217,7 +217,7 @@ declare void @_ZN4base13HistogramBaseD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base15SparseHistogramD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, i32 0, i64 2), ptr %this, align 8
   %logged_samples_.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %logged_samples_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -1145,7 +1145,7 @@ define dso_local void @_ZN4base15SparseHistogramC2ERKNSt7__cxx1112basic_stringIc
 entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   tail call void @_ZN4base13HistogramBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont unwind label %lpad
@@ -1252,7 +1252,7 @@ define dso_local void @_ZN4base15SparseHistogramC2EPNS_28PersistentHistogramAllo
 entry:
   %agg.tmp = alloca %"class.base::BasicStringPiece", align 8
   tail call void @_ZN4base13HistogramBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %this, ptr noundef nonnull align 8 dereferenceable(32) %name)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lock_ = getelementptr inbounds i8, ptr %this, i64 48
   invoke void @_ZN4base8internal8LockImplC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont unwind label %lpad

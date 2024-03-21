@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @_ZN2EA6EAMainL13gPrintManagerE = internal global %"class.EA::EAMain::PrintManager" zeroinitializer, align 8
 @_ZTVN2EA6EAMain13PrintfChannelE = external unnamed_addr constant { [7 x ptr] }, align 8
-@_ZN2EA6EAMainL14gPrintfChannelE = internal global { ptr } { ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2EA6EAMain13PrintfChannelE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN2EA6EAMainL14gPrintfChannelE = internal global { ptr } { ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2EA6EAMain13PrintfChannelE, i32 0, i32 0, i32 2) }, align 8
 @.str = private unnamed_addr constant [26 x i8] c"EAMAIN_NETWORK_CHANNEL_IP\00", align 1
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 

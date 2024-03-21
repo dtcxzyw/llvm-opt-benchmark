@@ -1598,7 +1598,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7513BreakIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7513BreakIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %requestLocale = getelementptr inbounds %"class.icu_75::BreakIterator", ptr %this1, i32 0, i32 3
   %arraydecay = getelementptr inbounds [157 x i8], ptr %requestLocale, i64 0, i64 0
   store i8 0, ptr %arraydecay, align 2
@@ -1617,7 +1617,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1631,7 +1631,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #10
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7513BreakIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7513BreakIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %actualLocale = getelementptr inbounds %"class.icu_75::BreakIterator", ptr %this1, i32 0, i32 1
   %arraydecay = getelementptr inbounds [157 x i8], ptr %actualLocale, i64 0, i64 0
   %1 = load ptr, ptr %other.addr, align 8
@@ -1661,7 +1661,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2543,7 +2543,7 @@ entry:
   store ptr %actual, ptr %actual.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7513BreakIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7513BreakIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %validLocale = getelementptr inbounds %"class.icu_75::BreakIterator", ptr %this1, i32 0, i32 2
   %arraydecay = getelementptr inbounds [157 x i8], ptr %validLocale, i64 0, i64 0
   %actualLocale = getelementptr inbounds %"class.icu_75::BreakIterator", ptr %this1, i32 0, i32 1
@@ -2916,7 +2916,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #10
   call void @_ZN6icu_7514ConstChar16PtrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #10
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN6icu_7523ICUBreakIteratorServiceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN6icu_7523ICUBreakIteratorServiceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i32 0, ptr %status, align 4
   %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 144) #10
   %new.isnull = icmp eq ptr %call, null
@@ -3076,7 +3076,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7524ICUResourceBundleFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7523ICUBreakIteratorFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6icu_7523ICUBreakIteratorFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

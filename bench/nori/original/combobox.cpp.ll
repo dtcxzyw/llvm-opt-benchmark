@@ -389,7 +389,7 @@ define hidden void @_ZN7nanogui8ComboBoxC2EPNS_6WidgetE(ptr noundef nonnull alig
 12:                                               ; preds = %11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8ComboBoxE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8ComboBoxE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds %"class.nanogui::ComboBox", ptr %9, i32 0, i32 2
   store ptr null, ptr %13, align 8
   %14 = getelementptr inbounds %"class.nanogui::ComboBox", ptr %9, i32 0, i32 3
@@ -590,7 +590,7 @@ define hidden void @_ZN7nanogui8ComboBoxC2EPNS_6WidgetERKSt6vectorINSt7__cxx1112
 14:                                               ; preds = %13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #11
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8ComboBoxE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8ComboBoxE, i32 0, i32 0, i32 2), ptr %11, align 8
   %15 = getelementptr inbounds %"class.nanogui::ComboBox", ptr %11, i32 0, i32 2
   store ptr null, ptr %15, align 8
   %16 = getelementptr inbounds %"class.nanogui::ComboBox", ptr %11, i32 0, i32 3
@@ -746,7 +746,7 @@ define hidden void @_ZN7nanogui8ComboBoxC2EPNS_6WidgetERKSt6vectorINSt7__cxx1112
 16:                                               ; preds = %15
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #11
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8ComboBoxE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8ComboBoxE, i32 0, i32 0, i32 2), ptr %13, align 8
   %17 = getelementptr inbounds %"class.nanogui::ComboBox", ptr %13, i32 0, i32 2
   store ptr null, ptr %17, align 8
   %18 = getelementptr inbounds %"class.nanogui::ComboBox", ptr %13, i32 0, i32 3
@@ -1455,7 +1455,7 @@ define linkonce_odr hidden void @_ZN7nanogui11GroupLayoutC2Eiiii(ptr noundef non
   store i32 %4, ptr %10, align 4
   %11 = load ptr, ptr %6, align 8
   call void @_ZN7nanogui6LayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %11)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui11GroupLayoutE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui11GroupLayoutE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"class.nanogui::GroupLayout", ptr %11, i32 0, i32 1
   %13 = load i32, ptr %7, align 4
   store i32 %13, ptr %12, align 4
@@ -1833,7 +1833,7 @@ define linkonce_odr hidden void @_ZN7nanogui8ComboBoxD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8ComboBoxE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8ComboBoxE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::ComboBox", ptr %3, i32 0, i32 6
   call void @_ZNSt8functionIFviEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   %5 = getelementptr inbounds %"class.nanogui::ComboBox", ptr %3, i32 0, i32 5
@@ -1933,7 +1933,7 @@ define linkonce_odr hidden void @_ZN7nanogui6ButtonD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6ButtonE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6ButtonE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::Button", ptr %3, i32 0, i32 10
   call void @_ZNSt6vectorIPN7nanogui6ButtonESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   %5 = getelementptr inbounds %"class.nanogui::Button", ptr %3, i32 0, i32 9
@@ -2279,7 +2279,7 @@ define linkonce_odr hidden void @_ZN7nanogui6LayoutC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui6LayoutE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nanogui6LayoutE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2288,7 +2288,7 @@ define linkonce_odr hidden void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #11
   ret void

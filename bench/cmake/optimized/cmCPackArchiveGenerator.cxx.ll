@@ -220,7 +220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
           to label %12 unwind label %20
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 360
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 368
@@ -328,7 +328,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
           to label %12 unwind label %20
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 360
   store i32 3, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 368
@@ -419,7 +419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
           to label %12 unwind label %20
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 360
   store i32 2, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 368
@@ -510,7 +510,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
           to label %12 unwind label %20
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 360
   store i32 5, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 368
@@ -601,7 +601,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
           to label %12 unwind label %20
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 360
   store i32 1, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 368
@@ -692,7 +692,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
           to label %12 unwind label %20
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 360
   store i32 6, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 368
@@ -783,7 +783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
           to label %12 unwind label %20
 
 12:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %5, align 8
   %13 = getelementptr inbounds i8, ptr %5, i64 360
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds i8, ptr %5, i64 368
@@ -828,7 +828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN23cmCPackArchiveGeneratorC2EN14cmArchiveWrite8CompressENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_(ptr noundef nonnull align 8 dereferenceable(432) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #3 align 2 {
   tail call void @_ZN16cmCPackGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360) %0)
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 360
   store i32 %1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 368
@@ -845,7 +845,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23cmCPackArchiveGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 400
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   %3 = getelementptr inbounds i8, ptr %0, i64 368
@@ -859,7 +859,7 @@ declare void @_ZN16cmCPackGeneratorD2Ev(ptr noundef nonnull align 8 dereferencea
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN23cmCPackArchiveGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(432) %0) unnamed_addr #6 align 2 {
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 400
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #20
   %3 = getelementptr inbounds i8, ptr %0, i64 368

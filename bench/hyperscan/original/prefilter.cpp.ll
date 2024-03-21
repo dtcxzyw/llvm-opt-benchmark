@@ -577,7 +577,7 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue223DefaultComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN3ue216PrefilterVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN3ue216PrefilterVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %root = getelementptr inbounds %"class.ue2::PrefilterVisitor", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %c.addr, align 8
   store ptr %0, ptr %root, align 8
@@ -1726,7 +1726,7 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name = getelementptr inbounds %"class.ue2::(anonymous namespace)::FindSequenceVisitor", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %s.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %name, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -1833,7 +1833,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name = getelementptr inbounds %"class.ue2::(anonymous namespace)::FindSequenceVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #12
   call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
@@ -1849,7 +1849,7 @@ entry:
   store i32 %ref_id, ptr %ref_id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119FindSequenceVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name = getelementptr inbounds %"class.ue2::(anonymous namespace)::FindSequenceVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #12
   %id = getelementptr inbounds %"class.ue2::(anonymous namespace)::FindSequenceVisitor", ptr %this1, i32 0, i32 2
@@ -2447,7 +2447,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue228DefaultConstComponentVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %numPositions = getelementptr inbounds %"class.ue2::(anonymous namespace)::SafeReferentVisitor", ptr %this1, i32 0, i32 1
   store i64 0, ptr %numPositions, align 8
   %countStack = getelementptr inbounds %"class.ue2::(anonymous namespace)::SafeReferentVisitor", ptr %this1, i32 0, i32 2
@@ -2499,7 +2499,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [46 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SafeReferentVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %countStack = getelementptr inbounds %"class.ue2::(anonymous namespace)::SafeReferentVisitor", ptr %this1, i32 0, i32 2
   call void @_ZNSt5stackImSt5dequeImSaImEEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %countStack) #12
   call void @_ZN3ue228DefaultConstComponentVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12

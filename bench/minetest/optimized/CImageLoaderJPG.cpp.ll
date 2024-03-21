@@ -35,7 +35,7 @@ $_ZTIN3irr17IReferenceCountedE = comdat any
 $_ZTIN3irr5video12IImageLoaderE = comdat any
 
 @_ZTVN3irr5video15CImageLoaderJPGE = unnamed_addr constant { [8 x ptr], [5 x ptr] } { [8 x ptr] [ptr inttoptr (i64 8 to ptr), ptr null, ptr @_ZTIN3irr5video15CImageLoaderJPGE, ptr @_ZNK3irr5video15CImageLoaderJPG24isALoadableFileExtensionERKNS_4core6stringIcEE, ptr @_ZNK3irr5video15CImageLoaderJPG21isALoadableFileFormatEPNS_2io9IReadFileE, ptr @_ZNK3irr5video15CImageLoaderJPG9loadImageEPNS_2io9IReadFileE, ptr @_ZN3irr5video15CImageLoaderJPGD1Ev, ptr @_ZN3irr5video15CImageLoaderJPGD0Ev], [5 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3irr5video15CImageLoaderJPGE, ptr @_ZTv0_n24_N3irr5video15CImageLoaderJPGD1Ev, ptr @_ZTv0_n24_N3irr5video15CImageLoaderJPGD0Ev] }, align 8
-@_ZTTN3irr5video15CImageLoaderJPGE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video15CImageLoaderJPGE0_NS0_12IImageLoaderE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video15CImageLoaderJPGE0_NS0_12IImageLoaderE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr5video15CImageLoaderJPGE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video15CImageLoaderJPGE0_NS0_12IImageLoaderE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video15CImageLoaderJPGE0_NS0_12IImageLoaderE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i32 0, inrange i32 1, i32 3)], align 8
 @.str.4 = private unnamed_addr constant [4 x i8] c"\FF\D8\FF\00", align 1
 @_ZTCN3irr5video15CImageLoaderJPGE0_NS0_12IImageLoaderE = unnamed_addr constant { [8 x ptr], [5 x ptr] } { [8 x ptr] [ptr inttoptr (i64 8 to ptr), ptr null, ptr @_ZTIN3irr5video12IImageLoaderE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3irr5video12IImageLoaderD1Ev, ptr @_ZN3irr5video12IImageLoaderD0Ev], [5 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3irr5video12IImageLoaderE, ptr @_ZTv0_n24_N3irr5video12IImageLoaderD1Ev, ptr @_ZTv0_n24_N3irr5video12IImageLoaderD0Ev] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
@@ -78,8 +78,8 @@ define void @_ZN3irr5video15CImageLoaderJPGC1Ev(ptr nocapture noundef nonnull wr
   store ptr null, ptr %3, align 8, !tbaa !6
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 1, ptr %4, align 8, !tbaa !11
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   ret void
 }
 
@@ -759,8 +759,8 @@ define noalias noundef nonnull ptr @_ZN3irr5video20createImageLoaderJPGEv() loca
   store ptr null, ptr %3, align 8, !tbaa !6
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   store i32 1, ptr %4, align 8, !tbaa !11
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 0, inrange i32 0, i64 3), ptr %1, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 0, i32 0, i64 3), ptr %1, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video15CImageLoaderJPGE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   ret ptr %1
 }
 

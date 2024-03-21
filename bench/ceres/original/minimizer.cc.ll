@@ -1520,7 +1520,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal20TrustRegionMinimizerC2Ev(pt
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal9MinimizerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal20TrustRegionMinimizerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal20TrustRegionMinimizerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.ceres::internal::TrustRegionMinimizer", ptr %5, i32 0, i32 1
   invoke void @_ZN5ceres8internal9Minimizer7OptionsC2Ev(ptr noundef nonnull align 8 dereferenceable(352) %6)
           to label %7 unwind label %32
@@ -1780,7 +1780,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal9MinimizerC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal9MinimizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal9MinimizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6936,7 +6936,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal19LineSearchMinimizerC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal9MinimizerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal19LineSearchMinimizerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal19LineSearchMinimizerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

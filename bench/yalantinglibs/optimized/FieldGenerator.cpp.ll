@@ -3626,7 +3626,7 @@ lpad.i:                                           ; preds = %.noexc
 
 invoke.cont43:                                    ; preds = %if.then.i.i.i.i14, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ns.i.i) #22
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp41, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i64 0, i32 0, i64 2), ptr %ref.tmp41, align 8
   %d_.i = getelementptr inbounds i8, ptr %ref.tmp41, i64 56
   store ptr %23, ptr %d_.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i)
@@ -3814,7 +3814,7 @@ lpad.i43:                                         ; preds = %.noexc52
 
 invoke.cont55:                                    ; preds = %if.then.i.i.i.i47, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i49
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ns.i.i38) #22
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp52, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i64 0, i32 0, i64 2), ptr %ref.tmp52, align 8
   %d_.i48 = getelementptr inbounds i8, ptr %ref.tmp52, i64 56
   store ptr %add.ptr.i, ptr %d_.i48, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i37)
@@ -8165,7 +8165,7 @@ lpad.i35:                                         ; preds = %for.body
 
 _ZN9struct_pb8compiler14FieldGeneratorC2EPKN6google8protobuf15FieldDescriptorERK7Options.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i, %if.then.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ns.i.i) #22
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i64 0, inrange i32 0, i64 2), ptr %fg, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i64 0, i32 0, i64 2), ptr %fg, align 8
   store ptr %27, ptr %d_.i, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i)
   invoke void @_ZNK9struct_pb8compiler14FieldGenerator13get_type_nameB5cxx11Ev(ptr nonnull sret(%"class.std::__cxx11::basic_string") align 8 %type_name, ptr noundef nonnull align 8 dereferenceable(64) %fg)
@@ -10367,7 +10367,7 @@ lpad.i65:                                         ; preds = %.noexc
 
 invoke.cont35:                                    ; preds = %if.then.i.i.i.i67, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %ns.i.i) #22
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp33, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i64 0, i32 0, i64 2), ptr %ref.tmp33, align 8
   store ptr %32, ptr %d_.i68, align 8
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %agg.tmp.i)
   %61 = load ptr, ptr %ns.i.i.i, align 8

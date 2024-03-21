@@ -3657,7 +3657,7 @@ if.then.i.i.i.i.i1.thread:                        ; preds = %if.then.i.i.i.i, %i
   %5 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i.i = add nsw i32 %5, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %hasher, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %hasher, align 8
   %bcProvider_.i10.i30 = getelementptr inbounds i8, ptr %hasher, i64 8
   store ptr %0, ptr %bcProvider_.i10.i30, align 8
   %_M_refcount.i.i.i11.i31 = getelementptr inbounds i8, ptr %hasher, i64 16
@@ -3667,7 +3667,7 @@ if.then.i.i.i.i.i1.thread:                        ; preds = %if.then.i.i.i.i, %i
 if.then.i.i.i.i.i1:                               ; preds = %if.then.i.i.i.i
   %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   %.pre28 = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %hasher, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %hasher, align 8
   %bcProvider_.i10.i = getelementptr inbounds i8, ptr %hasher, i64 8
   store ptr %0, ptr %bcProvider_.i10.i, align 8
   %_M_refcount.i.i.i11.i = getelementptr inbounds i8, ptr %hasher, i64 16
@@ -3766,7 +3766,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 _ZN6hermes3hbc14BytecodeHasherC2ESt10shared_ptrINS0_14BCProviderBaseEEbb.exit: ; preds = %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
   %frombool1.i = zext i1 %useIntConstants to i8
   %frombool.i = zext i1 %useStrings to i8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc14BytecodeHasherE, i64 0, inrange i32 0, i64 2), ptr %hasher, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc14BytecodeHasherE, i64 0, i32 0, i64 2), ptr %hasher, align 8
   %hash_.i = getelementptr inbounds i8, ptr %hasher, i64 28
   store i32 0, ptr %hash_.i, align 4
   %useStrings_.i = getelementptr inbounds i8, ptr %hasher, i64 32
@@ -3888,7 +3888,7 @@ _ZN6hermes3hbc15BytecodeVisitor27visitInstructionsInFunctionEj.exit: ; preds = %
   %36 = load ptr, ptr %vfn12.i, align 8
   call void %36(ptr noundef nonnull align 8 dereferenceable(28) %hasher) #17
   %37 = load i32, ptr %hash_.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %hasher, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %hasher, align 8
   %_M_refcount.i.i.i.i14 = getelementptr inbounds i8, ptr %hasher, i64 16
   %38 = load ptr, ptr %_M_refcount.i.i.i.i14, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %38, null
@@ -3969,7 +3969,7 @@ _ZN6hermes3hbc14BytecodeHasherD2Ev.exit:          ; preds = %_ZN6hermes3hbc15Byt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc14BytecodeHasherD2Ev(ptr noundef nonnull align 8 dereferenceable(35) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -8091,7 +8091,7 @@ if.then.i.i.i.i.i13.thread:                       ; preds = %if.then.i.i.i.i, %i
   %5 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i.i = add nsw i32 %5, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %jumpVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %jumpVisitor, align 8
   %bcProvider_.i10.i277 = getelementptr inbounds i8, ptr %jumpVisitor, i64 8
   store ptr %0, ptr %bcProvider_.i10.i277, align 8
   %_M_refcount.i.i.i11.i278 = getelementptr inbounds i8, ptr %jumpVisitor, i64 16
@@ -8101,7 +8101,7 @@ if.then.i.i.i.i.i13.thread:                       ; preds = %if.then.i.i.i.i, %i
 if.then.i.i.i.i.i13:                              ; preds = %if.then.i.i.i.i
   %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   %.pre270 = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %jumpVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %jumpVisitor, align 8
   %bcProvider_.i10.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 8
   store ptr %0, ptr %bcProvider_.i10.i, align 8
   %_M_refcount.i.i.i11.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 16
@@ -8198,7 +8198,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZN6hermes3hbc18JumpTargetsVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit
 
 _ZN6hermes3hbc18JumpTargetsVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit: ; preds = %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i64 0, inrange i32 0, i64 2), ptr %jumpVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i64 0, i32 0, i64 2), ptr %jumpVisitor, align 8
   %funcId_.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 28
   %switchInsts_.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 48
   %jumpTargets_.i = getelementptr inbounds i8, ptr %jumpVisitor, i64 72
@@ -8359,7 +8359,7 @@ if.then.i.i.i.i.i44.thread:                       ; preds = %if.then.i.i.i.i39, 
   %46 = load i32, ptr %_M_use_count.i.i.i.i31, align 4
   %add.i.i.i.i.i.i43 = add nsw i32 %46, 1
   store i32 %add.i.i.i.i.i.i43, ptr %_M_use_count.i.i.i.i31, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %bcProvider_.i10.i45282 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 8
   store ptr %38, ptr %bcProvider_.i10.i45282, align 8
   %_M_refcount.i.i.i11.i46283 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 16
@@ -8369,7 +8369,7 @@ if.then.i.i.i.i.i44.thread:                       ; preds = %if.then.i.i.i.i39, 
 if.then.i.i.i.i.i44:                              ; preds = %if.then.i.i.i.i39
   %47 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i31, i32 1 acq_rel, align 4
   %.pre272 = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %bcProvider_.i10.i45 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 8
   store ptr %38, ptr %bcProvider_.i10.i45, align 8
   %_M_refcount.i.i.i11.i46 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 16
@@ -8465,7 +8465,7 @@ _ZN6hermes3hbc24PrettyDisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE
   store ptr %38, ptr %bcProvider_.i.i83, align 8
   %_M_refcount.i.i.i.i84 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 16
   store ptr null, ptr %_M_refcount.i.i.i.i84, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %jumpTargets_.i60 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 32
   store ptr %jumpTargets_.i, ptr %jumpTargets_.i60, align 8
   %bytecodeStart_.i = getelementptr inbounds i8, ptr %disassembleVisitor, i64 40
@@ -8479,7 +8479,7 @@ _ZN6hermes3hbc24PrettyDisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit117
 
 if.then.i.i.i88:                                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i57, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i68, %if.end8.sink.split.i.i.i.i.i71
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes3hbc24PrettyDisassembleVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %jumpTargets_.i60261 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 32
   store ptr %jumpTargets_.i, ptr %jumpTargets_.i60261, align 8
   %bytecodeStart_.i262 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 40
@@ -9070,7 +9070,7 @@ if.then4.i.i217:                                  ; preds = %if.end
 
 _ZN4llvh11raw_ostreamlsEPKc.exit222:              ; preds = %if.then.i.i220, %if.then4.i.i217
   call void @_ZN6hermes3hbc20BytecodeDisassembler34disassembleExceptionHandlersPrettyEjRKSt13unordered_mapIPKvjSt4hashIS4_ESt8equal_toIS4_ESaISt4pairIKS4_jEEERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %funcId, ptr noundef nonnull align 8 dereferenceable(56) %jumpTargets_.i, ptr noundef nonnull align 8 dereferenceable(36) %OS)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %_M_refcount.i.i.i.i223 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 16
   %158 = load ptr, ptr %_M_refcount.i.i.i.i223, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %158, null
@@ -9152,7 +9152,7 @@ _ZN6hermes3hbc24PrettyDisassembleVisitorD2Ev.exit: ; preds = %_ZN4llvh11raw_ostr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -9233,7 +9233,7 @@ _ZN6hermes3hbc15BytecodeVisitorD2Ev.exit:         ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc18JumpTargetsVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18JumpTargetsVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %jumpTargets_ = getelementptr inbounds i8, ptr %this, i64 72
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -9274,7 +9274,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt13unordered_ma
   br label %_ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit: ; preds = %_ZNSt13unordered_mapIPKvjSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_jEEED2Ev.exit, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %6 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %6, null
@@ -9384,7 +9384,7 @@ if.then.i.i.i.i.i10.thread:                       ; preds = %if.then.i.i.i.i, %i
   %5 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i.i = add nsw i32 %5, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %bcProvider_.i10.i132 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 8
   store ptr %0, ptr %bcProvider_.i10.i132, align 8
   %_M_refcount.i.i.i11.i133 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 16
@@ -9394,7 +9394,7 @@ if.then.i.i.i.i.i10.thread:                       ; preds = %if.then.i.i.i.i, %i
 if.then.i.i.i.i.i10:                              ; preds = %if.then.i.i.i.i
   %6 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   %.pre128 = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %bcProvider_.i10.i = getelementptr inbounds i8, ptr %disassembleVisitor, i64 8
   store ptr %0, ptr %bcProvider_.i10.i, align 8
   %_M_refcount.i.i.i11.i = getelementptr inbounds i8, ptr %disassembleVisitor, i64 16
@@ -9486,7 +9486,7 @@ _ZN6hermes3hbc18DisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEERN4llv
   store ptr %0, ptr %bcProvider_.i.i, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %disassembleVisitor, i64 16
   store ptr null, ptr %_M_refcount.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %os_.i = getelementptr inbounds i8, ptr %disassembleVisitor, i64 32
   store ptr %OS, ptr %os_.i, align 8
   %switchInsts_.i = getelementptr inbounds i8, ptr %disassembleVisitor, i64 40
@@ -9494,7 +9494,7 @@ _ZN6hermes3hbc18DisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEERN4llv
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit
 
 if.then.i.i.i13:                                  ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %os_.i122 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 32
   store ptr %OS, ptr %os_.i122, align 8
   %switchInsts_.i123 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 40
@@ -9856,7 +9856,7 @@ if.then4.i.i98:                                   ; preds = %if.end
 
 _ZN4llvh11raw_ostreamlsEPKc.exit103:              ; preds = %if.then.i.i101, %if.then4.i.i98
   call void @_ZN6hermes3hbc20BytecodeDisassembler28disassembleExceptionHandlersEjRN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(20) %this, i32 noundef %funcId, ptr noundef nonnull align 8 dereferenceable(36) %OS)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %76 = load ptr, ptr %switchInsts_.i125, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %76, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit.i, label %if.then.i.i.i.i105
@@ -9866,7 +9866,7 @@ if.then.i.i.i.i105:                               ; preds = %_ZN4llvh11raw_ostre
   br label %_ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit.i
 
 _ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i105, %_ZN4llvh11raw_ostreamlsEPKc.exit103
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %_M_refcount.i.i.i.i106 = getelementptr inbounds i8, ptr %disassembleVisitor, i64 16
   %77 = load ptr, ptr %_M_refcount.i.i.i.i106, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %77, null
@@ -9947,7 +9947,7 @@ _ZN6hermes3hbc18DisassembleVisitorD2Ev.exit:      ; preds = %_ZNSt6vectorIPKN6he
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc18DisassembleVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %switchInsts_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %switchInsts_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -9958,7 +9958,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit
 
 _ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -10250,7 +10250,7 @@ _ZNSt6vectorISt4pairIjjESaIS1_EEC2ERKS3_.exit:    ; preds = %for.body.i.i.i.i.i,
   %__cur.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt12_Vector_baseISt4pairIjjESaIS1_EEC2EmRKS2_.exit.i.thread ], [ %incdec.ptr.i.i.i.i.i, %for.body.i.i.i.i.i ]
   %_M_finish.i.i.i28 = getelementptr inbounds i8, ptr %agg.result, i64 8
   store ptr %__cur.0.lcssa.i.i.i.i.i, ptr %_M_finish.i.i.i28, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i64 0, inrange i32 0, i64 2), ptr %regexVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i64 0, i32 0, i64 2), ptr %regexVisitor, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %30, null
   br i1 %tobool.not.i.i.i.i, label %_ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit.i, label %if.then.i.i.i.i12
 
@@ -10259,7 +10259,7 @@ if.then.i.i.i.i12:                                ; preds = %_ZNSt6vectorISt4pai
   br label %_ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit.i:      ; preds = %if.then.i.i.i.i12, %_ZNSt6vectorISt4pairIjjESaIS1_EEC2ERKS3_.exit
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %regexVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %regexVisitor, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %regexVisitor, i64 16
   %32 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %32, null
@@ -10363,7 +10363,7 @@ if.else.i.i.i.i.i:                                ; preds = %if.then.i.i.i
   br label %if.then.i.i.i.i
 
 if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i.i.i, %if.else.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %bcProvider_.i10 = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %0, ptr %bcProvider_.i10, align 8
   %_M_refcount.i.i.i11 = getelementptr inbounds i8, ptr %this, i64 16
@@ -10462,7 +10462,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
   %bcProvider_.i1317 = phi ptr [ %bcProvider_.i, %_ZN6hermes3hbc15BytecodeVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEE.exit ], [ %bcProvider_.i10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i ], [ %bcProvider_.i10, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i ], [ %bcProvider_.i10, %if.end8.sink.split.i.i.i.i ]
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %regexStringIDMap_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %regexStringIDMap_, i8 0, i64 24, i1 false)
   %18 = load ptr, ptr %bcProvider_.i1317, align 8
@@ -10475,7 +10475,7 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %_ZN6hermes
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc23RegexStringTableVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %regexStringIDMap_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %regexStringIDMap_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -10486,7 +10486,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit:        ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %1, null
@@ -10987,7 +10987,7 @@ if.then.i.i.i.i.i104.thread:                      ; preds = %if.then.i.i.i.i, %i
   %25 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i.i = add nsw i32 %25, 1
   store i32 %add.i.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   store ptr %20, ptr %bcProvider_.i10.i, align 8
   store ptr %21, ptr %_M_refcount.i.i.i11.i, align 8
   br label %if.then.i.i.i.i.i.i.i
@@ -10995,7 +10995,7 @@ if.then.i.i.i.i.i104.thread:                      ; preds = %if.then.i.i.i.i, %i
 if.then.i.i.i.i.i104:                             ; preds = %if.then.i.i.i.i
   %26 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   %.pre486 = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   store ptr %20, ptr %bcProvider_.i10.i, align 8
   store ptr %21, ptr %_M_refcount.i.i.i11.i, align 8
   %tobool.i.not.i.i.i.i.i.i = icmp eq i8 %.pre486, 0
@@ -11082,7 +11082,7 @@ if.end8.sink.split.i.i.i.i.i:                     ; preds = %_ZN9__gnu_cxx27__ex
 _ZN6hermes3hbc25ObjdumpDisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEERN4llvh11raw_ostreamE.exit: ; preds = %for.body
   store ptr %20, ptr %bcProvider_.i10.i, align 8
   store ptr null, ptr %_M_refcount.i.i.i11.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   store i32 0, ptr %funcId_.i471, align 4
   store i32 0, ptr %funcOffset_.i472, align 8
   store ptr null, ptr %bytecodeStart_.i473, align 8
@@ -11090,7 +11090,7 @@ _ZN6hermes3hbc25ObjdumpDisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseE
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit
 
 if.then.i.i.i107:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   store i32 0, ptr %funcId_.i471, align 4
   store i32 0, ptr %funcOffset_.i472, align 8
   store ptr null, ptr %bytecodeStart_.i473, align 8
@@ -11202,7 +11202,7 @@ _ZN6hermes3hbc15BytecodeVisitor27visitInstructionsInFunctionEj.exit: ; preds = %
   %vfn12.i = getelementptr inbounds i8, ptr %vtable11.i, i64 8
   %57 = load ptr, ptr %vfn12.i, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(28) %disassembleVisitor) #17
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor, align 8
   %58 = load ptr, ptr %_M_refcount.i.i.i11.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %58, null
   br i1 %cmp.not.i.i.i.i.i, label %_ZN6hermes3hbc25ObjdumpDisassembleVisitorD2Ev.exit, label %if.then.i.i.i.i.i120
@@ -11318,7 +11318,7 @@ if.then.i.i.i.i.i150.thread:                      ; preds = %if.then.i.i.i.i145,
   %76 = load i32, ptr %_M_use_count.i.i.i.i137, align 4
   %add.i.i.i.i.i.i149 = add nsw i32 %76, 1
   store i32 %add.i.i.i.i.i.i149, ptr %_M_use_count.i.i.i.i137, align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor20, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor20, align 8
   %bcProvider_.i10.i151492 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 8
   store ptr %.lcssa, ptr %bcProvider_.i10.i151492, align 8
   %_M_refcount.i.i.i11.i152493 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 16
@@ -11328,7 +11328,7 @@ if.then.i.i.i.i.i150.thread:                      ; preds = %if.then.i.i.i.i145,
 if.then.i.i.i.i.i150:                             ; preds = %if.then.i.i.i.i145
   %77 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i137, i32 1 acq_rel, align 4
   %.pre488 = load i8, ptr @__libc_single_threaded, align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor20, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor20, align 8
   %bcProvider_.i10.i151 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 8
   store ptr %.lcssa, ptr %bcProvider_.i10.i151, align 8
   %_M_refcount.i.i.i11.i152 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 16
@@ -11422,7 +11422,7 @@ _ZN6hermes3hbc25ObjdumpDisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseE
   store ptr null, ptr %_M_refcount.i.i.i.i193, align 8
   %funcId_.i.i194 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 24
   store i32 0, ptr %funcId_.i.i194, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor20, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor20, align 8
   %funcId_.i166 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 28
   store i32 0, ptr %funcId_.i166, align 4
   %funcOffset_.i167 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 32
@@ -11434,7 +11434,7 @@ _ZN6hermes3hbc25ObjdumpDisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseE
   br label %_ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit227
 
 if.then.i.i.i198:                                 ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i163, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i177, %if.end8.sink.split.i.i.i.i.i180
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor20, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc25ObjdumpDisassembleVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor20, align 8
   %funcId_.i166475 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 28
   store i32 0, ptr %funcId_.i166475, align 4
   %funcOffset_.i167476 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 32
@@ -11511,7 +11511,7 @@ if.end8.sink.split.i.i.i.i218:                    ; preds = %_ZN9__gnu_cxx27__ex
 
 _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit227: ; preds = %_ZN6hermes3hbc25ObjdumpDisassembleVisitorC2ESt10shared_ptrINS0_14BCProviderBaseEERN4llvh11raw_ostreamE.exit195, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i205, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i215, %if.end8.sink.split.i.i.i.i218
   call void @_ZN6hermes3hbc25ObjdumpDisassembleVisitor11listOpCodesEv(ptr noundef nonnull align 8 dereferenceable(56) %disassembleVisitor20)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %disassembleVisitor20, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %disassembleVisitor20, align 8
   %_M_refcount.i.i.i.i228 = getelementptr inbounds i8, ptr %disassembleVisitor20, i64 16
   %100 = load ptr, ptr %_M_refcount.i.i.i.i228, align 8
   %cmp.not.i.i.i.i.i229 = icmp eq ptr %100, null
@@ -12045,7 +12045,7 @@ return:                                           ; preds = %if.end8.sink.split.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc25ObjdumpDisassembleVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -12549,7 +12549,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc24PrettyDisassembleVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -14115,7 +14115,7 @@ sw.epilog:                                        ; preds = %for.body19.i509, %f
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc14BytecodeHasherD0Ev(ptr noundef nonnull align 8 dereferenceable(35) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -14209,7 +14209,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc15BytecodeVisitorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -14290,7 +14290,7 @@ _ZNSt10shared_ptrIN6hermes3hbc14BCProviderBaseEED2Ev.exit: ; preds = %entry, %_Z
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc15BytecodeVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -15775,7 +15775,7 @@ sw.epilog:                                        ; preds = %if.then4.i.i606, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc18DisassembleVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc18DisassembleVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %switchInsts_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %switchInsts_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -15786,7 +15786,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit.i
 
 _ZNSt6vectorIPKN6hermes4inst4InstESaIS4_EED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -16048,7 +16048,7 @@ if.end:                                           ; preds = %_ZN6hermes3hbc13dec
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc23RegexStringTableVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc23RegexStringTableVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %regexStringIDMap_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %regexStringIDMap_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -16059,7 +16059,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorISt4pairIjjESaIS1_EED2Ev.exit.i:      ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %1 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -16889,7 +16889,7 @@ sw.epilog:                                        ; preds = %_ZN4llvh11raw_ostre
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc25ObjdumpDisassembleVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6hermes3hbc15BytecodeVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null

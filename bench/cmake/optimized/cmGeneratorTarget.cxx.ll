@@ -2395,7 +2395,7 @@ _ZN10cmLinkItemD2Ev.exit:                         ; preds = %1, %20, %33, %_ZNSt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN17cmGeneratorTarget19TargetPropertyEntryC2ERK14cmLinkImplItem(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(105) %1) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17cmGeneratorTarget19TargetPropertyEntryE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17cmGeneratorTarget19TargetPropertyEntryE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   ret void
@@ -9822,7 +9822,7 @@ _ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.ex
   %67 = ptrtoint ptr %63 to i64
   %68 = getelementptr inbounds i8, ptr %66, i64 8
   store ptr @_ZN17cmGeneratorTarget19TargetPropertyEntry14NoLinkImplItemE, ptr %68, align 8, !noalias !107
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i64 0, inrange i32 0, i64 2), ptr %66, align 8, !noalias !107
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i64 0, i32 0, i64 2), ptr %66, align 8, !noalias !107
   %69 = getelementptr inbounds i8, ptr %66, i64 16
   store i64 %67, ptr %69, align 8, !noalias !107
   store ptr %66, ptr %0, align 8
@@ -96137,7 +96137,7 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI25TargetPropertyEntryStrin
 _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds = %.noexc, %14, %17
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr @_ZN17cmGeneratorTarget19TargetPropertyEntry14NoLinkImplItemE, ptr %19, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i64 0, i32 0, i64 2), ptr %4, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %3) #29
   %21 = getelementptr inbounds i8, ptr %4, i64 48
@@ -96158,7 +96158,7 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24TargetPropertyEntryGenexD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -96176,7 +96176,7 @@ _ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24TargetPropertyEntryGenexD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -96255,7 +96255,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK24TargetPropertyEntryGenex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25TargetPropertyEntryStringD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -96337,7 +96337,7 @@ _ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ; preds =
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25TargetPropertyEntryStringD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i.i.i = icmp eq ptr %3, null
@@ -97422,7 +97422,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %65 = load i64, ptr %.sroa.0171.0244, align 8
   store ptr null, ptr %.sroa.0171.0244, align 8
   store ptr @_ZN17cmGeneratorTarget19TargetPropertyEntry14NoLinkImplItemE, ptr %46, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, i32 0, i64 2), ptr %9, align 8
   %66 = load <2 x ptr>, ptr %10, align 16
   store <2 x ptr> %66, ptr %47, align 8
   %67 = load ptr, ptr %50, align 16
@@ -97890,7 +97890,7 @@ _ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4t
   br label %223
 
 209:                                              ; preds = %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit106.thread
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, i32 0, i64 2), ptr %9, align 8
   %210 = load ptr, ptr %52, align 8
   %.not.i.i = icmp eq ptr %210, null
   br i1 %.not.i.i, label %_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.exit.i, label %_ZNKSt14default_deleteI29cmCompiledGeneratorExpressionEclEPS0_.exit.i.i
@@ -97928,7 +97928,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   br label %_ZN26TargetPropertyEntryFileSetD2Ev.exit
 
 .critedge87:                                      ; preds = %135, %_ZN28EvaluatedTargetPropertyEntryD2Ev.exit
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, i32 0, i64 2), ptr %9, align 8
   %216 = load ptr, ptr %52, align 8
   %.not.i.i121 = icmp eq ptr %216, null
   br i1 %.not.i.i121, label %_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev.exit.i123, label %_ZNKSt14default_deleteI29cmCompiledGeneratorExpressionEclEPS0_.exit.i.i122
@@ -98101,7 +98101,7 @@ declare void @_ZN13cmSourceGroup12AddGroupFileERKNSt7__cxx1112basic_stringIcSt11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN26TargetPropertyEntryFileSetD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -98147,7 +98147,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN26TargetPropertyEntryFileSetD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null

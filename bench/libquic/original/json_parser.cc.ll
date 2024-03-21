@@ -6524,7 +6524,7 @@ entry:
   store ptr %root, ptr %root.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base15DictionaryValueC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %json_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::DictionaryHiddenRootValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %json_, ptr noundef nonnull align 8 dereferenceable(8) %json) #11
   %call = call noundef ptr @_ZNKSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %root) #11
@@ -6659,7 +6659,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %json_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::DictionaryHiddenRootValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %json_) #11
   call void @_ZN4base15DictionaryValueD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #11
@@ -7364,7 +7364,7 @@ entry:
   store ptr %root, ptr %root.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base9ListValueC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %json_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::ListHiddenRootValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2EOS8_(ptr noundef nonnull align 8 dereferenceable(8) %json_, ptr noundef nonnull align 8 dereferenceable(8) %json) #11
   %call = call noundef ptr @_ZNKSt10unique_ptrIN4base5ValueESt14default_deleteIS1_EE3getEv(ptr noundef nonnull align 8 dereferenceable(8) %root) #11
@@ -7430,7 +7430,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %json_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::ListHiddenRootValue", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %json_) #11
   call void @_ZN4base9ListValueD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #11
@@ -8426,7 +8426,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base5ValueC2ENS0_4TypeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_115JSONStringValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_115JSONStringValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %string_piece_ = getelementptr inbounds %"class.base::internal::(anonymous namespace)::JSONStringValue", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %string_piece_, ptr align 8 %piece, i64 16, i1 false)
   ret void

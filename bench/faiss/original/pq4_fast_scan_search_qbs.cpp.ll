@@ -2168,7 +2168,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
@@ -7761,7 +7761,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi12ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi12ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [12 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 24
@@ -8258,7 +8258,7 @@ define linkonce_odr void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss17SIMDResultHandlerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss17SIMDResultHandlerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %3, i32 0, i32 1
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds %"struct.faiss::SIMDResultHandler", ptr %3, i32 0, i32 2
@@ -9264,7 +9264,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi11ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi11ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.9", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [11 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 22
@@ -10163,7 +10163,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi10ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi10ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.10", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [10 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 20
@@ -11062,7 +11062,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi9ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi9ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.11", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [9 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 18
@@ -11961,7 +11961,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi8ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi8ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.12", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [8 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 16
@@ -13214,7 +13214,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi7ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi7ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.13", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [7 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 14
@@ -14821,7 +14821,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi6ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi6ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.14", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [6 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 12
@@ -16428,7 +16428,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi5ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi5ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.15", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [5 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 10
@@ -17681,7 +17681,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi4ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.16", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [4 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 8
@@ -19288,7 +19288,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi3ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.17", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [3 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 6
@@ -20541,7 +20541,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi2ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.18", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [2 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 4
@@ -21086,7 +21086,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers19FixedStorageHandlerIL
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers19FixedStorageHandlerILi1ELi2EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::simd_result_handlers::FixedStorageHandler.19", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [1 x [2 x %"struct.faiss::simd16uint16"]], ptr %6, i32 0, i32 0, i32 0
   %8 = getelementptr inbounds %"struct.faiss::simd16uint16", ptr %7, i64 2
@@ -315493,7 +315493,7 @@ define linkonce_odr void @_ZN5faiss20simd_result_handlers18StoreResultHandlerC2E
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5faiss17SIMDResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(11) %7) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers18StoreResultHandlerE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss20simd_result_handlers18StoreResultHandlerE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.faiss::simd_result_handlers::StoreResultHandler", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8

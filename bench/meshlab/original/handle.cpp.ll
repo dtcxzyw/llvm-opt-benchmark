@@ -56,9 +56,9 @@ define void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull ali
   store i32 %6, ptr %13, align 4
   %19 = load ptr, ptr %9, align 8
   call void @_ZN15QGraphicsObjectC2EP13QGraphicsItem(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef null)
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV6Handle, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV6Handle, i32 0, i32 0, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV6Handle, i32 0, inrange i32 1, i32 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [39 x ptr] }, ptr @_ZTV6Handle, i32 0, i32 1, i32 2), ptr %20, align 8
   %21 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 1
   call void @_ZN6QColorC2Ev(ptr noundef nonnull align 4 dereferenceable(14) %21) #7
   %22 = getelementptr inbounds %class.Handle, ptr %19, i32 0, i32 3

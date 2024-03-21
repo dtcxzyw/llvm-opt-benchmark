@@ -156,7 +156,7 @@ define noundef i64 @_Z14fast_rv32i_bgeP11processor_t6insn_tm(ptr nocapture nound
   store i64 %27, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %34, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, i32 0, i64 2), ptr %34, align 8
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN35trap_instruction_address_misalignedD2Ev) #13
   unreachable
 
@@ -223,7 +223,7 @@ define noundef i64 @_Z14fast_rv64i_bgeP11processor_t6insn_tm(ptr nocapture nound
   store i64 %26, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %33, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, i32 0, i64 2), ptr %33, align 8
   tail call void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN35trap_instruction_address_misalignedD2Ev) #13
   unreachable
 
@@ -283,7 +283,7 @@ define noundef i64 @_Z16logged_rv32i_bgeP11processor_t6insn_tm(ptr nocapture nou
   store i64 %27, ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %34, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, i32 0, i64 2), ptr %34, align 8
   tail call void @__cxa_throw(ptr nonnull %34, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN35trap_instruction_address_misalignedD2Ev) #13
   unreachable
 
@@ -347,7 +347,7 @@ define noundef i64 @_Z16logged_rv64i_bgeP11processor_t6insn_tm(ptr nocapture nou
   store i64 %26, ptr %39, align 8
   %40 = getelementptr inbounds i8, ptr %33, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, i32 0, i64 2), ptr %33, align 8
   tail call void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN35trap_instruction_address_misalignedD2Ev) #13
   unreachable
 
@@ -373,7 +373,7 @@ define noundef i64 @_Z14fast_rv32e_bgeP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 %1, ptr %13, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -391,7 +391,7 @@ define noundef i64 @_Z14fast_rv32e_bgeP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -439,7 +439,7 @@ define noundef i64 @_Z14fast_rv32e_bgeP11processor_t6insn_tm(ptr nocapture nound
   store i64 %41, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %48, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %48, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, i32 0, i64 2), ptr %48, align 8
   tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN35trap_instruction_address_misalignedD2Ev) #13
   unreachable
 
@@ -480,7 +480,7 @@ define noundef i64 @_Z14fast_rv64e_bgeP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -498,7 +498,7 @@ define noundef i64 @_Z14fast_rv64e_bgeP11processor_t6insn_tm(ptr nocapture nound
   store i8 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 24
   store i64 %1, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -546,7 +546,7 @@ define noundef i64 @_Z14fast_rv64e_bgeP11processor_t6insn_tm(ptr nocapture nound
   store i64 %40, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %47, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, i32 0, i64 2), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN35trap_instruction_address_misalignedD2Ev) #13
   unreachable
 
@@ -572,7 +572,7 @@ define noundef i64 @_Z16logged_rv32e_bgeP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 %1, ptr %13, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %10, align 8
   tail call void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -590,7 +590,7 @@ define noundef i64 @_Z16logged_rv32e_bgeP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 24
   store i64 %1, ptr %22, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %19, align 8
   tail call void @__cxa_throw(ptr nonnull %19, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -638,7 +638,7 @@ define noundef i64 @_Z16logged_rv32e_bgeP11processor_t6insn_tm(ptr nocapture nou
   store i64 %41, ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %48, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %48, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, i32 0, i64 2), ptr %48, align 8
   tail call void @__cxa_throw(ptr nonnull %48, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN35trap_instruction_address_misalignedD2Ev) #13
   unreachable
 
@@ -668,7 +668,7 @@ define noundef i64 @_Z16logged_rv64e_bgeP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 24
   store i64 %1, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %9, align 8
   tail call void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -686,7 +686,7 @@ define noundef i64 @_Z16logged_rv64e_bgeP11processor_t6insn_tm(ptr nocapture nou
   store i8 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %18, i64 24
   store i64 %1, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %18, align 8
   tail call void @__cxa_throw(ptr nonnull %18, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #13
   unreachable
 
@@ -734,7 +734,7 @@ define noundef i64 @_Z16logged_rv64e_bgeP11processor_t6insn_tm(ptr nocapture nou
   store i64 %40, ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %47, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, inrange i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV35trap_instruction_address_misaligned, i64 0, i32 0, i64 2), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTI35trap_instruction_address_misaligned, ptr nonnull @_ZN35trap_instruction_address_misalignedD2Ev) #13
   unreachable
 

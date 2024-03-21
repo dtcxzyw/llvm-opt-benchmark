@@ -1988,9 +1988,9 @@ define void @_ZN22LteMacStatisticsDialogC2ER7QWidgetR11CaptureFilePKc(ptr nounde
   %36 = load ptr, ptr %6, align 8
   %37 = load ptr, ptr %7, align 8
   call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(48) %37, i32 noundef 229)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 0, i32 2), ptr %35, align 8
   %38 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 1, i32 2), ptr %38, align 8
   %39 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 6
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #4
   %40 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %35, i32 0, i32 8
@@ -3159,7 +3159,7 @@ define linkonce_odr void @_ZN18PercentBarDelegateC2EP7QWidget(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18PercentBarDelegate, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18PercentBarDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -3403,9 +3403,9 @@ define void @_ZN22LteMacStatisticsDialogD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteMacStatisticsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.LteMacStatisticsDialog, ptr %3, i32 0, i32 4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -4599,7 +4599,7 @@ define linkonce_odr void @_ZN19MacUETreeWidgetItemC2EP11QTreeWidgetPK17mac_3gpp_
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %5, align 8
   call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %13, ptr noundef %14, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19MacUETreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19MacUETreeWidgetItem, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 2
   store i32 0, ptr %15, align 8
   %16 = getelementptr inbounds %class.MacUETreeWidgetItem, ptr %13, i32 0, i32 3
@@ -8497,7 +8497,7 @@ define linkonce_odr void @_ZN21MacULDLTreeWidgetItemC2EP15QTreeWidgetItemjjji(pt
   %21 = load ptr, ptr %8, align 8
   %22 = load i32, ptr %12, align 4
   call void @_ZN15QTreeWidgetItemC2EPS_i(ptr noundef nonnull align 8 dereferenceable(92) %20, ptr noundef %21, i32 noundef %22)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21MacULDLTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21MacULDLTreeWidgetItem, i32 0, i32 0, i32 2), ptr %20, align 8
   %23 = getelementptr inbounds %class.MacULDLTreeWidgetItem, ptr %20, i32 0, i32 1
   %24 = load i32, ptr %9, align 4
   store i32 %24, ptr %23, align 4

@@ -119,7 +119,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #10
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp12ScaleProcessE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp12ScaleProcessE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mScale = getelementptr inbounds %"class.Assimp::ScaleProcess", ptr %this1, i32 0, i32 1
   store float 1.000000e+00, ptr %mScale, align 8
   ret void

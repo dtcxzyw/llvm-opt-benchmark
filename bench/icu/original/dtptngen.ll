@@ -1709,7 +1709,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pLocale = getelementptr inbounds %"class.icu_75::DateTimePatternGenerator", ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %pLocale)
           to label %invoke.cont unwind label %lpad
@@ -2120,7 +2120,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2133,7 +2133,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -2149,7 +2149,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512DistanceInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512DistanceInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2182,7 +2182,7 @@ entry:
   store i8 %skipStdPatterns, ptr %skipStdPatterns.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pLocale = getelementptr inbounds %"class.icu_75::DateTimePatternGenerator", ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %pLocale)
           to label %invoke.cont unwind label %lpad
@@ -2677,7 +2677,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pLocale = getelementptr inbounds %"class.icu_75::DateTimePatternGenerator", ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_756LocaleC1Ev(ptr noundef nonnull align 8 dereferenceable(217) %pLocale)
           to label %invoke.cont unwind label %lpad
@@ -4322,7 +4322,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fAvailableFormatKeyHash = getelementptr inbounds %"class.icu_75::DateTimePatternGenerator", ptr %this1, i32 0, i32 11
   %0 = load ptr, ptr %fAvailableFormatKeyHash, align 8
   %cmp = icmp ne ptr %0, null
@@ -6589,7 +6589,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_122AllowedHourFormatsSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_122AllowedHourFormatsSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8666,7 +8666,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGenerator20AvailableFormatsSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGenerator20AvailableFormatsSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %conflictingPattern = getelementptr inbounds %"struct.icu_75::DateTimePatternGenerator::AvailableFormatsSink", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %conflictingPattern) #11
   call void @_ZN6icu_7512ResourceSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -8711,7 +8711,7 @@ entry:
   store ptr %_dtpg, ptr %_dtpg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGenerator21AppendItemFormatsSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGenerator21AppendItemFormatsSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %dtpg = getelementptr inbounds %"struct.icu_75::DateTimePatternGenerator::AppendItemFormatsSink", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_dtpg.addr, align 8
   store ptr %0, ptr %dtpg, align 8
@@ -8871,7 +8871,7 @@ entry:
   store ptr %_dtpg, ptr %_dtpg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGenerator19AppendItemNamesSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGenerator19AppendItemNamesSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %dtpg = getelementptr inbounds %"struct.icu_75::DateTimePatternGenerator::AppendItemNamesSink", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_dtpg.addr, align 8
   store ptr %0, ptr %dtpg, align 8
@@ -9117,7 +9117,7 @@ entry:
   store ptr %_dtpg, ptr %_dtpg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGenerator20AvailableFormatsSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7524DateTimePatternGenerator20AvailableFormatsSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %dtpg = getelementptr inbounds %"struct.icu_75::DateTimePatternGenerator::AvailableFormatsSink", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_dtpg.addr, align 8
   store ptr %0, ptr %dtpg, align 8
@@ -15396,7 +15396,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7510PatternMapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7510PatternMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
@@ -15616,7 +15616,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7510PatternMapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7510PatternMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i32 0, ptr %i, align 4
   br label %for.cond
 
@@ -15925,7 +15925,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515DateTimeMatcherE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515DateTimeMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %skeleton = getelementptr inbounds %"class.icu_75::DateTimeMatcher", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7511PtnSkeletonC1Ev(ptr noundef nonnull align 8 dereferenceable(137) %skeleton)
   ret void
@@ -15963,7 +15963,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515DateTimeMatcherE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7515DateTimeMatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %skeleton = getelementptr inbounds %"class.icu_75::DateTimeMatcher", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7511PtnSkeletonC1Ev(ptr noundef nonnull align 8 dereferenceable(137) %skeleton)
   %0 = load ptr, ptr %other.addr, align 8
@@ -16250,7 +16250,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512FormatParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512FormatParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %items = getelementptr inbounds %"class.icu_75::FormatParser", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [50 x %"class.icu_75::UnicodeString"], ptr %items, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 50
@@ -16307,7 +16307,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512FormatParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512FormatParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %items = getelementptr inbounds %"class.icu_75::FormatParser", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [50 x %"class.icu_75::UnicodeString"], ptr %items, i32 0, i32 0
   %0 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %array.begin, i64 50
@@ -16640,7 +16640,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7518PatternMapIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7518PatternMapIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bootIndex = getelementptr inbounds %"class.icu_75::PatternMapIterator", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bootIndex, align 8
   %nodePtr = getelementptr inbounds %"class.icu_75::PatternMapIterator", ptr %this1, i32 0, i32 2
@@ -16831,7 +16831,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7518PatternMapIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7518PatternMapIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %matcher = getelementptr inbounds %"class.icu_75::PatternMapIterator", ptr %this1, i32 0, i32 3
   call void @_ZN6icu_7512LocalPointerINS_15DateTimeMatcherEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %matcher) #11
   ret void
@@ -16975,7 +16975,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7511PtnSkeletonE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7511PtnSkeletonE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %original = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_7514SkeletonFieldsC1Ev(ptr noundef nonnull align 1 dereferenceable(32) %original)
   %baseOriginal = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %this1, i32 0, i32 3
@@ -16993,7 +16993,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7511PtnSkeletonE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7511PtnSkeletonE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %original = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_7514SkeletonFieldsC1Ev(ptr noundef nonnull align 1 dereferenceable(32) %original)
   %baseOriginal = getelementptr inbounds %"class.icu_75::PtnSkeleton", ptr %this1, i32 0, i32 3
@@ -17088,7 +17088,7 @@ entry:
   store ptr %basePat, ptr %basePat.addr, align 8
   store ptr %pat, ptr %pat.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_757PtnElemE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_757PtnElemE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %basePattern = getelementptr inbounds %"class.icu_75::PtnElem", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %basePat.addr, align 8
   call void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %basePattern, ptr noundef nonnull align 8 dereferenceable(64) %0)
@@ -17209,7 +17209,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_757PtnElemE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_757PtnElemE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %next = getelementptr inbounds %"class.icu_75::PtnElem", ptr %this1, i32 0, i32 5
   call void @_ZN6icu_7512LocalPointerINS_7PtnElemEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %next) #11
   %pattern = getelementptr inbounds %"class.icu_75::PtnElem", ptr %this1, i32 0, i32 3
@@ -17256,7 +17256,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521DTSkeletonEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521DTSkeletonEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fSkeletons = getelementptr inbounds %"class.icu_75::DTSkeletonEnumeration", ptr %this1, i32 0, i32 2
   invoke void @_ZN6icu_7512LocalPointerINS_7UVectorEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %fSkeletons, ptr noundef null)
           to label %invoke.cont unwind label %lpad
@@ -18009,7 +18009,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521DTSkeletonEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521DTSkeletonEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fSkeletons = getelementptr inbounds %"class.icu_75::DTSkeletonEnumeration", ptr %this1, i32 0, i32 2
   %call = invoke noundef signext i8 @_ZNK6icu_7516LocalPointerBaseINS_7UVectorEE7isValidEv(ptr noundef nonnull align 8 dereferenceable(8) %fSkeletons)
           to label %invoke.cont unwind label %terminate.lpad
@@ -18112,7 +18112,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522DTRedundantEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522DTRedundantEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pos = getelementptr inbounds %"class.icu_75::DTRedundantEnumeration", ptr %this1, i32 0, i32 1
   store i32 0, ptr %pos, align 4
   %fPatterns = getelementptr inbounds %"class.icu_75::DTRedundantEnumeration", ptr %this1, i32 0, i32 2
@@ -18299,7 +18299,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522DTRedundantEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522DTRedundantEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fPatterns = getelementptr inbounds %"class.icu_75::DTRedundantEnumeration", ptr %this1, i32 0, i32 2
   %call = invoke noundef signext i8 @_ZNK6icu_7516LocalPointerBaseINS_7UVectorEE7isValidEv(ptr noundef nonnull align 8 dereferenceable(8) %fPatterns)
           to label %invoke.cont unwind label %terminate.lpad
@@ -18737,7 +18737,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -18849,7 +18849,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

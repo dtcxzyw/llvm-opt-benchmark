@@ -3389,7 +3389,7 @@ define dso_local void @_ZN5BlockC2EPS_i(ptr noundef nonnull align 8 dereferencea
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef 1, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorIP9StatementSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #3
   %10 = getelementptr inbounds %class.Block, ptr %7, i32 0, i32 2
@@ -3460,7 +3460,7 @@ define dso_local void @_ZN5BlockD2Ev(ptr noundef nonnull align 8 dereferenceable
   %8 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %0, ptr %2, align 8
   %9 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV5Block, i32 0, i32 0, i32 2), ptr %9, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPP9StatementSt6vectorIS2_SaIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   %10 = getelementptr inbounds %class.Block, ptr %9, i32 0, i32 1
   %11 = call ptr @_ZNSt6vectorIP9StatementSaIS1_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %10) #3

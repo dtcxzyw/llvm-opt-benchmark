@@ -152,7 +152,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15Sample_TileMeshC2Ev(ptr noundef nonnull align 8 dereferenceable(404) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %0)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 200
   store i8 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 201
@@ -183,7 +183,7 @@ define dso_local void @_ZN15Sample_TileMeshC2Ev(ptr noundef nonnull align 8 dere
           to label %15 unwind label %18
 
 15:                                               ; preds = %12
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15NavMeshTileTool, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15NavMeshTileTool, i64 0, i32 0, i64 2), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %16, i8 0, i64 21, i1 false)
   invoke void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %14)
@@ -218,7 +218,7 @@ declare void @_ZN6SampleD2Ev(ptr noundef nonnull align 8 dereferenceable(200)) u
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN15Sample_TileMeshD2Ev(ptr noundef nonnull align 8 dereferenceable(404) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -604,7 +604,7 @@ define dso_local void @_ZN15Sample_TileMesh11handleToolsEv(ptr noundef nonnull a
 
 29:                                               ; preds = %26
   %30 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #14
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15NavMeshTileTool, i64 0, inrange i32 0, i64 2), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15NavMeshTileTool, i64 0, i32 0, i64 2), ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %30, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(21) %31, i8 0, i64 21, i1 false)
   tail call void @_ZN6Sample7setToolEP10SampleTool(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %30)

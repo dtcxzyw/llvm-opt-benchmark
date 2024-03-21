@@ -631,9 +631,9 @@ entry:
   call void @_ZN3zmq11io_object_tC2EPNS_11io_thread_tE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null)
   %0 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN3zmq8i_engineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #15
-  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %_empty_endpoint = getelementptr inbounds %"class.zmq::udp_engine_t", ptr %this1, i32 0, i32 2
   invoke void @_ZN3zmq19endpoint_uri_pair_tC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %_empty_endpoint)
           to label %invoke.cont unwind label %lpad
@@ -702,7 +702,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq8i_engineE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq8i_engineE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

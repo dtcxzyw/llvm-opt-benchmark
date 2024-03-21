@@ -1220,9 +1220,9 @@ define void @_ZN22SimpleStatisticsDialogC2ER7QWidgetR11CaptureFileP18_stat_tap_t
   %23 = load ptr, ptr %9, align 8
   %24 = load i32, ptr %12, align 4
   call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %21, ptr noundef nonnull align 8 dereferenceable(40) %22, ptr noundef nonnull align 8 dereferenceable(48) %23, i32 noundef %24)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 0, i32 2), ptr %21, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 1, i32 2), ptr %25, align 8
   %26 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %21, i32 0, i32 1
   %27 = load ptr, ptr %10, align 8
   store ptr %27, ptr %26, align 8
@@ -1879,7 +1879,7 @@ define linkonce_odr void @_ZN30SimpleStatisticsTreeWidgetItemC2EP15QTreeWidgetIt
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN15QTreeWidgetItemC2EPS_i(ptr noundef nonnull align 8 dereferenceable(92) %9, ptr noundef %10, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV30SimpleStatisticsTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV30SimpleStatisticsTreeWidgetItem, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.SimpleStatisticsTreeWidgetItem, ptr %9, i32 0, i32 1
   %12 = load i32, ptr %7, align 4
   store i32 %12, ptr %11, align 4
@@ -2893,9 +2893,9 @@ define void @_ZN22SimpleStatisticsDialogD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22SimpleStatisticsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.SimpleStatisticsDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds %struct._stat_tap_table_ui, ptr %6, i32 0, i32 14

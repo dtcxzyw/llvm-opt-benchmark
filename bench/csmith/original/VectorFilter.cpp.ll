@@ -215,7 +215,7 @@ define dso_local void @_ZN12VectorFilterC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12VectorFilter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12VectorFilter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.VectorFilter, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
   %5 = getelementptr inbounds %class.VectorFilter, ptr %3, i32 0, i32 2
@@ -244,7 +244,7 @@ define dso_local void @_ZN12VectorFilterC2EP17DistributionTable(ptr noundef nonn
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12VectorFilter, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12VectorFilter, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.VectorFilter, ptr %5, i32 0, i32 1
   call void @_ZNSt6vectorIjSaIjEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #9
   %7 = getelementptr inbounds %class.VectorFilter, ptr %5, i32 0, i32 2
@@ -267,7 +267,7 @@ define dso_local void @_ZN12VectorFilterC2ERSt6vectorIjSaIjEEi(ptr noundef nonnu
   store i32 %2, ptr %6, align 4
   %9 = load ptr, ptr %4, align 8
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12VectorFilter, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12VectorFilter, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.VectorFilter, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11)
@@ -384,7 +384,7 @@ define dso_local void @_ZN12VectorFilterD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12VectorFilter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12VectorFilter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.VectorFilter, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #9
   call void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #9

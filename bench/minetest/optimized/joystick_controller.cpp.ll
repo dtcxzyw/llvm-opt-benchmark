@@ -244,7 +244,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
   br i1 %79, label %85, label %80
 
 80:                                               ; preds = %66
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %76, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %76, align 8, !tbaa !43
   %81 = getelementptr inbounds i8, ptr %76, i64 12
   store i32 64, ptr %81, align 4, !tbaa !10
   %82 = getelementptr inbounds i8, ptr %76, i64 16
@@ -280,7 +280,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
   br i1 %92, label %98, label %93
 
 93:                                               ; preds = %89
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %91, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %91, align 8, !tbaa !43
   %94 = getelementptr inbounds i8, ptr %91, i64 12
   store i32 132, ptr %94, align 4, !tbaa !10
   %95 = getelementptr inbounds i8, ptr %91, i64 16
@@ -316,7 +316,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
   br i1 %105, label %111, label %106
 
 106:                                              ; preds = %102
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %104, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %104, align 8, !tbaa !43
   %107 = getelementptr inbounds i8, ptr %104, i64 12
   store i32 24, ptr %107, align 4, !tbaa !10
   %108 = getelementptr inbounds i8, ptr %104, i64 16
@@ -352,7 +352,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
   br i1 %118, label %124, label %119
 
 119:                                              ; preds = %115
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %117, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %117, align 8, !tbaa !43
   %120 = getelementptr inbounds i8, ptr %117, i64 12
   store i32 40, ptr %120, align 4, !tbaa !10
   %121 = getelementptr inbounds i8, ptr %117, i64 16
@@ -388,7 +388,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
   br i1 %131, label %137, label %132
 
 132:                                              ; preds = %128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %130, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %130, align 8, !tbaa !43
   %133 = getelementptr inbounds i8, ptr %130, i64 12
   store i32 137, ptr %133, align 4, !tbaa !10
   %134 = getelementptr inbounds i8, ptr %130, i64 16
@@ -424,7 +424,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
   br i1 %144, label %150, label %145
 
 145:                                              ; preds = %141
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %143, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %143, align 8, !tbaa !43
   %146 = getelementptr inbounds i8, ptr %143, i64 12
   store i32 138, ptr %146, align 4, !tbaa !10
   %147 = getelementptr inbounds i8, ptr %143, i64 16
@@ -460,7 +460,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
   br i1 %157, label %163, label %158
 
 158:                                              ; preds = %154
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %156, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %156, align 8, !tbaa !43
   %159 = getelementptr inbounds i8, ptr %156, i64 12
   store i32 138, ptr %159, align 4, !tbaa !10
   %160 = getelementptr inbounds i8, ptr %156, i64 16
@@ -496,7 +496,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
   br i1 %170, label %176, label %171
 
 171:                                              ; preds = %167
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %169, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %169, align 8, !tbaa !43
   %172 = getelementptr inbounds i8, ptr %169, i64 12
   store i32 152, ptr %172, align 4, !tbaa !10
   %173 = getelementptr inbounds i8, ptr %169, i64 16
@@ -532,7 +532,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
   br i1 %183, label %189, label %184
 
 184:                                              ; preds = %180
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %182, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %182, align 8, !tbaa !43
   %185 = getelementptr inbounds i8, ptr %182, i64 12
   store i32 168, ptr %185, align 4, !tbaa !10
   %186 = getelementptr inbounds i8, ptr %182, i64 16
@@ -567,7 +567,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
 
 197:                                              ; preds = %190
   %198 = load i16, ptr %59, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %193, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %193, align 8, !tbaa !43
   %199 = getelementptr inbounds i8, ptr %193, i64 12
   store i16 1, ptr %199, align 4, !tbaa !15
   %200 = getelementptr inbounds i8, ptr %193, i64 16
@@ -606,7 +606,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
 
 212:                                              ; preds = %208
   %213 = load i16, ptr %59, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %210, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %210, align 8, !tbaa !43
   %214 = getelementptr inbounds i8, ptr %210, i64 12
   store i16 1, ptr %214, align 4, !tbaa !15
   %215 = getelementptr inbounds i8, ptr %210, i64 16
@@ -645,7 +645,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
 
 227:                                              ; preds = %223
   %228 = load i16, ptr %59, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %225, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %225, align 8, !tbaa !43
   %229 = getelementptr inbounds i8, ptr %225, i64 12
   store i16 0, ptr %229, align 4, !tbaa !15
   %230 = getelementptr inbounds i8, ptr %225, i64 16
@@ -684,7 +684,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
 
 242:                                              ; preds = %238
   %243 = load i16, ptr %59, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %240, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %240, align 8, !tbaa !43
   %244 = getelementptr inbounds i8, ptr %240, i64 12
   store i16 0, ptr %244, align 4, !tbaa !15
   %245 = getelementptr inbounds i8, ptr %240, i64 16
@@ -723,7 +723,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
 
 257:                                              ; preds = %253
   %258 = load i16, ptr %59, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %255, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %255, align 8, !tbaa !43
   %259 = getelementptr inbounds i8, ptr %255, i64 12
   store i16 2, ptr %259, align 4, !tbaa !15
   %260 = getelementptr inbounds i8, ptr %255, i64 16
@@ -762,7 +762,7 @@ define dso_local void @_Z21create_default_layoutv(ptr dead_on_unwind noalias wri
 
 272:                                              ; preds = %268
   %273 = load i16, ptr %59, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %270, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %270, align 8, !tbaa !43
   %274 = getelementptr inbounds i8, ptr %270, i64 12
   store i16 5, ptr %274, align 4, !tbaa !15
   %275 = getelementptr inbounds i8, ptr %270, i64 16
@@ -1119,7 +1119,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %76, label %82, label %77
 
 77:                                               ; preds = %73
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %74, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %74, align 8, !tbaa !43
   %78 = getelementptr inbounds i8, ptr %74, i64 12
   store i32 512, ptr %78, align 4, !tbaa !10
   %79 = getelementptr inbounds i8, ptr %74, i64 16
@@ -1155,7 +1155,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %89, label %95, label %90
 
 90:                                               ; preds = %86
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %88, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %88, align 8, !tbaa !43
   %91 = getelementptr inbounds i8, ptr %88, i64 12
   store i32 1, ptr %91, align 4, !tbaa !10
   %92 = getelementptr inbounds i8, ptr %88, i64 16
@@ -1191,7 +1191,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %102, label %108, label %103
 
 103:                                              ; preds = %99
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %101, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %101, align 8, !tbaa !43
   %104 = getelementptr inbounds i8, ptr %101, i64 12
   store i32 2, ptr %104, align 4, !tbaa !10
   %105 = getelementptr inbounds i8, ptr %101, i64 16
@@ -1227,7 +1227,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %115, label %121, label %116
 
 116:                                              ; preds = %112
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %114, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %114, align 8, !tbaa !43
   %117 = getelementptr inbounds i8, ptr %114, i64 12
   store i32 4, ptr %117, align 4, !tbaa !10
   %118 = getelementptr inbounds i8, ptr %114, i64 16
@@ -1263,7 +1263,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %128, label %134, label %129
 
 129:                                              ; preds = %125
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %127, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %127, align 8, !tbaa !43
   %130 = getelementptr inbounds i8, ptr %127, i64 12
   store i32 8, ptr %130, align 4, !tbaa !10
   %131 = getelementptr inbounds i8, ptr %127, i64 16
@@ -1299,7 +1299,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %141, label %147, label %142
 
 142:                                              ; preds = %138
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %140, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %140, align 8, !tbaa !43
   %143 = getelementptr inbounds i8, ptr %140, i64 12
   store i32 2048, ptr %143, align 4, !tbaa !10
   %144 = getelementptr inbounds i8, ptr %140, i64 16
@@ -1335,7 +1335,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %154, label %160, label %155
 
 155:                                              ; preds = %151
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %153, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %153, align 8, !tbaa !43
   %156 = getelementptr inbounds i8, ptr %153, i64 12
   store i32 4096, ptr %156, align 4, !tbaa !10
   %157 = getelementptr inbounds i8, ptr %153, i64 16
@@ -1371,7 +1371,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %167, label %173, label %168
 
 168:                                              ; preds = %164
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %166, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %166, align 8, !tbaa !43
   %169 = getelementptr inbounds i8, ptr %166, i64 12
   store i32 64, ptr %169, align 4, !tbaa !10
   %170 = getelementptr inbounds i8, ptr %166, i64 16
@@ -1407,7 +1407,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %180, label %186, label %181
 
 181:                                              ; preds = %177
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %179, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %179, align 8, !tbaa !43
   %182 = getelementptr inbounds i8, ptr %179, i64 12
   store i32 128, ptr %182, align 4, !tbaa !10
   %183 = getelementptr inbounds i8, ptr %179, i64 16
@@ -1443,7 +1443,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %193, label %199, label %194
 
 194:                                              ; preds = %190
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %192, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %192, align 8, !tbaa !43
   %195 = getelementptr inbounds i8, ptr %192, i64 12
   store i32 16, ptr %195, align 4, !tbaa !10
   %196 = getelementptr inbounds i8, ptr %192, i64 16
@@ -1479,7 +1479,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %206, label %212, label %207
 
 207:                                              ; preds = %203
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %205, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %205, align 8, !tbaa !43
   %208 = getelementptr inbounds i8, ptr %205, i64 12
   store i32 32, ptr %208, align 4, !tbaa !10
   %209 = getelementptr inbounds i8, ptr %205, i64 16
@@ -1515,7 +1515,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %219, label %225, label %220
 
 220:                                              ; preds = %216
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %218, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %218, align 8, !tbaa !43
   %221 = getelementptr inbounds i8, ptr %218, i64 12
   store i32 32768, ptr %221, align 4, !tbaa !10
   %222 = getelementptr inbounds i8, ptr %218, i64 16
@@ -1551,7 +1551,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %232, label %238, label %233
 
 233:                                              ; preds = %229
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %231, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %231, align 8, !tbaa !43
   %234 = getelementptr inbounds i8, ptr %231, i64 12
   store i32 8192, ptr %234, align 4, !tbaa !10
   %235 = getelementptr inbounds i8, ptr %231, i64 16
@@ -1587,7 +1587,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %245, label %251, label %246
 
 246:                                              ; preds = %242
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %244, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %244, align 8, !tbaa !43
   %247 = getelementptr inbounds i8, ptr %244, i64 12
   store i32 16384, ptr %247, align 4, !tbaa !10
   %248 = getelementptr inbounds i8, ptr %244, i64 16
@@ -1623,7 +1623,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
   br i1 %258, label %264, label %259
 
 259:                                              ; preds = %255
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %257, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %257, align 8, !tbaa !43
   %260 = getelementptr inbounds i8, ptr %257, i64 12
   store i32 65536, ptr %260, align 4, !tbaa !10
   %261 = getelementptr inbounds i8, ptr %257, i64 16
@@ -1658,7 +1658,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
 
 272:                                              ; preds = %265
   %273 = load i16, ptr %62, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %268, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %268, align 8, !tbaa !43
   %274 = getelementptr inbounds i8, ptr %268, i64 12
   store i16 1, ptr %274, align 4, !tbaa !15
   %275 = getelementptr inbounds i8, ptr %268, i64 16
@@ -1697,7 +1697,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
 
 287:                                              ; preds = %283
   %288 = load i16, ptr %62, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %285, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %285, align 8, !tbaa !43
   %289 = getelementptr inbounds i8, ptr %285, i64 12
   store i16 1, ptr %289, align 4, !tbaa !15
   %290 = getelementptr inbounds i8, ptr %285, i64 16
@@ -1736,7 +1736,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
 
 302:                                              ; preds = %298
   %303 = load i16, ptr %62, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %300, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %300, align 8, !tbaa !43
   %304 = getelementptr inbounds i8, ptr %300, i64 12
   store i16 0, ptr %304, align 4, !tbaa !15
   %305 = getelementptr inbounds i8, ptr %300, i64 16
@@ -1775,7 +1775,7 @@ define dso_local void @_Z18create_xbox_layoutv(ptr dead_on_unwind noalias nonnul
 
 317:                                              ; preds = %313
   %318 = load i16, ptr %62, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %315, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %315, align 8, !tbaa !43
   %319 = getelementptr inbounds i8, ptr %315, i64 12
   store i16 0, ptr %319, align 4, !tbaa !15
   %320 = getelementptr inbounds i8, ptr %315, i64 16
@@ -2054,7 +2054,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
   br i1 %58, label %64, label %59
 
 59:                                               ; preds = %55
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %56, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %56, align 8, !tbaa !43
   %60 = getelementptr inbounds i8, ptr %56, i64 12
   store i32 4, ptr %60, align 4, !tbaa !10
   %61 = getelementptr inbounds i8, ptr %56, i64 16
@@ -2090,7 +2090,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
   br i1 %71, label %77, label %72
 
 72:                                               ; preds = %68
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %70, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %70, align 8, !tbaa !43
   %73 = getelementptr inbounds i8, ptr %70, i64 12
   store i32 8, ptr %73, align 4, !tbaa !10
   %74 = getelementptr inbounds i8, ptr %70, i64 16
@@ -2126,7 +2126,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
   br i1 %84, label %90, label %85
 
 85:                                               ; preds = %81
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %83, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %83, align 8, !tbaa !43
   %86 = getelementptr inbounds i8, ptr %83, i64 12
   store i32 1, ptr %86, align 4, !tbaa !10
   %87 = getelementptr inbounds i8, ptr %83, i64 16
@@ -2162,7 +2162,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
   br i1 %97, label %103, label %98
 
 98:                                               ; preds = %94
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %96, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %96, align 8, !tbaa !43
   %99 = getelementptr inbounds i8, ptr %96, i64 12
   store i32 2, ptr %99, align 4, !tbaa !10
   %100 = getelementptr inbounds i8, ptr %96, i64 16
@@ -2198,7 +2198,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
   br i1 %110, label %116, label %111
 
 111:                                              ; preds = %107
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %109, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %109, align 8, !tbaa !43
   %112 = getelementptr inbounds i8, ptr %109, i64 12
   store i32 16, ptr %112, align 4, !tbaa !10
   %113 = getelementptr inbounds i8, ptr %109, i64 16
@@ -2234,7 +2234,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
   br i1 %123, label %129, label %124
 
 124:                                              ; preds = %120
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %122, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %122, align 8, !tbaa !43
   %125 = getelementptr inbounds i8, ptr %122, i64 12
   store i32 32, ptr %125, align 4, !tbaa !10
   %126 = getelementptr inbounds i8, ptr %122, i64 16
@@ -2270,7 +2270,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
   br i1 %136, label %142, label %137
 
 137:                                              ; preds = %133
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %135, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %135, align 8, !tbaa !43
   %138 = getelementptr inbounds i8, ptr %135, i64 12
   store i32 64, ptr %138, align 4, !tbaa !10
   %139 = getelementptr inbounds i8, ptr %135, i64 16
@@ -2305,7 +2305,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
 
 150:                                              ; preds = %143
   %151 = load i16, ptr %44, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %146, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %146, align 8, !tbaa !43
   %152 = getelementptr inbounds i8, ptr %146, i64 12
   store i16 5, ptr %152, align 4, !tbaa !15
   %153 = getelementptr inbounds i8, ptr %146, i64 16
@@ -2344,7 +2344,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
 
 165:                                              ; preds = %161
   %166 = load i16, ptr %44, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %163, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %163, align 8, !tbaa !43
   %167 = getelementptr inbounds i8, ptr %163, i64 12
   store i16 5, ptr %167, align 4, !tbaa !15
   %168 = getelementptr inbounds i8, ptr %163, i64 16
@@ -2383,7 +2383,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
 
 180:                                              ; preds = %176
   %181 = load i16, ptr %44, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %178, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %178, align 8, !tbaa !43
   %182 = getelementptr inbounds i8, ptr %178, i64 12
   store i16 0, ptr %182, align 4, !tbaa !15
   %183 = getelementptr inbounds i8, ptr %178, i64 16
@@ -2422,7 +2422,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
 
 195:                                              ; preds = %191
   %196 = load i16, ptr %44, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %193, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %193, align 8, !tbaa !43
   %197 = getelementptr inbounds i8, ptr %193, i64 12
   store i16 0, ptr %197, align 4, !tbaa !15
   %198 = getelementptr inbounds i8, ptr %193, i64 16
@@ -2461,7 +2461,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
 
 210:                                              ; preds = %206
   %211 = load i16, ptr %44, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %208, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %208, align 8, !tbaa !43
   %212 = getelementptr inbounds i8, ptr %208, i64 12
   store i16 1, ptr %212, align 4, !tbaa !15
   %213 = getelementptr inbounds i8, ptr %208, i64 16
@@ -2500,7 +2500,7 @@ define dso_local void @_Z33create_dragonrise_gamecube_layoutv(ptr dead_on_unwind
 
 225:                                              ; preds = %221
   %226 = load i16, ptr %44, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %223, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %223, align 8, !tbaa !43
   %227 = getelementptr inbounds i8, ptr %223, i64 12
   store i16 1, ptr %227, align 4, !tbaa !15
   %228 = getelementptr inbounds i8, ptr %223, i64 16
@@ -4132,7 +4132,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M
   %31 = load i32, ptr %2, align 4, !tbaa !40
   %32 = load i32, ptr %3, align 4, !tbaa !41
   %33 = load i32, ptr %4, align 4, !tbaa !41
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %30, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %30, align 8, !tbaa !43
   %34 = getelementptr inbounds i8, ptr %30, i64 12
   store i32 %32, ptr %34, align 4, !tbaa !10
   %35 = getelementptr inbounds i8, ptr %30, i64 16
@@ -4151,7 +4151,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M
   %41 = getelementptr inbounds i8, ptr %39, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !45, !alias.scope !84, !noalias !81
   store i32 %42, ptr %40, align 8, !tbaa !45, !alias.scope !81, !noalias !84
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !tbaa !43, !alias.scope !81, !noalias !84
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %38, align 8, !tbaa !43, !alias.scope !81, !noalias !84
   %43 = getelementptr inbounds i8, ptr %38, i64 12
   %44 = getelementptr inbounds i8, ptr %39, i64 12
   %45 = load i64, ptr %44, align 4, !alias.scope !84, !noalias !81
@@ -4180,7 +4180,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M
   %58 = getelementptr inbounds i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !45, !alias.scope !91, !noalias !88
   store i32 %59, ptr %57, align 8, !tbaa !45, !alias.scope !88, !noalias !91
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %55, align 8, !tbaa !43, !alias.scope !88, !noalias !91
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %55, align 8, !tbaa !43, !alias.scope !88, !noalias !91
   %60 = getelementptr inbounds i8, ptr %55, i64 12
   %61 = getelementptr inbounds i8, ptr %56, i64 12
   %62 = load i64, ptr %61, align 4, !alias.scope !91, !noalias !88
@@ -4257,7 +4257,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M
   %31 = load i32, ptr %2, align 4, !tbaa !40
   %32 = load i32, ptr %3, align 4, !tbaa !41
   %33 = load i32, ptr %4, align 4, !tbaa !41
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %30, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %30, align 8, !tbaa !43
   %34 = getelementptr inbounds i8, ptr %30, i64 12
   store i32 %32, ptr %34, align 4, !tbaa !10
   %35 = getelementptr inbounds i8, ptr %30, i64 16
@@ -4276,7 +4276,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M
   %41 = getelementptr inbounds i8, ptr %39, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !45, !alias.scope !97, !noalias !94
   store i32 %42, ptr %40, align 8, !tbaa !45, !alias.scope !94, !noalias !97
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !tbaa !43, !alias.scope !94, !noalias !97
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %38, align 8, !tbaa !43, !alias.scope !94, !noalias !97
   %43 = getelementptr inbounds i8, ptr %38, i64 12
   %44 = getelementptr inbounds i8, ptr %39, i64 12
   %45 = load i64, ptr %44, align 4, !alias.scope !97, !noalias !94
@@ -4305,7 +4305,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M
   %58 = getelementptr inbounds i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !45, !alias.scope !103, !noalias !100
   store i32 %59, ptr %57, align 8, !tbaa !45, !alias.scope !100, !noalias !103
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %55, align 8, !tbaa !43, !alias.scope !100, !noalias !103
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %55, align 8, !tbaa !43, !alias.scope !100, !noalias !103
   %60 = getelementptr inbounds i8, ptr %55, i64 12
   %61 = getelementptr inbounds i8, ptr %56, i64 12
   %62 = load i64, ptr %61, align 4, !alias.scope !103, !noalias !100
@@ -4376,7 +4376,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M
   %31 = load i32, ptr %2, align 4, !tbaa !40
   %32 = load i32, ptr %3, align 4, !tbaa !41
   %33 = load i32, ptr %4, align 4, !tbaa !41
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %30, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %30, align 8, !tbaa !43
   %34 = getelementptr inbounds i8, ptr %30, i64 12
   store i32 %32, ptr %34, align 4, !tbaa !10
   %35 = getelementptr inbounds i8, ptr %30, i64 16
@@ -4395,7 +4395,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M
   %41 = getelementptr inbounds i8, ptr %39, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !45, !alias.scope !109, !noalias !106
   store i32 %42, ptr %40, align 8, !tbaa !45, !alias.scope !106, !noalias !109
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !tbaa !43, !alias.scope !106, !noalias !109
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %38, align 8, !tbaa !43, !alias.scope !106, !noalias !109
   %43 = getelementptr inbounds i8, ptr %38, i64 12
   %44 = getelementptr inbounds i8, ptr %39, i64 12
   %45 = load i64, ptr %44, align 4, !alias.scope !109, !noalias !106
@@ -4424,7 +4424,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI17JoystickButtonCmbSaIS0_EE17_M
   %58 = getelementptr inbounds i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !45, !alias.scope !115, !noalias !112
   store i32 %59, ptr %57, align 8, !tbaa !45, !alias.scope !112, !noalias !115
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, inrange i32 0, i64 2), ptr %55, align 8, !tbaa !43, !alias.scope !112, !noalias !115
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17JoystickButtonCmb, i64 0, i32 0, i64 2), ptr %55, align 8, !tbaa !43, !alias.scope !112, !noalias !115
   %60 = getelementptr inbounds i8, ptr %55, i64 12
   %61 = getelementptr inbounds i8, ptr %56, i64 12
   %62 = load i64, ptr %61, align 4, !alias.scope !115, !noalias !112
@@ -4497,7 +4497,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_r
   %34 = trunc i32 %33 to i16
   %35 = load i32, ptr %4, align 4, !tbaa !41
   %36 = load i16, ptr %5, align 2, !tbaa !17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %31, align 8, !tbaa !43
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %31, align 8, !tbaa !43
   %37 = getelementptr inbounds i8, ptr %31, i64 12
   store i16 %34, ptr %37, align 4, !tbaa !15
   %38 = getelementptr inbounds i8, ptr %31, i64 16
@@ -4518,7 +4518,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_r
   %45 = getelementptr inbounds i8, ptr %43, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !45, !alias.scope !121, !noalias !118
   store i32 %46, ptr %44, align 8, !tbaa !45, !alias.scope !118, !noalias !121
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %42, align 8, !tbaa !43, !alias.scope !118, !noalias !121
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %42, align 8, !tbaa !43, !alias.scope !118, !noalias !121
   %47 = getelementptr inbounds i8, ptr %42, i64 12
   %48 = getelementptr inbounds i8, ptr %43, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %47, ptr noundef nonnull align 4 dereferenceable(10) %48, i64 10, i1 false), !alias.scope !123
@@ -4546,7 +4546,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI15JoystickAxisCmbSaIS0_EE17_M_r
   %61 = getelementptr inbounds i8, ptr %59, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !45, !alias.scope !128, !noalias !125
   store i32 %62, ptr %60, align 8, !tbaa !45, !alias.scope !125, !noalias !128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, inrange i32 0, i64 2), ptr %58, align 8, !tbaa !43, !alias.scope !125, !noalias !128
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15JoystickAxisCmb, i64 0, i32 0, i64 2), ptr %58, align 8, !tbaa !43, !alias.scope !125, !noalias !128
   %63 = getelementptr inbounds i8, ptr %58, i64 12
   %64 = getelementptr inbounds i8, ptr %59, i64 12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(10) %63, ptr noundef nonnull align 4 dereferenceable(10) %64, i64 10, i1 false), !alias.scope !130

@@ -530,7 +530,7 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_759ParseDataC2EPKNS_23TransliterationRuleDataEPKNS_7UVectorEPKNS_9HashtableE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %d, ptr noundef %sets, ptr noundef %vNames) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_759ParseDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_759ParseDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %d, ptr %data, align 8
   %variablesVector = getelementptr inbounds i8, ptr %this, i64 16
@@ -607,7 +607,7 @@ define void @_ZNK6icu_759ParseData14parseReferenceERKNS_13UnicodeStringERNS_13Pa
 entry:
   %index.i = getelementptr inbounds i8, ptr %pos, i64 8
   %0 = load i32, ptr %index.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp17 = icmp slt i32 %0, %limit
@@ -791,7 +791,7 @@ return:                                           ; preds = %entry, %land.lhs.tr
 define void @_ZN6icu_758RuleHalfC2ERNS_20TransliteratorParserE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(498) %p) unnamed_addr #6 align 2 {
 entry:
   %text = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %text, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %text, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %parser = getelementptr inbounds i8, ptr %this, i64 104
@@ -924,12 +924,12 @@ invoke.cont:
   %output = alloca %"class.icu_75::UnicodeString", align 8
   %name = alloca %"class.icu_75::UnicodeString", align 8
   store i32 %pos, ptr %pos.addr, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, inrange i32 0, i64 2), ptr %pp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %pp, align 8
   %index.i = getelementptr inbounds i8, ptr %pp, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds i8, ptr %pp, i64 12
   store i32 -1, ptr %errorIndex.i, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %scratch, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %scratch, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %scratch, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %buf, i64 8
@@ -1621,7 +1621,7 @@ invoke.cont214:                                   ; preds = %invoke.cont206
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp202) #15
   %112 = load ptr, ptr %agg.tmp203, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %112) #15, !srcloc !6
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %output, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %output, align 8
   store i16 2, ptr %fUnion2.i411, align 8
   %113 = load i16, ptr %fUnion.i.i, align 8
   %cmp.i.i413 = icmp slt i16 %113, 0
@@ -3143,7 +3143,7 @@ if.then5.i.i:                                     ; preds = %call2.i.i.noexc
 invoke.cont7:                                     ; preds = %if.then5.i.i, %call2.i.i.noexc
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %status.i)
   %segmentStandins = getelementptr inbounds i8, ptr %this, i64 320
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %segmentStandins, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %segmentStandins, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 328
   store i16 2, ptr %fUnion2.i, align 8
   %segmentObjects = getelementptr inbounds i8, ptr %this, i64 384
@@ -3152,7 +3152,7 @@ invoke.cont7:                                     ; preds = %if.then5.i.i, %call
 
 invoke.cont11:                                    ; preds = %invoke.cont7
   %undefinedVariableName = getelementptr inbounds i8, ptr %this, i64 432
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %undefinedVariableName, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %undefinedVariableName, align 8
   %fUnion2.i12 = getelementptr inbounds i8, ptr %this, i64 440
   store i16 2, ptr %fUnion2.i12, align 8
   %call = invoke noundef ptr @_ZN6icu_757UVector10setDeleterEPFvPvE(ptr noundef nonnull align 8 dereferenceable(40) %idBlockVector, ptr noundef nonnull @uprv_deleteUObject_75)
@@ -3515,10 +3515,10 @@ invoke.cont32:                                    ; preds = %new.notnull
   store ptr %call23, ptr %parseData, align 8
   %dotStandIn = getelementptr inbounds i8, ptr %this, i64 496
   store i16 -1, ptr %dotStandIn, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %str, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %str, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %str, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %idBlockResult, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %idBlockResult, align 8
   %fUnion2.i130 = getelementptr inbounds i8, ptr %idBlockResult, i64 8
   store i16 2, ptr %fUnion2.i130, align 8
   %fUnion.i.i = getelementptr inbounds i8, ptr %rule, i64 8

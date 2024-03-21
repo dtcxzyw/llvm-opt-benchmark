@@ -874,9 +874,9 @@ entry:
   call void @_ZN3net15QuicSpdySessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2057) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(600) %1)
   %2 = getelementptr inbounds i8, ptr %this1, i64 2064
   call void @_ZN3net22QuicCryptoClientStream12ProofHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #12
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 2064
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %push_promise_index_ = getelementptr inbounds %"class.net::QuicClientSessionBase", ptr %this1, i32 0, i32 3
   %3 = load ptr, ptr %push_promise_index.addr, align 8
   store ptr %3, ptr %push_promise_index_, align 8
@@ -895,7 +895,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream12ProofHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net22QuicCryptoClientStream12ProofHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -921,9 +921,9 @@ entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 2064
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %promised_by_id_ = getelementptr inbounds %"class.net::QuicClientSessionBase", ptr %this1, i32 0, i32 4
   store ptr %promised_by_id_, ptr %__range1, align 8
   %0 = load ptr, ptr %__range1, align 8

@@ -377,7 +377,7 @@ define dso_local void @_ZN16MapgenSinglenodeC2EP12MapgenParamsP12EmergeParams(pt
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   tail call void @_ZN6MapgenC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(200) %0, i32 noundef 6, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16MapgenSinglenode, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16MapgenSinglenode, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #13

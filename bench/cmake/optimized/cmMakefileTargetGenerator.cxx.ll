@@ -620,7 +620,7 @@ define dso_local void @_ZN25cmMakefileTargetGeneratorC2EP17cmGeneratorTarget(ptr
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   tail call void @_ZN23cmCommonTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV25cmMakefileTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV25cmMakefileTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #20
   %6 = getelementptr inbounds i8, ptr %0, i64 176
@@ -840,7 +840,7 @@ switch.lookup:                                    ; preds = %_ZNK17cmGeneratorTa
           to label %108 unwind label %93
 
 108:                                              ; preds = %106
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25cmMakefileTargetGenerator26MacOSXContentGeneratorTypeE, i64 0, inrange i32 0, i64 2), ptr %107, align 8, !noalias !5
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25cmMakefileTargetGenerator26MacOSXContentGeneratorTypeE, i64 0, i32 0, i64 2), ptr %107, align 8, !noalias !5
   %109 = getelementptr inbounds i8, ptr %107, i64 8
   store ptr %0, ptr %109, align 8, !noalias !5
   %110 = load ptr, ptr %69, align 8
@@ -1071,7 +1071,7 @@ declare void @_ZN23cmCommonTargetGeneratorD2Ev(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN25cmMakefileTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV25cmMakefileTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV25cmMakefileTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1056
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

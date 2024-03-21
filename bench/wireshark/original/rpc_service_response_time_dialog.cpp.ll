@@ -1605,9 +1605,9 @@ define void @_ZN28RpcServiceResponseTimeDialogC2ER7QWidgetR11CaptureFileP12regis
 
 42:                                               ; preds = %6
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %13) #15
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV28RpcServiceResponseTimeDialog, i32 0, inrange i32 0, i32 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV28RpcServiceResponseTimeDialog, i32 0, i32 0, i32 2), ptr %38, align 8
   %43 = getelementptr inbounds i8, ptr %38, i64 16
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV28RpcServiceResponseTimeDialog, i32 0, inrange i32 1, i32 2), ptr %43, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV28RpcServiceResponseTimeDialog, i32 0, i32 1, i32 2), ptr %43, align 8
   %44 = getelementptr inbounds %class.RpcServiceResponseTimeDialog, ptr %38, i32 0, i32 1
   %45 = load i32, ptr %11, align 4
   store i32 %45, ptr %44, align 8

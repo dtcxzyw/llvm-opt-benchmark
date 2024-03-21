@@ -26,7 +26,7 @@ $_ZN18AudioRoutingFilterD0Ev = comdat any
 define void @_ZN18AudioRoutingFilterC2EP9QIODeviceb12AudioRouting(ptr noundef nonnull align 8 dereferenceable(36) %0, ptr noundef %1, i1 noundef zeroext %2, i64 %3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = zext i1 %2 to i8
   tail call void @_ZN9QIODeviceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV18AudioRoutingFilter, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV18AudioRoutingFilter, i64 0, i32 0, i64 2), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24

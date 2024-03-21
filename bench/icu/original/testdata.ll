@@ -32,7 +32,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %testName, ptr %testName.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV8TestData, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV8TestData, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name = getelementptr inbounds %class.TestData, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %testName.addr, align 8
   store ptr %0, ptr %name, align 8
@@ -59,7 +59,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV8TestData, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV8TestData, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fInfo = getelementptr inbounds %class.TestData, ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %fInfo, align 8
   %cmp = icmp ne ptr %0, null
@@ -162,7 +162,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %testName.addr, align 8
   call void @_ZN8TestDataC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fData = getelementptr inbounds %class.RBTestData, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fData, align 8
   %fHeaders = getelementptr inbounds %class.RBTestData, ptr %this1, i32 0, i32 2
@@ -194,7 +194,7 @@ entry:
   %0 = load ptr, ptr %data.addr, align 8
   %call = call ptr @ures_getKey_75(ptr noundef %0)
   call void @_ZN8TestDataC2EPKc(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fData = getelementptr inbounds %class.RBTestData, ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %data.addr, align 8
   store ptr %1, ptr %fData, align 8
@@ -371,7 +371,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10RBTestData, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fData = getelementptr inbounds %class.RBTestData, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fData, align 8
   invoke void @ures_close_75(ptr noundef %0)

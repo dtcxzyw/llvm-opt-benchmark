@@ -188,7 +188,7 @@ sw.epilog:                                        ; preds = %for.body.i.i22, %fo
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3dpx6WriterC2Ev(ptr noundef nonnull align 8 dereferenceable(2080) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3dpx6WriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3dpx6WriterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %header = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN3dpx6HeaderC1Ev(ptr noundef nonnull align 4 dereferenceable(2049) %header)
   %fileLoc = getelementptr inbounds i8, ptr %this, i64 2064

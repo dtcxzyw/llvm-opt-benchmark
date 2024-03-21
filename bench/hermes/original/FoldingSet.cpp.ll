@@ -1028,7 +1028,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %Log2InitSize, ptr %Log2InitSize.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load i32, ptr %Log2InitSize.addr, align 4
   %shl = shl i32 1, %0
   %NumBuckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 2
@@ -1071,7 +1071,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %Arg, ptr %Arg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %Arg.addr, align 8
   %Buckets2 = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %0, i32 0, i32 1
@@ -1146,7 +1146,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh14FoldingSetBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Buckets = getelementptr inbounds %"class.llvh::FoldingSetBase", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %Buckets, align 8
   call void @free(ptr noundef %0) #8

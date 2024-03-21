@@ -785,7 +785,7 @@ entry:
   store ptr %sm, ptr %sm.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc56parser19ParserStateCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser6ParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser6ParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_solver = getelementptr inbounds %"class.cvc5::parser::Parser", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %solver.addr, align 8
   store ptr %0, ptr %d_solver, align 8
@@ -807,7 +807,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser19ParserStateCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc56parser19ParserStateCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2490,7 +2490,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser6ParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc56parser6ParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_flexInput = getelementptr inbounds %"class.cvc5::parser::Parser", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN4cvc56parser5InputESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_flexInput) #3
   call void @_ZN4cvc56parser19ParserStateCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

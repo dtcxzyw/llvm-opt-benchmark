@@ -515,7 +515,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %def, ptr %def.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV7b2Joint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV7b2Joint, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_userData = getelementptr inbounds %class.b2Joint, ptr %this1, i32 0, i32 11
   call void @_ZN15b2JointUserDataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_userData)
   %0 = load ptr, ptr %def.addr, align 8

@@ -1648,7 +1648,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN4base20RefCountedThreadSafeINS_6Pickle10AttachmentENS_33DefaultRefCountedThreadSafeTraitsIS2_EEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base6Pickle10AttachmentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base6Pickle10AttachmentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1703,7 +1703,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
   store ptr null, ptr %header_, align 8
   %header_size_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
@@ -1850,7 +1850,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %header_size, ptr %header_size.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
   store ptr null, ptr %header_, align 8
   %header_size_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
@@ -1943,7 +1943,7 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   store i32 %data_len, ptr %data_len.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %data.addr, align 8
   store ptr %0, ptr %header_, align 8
@@ -2019,7 +2019,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 1
   store ptr null, ptr %header_, align 8
   %header_size_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 2
@@ -2065,7 +2065,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4base6PickleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %capacity_after_header_ = getelementptr inbounds %"class.base::Pickle", ptr %this1, i32 0, i32 3
   %0 = load i64, ptr %capacity_after_header_, align 8
   %cmp = icmp ne i64 %0, -1

@@ -1458,7 +1458,7 @@ entry:
   %_s = alloca %"class.arrow::Status", align 8
   %ref.tmp40 = alloca %"class.arrow::util::ArrowLog", align 8
   %ref.tmp56 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6TensorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6TensorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %type, align 8
   store ptr %0, ptr %type_, align 8
@@ -3906,7 +3906,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6TensorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6TensorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6TensorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %dim_names_ = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %dim_names_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 96

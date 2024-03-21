@@ -3161,7 +3161,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4date22nonexistent_local_timeE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4date22nonexistent_local_timeE, i32 0, i32 0, i32 2), ptr %this2, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -3223,7 +3223,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4date20ambiguous_local_timeE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4date20ambiguous_local_timeE, i32 0, i32 0, i32 2), ptr %this2, align 8
   ret void
 
 lpad:                                             ; preds = %entry

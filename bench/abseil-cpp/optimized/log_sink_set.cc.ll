@@ -743,7 +743,7 @@ init.check.i.i:                                   ; preds = %entry
   br i1 %tobool.not.i.i, label %invoke.cont3.i.i, label %invoke.cont.i.i
 
 invoke.cont.i.i:                                  ; preds = %init.check.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl12log_internal12_GLOBAL__N_113StderrLogSinkE, i64 0, inrange i32 0, i64 2), ptr @_ZZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSetC1EvE15stderr_log_sink, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4absl12log_internal12_GLOBAL__N_113StderrLogSinkE, i64 0, i32 0, i64 2), ptr @_ZZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSetC1EvE15stderr_log_sink, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4absl12log_internal12_GLOBAL__N_116GlobalLogSinkSetC1EvE15stderr_log_sink) #17
   br label %invoke.cont3.i.i
 

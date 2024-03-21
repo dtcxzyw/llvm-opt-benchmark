@@ -255,7 +255,7 @@ entry:
   %m_parent = getelementptr inbounds %struct.btMultibodyLink, ptr %call, i32 0, i32 2
   %5 = load i32, ptr %m_parent, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %5, i32 noundef 2, i1 noundef zeroext true, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV31btMultiBodyJointLimitConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV31btMultiBodyJointLimitConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_lowerBound = getelementptr inbounds %class.btMultiBodyJointLimitConstraint, ptr %this1, i32 0, i32 1
   %6 = load float, ptr %lower.addr, align 4
   store float %6, ptr %m_lowerBound, align 8

@@ -265,7 +265,7 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   store double %trigger_async_id, ptr %trigger_async_id.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node13AsyncResourceE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node13AsyncResourceE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %env_ = getelementptr inbounds %"class.node::AsyncResource", ptr %this3, i32 0, i32 1
   %0 = load ptr, ptr %isolate.addr, align 8
   %call = call noundef ptr @_ZN4node11Environment10GetCurrentEPN2v87IsolateE(ptr noundef %0)
@@ -433,7 +433,7 @@ entry:
   %agg.tmp = alloca %"struct.node::async_context", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node13AsyncResourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node13AsyncResourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::AsyncResource", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %env_, align 8
   %async_context_ = getelementptr inbounds %"class.node::AsyncResource", ptr %this1, i32 0, i32 3

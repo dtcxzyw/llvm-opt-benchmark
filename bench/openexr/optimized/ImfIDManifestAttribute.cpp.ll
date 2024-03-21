@@ -68,7 +68,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(24) %value) unnamed_addr #3 comdat($_ZN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEC5ERKS1_) align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7Imf_3_29AttributeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_value = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN7Imf_3_220CompressedIDManifestC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %_value, ptr noundef nonnull align 8 dereferenceable(24) %value)
           to label %invoke.cont unwind label %lpad
@@ -95,7 +95,7 @@ declare void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat($_ZN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEED5Ev) align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_value = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7Imf_3_220CompressedIDManifestD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %_value) #14
   tail call void @_ZN7Imf_3_29AttributeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #14
@@ -151,7 +151,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN7Imf_3_220CompressedIDManifestC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %_value.i)
           to label %invoke.cont unwind label %lpad.i
@@ -191,7 +191,7 @@ entry:
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7Imf_3_214TypedAttributeINS_20CompressedIDManifestEEE, i64 0, i32 0, i64 2), ptr %call, align 8
   %_value.i = getelementptr inbounds i8, ptr %call, i64 8
   invoke void @_ZN7Imf_3_220CompressedIDManifestC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %_value.i)
           to label %invoke.cont unwind label %lpad.i

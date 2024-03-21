@@ -4893,7 +4893,7 @@ entry:
   store ptr %converter, ptr %converter.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756Locale8IteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %it_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %begin.addr, align 8
   store ptr %0, ptr %it_, align 8
@@ -5214,7 +5214,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale18ConvertingIteratorIPPKcN12_GLOBAL__N_113LocaleFromTagEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %converter_ = getelementptr inbounds %"class.icu_75::Locale::ConvertingIterator", ptr %this1, i32 0, i32 3
   call void @_ZN12_GLOBAL__N_113LocaleFromTagD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %converter_) #11
   call void @_ZN6icu_756Locale8IteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -5424,7 +5424,7 @@ entry:
   store ptr %list, ptr %list.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_756Locale8IteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7518LocalePriorityList8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %list2 = getelementptr inbounds %"class.icu_75::LocalePriorityList::Iterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %list.addr, align 8
   store ptr %0, ptr %list2, align 8
@@ -5465,7 +5465,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale8IteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756Locale8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

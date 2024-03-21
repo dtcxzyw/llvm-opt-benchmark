@@ -1605,7 +1605,7 @@ define dso_local void @_ZN23cmCPackArchiveGeneratorC2EN14cmArchiveWrite8Compress
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN16cmCPackGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360) %9)
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.cmCPackArchiveGenerator, ptr %9, i32 0, i32 1
   %11 = load i32, ptr %6, align 4
   store i32 %11, ptr %10, align 8
@@ -1626,7 +1626,7 @@ define dso_local void @_ZN23cmCPackArchiveGeneratorD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV23cmCPackArchiveGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCPackArchiveGenerator, ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmCPackArchiveGenerator, ptr %3, i32 0, i32 2

@@ -236,7 +236,7 @@ define void @_ZN7rocksdb18CuckooTableBuilderC2EPNS_18WritableFileWriterEdjjPKNS_
 invoke.cont6:
   %ref.tmp11 = alloca %"class.std::allocator.0", align 1
   %ref.tmp14 = alloca %"class.std::allocator.0", align 1
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %num_hash_func_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %num_hash_func_, align 8
   %file_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -4481,7 +4481,7 @@ declare noundef ptr @_ZNK7rocksdb18WritableFileWriter23GetFileChecksumFuncNameEv
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb18CuckooTableBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(977) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %smallest_user_key_ = getelementptr inbounds i8, ptr %this, i64 944
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallest_user_key_) #22
   %largest_user_key_ = getelementptr inbounds i8, ptr %this, i64 912

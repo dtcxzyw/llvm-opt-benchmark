@@ -5876,7 +5876,7 @@ invoke.cont470:                                   ; preds = %invoke.cont460
   store <2 x float> <float 1.000000e+00, float 2.000000e+00>, ptr %mRehashPolicy.i.i.i1080, align 8
   %mnNextResize.i.i.i.i1082 = getelementptr inbounds i8, ptr %m467, i64 40
   %mAllocator.i.i.i = getelementptr inbounds i8, ptr %m467, i64 48
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mAllocator.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mAllocator.i.i.i, align 8
   %inc.i.i.i.i = add i64 %302, 2
   store i64 %inc.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %304 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8

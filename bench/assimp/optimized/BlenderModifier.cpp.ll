@@ -1854,7 +1854,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 define linkonce_odr hidden noundef ptr @_Z3godIN6Assimp7Blender22BlenderModifier_MirrorEEPNS1_15BlenderModifierEv() #0 comdat {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Assimp7Blender22BlenderModifier_MirrorE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Assimp7Blender22BlenderModifier_MirrorE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -1862,7 +1862,7 @@ entry:
 define linkonce_odr hidden noundef ptr @_Z3godIN6Assimp7Blender27BlenderModifier_SubdivisionEEPNS1_15BlenderModifierEv() #0 comdat {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Assimp7Blender27BlenderModifier_SubdivisionE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6Assimp7Blender27BlenderModifier_SubdivisionE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 

@@ -1238,7 +1238,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %ctx, ptr %ctx.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN3smt20relevancy_propagatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN3smt20relevancy_propagatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_context = getelementptr inbounds %"class.smt::relevancy_propagator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ctx.addr, align 8
   store ptr %0, ptr %m_context, align 8
@@ -1411,7 +1411,7 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt12relevancy_ehC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt19simple_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt19simple_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_target = getelementptr inbounds %"class.smt::simple_relevancy_eh", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %t.addr, align 8
   store ptr %0, ptr %m_target, align 8
@@ -1492,7 +1492,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt12relevancy_ehC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt15or_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt15or_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_parent = getelementptr inbounds %"class.smt::or_relevancy_eh", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %p.addr, align 8
   store ptr %0, ptr %m_parent, align 8
@@ -1571,7 +1571,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt12relevancy_ehC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt16and_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt16and_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_parent = getelementptr inbounds %"class.smt::and_relevancy_eh", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %p.addr, align 8
   store ptr %0, ptr %m_parent, align 8
@@ -1650,7 +1650,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt12relevancy_ehC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt16ite_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt16ite_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_parent = getelementptr inbounds %"class.smt::ite_relevancy_eh", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %p.addr, align 8
   store ptr %0, ptr %m_parent, align 8
@@ -1739,7 +1739,7 @@ entry:
   store ptr %else_eq, ptr %else_eq.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3smt12relevancy_ehC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt21ite_term_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt21ite_term_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_parent = getelementptr inbounds %"class.smt::ite_term_relevancy_eh", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %p.addr, align 8
   store ptr %0, ptr %m_parent, align 8
@@ -2243,7 +2243,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ctx.addr, align 8
   call void @_ZN3smt20relevancy_propagatorC2ERNS_7contextE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(11616) %0)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN3smt24relevancy_propagator_impE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN3smt24relevancy_propagator_impE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_qhead = getelementptr inbounds %"struct.smt::relevancy_propagator_imp", ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_qhead, align 8
   %m_relevant_exprs = getelementptr inbounds %"struct.smt::relevancy_propagator_imp", ptr %this1, i32 0, i32 3
@@ -2540,7 +2540,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt12relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt12relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2843,7 +2843,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN3smt24relevancy_propagator_impE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN3smt24relevancy_propagator_impE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(976) ptr @_ZNK3smt20relevancy_propagator11get_managerEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -4990,7 +4990,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -5003,7 +5003,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -5241,7 +5241,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8309,7 +8309,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt12relevancy_ehC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt19simple_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt19simple_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_target = getelementptr inbounds %"class.smt::simple_relevancy_eh", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_target2 = getelementptr inbounds %"class.smt::simple_relevancy_eh", ptr %2, i32 0, i32 1
@@ -8326,7 +8326,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt12relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt12relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8340,7 +8340,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt12relevancy_ehC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt15or_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt15or_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_parent = getelementptr inbounds %"class.smt::or_relevancy_eh", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_parent2 = getelementptr inbounds %"class.smt::or_relevancy_eh", ptr %2, i32 0, i32 1
@@ -8359,7 +8359,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt12relevancy_ehC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt16and_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt16and_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_parent = getelementptr inbounds %"class.smt::and_relevancy_eh", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_parent2 = getelementptr inbounds %"class.smt::and_relevancy_eh", ptr %2, i32 0, i32 1
@@ -8378,7 +8378,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt12relevancy_ehC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt16ite_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt16ite_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_parent = getelementptr inbounds %"class.smt::ite_relevancy_eh", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_parent2 = getelementptr inbounds %"class.smt::ite_relevancy_eh", ptr %2, i32 0, i32 1
@@ -8397,7 +8397,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3smt12relevancy_ehC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt21ite_term_relevancy_ehE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3smt21ite_term_relevancy_ehE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_parent = getelementptr inbounds %"class.smt::ite_term_relevancy_eh", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_parent2 = getelementptr inbounds %"class.smt::ite_term_relevancy_eh", ptr %2, i32 0, i32 1

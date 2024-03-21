@@ -726,7 +726,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6crypto10SecureHashC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ctx_2 = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %this1, i32 0, i32 1
   %call = invoke i32 @SHA256_Init(ptr noundef %ctx_2)
           to label %invoke.cont unwind label %lpad
@@ -785,7 +785,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto10SecureHashE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto10SecureHashE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -797,7 +797,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ctx_ = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %this1, i32 0, i32 1
   invoke void @OPENSSL_cleanse(ptr noundef %ctx_, i64 noundef 112)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1057,7 +1057,7 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6crypto10SecureHashC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6crypto12_GLOBAL__N_116SecureHashSHA256E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ctx_2 = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %other.addr, align 8
   %ctx_3 = getelementptr inbounds %"class.crypto::(anonymous namespace)::SecureHashSHA256", ptr %0, i32 0, i32 1

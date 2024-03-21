@@ -4542,7 +4542,7 @@ if.then12:                                        ; preds = %if.end5
   %add15 = select i1 %cmp13, i32 %sub, i32 0
   %limit32.0 = add nsw i32 %add15, %conv.i44
   %start32.0 = select i1 %cmp13, i32 %conv.i44, i32 %conv.i40
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %vtable17 = load ptr, ptr %0, align 8

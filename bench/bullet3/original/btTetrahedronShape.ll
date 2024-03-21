@@ -96,7 +96,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2
@@ -170,7 +170,7 @@ entry:
   store ptr %pt0, ptr %pt0.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2
@@ -250,7 +250,7 @@ entry:
   store ptr %pt1, ptr %pt1.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2
@@ -316,7 +316,7 @@ entry:
   store ptr %pt2, ptr %pt2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2
@@ -389,7 +389,7 @@ entry:
   store ptr %pt3, ptr %pt3.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_numVertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numVertices, align 4
   %m_vertices = getelementptr inbounds %class.btBU_Simplex1to4, ptr %this1, i32 0, i32 2

@@ -338,7 +338,7 @@ define void @_ZN16CredentialsModelC2EP7QObject(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV16CredentialsModel, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV16CredentialsModel, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.CredentialsModel, ptr %5, i32 0, i32 1
   call void @_ZN5QListIP14tap_credentialEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #10
   ret void
@@ -361,7 +361,7 @@ define void @_ZN16CredentialsModelD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV16CredentialsModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV16CredentialsModel, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN16CredentialsModel5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
           to label %4 unwind label %6
 

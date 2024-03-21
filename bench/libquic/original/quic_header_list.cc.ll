@@ -499,7 +499,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net27SpdyHeadersHandlerInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %header_list_)
           to label %invoke.cont unwind label %lpad
@@ -533,7 +533,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net27SpdyHeadersHandlerInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net27SpdyHeadersHandlerInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -561,7 +561,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3net27SpdyHeadersHandlerInterfaceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %1, i32 0, i32 1
@@ -602,7 +602,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net27SpdyHeadersHandlerInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net27SpdyHeadersHandlerInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -631,7 +631,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3net27SpdyHeadersHandlerInterfaceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #11
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %header_list_2 = getelementptr inbounds %"class.net::QuicHeaderList", ptr %1, i32 0, i32 1
@@ -880,7 +880,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net14QuicHeaderListE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeaderList", ptr %this1, i32 0, i32 1
   call void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %header_list_) #11
   call void @_ZN3net27SpdyHeadersHandlerInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11

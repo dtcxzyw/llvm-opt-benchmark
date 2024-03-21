@@ -27,7 +27,7 @@ define dso_local void @_ZN16cmBinUtilsLinkerC2EP26cmRuntimeDependencyArchive(ptr
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16cmBinUtilsLinker, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV16cmBinUtilsLinker, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.cmBinUtilsLinker, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8

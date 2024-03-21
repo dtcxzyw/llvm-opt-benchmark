@@ -20389,7 +20389,7 @@ define linkonce_odr void @_ZN5Yosys13AigerFrontendC2Ev(ptr noundef nonnull align
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #24
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #24
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5Yosys13AigerFrontendE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN5Yosys13AigerFrontendE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 
 9:                                                ; preds = %1

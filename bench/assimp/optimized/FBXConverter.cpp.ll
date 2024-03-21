@@ -32354,7 +32354,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call.i390, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIlSaIlEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i390, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIlSaIlEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i390, align 8
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i390, i64 16
   store ptr %call33, ptr %_M_ptr.i.i, align 8
   store ptr %call.i390, ptr %_M_refcount.i.i, align 8
@@ -32407,7 +32407,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36
   store i32 1, ptr %_M_use_count.i.i.i402, align 8
   %_M_weak_count.i.i.i403 = getelementptr inbounds i8, ptr %call.i393, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i403, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i393, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i393, align 8
   %_M_ptr.i.i404 = getelementptr inbounds i8, ptr %call.i393, i64 16
   store ptr %call37, ptr %_M_ptr.i.i404, align 8
   store ptr %call.i393, ptr %_M_refcount.i.i38, align 8
@@ -33492,7 +33492,7 @@ invoke.cont34:                                    ; preds = %invoke.cont32
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call.i223, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIlSaIlEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i223, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIlSaIlEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i223, align 8
   %_M_ptr.i.i = getelementptr inbounds i8, ptr %call.i223, i64 16
   store ptr %call33, ptr %_M_ptr.i.i, align 8
   store ptr %call.i223, ptr %_M_refcount.i.i, align 8
@@ -33545,7 +33545,7 @@ invoke.cont38:                                    ; preds = %invoke.cont36
   store i32 1, ptr %_M_use_count.i.i.i235, align 8
   %_M_weak_count.i.i.i236 = getelementptr inbounds i8, ptr %call.i226, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i236, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i226, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPSt6vectorIfSaIfEELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i226, align 8
   %_M_ptr.i.i237 = getelementptr inbounds i8, ptr %call.i226, i64 16
   store ptr %call37, ptr %_M_ptr.i.i237, align 8
   store ptr %call.i226, ptr %_M_refcount.i.i28, align 8

@@ -576,9 +576,9 @@ define void @_ZN21CopyFromProfileButtonC2EP7QWidget7QStringS2_(ptr noundef nonnu
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %6, align 8
   call void @_ZN11QPushButtonC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV21CopyFromProfileButton, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV21CopyFromProfileButton, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV21CopyFromProfileButton, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV21CopyFromProfileButton, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.CopyFromProfileButton, ptr %14, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #10
   %18 = getelementptr inbounds %class.CopyFromProfileButton, ptr %14, i32 0, i32 2
@@ -2196,7 +2196,7 @@ define linkonce_odr void @_ZN12ProfileModelD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
   %5 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 4

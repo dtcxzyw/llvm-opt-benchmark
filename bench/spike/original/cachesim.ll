@@ -434,7 +434,7 @@ define void @_ZN11cache_sim_tC2EmmmPKc(ptr noundef nonnull align 8 dereferenceab
   store i64 %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %14 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11cache_sim_t, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11cache_sim_t, i32 0, i32 0, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %class.cache_sim_t, ptr %14, i32 0, i32 1
   call void @_ZN6lfsr_tC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %15)
   %16 = getelementptr inbounds %class.cache_sim_t, ptr %14, i32 0, i32 4
@@ -956,7 +956,7 @@ define void @_ZN11cache_sim_tC2ERKS_(ptr noundef nonnull align 8 dereferenceable
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11cache_sim_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11cache_sim_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.cache_sim_t, ptr %7, i32 0, i32 1
   call void @_ZN6lfsr_tC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %8)
   %9 = getelementptr inbounds %class.cache_sim_t, ptr %7, i32 0, i32 4
@@ -1101,7 +1101,7 @@ define void @_ZN11cache_sim_tD2Ev(ptr noundef nonnull align 8 dereferenceable(15
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11cache_sim_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11cache_sim_t, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN11cache_sim_t11print_statsEv(ptr noundef nonnull align 8 dereferenceable(153) %3)
           to label %4 unwind label %11
 
@@ -1800,7 +1800,7 @@ define void @_ZN14fa_cache_sim_tC2EmmPKc(ptr noundef nonnull align 8 dereference
   %11 = load i64, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN11cache_sim_tC2EmmmPKc(ptr noundef nonnull align 8 dereferenceable(153) %9, i64 noundef 1, i64 noundef %10, i64 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV14fa_cache_sim_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV14fa_cache_sim_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds %class.fa_cache_sim_t, ptr %9, i32 0, i32 1
   call void @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #3
   ret void
@@ -2102,7 +2102,7 @@ define linkonce_odr void @_ZN14fa_cache_sim_tD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV14fa_cache_sim_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV14fa_cache_sim_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.fa_cache_sim_t, ptr %3, i32 0, i32 1
   call void @_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   call void @_ZN11cache_sim_tD2Ev(ptr noundef nonnull align 8 dereferenceable(153) %3) #3

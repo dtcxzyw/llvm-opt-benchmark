@@ -2573,7 +2573,7 @@ define void @_ZN14MenuEditActionC2E7QStringS0_P7QObject(ptr noundef nonnull alig
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %8, align 8
   call void @_ZN13QWidgetActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV14MenuEditAction, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV14MenuEditAction, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.MenuEditAction, ptr %9, i32 0, i32 1
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %2) #9
   %12 = getelementptr inbounds %class.MenuEditAction, ptr %9, i32 0, i32 2
@@ -2870,9 +2870,9 @@ define void @_ZN21TrafficTreeHeaderViewC2EPP6_GListP7QWidget(ptr noundef nonnull
   %19 = load ptr, ptr %4, align 8
   %20 = load ptr, ptr %6, align 8
   call void @_ZN11QHeaderViewC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %19, i32 noundef 1, ptr noundef %20)
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV21TrafficTreeHeaderView, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV21TrafficTreeHeaderView, i32 0, i32 0, i32 2), ptr %19, align 8
   %21 = getelementptr inbounds i8, ptr %19, i64 16
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV21TrafficTreeHeaderView, i32 0, inrange i32 1, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV21TrafficTreeHeaderView, i32 0, i32 1, i32 2), ptr %21, align 8
   %22 = getelementptr inbounds %class.TrafficTreeHeaderView, ptr %19, i32 0, i32 3
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #9
   %23 = load ptr, ptr %5, align 8
@@ -3754,9 +3754,9 @@ define void @_ZN21TrafficTreeHeaderViewD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV21TrafficTreeHeaderView, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV21TrafficTreeHeaderView, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV21TrafficTreeHeaderView, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV21TrafficTreeHeaderView, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.TrafficTreeHeaderView, ptr %3, i32 0, i32 3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
   call void @_ZN11QHeaderViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
@@ -5450,7 +5450,7 @@ define void @_ZN22TrafficDataFilterProxyC2EP7QObject(ptr noundef nonnull align 8
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV22TrafficDataFilterProxy, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV22TrafficDataFilterProxy, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.TrafficDataFilterProxy, ptr %7, i32 0, i32 1
   call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #9
   %10 = getelementptr inbounds %class.TrafficDataFilterProxy, ptr %7, i32 0, i32 2
@@ -7636,9 +7636,9 @@ define void @_ZN11TrafficTreeC2E7QStringPP6_GListP7QWidget(ptr noundef nonnull a
   %17 = load ptr, ptr %5, align 8
   %18 = load ptr, ptr %8, align 8
   call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV11TrafficTree, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV11TrafficTree, i32 0, i32 0, i32 2), ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV11TrafficTree, i32 0, inrange i32 1, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV11TrafficTree, i32 0, i32 1, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds %class.TrafficTree, ptr %17, i32 0, i32 4
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %20) #9
   %21 = getelementptr inbounds %class.TrafficTree, ptr %17, i32 0, i32 1

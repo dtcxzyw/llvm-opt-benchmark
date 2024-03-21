@@ -9809,7 +9809,7 @@ define internal fastcc noundef ptr @_ZN5YosysL14process_moduleEPNS_5RTLIL6Design
           to label %33 unwind label %38
 
 33:                                               ; preds = %31
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 0, inrange i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 0, i32 0, i64 2), ptr %32, align 8
   store ptr %32, ptr @_ZN5Yosys12AST_INTERNAL14current_moduleE, align 8
   %34 = getelementptr inbounds i8, ptr %32, i64 560
   store ptr null, ptr %34, align 8
@@ -14078,7 +14078,7 @@ declare void @_ZN5Yosys5RTLIL6Design3addEPNS0_7BindingE(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5Yosys3AST9AstModuleD2Ev(ptr noundef nonnull align 8 dereferenceable(579) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -20763,7 +20763,7 @@ define noundef nonnull ptr @_ZNK5Yosys3AST9AstModule5cloneEv(ptr noundef nonnull
           to label %3 unwind label %46
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5Yosys3AST9AstModuleE, i64 0, i32 0, i64 2), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   %5 = getelementptr inbounds i8, ptr %2, i64 304
   %6 = load i32, ptr %5, align 4

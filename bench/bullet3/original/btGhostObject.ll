@@ -256,7 +256,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13btGhostObject, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13btGhostObject, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_overlappingObjects = getelementptr inbounds %class.btGhostObject, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayIP17btCollisionObjectEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingObjects)
           to label %invoke.cont unwind label %lpad
@@ -309,7 +309,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13btGhostObject, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13btGhostObject, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_overlappingObjects = getelementptr inbounds %class.btGhostObject, ptr %this1, i32 0, i32 2
   call void @_ZN20btAlignedObjectArrayIP17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingObjects) #9
   call void @_ZN17btCollisionObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this1) #9
@@ -587,7 +587,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN13btGhostObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV24btPairCachingGhostObject, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV24btPairCachingGhostObject, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 120, i32 noundef 16)
           to label %invoke.cont unwind label %lpad
 
@@ -666,7 +666,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV24btPairCachingGhostObject, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV24btPairCachingGhostObject, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_hashPairCache = getelementptr inbounds %class.btPairCachingGhostObject, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m_hashPairCache, align 8
   %vtable = load ptr, ptr %0, align 8

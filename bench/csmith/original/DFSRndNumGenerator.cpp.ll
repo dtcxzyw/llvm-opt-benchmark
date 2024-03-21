@@ -474,7 +474,7 @@ define dso_local void @_ZN18DFSRndNumGeneratorC2EP8Sequence(ptr noundef nonnull 
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZN18AbsRndNumGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV18DFSRndNumGenerator, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV18DFSRndNumGenerator, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %8, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef @.str.5, ptr noundef nonnull align 1 dereferenceable(1) %5)
@@ -661,7 +661,7 @@ define dso_local void @_ZN18DFSRndNumGeneratorD2Ev(ptr noundef nonnull align 8 d
   %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV18DFSRndNumGenerator, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV18DFSRndNumGenerator, i32 0, i32 0, i32 2), ptr %6, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPPN18DFSRndNumGenerator11SearchStateESt6vectorIS3_SaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   %7 = getelementptr inbounds %class.DFSRndNumGenerator, ptr %6, i32 0, i32 7
   %8 = call ptr @_ZNSt6vectorIPN18DFSRndNumGenerator11SearchStateESaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #3

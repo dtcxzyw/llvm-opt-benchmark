@@ -6307,7 +6307,7 @@ ehcleanup2692.thread5218:                         ; preds = %invoke.cont2687
   br label %cleanup.action2694
 
 invoke.cont2689:                                  ; preds = %invoke.cont2687
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception2684, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception2684, align 8
   invoke void @__cxa_throw(ptr nonnull %exception2684, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup2692
 
@@ -6384,7 +6384,7 @@ ehcleanup2724.thread5223:                         ; preds = %invoke.cont2719
   br label %cleanup.action2726
 
 invoke.cont2721:                                  ; preds = %invoke.cont2719
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception2716, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception2716, align 8
   invoke void @__cxa_throw(ptr nonnull %exception2716, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup2724
 
@@ -6461,7 +6461,7 @@ ehcleanup2756.thread5228:                         ; preds = %invoke.cont2751
   br label %cleanup.action2758
 
 invoke.cont2753:                                  ; preds = %invoke.cont2751
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception2748, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception2748, align 8
   invoke void @__cxa_throw(ptr nonnull %exception2748, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup2756
 
@@ -9268,7 +9268,7 @@ ehcleanup3669.thread5335:                         ; preds = %invoke.cont3664
   br label %cleanup.action3671
 
 invoke.cont3666:                                  ; preds = %invoke.cont3664
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception3661, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception3661, align 8
   invoke void @__cxa_throw(ptr nonnull %exception3661, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup3669
 
@@ -9723,7 +9723,7 @@ ehcleanup3824.thread5360:                         ; preds = %invoke.cont3819
   br label %cleanup.action3826
 
 invoke.cont3821:                                  ; preds = %invoke.cont3819
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception3816, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception3816, align 8
   invoke void @__cxa_throw(ptr nonnull %exception3816, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup3824
 
@@ -10781,7 +10781,7 @@ ehcleanup4025.thread5372:                         ; preds = %invoke.cont4020
   br label %cleanup.action4027
 
 invoke.cont4022:                                  ; preds = %invoke.cont4020
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception4017, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception4017, align 8
   invoke void @__cxa_throw(ptr nonnull %exception4017, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup4025
 
@@ -10849,7 +10849,7 @@ ehcleanup4052.thread5377:                         ; preds = %invoke.cont4047
   br label %cleanup.action4054
 
 invoke.cont4049:                                  ; preds = %invoke.cont4047
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception4044, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception4044, align 8
   invoke void @__cxa_throw(ptr nonnull %exception4044, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup4052
 
@@ -10917,7 +10917,7 @@ ehcleanup4079.thread5382:                         ; preds = %invoke.cont4074
   br label %cleanup.action4081
 
 invoke.cont4076:                                  ; preds = %invoke.cont4074
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception4071, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception4071, align 8
   invoke void @__cxa_throw(ptr nonnull %exception4071, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup4079
 
@@ -11907,7 +11907,7 @@ lpad.i3144:                                       ; preds = %call.i3143.noexc
   br label %lpad230.body
 
 invoke.cont4258:                                  ; preds = %call.i3143.noexc
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue220ComponentAtomicGroupE, i64 0, inrange i32 0, i64 2), ptr %call.i31433146, align 8, !noalias !110
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue220ComponentAtomicGroupE, i64 0, i32 0, i64 2), ptr %call.i31433146, align 8, !noalias !110
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i3151)
   store ptr %call.i31433146, ptr %agg.tmp.i3151, align 8
   invoke void @_ZN3ue217ComponentSequence12addComponentESt10unique_ptrINS_9ComponentESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(88) %currentSeq.212068, ptr noundef nonnull %agg.tmp.i3151)
@@ -13851,7 +13851,7 @@ ehcleanup4602.thread5537:                         ; preds = %invoke.cont4597
   br label %cleanup.action4604
 
 invoke.cont4599:                                  ; preds = %invoke.cont4597
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception4594, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception4594, align 8
   invoke void @__cxa_throw(ptr nonnull %exception4594, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup4602
 
@@ -15238,7 +15238,7 @@ ehcleanup5010.thread5610:                         ; preds = %invoke.cont5005
   br label %cleanup.action5012
 
 invoke.cont5007:                                  ; preds = %invoke.cont5005
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception5002, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception5002, align 8
   invoke void @__cxa_throw(ptr nonnull %exception5002, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup5010
 
@@ -15306,7 +15306,7 @@ ehcleanup5037.thread5615:                         ; preds = %invoke.cont5032
   br label %cleanup.action5039
 
 invoke.cont5034:                                  ; preds = %invoke.cont5032
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception5029, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception5029, align 8
   invoke void @__cxa_throw(ptr nonnull %exception5029, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup5037
 
@@ -15751,7 +15751,7 @@ ehcleanup5178.thread5652:                         ; preds = %invoke.cont5173
   br label %cleanup.action5180
 
 invoke.cont5175:                                  ; preds = %invoke.cont5173
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception5170, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception5170, align 8
   invoke void @__cxa_throw(ptr nonnull %exception5170, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup5178
 
@@ -16327,7 +16327,7 @@ ehcleanup5376.thread5675:                         ; preds = %invoke.cont5371
   br label %cleanup.action5378
 
 invoke.cont5373:                                  ; preds = %invoke.cont5371
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception5368, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception5368, align 8
   invoke void @__cxa_throw(ptr nonnull %exception5368, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup5376
 
@@ -16410,7 +16410,7 @@ ehcleanup5403.thread5680:                         ; preds = %invoke.cont5398
   br label %cleanup.action5405
 
 invoke.cont5400:                                  ; preds = %invoke.cont5398
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception5395, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception5395, align 8
   invoke void @__cxa_throw(ptr nonnull %exception5395, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup5403
 
@@ -16461,7 +16461,7 @@ invoke.cont5415:                                  ; preds = %if.then5410
           to label %invoke.cont5417 unwind label %ehcleanup5420
 
 invoke.cont5417:                                  ; preds = %invoke.cont5415
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception5411, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception5411, align 8
   invoke void @__cxa_throw(ptr nonnull %exception5411, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup5420
 
@@ -16530,7 +16530,7 @@ ehcleanup5446.thread5691:                         ; preds = %invoke.cont5441
   br label %cleanup.action5448
 
 invoke.cont5443:                                  ; preds = %invoke.cont5441
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception5438, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception5438, align 8
   invoke void @__cxa_throw(ptr nonnull %exception5438, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup5446
 
@@ -16580,7 +16580,7 @@ invoke.cont5458:                                  ; preds = %if.then5453
           to label %invoke.cont5460 unwind label %ehcleanup5463
 
 invoke.cont5460:                                  ; preds = %invoke.cont5458
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception5454, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception5454, align 8
   invoke void @__cxa_throw(ptr nonnull %exception5454, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup5463
 
@@ -17007,10 +17007,10 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #19
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #19
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue217LocatedParseErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue217LocatedParseErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %finalized = getelementptr inbounds i8, ptr %this, i64 48
   store i8 0, ptr %finalized, align 8
   %reason = getelementptr inbounds i8, ptr %this, i64 8
@@ -17160,7 +17160,7 @@ invoke.cont:                                      ; preds = %.noexc
           to label %invoke.cont2 unwind label %ehcleanup
 
 invoke.cont2:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #22
           to label %unreachable unwind label %ehcleanup
 

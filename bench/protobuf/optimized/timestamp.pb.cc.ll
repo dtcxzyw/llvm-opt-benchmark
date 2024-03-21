@@ -31,7 +31,7 @@ $_ZNK6google8protobuf9Timestamp3NewEPNS0_5ArenaE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN6google8protobuf9TimestampE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf9TimestampE, ptr @_ZN6google8protobuf9TimestampD1Ev, ptr @_ZN6google8protobuf9TimestampD0Ev, ptr @_ZNK6google8protobuf9Timestamp3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf9Timestamp5ClearEv, ptr @_ZNK6google8protobuf9Timestamp13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf9Timestamp12ByteSizeLongEv, ptr @_ZN6google8protobuf9Timestamp14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf9Timestamp12GetClassDataEv, ptr @_ZNK6google8protobuf9Timestamp18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf9Timestamp11GetMetadataEv] }, align 8
-@_ZN6google8protobuf28_Timestamp_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9TimestampE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon zeroinitializer } } }, align 8
+@_ZN6google8protobuf28_Timestamp_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9TimestampE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon zeroinitializer } } }, align 8
 @_ZN49TableStruct_google_2fprotobuf_2ftimestamp_2eproto7offsetsE = constant [10 x i32] [i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 24], section "protodesc_cold", align 16
 @_ZL63descriptor_table_protodef_google_2fprotobuf_2ftimestamp_2eproto = internal constant [240 x i8] c"\0A\1Fgoogle/protobuf/timestamp.proto\12\0Fgoogle.protobuf\22+\0A\09Timestamp\12\0F\0A\07seconds\18\01 \01(\03\12\0D\0A\05nanos\18\02 \01(\05B\85\01\0A\13com.google.protobufB\0ETimestampProtoP\01Z2google.golang.org/protobuf/types/known/timestamppb\F8\01\01\A2\02\03GPB\AA\02\1EGoogle.Protobuf.WellKnownTypesb\06proto3\00", section "protodesc_cold", align 16
 @.str = private unnamed_addr constant [32 x i8] c"google/protobuf/timestamp.proto\00", align 1
@@ -73,7 +73,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9TimestampE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9TimestampE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   ret void
@@ -87,7 +87,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9TimestampE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9TimestampE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, i8 0, i64 16, i1 false)
   %2 = getelementptr inbounds i8, ptr %from, i64 16

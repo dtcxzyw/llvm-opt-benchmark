@@ -14836,7 +14836,7 @@ _ZN3tbb6detail2d110task_group3runIZN4mold3elfL15new_shared_fileINS5_6RV32LEEEEPN
   %call.i.i.i.i = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i.i, i64 noundef 128) #17
   %14 = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d113function_taskIZN4mold3elfL15new_shared_fileINS4_6RV32LEEEEPNS4_10SharedFileIT_EERNS4_7ContextIS8_EEPNS3_10MappedFileISC_EEEUlvE_EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 64
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d113function_taskIZN4mold3elfL15new_shared_fileINS4_6RV32LEEEEPNS4_10SharedFileIT_EERNS4_7ContextIS8_EEPNS3_10MappedFileISC_EEEUlvE_EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 64
   %m_func.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 64
   store ptr %call.i41, ptr %m_func.i.i.i.i.i, align 64
   %ref.tmp.sroa.2.0.m_func.i.i.i.i.sroa_idx.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 72
@@ -15921,7 +15921,7 @@ _ZN3tbb6detail2d110task_group3runIZN4mold3elfL15new_object_fileINS5_6RV32LEEEEPN
   %call.i.i.i13 = call noundef ptr @_ZN3tbb6detail2r18allocateERPNS0_2d117small_object_poolEm(ptr noundef nonnull align 8 dereferenceable(8) %alloc.i.i, i64 noundef 128) #17
   %18 = getelementptr inbounds i8, ptr %call.i.i.i13, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %18, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d113function_taskIZN4mold3elfL15new_object_fileINS4_6RV32LEEEEPNS4_10ObjectFileIT_EERNS4_7ContextIS8_EEPNS3_10MappedFileISC_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i13, align 64
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tbb6detail2d113function_taskIZN4mold3elfL15new_object_fileINS4_6RV32LEEEEPNS4_10ObjectFileIT_EERNS4_7ContextIS8_EEPNS3_10MappedFileISC_EENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlvE_EE, i64 0, i32 0, i64 2), ptr %call.i.i.i13, align 64
   %m_func.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i13, i64 64
   store ptr %call7, ptr %m_func.i.i.i.i, align 64
   %ref.tmp.sroa.2.0.m_func.i.i.i.i.sroa_idx = getelementptr inbounds i8, ptr %call.i.i.i13, i64 72
@@ -16273,12 +16273,12 @@ entry:
   %values = getelementptr inbounds i8, ptr %this, i64 16
   %my_root.i.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %my_root.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, inrange i32 0, i64 2), ptr %values, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %values, align 8
   %my_construct_callback.i = getelementptr inbounds i8, ptr %this, i64 40
   %call.i.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 16) #17
   %0 = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store i64 %value, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   store ptr %call.i.i.i, ptr %my_construct_callback.i, align 8
   %my_locals.i = getelementptr inbounds i8, ptr %this, i64 48
   store ptr inttoptr (i64 1 to ptr), ptr %my_locals.i, align 8
@@ -16383,7 +16383,7 @@ _ZNSt6vectorIPN4mold7CounterESaIS2_EE9push_backEOS2_.exit: ; preds = %if.then.i.
 define linkonce_odr dso_local void @_ZN4mold7CounterD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %values = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, inrange i32 0, i64 2), ptr %values, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %values, align 8
   %my_construct_callback.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %my_construct_callback.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -16451,7 +16451,7 @@ _ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEE
   store atomic i64 0, ptr %my_size.i.i.i.i monotonic, align 8
   %my_first_block.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
   store atomic i64 0, ptr %my_first_block.i.i.i.i monotonic, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 0, inrange i32 0, i64 2), ptr %values, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %values, align 8
   ret void
 }
 
@@ -16560,7 +16560,7 @@ entry:
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %my_construct_callback = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %my_construct_callback, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -16628,14 +16628,14 @@ _ZN3tbb6detail2d117concurrent_vectorINS0_2d06paddedINS1_11ets_elementIlEELm128EE
   store atomic i64 0, ptr %my_size.i.i.i monotonic, align 8
   %my_first_block.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   store atomic i64 0, ptr %my_first_block.i.i.i monotonic, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d126enumerable_thread_specificIlNS1_23cache_aligned_allocatorIlEELNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %my_construct_callback.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %my_construct_callback.i, align 8
   %tobool.not.i = icmp eq ptr %0, null
@@ -16712,7 +16712,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d18ets_baseILNS1_18ets_key_usage_typeE1EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -16732,12 +16732,12 @@ declare noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef) local_unn
 define linkonce_odr dso_local noundef ptr @_ZNK3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #4 comdat align 2 {
 entry:
   %call.i.i = tail call noundef ptr @_ZN3tbb6detail2r115allocate_memoryEm(i64 noundef 16) #17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_baseE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %0 = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %1 = load i64, ptr %add.ptr.i.i, align 8
   store i64 %1, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tbb6detail2d113callback_leafINS1_21construct_by_exemplarIlEEEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   ret ptr %call.i.i
 }
 
@@ -18170,7 +18170,7 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.mold::Fatal", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %path)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buf.i = getelementptr inbounds i8, ptr %this, i64 8
   %path2.i = getelementptr inbounds i8, ptr %this, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %buf.i, i8 0, i64 32, i1 false)
@@ -18201,7 +18201,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %perm2 = getelementptr inbounds i8, ptr %this, i64 96
   store i64 %perm, ptr %perm2, align 8
   %call = call noalias ptr @malloc(i64 noundef %filesize) #33
@@ -18243,7 +18243,7 @@ entry:
   %ref.tmp8 = alloca %"class.mold::Fatal", align 8
   %ref.tmp11 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %path)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buf.i = getelementptr inbounds i8, ptr %this, i64 8
   %path2.i = getelementptr inbounds i8, ptr %this, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %buf.i, i8 0, i64 32, i1 false)
@@ -18274,7 +18274,7 @@ if.then.i.i:                                      ; preds = %entry
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %if.then.i.i
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %agg.tmp) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fd2 = getelementptr inbounds i8, ptr %this, i64 92
   store i32 -1, ptr %fd2, align 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull align 8 dereferenceable(32) %path)
@@ -18822,11 +18822,11 @@ if.end24:                                         ; preds = %if.then18, %if.end1
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold16MallocOutputFileINS_3elf7ContextINS1_6RV32LEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buf = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buf, align 8
   tail call void @free(ptr noundef %0) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %path.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %path.i, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 56
@@ -18862,11 +18862,11 @@ _ZN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEED2Ev.exit: ; preds = %_ZNSt7
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold16MallocOutputFileINS_3elf7ContextINS1_6RV32LEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold16MallocOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buf.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buf.i, align 8
   tail call void @free(ptr noundef %0) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %path.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %path.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 56
@@ -18903,7 +18903,7 @@ _ZN4mold16MallocOutputFileINS_3elf7ContextINS1_6RV32LEEEEED2Ev.exit: ; preds = %
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(90) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %path = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %path, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 56
@@ -19109,7 +19109,7 @@ if.end35:                                         ; preds = %if.end23
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_6RV32LEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fd2 = getelementptr inbounds i8, ptr %this, i64 92
   %0 = load i32, ptr %fd2, align 4
   %cmp.not = icmp eq i32 %0, -1
@@ -19120,7 +19120,7 @@ if.then:                                          ; preds = %entry
   br label %if.end
 
 if.end:                                           ; preds = %if.then, %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %path.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %path.i, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 56
@@ -19156,7 +19156,7 @@ _ZN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEED2Ev.exit: ; preds = %_ZNSt7
 ; Function Attrs: mustprogress nounwind
 define linkonce_odr dso_local void @_ZN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_6RV32LEEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold22MemoryMappedOutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fd2.i = getelementptr inbounds i8, ptr %this, i64 92
   %0 = load i32, ptr %fd2.i, align 4
   %cmp.not.i = icmp eq i32 %0, -1
@@ -19167,7 +19167,7 @@ if.then.i:                                        ; preds = %entry
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then.i, %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4mold10OutputFileINS_3elf7ContextINS1_6RV32LEEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %path.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %path.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %this, i64 56

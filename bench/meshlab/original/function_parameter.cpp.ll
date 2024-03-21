@@ -2284,7 +2284,7 @@ define void @_ZN9pymeshlab17FunctionParameterC2ERK13RichParameter(ptr noundef no
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9pymeshlab17FunctionParameterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9pymeshlab17FunctionParameterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.pymeshlab::FunctionParameter", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %7, align 8
@@ -2302,7 +2302,7 @@ define void @_ZN9pymeshlab17FunctionParameterC2ERKS0_(ptr noundef nonnull align 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9pymeshlab17FunctionParameterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9pymeshlab17FunctionParameterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.pymeshlab::FunctionParameter", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.pymeshlab::FunctionParameter", ptr %7, i32 0, i32 1
@@ -2322,7 +2322,7 @@ define void @_ZN9pymeshlab17FunctionParameterC2EOS0_(ptr noundef nonnull align 8
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9pymeshlab17FunctionParameterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9pymeshlab17FunctionParameterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds %"class.pymeshlab::FunctionParameter", ptr %6, i32 0, i32 1
   %8 = load ptr, ptr %7, align 8
@@ -2339,7 +2339,7 @@ define void @_ZN9pymeshlab17FunctionParameterD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9pymeshlab17FunctionParameterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9pymeshlab17FunctionParameterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.pymeshlab::FunctionParameter", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

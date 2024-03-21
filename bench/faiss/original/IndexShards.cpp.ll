@@ -5160,7 +5160,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEEC2Ebb(ptr nounde
   %12 = load i8, ptr %5, align 1
   %13 = trunc i8 %12 to i1
   call void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %11, i1 noundef zeroext %13)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %11, align 8
   %14 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate", ptr %11, i32 0, i32 1
   %15 = load i8, ptr %6, align 1
   %16 = trunc i8 %15 to i1
@@ -5226,7 +5226,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eib(ptr noundef 
   %9 = load i32, ptr %5, align 4
   %10 = sext i32 %9 to i64
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %10, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %8, align 8
   %11 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 1
   store i8 0, ptr %11, align 4
   %12 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 3
@@ -5248,7 +5248,7 @@ define linkonce_odr void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnul
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
   %9 = load i64, ptr %5, align 8
   %10 = trunc i64 %9 to i32
@@ -5285,7 +5285,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef n
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 3
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr %3, align 8
@@ -6093,7 +6093,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEEC2Elbb(ptr nound
   %14 = load i8, ptr %7, align 1
   %15 = trunc i8 %14 to i1
   call void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %11, i32 noundef %13, i1 noundef zeroext %15)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %11, align 8
   %16 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate", ptr %11, i32 0, i32 1
   %17 = load i8, ptr %8, align 1
   %18 = trunc i8 %17 to i1
@@ -6120,7 +6120,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_5IndexEEC2Eibb(ptr nound
   %13 = load i8, ptr %7, align 1
   %14 = trunc i8 %13 to i1
   call void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %11, i32 noundef %12, i1 noundef zeroext %14)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %11, align 8
   %15 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate", ptr %11, i32 0, i32 1
   %16 = load i8, ptr %8, align 1
   %17 = trunc i8 %16 to i1
@@ -6489,7 +6489,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
@@ -15173,7 +15173,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Ebb(ptr
   %12 = load i8, ptr %5, align 1
   %13 = trunc i8 %12 to i1
   call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %11, i1 noundef zeroext %13)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %11, align 8
   %14 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate.53", ptr %11, i32 0, i32 1
   %15 = load i8, ptr %6, align 1
   %16 = trunc i8 %15 to i1
@@ -15326,7 +15326,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr n
   %9 = load i32, ptr %5, align 4
   %10 = sext i32 %9 to i64
   call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %10, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %8, align 8
   %11 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %8, i32 0, i32 1
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %8, i32 0, i32 3
@@ -15359,7 +15359,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr no
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.faiss::ThreadedIndex.54", ptr %7, i32 0, i32 3
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr %3, align 8
@@ -15903,7 +15903,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Elbb(pt
   %16 = load i8, ptr %7, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %13, i32 noundef %15, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %13, align 8
   %18 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate.53", ptr %13, i32 0, i32 1
   %19 = load i8, ptr %8, align 1
   %20 = trunc i8 %19 to i1
@@ -15952,7 +15952,7 @@ define weak_odr void @_ZN5faiss19IndexShardsTemplateINS_11IndexBinaryEEC2Eibb(pt
   %15 = load i8, ptr %7, align 1
   %16 = trunc i8 %15 to i1
   call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %13, i32 noundef %14, i1 noundef zeroext %16)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN5faiss19IndexShardsTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %13, align 8
   %17 = getelementptr inbounds %"struct.faiss::IndexShardsTemplate.53", ptr %13, i32 0, i32 1
   %18 = load i8, ptr %8, align 1
   %19 = trunc i8 %18 to i1

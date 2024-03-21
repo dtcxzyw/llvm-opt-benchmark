@@ -8282,7 +8282,7 @@ entry:
   store ptr %mtl_basedir, ptr %mtl_basedir.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7tinyobj14MaterialReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_mtlBaseDir = getelementptr inbounds %"class.tinyobj::MaterialFileReader", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %mtl_basedir.addr, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_mtlBaseDir, ptr noundef nonnull align 8 dereferenceable(32) %0)
@@ -11195,7 +11195,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj18MaterialFileReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_mtlBaseDir = getelementptr inbounds %"class.tinyobj::MaterialFileReader", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_mtlBaseDir) #14
   call void @_ZN7tinyobj14MaterialReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
@@ -16984,7 +16984,7 @@ entry:
   store ptr %inStream, ptr %inStream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7tinyobj14MaterialReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj20MaterialStreamReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj20MaterialStreamReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inStream = getelementptr inbounds %"class.tinyobj::MaterialStreamReader", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %inStream.addr, align 8
   store ptr %0, ptr %m_inStream, align 8
@@ -17010,7 +17010,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_string = getelementptr inbounds %"class.std::__cxx11::basic_stringbuf", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_M_string) #14
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1) #14
@@ -18571,7 +18571,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj14MaterialReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7tinyobj14MaterialReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

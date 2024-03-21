@@ -275,7 +275,7 @@ call.i16.noexc:                                   ; preds = %if.then59
           to label %.noexc.i unwind label %lpad.i, !noalias !12
 
 .noexc.i:                                         ; preds = %call.i16.noexc
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %call.i1617, align 8, !noalias !12
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 0, i32 0, i64 2), ptr %call.i1617, align 8, !noalias !12
   %json_.i.i = getelementptr inbounds i8, ptr %call.i1617, i64 64
   store i64 %6, ptr %json_.i.i, align 8, !noalias !12
   store ptr null, ptr %agg.tmp.i, align 8, !noalias !12
@@ -325,7 +325,7 @@ call.i25.noexc:                                   ; preds = %if.then66
           to label %.noexc.i34 unwind label %lpad.i26, !noalias !15
 
 .noexc.i34:                                       ; preds = %call.i25.noexc
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %call.i2542, align 8, !noalias !15
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 0, i32 0, i64 2), ptr %call.i2542, align 8, !noalias !15
   %json_.i.i35 = getelementptr inbounds i8, ptr %call.i2542, i64 40
   store i64 %6, ptr %json_.i.i35, align 8, !noalias !15
   store ptr null, ptr %agg.tmp.i24, align 8, !noalias !15
@@ -1865,7 +1865,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %lpad.body
 
 cleanup.thread:                                   ; preds = %call.i.noexc
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_115JSONStringValueE, i64 0, inrange i32 0, i64 2), ptr %call.i5, align 8, !noalias !29
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_115JSONStringValueE, i64 0, i32 0, i64 2), ptr %call.i5, align 8, !noalias !29
   %string_piece_.i.i = getelementptr inbounds i8, ptr %call.i5, i64 16
   store ptr %.fca.0.load.i, ptr %string_piece_.i.i, align 8, !noalias !29
   %piece.sroa.2.0.string_piece_.sroa_idx.i.i = getelementptr inbounds i8, ptr %call.i5, i64 24
@@ -3430,7 +3430,7 @@ declare void @_ZN4base15DictionaryValueD2Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %json_ = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %json_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3450,7 +3450,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_125DictionaryHiddenRootValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %json_.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %json_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3667,7 +3667,7 @@ declare void @_ZN4base9ListValueD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %json_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %json_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3687,7 +3687,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4base8internal12_GLOBAL__N_119ListHiddenRootValueD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4base8internal12_GLOBAL__N_119ListHiddenRootValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %json_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %json_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

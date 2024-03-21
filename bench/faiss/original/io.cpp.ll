@@ -373,7 +373,7 @@ define linkonce_odr void @_ZN5faiss8IOReaderD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOReaderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::IOReader", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   ret void
@@ -465,7 +465,7 @@ define linkonce_odr void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   ret void
@@ -529,7 +529,7 @@ define linkonce_odr void @_ZN5faiss14VectorIOWriterD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14VectorIOWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14VectorIOWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::VectorIOWriter", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
   call void @_ZN5faiss8IOWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
@@ -652,7 +652,7 @@ define linkonce_odr void @_ZN5faiss14VectorIOReaderD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14VectorIOReaderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss14VectorIOReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::VectorIOReader", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
   call void @_ZN5faiss8IOReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
@@ -920,7 +920,7 @@ define linkonce_odr void @_ZN5faiss16BufferedIOReaderD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOReaderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %3, i32 0, i32 7
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
   call void @_ZN5faiss8IOReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #12
@@ -1272,7 +1272,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #12
@@ -2472,7 +2472,7 @@ define void @_ZN5faiss12FileIOReaderC2EP8_IO_FILE(ptr noundef nonnull align 8 de
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5faiss8IOReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -2486,7 +2486,7 @@ define linkonce_odr void @_ZN5faiss8IOReaderC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOReaderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::IOReader", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   ret void
@@ -2507,7 +2507,7 @@ define void @_ZN5faiss12FileIOReaderC2EPKc(ptr noundef nonnull align 8 dereferen
   store ptr %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN5faiss8IOReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 1
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %9, i32 0, i32 2
@@ -2659,7 +2659,7 @@ define void @_ZN5faiss12FileIOReaderD2Ev(ptr noundef nonnull align 8 dereference
   %3 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOReaderE, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"struct.faiss::FileIOReader", ptr %4, i32 0, i32 2
   %6 = load i8, ptr %5, align 8
   %7 = trunc i8 %6 to i1
@@ -2723,7 +2723,7 @@ define void @_ZN5faiss12FileIOWriterC2EP8_IO_FILE(ptr noundef nonnull align 8 de
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5faiss8IOWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -2737,7 +2737,7 @@ define linkonce_odr void @_ZN5faiss8IOWriterC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss8IOWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::IOWriter", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   ret void
@@ -2755,7 +2755,7 @@ define void @_ZN5faiss12FileIOWriterC2EPKc(ptr noundef nonnull align 8 dereferen
   store ptr %1, ptr %4, align 8
   %9 = load ptr, ptr %3, align 8
   call void @_ZN5faiss8IOWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %9) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 1
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %9, i32 0, i32 2
@@ -2899,7 +2899,7 @@ define void @_ZN5faiss12FileIOWriterD2Ev(ptr noundef nonnull align 8 dereference
   %5 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss12FileIOWriterE, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %"struct.faiss::FileIOWriter", ptr %6, i32 0, i32 2
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
@@ -2967,7 +2967,7 @@ define void @_ZN5faiss16BufferedIOReaderC2EPNS_8IOReaderEm(ptr noundef nonnull a
   store i64 %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5faiss8IOReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOReaderE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOReaderE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"struct.faiss::BufferedIOReader", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   store ptr %12, ptr %11, align 8
@@ -3625,7 +3625,7 @@ define void @_ZN5faiss16BufferedIOWriterC2EPNS_8IOWriterEm(ptr noundef nonnull a
   store i64 %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5faiss8IOWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %10) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOWriterE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOWriterE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"struct.faiss::BufferedIOWriter", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   store ptr %12, ptr %11, align 8
@@ -3676,7 +3676,7 @@ define void @_ZN5faiss16BufferedIOWriterD2Ev(ptr noundef nonnull align 8 derefer
   %8 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %9 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOWriterE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5faiss16BufferedIOWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
   store i64 0, ptr %3, align 8
   br label %10
 

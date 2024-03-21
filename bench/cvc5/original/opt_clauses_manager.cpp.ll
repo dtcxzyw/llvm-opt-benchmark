@@ -851,7 +851,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %context.addr, align 8
   call void @_ZN4cvc57context16ContextNotifyObjC2EPNS0_7ContextEb(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal4prop23OptimizedClausesManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal4prop23OptimizedClausesManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_context = getelementptr inbounds %"class.cvc5::internal::prop::OptimizedClausesManager", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %context.addr, align 8
   store ptr %1, ptr %d_context, align 8

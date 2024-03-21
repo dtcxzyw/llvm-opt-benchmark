@@ -187,7 +187,7 @@ entry:
   store float %height, ptr %height.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11btConeShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11btConeShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_radius = getelementptr inbounds %class.btConeShape, ptr %this1, i32 0, i32 2
   %0 = load float, ptr %radius.addr, align 4
   store float %0, ptr %m_radius, align 4
@@ -381,7 +381,7 @@ entry:
   %0 = load float, ptr %radius.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN11btConeShapeC2Eff(ptr noundef nonnull align 8 dereferenceable(96) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12btConeShapeZ, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12btConeShapeZ, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN11btConeShape14setConeUpIndexEi(ptr noundef nonnull align 8 dereferenceable(96) %this1, i32 noundef 2)
           to label %invoke.cont unwind label %lpad
 
@@ -421,7 +421,7 @@ entry:
   %0 = load float, ptr %radius.addr, align 4
   %1 = load float, ptr %height.addr, align 4
   call void @_ZN11btConeShapeC2Eff(ptr noundef nonnull align 8 dereferenceable(96) %this1, float noundef %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12btConeShapeX, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV12btConeShapeX, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN11btConeShape14setConeUpIndexEi(ptr noundef nonnull align 8 dereferenceable(96) %this1, i32 noundef 0)
           to label %invoke.cont unwind label %lpad
 

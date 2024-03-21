@@ -1273,7 +1273,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNK10cmMakefile25GetCu
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN17cmGlobalGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(1778) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -2341,7 +2341,7 @@ _ZNSt12_Vector_baseISt10unique_ptrI10cmMakefileSt14default_deleteIS1_EESaIS4_EED
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17cmGlobalGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1778) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV17cmGlobalGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   tail call void @_ZN17cmGlobalGenerator21ClearGeneratorMembersEv(ptr noundef nonnull align 8 dereferenceable(1778) %0)
   %2 = getelementptr inbounds i8, ptr %0, i64 1696
   tail call void @_ZN14cmFileLockPoolD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %2) #23

@@ -1690,7 +1690,7 @@ define dso_local void @_ZN16DefaultOutputMgrC2EPSt14basic_ofstreamIcSt11char_tra
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.DefaultOutputMgr, ptr %5, i32 0, i32 1
   call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   %7 = getelementptr inbounds %class.DefaultOutputMgr, ptr %5, i32 0, i32 2
@@ -1716,7 +1716,7 @@ define dso_local void @_ZN16DefaultOutputMgrC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.DefaultOutputMgr, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.DefaultOutputMgr, ptr %3, i32 0, i32 2
@@ -1732,7 +1732,7 @@ define dso_local void @_ZN16DefaultOutputMgrD2Ev(ptr noundef nonnull align 8 der
   %5 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16DefaultOutputMgr, i32 0, i32 0, i32 2), ptr %6, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPPSt14basic_ofstreamIcSt11char_traitsIcEESt6vectorIS5_SaIS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   %7 = getelementptr inbounds %class.DefaultOutputMgr, ptr %6, i32 0, i32 1
   %8 = call ptr @_ZNSt6vectorIPSt14basic_ofstreamIcSt11char_traitsIcEESaIS4_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #3

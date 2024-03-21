@@ -10224,7 +10224,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %allocator_ = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN2v811ArrayBuffer9AllocatorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %allocator_) #3
   call void @_ZN4node20ArrayBufferAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -15571,7 +15571,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node24NodeArrayBufferAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node29DebuggingArrayBufferAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node29DebuggingArrayBufferAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mutex_ = getelementptr inbounds %"class.node::DebuggingArrayBufferAllocator", ptr %this1, i32 0, i32 1
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_)
   %allocations_ = getelementptr inbounds %"class.node::DebuggingArrayBufferAllocator", ptr %this1, i32 0, i32 2
@@ -15646,7 +15646,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v811ArrayBuffer9AllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4node20ArrayBufferAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4node20ArrayBufferAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -15685,7 +15685,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2v811ArrayBuffer9AllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN2v811ArrayBuffer9AllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -16307,7 +16307,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node20ArrayBufferAllocatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %zero_fill_field_ = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %this1, i32 0, i32 1
   store i32 1, ptr %zero_fill_field_, align 8
   %total_mem_usage_ = getelementptr inbounds %"class.node::NodeArrayBufferAllocator", ptr %this1, i32 0, i32 2
@@ -16955,7 +16955,7 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node21InspectorParentHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %impl2 = getelementptr inbounds %"struct.node::InspectorParentHandleImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %impl.addr, align 8
   call void @_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(8) %impl2, ptr noundef nonnull align 8 dereferenceable(8) %0) #3
@@ -16982,7 +16982,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node21InspectorParentHandleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node21InspectorParentHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -16992,7 +16992,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %impl = getelementptr inbounds %"struct.node::InspectorParentHandleImpl", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %impl) #3
   call void @_ZN4node21InspectorParentHandleD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

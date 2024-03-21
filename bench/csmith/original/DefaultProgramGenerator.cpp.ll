@@ -76,7 +76,7 @@ define dso_local void @_ZN23DefaultProgramGeneratorC2EiPPcm(ptr noundef nonnull 
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZN19AbsProgramGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23DefaultProgramGenerator, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23DefaultProgramGenerator, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.DefaultProgramGenerator, ptr %9, i32 0, i32 1
   %11 = load i32, ptr %6, align 4
   store i32 %11, ptr %10, align 8
@@ -98,7 +98,7 @@ define dso_local void @_ZN23DefaultProgramGeneratorD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23DefaultProgramGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23DefaultProgramGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN12Finalization14doFinalizationEv()
           to label %4 unwind label %13
 

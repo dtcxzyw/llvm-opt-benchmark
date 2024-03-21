@@ -1166,7 +1166,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN8proxygen13PeriodicStatsINS_12ResourceDataEEC2EPS1_(ptr noundef nonnull align 16 dereferenceable(176) %this1, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen13ResourceStatsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen13ResourceStatsE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %resources_ = getelementptr inbounds %"class.proxygen::ResourceStats", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN8proxygen9ResourcesESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %resources_, ptr noundef nonnull align 8 dereferenceable(8) %resources) #16
   ret void
@@ -1219,7 +1219,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %data, ptr %data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen13PeriodicStatsINS_12ResourceDataEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen13PeriodicStatsINS_12ResourceDataEEE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %data_ = getelementptr inbounds %"class.proxygen::PeriodicStats", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %data.addr, align 8
   call void @_ZNSt6atomicIPN8proxygen12ResourceDataEEC2ES2_(ptr noundef nonnull align 8 dereferenceable(8) %data_, ptr noundef %0) #16
@@ -1282,7 +1282,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen13ResourceStatsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen13ResourceStatsE, i32 0, i32 0, i32 2), ptr %this1, align 16
   invoke void @_ZN8proxygen13PeriodicStatsINS_12ResourceDataEE11stopRefreshEv(ptr noundef nonnull align 16 dereferenceable(176) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1844,7 +1844,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen13PeriodicStatsINS_12ResourceDataEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen13PeriodicStatsINS_12ResourceDataEEE, i32 0, i32 0, i32 2), ptr %this1, align 16
   invoke void @_ZN8proxygen13PeriodicStatsINS_12ResourceDataEE11stopRefreshEv(ptr noundef nonnull align 16 dereferenceable(176) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2168,7 +2168,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN8proxygen21PeriodicStatsDataBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12ResourceDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12ResourceDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cpuRatioUtil_ = getelementptr inbounds %"struct.proxygen::ResourceData", ptr %this1, i32 0, i32 2
   store double 0.000000e+00, ptr %cpuRatioUtil_, align 8
   %cpuCoreUsageRatios_ = getelementptr inbounds %"struct.proxygen::ResourceData", ptr %this1, i32 0, i32 3
@@ -2253,7 +2253,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12ResourceDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen12ResourceDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %softIrqCpuCoreRatioUtils_ = getelementptr inbounds %"struct.proxygen::ResourceData", ptr %this1, i32 0, i32 7
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %softIrqCpuCoreRatioUtils_) #16
   %cpuCoreUsageRatios_ = getelementptr inbounds %"struct.proxygen::ResourceData", ptr %this1, i32 0, i32 3
@@ -2820,7 +2820,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2839,7 +2839,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2853,7 +2853,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2863,7 +2863,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3708,7 +3708,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %2, i32 0, i32 1
@@ -3808,7 +3808,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp2) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %_M_code, ptr align 8 %__ec, i64 16, i1 false)
   ret void

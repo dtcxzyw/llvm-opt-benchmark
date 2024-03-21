@@ -926,7 +926,7 @@ entry:
   %2 = load ptr, ptr %element.addr, align 8
   %3 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX6ObjectC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this1, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(32) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationCurveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationCurveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %keys = getelementptr inbounds %"class.Assimp::FBX::AnimationCurve", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIlSaIlEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %keys) #13
   %values = getelementptr inbounds %"class.Assimp::FBX::AnimationCurve", ptr %this1, i32 0, i32 2
@@ -1704,7 +1704,7 @@ entry:
   %1 = load ptr, ptr %element.addr, align 8
   %2 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX6ObjectC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX18AnimationCurveNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX18AnimationCurveNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %target = getelementptr inbounds %"class.Assimp::FBX::AnimationCurveNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %target, align 8
   %props = getelementptr inbounds %"class.Assimp::FBX::AnimationCurveNode", ptr %this1, i32 0, i32 2
@@ -2572,7 +2572,7 @@ entry:
   %1 = load ptr, ptr %element.addr, align 8
   %2 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX6ObjectC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationLayerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationLayerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %props = getelementptr inbounds %"class.Assimp::FBX::AnimationLayer", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN6Assimp3FBX13PropertyTableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %props) #13
   %doc2 = getelementptr inbounds %"class.Assimp::FBX::AnimationLayer", ptr %this1, i32 0, i32 2
@@ -3179,7 +3179,7 @@ entry:
   %1 = load ptr, ptr %element.addr, align 8
   %2 = load ptr, ptr %name.addr, align 8
   call void @_ZN6Assimp3FBX6ObjectC2EmRKNS0_7ElementERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(56) %this1, i64 noundef %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationStackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationStackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %props = getelementptr inbounds %"class.Assimp::FBX::AnimationStack", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN6Assimp3FBX13PropertyTableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %props) #13
   %layers = getelementptr inbounds %"class.Assimp::FBX::AnimationStack", ptr %this1, i32 0, i32 2
@@ -3631,7 +3631,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationCurveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationCurveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %flags = getelementptr inbounds %"class.Assimp::FBX::AnimationCurve", ptr %this1, i32 0, i32 4
   call void @_ZNSt6vectorIjSaIjEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %flags) #13
   %attributes = getelementptr inbounds %"class.Assimp::FBX::AnimationCurve", ptr %this1, i32 0, i32 3
@@ -3661,7 +3661,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX18AnimationCurveNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX18AnimationCurveNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %prop = getelementptr inbounds %"class.Assimp::FBX::AnimationCurveNode", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %prop) #13
   %curves = getelementptr inbounds %"class.Assimp::FBX::AnimationCurveNode", ptr %this1, i32 0, i32 3
@@ -3689,7 +3689,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationLayerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationLayerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %props = getelementptr inbounds %"class.Assimp::FBX::AnimationLayer", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIKN6Assimp3FBX13PropertyTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %props) #13
   call void @_ZN6Assimp3FBX6ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #13
@@ -3713,7 +3713,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationStackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX14AnimationStackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %layers = getelementptr inbounds %"class.Assimp::FBX::AnimationStack", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIPKN6Assimp3FBX14AnimationLayerESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %layers) #13
   %props = getelementptr inbounds %"class.Assimp::FBX::AnimationStack", ptr %this1, i32 0, i32 1
@@ -4266,7 +4266,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp3FBX6ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name = getelementptr inbounds %"class.Assimp::FBX::Object", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #13
   ret void

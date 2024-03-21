@@ -4038,7 +4038,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net18SpdyFrameWithFinIRC2Ej(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_block_ = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %this1, i32 0, i32 1
   invoke void @_ZN3net15SpdyHeaderBlockC1EOS0_(ptr noundef nonnull align 8 dereferenceable(88) %header_block_, ptr noundef nonnull align 8 dereferenceable(88) %header_block)
           to label %invoke.cont unwind label %lpad
@@ -4074,7 +4074,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net23SpdyFrameWithStreamIdIRC2Ej(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net18SpdyFrameWithFinIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net18SpdyFrameWithFinIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fin_ = getelementptr inbounds %"class.net::SpdyFrameWithFinIR", ptr %this1, i32 0, i32 1
   store i8 0, ptr %fin_, align 4
   ret void
@@ -4088,7 +4088,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net26SpdyFrameWithHeaderBlockIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_block_ = getelementptr inbounds %"class.net::SpdyFrameWithHeaderBlockIR", ptr %this1, i32 0, i32 1
   call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %header_block_) #11
   call void @_ZN3net18SpdyFrameWithFinIRD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #11
@@ -4128,7 +4128,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %2 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net18SpdyFrameWithFinIRC2Ej(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_store_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2IS7_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %data_store_) #11
   %data_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 2
@@ -4333,7 +4333,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net18SpdyFrameWithFinIRC2Ej(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_store_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 1
   invoke void @_ZN4base10MakeUniqueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EEENS_8internal16MakeUniqueResultIT_E6ScalarEDpOT0_(ptr sret(%"class.std::unique_ptr.10") align 8 %data_store_, ptr noundef nonnull align 8 dereferenceable(32) %data)
           to label %invoke.cont unwind label %lpad
@@ -4430,7 +4430,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net18SpdyFrameWithFinIRC2Ej(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_store_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EEC2IS7_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %data_store_) #11
   %data_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 2
@@ -4469,7 +4469,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net10SpdyDataIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_store_ = getelementptr inbounds %"class.net::SpdyDataIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data_store_) #11
   call void @_ZN3net18SpdyFrameWithFinIRD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %this1) #11
@@ -4552,7 +4552,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net23SpdyFrameWithStreamIdIRC2Ej(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net15SpdyRstStreamIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net15SpdyRstStreamIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load i32, ptr %status.addr, align 4
   invoke void @_ZN3net15SpdyRstStreamIR10set_statusENS_19SpdyRstStreamStatusE(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -4589,7 +4589,7 @@ entry:
   store i32 %stream_id, ptr %stream_id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11SpdyFrameIRC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net23SpdyFrameWithStreamIdIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net23SpdyFrameWithStreamIdIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   invoke void @_ZN3net23SpdyFrameWithStreamIdIR13set_stream_idEj(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
@@ -4673,7 +4673,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11SpdyFrameIRC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net14SpdySettingsIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net14SpdySettingsIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %values_ = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN3net15SpdySettingsIdsENS0_14SpdySettingsIR5ValueESt4lessIS1_ESaISt4pairIKS1_S3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %values_) #11
   %clear_settings_ = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %this1, i32 0, i32 2
@@ -4689,7 +4689,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net11SpdyFrameIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net11SpdyFrameIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4710,7 +4710,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net14SpdySettingsIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net14SpdySettingsIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %values_ = getelementptr inbounds %"class.net::SpdySettingsIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN3net15SpdySettingsIdsENS0_14SpdySettingsIR5ValueESt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %values_) #11
   call void @_ZN3net11SpdyFrameIRD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -4789,7 +4789,7 @@ entry:
   store i32 %status, ptr %status.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11SpdyFrameIRC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %description_store_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #11
   %description_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 4
@@ -4933,7 +4933,7 @@ entry:
   store ptr %description, ptr %description.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11SpdyFrameIRC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %description_store_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %description_store_, ptr noundef nonnull align 8 dereferenceable(32) %description) #11
   %description_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 4
@@ -4982,7 +4982,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyGoAwayIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %description_store_ = getelementptr inbounds %"class.net::SpdyGoAwayIR", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %description_store_) #11
   call void @_ZN3net11SpdyFrameIRD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -5106,7 +5106,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %stream_id.addr, align 4
   call void @_ZN3net23SpdyFrameWithStreamIdIRC2Ej(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyAltSvcIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyAltSvcIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %origin_ = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %origin_) #11
   %altsvc_vector_ = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %this1, i32 0, i32 2
@@ -5130,7 +5130,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyAltSvcIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12SpdyAltSvcIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %altsvc_vector_ = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN3net20SpdyAltSvcWireFormat18AlternativeServiceESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %altsvc_vector_) #11
   %origin_ = getelementptr inbounds %"class.net::SpdyAltSvcIR", ptr %this1, i32 0, i32 1

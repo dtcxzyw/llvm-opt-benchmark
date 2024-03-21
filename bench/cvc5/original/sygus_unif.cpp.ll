@@ -1256,7 +1256,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9SygusUnifE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9SygusUnifE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnif", ptr %this1, i32 0, i32 1
   store ptr null, ptr %d_tds, align 8
   %d_candidates = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnif", ptr %this1, i32 0, i32 2
@@ -1323,7 +1323,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9SygusUnifE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9SygusUnifE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_termToSize = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnif", ptr %this1, i32 0, i32 5
   call void @_ZNSt3mapIN4cvc58internal12NodeTemplateILb1EEEjSt4lessIS3_ESaISt4pairIKS3_jEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_termToSize) #3
   %d_use_str_contains_eexc = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnif", ptr %this1, i32 0, i32 4
@@ -1627,7 +1627,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17SygusUnifStrategyE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17SygusUnifStrategyE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifStrategy", ptr %this1, i32 0, i32 1
   store ptr null, ptr %d_tds, align 8
   %d_candidate = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifStrategy", ptr %this1, i32 0, i32 2
@@ -1692,7 +1692,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17SygusUnifStrategyE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17SygusUnifStrategyE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_master_enum = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifStrategy", ptr %this1, i32 0, i32 7
   call void @_ZNSt3mapIN4cvc58internal8TypeNodeENS1_12NodeTemplateILb1EEESt4lessIS2_ESaISt4pairIKS2_S4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_master_enum) #3
   %d_root = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifStrategy", ptr %this1, i32 0, i32 6
@@ -9526,7 +9526,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17SygusUnifStrategyE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers17SygusUnifStrategyE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_tds = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifStrategy", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %d_tds2 = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusUnifStrategy", ptr %2, i32 0, i32 1
@@ -9606,7 +9606,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6EnvObjE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6EnvObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_env = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %.addr, align 8
   %d_env2 = getelementptr inbounds %"class.cvc5::internal::EnvObj", ptr %1, i32 0, i32 1

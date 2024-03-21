@@ -783,7 +783,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %mode.addr, align 4
   call void @_ZN7rocksdb11RateLimiterC2ENS0_4ModeE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 1
   %1 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
   %tobool = trunc i8 %1 to i1
@@ -1039,7 +1039,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %mode, ptr %mode.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb11RateLimiterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7rocksdb11RateLimiterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mode_ = getelementptr inbounds %"class.rocksdb::RateLimiter", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %mode.addr, align 4
   store i32 %0, ptr %mode_, align 8
@@ -1329,7 +1329,7 @@ entry:
   %r = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %request_mutex_ = getelementptr inbounds %"class.rocksdb::GenericRateLimiter", ptr %this1, i32 0, i32 1
   invoke void @_ZN7rocksdb9MutexLockC2EPNS_4port5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %g, ptr noundef %request_mutex_)
           to label %invoke.cont unwind label %terminate.lpad

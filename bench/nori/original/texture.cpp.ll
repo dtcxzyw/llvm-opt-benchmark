@@ -138,7 +138,7 @@ define hidden void @_ZN7nanogui7TextureC2ENS0_11PixelFormatENS0_15ComponentForma
   store i8 %23, ptr %20, align 1
   %24 = load ptr, ptr %11, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %24)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, inrange i32 0, i32 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, i32 0, i32 2), ptr %24, align 8
   %25 = getelementptr inbounds %"class.nanogui::Texture", ptr %24, i32 0, i32 1
   %26 = load i8, ptr %12, align 1
   store i8 %26, ptr %25, align 4
@@ -201,7 +201,7 @@ define linkonce_odr hidden void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui6ObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::Object", ptr %3, i32 0, i32 1
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef 0) #6
   ret void
@@ -240,7 +240,7 @@ define hidden void @_ZN7nanogui7TextureC2ERKNSt7__cxx1112basic_stringIcSt11char_
   store i8 %4, ptr %10, align 1
   %20 = load ptr, ptr %6, align 8
   call void @_ZN7nanogui6ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %20)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, inrange i32 0, i32 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui7TextureE, i32 0, i32 0, i32 2), ptr %20, align 8
   %21 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 2
   store i8 2, ptr %21, align 1
   %22 = getelementptr inbounds %"class.nanogui::Texture", ptr %20, i32 0, i32 3

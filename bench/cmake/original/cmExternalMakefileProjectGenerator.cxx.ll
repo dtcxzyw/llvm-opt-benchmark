@@ -322,7 +322,7 @@ define dso_local void @_ZN41cmExternalMakefileProjectGeneratorFactoryC2ENSt7__cx
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV41cmExternalMakefileProjectGeneratorFactory, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV41cmExternalMakefileProjectGeneratorFactory, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.cmExternalMakefileProjectGeneratorFactory, ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #10
   %9 = getelementptr inbounds %class.cmExternalMakefileProjectGeneratorFactory, ptr %7, i32 0, i32 2
@@ -351,7 +351,7 @@ define dso_local void @_ZN41cmExternalMakefileProjectGeneratorFactoryD2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV41cmExternalMakefileProjectGeneratorFactory, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV41cmExternalMakefileProjectGeneratorFactory, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmExternalMakefileProjectGeneratorFactory, ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
   %5 = getelementptr inbounds %class.cmExternalMakefileProjectGeneratorFactory, ptr %3, i32 0, i32 3
@@ -578,7 +578,7 @@ define linkonce_odr dso_local void @_ZN34cmExternalMakefileProjectGeneratorD2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34cmExternalMakefileProjectGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34cmExternalMakefileProjectGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
   %5 = getelementptr inbounds %class.cmExternalMakefileProjectGenerator, ptr %3, i32 0, i32 1

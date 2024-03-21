@@ -232,7 +232,7 @@ entry:
   store ptr %public_key, ptr %public_key.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net11KeyExchangeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net15P256KeyExchangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net15P256KeyExchangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %private_key_ = getelementptr inbounds %"class.net::P256KeyExchange", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %private_key.addr, align 8
   call void @_ZNSt10unique_ptrI9ec_key_stN6crypto16OpenSSLDestroyerIS0_XadL_Z11EC_KEY_freeEEEEEC2IS3_vEEPS0_(ptr noundef nonnull align 8 dereferenceable(8) %private_key_, ptr noundef %0) #9
@@ -249,7 +249,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net11KeyExchangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net11KeyExchangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -286,7 +286,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net15P256KeyExchangeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net15P256KeyExchangeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %private_key_ = getelementptr inbounds %"class.net::P256KeyExchange", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrI9ec_key_stN6crypto16OpenSSLDestroyerIS0_XadL_Z11EC_KEY_freeEEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %private_key_) #9
   call void @_ZN3net11KeyExchangeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9

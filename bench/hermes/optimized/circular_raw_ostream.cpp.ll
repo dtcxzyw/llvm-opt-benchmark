@@ -150,7 +150,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh20circular_raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh20circular_raw_ostreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh20circular_raw_ostreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %OutBufCur.i, align 8
   %OutBufStart.i = getelementptr inbounds i8, ptr %this, i64 8

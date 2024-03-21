@@ -423,7 +423,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRlC2ERNS0_3EnvEPNS2_15SynthConjectureE(ptr noundef nonnull align 8 dereferenceable(680) %this, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %p) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc58internal6theory11quantifiers9SygusUnifC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(193) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRlE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRlE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_parent = getelementptr inbounds i8, ptr %this, i64 200
   store ptr %p, ptr %d_parent, align 8
   %d_useCondPool = getelementptr inbounds i8, ptr %this, i64 208
@@ -529,7 +529,7 @@ declare void @_ZN4cvc58internal6theory11quantifiers9SygusUnifC2ERNS0_3EnvE(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRlD2Ev(ptr noundef nonnull align 8 dereferenceable(680) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRlE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRlE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_cond_enums = getelementptr inbounds i8, ptr %this, i64 656
   %0 = load ptr, ptr %d_cond_enums, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 664
@@ -22154,7 +22154,7 @@ declare void @_ZNK4cvc58internal6theory11quantifiers11TermDbSygus11rewriteNodeEN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_eval_cond_hd = getelementptr inbounds i8, ptr %this, i64 120
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -22177,7 +22177,7 @@ _ZNSt3mapISt4pairIN4cvc58internal12NodeTemplateILb1EEES4_ES4_St4lessIS5_ESaIS0_I
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorD0Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_eval_cond_hd.i = getelementptr inbounds i8, ptr %this, i64 120
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 136
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -22454,7 +22454,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIN4cv
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(424) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %d_pt_sep = getelementptr inbounds i8, ptr %this, i64 256
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i64 0, inrange i32 0, i64 2), ptr %d_pt_sep, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i64 0, i32 0, i64 2), ptr %d_pt_sep, align 8
   %d_eval_cond_hd.i = getelementptr inbounds i8, ptr %this, i64 376
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 392
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8
@@ -28263,7 +28263,7 @@ invoke.cont7:                                     ; preds = %invoke.cont.i.i38, 
   %15 = load ptr, ptr @_ZZN4cvc58internal4expr9NodeValue4nullEvE6s_null, align 8
   store ptr %15, ptr %d_cond_enum, align 8
   %d_pt_sep = getelementptr inbounds i8, ptr %this, i64 256
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i64 0, inrange i32 0, i64 2), ptr %d_pt_sep, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11SygusUnifRl16DecisionTreeInfo14PointSeparatorE, i64 0, i32 0, i64 2), ptr %d_pt_sep, align 8
   %d_trie.i = getelementptr inbounds i8, ptr %this, i64 264
   invoke void @_ZN4cvc58internal6theory11quantifiers13LazyTrieMultiC2Ev(ptr noundef nonnull align 8 dereferenceable(104) %d_trie.i)
           to label %invoke.cont9 unwind label %lpad8

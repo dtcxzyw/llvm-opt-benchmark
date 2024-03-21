@@ -1684,7 +1684,7 @@ define dso_local void @_ZN20cmCPackNSISGeneratorC2Eb(ptr noundef nonnull align 8
   store i8 %5, ptr %4, align 1
   %6 = load ptr, ptr %3, align 8
   call void @_ZN16cmCPackGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(360) %6)
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV20cmCPackNSISGenerator, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV20cmCPackNSISGenerator, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = load i8, ptr %4, align 1
   %8 = trunc i8 %7 to i1
   %9 = getelementptr inbounds %class.cmCPackNSISGenerator, ptr %6, i32 0, i32 1

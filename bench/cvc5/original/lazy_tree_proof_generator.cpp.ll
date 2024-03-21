@@ -901,9 +901,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %d_stack = getelementptr inbounds %"class.cvc5::internal::LazyTreeProofGenerator", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIPN4cvc58internal6detail13TreeProofNodeESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_stack) #3
   %d_proof = getelementptr inbounds %"class.cvc5::internal::LazyTreeProofGenerator", ptr %this1, i32 0, i32 3
@@ -3603,9 +3603,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [8 x ptr] }, ptr @_ZTVN4cvc58internal22LazyTreeProofGeneratorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %d_name = getelementptr inbounds %"class.cvc5::internal::LazyTreeProofGenerator", ptr %this1, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %d_name) #3
   %d_cached = getelementptr inbounds %"class.cvc5::internal::LazyTreeProofGenerator", ptr %this1, i32 0, i32 4

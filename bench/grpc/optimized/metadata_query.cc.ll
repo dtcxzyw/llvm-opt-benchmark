@@ -252,7 +252,7 @@ entry:
   %agg.tmp44 = alloca %"class.grpc_core::RefCountedPtr", align 8
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 2, ptr %refs_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core13MetadataQueryE, i64 0, inrange i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core13MetadataQueryE, i64 0, i32 0, i64 2), ptr %this, align 16
   %attribute_ = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %attribute_, ptr noundef nonnull align 8 dereferenceable(32) %attribute) #15
   %callback_ = getelementptr inbounds i8, ptr %this, i64 80
@@ -1491,7 +1491,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core13MetadataQueryD2Ev(ptr noundef nonnull align 16 dereferenceable(176) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core13MetadataQueryE, i64 0, inrange i32 0, i64 2), ptr %this, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core13MetadataQueryE, i64 0, i32 0, i64 2), ptr %this, align 16
   %response_ = getelementptr inbounds i8, ptr %this, i64 120
   invoke void @_Z26grpc_http_response_destroyP18grpc_http_response(ptr noundef nonnull %response_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1766,7 +1766,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, inrange i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry

@@ -17,9 +17,9 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7514SearchIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(88) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_text_ = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %m_text_, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %m_text_, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 32
   store i16 2, ptr %fUnion2.i, align 8
   %m_breakiterator_ = getelementptr inbounds i8, ptr %other, i64 16
@@ -95,7 +95,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7514SearchIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_search_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_search_, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -975,9 +975,9 @@ _ZN6icu_7514SearchIterator16setMatchNotFoundEv.exit: ; preds = %entry, %if.then.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7514SearchIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_text_ = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %m_text_, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %m_text_, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 32
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noalias dereferenceable_or_null(48) ptr @uprv_malloc_75(i64 noundef 48) #14
@@ -1020,7 +1020,7 @@ lpad2:                                            ; preds = %invoke.cont
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7514SearchIteratorC2ERKNS_13UnicodeStringEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(64) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_breakiterator_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %breakiter, ptr %m_breakiterator_, align 8
   %m_text_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -1108,11 +1108,11 @@ declare void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dere
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7514SearchIteratorC2ERNS_17CharacterIteratorEPNS_13BreakIteratorE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(24) %text, ptr noundef %breakiter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6icu_7514SearchIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_breakiterator_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %breakiter, ptr %m_breakiterator_, align 8
   %m_text_ = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %m_text_, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %m_text_, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 32
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noalias dereferenceable_or_null(48) ptr @uprv_malloc_75(i64 noundef 48) #14

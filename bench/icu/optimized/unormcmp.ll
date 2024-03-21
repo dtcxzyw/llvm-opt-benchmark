@@ -49,10 +49,10 @@ if.then6:                                         ; preds = %if.end
   br label %return
 
 invoke.cont:                                      ; preds = %if.end
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fcd1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fcd1, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %fcd1, i64 8
   store i16 2, ptr %fUnion2.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fcd2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fcd2, align 8
   %fUnion2.i36 = getelementptr inbounds i8, ptr %fcd2, i64 8
   store i16 2, ptr %fUnion2.i36, align 8
   %or = or i32 %options, 524288
@@ -99,7 +99,7 @@ if.then29:                                        ; preds = %if.end26
           to label %invoke.cont30 unwind label %lpad16.loopexit.split-lp
 
 invoke.cont30:                                    ; preds = %if.then29
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 0, inrange i32 0, i64 2), ptr %fn2, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 0, i32 0, i64 2), ptr %fn2, align 8
   %norm2.i = getelementptr inbounds i8, ptr %fn2, i64 8
   store ptr %n2.0, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds i8, ptr %fn2, i64 16

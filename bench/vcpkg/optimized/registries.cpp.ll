@@ -607,12 +607,12 @@ $_ZTSN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEEE = comdat any
 $_ZTIN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEEE = comdat any
 
 @_ZTVN12_GLOBAL__N_125GitTreeStringDeserializerE = internal unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_125GitTreeStringDeserializerE, ptr @_ZNK12_GLOBAL__N_125GitTreeStringDeserializer9type_nameEv, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10visit_nullERNS0_6ReaderE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13visit_booleanERNS0_6ReaderEb, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13visit_integerERNS0_6ReaderEl, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12visit_numberERNS0_6ReaderEd, ptr @_ZNK5vcpkg4Json18StringDeserializer12visit_stringB5cxx11ERNS0_6ReaderENS_10StringViewE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11visit_arrayERNS0_6ReaderERKNS0_5ArrayE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12visit_objectERNS0_6ReaderERKNS0_6ObjectE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12valid_fieldsEv, ptr @_ZN12_GLOBAL__N_125GitTreeStringDeserializerD2Ev, ptr @_ZN12_GLOBAL__N_125GitTreeStringDeserializerD0Ev] }, align 8
-@_ZN12_GLOBAL__N_125GitTreeStringDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125GitTreeStringDeserializerE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN12_GLOBAL__N_125GitTreeStringDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125GitTreeStringDeserializerE, i32 0, i32 0, i32 2) }, align 8
 @__dso_handle = external hidden global i8
 @_ZTVN12_GLOBAL__N_130RegistryPathStringDeserializerE = internal unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_130RegistryPathStringDeserializerE, ptr @_ZNK12_GLOBAL__N_130RegistryPathStringDeserializer9type_nameEv, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10visit_nullERNS0_6ReaderE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13visit_booleanERNS0_6ReaderEb, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13visit_integerERNS0_6ReaderEl, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12visit_numberERNS0_6ReaderEd, ptr @_ZNK5vcpkg4Json18StringDeserializer12visit_stringB5cxx11ERNS0_6ReaderENS_10StringViewE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11visit_arrayERNS0_6ReaderERKNS0_5ArrayE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12visit_objectERNS0_6ReaderERKNS0_6ObjectE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12valid_fieldsEv, ptr @_ZN12_GLOBAL__N_130RegistryPathStringDeserializerD2Ev, ptr @_ZN12_GLOBAL__N_130RegistryPathStringDeserializerD0Ev] }, align 8
-@_ZN12_GLOBAL__N_130RegistryPathStringDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_130RegistryPathStringDeserializerE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN12_GLOBAL__N_130RegistryPathStringDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_130RegistryPathStringDeserializerE, i32 0, i32 0, i32 2) }, align 8
 @_ZTVN12_GLOBAL__N_120BaselineDeserializerE = internal unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_120BaselineDeserializerE, ptr @_ZNK12_GLOBAL__N_120BaselineDeserializer9type_nameEv, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE10visit_nullERNS0_6ReaderE, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE13visit_booleanERNS0_6ReaderEb, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE13visit_integerERNS0_6ReaderEl, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE12visit_numberERNS0_6ReaderEd, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE12visit_stringERNS0_6ReaderENS_10StringViewE, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE11visit_arrayERNS0_6ReaderERKNS0_5ArrayE, ptr @_ZNK12_GLOBAL__N_120BaselineDeserializer12visit_objectB5cxx11ERN5vcpkg4Json6ReaderERKNS2_6ObjectE, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE12valid_fieldsEv, ptr @_ZN12_GLOBAL__N_120BaselineDeserializerD2Ev, ptr @_ZN12_GLOBAL__N_120BaselineDeserializerD0Ev] }, align 8
-@_ZN12_GLOBAL__N_120BaselineDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BaselineDeserializerE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN12_GLOBAL__N_120BaselineDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BaselineDeserializerE, i32 0, i32 0, i32 2) }, align 8
 @_ZN5vcpkg23msgFetchingRegistryInfoE = external local_unnamed_addr global %"struct.vcpkg::msg::MessageT", align 8
 @.str = private unnamed_addr constant [119 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/vcpkg/vcpkg-tool/src/vcpkg/registries.cpp\00", align 1
 @_ZN5vcpkg20msgNoRegistryForPortE = external local_unnamed_addr global %"struct.vcpkg::msg::MessageT.53", align 8
@@ -2681,9 +2681,9 @@ _ZNO5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEE5errorEv.exit: ; pred
 
 97:                                               ; preds = %79
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %20, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerE, i64 0, inrange i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerE, i64 0, i32 0, i64 2), ptr %21, align 8
   %98 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129GitVersionDbEntryDeserializerE, i64 0, inrange i32 0, i64 2), ptr %98, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129GitVersionDbEntryDeserializerE, i64 0, i32 0, i64 2), ptr %98, align 8
   %99 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %10) #26
   %100 = extractvalue { ptr, i64 } %99, 0
   %101 = extractvalue { ptr, i64 } %99, 1
@@ -3095,7 +3095,7 @@ define dso_local void @_ZN5vcpkg21make_builtin_registryERKNS_10VcpkgPathsE(ptr d
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_120BuiltinErrorRegistryESt14default_deleteIS1_EED2Ev.exit: ; preds = %2
   %5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30, !noalias !63
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinErrorRegistryE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !noalias !63
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinErrorRegistryE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !63
   br label %8
 
 6:                                                ; preds = %2
@@ -3116,7 +3116,7 @@ declare noundef zeroext i1 @_ZNK5vcpkg10VcpkgPaths24use_git_default_registryEv(p
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZSt11make_uniqueIN12_GLOBAL__N_120BuiltinFilesRegistryEJRKN5vcpkg10VcpkgPathsEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_(ptr dead_on_unwind noalias nocapture writable writeonly align 8 %0, ptr noundef nonnull align 8 dereferenceable(400) %1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #30
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinFilesRegistryE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinFilesRegistryE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   %5 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30
@@ -3334,7 +3334,7 @@ common.resume:                                    ; preds = %.body.i4, %.body
 
 26:                                               ; preds = %3
   %27 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #30, !noalias !72
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118BuiltinGitRegistryE, i64 0, inrange i32 0, i64 2), ptr %27, align 8, !noalias !72
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118BuiltinGitRegistryE, i64 0, i32 0, i64 2), ptr %27, align 8, !noalias !72
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %2) #26, !noalias !72
   %29 = getelementptr inbounds i8, ptr %27, i64 40
@@ -3396,7 +3396,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_111GitRegistryESt14default_deleteIS1_EED2Ev.exit
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5vcpkg24make_filesystem_registryERKNS_18ReadOnlyFilesystemENS_4PathENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.21") align 8 %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %5 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #30, !noalias !82
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118FilesystemRegistryE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !noalias !82
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118FilesystemRegistryE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !82
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %1, ptr %6, align 8, !noalias !82
   %7 = getelementptr inbounds i8, ptr %5, i64 16
@@ -3427,9 +3427,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_118FilesystemRegistryESt14default_deleteIS1_EED2
 define dso_local void @_ZN5vcpkg32make_git_version_db_deserializerEv(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.125") align 8 %0) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 _ZNSt10unique_ptrIN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerESt14default_deleteIS1_EED2Ev.exit:
   %1 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30, !noalias !89
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerE, i64 0, inrange i32 0, i64 2), ptr %1, align 8, !noalias !89
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerE, i64 0, i32 0, i64 2), ptr %1, align 8, !noalias !89
   %2 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129GitVersionDbEntryDeserializerE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !noalias !89
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129GitVersionDbEntryDeserializerE, i64 0, i32 0, i64 2), ptr %2, align 8, !noalias !89
   store ptr %1, ptr %0, align 8
   ret void
 }
@@ -3437,9 +3437,9 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerESt14defaul
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN5vcpkg39make_filesystem_version_db_deserializerERKNS_4PathE(ptr dead_on_unwind noalias nocapture writable writeonly sret(%"class.std::unique_ptr.141") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #30, !noalias !92
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !92
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !92
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !noalias !92
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerE, i64 0, i32 0, i64 2), ptr %4, align 8, !noalias !92
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %_ZNSt10unique_ptrIN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerESt14default_deleteIS1_EED2Ev.exit unwind label %6, !noalias !92
@@ -10370,7 +10370,7 @@ _ZN5vcpkg4PathC2ERKS0_.exit.i:                    ; preds = %.noexc
   store ptr %43, ptr %10, align 8, !noalias !221
   %46 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %45, ptr %46, align 8, !noalias !221
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128BuiltinPortTreeRegistryEntryE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !noalias !221
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128BuiltinPortTreeRegistryEntryE, i64 0, i32 0, i64 2), ptr %38, align 8, !noalias !221
   %47 = getelementptr inbounds i8, ptr %38, i64 8
   invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %47, ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %.noexc.i unwind label %59, !noalias !221
@@ -14685,7 +14685,7 @@ declare void @_ZN5vcpkg3msg9format_toIJEJEEEvRNS_15LocalizedStringENS0_8MessageT
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_111GitRegistryC2ERKN5vcpkg10VcpkgPathsEONSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_SB_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(400) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111GitRegistryE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111GitRegistryE, i64 0, i32 0, i64 2), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16323,7 +16323,7 @@ declare void @_ZN5vcpkg6Checks10check_exitERKNS_8LineInfoEbNS_10StringViewE(ptr 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc void @_ZN12_GLOBAL__N_116GitRegistryEntryC2EN5vcpkg10StringViewERKNS_11GitRegistryEbOSt6vectorINS1_17GitVersionDbEntryESaIS7_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(176) %3, i1 noundef zeroext %4, ptr nocapture noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116GitRegistryEntryE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116GitRegistryEntryE, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #26
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcmRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef %1, i64 noundef %2, ptr noundef nonnull align 1 dereferenceable(1) %7)
@@ -20549,7 +20549,7 @@ _ZNO5vcpkg9ExpectedTINS_8OptionalISt6vectorINS_17GitVersionDbEntryESaIS3_EEEENS_
           to label %39 unwind label %34
 
 39:                                               ; preds = %36
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123BuiltinGitRegistryEntryE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !noalias !406
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123BuiltinGitRegistryEntryE, i64 0, i32 0, i64 2), ptr %38, align 8, !noalias !406
   %40 = getelementptr inbounds i8, ptr %38, i64 8
   store ptr %37, ptr %40, align 8, !noalias !406
   %41 = getelementptr inbounds i8, ptr %38, i64 16
@@ -22477,9 +22477,9 @@ _ZNO5vcpkg9ExpectedTINS_4Json6ObjectENS_15LocalizedStringEE5errorEv.exit.i: ; pr
 
 110:                                              ; preds = %92
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %20, i8 0, i64 24, i1 false), !noalias !481
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerE, i64 0, inrange i32 0, i64 2), ptr %21, align 8, !noalias !481
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerE, i64 0, i32 0, i64 2), ptr %21, align 8, !noalias !481
   %111 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerE, i64 0, inrange i32 0, i64 2), ptr %111, align 8, !noalias !481
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerE, i64 0, i32 0, i64 2), ptr %111, align 8, !noalias !481
   %112 = getelementptr inbounds i8, ptr %21, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %112, ptr noundef nonnull align 8 dereferenceable(32) %34)
           to label %_ZN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerC2ERKN5vcpkg4PathE.exit.i unwind label %153, !noalias !481
@@ -22793,7 +22793,7 @@ _ZNSt10unique_ptrIN5vcpkg13RegistryEntryESt14default_deleteIS1_EED2Ev.exit: ; pr
           to label %.noexc23 unwind label %239
 
 .noexc23:                                         ; preds = %204
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesystemRegistryEntryE, i64 0, inrange i32 0, i64 2), ptr %205, align 8, !noalias !500
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesystemRegistryEntryE, i64 0, i32 0, i64 2), ptr %205, align 8, !noalias !500
   %206 = getelementptr inbounds i8, ptr %205, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %206, ptr noundef nonnull align 8 dereferenceable(32) %30)
           to label %209 unwind label %207, !noalias !500

@@ -173,7 +173,7 @@ _ZN6icu_7513umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit: ; preds = %e
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512UnifiedCacheC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512UnifiedCacheE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512UnifiedCacheE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fHashtable = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %fHashtable, align 8
   %fEvictPos = getelementptr inbounds i8, ptr %this, i64 16
@@ -204,7 +204,7 @@ if.then7:                                         ; preds = %if.end
   br label %invoke.cont22
 
 if.end8:                                          ; preds = %if.end
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i64 0, i32 0, i64 2), ptr %call2, align 8
   %softRefCount.i = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %softRefCount.i, i8 0, i64 16, i1 false)
   store ptr %call2, ptr %fNoValue, align 8
@@ -719,7 +719,7 @@ for.end:                                          ; preds = %_ZNK6icu_7512Unifie
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512UnifiedCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512UnifiedCacheE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512UnifiedCacheE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load ptr, ptr @_ZL11gCacheMutex, align 8
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %0) #14
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0

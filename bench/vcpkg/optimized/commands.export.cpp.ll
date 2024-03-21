@@ -2798,7 +2798,7 @@ _ZNSt6vectorIPKN5vcpkg16ExportPlanActionESaIS3_EED2Ev.exit: ; preds = %533, %531
 
 592:                                              ; preds = %591, %476
   %.pn41.pn = phi { ptr, i32 } [ %.pn41, %591 ], [ %477, %476 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i64 0, i32 0, i64 2), ptr %33, align 8
   %593 = getelementptr inbounds i8, ptr %33, i64 24
   %594 = load ptr, ptr %593, align 8
   %.not.i.i = icmp eq ptr %594, null

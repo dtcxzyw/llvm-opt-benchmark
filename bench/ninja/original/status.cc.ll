@@ -330,7 +330,7 @@ define dso_local void @_ZN13StatusPrinterC2ERK11BuildConfig(ptr noundef nonnull 
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN6StatusC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %struct.StatusPrinter, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   store ptr %9, ptr %8, align 8
@@ -440,7 +440,7 @@ define linkonce_odr dso_local void @_ZN6StatusC2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV6Status, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV6Status, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2067,7 +2067,7 @@ define linkonce_odr dso_local void @_ZN13StatusPrinterD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.StatusPrinter, ptr %3, i32 0, i32 9
   call void @_ZN13StatusPrinter15SlidingRateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %4) #12
   %5 = getelementptr inbounds %struct.StatusPrinter, ptr %3, i32 0, i32 7

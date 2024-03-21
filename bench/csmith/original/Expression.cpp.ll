@@ -1372,7 +1372,7 @@ define dso_local void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV10Expression, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV10Expression, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -1393,7 +1393,7 @@ define dso_local void @_ZN10ExpressionC2ERKS_(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV10Expression, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV10Expression, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.Expression, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %class.Expression, ptr %7, i32 0, i32 1

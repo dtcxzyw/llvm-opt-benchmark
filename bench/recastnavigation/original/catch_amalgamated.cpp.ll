@@ -17899,7 +17899,7 @@ define linkonce_odr dso_local void @_ZN5Catch9Benchmark6Detail20optimized_away_e
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9Benchmark6Detail20optimized_away_errorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9Benchmark6Detail20optimized_away_errorE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20862,7 +20862,7 @@ define dso_local void @_ZN5Catch6ConfigC2ERKNS_10ConfigDataE(ptr noundef nonnull
   store ptr %1, ptr %4, align 8
   %37 = load ptr, ptr %3, align 8
   call void @_ZN5Catch7IConfigC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #7
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Catch6ConfigE, i32 0, inrange i32 0, i32 2), ptr %37, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Catch6ConfigE, i32 0, i32 0, i32 2), ptr %37, align 8
   %38 = getelementptr inbounds %"class.Catch::Config", ptr %37, i32 0, i32 1
   %39 = load ptr, ptr %4, align 8
   invoke void @_ZN5Catch10ConfigDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(272) %38, ptr noundef nonnull align 8 dereferenceable(272) %39)
@@ -21384,7 +21384,7 @@ define linkonce_odr dso_local void @_ZN5Catch7IConfigC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Catch7IConfigE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Catch7IConfigE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -22544,7 +22544,7 @@ define dso_local void @_ZN5Catch6ConfigD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Catch6ConfigE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTVN5Catch6ConfigE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Config", ptr %3, i32 0, i32 3
   call void @_ZN5Catch8TestSpecD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
   %5 = getelementptr inbounds %"class.Catch::Config", ptr %3, i32 0, i32 2
@@ -25051,7 +25051,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6ParserC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %5, i32 0, i32 1
   invoke void @_ZN5Catch5Clara7ExeNameC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %7 unwind label %10
@@ -30941,7 +30941,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6ParserD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIN5Catch5Clara3ArgESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   %5 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %3, i32 0, i32 2
@@ -31623,7 +31623,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3) #7
@@ -35662,7 +35662,7 @@ define dso_local void @_ZN5Catch8TestSpec7PatternC2ERKNSt7__cxx1112basic_stringI
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec7PatternE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec7PatternE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::TestSpec::Pattern", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7)
@@ -35674,7 +35674,7 @@ define dso_local void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec7PatternE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec7PatternE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::TestSpec::Pattern", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   ret void
@@ -35711,7 +35711,7 @@ define dso_local void @_ZN5Catch8TestSpec11NamePatternC2ERKNSt7__cxx1112basic_st
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN5Catch8TestSpec7PatternC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec11NamePatternE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec11NamePatternE, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %"class.Catch::TestSpec::NamePattern", ptr %10, i32 0, i32 1
   %13 = load ptr, ptr %5, align 8
   invoke void @_ZN5Catch7toLowerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %13)
@@ -35993,7 +35993,7 @@ define dso_local void @_ZN5Catch8TestSpec10TagPatternC2ERKNSt7__cxx1112basic_str
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN5Catch8TestSpec7PatternC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec10TagPatternE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec10TagPatternE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.Catch::TestSpec::TagPattern", ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %12)
@@ -39777,7 +39777,7 @@ define linkonce_odr dso_local void @_ZN5Catch18GeneratorExceptionC2EPKc(ptr noun
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch18GeneratorExceptionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch18GeneratorExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::GeneratorException", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -39798,7 +39798,7 @@ define dso_local void @_ZN5Catch10Generators20GeneratorUntypedBaseD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch10Generators20GeneratorUntypedBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch10Generators20GeneratorUntypedBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Generators::GeneratorUntypedBase", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   ret void
@@ -42415,7 +42415,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %8 = load ptr, ptr %4, align 8
   %9 = call noundef i32 @_ZNK5Catch5Clara6Detail11BasicResultIvE4typeEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
   %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch5Clara6Detail11BasicResultIvE12errorMessageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %11)
@@ -42523,7 +42523,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %8 = load ptr, ptr %4, align 8
   %9 = call noundef i32 @_ZNK5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEE4typeEv(ptr noundef nonnull align 8 dereferenceable(48) %8)
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
   %12 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEE12errorMessageB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(48) %11)
@@ -42559,7 +42559,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS0_15Pa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #7
@@ -42571,7 +42571,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultIvED2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.150", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseIvED2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #7
@@ -42598,7 +42598,7 @@ define dso_local void @_ZN5Catch5Clara3OptC2ERb(ptr noundef nonnull align 8 dere
 11:                                               ; preds = %2
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail12BoundFlagRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %9, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #7
   ret void
@@ -42659,7 +42659,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 1
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 2
@@ -43842,7 +43842,7 @@ define dso_local void @_ZN5Catch5Clara7ExeNameC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 1
   invoke void @_ZSt11make_sharedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRA13_KcEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueESB_E4typeEEDpOT0_(ptr dead_on_unwind writable sret(%"class.std::shared_ptr") align 8 %6, ptr noundef nonnull align 1 dereferenceable(13) @.str.75)
           to label %7 unwind label %9
@@ -43876,7 +43876,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -46429,7 +46429,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(64) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %8, i32 0, i32 1
@@ -46751,7 +46751,7 @@ define dso_local void @_ZN5Catch5Clara4HelpC2ERb(ptr noundef nonnull align 8 der
   %18 = load ptr, ptr %4, align 8
   store ptr %18, ptr %17, align 8
   call void @"_ZN5Catch5Clara3OptC2IZNS0_4HelpC1ERbE3$_0EERKT_"(ptr noundef nonnull align 8 dereferenceable(120) %16, ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara4HelpE, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara4HelpE, i32 0, i32 0, i32 2), ptr %16, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef @.str.83, ptr noundef nonnull align 1 dereferenceable(1) %7)
           to label %19 unwind label %33
@@ -46927,7 +46927,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS0_4HelpC1ERbE3$_0EERKT_"(ptr nou
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2ERKSt10shared_ptrINS1_8BoundRefEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
   ret void
@@ -47083,7 +47083,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2INSt7__cxx1112basic_str
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEERT_RKSB_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47101,7 +47101,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EENS0_13accept_many_tERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47122,7 +47122,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2ERKSt10shared_ptrINS1_8BoundRefEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(16) %5)
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail8BoundRefEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #7
   call void @"_ZNSt10shared_ptrIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EEED2Ev"(ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #7
   ret void
@@ -47140,7 +47140,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_2vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47158,7 +47158,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EENS0_13accept_many_tERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47176,7 +47176,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_4vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47194,7 +47194,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2IdvEERT_RKNSt7__cxx1112
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IdvEERT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47212,7 +47212,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_5vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47230,7 +47230,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2ISt6vectorINSt7__cxx111
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEvEERT_RKSC_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47248,7 +47248,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_6vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47266,7 +47266,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_7vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47284,7 +47284,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_8vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47302,7 +47302,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_9vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47320,7 +47320,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_10vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47338,7 +47338,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2IjvEERT_RKNSt7__cxx1112
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IjvEERT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47356,7 +47356,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2IlvEERT_RKNSt7__cxx1112
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IlvEERT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47374,7 +47374,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_11vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47392,7 +47392,7 @@ define internal void @"_ZN5Catch5Clara3OptC2IZNS_21makeCommandLineParserERNS_10C
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_12vEERKT_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE"(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #7
   ret void
@@ -47453,7 +47453,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3ArgCI2NS0_6Detail13ParserRef
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEC2ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISC_EEvEERT_RKSC_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -47484,7 +47484,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #7
@@ -47505,7 +47505,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara7ExeNameD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %3, i32 0, i32 2
   call void @_ZNSt10shared_ptrIN5Catch5Clara6Detail17BoundValueRefBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #7
   %5 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %3, i32 0, i32 1
@@ -49655,7 +49655,7 @@ define dso_local void @_ZN5Catch27ExceptionTranslatorRegistryD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch27ExceptionTranslatorRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch27ExceptionTranslatorRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::ExceptionTranslatorRegistry", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrIKNS0_20IExceptionTranslatorEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   call void @_ZN5Catch28IExceptionTranslatorRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
@@ -55613,7 +55613,7 @@ define dso_local void @_ZN5Catch10RunContextC2EPKNS_7IConfigEONS_6Detail10unique
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch14IResultCaptureC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN5Catch10RunContextE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN5Catch10RunContextE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::RunContext", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %12, align 8
@@ -55799,7 +55799,7 @@ define linkonce_odr dso_local void @_ZN5Catch14IResultCaptureC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN5Catch14IResultCaptureE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN5Catch14IResultCaptureE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -61167,7 +61167,7 @@ define dso_local void @_ZN5Catch16TagAliasRegistryD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch16TagAliasRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch16TagAliasRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::TagAliasRegistry", ptr %3, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Catch8TagAliasESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
   call void @_ZN5Catch17ITagAliasRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
@@ -63827,7 +63827,7 @@ define dso_local void @_ZN5Catch16TestCaseTracking8ITrackerD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking8ITrackerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking8ITrackerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_16TestCaseTracking8ITrackerEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   %5 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %3, i32 0, i32 1
@@ -64236,7 +64236,7 @@ define dso_local void @_ZN5Catch16TestCaseTracking11TrackerBaseC2EONS0_15NameAnd
   %10 = load ptr, ptr %6, align 8
   %11 = load ptr, ptr %8, align 8
   call void @_ZN5Catch16TestCaseTracking8ITrackerC2EONS0_15NameAndLocationEPS1_(ptr noundef nonnull align 8 dereferenceable(92) %9, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking11TrackerBaseE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking11TrackerBaseE, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %"class.Catch::TestCaseTracking::TrackerBase", ptr %9, i32 0, i32 1
   %13 = load ptr, ptr %7, align 8
   store ptr %13, ptr %12, align 8
@@ -64252,7 +64252,7 @@ define linkonce_odr dso_local void @_ZN5Catch16TestCaseTracking8ITrackerC2EONS0_
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking8ITrackerE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking8ITrackerE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::TestCaseTracking::ITracker", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   call void @_ZN5Catch16TestCaseTracking15NameAndLocationC2EOS1_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 8 dereferenceable(48) %9) #7
@@ -64609,7 +64609,7 @@ define dso_local void @_ZN5Catch16TestCaseTracking14SectionTrackerC2EONS0_15Name
   %15 = load ptr, ptr %7, align 8
   %16 = load ptr, ptr %8, align 8
   call void @_ZN5Catch16TestCaseTracking11TrackerBaseC2EONS0_15NameAndLocationERNS0_14TrackerContextEPNS0_8ITrackerE(ptr noundef nonnull align 8 dereferenceable(104) %13, ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking14SectionTrackerE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking14SectionTrackerE, i32 0, i32 0, i32 2), ptr %13, align 8
   %17 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %13, i32 0, i32 1
   call void @_ZNSt6vectorIN5Catch9StringRefESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #7
   %18 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %13, i32 0, i32 2
@@ -70224,7 +70224,7 @@ define dso_local void @_ZN5Catch8Matchers18MatcherUntypedBaseD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Matchers::MatcherUntypedBase", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   ret void
@@ -70348,7 +70348,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers14IsEmptyMatcherC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14IsEmptyMatcherE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14IsEmptyMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -70371,7 +70371,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers14HasSizeMatcherC2Em(ptr n
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %5) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14HasSizeMatcherE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14HasSizeMatcherE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Matchers::HasSizeMatcher", ptr %5, i32 0, i32 1
   %7 = load i64, ptr %4, align 8
   store i64 %7, ptr %6, align 8
@@ -70466,7 +70466,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers23ExceptionMessageMatcherC
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseISt9exceptionEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers23ExceptionMessageMatcherE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers23ExceptionMessageMatcherE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::Matchers::ExceptionMessageMatcher", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -70508,7 +70508,7 @@ define dso_local void @_ZN5Catch8Matchers16WithinAbsMatcherC2Edd(ptr noundef non
   store double %2, ptr %6, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers16WithinAbsMatcherE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers16WithinAbsMatcherE, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %"class.Catch::Matchers::WithinAbsMatcher", ptr %12, i32 0, i32 1
   %14 = load double, ptr %5, align 8
   store double %14, ptr %13, align 8
@@ -70613,7 +70613,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseIdEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseIdEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -70791,7 +70791,7 @@ define dso_local void @_ZN5Catch8Matchers17WithinUlpsMatcherC2EdmNS0_6Detail17Fl
   store i8 %3, ptr %8, align 1
   %13 = load ptr, ptr %5, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17WithinUlpsMatcherE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17WithinUlpsMatcherE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"class.Catch::Matchers::WithinUlpsMatcher", ptr %13, i32 0, i32 1
   %15 = load double, ptr %6, align 8
   store double %15, ptr %14, align 8
@@ -71415,7 +71415,7 @@ define dso_local void @_ZN5Catch8Matchers16WithinRelMatcherC2Edd(ptr noundef non
   store double %2, ptr %6, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %13) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers16WithinRelMatcherE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers16WithinRelMatcherE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"class.Catch::Matchers::WithinRelMatcher", ptr %13, i32 0, i32 1
   %15 = load double, ptr %5, align 8
   store double %15, ptr %14, align 8
@@ -71881,7 +71881,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers12IsNaNMatcherC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseIdEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers12IsNaNMatcherE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers12IsNaNMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -71999,7 +71999,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers14AllTrueMatcherC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14AllTrueMatcherE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14AllTrueMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72053,7 +72053,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers15NoneTrueMatcherC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers15NoneTrueMatcherE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers15NoneTrueMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72107,7 +72107,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers14AnyTrueMatcherC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14AnyTrueMatcherE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers14AnyTrueMatcherE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72203,7 +72203,7 @@ define dso_local void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKN
   store ptr %3, ptr %7, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %12) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StringMatcherBaseE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StringMatcherBaseE, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %"class.Catch::Matchers::StringMatcherBase", ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %7, align 8
   invoke void @_ZN5Catch8Matchers11CasedStringC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef nonnull align 8 dereferenceable(40) %14)
@@ -72238,7 +72238,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers11MatcherBaseINSt7__cxx111
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72387,7 +72387,7 @@ define dso_local void @_ZN5Catch8Matchers19StringEqualsMatcherC2ERKNS0_11CasedSt
   %15 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
   call void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKNS0_11CasedStringE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr %14, i64 %16, ptr noundef nonnull align 8 dereferenceable(40) %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers19StringEqualsMatcherE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers19StringEqualsMatcherE, i32 0, i32 0, i32 2), ptr %6, align 8
   ret void
 }
 
@@ -72430,7 +72430,7 @@ define dso_local void @_ZN5Catch8Matchers21StringContainsMatcherC2ERKNS0_11Cased
   %15 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
   call void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKNS0_11CasedStringE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr %14, i64 %16, ptr noundef nonnull align 8 dereferenceable(40) %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers21StringContainsMatcherE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers21StringContainsMatcherE, i32 0, i32 0, i32 2), ptr %6, align 8
   ret void
 }
 
@@ -72473,7 +72473,7 @@ define dso_local void @_ZN5Catch8Matchers17StartsWithMatcherC2ERKNS0_11CasedStri
   %15 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
   call void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKNS0_11CasedStringE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr %14, i64 %16, ptr noundef nonnull align 8 dereferenceable(40) %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StartsWithMatcherE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StartsWithMatcherE, i32 0, i32 0, i32 2), ptr %6, align 8
   ret void
 }
 
@@ -72538,7 +72538,7 @@ define dso_local void @_ZN5Catch8Matchers15EndsWithMatcherC2ERKNS0_11CasedString
   %15 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 1
   %16 = load i64, ptr %15, align 8
   call void @_ZN5Catch8Matchers17StringMatcherBaseC2ENS_9StringRefERKNS0_11CasedStringE(ptr noundef nonnull align 8 dereferenceable(96) %6, ptr %14, i64 %16, ptr noundef nonnull align 8 dereferenceable(40) %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers15EndsWithMatcherE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers15EndsWithMatcherE, i32 0, i32 0, i32 2), ptr %6, align 8
   ret void
 }
 
@@ -72592,7 +72592,7 @@ define dso_local void @_ZN5Catch8Matchers12RegexMatcherC2ENSt7__cxx1112basic_str
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers12RegexMatcherE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers12RegexMatcherE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::Matchers::RegexMatcher", ptr %7, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1) #7
   %9 = getelementptr inbounds %"class.Catch::Matchers::RegexMatcher", ptr %7, i32 0, i32 2
@@ -73164,7 +73164,7 @@ define linkonce_odr dso_local void @_ZN5Catch9MatchExprINSt7__cxx1112basic_strin
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %7, i1 noundef zeroext true, i1 noundef zeroext %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8Matchers11MatcherBaseIS6_EEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8Matchers11MatcherBaseIS6_EEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %14 = getelementptr inbounds %"class.Catch::MatchExpr", ptr %7, i32 0, i32 1
   %15 = load ptr, ptr %5, align 8
   store ptr %15, ptr %14, align 8
@@ -73197,7 +73197,7 @@ define dso_local void @_ZN5Catch21StreamingReporterBaseD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch21StreamingReporterBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch21StreamingReporterBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIN5Catch11SectionInfoESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   call void @_ZN5Catch12ReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %3) #7
@@ -73332,7 +73332,7 @@ define dso_local void @_ZN5Catch12ReporterBaseC2EONS_14ReporterConfigE(ptr nound
   %8 = load ptr, ptr %4, align 8
   %9 = call noundef ptr @_ZNK5Catch14ReporterConfig10fullConfigEv(ptr noundef nonnull align 8 dereferenceable(72) %8)
   call void @_ZN5Catch14IEventListenerC2EPKNS_7IConfigE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch12ReporterBaseE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch12ReporterBaseE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 1
   %11 = load ptr, ptr %4, align 8
   call void @_ZNO5Catch14ReporterConfig10takeStreamEv(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.68") align 8 %10, ptr noundef nonnull align 8 dereferenceable(72) %11)
@@ -73407,7 +73407,7 @@ define linkonce_odr dso_local void @_ZN5Catch14IEventListenerC2EPKNS_7IConfigE(p
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch14IEventListenerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch14IEventListenerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 1
   call void @_ZN5Catch19ReporterPreferencesC2Ev(ptr noundef nonnull align 1 dereferenceable(2) %6) #7
   %7 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 2
@@ -73421,7 +73421,7 @@ define dso_local void @_ZN5Catch12ReporterBaseD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch12ReporterBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch12ReporterBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %3, i32 0, i32 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
   %5 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %3, i32 0, i32 3
@@ -75851,7 +75851,7 @@ define dso_local void @_ZN5Catch15ConsoleReporterC2EONS_14ReporterConfigE(ptr no
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %9, ptr noundef nonnull align 8 dereferenceable(72) %10)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch15ConsoleReporterE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch15ConsoleReporterE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.Catch::ConsoleReporter", ptr %9, i32 0, i32 1
   %12 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %9, i32 0, i32 2
   %13 = load ptr, ptr %12, align 8
@@ -75916,7 +75916,7 @@ define linkonce_odr dso_local void @_ZN5Catch21StreamingReporterBaseC2EONS_14Rep
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5Catch12ReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(72) %9)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch21StreamingReporterBaseE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch21StreamingReporterBaseE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %"class.Catch::StreamingReporterBase", ptr %8, i32 0, i32 1
   %11 = call { ptr, i64 } @_ZN5Catchli3_srEPKcm(ptr noundef @.str.517, i64 noundef 28) #7
   %12 = getelementptr inbounds { ptr, i64 }, ptr %5, i32 0, i32 0
@@ -79955,7 +79955,7 @@ define dso_local void @_ZN5Catch22CumulativeReporterBaseD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch22CumulativeReporterBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch22CumulativeReporterBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 7
   call void @_ZNSt6vectorIPN5Catch22CumulativeReporterBase11SectionNodeESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   %5 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %3, i32 0, i32 5
@@ -82345,7 +82345,7 @@ define dso_local void @_ZN5Catch13JunitReporterC2EONS_14ReporterConfigE(ptr noun
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch22CumulativeReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch13JunitReporterE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch13JunitReporterE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::JunitReporter", ptr %7, i32 0, i32 1
   %10 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
   %11 = load ptr, ptr %10, align 8
@@ -82402,7 +82402,7 @@ define linkonce_odr dso_local void @_ZN5Catch22CumulativeReporterBaseC2EONS_14Re
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch12ReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch22CumulativeReporterBaseE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch22CumulativeReporterBaseE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 1
   store i8 1, ptr %9, align 8
   %10 = getelementptr inbounds %"class.Catch::CumulativeReporterBase", ptr %7, i32 0, i32 2
@@ -91149,7 +91149,7 @@ define dso_local void @_ZN5Catch11XmlReporterC2EONS_14ReporterConfigE(ptr nounde
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch11XmlReporterE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch11XmlReporterE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %7, i32 0, i32 1
   call void @_ZN5Catch5TimerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #7
   %10 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %7, i32 0, i32 2
@@ -91192,7 +91192,7 @@ define dso_local void @_ZN5Catch11XmlReporterD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch11XmlReporterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch11XmlReporterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::XmlReporter", ptr %3, i32 0, i32 2
   call void @_ZN5Catch9XmlWriterD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #7
   call void @_ZN5Catch21StreamingReporterBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #7
@@ -96516,7 +96516,7 @@ define linkonce_odr dso_local void @_ZN5Catch8TestSpec11NamePatternD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec11NamePatternE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec11NamePatternE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::TestSpec::NamePattern", ptr %3, i32 0, i32 1
   call void @_ZN5Catch15WildcardPatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #7
   call void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
@@ -96538,7 +96538,7 @@ define linkonce_odr dso_local void @_ZN5Catch8TestSpec10TagPatternD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec10TagPatternE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8TestSpec10TagPatternE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::TestSpec::TagPattern", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   call void @_ZN5Catch8TestSpec7PatternD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
@@ -96570,7 +96570,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers17StringMatcherBaseD2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StringMatcherBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers17StringMatcherBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Matchers::StringMatcherBase", ptr %3, i32 0, i32 1
   call void @_ZN5Catch8Matchers11CasedStringD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #7
   call void @_ZN5Catch8Matchers11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
@@ -96664,7 +96664,7 @@ define linkonce_odr dso_local void @_ZN5Catch6Detail18EnumValuesRegistryD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch6Detail18EnumValuesRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch6Detail18EnumValuesRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Detail::EnumValuesRegistry", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS1_8EnumInfoEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   call void @_ZN5Catch26IMutableEnumValuesRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
@@ -96712,7 +96712,7 @@ define linkonce_odr dso_local void @_ZN5Catch12TestRegistryD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch12TestRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch12TestRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIN5Catch14TestCaseHandleESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   %5 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 4
@@ -96742,7 +96742,7 @@ define linkonce_odr dso_local void @_ZN5Catch16TestCaseTracking14SectionTrackerD
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking14SectionTrackerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch16TestCaseTracking14SectionTrackerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::TestCaseTracking::SectionTracker", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIN5Catch9StringRefESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   call void @_ZN5Catch16TestCaseTracking11TrackerBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %3) #7
@@ -97069,7 +97069,7 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -105448,7 +105448,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ParserBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ParserBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -107039,7 +107039,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %3, i32 0, i32 1
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -110630,7 +110630,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2ERKS1_(ptr noundef nonn
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(96) %7, ptr noundef nonnull align 8 dereferenceable(96) %8)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %10, i32 0, i32 1
@@ -110669,7 +110669,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
@@ -110736,7 +110736,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -110757,7 +110757,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %5 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %3, i32 0, i32 3
@@ -110783,7 +110783,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(p
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ParserBaseE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ParserBaseE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -112020,7 +112020,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3ArgC2ERKS1_(ptr noundef nonn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -112035,7 +112035,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3A
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 1
@@ -112102,7 +112102,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -112111,7 +112111,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3A
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   %5 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %3, i32 0, i32 3
@@ -113305,7 +113305,7 @@ define linkonce_odr dso_local void @_ZN5Catch13MultiReporterCI2NS_14IEventListen
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch14IEventListenerC2EPKNS_7IConfigE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch13MultiReporterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch13MultiReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::MultiReporter", ptr %5, i32 0, i32 1
   call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_14IEventListenerEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #7
   %8 = getelementptr inbounds %"class.Catch::MultiReporter", ptr %5, i32 0, i32 2
@@ -117930,7 +117930,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %3, i32 0, i32 1
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 0
@@ -118481,7 +118481,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %8) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %7, i32 0, i32 1
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 0
@@ -118525,7 +118525,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail10ResultBaseC2ERKS2_(p
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ResultBaseE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ResultBaseE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %7, i32 0, i32 1
@@ -118557,7 +118557,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3A
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %10, i32 0, i32 2
@@ -118615,7 +118615,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -118837,7 +118837,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESE_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -119021,7 +119021,7 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -119209,7 +119209,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefISt6vec
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -119222,7 +119222,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail8BoundRefC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail17BoundValueRefBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail17BoundValueRefBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -119336,7 +119336,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail8BoundRefC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail8BoundRefE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail8BoundRefE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -131560,7 +131560,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherGenericBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherGenericBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -131569,7 +131569,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Matchers::MatcherUntypedBase", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #7
   ret void
@@ -131581,7 +131581,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers11MatcherBaseISt9exception
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseISt9exceptionEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch8Matchers11MatcherBaseISt9exceptionEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -137725,7 +137725,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultIvECI2NS1
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseIvECI2NS1_10ResultBaseEENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.150", ptr %5, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #7
   ret void
@@ -137740,7 +137740,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseIvECI
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseIvEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseIvEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -137751,7 +137751,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10R
   store ptr %0, ptr %3, align 8
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ResultBaseE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail10ResultBaseE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -139783,7 +139783,7 @@ define linkonce_odr dso_local void @_ZN5Catch9Benchmark6Detail20optimized_away_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9Benchmark6Detail20optimized_away_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9Benchmark6Detail20optimized_away_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -139794,7 +139794,7 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull a
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -144685,11 +144685,11 @@ define internal void @_ZN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IR
   call void @_ZN5Catch12_GLOBAL__N_111RegistryHubC2Ev(ptr noundef nonnull align 8 dereferenceable(304) %3)
   %4 = getelementptr inbounds i8, ptr %3, i64 304
   call void @_ZN5Catch10ISingletonC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, inrange i32 1, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, i32 1, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 304
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, inrange i32 2, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_12_GLOBAL__N_111RegistryHubENS_12IRegistryHubENS_19IMutableRegistryHubEEE, i32 0, i32 2, i32 2), ptr %6, align 8
   ret void
 }
 
@@ -144703,9 +144703,9 @@ define internal void @_ZN5Catch12_GLOBAL__N_111RegistryHubC2Ev(ptr noundef nonnu
   call void @_ZN5Catch12IRegistryHubC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   call void @_ZN5Catch19IMutableRegistryHubC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, inrange i32 1, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 1, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 2
   call void @_ZN5Catch12TestRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(136) %8) #7
   %9 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %5, i32 0, i32 3
@@ -144749,7 +144749,7 @@ define linkonce_odr dso_local void @_ZN5Catch10ISingletonC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Catch10ISingletonE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Catch10ISingletonE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -145135,7 +145135,7 @@ define linkonce_odr dso_local void @_ZN5Catch12IRegistryHubC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch12IRegistryHubE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5Catch12IRegistryHubE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -145144,7 +145144,7 @@ define linkonce_odr dso_local void @_ZN5Catch19IMutableRegistryHubC2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Catch19IMutableRegistryHubE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5Catch19IMutableRegistryHubE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -145154,7 +145154,7 @@ define linkonce_odr dso_local void @_ZN5Catch12TestRegistryC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch17ITestCaseRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch12TestRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch12TestRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS0_12TestCaseInfoEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   %5 = getelementptr inbounds %"class.Catch::TestRegistry", ptr %3, i32 0, i32 2
@@ -145176,7 +145176,7 @@ define linkonce_odr dso_local void @_ZN5Catch27ExceptionTranslatorRegistryC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch28IExceptionTranslatorRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch27ExceptionTranslatorRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch27ExceptionTranslatorRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::ExceptionTranslatorRegistry", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrIKNS0_20IExceptionTranslatorEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   ret void
@@ -145188,7 +145188,7 @@ define linkonce_odr dso_local void @_ZN5Catch16TagAliasRegistryC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch17ITagAliasRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch16TagAliasRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch16TagAliasRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::TagAliasRegistry", ptr %3, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5Catch8TagAliasESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #7
   ret void
@@ -145210,7 +145210,7 @@ define linkonce_odr dso_local void @_ZN5Catch6Detail18EnumValuesRegistryC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch26IMutableEnumValuesRegistryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch6Detail18EnumValuesRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch6Detail18EnumValuesRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Detail::EnumValuesRegistry", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIN5Catch6Detail10unique_ptrINS1_8EnumInfoEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #7
   ret void
@@ -145221,9 +145221,9 @@ define internal void @_ZN5Catch12_GLOBAL__N_111RegistryHubD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_111RegistryHubE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 7
   call void @_ZN5Catch6Detail18EnumValuesRegistryD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #7
   %6 = getelementptr inbounds %"class.Catch::(anonymous namespace)::RegistryHub", ptr %3, i32 0, i32 6
@@ -145277,7 +145277,7 @@ define linkonce_odr dso_local void @_ZN5Catch17ITestCaseRegistryC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch17ITestCaseRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch17ITestCaseRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -145463,7 +145463,7 @@ define linkonce_odr dso_local void @_ZN5Catch28IExceptionTranslatorRegistryC2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch28IExceptionTranslatorRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch28IExceptionTranslatorRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -145531,7 +145531,7 @@ define linkonce_odr dso_local void @_ZN5Catch17ITagAliasRegistryC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch17ITagAliasRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch17ITagAliasRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -145647,7 +145647,7 @@ define linkonce_odr dso_local void @_ZN5Catch26IMutableEnumValuesRegistryC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch26IMutableEnumValuesRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch26IMutableEnumValuesRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -151760,7 +151760,7 @@ define linkonce_odr dso_local void @_ZN5Catch18GeneratorExceptionC2ERKS0_(ptr no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch18GeneratorExceptionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch18GeneratorExceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::GeneratorException", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.Catch::GeneratorException", ptr %8, i32 0, i32 1
@@ -153491,7 +153491,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS0_15Pa
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEC2ENS1_10ResultTypeERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %7, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
   ret void
@@ -153507,7 +153507,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase.148", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %6, align 8
   %10 = load i32, ptr %9, align 4
@@ -153529,7 +153529,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS0_15Pa
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr %5, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(16) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #7
@@ -153545,7 +153545,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -153599,7 +153599,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_
   %5 = load ptr, ptr %3, align 8
   %6 = load i32, ptr %4, align 4
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -153624,7 +153624,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %8 = load i32, ptr %5, align 4
   %9 = load ptr, ptr %6, align 8
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ENS1_10ResultTypeERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %8, ptr noundef nonnull align 8 dereferenceable(48) %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #7
   ret void
@@ -153642,7 +153642,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultValueBase", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   invoke void @_ZN5Catch5Clara6Detail10ParseStateC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %11)
@@ -153868,7 +153868,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES4_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail12BoundFlagRefESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -154174,7 +154174,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail12BoundFlagRefC2ERb(pt
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail16BoundFlagRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail12BoundFlagRefE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail12BoundFlagRefE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundFlagRef", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -154187,7 +154187,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail16BoundFlagRefBaseC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail8BoundRefC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail16BoundFlagRefBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail16BoundFlagRefBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -154316,7 +154316,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -154993,7 +154993,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS1_10Pa
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr %5, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS1_10ParseStateEEC2ENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(64) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS1_10ParseStateEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #7
@@ -155011,7 +155011,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultIvEC2ENS1
   %7 = load ptr, ptr %4, align 8
   %8 = load i32, ptr %5, align 4
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseIvECI2NS1_10ResultBaseEENS1_10ResultTypeE(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultIvEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.150", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #7
@@ -155198,7 +155198,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.600", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(32) %9) #7
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %8) #7
@@ -155775,7 +155775,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.608", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ESB_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -156081,7 +156081,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefINSt7__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.610", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -157161,7 +157161,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3OptC2EOS1_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3OptE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Opt", ptr %8, i32 0, i32 1
@@ -157178,7 +157178,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %8, i32 0, i32 1
@@ -157208,7 +157208,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -158504,7 +158504,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara3ArgC2EOS1_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara3ArgE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -158517,7 +158517,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3A
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl", ptr %8, i32 0, i32 1
@@ -158547,7 +158547,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_3ArgEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -161981,7 +161981,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.620", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS1_4HelpC1ERbE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -162287,7 +162287,7 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_4HelpC1ERbE3
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail16BoundFlagRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_4HelpC1ERbE3$_0EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_4HelpC1ERbE3$_0EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundFlagLambda", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -162807,7 +162807,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6ParserC2ERKS1_(ptr noundef n
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6ParserE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Parser", ptr %10, i32 0, i32 1
@@ -162882,7 +162882,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara7ExeNameC2ERKS1_(ptr noundef 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara7ExeNameE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::ExeName", ptr %8, i32 0, i32 1
@@ -163053,7 +163053,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail20ComposableParserImpl
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ParserBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail20ComposableParserImplINS0_7ExeNameEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -163723,7 +163723,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -163824,7 +163824,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -164094,7 +164094,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.631", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_0EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -164401,7 +164401,7 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommand
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EC2ERKS5_"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EE", i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -164413,7 +164413,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_0EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -164563,7 +164563,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail11BasicResultINS0_15Pa
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail11BasicResultINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::BasicResult.147", ptr %10, i32 0, i32 1
@@ -164614,7 +164614,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail15ResultValueBaseINS0_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail10ResultBaseC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef nonnull align 8 dereferenceable(12) %6) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail15ResultValueBaseINS0_15ParseResultTypeEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::Clara::Detail::ResultBase", ptr %5, i32 0, i32 1
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
@@ -165394,7 +165394,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.640", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundFlagLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_1EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -165700,7 +165700,7 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundFlagLambdaIZNS_21makeCommand
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail16BoundFlagRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundFlagLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_1EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundFlagLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_1EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundFlagLambda.642", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -165917,7 +165917,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -166187,7 +166187,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.650", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_2EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -166493,7 +166493,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_2EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_2EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.652", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -166879,7 +166879,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -167149,7 +167149,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.660", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail15BoundManyLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_3EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -167456,7 +167456,7 @@ define internal void @"_ZN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommand
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EC2ERKS5_"(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail15BoundManyLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EE", i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -167468,7 +167468,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_3EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.663", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -167867,7 +167867,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -168137,7 +168137,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.671", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_4EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -168443,7 +168443,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_4EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_4EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.673", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -168718,7 +168718,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -168988,7 +168988,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.681", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -169294,7 +169294,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefIdEC2ER
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIdEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIdEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.683", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -169589,7 +169589,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -169859,7 +169859,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.691", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_5EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -170165,7 +170165,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_5EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_5EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.693", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -171369,7 +171369,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -171434,7 +171434,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -171704,7 +171704,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.701", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_6EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -172010,7 +172010,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_6EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_6EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.703", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -172411,7 +172411,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -172681,7 +172681,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.711", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_7EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -172987,7 +172987,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_7EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_7EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.713", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -173470,7 +173470,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -173740,7 +173740,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_8EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -174046,7 +174046,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_8EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_8EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.723", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -174456,7 +174456,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -174726,7 +174726,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.731", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE3$_9EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -175032,7 +175032,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_9EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE3$_9EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.733", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -175491,7 +175491,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -175761,7 +175761,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.741", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_10EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -176067,7 +176067,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_10EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_10EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.743", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -176482,7 +176482,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -176752,7 +176752,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.751", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -177058,7 +177058,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefIjEC2ER
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIjEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIjEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.753", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -177353,7 +177353,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13ParserRefImplINS0_3O
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -177623,7 +177623,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.761", ptr %8, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail13BoundValueRefIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -177929,7 +177929,7 @@ define linkonce_odr dso_local void @_ZN5Catch5Clara6Detail13BoundValueRefIlEC2ER
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIlEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13BoundValueRefIlEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundValueRef.763", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -178224,7 +178224,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -178494,7 +178494,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.771", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_11EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -178800,7 +178800,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_11EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_11EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.773", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -179218,7 +179218,7 @@ define internal void @"_ZN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEC2IZNS_21
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN5Catch5Clara6Detail20ComposableParserImplINS0_3OptEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch5Clara6Detail13ParserRefImplINS0_3OptEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 1
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.Catch::Clara::Detail::ParserRefImpl.156", ptr %10, i32 0, i32 2
@@ -179488,7 +179488,7 @@ define internal void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11Boun
   store ptr %1, ptr %5, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE", i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.781", ptr %8, i32 0, i32 1
   call void @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES8_"(ptr noundef nonnull align 8 dereferenceable(16) %9) #7
   %10 = call noundef ptr @"_ZNSt23_Sp_counted_ptr_inplaceIN5Catch5Clara6Detail11BoundLambdaIZNS0_21makeCommandLineParserERNS0_10ConfigDataEE4$_12EESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv"(ptr noundef nonnull align 8 dereferenceable(32) %8) #7
@@ -179794,7 +179794,7 @@ define internal void @"_ZN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLine
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch5Clara6Detail17BoundValueRefBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_12EE", i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @"_ZTVN5Catch5Clara6Detail11BoundLambdaIZNS_21makeCommandLineParserERNS_10ConfigDataEE4$_12EE", i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.Catch::Clara::Detail::BoundLambda.783", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %6, ptr align 8 %7, i64 8, i1 false)
@@ -180573,7 +180573,7 @@ define internal void @_ZN5Catch12_GLOBAL__N_114ANSIColourImplC2EPNS_7IStreamE(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch10ColourImplC2EPNS_7IStreamE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_114ANSIColourImplE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_114ANSIColourImplE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -180597,7 +180597,7 @@ define linkonce_odr dso_local void @_ZN5Catch10ColourImplC2EPNS_7IStreamE(ptr no
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10ColourImplE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10ColourImplE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::ColourImpl", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -180860,7 +180860,7 @@ define internal void @_ZN5Catch12_GLOBAL__N_112NoColourImplC2EPNS_7IStreamE(ptr 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch10ColourImplC2EPNS_7IStreamE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_112NoColourImplE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_112NoColourImplE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -180932,7 +180932,7 @@ define linkonce_odr dso_local void @_ZNSt12domain_errorC2ERKS_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12domain_error, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12domain_error, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -183887,7 +183887,7 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110CoutStreamC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CoutStreamE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CoutStreamE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::CoutStream", ptr %5, i32 0, i32 1
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch4coutEv()
   %8 = load ptr, ptr %7, align 8
@@ -183940,7 +183940,7 @@ define linkonce_odr dso_local void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch7IStreamE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch7IStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -184009,7 +184009,7 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_114DebugOutStreamC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_114DebugOutStreamE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_114DebugOutStreamE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::DebugOutStream", ptr %5, i32 0, i32 1
   invoke void @_ZN5Catch6Detail11make_uniqueINS0_12_GLOBAL__N_113StreamBufImplINS2_17OutputDebugWriterELm256EEEJEEENS0_10unique_ptrIT_EEDpOT0_(ptr dead_on_unwind writable sret(%"class.Catch::Detail::unique_ptr.788") align 8 %6)
           to label %7 unwind label %13
@@ -184172,7 +184172,7 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17Output
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17OutputDebugWriterELm256EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_113StreamBufImplINS1_17OutputDebugWriterELm256EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::StreamBufImpl", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [256 x i8], ptr %6, i64 0, i64 0
   %8 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::StreamBufImpl", ptr %5, i32 0, i32 1
@@ -184476,7 +184476,7 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110CerrStreamC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CerrStreamE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CerrStreamE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::CerrStream", ptr %5, i32 0, i32 1
   %7 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Catch4cerrEv()
   %8 = load ptr, ptr %7, align 8
@@ -184529,7 +184529,7 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110CerrStreamD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CerrStreamE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110CerrStreamE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::CerrStream", ptr %3, i32 0, i32 1
   call void @_ZNSoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #7
   call void @_ZN5Catch7IStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
@@ -184590,7 +184590,7 @@ define internal void @_ZN5Catch6Detail12_GLOBAL__N_110FileStreamC2ERKNSt7__cxx11
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5Catch7IStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110FileStreamE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch6Detail12_GLOBAL__N_110FileStreamE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Catch::Detail::(anonymous namespace)::FileStream", ptr %10, i32 0, i32 1
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11)
           to label %12 unwind label %36
@@ -187614,7 +187614,7 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_16AutomakeRepo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_16AutomakeReporterEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_16AutomakeReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -187636,7 +187636,7 @@ define linkonce_odr dso_local void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch16IReporterFactoryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch16IReporterFactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -187784,7 +187784,7 @@ define linkonce_odr dso_local void @_ZN5Catch16AutomakeReporterC2EONS_14Reporter
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch16AutomakeReporterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch16AutomakeReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -187871,7 +187871,7 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_15CompactRepor
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_15CompactReporterEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_15CompactReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -188032,7 +188032,7 @@ define linkonce_odr dso_local void @_ZN5Catch15CompactReporterCI2NS_21StreamingR
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch15CompactReporterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch15CompactReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -188085,7 +188085,7 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_15ConsoleRepor
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_15ConsoleReporterEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_15ConsoleReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -188286,7 +188286,7 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_13JunitReporte
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_13JunitReporterEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_13JunitReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -188487,7 +188487,7 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_17SonarQubeRep
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_17SonarQubeReporterEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_17SonarQubeReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -188650,7 +188650,7 @@ define linkonce_odr dso_local void @_ZN5Catch17SonarQubeReporterC2EONS_14Reporte
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN5Catch22CumulativeReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(72) %8)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch17SonarQubeReporterE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5Catch17SonarQubeReporterE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.Catch::SonarQubeReporter", ptr %7, i32 0, i32 1
   %10 = getelementptr inbounds %"class.Catch::ReporterBase", ptr %7, i32 0, i32 2
   %11 = load ptr, ptr %10, align 8
@@ -188743,7 +188743,7 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_11TAPReporterE
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_11TAPReporterEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_11TAPReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -188904,7 +188904,7 @@ define linkonce_odr dso_local void @_ZN5Catch11TAPReporterC2EONS_14ReporterConfi
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch11TAPReporterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch11TAPReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::TAPReporter", ptr %5, i32 0, i32 1
   store i64 0, ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::IEventListener", ptr %5, i32 0, i32 1
@@ -188970,7 +188970,7 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_16TeamCityRepo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_16TeamCityReporterEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_16TeamCityReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -189131,7 +189131,7 @@ define linkonce_odr dso_local void @_ZN5Catch16TeamCityReporterC2EONS_14Reporter
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5Catch21StreamingReporterBaseC2EONS_14ReporterConfigE(ptr noundef nonnull align 8 dereferenceable(144) %5, ptr noundef nonnull align 8 dereferenceable(72) %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch16TeamCityReporterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5Catch16TeamCityReporterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.Catch::TeamCityReporter", ptr %5, i32 0, i32 1
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::TeamCityReporter", ptr %5, i32 0, i32 2
@@ -189199,7 +189199,7 @@ define linkonce_odr dso_local void @_ZN5Catch15ReporterFactoryINS_11XmlReporterE
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch16IReporterFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_11XmlReporterEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Catch15ReporterFactoryINS_11XmlReporterEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -192110,7 +192110,7 @@ define linkonce_odr dso_local void @_ZN5Catch9SingletonINS_13StringStreamsES1_S1
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   call void @_ZN5Catch13StringStreamsC2Ev(ptr noundef nonnull align 8 dereferenceable(424) %4)
   call void @_ZN5Catch10ISingletonC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #7
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_13StringStreamsES1_S1_EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5Catch9SingletonINS_13StringStreamsES1_S1_EE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -193889,9 +193889,9 @@ define internal void @_ZN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerC2EON
   call void @_ZN5Catch16TestCaseTracking11TrackerBaseC2EONS0_15NameAndLocationERNS0_14TrackerContextEPNS0_8ITrackerE(ptr noundef nonnull align 8 dereferenceable(104) %11, ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(20) %13, ptr noundef %14)
   %15 = getelementptr inbounds i8, ptr %11, i64 104
   call void @_ZN5Catch17IGeneratorTrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #7
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerE, i32 0, i32 0, i32 2), ptr %11, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerE, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [7 x ptr] }, ptr @_ZTVN5Catch10Generators12_GLOBAL__N_116GeneratorTrackerE, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %"struct.Catch::Generators::(anonymous namespace)::GeneratorTracker", ptr %11, i32 0, i32 2
   invoke void @_ZN5Catch6Detail10unique_ptrINS_10Generators20GeneratorUntypedBaseEEC2EDn(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr null)
           to label %18 unwind label %19
@@ -193937,7 +193937,7 @@ define linkonce_odr dso_local void @_ZN5Catch17IGeneratorTrackerC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch17IGeneratorTrackerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5Catch17IGeneratorTrackerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -210857,7 +210857,7 @@ define internal void @_ZN5Catch12_GLOBAL__N_121TestInvokerAsFunctionC2EPFvvE(ptr
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5Catch12ITestInvokerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_121TestInvokerAsFunctionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12_GLOBAL__N_121TestInvokerAsFunctionE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Catch::(anonymous namespace)::TestInvokerAsFunction", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -210882,7 +210882,7 @@ define linkonce_odr dso_local void @_ZN5Catch12ITestInvokerC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12ITestInvokerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch12ITestInvokerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -214975,7 +214975,7 @@ define linkonce_odr dso_local void @_ZNSt11regex_errorC2ENSt15regex_constants10e
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.std::regex_error", ptr %7, i32 0, i32 1
   %10 = load i32, ptr %5, align 4
   store i32 %10, ptr %9, align 8
@@ -217272,7 +217272,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.870", ptr %10, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(88) %11) #7
   %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #7
@@ -259309,7 +259309,7 @@ define linkonce_odr dso_local void @_ZN5Catch20ITransientExpressionC2Ebb(ptr nou
   %8 = zext i1 %2 to i8
   store i8 %8, ptr %6, align 1
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch20ITransientExpressionE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch20ITransientExpressionE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.Catch::ITransientExpression", ptr %9, i32 0, i32 1
   %11 = load i8, ptr %5, align 1
   %12 = trunc i8 %11 to i1

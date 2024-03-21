@@ -459,7 +459,7 @@ define dso_local void @_ZN42cmInstallImportedRuntimeArtifactsGeneratorC2ENSt7__c
   call void @_ZN19cmListFileBacktraceD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %25) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %22) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %21) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i32 0, inrange i32 0, i32 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i32 0, i32 0, i32 2), ptr %28, align 8
   %37 = getelementptr inbounds %class.cmInstallImportedRuntimeArtifactsGenerator, ptr %28, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
   %38 = getelementptr inbounds %class.cmInstallImportedRuntimeArtifactsGenerator, ptr %28, i32 0, i32 3
@@ -2221,7 +2221,7 @@ define linkonce_odr dso_local void @_ZN42cmInstallImportedRuntimeArtifactsGenera
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmInstallImportedRuntimeArtifactsGenerator, ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmInstallImportedRuntimeArtifactsGenerator, ptr %3, i32 0, i32 1

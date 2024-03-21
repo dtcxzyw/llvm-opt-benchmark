@@ -22,7 +22,7 @@ $_ZTIN3irr17IReferenceCountedE = comdat any
 $_ZTIN3irr2io9IReadFileE = comdat any
 
 @_ZTVN3irr2io14CLimitReadFileE = unnamed_addr constant { [11 x ptr], [5 x ptr] } { [11 x ptr] [ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTIN3irr2io14CLimitReadFileE, ptr @_ZN3irr2io14CLimitReadFile4readEPvm, ptr @_ZN3irr2io14CLimitReadFile4seekElb, ptr @_ZNK3irr2io14CLimitReadFile7getSizeEv, ptr @_ZNK3irr2io14CLimitReadFile6getPosEv, ptr @_ZNK3irr2io14CLimitReadFile11getFileNameEv, ptr @_ZNK3irr2io14CLimitReadFile7getTypeEv, ptr @_ZN3irr2io14CLimitReadFileD1Ev, ptr @_ZN3irr2io14CLimitReadFileD0Ev], [5 x ptr] [ptr inttoptr (i64 -72 to ptr), ptr inttoptr (i64 -72 to ptr), ptr @_ZTIN3irr2io14CLimitReadFileE, ptr @_ZTv0_n24_N3irr2io14CLimitReadFileD1Ev, ptr @_ZTv0_n24_N3irr2io14CLimitReadFileD0Ev] }, align 8
-@_ZTTN3irr2io14CLimitReadFileE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CLimitReadFileE0_NS0_9IReadFileE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CLimitReadFileE0_NS0_9IReadFileE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr2io14CLimitReadFileE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CLimitReadFileE0_NS0_9IReadFileE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CLimitReadFileE0_NS0_9IReadFileE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3irr2io14CLimitReadFileE0_NS0_9IReadFileE = unnamed_addr constant { [11 x ptr], [5 x ptr] } { [11 x ptr] [ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTIN3irr2io9IReadFileE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK3irr2io9IReadFile7getTypeEv, ptr @_ZN3irr2io9IReadFileD1Ev, ptr @_ZN3irr2io9IReadFileD0Ev], [5 x ptr] [ptr inttoptr (i64 -72 to ptr), ptr inttoptr (i64 -72 to ptr), ptr @_ZTIN3irr2io9IReadFileE, ptr @_ZTv0_n24_N3irr2io9IReadFileD1Ev, ptr @_ZTv0_n24_N3irr2io9IReadFileD0Ev] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3irr2io9IReadFileE = linkonce_odr constant [20 x i8] c"N3irr2io9IReadFileE\00", comdat, align 1
@@ -100,8 +100,8 @@ define void @_ZN3irr2io14CLimitReadFileC1EPNS0_9IReadFileEllRKNS_4core6stringIcE
   store ptr null, ptr %7, align 8, !tbaa !23
   %8 = getelementptr inbounds i8, ptr %0, i64 88
   store i32 1, ptr %8, align 8, !tbaa !18
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   %10 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %10, ptr %9, align 8, !tbaa !6
@@ -200,9 +200,9 @@ define void @_ZN3irr2io14CLimitReadFileD2Ev(ptr noundef nonnull align 8 derefere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io14CLimitReadFileD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = icmp eq ptr %4, null
@@ -255,9 +255,9 @@ define void @_ZTv0_n24_N3irr2io14CLimitReadFileD1Ev(ptr noundef %0) unnamed_addr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 72
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = icmp eq ptr %8, null
@@ -306,9 +306,9 @@ define void @_ZTv0_n24_N3irr2io14CLimitReadFileD1Ev(ptr noundef %0) unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io14CLimitReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load ptr, ptr %3, align 8, !tbaa !14
   %5 = icmp eq ptr %4, null
@@ -365,9 +365,9 @@ define void @_ZTv0_n24_N3irr2io14CLimitReadFileD0Ev(ptr noundef %0) unnamed_addr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 72
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 64
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = icmp eq ptr %8, null
@@ -507,8 +507,8 @@ define noundef nonnull ptr @_ZN3irr2io19createLimitReadFileERKNS_4core6stringIcE
   store ptr null, ptr %7, align 8, !tbaa !23
   %8 = getelementptr inbounds i8, ptr %5, i64 88
   store i32 1, ptr %8, align 8, !tbaa !18
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CLimitReadFileE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %5, i64 8
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   store ptr %10, ptr %9, align 8, !tbaa !6

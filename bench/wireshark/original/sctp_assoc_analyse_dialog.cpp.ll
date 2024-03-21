@@ -570,9 +570,9 @@ define void @_ZN22SCTPAssocAnalyseDialogC2EP7QWidgetPK16_sctp_assoc_infoP13_capt
   %29 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %30 = load i32, ptr %29, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef %28, i32 %30)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22SCTPAssocAnalyseDialog, i32 0, inrange i32 0, i32 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22SCTPAssocAnalyseDialog, i32 0, i32 0, i32 2), ptr %27, align 8
   %31 = getelementptr inbounds i8, ptr %27, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22SCTPAssocAnalyseDialog, i32 0, inrange i32 1, i32 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22SCTPAssocAnalyseDialog, i32 0, i32 1, i32 2), ptr %31, align 8
   %32 = getelementptr inbounds %class.SCTPAssocAnalyseDialog, ptr %27, i32 0, i32 1
   %33 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 544) #13
           to label %34 unwind label %92
@@ -6901,9 +6901,9 @@ define void @_ZN22SCTPAssocAnalyseDialogD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22SCTPAssocAnalyseDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22SCTPAssocAnalyseDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22SCTPAssocAnalyseDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22SCTPAssocAnalyseDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.SCTPAssocAnalyseDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

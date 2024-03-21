@@ -779,7 +779,7 @@ _ZNK24PreallocatedMemoryHelperILi10EE16setChunkPointersEPv.exit.i: ; preds = %fo
 
 .noexc160.i:                                      ; preds = %_ZNK24PreallocatedMemoryHelperILi10EE16setChunkPointersEPv.exit.i
   %23 = load i32, ptr %m_size.i, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25ReadSolverConstraintsLoop, i64 0, inrange i32 0, i64 2), ptr %loop.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25ReadSolverConstraintsLoop, i64 0, i32 0, i64 2), ptr %loop.i.i, align 8
   %m_outConInfos.i.i.i = getelementptr inbounds i8, ptr %loop.i.i, i64 8
   store ptr %22, ptr %m_outConInfos.i.i.i, align 8
   %m_constraints.i.i.i = getelementptr inbounds i8, ptr %loop.i.i, i64 16
@@ -1276,7 +1276,7 @@ for.end294.i:                                     ; preds = %for.inc292.i
   store i32 8, ptr %numPhases304.i, align 8
   %phaseMask305.i = getelementptr inbounds i8, ptr %params.i, i64 60
   store i32 %phaseMask.0.i, ptr %phaseMask305.i, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV34AssignConstraintsToGridBatchesLoop, i64 0, inrange i32 0, i64 2), ptr %loop.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV34AssignConstraintsToGridBatchesLoop, i64 0, i32 0, i64 2), ptr %loop.i, align 8
   %m_params.i.i = getelementptr inbounds i8, ptr %loop.i, i64 8
   store ptr %params.i, ptr %m_params.i.i, align 8
   invoke void @_Z13btParallelForiiiRK18btIParallelForBody(i32 noundef 0, i32 noundef %iDest.0.lcssa.i.i.i, i32 noundef 250, ptr noundef nonnull align 8 dereferenceable(8) %loop.i)
@@ -1445,7 +1445,7 @@ for.end344.i:                                     ; preds = %for.inc342.i
 
 .noexc305.i:                                      ; preds = %for.end344.i
   %mul345.i = shl nuw nsw i32 %mul206.i, 3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV37UpdateConstraintBatchIdsForMergesLoop, i64 0, inrange i32 0, i64 2), ptr %loop.i304.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV37UpdateConstraintBatchIdsForMergesLoop, i64 0, i32 0, i64 2), ptr %loop.i304.i, align 8
   %m_constraintBatchIds.i.i.i = getelementptr inbounds i8, ptr %loop.i304.i, i64 8
   store ptr %149, ptr %m_constraintBatchIds.i.i.i, align 8
   %m_batches.i.i.i = getelementptr inbounds i8, ptr %loop.i304.i, i64 16
@@ -1478,7 +1478,7 @@ if.then348.i:                                     ; preds = %invoke.cont346.i
           to label %.noexc311.i unwind label %lpad.loopexit.split-lp.i
 
 .noexc311.i:                                      ; preds = %if.then348.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24ExpandConstraintRowsLoop, i64 0, inrange i32 0, i64 2), ptr %loop.i309.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24ExpandConstraintRowsLoop, i64 0, i32 0, i64 2), ptr %loop.i309.i, align 8
   %m_destConstraintBatchIds.i.i.i = getelementptr inbounds i8, ptr %loop.i309.i, i64 8
   store ptr %152, ptr %m_destConstraintBatchIds.i.i.i, align 8
   %m_srcConstraintBatchIds.i.i.i = getelementptr inbounds i8, ptr %loop.i309.i, i64 16
@@ -1967,7 +1967,7 @@ invoke.cont34.i.i:                                ; preds = %_ZN20btAlignedObjec
           to label %.noexc182.i.i unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i.i
 
 .noexc182.i.i:                                    ; preds = %invoke.cont34.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29WriteOutConstraintIndicesLoop, i64 0, inrange i32 0, i64 2), ptr %loop.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29WriteOutConstraintIndicesLoop, i64 0, i32 0, i64 2), ptr %loop.i.i.i, align 8
   %m_batchedConstraints.i.i.i.i = getelementptr inbounds i8, ptr %loop.i.i.i, i64 8
   store ptr %this, ptr %m_batchedConstraints.i.i.i.i, align 8
   %m_constraintBatchIds.i.i.i.i = getelementptr inbounds i8, ptr %loop.i.i.i, i64 16

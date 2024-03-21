@@ -140,7 +140,7 @@ _ZNSt12_Vector_baseIP8VariableSaIS1_EED2Ev.exit:  ; preds = %1, %3
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN20VariableSelectFilterC2ERK9CGContext(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #4 align 2 {
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20VariableSelectFilter, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20VariableSelectFilter, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   ret void
@@ -6032,7 +6032,7 @@ define dso_local noundef ptr @_ZN16VariableSelector6selectEN6Effect6AccessERK9CG
 
 10:                                               ; preds = %7
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20VariableSelectFilter, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20VariableSelectFilter, i64 0, i32 0, i64 2), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   store ptr %1, ptr %11, align 8
   %12 = icmp eq i32 %6, 4

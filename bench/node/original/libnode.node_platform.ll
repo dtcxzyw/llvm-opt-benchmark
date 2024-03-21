@@ -3115,11 +3115,11 @@ $_ZSt19piecewise_construct = comdat any
 @_ZN4node18ContextEmbedderTag18kNodeContextTagPtrE = external constant ptr, align 8
 @stderr = external global ptr, align 8
 @.str.63 = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
-@_ZZN2v88Platform23GetZoneBackingAllocatorEvE17default_allocator = linkonce_odr dso_local global %"class.v8::ZoneBackingAllocator" { ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2v820ZoneBackingAllocatorE, i32 0, inrange i32 0, i32 2) }, comdat, align 8
+@_ZZN2v88Platform23GetZoneBackingAllocatorEvE17default_allocator = linkonce_odr dso_local global %"class.v8::ZoneBackingAllocator" { ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2v820ZoneBackingAllocatorE, i32 0, i32 0, i32 2) }, comdat, align 8
 @_ZTVN2v820ZoneBackingAllocatorE = linkonce_odr dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZNK2v820ZoneBackingAllocator11GetMallocFnEv, ptr @_ZNK2v820ZoneBackingAllocator9GetFreeFnEv] }, comdat, align 8
 @.str.64 = private unnamed_addr constant [31 x i8] c"CallBlockingTaskOnWorkerThread\00", align 1
 @.str.65 = private unnamed_addr constant [34 x i8] c"CallLowPriorityTaskOnWorkerThread\00", align 1
-@_ZZN2v88Platform35GetHighAllocationThroughputObserverEvE16default_observer = linkonce_odr dso_local global %"class.v8::HighAllocationThroughputObserver" { ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2v832HighAllocationThroughputObserverE, i32 0, inrange i32 0, i32 2) }, comdat, align 8
+@_ZZN2v88Platform35GetHighAllocationThroughputObserverEvE16default_observer = linkonce_odr dso_local global %"class.v8::HighAllocationThroughputObserver" { ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2v832HighAllocationThroughputObserverE, i32 0, i32 0, i32 2) }, comdat, align 8
 @_ZTVN2v832HighAllocationThroughputObserverE = linkonce_odr dso_local unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr @_ZN2v832HighAllocationThroughputObserver12EnterSectionEv, ptr @_ZN2v832HighAllocationThroughputObserver12LeaveSectionEv] }, comdat, align 8
 @.str.66 = private unnamed_addr constant [48 x i8] c"cannot create std::deque larger than max_size()\00", align 1
 @_ZZN4node9MutexBaseINS_16LibuvMutexTraitsEEC1EvE4args = linkonce_odr dso_local constant %"struct.node::AssertionInfo" { ptr @.str.67, ptr @.str.68, ptr @.str.69 }, comdat, align 8
@@ -4306,9 +4306,9 @@ entry:
   call void @_ZN2v810TaskRunnerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #3
   %1 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZNSt23enable_shared_from_thisIN4node22PerIsolatePlatformDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %shutdown_callbacks_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN4node22PerIsolatePlatformData16ShutdownCallbackESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %shutdown_callbacks_) #3
   %self_reference_ = getelementptr inbounds %"class.node::PerIsolatePlatformData", ptr %this1, i32 0, i32 4
@@ -4377,7 +4377,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node23IsolatePlatformDelegateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node23IsolatePlatformDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4387,7 +4387,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN2v810TaskRunnerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN2v810TaskRunnerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4985,9 +4985,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [12 x ptr] }, ptr @_ZTVN4node22PerIsolatePlatformDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -5539,7 +5539,7 @@ entry:
   store ptr %page_allocator, ptr %page_allocator.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node20MultiIsolatePlatformC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %per_isolate_mutex_ = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 1
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %per_isolate_mutex_)
   %per_isolate_ = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 2
@@ -5590,7 +5590,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v88PlatformC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node20MultiIsolatePlatformE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node20MultiIsolatePlatformE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5621,7 +5621,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2v817TracingControllerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2v817TracingControllerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5697,7 +5697,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4node12NodePlatformE, i32 0, i32 0, i32 2), ptr %this1, align 8
   call void @_ZN4node12NodePlatform8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(137) %this1)
   %worker_thread_task_runner_ = getelementptr inbounds %"class.node::NodePlatform", ptr %this1, i32 0, i32 5
   call void @_ZNSt10shared_ptrIN4node23WorkerThreadsTaskRunnerEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %worker_thread_task_runner_) #3
@@ -10261,7 +10261,7 @@ entry:
   store double %delay_in_seconds, ptr %delay_in_seconds.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v84TaskC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %scheduler_ = getelementptr inbounds %"class.node::WorkerThreadsTaskRunner::DelayedTaskScheduler::ScheduleTask", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %scheduler.addr, align 8
   store ptr %0, ptr %scheduler_, align 8
@@ -10293,7 +10293,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2v84TaskE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2v84TaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -10303,7 +10303,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler12ScheduleTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %task_ = getelementptr inbounds %"class.node::WorkerThreadsTaskRunner::DelayedTaskScheduler::ScheduleTask", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN2v84TaskESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %task_) #3
   call void @_ZN2v84TaskD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -13356,7 +13356,7 @@ entry:
   store ptr %scheduler, ptr %scheduler.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v84TaskC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler8StopTaskE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node23WorkerThreadsTaskRunner20DelayedTaskScheduler8StopTaskE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %scheduler_ = getelementptr inbounds %"class.node::WorkerThreadsTaskRunner::DelayedTaskScheduler::StopTask", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %scheduler.addr, align 8
   store ptr %0, ptr %scheduler_, align 8
@@ -17012,7 +17012,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTVN2v88PlatformE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTVN2v88PlatformE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -24729,7 +24729,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(256) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node23WorkerThreadsTaskRunnerESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(272) %this1) #3
@@ -24894,7 +24894,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -25614,7 +25614,7 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.350", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(576) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node22PerIsolatePlatformDataESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(592) %this3) #3

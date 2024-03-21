@@ -126,9 +126,9 @@ define void @_ZN8TFHandleC2EP10CHART_INFO6QColor7QPointFP6TF_KEYii(ptr noundef n
   %32 = getelementptr inbounds { double, double }, ptr %17, i32 0, i32 1
   %33 = load double, ptr %32, align 8
   call void @_ZN6HandleC2EP10CHART_INFO6QColor7QPointFii(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef %27, ptr noundef %16, double %31, double %33, i32 noundef %28, i32 noundef %29)
-  store ptr getelementptr inbounds ({ [20 x ptr], [39 x ptr] }, ptr @_ZTV8TFHandle, i32 0, inrange i32 0, i32 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [39 x ptr] }, ptr @_ZTV8TFHandle, i32 0, i32 0, i32 2), ptr %26, align 8
   %34 = getelementptr inbounds i8, ptr %26, i64 16
-  store ptr getelementptr inbounds ({ [20 x ptr], [39 x ptr] }, ptr @_ZTV8TFHandle, i32 0, inrange i32 1, i32 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [39 x ptr] }, ptr @_ZTV8TFHandle, i32 0, i32 1, i32 2), ptr %34, align 8
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %18, i32 noundef 7) #8
   %35 = call noundef zeroext i1 @_ZNK6QColoreqERKS_(ptr noundef nonnull align 4 dereferenceable(14) %2, ptr noundef nonnull align 4 dereferenceable(14) %18) #8
   br i1 %35, label %36, label %38

@@ -3891,7 +3891,7 @@ define void @_ZN24FilterIsoParametrizationC1Ev(ptr noundef nonnull align 8 deref
   %3 = alloca %"class.std::__cxx11::list.19", align 8
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 88
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 96
@@ -3933,10 +3933,10 @@ define void @_ZN24FilterIsoParametrizationC1Ev(ptr noundef nonnull align 8 deref
   store ptr %25, ptr %25, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %27, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV24FilterIsoParametrization, i64 0, inrange i32 0, i64 4), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV24FilterIsoParametrization, i64 0, inrange i32 1, i64 4), ptr %10, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV24FilterIsoParametrization, i64 0, inrange i32 2, i64 6), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV24FilterIsoParametrization, i64 0, inrange i32 3, i64 3), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV24FilterIsoParametrization, i64 0, i32 0, i64 4), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV24FilterIsoParametrization, i64 0, i32 1, i64 4), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV24FilterIsoParametrization, i64 0, i32 2, i64 6), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV24FilterIsoParametrization, i64 0, i32 3, i64 3), ptr %8, align 8
   store <4 x i32> <i32 0, i32 1, i32 2, i32 3>, ptr %2, align 16
   %28 = getelementptr inbounds i8, ptr %2, i64 16
   %29 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr nonnull %25, ptr noundef nonnull %2, ptr noundef nonnull %28)
@@ -4087,7 +4087,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit24:            ; preds = %.lr.ph.i.i.i21, %64
 
 67:                                               ; preds = %35, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit24, %33
   %.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %34, %33 ], [ %.pn.pn.pn, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit24 ], [ %36, %35 ]
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %5, align 8
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #22
   resume { ptr, i32 } %.pn.pn.pn.pn.pn
 }
@@ -4098,7 +4098,7 @@ declare void @_ZN9QFileInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   ret void
@@ -4220,7 +4220,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i, %
 _ZN24FilterIsoParametrizationD2Ev.exit:           ; preds = %.lr.ph.i.i.i3.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %19 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #22
   ret void
@@ -4270,7 +4270,7 @@ _ZN24FilterIsoParametrizationD1Ev.exit:           ; preds = %.lr.ph.i.i.i3.i.i.i
   %18 = getelementptr inbounds i8, ptr %0, i64 -16
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %18) #22
   %19 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #22
   ret void
@@ -4324,7 +4324,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 _ZN24FilterIsoParametrizationD1Ev.exit:           ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #22
   %23 = getelementptr inbounds i8, ptr %5, i64 80
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %5, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #22
   ret void
@@ -4374,7 +4374,7 @@ _ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i:        ; preds = %.lr.ph.i.i.i.i.i.i,
 _ZN24FilterIsoParametrizationD1Ev.exit:           ; preds = %.lr.ph.i.i.i3.i.i.i, %_ZNSt7__cxx114listIiSaIiEED2Ev.exit.i.i.i
   tail call void @_ZN7QObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #22
   %19 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 96
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #33
@@ -8558,7 +8558,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EPKcRKS3_(p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg25MissingComponentExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg25MissingComponentExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg25MissingComponentExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull @.str.60)
           to label %4 unwind label %9
 
@@ -10006,7 +10006,7 @@ _ZN7QStringD2Ev.exit226:                          ; preds = %95, %_ZN9QtPrivate8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %19) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %20) #22
   call void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %21)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %21, align 8
   %124 = getelementptr inbounds i8, ptr %21, i64 632
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %124)
           to label %_ZN17IsoParametrizatorC2Ev.exit unwind label %125
@@ -10022,7 +10022,7 @@ common.resume:                                    ; preds = %102, %104, %106, %1
   br label %common.resume
 
 _ZN17IsoParametrizatorC2Ev.exit:                  ; preds = %122
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %124, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %124, align 8
   %127 = getelementptr inbounds i8, ptr %21, i64 1336
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %127, i8 0, i64 24, i1 false)
   %128 = getelementptr inbounds i8, ptr %21, i64 1276
@@ -10448,7 +10448,7 @@ _ZNK19MeshLabPluginLogger3logIJRiRffEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStre
           to label %269 unwind label %287
 
 269:                                              ; preds = %268
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, inrange i32 0, i64 2), ptr %267, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, i32 0, i64 2), ptr %267, align 8
   %270 = invoke noalias noundef nonnull dereferenceable(632) ptr @_Znwm(i64 noundef 632) #36
           to label %271 unwind label %139
 
@@ -10458,7 +10458,7 @@ _ZNK19MeshLabPluginLogger3logIJRiRffEEEvPKcDpOT_.exit: ; preds = %_ZN11GLLogStre
           to label %272 unwind label %289
 
 272:                                              ; preds = %271
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, inrange i32 0, i64 2), ptr %270, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, i32 0, i64 2), ptr %270, align 8
   invoke void @_ZN17IsoParametrizator12ExportMeshesER9ParamMeshR12AbstractMesh(ptr noundef nonnull align 8 dereferenceable(1360) %21, ptr noundef nonnull align 8 dereferenceable(628) %270, ptr noundef nonnull align 8 dereferenceable(628) %267)
           to label %273 unwind label %139
 
@@ -12323,12 +12323,12 @@ _ZN17IsoParametrizator13TranslateMeshI6CMeshOEEvRT_RKNS2_9CoordTypeE.exit139: ; 
 
 248:                                              ; preds = %_ZN17IsoParametrizator13TranslateMeshI6CMeshOEEvRT_RKNS2_9CoordTypeE.exit139
   call void @_ZN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_I9ParamFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %9)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, i32 0, i64 2), ptr %9, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %10)
           to label %249 unwind label %254
 
 249:                                              ; preds = %248
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, i32 0, i64 2), ptr %10, align 8
   invoke void @_ZN17IsoParametrizator12ExportMeshesER9ParamMeshR12AbstractMesh(ptr noundef nonnull align 8 dereferenceable(1360) %0, ptr noundef nonnull align 8 dereferenceable(628) %9, ptr noundef nonnull align 8 dereferenceable(628) %10)
           to label %250 unwind label %256
 
@@ -12357,12 +12357,12 @@ _ZN17IsoParametrizator13TranslateMeshI6CMeshOEEvRT_RKNS2_9CoordTypeE.exit139: ; 
           to label %259 unwind label %256
 
 259:                                              ; preds = %258
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %12)
           to label %260 unwind label %271
 
 260:                                              ; preds = %259
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, i32 0, i64 2), ptr %12, align 8
   invoke void @_ZN17IsoParametrizator12ExportMeshesER9ParamMeshR12AbstractMesh(ptr noundef nonnull align 8 dereferenceable(1360) %0, ptr noundef nonnull align 8 dereferenceable(628) %11, ptr noundef nonnull align 8 dereferenceable(628) %12)
           to label %261 unwind label %273
 
@@ -13103,7 +13103,7 @@ declare void @_ZN9MeshModel13clearDataMaskEi(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QByteArray, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = load ptr, ptr %1, align 8
   store ptr %5, ptr %4, align 8
@@ -13176,7 +13176,7 @@ _ZN10QByteArrayD2Ev.exit:                         ; preds = %_ZNKR7QString11toLo
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -15710,7 +15710,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
           to label %18 unwind label %13
 
 18:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeI18IsoParametrizationEE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeI18IsoParametrizationEE, i64 0, i32 0, i64 2), ptr %17, align 8
   %19 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #36
           to label %20 unwind label %41
 
@@ -15820,7 +15820,7 @@ define linkonce_odr void @_ZN8BaseMeshD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -16258,7 +16258,7 @@ _ZNSt12_Vector_baseI8BaseFaceSaIS0_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIP8Bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_ED2Ev(ptr noundef nonnull align 8 dereferenceable(628) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(628) %0)
           to label %2 unwind label %69
 
@@ -20233,7 +20233,7 @@ define linkonce_odr void @_ZN3vcg3tri14UpdateTopologyI8BaseMeshE14TestVertexFace
   br i1 %.not26, label %._crit_edge38, label %11, !llvm.loop !181
 
 ._crit_edge38:                                    ; preds = %53, %1
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %56 = getelementptr inbounds i8, ptr %2, i64 16
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %2, i64 24
@@ -21574,7 +21574,7 @@ _ZNK3vcg4face3PosI6CFaceOE8IsBorderEv.exit.i.i:   ; preds = %174, %_ZN3vcg4face3
 
 ._crit_edge99:                                    ; preds = %.loopexit, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE12VertexClearVERS2_.exit, %._crit_edge91
   %.0.lcssa = phi i32 [ 0, %._crit_edge91 ], [ 0, %_ZN3vcg3tri11UpdateFlagsI6CMeshOE12VertexClearVERS2_.exit ], [ %.3, %.loopexit ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %209 = getelementptr inbounds i8, ptr %4, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = getelementptr inbounds i8, ptr %4, i64 24
@@ -21729,7 +21729,7 @@ _ZNSt6vectorIN3vcg3tri14UpdateTopologyI6CMeshOE5PEdgeESaIS5_EED2Ev.exit21: ; pre
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiEC2ERKS4_RKi(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(249) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -21820,7 +21820,7 @@ _ZN3vcg9VectorNBWIiJEED2Ev.exit:                  ; preds = %30, %33
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -21846,7 +21846,7 @@ _ZN3vcg9VectorNBWIiJEED2Ev.exit:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataINS_6vertex10vector_ocfI8CVertexOEEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -35739,7 +35739,7 @@ _ZNSt6vectorIN17IsoParametrizator8ParaInfoESaIS1_EE9push_backEOS1_.exit: ; preds
           to label %34 unwind label %66
 
 34:                                               ; preds = %_ZNSt6vectorIN17IsoParametrizator8ParaInfoESaIS1_EE9push_backEOS1_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %33, align 8
   %35 = load ptr, ptr %3, align 8
   %36 = getelementptr inbounds i8, ptr %35, i64 -8
   store ptr %33, ptr %36, align 8
@@ -36550,7 +36550,7 @@ _ZNSt6vectorIN3vcg17LocalOptimizationI8BaseMeshE8HeapElemESaIS4_EE5clearEv.exit:
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #36
   %58 = load i32, ptr %42, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg3tri17ParamEdgeCollapseI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %57, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg3tri17ParamEdgeCollapseI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %57, align 8
   %59 = getelementptr inbounds i8, ptr %57, i64 32
   store i32 %58, ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %57, i64 16
@@ -36781,12 +36781,12 @@ _ZN3vcg3tri17ParamEdgeCollapseI8BaseMeshE14ComputeMinimalERS2_.exit:
   %.sroa.29.0..sroa_idx = getelementptr inbounds i8, ptr %3, i64 8
   store float %.fca.1.extract, ptr %.sroa.29.0..sroa_idx, align 8
   call void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %4)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %5)
           to label %28 unwind label %166
 
 28:                                               ; preds = %_ZN3vcg3tri17ParamEdgeCollapseI8BaseMeshE14ComputeMinimalERS2_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %5, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
@@ -37425,7 +37425,7 @@ define linkonce_odr void @_ZN3vcg3tri15TriEdgeCollapseI8BaseMeshNS0_15BasicVerte
   %55 = load ptr, ptr %54, align 8
   %56 = load ptr, ptr %45, align 8
   %57 = load i32, ptr @_ZZN3vcg3tri15TriEdgeCollapseI8BaseMeshNS0_15BasicVertexPairI10BaseVertexEENS0_17ParamEdgeCollapseIS2_EEE10GlobalMarkEvE2im, align 4
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg3tri17ParamEdgeCollapseI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg3tri17ParamEdgeCollapseI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %52, align 8
   %58 = getelementptr inbounds i8, ptr %52, i64 32
   store i32 %57, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %52, i64 16
@@ -37588,7 +37588,7 @@ _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPN3vcg17LocalOptimizationI8BaseMes
   %125 = load ptr, ptr %124, align 8
   %126 = load ptr, ptr %115, align 8
   %127 = load i32, ptr @_ZZN3vcg3tri15TriEdgeCollapseI8BaseMeshNS0_15BasicVertexPairI10BaseVertexEENS0_17ParamEdgeCollapseIS2_EEE10GlobalMarkEvE2im, align 4
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg3tri17ParamEdgeCollapseI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %122, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg3tri17ParamEdgeCollapseI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %122, align 8
   %128 = getelementptr inbounds i8, ptr %122, i64 32
   store i32 %127, ptr %128, align 8
   %129 = getelementptr inbounds i8, ptr %122, i64 16
@@ -44638,17 +44638,17 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit45: ; preds = %24
           to label %31 unwind label %75
 
 31:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit45
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %7, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %8)
           to label %32 unwind label %77
 
 32:                                               ; preds = %31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %9)
           to label %33 unwind label %79
 
 33:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
   invoke void @_Z13getSharedFaceI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
@@ -50090,9 +50090,9 @@ _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE23IterateUntilConvergenceEfi.exit: ;
 
 ._crit_edge80:                                    ; preds = %.lr.ph79, %_ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE23IterateUntilConvergenceEfi.exit
   call void @_ZN3vcg3tri34AreaPreservingTexCoordOptimizationI8BaseMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(316) %5) #22
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %173 = getelementptr inbounds i8, ptr %4, i64 160
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %173, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %173, align 8
   %174 = getelementptr inbounds i8, ptr %4, i64 176
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr inbounds i8, ptr %4, i64 184
@@ -50114,7 +50114,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit.i.i:            ; preds = %178, %._crit_edge80
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfED2Ev.exit.i: ; preds = %179, %_ZNSt6vectorIfSaIfEE5clearEv.exit.i.i
   %180 = getelementptr inbounds i8, ptr %4, i64 112
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %180, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %180, align 8
   %181 = getelementptr inbounds i8, ptr %4, i64 128
   %182 = load ptr, ptr %181, align 8
   %183 = getelementptr inbounds i8, ptr %4, i64 136
@@ -50136,7 +50136,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i.i: ; preds = %185, %_ZN3vcg
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit.i: ; preds = %186, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i.i
   %187 = getelementptr inbounds i8, ptr %4, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, inrange i32 0, i64 2), ptr %187, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, i32 0, i64 2), ptr %187, align 8
   %188 = getelementptr inbounds i8, ptr %4, i64 80
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr inbounds i8, ptr %4, i64 88
@@ -50157,9 +50157,9 @@ _ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_E
   br label %_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED2Ev.exit.i
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED2Ev.exit.i: ; preds = %193, %_ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_EE5clearEv.exit.i.i
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %194 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %194, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %194, align 8
   %195 = getelementptr inbounds i8, ptr %4, i64 32
   %196 = load ptr, ptr %195, align 8
   %197 = getelementptr inbounds i8, ptr %4, i64 40
@@ -50620,12 +50620,12 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EED2Ev.exit:      ; preds = %_ZNSt6vectorIP10Bas
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEC2ERS2_(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull align 8 dereferenceable(628) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -50697,10 +50697,10 @@ common.resume:                                    ; preds = %29, %32, %.body
   resume { ptr, i32 } %common.resume.op
 
 _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshEC2ERS2_.exit: ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i, %26
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 64
   %34 = getelementptr inbounds i8, ptr %1, i64 72
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, i32 0, i64 2), ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 80
@@ -50765,7 +50765,7 @@ _ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_E
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEC2ERKS4_.exit: ; preds = %55, %_ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_EE7reserveEm.exit.i
   %61 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %61, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %5, ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 128
@@ -50824,7 +50824,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vecto
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEC2ERKS4_.exit: ; preds = %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE7reserveEm.exit.i
   %85 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %85, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %85, align 8
   %86 = getelementptr inbounds i8, ptr %0, i64 168
   store ptr %5, ptr %86, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 176
@@ -50893,7 +50893,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEC2ERKS4_.exit: ; preds =
   ret void
 
 .body24:                                          ; preds = %107, %110
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %61, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %61, align 8
   %111 = load ptr, ptr %63, align 8
   %112 = getelementptr inbounds i8, ptr %0, i64 136
   %113 = load ptr, ptr %112, align 8
@@ -50916,7 +50916,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i: ; preds = %114, %.body24
 
 .body15:                                          ; preds = %.body15.sink.split, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i, %82
   %.pn = phi { ptr, i32 } [ %83, %82 ], [ %108, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i ], [ %.pn.ph, %.body15.sink.split ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, i32 0, i64 2), ptr %33, align 8
   %115 = load ptr, ptr %36, align 8
   %116 = getelementptr inbounds i8, ptr %0, i64 88
   %117 = load ptr, ptr %116, align 8
@@ -50946,12 +50946,12 @@ _ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_E
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri34AreaPreservingTexCoordOptimizationI8BaseMeshEC2ERS2_(ptr noundef nonnull align 8 dereferenceable(316) %0, ptr noundef nonnull align 8 dereferenceable(628) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca float, align 4
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %6, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
@@ -51023,10 +51023,10 @@ common.resume:                                    ; preds = %30, %33, %.body
   resume { ptr, i32 } %common.resume.op
 
 _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshEC2ERS2_.exit: ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i, %27
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri34AreaPreservingTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri34AreaPreservingTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 64
   %35 = getelementptr inbounds i8, ptr %1, i64 72
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, inrange i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, i32 0, i64 2), ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %35, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 80
@@ -51091,7 +51091,7 @@ _ZNSt6vectorIN3vcg6Point4IfEESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vecto
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEC2ERKS4_.exit: ; preds = %_ZNSt6vectorIN3vcg6Point4IfEESaIS2_EE7reserveEm.exit.i
   %62 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %62, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %6, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 128
@@ -51157,7 +51157,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEC2ERKS4_.ex
   %88 = getelementptr inbounds i8, ptr %0, i64 184
   %89 = getelementptr inbounds i8, ptr %0, i64 208
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %87, i8 0, i64 48, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %89, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %0, i64 216
   store ptr %6, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %0, i64 224
@@ -51234,7 +51234,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEC2ERKS4_.ex
 118:                                              ; preds = %_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEC2ERKS4_.exit33
   %119 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %89, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %89, align 8
   %120 = load ptr, ptr %91, align 8
   %121 = getelementptr inbounds i8, ptr %0, i64 232
   %122 = load ptr, ptr %121, align 8
@@ -51273,7 +51273,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %.body31, %126
   br label %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit38
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit38: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %128
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %62, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %62, align 8
   %129 = load ptr, ptr %64, align 8
   %130 = getelementptr inbounds i8, ptr %0, i64 136
   %131 = load ptr, ptr %130, align 8
@@ -51294,7 +51294,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i40: ; preds = %132, %_ZNSt6v
 
 .body19:                                          ; preds = %133, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i40, %86, %83
   %.pn.pn = phi { ptr, i32 } [ %84, %86 ], [ %84, %83 ], [ %.pn, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i40 ], [ %.pn, %133 ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, inrange i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, i32 0, i64 2), ptr %34, align 8
   %134 = load ptr, ptr %37, align 8
   %135 = getelementptr inbounds i8, ptr %0, i64 88
   %136 = load ptr, ptr %135, align 8
@@ -51519,9 +51519,9 @@ define linkonce_odr void @_ZN3vcg3tri34AreaPreservingTexCoordOptimizationI8BaseM
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri34AreaPreservingTexCoordOptimizationI8BaseMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(316) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri34AreaPreservingTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri34AreaPreservingTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 256
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 272
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 280
@@ -51543,7 +51543,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit.i:              ; preds = %7, %1
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfED2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit.i, %8
   %9 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 224
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 232
@@ -51585,7 +51585,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit:   ; preds = %_ZN3vcg14SimpleTemp
 
 _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit5:  ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EED2Ev.exit, %21
   %22 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 128
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %0, i64 136
@@ -51607,7 +51607,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i7: ; preds = %27, %_ZNSt6vec
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit9: ; preds = %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i7, %28
   %29 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, inrange i32 0, i64 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, i32 0, i64 2), ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 88
@@ -51628,9 +51628,9 @@ _ZNSt6vectorIN3vcg6Point4IfEESaIS2_EE5clearEv.exit.i: ; preds = %34, %_ZN3vcg14S
   br label %_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEED2Ev.exit
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEED2Ev.exit: ; preds = %_ZNSt6vectorIN3vcg6Point4IfEESaIS2_EE5clearEv.exit.i, %35
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %36, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds i8, ptr %0, i64 40
@@ -51656,9 +51656,9 @@ _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshED2Ev.exit: ; preds = %_ZNSt6vectorIi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 184
@@ -51680,7 +51680,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit.i:              ; preds = %7, %1
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfED2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit.i, %8
   %9 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 128
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 136
@@ -51702,7 +51702,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i: ; preds = %14, %_ZN3vcg14S
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit: ; preds = %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i, %15
   %16 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, inrange i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, i32 0, i64 2), ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 80
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 88
@@ -51723,9 +51723,9 @@ _ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_E
   br label %_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED2Ev.exit
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED2Ev.exit: ; preds = %_ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_EE5clearEv.exit.i, %22
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 40
@@ -52061,7 +52061,7 @@ _ZN3vcg4face3PosI8BaseFaceE5NextEEv.exit:         ; preds = %_ZNSt6vectorIP10Bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -52087,7 +52087,7 @@ _ZN3vcg9VectorNBWINS_6Point2IfEEJEED2Ev.exit:     ; preds = %_ZNSt6vectorIN3vcg6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -52113,9 +52113,9 @@ _ZN3vcg9VectorNBWINS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEJEED
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri20TexCoordOptimizationI8BaseMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -52700,7 +52700,7 @@ define linkonce_odr noundef i32 @_ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE8Ge
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -52726,7 +52726,7 @@ _ZN3vcg9VectorNBWIiJEED2Ev.exit:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -52888,7 +52888,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -53157,7 +53157,7 @@ _ZNSt12_Vector_baseIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -53291,7 +53291,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -53317,7 +53317,7 @@ _ZN3vcg9VectorNBWIfJEED2Ev.exit:                  ; preds = %_ZNSt6vectorIfSaIfE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -53479,7 +53479,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EE
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEC2ERKS4_RKf(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -53570,7 +53570,7 @@ _ZN3vcg9VectorNBWIfJEED2Ev.exit:                  ; preds = %30, %33
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -54072,7 +54072,7 @@ _ZNSt6vectorIN3vcg6Point4IfEESaIS2_EE17_M_default_appendEm.exit: ; preds = %40, 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point4IfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -55040,12 +55040,12 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %4
           to label %28 unwind label %.thread288
 
 28:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %9, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %10)
           to label %29 unwind label %.thread293
 
 29:                                               ; preds = %28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   invoke void @_Z13getSharedFaceI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) %8)
@@ -55830,9 +55830,9 @@ _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE16SetBorderAsFixedEv.exit125: ; pred
   br i1 %or.cond299, label %_ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE23IterateUntilConvergenceEfi.exit151, label %430, !llvm.loop !616
 
 _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE23IterateUntilConvergenceEfi.exit151: ; preds = %.noexc150
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %14, align 8
   %437 = getelementptr inbounds i8, ptr %14, i64 160
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %437, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %437, align 8
   %438 = getelementptr inbounds i8, ptr %14, i64 176
   %439 = load ptr, ptr %438, align 8
   %440 = getelementptr inbounds i8, ptr %14, i64 184
@@ -55854,7 +55854,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit.i.i:            ; preds = %442, %_ZN3vcg3tri20
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfED2Ev.exit.i: ; preds = %443, %_ZNSt6vectorIfSaIfEE5clearEv.exit.i.i
   %444 = getelementptr inbounds i8, ptr %14, i64 112
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %444, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %444, align 8
   %445 = getelementptr inbounds i8, ptr %14, i64 128
   %446 = load ptr, ptr %445, align 8
   %447 = getelementptr inbounds i8, ptr %14, i64 136
@@ -55876,7 +55876,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i.i: ; preds = %449, %_ZN3vcg
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit.i: ; preds = %450, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i.i
   %451 = getelementptr inbounds i8, ptr %14, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, inrange i32 0, i64 2), ptr %451, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, i32 0, i64 2), ptr %451, align 8
   %452 = getelementptr inbounds i8, ptr %14, i64 80
   %453 = load ptr, ptr %452, align 8
   %454 = getelementptr inbounds i8, ptr %14, i64 88
@@ -55897,9 +55897,9 @@ _ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_E
   br label %_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED2Ev.exit.i
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED2Ev.exit.i: ; preds = %457, %_ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_EE5clearEv.exit.i.i
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %14, align 8
   %458 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %458, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %458, align 8
   %459 = getelementptr inbounds i8, ptr %14, i64 32
   %460 = load ptr, ptr %459, align 8
   %461 = getelementptr inbounds i8, ptr %14, i64 40
@@ -59304,7 +59304,7 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8
 define linkonce_odr void @_ZN3vcg3tri22MIPSTexCoordFoldHealerI8BaseMeshEC2ERS2_(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull align 8 dereferenceable(628) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca float, align 4
   tail call void @_ZN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshEC2ERS2_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(628) %1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri22MIPSTexCoordFoldHealerI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri22MIPSTexCoordFoldHealerI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 176
   %5 = getelementptr inbounds i8, ptr %1, i64 72
   invoke void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
@@ -59318,7 +59318,7 @@ define linkonce_odr void @_ZN3vcg3tri22MIPSTexCoordFoldHealerI8BaseMeshEC2ERS2_(
 
 9:                                                ; preds = %6
   %10 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 280
   store ptr %8, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 288
@@ -59409,7 +59409,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEC2ERKS4_.ex
 46:                                               ; preds = %_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEC2ERKS4_.exit
   %47 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %10, align 8
   %48 = load ptr, ptr %12, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 296
   %50 = load ptr, ptr %49, align 8
@@ -59430,7 +59430,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i: ; preds = %51, %46
 
 .body:                                            ; preds = %52, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i, %36, %33
   %.pn = phi { ptr, i32 } [ %34, %36 ], [ %34, %33 ], [ %47, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i ], [ %47, %52 ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %7, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 240
   %54 = getelementptr inbounds i8, ptr %0, i64 248
   store i64 0, ptr %54, align 8
@@ -59444,7 +59444,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i: ; preds = %51, %46
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbED2Ev.exit: ; preds = %56, %.body, %44
   %.pn.pn = phi { ptr, i32 } [ %45, %44 ], [ %.pn, %.body ], [ %.pn, %56 ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 192
   %58 = getelementptr inbounds i8, ptr %0, i64 200
   store i64 0, ptr %58, align 8
@@ -59981,9 +59981,9 @@ _ZN3vcg3tri22MIPSTexCoordFoldHealerI8BaseMeshE14PropagateFoldFEv.exit30._crit_ed
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri22MIPSTexCoordFoldHealerI8BaseMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri22MIPSTexCoordFoldHealerI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri22MIPSTexCoordFoldHealerI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 320
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 336
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 344
@@ -60005,7 +60005,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit.i:              ; preds = %7, %1
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfED2Ev.exit: ; preds = %_ZNSt6vectorIfSaIfEE5clearEv.exit.i, %8
   %9 = getelementptr inbounds i8, ptr %0, i64 272
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 288
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 296
@@ -60027,7 +60027,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i: ; preds = %14, %_ZN3vcg14S
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit: ; preds = %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i, %15
   %16 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 240
   %18 = getelementptr inbounds i8, ptr %0, i64 248
   store i64 0, ptr %18, align 8
@@ -60041,7 +60041,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit: 
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbED2Ev.exit: ; preds = %_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit, %20
   %21 = getelementptr inbounds i8, ptr %0, i64 176
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 192
   %23 = getelementptr inbounds i8, ptr %0, i64 200
   store i64 0, ptr %23, align 8
@@ -60054,9 +60054,9 @@ _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbED2Ev.exit: ; preds = %_Z
   br label %_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbED2Ev.exit
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbED2Ev.exit: ; preds = %_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbED2Ev.exit, %25
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 128
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 136
@@ -60078,7 +60078,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i.i: ; preds = %31, %_ZN3vcg1
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit.i: ; preds = %32, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i.i
   %33 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, i32 0, i64 2), ptr %33, align 8
   %34 = getelementptr inbounds i8, ptr %0, i64 80
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 88
@@ -60099,9 +60099,9 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit.i.i: ; preds = %38, %_ZN3vcg1
   br label %_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEED2Ev.exit.i
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEED2Ev.exit.i: ; preds = %39, %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit.i.i
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %40 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %40, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %40, align 8
   %41 = getelementptr inbounds i8, ptr %0, i64 32
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %0, i64 40
@@ -60127,12 +60127,12 @@ _ZN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshED2Ev.exit: ; preds = %_ZNSt6vect
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshEC2ERS2_(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(628) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
@@ -60204,10 +60204,10 @@ common.resume:                                    ; preds = %29, %32, %.body
   resume { ptr, i32 } %common.resume.op
 
 _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshEC2ERS2_.exit: ; preds = %_ZNSt6vectorIiSaIiEE7reserveEm.exit.i.i, %26
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %33 = getelementptr inbounds i8, ptr %0, i64 64
   %34 = getelementptr inbounds i8, ptr %1, i64 72
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, i32 0, i64 2), ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 72
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds i8, ptr %0, i64 80
@@ -60268,7 +60268,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vecto
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEC2ERKS4_.exit: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE7reserveEm.exit.i
   %60 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %60, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %5, ptr %61, align 8
   %62 = getelementptr inbounds i8, ptr %0, i64 128
@@ -60335,7 +60335,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEC2ERKS4_.ex
   ret void
 
 .body13:                                          ; preds = %81, %84
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, i32 0, i64 2), ptr %33, align 8
   %86 = load ptr, ptr %36, align 8
   %87 = getelementptr inbounds i8, ptr %0, i64 88
   %88 = load ptr, ptr %87, align 8
@@ -60364,7 +60364,7 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit.i: ; preds = %89, %.body13
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -60463,7 +60463,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %37, %39
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
@@ -60562,7 +60562,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %37, %39
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -60580,7 +60580,7 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -60598,9 +60598,9 @@ _ZN3vcg9VectorNBWIbJEED2Ev.exit:                  ; preds = %1, %5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri24MIPSTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 112
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 136
@@ -60622,7 +60622,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i: ; preds = %7, %1
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit: ; preds = %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i, %8
   %9 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 88
@@ -60643,9 +60643,9 @@ _ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit.i: ; preds = %14, %_ZN3vcg14S
   br label %_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEED2Ev.exit
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEED2Ev.exit: ; preds = %_ZNSt6vectorIN3vcg6Point3IfEESaIS2_EE5clearEv.exit.i, %15
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 40
@@ -61178,7 +61178,7 @@ define linkonce_odr noundef float @_ZN3vcg3tri24MIPSTexCoordOptimizationI8BaseMe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -61515,7 +61515,7 @@ define linkonce_odr noundef float @_ZN3vcg3tri24MIPSTexCoordOptimizationI8BaseMe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_6Point3IfEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -61647,7 +61647,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -61834,7 +61834,7 @@ declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEbEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %3, align 8
@@ -65245,12 +65245,12 @@ define linkonce_odr noundef zeroext i1 @_ZN17IsoParametrizator17TestInterpolatio
   %3 = alloca %class.AbstractMesh, align 8
   %4 = alloca %class.IsoParametrization, align 8
   call void @_ZN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_I9ParamFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %2)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, i32 0, i64 2), ptr %2, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %3)
           to label %5 unwind label %16
 
 5:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, i32 0, i64 2), ptr %3, align 8
   invoke void @_ZN17IsoParametrizator12ExportMeshesER9ParamMeshR12AbstractMesh(ptr noundef nonnull align 8 dereferenceable(1360) %0, ptr noundef nonnull align 8 dereferenceable(628) %2, ptr noundef nonnull align 8 dereferenceable(628) %3)
           to label %6 unwind label %18
 
@@ -66571,7 +66571,7 @@ define linkonce_odr void @_ZN3vcg3tri14PlanarEdgeFlipI8BaseMeshNS0_13ParamEdgeFl
   %24 = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #36
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %25, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg3tri13ParamEdgeFlipI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg3tri13ParamEdgeFlipI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %24, i64 36
   store i32 %2, ptr %26, align 4
   %27 = invoke noundef float @_ZN3vcg3tri13ParamEdgeFlipI8BaseMeshE8EdgeDiffEv(ptr noundef nonnull align 8 dereferenceable(45) %24)
@@ -67394,12 +67394,12 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit24: ; preds = %24
           to label %31 unwind label %73
 
 31:                                               ; preds = %_ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %5)
           to label %32 unwind label %76
 
 32:                                               ; preds = %31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %5, align 8
   invoke void @_Z17CopySubMeshLevelsI8BaseMeshEvRSt6vectorIPNT_8FaceTypeESaIS4_EERS2_S8_(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(628) %4, ptr noundef nonnull align 8 dereferenceable(628) %5)
           to label %33 unwind label %78
 
@@ -70485,7 +70485,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg3tri14Updat
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEC2ERKS4_RKi(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -72448,7 +72448,7 @@ _ZN3vcg4face3PosI12AbstractFaceE5NextEEv.exit.i.i: ; preds = %126, %_ZNK3vcg4fac
 ._crit_edge97:                                    ; preds = %.loopexit, %._crit_edge89.._crit_edge97_crit_edge
   %162 = phi ptr [ %.pre111, %._crit_edge89.._crit_edge97_crit_edge ], [ %101, %.loopexit ]
   %.0.lcssa = phi i32 [ 0, %._crit_edge89.._crit_edge97_crit_edge ], [ %.3, %.loopexit ]
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %163 = getelementptr inbounds i8, ptr %4, i64 24
   %164 = load ptr, ptr %163, align 8
   %.not.i.i.i41 = icmp eq ptr %164, %162
@@ -73562,7 +73562,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN3vcg3tri14Updat
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiEC2ERKS4_RKi(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 4 dereferenceable(4) %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -73653,7 +73653,7 @@ _ZN3vcg9VectorNBWIiJEED2Ev.exit:                  ; preds = %30, %33
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -73679,7 +73679,7 @@ _ZN3vcg9VectorNBWIiJEED2Ev.exit:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI14AbstractVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -84523,12 +84523,12 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %1
           to label %13 unwind label %.thread
 
 13:                                               ; preds = %_ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %5, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %6)
           to label %14 unwind label %.thread81
 
 14:                                               ; preds = %13
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   invoke void @_Z13getSharedFaceI8BaseMeshEvRSt6vectorIPNT_10VertexTypeESaIS4_EERS1_IPNS2_8FaceTypeESaIS9_EE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -86058,7 +86058,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_ED2Ev(ptr noundef nonnull align 8 dereferenceable(628) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(628) %0)
           to label %2 unwind label %62
 
@@ -86441,7 +86441,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_I9ParamFaceSaIS6_EENS0_14DummyContainerES9_S9_ED2Ev(ptr noundef nonnull align 8 dereferenceable(628) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_I9ParamFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_I9ParamFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_I9ParamFaceSaIS6_EENS0_14DummyContainerES9_S9_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(628) %0)
           to label %2 unwind label %62
 
@@ -86931,7 +86931,7 @@ define linkonce_odr void @_ZN19BaryOptimizatorDualI8BaseMeshE8OptimizeEfi(ptr no
   store ptr %24, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 32
   %28 = getelementptr inbounds i8, ptr %23, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %28, ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %6, i64 48
@@ -87215,7 +87215,7 @@ _ZN19BaryOptimizatorDualI8BaseMeshE15PrintAttributesEv.exit: ; preds = %.noexc19
   br label %_ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EED2Ev.exit.i
 
 _ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EED2Ev.exit.i: ; preds = %148, %146
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %27, align 8
   %149 = load ptr, ptr %30, align 8
   %150 = getelementptr inbounds i8, ptr %6, i64 56
   %151 = load ptr, ptr %150, align 8
@@ -87454,7 +87454,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %21
           to label %28 unwind label %52
 
 28:                                               ; preds = %27
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %26, align 8
   %29 = sext i32 %.01323 to i64
   %30 = load ptr, ptr %13, align 8
   %31 = getelementptr inbounds %"struct.BaryOptimizatorDual<BaseMesh>::param_domain", ptr %30, i64 %29
@@ -87648,7 +87648,7 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit37: ; preds = %37
           to label %46 unwind label %362
 
 46:                                               ; preds = %45
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %44, align 8
   %47 = sext i32 %.178 to i64
   %48 = load ptr, ptr %16, align 8
   %49 = getelementptr inbounds %"struct.BaryOptimizatorDual<BaseMesh>::param_domain", ptr %48, i64 %47
@@ -88519,7 +88519,7 @@ _ZNSt6vectorIP8BaseFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %21
           to label %26 unwind label %81
 
 26:                                               ; preds = %25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %24, align 8
   %27 = sext i32 %.01530 to i64
   %28 = load ptr, ptr %13, align 8
   %29 = getelementptr inbounds %"struct.BaryOptimizatorDual<BaseMesh>::param_domain", ptr %28, i64 %27
@@ -89438,7 +89438,7 @@ _ZNSt6vectorIS_IP10BaseVertexSaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %46, %48,
           to label %68 unwind label %80
 
 68:                                               ; preds = %.lr.ph
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %67, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %67, align 8
   %69 = load ptr, ptr %5, align 8
   %70 = getelementptr inbounds ptr, ptr %69, i64 %66
   store ptr %67, ptr %70, align 8
@@ -90340,8 +90340,8 @@ _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE16SetBorderAsFixedEv.exit115: ; pred
   br i1 %or.cond202, label %_ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE23IterateUntilConvergenceEfi.exit120, label %_ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE16SetBorderAsFixedEv.exit115, !llvm.loop !616
 
 _ZN3vcg3tri20TexCoordOptimizationI8BaseMeshE23IterateUntilConvergenceEfi.exit120: ; preds = %.noexc119
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, inrange i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfEE, i64 0, i32 0, i64 2), ptr %15, align 8
   %247 = load ptr, ptr %16, align 8
   %248 = load ptr, ptr %17, align 8
   %.not.i.i.i.i = icmp eq ptr %248, %247
@@ -90360,7 +90360,7 @@ _ZNSt6vectorIfSaIfEE5clearEv.exit.i.i:            ; preds = %249, %_ZN3vcg3tri20
   br label %_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfED2Ev.exit.i
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEfED2Ev.exit.i: ; preds = %250, %_ZNSt6vectorIfSaIfEE5clearEv.exit.i.i
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEEE, i64 0, i32 0, i64 2), ptr %18, align 8
   %251 = load ptr, ptr %19, align 8
   %252 = load ptr, ptr %20, align 8
   %.not.i.i.i1.i = icmp eq ptr %252, %251
@@ -90379,7 +90379,7 @@ _ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i.i: ; preds = %253, %_ZN3vcg
   br label %_ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit.i
 
 _ZN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EENS_6Point2IfEEED2Ev.exit.i: ; preds = %254, %_ZNSt6vectorIN3vcg6Point2IfEESaIS2_EE5clearEv.exit.i.i
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, inrange i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEEE, i64 0, i32 0, i64 2), ptr %21, align 8
   %255 = load ptr, ptr %22, align 8
   %256 = load ptr, ptr %23, align 8
   %.not.i.i.i3.i = icmp eq ptr %256, %255
@@ -90398,8 +90398,8 @@ _ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_E
   br label %_ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED2Ev.exit.i
 
 _ZN3vcg14SimpleTempDataISt6vectorI8BaseFaceSaIS2_EENS_3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsEED2Ev.exit.i: ; preds = %258, %_ZNSt6vectorIN3vcg3tri29MeanValueTexCoordOptimizationI8BaseMeshE7FactorsESaIS5_EE5clearEv.exit.i.i
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3vcg3tri20TexCoordOptimizationI8BaseMeshEE, i64 0, i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %24, align 8
   %259 = load ptr, ptr %13, align 8
   %260 = load ptr, ptr %25, align 8
   %.not.i.i.i.i.i = icmp eq ptr %260, %259
@@ -91434,7 +91434,7 @@ _ZNSt6vectorIS_IP10BaseVertexSaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %45, %47,
           to label %66 unwind label %78
 
 66:                                               ; preds = %.lr.ph
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %65, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %65, align 8
   %67 = load ptr, ptr %4, align 8
   %68 = getelementptr inbounds ptr, ptr %67, i64 %64
   store ptr %65, ptr %68, align 8
@@ -92218,7 +92218,7 @@ _ZNSt6vectorIS_IP10BaseVertexSaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %45, %47,
           to label %65 unwind label %77
 
 65:                                               ; preds = %.lr.ph
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %64, align 8
   %66 = load ptr, ptr %4, align 8
   %67 = getelementptr inbounds ptr, ptr %66, i64 %63
   store ptr %64, ptr %67, align 8
@@ -92433,7 +92433,7 @@ define linkonce_odr void @_ZN16PatchesOptimizerI8BaseMeshED2Ev(ptr noundef nonnu
 
 _ZNSt6vectorIN16PatchesOptimizerI8BaseMeshE4ElemESaIS3_EED2Ev.exit: ; preds = %1, %4
   %5 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI10BaseVertexSaIS2_EEiEE, i64 0, i32 0, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 48
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 56
@@ -94460,7 +94460,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %2
           to label %19 unwind label %61
 
 19:                                               ; preds = %18
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %6, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   invoke void @_Z13getHresVertexI8BaseFaceEvRSt6vectorIPT_SaIS3_EERS1_IPNS2_10VertexTypeESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %20 unwind label %63
@@ -94520,7 +94520,7 @@ _ZNSt6vectorIP10BaseVertexSaIS1_EE9push_backERKS1_.exit: ; preds = %2
   br label %.body
 
 37:                                               ; preds = %30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %32, align 8
   %38 = getelementptr inbounds i8, ptr %9, i64 32
   store ptr %6, ptr %38, align 8
   %39 = load ptr, ptr %7, align 8
@@ -95005,7 +95005,7 @@ define linkonce_odr void @_Z26ParametrizeStarEquilateralI8BaseMeshEvPNT_10Vertex
   %7 = alloca %"class.std::vector.979", align 8
   %8 = alloca float, align 4
   call void @_ZN3vcg3tri7TriMeshISt6vectorI10BaseVertexSaIS3_EES2_I8BaseFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8BaseMesh, i64 0, i32 0, i64 2), ptr %3, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -95993,7 +95993,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN11MLExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = load atomic i32, ptr %3 monotonic, align 4
@@ -96059,7 +96059,7 @@ declare void @_ZN7QString18toLocal8Bit_helperEPK5QChari(ptr dead_on_unwind writa
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI14AbstractVertexSaIS3_EES2_I12AbstractFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -96215,7 +96215,7 @@ define linkonce_odr void @_ZN12AbstractMeshD0Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_I9ParamFaceSaIS6_EENS0_14DummyContainerES9_S9_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_I9ParamFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorI11ParamVertexSaIS3_EES2_I9ParamFaceSaIS6_EENS0_14DummyContainerES9_S9_EE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 40
@@ -106627,7 +106627,7 @@ _ZNSt6vectorIP12AbstractFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %25
           to label %30 unwind label %198
 
 30:                                               ; preds = %29
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, inrange i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, i32 0, i64 2), ptr %28, align 8
   %31 = sext i32 %.07999 to i64
   %32 = load ptr, ptr %14, align 8
   %33 = getelementptr inbounds %"struct.IsoParametrization::param_domain", ptr %32, i64 %31
@@ -106641,7 +106641,7 @@ _ZNSt6vectorIP12AbstractFaceSaIS1_EE9push_backERKS1_.exit: ; preds = %25
           to label %36 unwind label %200
 
 36:                                               ; preds = %35
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, inrange i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, i32 0, i64 2), ptr %34, align 8
   %37 = load ptr, ptr %14, align 8
   %38 = getelementptr inbounds %"struct.IsoParametrization::param_domain", ptr %37, i64 %31, i32 2
   store ptr %34, ptr %38, align 8
@@ -107275,7 +107275,7 @@ _ZNSt6vectorIP12AbstractFaceSaIS1_EE9push_backERKS1_.exit60: ; preds = %102
           to label %111 unwind label %575
 
 111:                                              ; preds = %110
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, inrange i32 0, i64 2), ptr %109, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, i32 0, i64 2), ptr %109, align 8
   %112 = sext i32 %.1259 to i64
   %113 = load ptr, ptr %27, align 8
   %114 = getelementptr inbounds %"struct.IsoParametrization::param_domain", ptr %113, i64 %112
@@ -107289,7 +107289,7 @@ _ZNSt6vectorIP12AbstractFaceSaIS1_EE9push_backERKS1_.exit60: ; preds = %102
           to label %117 unwind label %577
 
 117:                                              ; preds = %116
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, inrange i32 0, i64 2), ptr %115, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, i32 0, i64 2), ptr %115, align 8
   %118 = load ptr, ptr %27, align 8
   %119 = getelementptr inbounds %"struct.IsoParametrization::param_domain", ptr %118, i64 %112, i32 2
   store ptr %115, ptr %119, align 8
@@ -108549,7 +108549,7 @@ _ZNSt6vectorIP14AbstractVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %26
           to label %33 unwind label %171
 
 33:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12AbstractMesh, i64 0, i32 0, i64 2), ptr %31, align 8
   %34 = sext i32 %.0141 to i64
   %35 = load ptr, ptr %15, align 8
   %36 = getelementptr inbounds %"struct.IsoParametrization::param_domain", ptr %35, i64 %34
@@ -108563,7 +108563,7 @@ _ZNSt6vectorIP14AbstractVertexSaIS1_EE9push_backEOS1_.exit: ; preds = %26
           to label %39 unwind label %173
 
 39:                                               ; preds = %38
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, inrange i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9ParamMesh, i64 0, i32 0, i64 2), ptr %37, align 8
   %40 = load ptr, ptr %15, align 8
   %41 = getelementptr inbounds %"struct.IsoParametrization::param_domain", ptr %40, i64 %34, i32 2
   store ptr %37, ptr %41, align 8
@@ -115924,7 +115924,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3vcg3tri9AllocatorI6CMeshOE25FixPaddedPerMeshAttributeI18IsoParametrizationEEvRS2_RNS_18PointerToAttributeE(ptr noundef nonnull align 8 dereferenceable(1196) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #36
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeI18IsoParametrizationEE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeI18IsoParametrizationEE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = invoke noalias noundef nonnull dereferenceable(168) ptr @_Znwm(i64 noundef 168) #36
           to label %5 unwind label %43
 
@@ -116128,7 +116128,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg9AttributeI18IsoParametrizationED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeI18IsoParametrizationEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeI18IsoParametrizationEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -116145,7 +116145,7 @@ define linkonce_odr void @_ZN3vcg9AttributeI18IsoParametrizationED2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg9AttributeI18IsoParametrizationED0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeI18IsoParametrizationEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg9AttributeI18IsoParametrizationEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -127229,7 +127229,7 @@ _ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; pred
 
 18:                                               ; preds = %_ZNSt3setIN3vcg18PointerToAttributeESt4lessIS1_ESaIS1_EE4findERKS1_.exit
   %19 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI9ParamFaceSaIS2_EENS_3tri15RefinedFaceDataIP11ParamVertexEEEE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI9ParamFaceSaIS2_EENS_3tri15RefinedFaceDataIP11ParamVertexEEEE, i64 0, i32 0, i64 2), ptr %17, align 8
   %20 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %19, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %17, i64 16
@@ -127545,7 +127545,7 @@ _ZNKSt4lessISt4pairIiiEEclERKS1_S4_.exit.thread6.i.i: ; preds = %_ZNKSt4lessISt4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI9ParamFaceSaIS2_EENS_3tri15RefinedFaceDataIP11ParamVertexEEED2Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI9ParamFaceSaIS2_EENS_3tri15RefinedFaceDataIP11ParamVertexEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI9ParamFaceSaIS2_EENS_3tri15RefinedFaceDataIP11ParamVertexEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -127571,7 +127571,7 @@ _ZN3vcg9VectorNBWINS_3tri15RefinedFaceDataIP11ParamVertexEEJEED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI9ParamFaceSaIS2_EENS_3tri15RefinedFaceDataIP11ParamVertexEEED0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI9ParamFaceSaIS2_EENS_3tri15RefinedFaceDataIP11ParamVertexEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN3vcg14SimpleTempDataISt6vectorI9ParamFaceSaIS2_EENS_3tri15RefinedFaceDataIP11ParamVertexEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24

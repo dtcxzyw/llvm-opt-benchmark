@@ -771,7 +771,7 @@ entry:
   store i32 %method, ptr %method.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl13cord_internal11CordzHandleC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %list_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 1
   store ptr @_ZN4absl13cord_internal9CordzInfo12global_list_E, ptr %list_, align 8
   %ci_prev_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 2
@@ -1108,7 +1108,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal9CordzInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rep_ = getelementptr inbounds %"class.absl::cord_internal::CordzInfo", ptr %this1, i32 0, i32 5
   %0 = load ptr, ptr %rep_, align 8
   %tobool = icmp ne ptr %0, null

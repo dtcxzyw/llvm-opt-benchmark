@@ -2448,7 +2448,7 @@ define dso_local void @_ZN5sound18OpenALSoundManager18createPlayingSoundERKNSt7_
   store i32 1, ptr %222, align 8, !tbaa !75, !noalias !120
   %223 = getelementptr inbounds i8, ptr %219, i64 12
   store i32 1, ptr %223, align 4, !tbaa !77, !noalias !120
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound12PlayingSoundESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %219, align 8, !tbaa !63, !noalias !120
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound12PlayingSoundESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %219, align 8, !tbaa !63, !noalias !120
   %224 = getelementptr inbounds i8, ptr %219, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9), !noalias !120
   %225 = load i32, ptr %12, align 4, !tbaa !61, !noalias !120
@@ -3652,7 +3652,7 @@ define dso_local void @_ZN5sound18OpenALSoundManagerC2EPNS_21SoundManagerSinglet
 
 20:                                               ; preds = %19, %16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound18OpenALSoundManagerE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !63
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound18OpenALSoundManagerE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !63
   %21 = getelementptr inbounds i8, ptr %0, i64 144
   %22 = load i64, ptr %2, align 8, !tbaa !57
   store i64 %22, ptr %21, align 8, !tbaa !57
@@ -5109,7 +5109,7 @@ define dso_local void @_ZN5sound18OpenALSoundManager20loadSoundFileNoCheckERKNSt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !185)
   %7 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !185
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound19SoundDataUnopenFileE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !63, !noalias !185
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound19SoundDataUnopenFileE, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !63, !noalias !185
   %8 = getelementptr inbounds i8, ptr %7, i64 8
   %9 = getelementptr inbounds i8, ptr %7, i64 24
   store ptr %9, ptr %8, align 8, !tbaa !85, !noalias !185
@@ -5237,7 +5237,7 @@ define dso_local void @_ZN5sound18OpenALSoundManager20loadSoundDataNoCheckERKNSt
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   tail call void @llvm.experimental.noalias.scope.decl(metadata !188)
   %6 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #28, !noalias !188
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound21SoundDataUnopenBufferE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !63, !noalias !188
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5sound21SoundDataUnopenBufferE, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !63, !noalias !188
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   %8 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %8, ptr %7, align 8, !tbaa !85, !noalias !188
@@ -5820,7 +5820,7 @@ define dso_local noundef ptr @_ZN5sound18OpenALSoundManager3runEv(ptr noundef no
 
 106:                                              ; preds = %101
   %107 = call ptr @__cxa_allocate_exception(i64 16) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %107, align 8, !tbaa !63
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %107, align 8, !tbaa !63
   %108 = getelementptr inbounds i8, ptr %107, i64 8
   store ptr @.str.37, ptr %108, align 8, !tbaa !221
   invoke void @__cxa_throw(ptr nonnull %107, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #29

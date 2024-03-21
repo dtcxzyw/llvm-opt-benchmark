@@ -5231,7 +5231,7 @@ $_ZTIN3nix14IsThunkMatcher10gmock_ImplIRKNS_5ValueEEE = comdat any
 @.str.108 = private unnamed_addr constant [92 x i8] c"Expected: eval(\22let or = 1; in or\22) throws an exception of type Error.\0A  Actual: it throws \00", align 1
 @.str.109 = private unnamed_addr constant [100 x i8] c"Expected: eval(\22let or = 1; in or\22) throws an exception of type Error.\0A  Actual: it throws nothing.\00", align 1
 @_ZTVN3nix31TrivialExpressionTest_true_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix31TrivialExpressionTest_true_TestE, ptr @_ZN3nix31TrivialExpressionTest_true_TestD1Ev, ptr @_ZN3nix31TrivialExpressionTest_true_TestD0Ev, ptr @_ZN3nix31TrivialExpressionTest_true_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix31TrivialExpressionTest_true_TestE, ptr @_ZTv0_n24_N3nix31TrivialExpressionTest_true_TestD1Ev, ptr @_ZTv0_n24_N3nix31TrivialExpressionTest_true_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix31TrivialExpressionTest_true_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix31TrivialExpressionTest_true_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_true_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_true_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix31TrivialExpressionTest_true_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_true_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_true_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix31TrivialExpressionTest_true_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix21TrivialExpressionTestE = linkonce_odr constant [30 x i8] c"N3nix21TrivialExpressionTestE\00", comdat, align 1
 @_ZTSN3nix11LibExprTestE = linkonce_odr constant [20 x i8] c"N3nix11LibExprTestE\00", comdat, align 1
@@ -5246,175 +5246,175 @@ $_ZTIN3nix14IsThunkMatcher10gmock_ImplIRKNS_5ValueEEE = comdat any
 @_ZTSN3nix31TrivialExpressionTest_true_TestE = constant [40 x i8] c"N3nix31TrivialExpressionTest_true_TestE\00", align 1
 @_ZTIN3nix31TrivialExpressionTest_true_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix31TrivialExpressionTest_true_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix32TrivialExpressionTest_false_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix32TrivialExpressionTest_false_TestE, ptr @_ZN3nix32TrivialExpressionTest_false_TestD1Ev, ptr @_ZN3nix32TrivialExpressionTest_false_TestD0Ev, ptr @_ZN3nix32TrivialExpressionTest_false_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix32TrivialExpressionTest_false_TestE, ptr @_ZTv0_n24_N3nix32TrivialExpressionTest_false_TestD1Ev, ptr @_ZTv0_n24_N3nix32TrivialExpressionTest_false_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix32TrivialExpressionTest_false_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix32TrivialExpressionTest_false_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_false_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_false_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix32TrivialExpressionTest_false_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_false_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_false_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix32TrivialExpressionTest_false_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix32TrivialExpressionTest_false_TestE = constant [41 x i8] c"N3nix32TrivialExpressionTest_false_TestE\00", align 1
 @_ZTIN3nix32TrivialExpressionTest_false_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix32TrivialExpressionTest_false_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix31TrivialExpressionTest_null_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix31TrivialExpressionTest_null_TestE, ptr @_ZN3nix31TrivialExpressionTest_null_TestD1Ev, ptr @_ZN3nix31TrivialExpressionTest_null_TestD0Ev, ptr @_ZN3nix31TrivialExpressionTest_null_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix31TrivialExpressionTest_null_TestE, ptr @_ZTv0_n24_N3nix31TrivialExpressionTest_null_TestD1Ev, ptr @_ZTv0_n24_N3nix31TrivialExpressionTest_null_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix31TrivialExpressionTest_null_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix31TrivialExpressionTest_null_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_null_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_null_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix31TrivialExpressionTest_null_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_null_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_null_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix31TrivialExpressionTest_null_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix31TrivialExpressionTest_null_TestE = constant [40 x i8] c"N3nix31TrivialExpressionTest_null_TestE\00", align 1
 @_ZTIN3nix31TrivialExpressionTest_null_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix31TrivialExpressionTest_null_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix28TrivialExpressionTest_1_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix28TrivialExpressionTest_1_TestE, ptr @_ZN3nix28TrivialExpressionTest_1_TestD1Ev, ptr @_ZN3nix28TrivialExpressionTest_1_TestD0Ev, ptr @_ZN3nix28TrivialExpressionTest_1_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix28TrivialExpressionTest_1_TestE, ptr @_ZTv0_n24_N3nix28TrivialExpressionTest_1_TestD1Ev, ptr @_ZTv0_n24_N3nix28TrivialExpressionTest_1_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix28TrivialExpressionTest_1_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix28TrivialExpressionTest_1_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28TrivialExpressionTest_1_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28TrivialExpressionTest_1_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix28TrivialExpressionTest_1_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28TrivialExpressionTest_1_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28TrivialExpressionTest_1_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix28TrivialExpressionTest_1_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix28TrivialExpressionTest_1_TestE = constant [37 x i8] c"N3nix28TrivialExpressionTest_1_TestE\00", align 1
 @_ZTIN3nix28TrivialExpressionTest_1_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix28TrivialExpressionTest_1_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix33TrivialExpressionTest_1plus1_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix33TrivialExpressionTest_1plus1_TestE, ptr @_ZN3nix33TrivialExpressionTest_1plus1_TestD1Ev, ptr @_ZN3nix33TrivialExpressionTest_1plus1_TestD0Ev, ptr @_ZN3nix33TrivialExpressionTest_1plus1_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix33TrivialExpressionTest_1plus1_TestE, ptr @_ZTv0_n24_N3nix33TrivialExpressionTest_1plus1_TestD1Ev, ptr @_ZTv0_n24_N3nix33TrivialExpressionTest_1plus1_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix33TrivialExpressionTest_1plus1_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix33TrivialExpressionTest_1plus1_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_1plus1_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_1plus1_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix33TrivialExpressionTest_1plus1_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_1plus1_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_1plus1_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix33TrivialExpressionTest_1plus1_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix33TrivialExpressionTest_1plus1_TestE = constant [42 x i8] c"N3nix33TrivialExpressionTest_1plus1_TestE\00", align 1
 @_ZTIN3nix33TrivialExpressionTest_1plus1_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix33TrivialExpressionTest_1plus1_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix33TrivialExpressionTest_minus1_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix33TrivialExpressionTest_minus1_TestE, ptr @_ZN3nix33TrivialExpressionTest_minus1_TestD1Ev, ptr @_ZN3nix33TrivialExpressionTest_minus1_TestD0Ev, ptr @_ZN3nix33TrivialExpressionTest_minus1_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix33TrivialExpressionTest_minus1_TestE, ptr @_ZTv0_n24_N3nix33TrivialExpressionTest_minus1_TestD1Ev, ptr @_ZTv0_n24_N3nix33TrivialExpressionTest_minus1_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix33TrivialExpressionTest_minus1_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix33TrivialExpressionTest_minus1_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_minus1_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_minus1_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix33TrivialExpressionTest_minus1_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_minus1_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_minus1_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix33TrivialExpressionTest_minus1_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix33TrivialExpressionTest_minus1_TestE = constant [42 x i8] c"N3nix33TrivialExpressionTest_minus1_TestE\00", align 1
 @_ZTIN3nix33TrivialExpressionTest_minus1_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix33TrivialExpressionTest_minus1_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix34TrivialExpressionTest_1minus1_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix34TrivialExpressionTest_1minus1_TestE, ptr @_ZN3nix34TrivialExpressionTest_1minus1_TestD1Ev, ptr @_ZN3nix34TrivialExpressionTest_1minus1_TestD0Ev, ptr @_ZN3nix34TrivialExpressionTest_1minus1_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix34TrivialExpressionTest_1minus1_TestE, ptr @_ZTv0_n24_N3nix34TrivialExpressionTest_1minus1_TestD1Ev, ptr @_ZTv0_n24_N3nix34TrivialExpressionTest_1minus1_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix34TrivialExpressionTest_1minus1_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix34TrivialExpressionTest_1minus1_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_1minus1_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_1minus1_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix34TrivialExpressionTest_1minus1_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_1minus1_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_1minus1_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix34TrivialExpressionTest_1minus1_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix34TrivialExpressionTest_1minus1_TestE = constant [43 x i8] c"N3nix34TrivialExpressionTest_1minus1_TestE\00", align 1
 @_ZTIN3nix34TrivialExpressionTest_1minus1_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix34TrivialExpressionTest_1minus1_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix36TrivialExpressionTest_lambdaAdd_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix36TrivialExpressionTest_lambdaAdd_TestE, ptr @_ZN3nix36TrivialExpressionTest_lambdaAdd_TestD1Ev, ptr @_ZN3nix36TrivialExpressionTest_lambdaAdd_TestD0Ev, ptr @_ZN3nix36TrivialExpressionTest_lambdaAdd_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix36TrivialExpressionTest_lambdaAdd_TestE, ptr @_ZTv0_n24_N3nix36TrivialExpressionTest_lambdaAdd_TestD1Ev, ptr @_ZTv0_n24_N3nix36TrivialExpressionTest_lambdaAdd_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix36TrivialExpressionTest_lambdaAdd_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix36TrivialExpressionTest_lambdaAdd_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_lambdaAdd_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_lambdaAdd_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix36TrivialExpressionTest_lambdaAdd_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_lambdaAdd_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_lambdaAdd_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix36TrivialExpressionTest_lambdaAdd_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix36TrivialExpressionTest_lambdaAdd_TestE = constant [45 x i8] c"N3nix36TrivialExpressionTest_lambdaAdd_TestE\00", align 1
 @_ZTIN3nix36TrivialExpressionTest_lambdaAdd_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix36TrivialExpressionTest_lambdaAdd_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix31TrivialExpressionTest_list_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix31TrivialExpressionTest_list_TestE, ptr @_ZN3nix31TrivialExpressionTest_list_TestD1Ev, ptr @_ZN3nix31TrivialExpressionTest_list_TestD0Ev, ptr @_ZN3nix31TrivialExpressionTest_list_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix31TrivialExpressionTest_list_TestE, ptr @_ZTv0_n24_N3nix31TrivialExpressionTest_list_TestD1Ev, ptr @_ZTv0_n24_N3nix31TrivialExpressionTest_list_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix31TrivialExpressionTest_list_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix31TrivialExpressionTest_list_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_list_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_list_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix31TrivialExpressionTest_list_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_list_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_list_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix31TrivialExpressionTest_list_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix31TrivialExpressionTest_list_TestE = constant [40 x i8] c"N3nix31TrivialExpressionTest_list_TestE\00", align 1
 @_ZTIN3nix31TrivialExpressionTest_list_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix31TrivialExpressionTest_list_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix32TrivialExpressionTest_attrs_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix32TrivialExpressionTest_attrs_TestE, ptr @_ZN3nix32TrivialExpressionTest_attrs_TestD1Ev, ptr @_ZN3nix32TrivialExpressionTest_attrs_TestD0Ev, ptr @_ZN3nix32TrivialExpressionTest_attrs_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix32TrivialExpressionTest_attrs_TestE, ptr @_ZTv0_n24_N3nix32TrivialExpressionTest_attrs_TestD1Ev, ptr @_ZTv0_n24_N3nix32TrivialExpressionTest_attrs_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix32TrivialExpressionTest_attrs_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix32TrivialExpressionTest_attrs_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_attrs_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_attrs_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix32TrivialExpressionTest_attrs_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_attrs_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_attrs_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix32TrivialExpressionTest_attrs_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix32TrivialExpressionTest_attrs_TestE = constant [41 x i8] c"N3nix32TrivialExpressionTest_attrs_TestE\00", align 1
 @_ZTIN3nix32TrivialExpressionTest_attrs_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix32TrivialExpressionTest_attrs_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix32TrivialExpressionTest_float_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix32TrivialExpressionTest_float_TestE, ptr @_ZN3nix32TrivialExpressionTest_float_TestD1Ev, ptr @_ZN3nix32TrivialExpressionTest_float_TestD0Ev, ptr @_ZN3nix32TrivialExpressionTest_float_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix32TrivialExpressionTest_float_TestE, ptr @_ZTv0_n24_N3nix32TrivialExpressionTest_float_TestD1Ev, ptr @_ZTv0_n24_N3nix32TrivialExpressionTest_float_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix32TrivialExpressionTest_float_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix32TrivialExpressionTest_float_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_float_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_float_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix32TrivialExpressionTest_float_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_float_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_float_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix32TrivialExpressionTest_float_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix32TrivialExpressionTest_float_TestE = constant [41 x i8] c"N3nix32TrivialExpressionTest_float_TestE\00", align 1
 @_ZTIN3nix32TrivialExpressionTest_float_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix32TrivialExpressionTest_float_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix38TrivialExpressionTest_updateAttrs_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix38TrivialExpressionTest_updateAttrs_TestE, ptr @_ZN3nix38TrivialExpressionTest_updateAttrs_TestD1Ev, ptr @_ZN3nix38TrivialExpressionTest_updateAttrs_TestD0Ev, ptr @_ZN3nix38TrivialExpressionTest_updateAttrs_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix38TrivialExpressionTest_updateAttrs_TestE, ptr @_ZTv0_n24_N3nix38TrivialExpressionTest_updateAttrs_TestD1Ev, ptr @_ZTv0_n24_N3nix38TrivialExpressionTest_updateAttrs_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix38TrivialExpressionTest_updateAttrs_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix38TrivialExpressionTest_updateAttrs_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_updateAttrs_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_updateAttrs_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix38TrivialExpressionTest_updateAttrs_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_updateAttrs_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_updateAttrs_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix38TrivialExpressionTest_updateAttrs_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix38TrivialExpressionTest_updateAttrs_TestE = constant [47 x i8] c"N3nix38TrivialExpressionTest_updateAttrs_TestE\00", align 1
 @_ZTIN3nix38TrivialExpressionTest_updateAttrs_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix38TrivialExpressionTest_updateAttrs_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, ptr @_ZN3nix41TrivialExpressionTest_hasAttrOpFalse_TestD1Ev, ptr @_ZN3nix41TrivialExpressionTest_hasAttrOpFalse_TestD0Ev, ptr @_ZN3nix41TrivialExpressionTest_hasAttrOpFalse_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, ptr @_ZTv0_n24_N3nix41TrivialExpressionTest_hasAttrOpFalse_TestD1Ev, ptr @_ZTv0_n24_N3nix41TrivialExpressionTest_hasAttrOpFalse_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix41TrivialExpressionTest_hasAttrOpFalse_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE = constant [50 x i8] c"N3nix41TrivialExpressionTest_hasAttrOpFalse_TestE\00", align 1
 @_ZTIN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, ptr @_ZN3nix40TrivialExpressionTest_hasAttrOpTrue_TestD1Ev, ptr @_ZN3nix40TrivialExpressionTest_hasAttrOpTrue_TestD0Ev, ptr @_ZN3nix40TrivialExpressionTest_hasAttrOpTrue_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, ptr @_ZTv0_n24_N3nix40TrivialExpressionTest_hasAttrOpTrue_TestD1Ev, ptr @_ZTv0_n24_N3nix40TrivialExpressionTest_hasAttrOpTrue_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix40TrivialExpressionTest_hasAttrOpTrue_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE = constant [49 x i8] c"N3nix40TrivialExpressionTest_hasAttrOpTrue_TestE\00", align 1
 @_ZTIN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix36TrivialExpressionTest_withFound_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix36TrivialExpressionTest_withFound_TestE, ptr @_ZN3nix36TrivialExpressionTest_withFound_TestD1Ev, ptr @_ZN3nix36TrivialExpressionTest_withFound_TestD0Ev, ptr @_ZN3nix36TrivialExpressionTest_withFound_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix36TrivialExpressionTest_withFound_TestE, ptr @_ZTv0_n24_N3nix36TrivialExpressionTest_withFound_TestD1Ev, ptr @_ZTv0_n24_N3nix36TrivialExpressionTest_withFound_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix36TrivialExpressionTest_withFound_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix36TrivialExpressionTest_withFound_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_withFound_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_withFound_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix36TrivialExpressionTest_withFound_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_withFound_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_withFound_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix36TrivialExpressionTest_withFound_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix36TrivialExpressionTest_withFound_TestE = constant [45 x i8] c"N3nix36TrivialExpressionTest_withFound_TestE\00", align 1
 @_ZTIN3nix36TrivialExpressionTest_withFound_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix36TrivialExpressionTest_withFound_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix39TrivialExpressionTest_withNotFound_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix39TrivialExpressionTest_withNotFound_TestE, ptr @_ZN3nix39TrivialExpressionTest_withNotFound_TestD1Ev, ptr @_ZN3nix39TrivialExpressionTest_withNotFound_TestD0Ev, ptr @_ZN3nix39TrivialExpressionTest_withNotFound_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix39TrivialExpressionTest_withNotFound_TestE, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_withNotFound_TestD1Ev, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_withNotFound_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix39TrivialExpressionTest_withNotFound_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix39TrivialExpressionTest_withNotFound_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withNotFound_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withNotFound_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix39TrivialExpressionTest_withNotFound_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withNotFound_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withNotFound_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_withNotFound_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix39TrivialExpressionTest_withNotFound_TestE = constant [48 x i8] c"N3nix39TrivialExpressionTest_withNotFound_TestE\00", align 1
 @_ZTIN3nix39TrivialExpressionTest_withNotFound_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix39TrivialExpressionTest_withNotFound_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix39TrivialExpressionTest_withOverride_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix39TrivialExpressionTest_withOverride_TestE, ptr @_ZN3nix39TrivialExpressionTest_withOverride_TestD1Ev, ptr @_ZN3nix39TrivialExpressionTest_withOverride_TestD0Ev, ptr @_ZN3nix39TrivialExpressionTest_withOverride_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix39TrivialExpressionTest_withOverride_TestE, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_withOverride_TestD1Ev, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_withOverride_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix39TrivialExpressionTest_withOverride_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix39TrivialExpressionTest_withOverride_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withOverride_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withOverride_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix39TrivialExpressionTest_withOverride_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withOverride_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withOverride_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_withOverride_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix39TrivialExpressionTest_withOverride_TestE = constant [48 x i8] c"N3nix39TrivialExpressionTest_withOverride_TestE\00", align 1
 @_ZTIN3nix39TrivialExpressionTest_withOverride_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix39TrivialExpressionTest_withOverride_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix38TrivialExpressionTest_letOverWith_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix38TrivialExpressionTest_letOverWith_TestE, ptr @_ZN3nix38TrivialExpressionTest_letOverWith_TestD1Ev, ptr @_ZN3nix38TrivialExpressionTest_letOverWith_TestD0Ev, ptr @_ZN3nix38TrivialExpressionTest_letOverWith_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix38TrivialExpressionTest_letOverWith_TestE, ptr @_ZTv0_n24_N3nix38TrivialExpressionTest_letOverWith_TestD1Ev, ptr @_ZTv0_n24_N3nix38TrivialExpressionTest_letOverWith_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix38TrivialExpressionTest_letOverWith_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix38TrivialExpressionTest_letOverWith_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_letOverWith_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_letOverWith_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix38TrivialExpressionTest_letOverWith_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_letOverWith_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_letOverWith_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix38TrivialExpressionTest_letOverWith_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix38TrivialExpressionTest_letOverWith_TestE = constant [47 x i8] c"N3nix38TrivialExpressionTest_letOverWith_TestE\00", align 1
 @_ZTIN3nix38TrivialExpressionTest_letOverWith_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix38TrivialExpressionTest_letOverWith_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix38TrivialExpressionTest_multipleLet_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix38TrivialExpressionTest_multipleLet_TestE, ptr @_ZN3nix38TrivialExpressionTest_multipleLet_TestD1Ev, ptr @_ZN3nix38TrivialExpressionTest_multipleLet_TestD0Ev, ptr @_ZN3nix38TrivialExpressionTest_multipleLet_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix38TrivialExpressionTest_multipleLet_TestE, ptr @_ZTv0_n24_N3nix38TrivialExpressionTest_multipleLet_TestD1Ev, ptr @_ZTv0_n24_N3nix38TrivialExpressionTest_multipleLet_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix38TrivialExpressionTest_multipleLet_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix38TrivialExpressionTest_multipleLet_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_multipleLet_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_multipleLet_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix38TrivialExpressionTest_multipleLet_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_multipleLet_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_multipleLet_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix38TrivialExpressionTest_multipleLet_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix38TrivialExpressionTest_multipleLet_TestE = constant [47 x i8] c"N3nix38TrivialExpressionTest_multipleLet_TestE\00", align 1
 @_ZTIN3nix38TrivialExpressionTest_multipleLet_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix38TrivialExpressionTest_multipleLet_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, ptr @_ZN3nix46TrivialExpressionTest_defaultFunctionArgs_TestD1Ev, ptr @_ZN3nix46TrivialExpressionTest_defaultFunctionArgs_TestD0Ev, ptr @_ZN3nix46TrivialExpressionTest_defaultFunctionArgs_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, ptr @_ZTv0_n24_N3nix46TrivialExpressionTest_defaultFunctionArgs_TestD1Ev, ptr @_ZTv0_n24_N3nix46TrivialExpressionTest_defaultFunctionArgs_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix46TrivialExpressionTest_defaultFunctionArgs_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE = constant [55 x i8] c"N3nix46TrivialExpressionTest_defaultFunctionArgs_TestE\00", align 1
 @_ZTIN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, ptr @_ZN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestD1Ev, ptr @_ZN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestD0Ev, ptr @_ZN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, ptr @_ZTv0_n24_N3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestD1Ev, ptr @_ZTv0_n24_N3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix54TrivialExpressionTest_defaultFunctionArgsOverride_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE = constant [63 x i8] c"N3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE\00", align 1
 @_ZTIN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, ptr @_ZN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestD1Ev, ptr @_ZN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestD0Ev, ptr @_ZN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, ptr @_ZTv0_n24_N3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestD1Ev, ptr @_ZTv0_n24_N3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE = constant [66 x i8] c"N3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE\00", align 1
 @_ZTIN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, ptr @_ZN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestD1Ev, ptr @_ZN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestD0Ev, ptr @_ZN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, ptr @_ZTv0_n24_N3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestD1Ev, ptr @_ZTv0_n24_N3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE = constant [67 x i8] c"N3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE\00", align 1
 @_ZTIN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix39TrivialExpressionTest_assertThrows_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix39TrivialExpressionTest_assertThrows_TestE, ptr @_ZN3nix39TrivialExpressionTest_assertThrows_TestD1Ev, ptr @_ZN3nix39TrivialExpressionTest_assertThrows_TestD0Ev, ptr @_ZN3nix39TrivialExpressionTest_assertThrows_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix39TrivialExpressionTest_assertThrows_TestE, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_assertThrows_TestD1Ev, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_assertThrows_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix39TrivialExpressionTest_assertThrows_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix39TrivialExpressionTest_assertThrows_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertThrows_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertThrows_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix39TrivialExpressionTest_assertThrows_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertThrows_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertThrows_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_assertThrows_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix39TrivialExpressionTest_assertThrows_TestE = constant [48 x i8] c"N3nix39TrivialExpressionTest_assertThrows_TestE\00", align 1
 @_ZTIN3nix39TrivialExpressionTest_assertThrows_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix39TrivialExpressionTest_assertThrows_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix39TrivialExpressionTest_assertPassed_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix39TrivialExpressionTest_assertPassed_TestE, ptr @_ZN3nix39TrivialExpressionTest_assertPassed_TestD1Ev, ptr @_ZN3nix39TrivialExpressionTest_assertPassed_TestD0Ev, ptr @_ZN3nix39TrivialExpressionTest_assertPassed_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix39TrivialExpressionTest_assertPassed_TestE, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_assertPassed_TestD1Ev, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_assertPassed_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix39TrivialExpressionTest_assertPassed_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix39TrivialExpressionTest_assertPassed_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertPassed_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertPassed_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix39TrivialExpressionTest_assertPassed_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertPassed_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertPassed_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_assertPassed_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix39TrivialExpressionTest_assertPassed_TestE = constant [48 x i8] c"N3nix39TrivialExpressionTest_assertPassed_TestE\00", align 1
 @_ZTIN3nix39TrivialExpressionTest_assertPassed_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix39TrivialExpressionTest_assertPassed_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE = unnamed_addr constant { [6 x ptr], [4 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1280 to ptr), ptr null, ptr @_ZTIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, ptr @_ZN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestD1Ev, ptr @_ZN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestD0Ev, ptr @_ZN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_Test8TestBodyEv], [4 x ptr] [ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, ptr @_ZThn1272_N3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestD1Ev, ptr @_ZThn1272_N3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -1280 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1280 to ptr), ptr inttoptr (i64 -1280 to ptr), ptr @_ZTIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, ptr @_ZTv0_n24_N3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestD1Ev, ptr @_ZTv0_n24_N3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_32AttrSetMergeTrvialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_32AttrSetMergeTrvialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, inrange i32 2, i32 7)], align 8
+@_ZTTN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_32AttrSetMergeTrvialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_32AttrSetMergeTrvialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, inrange i32 2, i32 7)], align 8
 @_ZTCN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE0_NS_32AttrSetMergeTrvialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1280 to ptr), ptr null, ptr @_ZTIN3nix32AttrSetMergeTrvialExpressionTestE, ptr @_ZN3nix32AttrSetMergeTrvialExpressionTestD1Ev, ptr @_ZN3nix32AttrSetMergeTrvialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1280 to ptr), ptr inttoptr (i64 -1280 to ptr), ptr @_ZTIN3nix32AttrSetMergeTrvialExpressionTestE, ptr @_ZTv0_n24_N3nix32AttrSetMergeTrvialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix32AttrSetMergeTrvialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix32AttrSetMergeTrvialExpressionTestE = linkonce_odr constant [41 x i8] c"N3nix32AttrSetMergeTrvialExpressionTestE\00", comdat, align 1
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -5427,21 +5427,21 @@ $_ZTIN3nix14IsThunkMatcher10gmock_ImplIRKNS_5ValueEEE = comdat any
 @_ZTSN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE = constant [63 x i8] c"N3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE\00", align 1
 @_ZTIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, ptr @_ZTIN3nix32AttrSetMergeTrvialExpressionTestE }, align 8
 @_ZTVN3nix34TrivialExpressionTest_functor_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix34TrivialExpressionTest_functor_TestE, ptr @_ZN3nix34TrivialExpressionTest_functor_TestD1Ev, ptr @_ZN3nix34TrivialExpressionTest_functor_TestD0Ev, ptr @_ZN3nix34TrivialExpressionTest_functor_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix34TrivialExpressionTest_functor_TestE, ptr @_ZTv0_n24_N3nix34TrivialExpressionTest_functor_TestD1Ev, ptr @_ZTv0_n24_N3nix34TrivialExpressionTest_functor_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix34TrivialExpressionTest_functor_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix34TrivialExpressionTest_functor_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_functor_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_functor_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix34TrivialExpressionTest_functor_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_functor_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_functor_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix34TrivialExpressionTest_functor_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix34TrivialExpressionTest_functor_TestE = constant [43 x i8] c"N3nix34TrivialExpressionTest_functor_TestE\00", align 1
 @_ZTIN3nix34TrivialExpressionTest_functor_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix34TrivialExpressionTest_functor_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix33TrivialExpressionTest_bindOr_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix33TrivialExpressionTest_bindOr_TestE, ptr @_ZN3nix33TrivialExpressionTest_bindOr_TestD1Ev, ptr @_ZN3nix33TrivialExpressionTest_bindOr_TestD0Ev, ptr @_ZN3nix33TrivialExpressionTest_bindOr_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix33TrivialExpressionTest_bindOr_TestE, ptr @_ZTv0_n24_N3nix33TrivialExpressionTest_bindOr_TestD1Ev, ptr @_ZTv0_n24_N3nix33TrivialExpressionTest_bindOr_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix33TrivialExpressionTest_bindOr_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix33TrivialExpressionTest_bindOr_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_bindOr_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_bindOr_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix33TrivialExpressionTest_bindOr_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_bindOr_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_bindOr_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix33TrivialExpressionTest_bindOr_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix33TrivialExpressionTest_bindOr_TestE = constant [42 x i8] c"N3nix33TrivialExpressionTest_bindOr_TestE\00", align 1
 @_ZTIN3nix33TrivialExpressionTest_bindOr_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix33TrivialExpressionTest_bindOr_TestE, ptr @_ZTIN3nix21TrivialExpressionTestE }, align 8
 @_ZTVN3nix39TrivialExpressionTest_orCantBeUsed_TestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix39TrivialExpressionTest_orCantBeUsed_TestE, ptr @_ZN3nix39TrivialExpressionTest_orCantBeUsed_TestD1Ev, ptr @_ZN3nix39TrivialExpressionTest_orCantBeUsed_TestD0Ev, ptr @_ZN3nix39TrivialExpressionTest_orCantBeUsed_Test8TestBodyEv], [13 x ptr] [ptr null, ptr inttoptr (i64 -1272 to ptr), ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix39TrivialExpressionTest_orCantBeUsed_TestE, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_orCantBeUsed_TestD1Ev, ptr @_ZTv0_n24_N3nix39TrivialExpressionTest_orCantBeUsed_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix39TrivialExpressionTest_orCantBeUsed_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix39TrivialExpressionTest_orCantBeUsed_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_orCantBeUsed_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_orCantBeUsed_TestE, i32 0, inrange i32 1, i32 7)], align 8
+@_ZTTN3nix39TrivialExpressionTest_orCantBeUsed_TestE = unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_orCantBeUsed_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_orCantBeUsed_TestE, i32 0, inrange i32 1, i32 7)], align 8
 @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_21TrivialExpressionTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_11LibExprTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39TrivialExpressionTest_orCantBeUsed_TestE0_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1272 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1272 to ptr), ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -5559,7 +5559,7 @@ $_ZTIN3nix14IsThunkMatcher10gmock_ImplIRKNS_5ValueEEE = comdat any
 @_ZTIN7testing8internal24ParameterizedTestFactoryIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestEEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal24ParameterizedTestFactoryIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, comdat, align 8
 @_ZN7testing18WithParamInterfaceIPKcE10parameter_E = linkonce_odr global ptr null, comdat, align 8
 @_ZTVN3nix32AttrSetMergeTrvialExpressionTestE = linkonce_odr unnamed_addr constant { [5 x ptr], [4 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1280 to ptr), ptr null, ptr @_ZTIN3nix32AttrSetMergeTrvialExpressionTestE, ptr @_ZN3nix32AttrSetMergeTrvialExpressionTestD1Ev, ptr @_ZN3nix32AttrSetMergeTrvialExpressionTestD0Ev], [4 x ptr] [ptr inttoptr (i64 -1272 to ptr), ptr @_ZTIN3nix32AttrSetMergeTrvialExpressionTestE, ptr @_ZThn1272_N3nix32AttrSetMergeTrvialExpressionTestD1Ev, ptr @_ZThn1272_N3nix32AttrSetMergeTrvialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1280 to ptr), ptr inttoptr (i64 -1280 to ptr), ptr @_ZTIN3nix32AttrSetMergeTrvialExpressionTestE, ptr @_ZTv0_n24_N3nix32AttrSetMergeTrvialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix32AttrSetMergeTrvialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, comdat, align 8
-@_ZTTN3nix32AttrSetMergeTrvialExpressionTestE = linkonce_odr unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32AttrSetMergeTrvialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32AttrSetMergeTrvialExpressionTestE, i32 0, inrange i32 2, i32 7)], comdat, align 8
+@_ZTTN3nix32AttrSetMergeTrvialExpressionTestE = linkonce_odr unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32AttrSetMergeTrvialExpressionTestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_11LibExprTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_11LibExprTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_21TrivialExpressionTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32AttrSetMergeTrvialExpressionTestE, i32 0, inrange i32 2, i32 7)], comdat, align 8
 @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_21TrivialExpressionTestE = linkonce_odr unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1280 to ptr), ptr null, ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZN3nix21TrivialExpressionTestD1Ev, ptr @_ZN3nix21TrivialExpressionTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1280 to ptr), ptr inttoptr (i64 -1280 to ptr), ptr @_ZTIN3nix21TrivialExpressionTestE, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD1Ev, ptr @_ZTv0_n24_N3nix21TrivialExpressionTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, comdat, align 8
 @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_11LibExprTestE = linkonce_odr unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1280 to ptr), ptr null, ptr @_ZTIN3nix11LibExprTestE, ptr @_ZN3nix11LibExprTestD1Ev, ptr @_ZN3nix11LibExprTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1280 to ptr), ptr inttoptr (i64 -1280 to ptr), ptr @_ZTIN3nix11LibExprTestE, ptr @_ZTv0_n24_N3nix11LibExprTestD1Ev, ptr @_ZTv0_n24_N3nix11LibExprTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, comdat, align 8
 @_ZTCN3nix32AttrSetMergeTrvialExpressionTestE0_NS_12LibStoreTestE = linkonce_odr unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1280 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -1280 to ptr), ptr inttoptr (i64 -1280 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, comdat, align 8
@@ -5695,7 +5695,7 @@ $_ZTIN3nix14IsThunkMatcher10gmock_ImplIRKNS_5ValueEEE = comdat any
 @_ZTVN5boost2io13too_many_argsE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5boost2io13too_many_argsE, ptr @_ZN5boost2io13too_many_argsD2Ev, ptr @_ZN5boost2io13too_many_argsD0Ev, ptr @_ZNK5boost2io13too_many_args4whatEv] }, comdat, align 8
 @.str.159 = private unnamed_addr constant [81 x i8] c"boost::too_many_args: format-string referred to fewer arguments than were passed\00", align 1
 @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTIN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, ptr @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev, ptr @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev], [5 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, ptr @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev, ptr @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev] }, comdat, align 8
-@_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTISo, ptr @_ZNSoD1Ev, ptr @_ZNSoD0Ev], [5 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTISo, ptr @_ZTv0_n24_NSoD1Ev, ptr @_ZTv0_n24_NSoD0Ev] }, comdat, align 8
 @_ZTISo = external constant ptr
 @_ZTSN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr constant [62 x i8] c"N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE\00", comdat, align 1
@@ -6320,7 +6320,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31TrivialExpressionTest_true_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31TrivialExpressionTest_true_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7120,7 +7120,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32TrivialExpressionTest_false_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32TrivialExpressionTest_false_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7617,7 +7617,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31TrivialExpressionTest_null_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31TrivialExpressionTest_null_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8114,7 +8114,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix28TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28TrivialExpressionTest_1_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28TrivialExpressionTest_1_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8617,7 +8617,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix33TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33TrivialExpressionTest_1plus1_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33TrivialExpressionTest_1plus1_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8889,7 +8889,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix33TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33TrivialExpressionTest_minus1_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33TrivialExpressionTest_minus1_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9161,7 +9161,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34TrivialExpressionTest_1minus1_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34TrivialExpressionTest_1minus1_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9433,7 +9433,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix36TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36TrivialExpressionTest_lambdaAdd_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36TrivialExpressionTest_lambdaAdd_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9705,7 +9705,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31TrivialExpressionTest_list_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31TrivialExpressionTest_list_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10208,7 +10208,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32TrivialExpressionTest_attrs_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32TrivialExpressionTest_attrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10711,7 +10711,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32TrivialExpressionTest_float_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32TrivialExpressionTest_float_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -11214,7 +11214,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix38TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38TrivialExpressionTest_updateAttrs_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38TrivialExpressionTest_updateAttrs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -11974,7 +11974,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix41TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41TrivialExpressionTest_hasAttrOpFalse_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41TrivialExpressionTest_hasAttrOpFalse_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -12245,7 +12245,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix40TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40TrivialExpressionTest_hasAttrOpTrue_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40TrivialExpressionTest_hasAttrOpTrue_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -12516,7 +12516,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix36TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36TrivialExpressionTest_withFound_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36TrivialExpressionTest_withFound_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -12788,7 +12788,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix39TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_withNotFound_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_withNotFound_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -13435,7 +13435,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix39TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_withOverride_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_withOverride_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -13707,7 +13707,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix38TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38TrivialExpressionTest_letOverWith_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38TrivialExpressionTest_letOverWith_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -13979,7 +13979,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix38TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38TrivialExpressionTest_multipleLet_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38TrivialExpressionTest_multipleLet_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -14251,7 +14251,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix46TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46TrivialExpressionTest_defaultFunctionArgs_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46TrivialExpressionTest_defaultFunctionArgs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -14523,7 +14523,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix54TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -14795,7 +14795,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix57TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15067,7 +15067,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix58TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15339,7 +15339,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix39TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_assertThrows_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_assertThrows_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15797,7 +15797,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix39TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_assertPassed_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_assertPassed_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17839,7 +17839,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34TrivialExpressionTest_functor_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34TrivialExpressionTest_functor_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18111,7 +18111,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix33TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33TrivialExpressionTest_bindOr_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33TrivialExpressionTest_bindOr_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18571,7 +18571,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix39TrivialEx
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_orCantBeUsed_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39TrivialExpressionTest_orCantBeUsed_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21473,7 +21473,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21570,9 +21570,9 @@ define linkonce_odr void @_ZN3nix31TrivialExpressionTest_true_TestC1Ev(ptr nound
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_true_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_true_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_true_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_true_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -23502,9 +23502,9 @@ define linkonce_odr void @_ZN3nix32TrivialExpressionTest_false_TestC1Ev(ptr noun
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_false_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_false_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_false_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_false_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -23601,9 +23601,9 @@ define linkonce_odr void @_ZN3nix31TrivialExpressionTest_null_TestC1Ev(ptr nound
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_null_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_null_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_null_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_null_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -23700,9 +23700,9 @@ define linkonce_odr void @_ZN3nix28TrivialExpressionTest_1_TestC1Ev(ptr noundef 
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28TrivialExpressionTest_1_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28TrivialExpressionTest_1_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28TrivialExpressionTest_1_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix28TrivialExpressionTest_1_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -23799,9 +23799,9 @@ define linkonce_odr void @_ZN3nix33TrivialExpressionTest_1plus1_TestC1Ev(ptr nou
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_1plus1_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_1plus1_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_1plus1_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_1plus1_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -23898,9 +23898,9 @@ define linkonce_odr void @_ZN3nix33TrivialExpressionTest_minus1_TestC1Ev(ptr nou
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_minus1_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_minus1_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_minus1_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_minus1_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -23997,9 +23997,9 @@ define linkonce_odr void @_ZN3nix34TrivialExpressionTest_1minus1_TestC1Ev(ptr no
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_1minus1_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_1minus1_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_1minus1_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_1minus1_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -24096,9 +24096,9 @@ define linkonce_odr void @_ZN3nix36TrivialExpressionTest_lambdaAdd_TestC1Ev(ptr 
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_lambdaAdd_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_lambdaAdd_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_lambdaAdd_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_lambdaAdd_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -24195,9 +24195,9 @@ define linkonce_odr void @_ZN3nix31TrivialExpressionTest_list_TestC1Ev(ptr nound
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_list_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_list_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_list_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix31TrivialExpressionTest_list_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -24294,9 +24294,9 @@ define linkonce_odr void @_ZN3nix32TrivialExpressionTest_attrs_TestC1Ev(ptr noun
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_attrs_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_attrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_attrs_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_attrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -24393,9 +24393,9 @@ define linkonce_odr void @_ZN3nix32TrivialExpressionTest_float_TestC1Ev(ptr noun
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_float_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_float_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_float_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32TrivialExpressionTest_float_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -24492,9 +24492,9 @@ define linkonce_odr void @_ZN3nix38TrivialExpressionTest_updateAttrs_TestC1Ev(pt
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_updateAttrs_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_updateAttrs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_updateAttrs_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_updateAttrs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -29590,9 +29590,9 @@ define linkonce_odr void @_ZN3nix41TrivialExpressionTest_hasAttrOpFalse_TestC1Ev
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41TrivialExpressionTest_hasAttrOpFalse_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -29689,9 +29689,9 @@ define linkonce_odr void @_ZN3nix40TrivialExpressionTest_hasAttrOpTrue_TestC1Ev(
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix40TrivialExpressionTest_hasAttrOpTrue_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -29788,9 +29788,9 @@ define linkonce_odr void @_ZN3nix36TrivialExpressionTest_withFound_TestC1Ev(ptr 
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_withFound_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_withFound_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_withFound_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36TrivialExpressionTest_withFound_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -29887,9 +29887,9 @@ define linkonce_odr void @_ZN3nix39TrivialExpressionTest_withNotFound_TestC1Ev(p
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withNotFound_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withNotFound_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withNotFound_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withNotFound_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -31117,9 +31117,9 @@ define linkonce_odr void @_ZN3nix39TrivialExpressionTest_withOverride_TestC1Ev(p
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withOverride_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withOverride_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withOverride_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_withOverride_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -31216,9 +31216,9 @@ define linkonce_odr void @_ZN3nix38TrivialExpressionTest_letOverWith_TestC1Ev(pt
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_letOverWith_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_letOverWith_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_letOverWith_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_letOverWith_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -31315,9 +31315,9 @@ define linkonce_odr void @_ZN3nix38TrivialExpressionTest_multipleLet_TestC1Ev(pt
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_multipleLet_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_multipleLet_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_multipleLet_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix38TrivialExpressionTest_multipleLet_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -31414,9 +31414,9 @@ define linkonce_odr void @_ZN3nix46TrivialExpressionTest_defaultFunctionArgs_Tes
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46TrivialExpressionTest_defaultFunctionArgs_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -31513,9 +31513,9 @@ define linkonce_odr void @_ZN3nix54TrivialExpressionTest_defaultFunctionArgsOver
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54TrivialExpressionTest_defaultFunctionArgsOverride_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -31612,9 +31612,9 @@ define linkonce_odr void @_ZN3nix57TrivialExpressionTest_defaultFunctionArgsCapt
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57TrivialExpressionTest_defaultFunctionArgsCaptureBack_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -31711,9 +31711,9 @@ define linkonce_odr void @_ZN3nix58TrivialExpressionTest_defaultFunctionArgsCapt
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58TrivialExpressionTest_defaultFunctionArgsCaptureFront_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -31810,9 +31810,9 @@ define linkonce_odr void @_ZN3nix39TrivialExpressionTest_assertThrows_TestC1Ev(p
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertThrows_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertThrows_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertThrows_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertThrows_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -31909,9 +31909,9 @@ define linkonce_odr void @_ZN3nix39TrivialExpressionTest_assertPassed_TestC1Ev(p
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertPassed_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertPassed_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertPassed_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_assertPassed_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -32035,7 +32035,7 @@ define linkonce_odr void @_ZN7testing8internal15TestMetaFactoryIN3nix54AttrSetMe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal19TestMetaFactoryBaseIPKcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestMetaFactoryIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -33310,7 +33310,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN7testing8internal26Parameteri
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal26ParameterizedTestSuiteInfoIN3nix32AttrSetMergeTrvialExpressionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal26ParameterizedTestSuiteInfoIN3nix32AttrSetMergeTrvialExpressionTestEE8TestInfoELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -33338,7 +33338,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -33459,7 +33459,7 @@ define linkonce_odr void @_ZN7testing8internal19TestMetaFactoryBaseIPKcEC2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal19TestMetaFactoryBaseIPKcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal19TestMetaFactoryBaseIPKcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -33539,7 +33539,7 @@ define linkonce_odr void @_ZN7testing8internal24ParameterizedTestFactoryIN3nix54
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24ParameterizedTestFactoryIN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.testing::internal::ParameterizedTestFactory", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -33633,11 +33633,11 @@ define linkonce_odr void @_ZN3nix54AttrSetMergeTrvialExpressionTest_attrsetMerge
           to label %7 unwind label %10
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1280
-  store ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, inrange i32 2, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, i32 2, i32 7), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix54AttrSetMergeTrvialExpressionTest_attrsetMergeLazy_TestE, i32 0, i32 1, i32 2), ptr %9, align 8
   ret void
 
 10:                                               ; preds = %1
@@ -33681,7 +33681,7 @@ define linkonce_odr void @_ZN3nix32AttrSetMergeTrvialExpressionTestC2Ev(ptr noun
   %15 = getelementptr inbounds i8, ptr %5, i64 %14
   store ptr %11, ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32AttrSetMergeTrvialExpressionTestE, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [4 x ptr], [13 x ptr] }, ptr @_ZTVN3nix32AttrSetMergeTrvialExpressionTestE, i32 0, i32 1, i32 2), ptr %16, align 8
   ret void
 }
 
@@ -33690,7 +33690,7 @@ define linkonce_odr void @_ZN7testing18WithParamInterfaceIPKcEC2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing18WithParamInterfaceIPKcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing18WithParamInterfaceIPKcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -34146,7 +34146,7 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIP
   store ptr %0, ptr %6, align 8
   %14 = load ptr, ptr %6, align 8
   call void @_ZN7testing8internal23ParamGeneratorInterfaceIPKcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcEE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcEE, i32 0, i32 0, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator", ptr %14, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 %4, i64 8, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %5, i64 8, i1 false)
@@ -34199,7 +34199,7 @@ define linkonce_odr void @_ZN7testing8internal23ParamGeneratorInterfaceIPKcEC2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal23ParamGeneratorInterfaceIPKcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal23ParamGeneratorInterfaceIPKcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -34277,7 +34277,7 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIP
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIPKcSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN7testing8internal23ParamGeneratorInterfaceIPKcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -35075,7 +35075,7 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIP
   store ptr %1, ptr %6, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN7testing8internal22ParamIteratorInterfaceIPKcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcE8IteratorE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcE8IteratorE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<const char *>::Iterator", ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %9, align 8
@@ -35091,7 +35091,7 @@ define linkonce_odr void @_ZN7testing8internal22ParamIteratorInterfaceIPKcEC2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal22ParamIteratorInterfaceIPKcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal22ParamIteratorInterfaceIPKcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -35111,7 +35111,7 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIP
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcE8IteratorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcE8IteratorE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<const char *>::Iterator", ptr %3, i32 0, i32 3
   call void @_ZNSt10unique_ptrIKPKcSt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7testing8internal22ParamIteratorInterfaceIPKcED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -35593,7 +35593,7 @@ define linkonce_odr void @_ZN7testing8internal30ValuesInIteratorRangeGeneratorIP
   %6 = getelementptr inbounds i8, ptr %5, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %6, i8 0, i64 8, i1 false)
   call void @_ZN7testing8internal22ParamIteratorInterfaceIPKcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcE8IteratorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7testing8internal30ValuesInIteratorRangeGeneratorIPKcE8IteratorE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<const char *>::Iterator", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.testing::internal::ValuesInIteratorRangeGenerator<const char *>::Iterator", ptr %8, i32 0, i32 1
@@ -35978,7 +35978,7 @@ define linkonce_odr void @_ZNSt15_Sp_counted_ptrIPN7testing8internal23ParamGener
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIPKcEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN7testing8internal23ParamGeneratorInterfaceIPKcEELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.251", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -36655,9 +36655,9 @@ define linkonce_odr void @_ZN3nix34TrivialExpressionTest_functor_TestC1Ev(ptr no
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_functor_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_functor_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_functor_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix34TrivialExpressionTest_functor_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -36754,9 +36754,9 @@ define linkonce_odr void @_ZN3nix33TrivialExpressionTest_bindOr_TestC1Ev(ptr nou
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_bindOr_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_bindOr_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_bindOr_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix33TrivialExpressionTest_bindOr_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -36853,9 +36853,9 @@ define linkonce_odr void @_ZN3nix39TrivialExpressionTest_orCantBeUsed_TestC1Ev(p
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_orCantBeUsed_TestE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_orCantBeUsed_TestE, i32 0, i32 0, i32 3), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 1272
-  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_orCantBeUsed_TestE, i32 0, inrange i32 1, i32 7), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39TrivialExpressionTest_orCantBeUsed_TestE, i32 0, i32 1, i32 7), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -37778,7 +37778,7 @@ define linkonce_odr void @_ZN7testing25StringMatchResultListenerC2Ev(ptr noundef
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %5, i32 0, i32 1
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
@@ -37790,7 +37790,7 @@ define linkonce_odr void @_ZN7testing25StringMatchResultListenerC2Ev(ptr noundef
 10:                                               ; preds = %8, %1
   %11 = phi ptr [ %9, %8 ], [ null, %1 ]
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %12 = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %5, i32 0, i32 1
   invoke void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %12)
           to label %13 unwind label %14
@@ -38032,7 +38032,7 @@ define linkonce_odr void @_ZN7testing25StringMatchResultListenerD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing25StringMatchResultListenerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::StringMatchResultListener", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %4) #3
   call void @_ZN7testing19MatchResultListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -38124,7 +38124,7 @@ define linkonce_odr void @_ZN3nix13IsTrueMatcher10gmock_ImplIRKNS_5ValueEEC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix5ValueEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix13IsTrueMatcher10gmock_ImplIRKNS_5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix13IsTrueMatcher10gmock_ImplIRKNS_5ValueEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -38137,7 +38137,7 @@ define linkonce_odr void @_ZN7testing7MatcherIRKN3nix5ValueEEC2EPKNS_16MatcherIn
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal11MatcherBaseIRKN3nix5ValueEEC2IS5_EEPKNS_16MatcherInterfaceIT_EE(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN3nix5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKN3nix5ValueEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -38147,7 +38147,7 @@ define linkonce_odr void @_ZN7testing16MatcherInterfaceIRKN3nix5ValueEEC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN3nix5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing16MatcherInterfaceIRKN3nix5ValueEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -38282,7 +38282,7 @@ define linkonce_odr void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing25MatcherDescriberInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -38526,7 +38526,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKN3nix5ValueEEC2IS5
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN7testing25MatcherDescriberInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN3nix5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN3nix5ValueEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKN3nix5ValueEE4InitIRPKNS_16MatcherInterfaceIS5_EEEEvOT_(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %8 unwind label %9
 
@@ -38638,7 +38638,7 @@ define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKN3nix5ValueEED2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN3nix5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKN3nix5ValueEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN7testing8internal11MatcherBaseIRKN3nix5ValueEE7DestroyEv(ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %4 unwind label %5
 
@@ -39552,7 +39552,7 @@ define linkonce_odr void @_ZN7testing8internal24DummyMatchResultListenerC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -39631,7 +39631,7 @@ define linkonce_odr void @_ZN7testing19MatchResultListenerC2EPSo(ptr noundef non
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing19MatchResultListenerE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.testing::MatchResultListener", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -40138,7 +40138,7 @@ define linkonce_odr void @_ZN3nix14IsFalseMatcher10gmock_ImplIRKNS_5ValueEEC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix5ValueEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix14IsFalseMatcher10gmock_ImplIRKNS_5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix14IsFalseMatcher10gmock_ImplIRKNS_5ValueEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -40434,7 +40434,7 @@ define linkonce_odr void @_ZN3nix13IsNullMatcher10gmock_ImplIRKNS_5ValueEEC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix5ValueEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix13IsNullMatcher10gmock_ImplIRKNS_5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix13IsNullMatcher10gmock_ImplIRKNS_5ValueEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -40812,7 +40812,7 @@ define linkonce_odr void @_ZN3nix15IsIntEqMatcherPIiE10gmock_ImplIRKNS_5ValueEEC
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix5ValueEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix15IsIntEqMatcherPIiE10gmock_ImplIRKNS_5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix15IsIntEqMatcherPIiE10gmock_ImplIRKNS_5ValueEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nix::IsIntEqMatcherP<int>::gmock_Impl", ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -41543,7 +41543,7 @@ define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESa
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %5)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 1
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds %"class.boost::io::basic_altstringbuf", ptr %5, i32 0, i32 2
@@ -42024,7 +42024,7 @@ define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %3)
           to label %4 unwind label %6
 
@@ -45001,7 +45001,7 @@ define linkonce_odr void @_ZN5boost2io17bad_format_stringC2Emm(ptr noundef nonnu
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %7, i32 0, i32 1
   %9 = load i64, ptr %5, align 8
   store i64 %9, ptr %8, align 8
@@ -50456,11 +50456,11 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
           to label %11 unwind label %16
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, inrange i32 2, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2), ptr %13, align 8
   %14 = load ptr, ptr %4, align 8
   invoke void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %14)
           to label %15 unwind label %20
@@ -50524,7 +50524,7 @@ define linkonce_odr void @_ZN5boost16exception_detail10clone_baseC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -50537,7 +50537,7 @@ define linkonce_odr void @_ZN5boost2io17bad_format_stringC2ERKS1_(ptr noundef no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.boost::io::bad_format_string", ptr %8, i32 0, i32 1
@@ -50550,7 +50550,7 @@ define linkonce_odr void @_ZN5boost9exceptionC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
   call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
   %5 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 2
@@ -50576,7 +50576,7 @@ define linkonce_odr void @_ZN5boost9exceptionD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.boost::exception", ptr %3, i32 0, i32 1
   call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   ret void
@@ -50763,7 +50763,7 @@ define linkonce_odr void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -50784,7 +50784,7 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -50896,11 +50896,11 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
           to label %15 unwind label %18
 
 15:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, inrange i32 2, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i32 0, i32 2, i32 2), ptr %17, align 8
   ret void
 
 18:                                               ; preds = %2
@@ -51049,7 +51049,7 @@ define linkonce_odr void @_ZN5boost16exception_detail10clone_baseC2ERKS1_(ptr no
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -51060,7 +51060,7 @@ define linkonce_odr void @_ZN5boost9exceptionC2ERKS0_(ptr noundef nonnull align 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.boost::exception", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.boost::exception", ptr %7, i32 0, i32 1
@@ -51156,7 +51156,7 @@ define linkonce_odr void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12format_errorE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -51165,7 +51165,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -53333,7 +53333,7 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsC2Emm(ptr noundef nonnull a
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %7, i32 0, i32 1
   %9 = load i64, ptr %5, align 8
   store i64 %9, ptr %8, align 8
@@ -54021,11 +54021,11 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(
           to label %11 unwind label %16
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, inrange i32 2, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2), ptr %13, align 8
   %14 = load ptr, ptr %4, align 8
   invoke void @_ZN5boost10wrapexceptINS_2io13too_many_argsEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %14)
           to label %15 unwind label %20
@@ -54089,7 +54089,7 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsC2ERKS1_(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.boost::io::too_many_args", ptr %8, i32 0, i32 1
@@ -54295,11 +54295,11 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(
           to label %15 unwind label %18
 
 15:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, inrange i32 2, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i32 0, i32 2, i32 2), ptr %17, align 8
   ret void
 
 18:                                               ; preds = %2
@@ -54360,9 +54360,9 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
           to label %11 unwind label %18
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 0, i32 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 1, i32 3), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 8
   %14 = getelementptr inbounds %"class.boost::base_from_member", ptr %13, i32 0, i32 0
   %15 = call noundef ptr @_ZNK5boost10shared_ptrINS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEEE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %14) #3
@@ -54370,9 +54370,9 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
           to label %16 unwind label %22
 
 16:                                               ; preds = %11
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 0, i32 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr %7, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 1, i32 3), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 1, i32 3), ptr %17, align 8
   ret void
 
 18:                                               ; preds = %2
@@ -55166,7 +55166,7 @@ define linkonce_odr void @_ZN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_al
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %7)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_pd", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -55188,7 +55188,7 @@ define linkonce_odr void @_ZN5boost6detail15sp_counted_baseC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail15sp_counted_baseE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %3, i32 0, i32 2
@@ -55665,7 +55665,7 @@ define linkonce_odr void @_ZN5boost2io12too_few_argsC2Emm(ptr noundef nonnull al
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %7, i32 0, i32 1
   %9 = load i64, ptr %5, align 8
   store i64 %9, ptr %8, align 8
@@ -55787,11 +55787,11 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEEC2ERKS2_(p
           to label %11 unwind label %16
 
 11:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %12 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, inrange i32 2, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 2, i32 2), ptr %13, align 8
   %14 = load ptr, ptr %4, align 8
   invoke void @_ZN5boost10wrapexceptINS_2io12too_few_argsEE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(68) %7, ptr noundef %14)
           to label %15 unwind label %20
@@ -55855,7 +55855,7 @@ define linkonce_odr void @_ZN5boost2io12too_few_argsC2ERKS1_(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN5boost2io12format_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.boost::io::too_few_args", ptr %8, i32 0, i32 1
@@ -56061,11 +56061,11 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEEC2ERKS3_(p
           to label %15 unwind label %18
 
 15:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %16 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, inrange i32 2, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i32 0, i32 2, i32 2), ptr %17, align 8
   ret void
 
 18:                                               ; preds = %2
@@ -56449,7 +56449,7 @@ define linkonce_odr void @_ZN3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5Val
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix5ValueEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix20IsListOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nix::IsListOfSizeMatcherP<int>::gmock_Impl", ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -57041,7 +57041,7 @@ define linkonce_odr void @_ZN3nix21IsAttrsOfSizeMatcherPIiE10gmock_ImplIRKNS_5Va
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix5ValueEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix21IsAttrsOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix21IsAttrsOfSizeMatcherPIiE10gmock_ImplIRKNS_5ValueEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nix::IsAttrsOfSizeMatcherP<int>::gmock_Impl", ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -57596,7 +57596,7 @@ define linkonce_odr void @_ZN3nix17IsFloatEqMatcherPIdE10gmock_ImplIRKNS_5ValueE
   store double %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix5ValueEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix17IsFloatEqMatcherPIdE10gmock_ImplIRKNS_5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix17IsFloatEqMatcherPIdE10gmock_ImplIRKNS_5ValueEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nix::IsFloatEqMatcherP<double>::gmock_Impl", ptr %5, i32 0, i32 1
   %7 = load double, ptr %4, align 8
   store double %7, ptr %6, align 8
@@ -59092,7 +59092,7 @@ define linkonce_odr void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN3nix
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN7testing8internal30ParameterizedTestSuiteInfoBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN3nix32AttrSetMergeTrvialExpressionTestEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN3nix32AttrSetMergeTrvialExpressionTestEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
@@ -59184,7 +59184,7 @@ define linkonce_odr void @_ZN7testing8internal30ParameterizedTestSuiteInfoBaseC2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal30ParameterizedTestSuiteInfoBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal30ParameterizedTestSuiteInfoBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -59211,7 +59211,7 @@ define linkonce_odr void @_ZN7testing8internal26ParameterizedTestSuiteInfoIN3nix
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN3nix32AttrSetMergeTrvialExpressionTestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing8internal26ParameterizedTestSuiteInfoIN3nix32AttrSetMergeTrvialExpressionTestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN3nix32AttrSetMergeTrvialExpressionTestEE17InstantiationInfoESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %"class.testing::internal::ParameterizedTestSuiteInfo", ptr %3, i32 0, i32 3
@@ -63677,7 +63677,7 @@ define linkonce_odr void @_ZN3nix14IsThunkMatcher10gmock_ImplIRKNS_5ValueEEC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing16MatcherInterfaceIRKN3nix5ValueEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix14IsThunkMatcher10gmock_ImplIRKNS_5ValueEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3nix14IsThunkMatcher10gmock_ImplIRKNS_5ValueEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

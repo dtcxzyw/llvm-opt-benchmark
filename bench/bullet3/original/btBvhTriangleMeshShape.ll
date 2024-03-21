@@ -247,7 +247,7 @@ entry:
   %this2 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %meshInterface.addr, align 8
   call void @_ZN19btTriangleMeshShapeC2EP23btStridingMeshInterface(ptr noundef nonnull align 8 dereferenceable(80) %this2, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, i32 0, i32 2), ptr %this2, align 8
   %m_bvh = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 1
   store ptr null, ptr %m_bvh, align 8
   %m_triangleInfoMap = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 2
@@ -392,7 +392,7 @@ entry:
   %this2 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %meshInterface.addr, align 8
   call void @_ZN19btTriangleMeshShapeC2EP23btStridingMeshInterface(ptr noundef nonnull align 8 dereferenceable(80) %this2, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, i32 0, i32 2), ptr %this2, align 8
   %m_bvh = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 1
   store ptr null, ptr %m_bvh, align 8
   %m_triangleInfoMap = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this2, i32 0, i32 2
@@ -631,7 +631,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV22btBvhTriangleMeshShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ownsBvh = getelementptr inbounds %class.btBvhTriangleMeshShape, ptr %this1, i32 0, i32 4
   %0 = load i8, ptr %m_ownsBvh, align 1
   %tobool = trunc i8 %0 to i1
@@ -767,7 +767,7 @@ entry:
   store ptr %meshInterface, ptr %meshInterface.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btNodeOverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN22btBvhTriangleMeshShape14performRaycastEP18btTriangleCallbackRK9btVector3S4_E21MyNodeOverlapCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN22btBvhTriangleMeshShape14performRaycastEP18btTriangleCallbackRK9btVector3S4_E21MyNodeOverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_meshInterface = getelementptr inbounds %struct.MyNodeOverlapCallback, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %meshInterface.addr, align 8
   store ptr %0, ptr %m_meshInterface, align 8
@@ -854,7 +854,7 @@ entry:
   store ptr %meshInterface, ptr %meshInterface.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btNodeOverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN22btBvhTriangleMeshShape17performConvexcastEP18btTriangleCallbackRK9btVector3S4_S4_S4_E21MyNodeOverlapCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN22btBvhTriangleMeshShape17performConvexcastEP18btTriangleCallbackRK9btVector3S4_S4_S4_E21MyNodeOverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_meshInterface = getelementptr inbounds %struct.MyNodeOverlapCallback.8, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %meshInterface.addr, align 8
   store ptr %0, ptr %m_meshInterface, align 8
@@ -937,7 +937,7 @@ entry:
   store ptr %meshInterface, ptr %meshInterface.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btNodeOverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E21MyNodeOverlapCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZNK22btBvhTriangleMeshShape19processAllTrianglesEP18btTriangleCallbackRK9btVector3S4_E21MyNodeOverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_meshInterface = getelementptr inbounds %struct.MyNodeOverlapCallback.9, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %meshInterface.addr, align 8
   store ptr %0, ptr %m_meshInterface, align 8
@@ -2177,7 +2177,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21btNodeOverlapCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV21btNodeOverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

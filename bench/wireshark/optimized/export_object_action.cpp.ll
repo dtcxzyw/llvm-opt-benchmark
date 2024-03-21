@@ -30,7 +30,7 @@ define void @_ZN18ExportObjectActionC2EP7QObjectP11register_eo(ptr noundef nonnu
   %10 = alloca %class.QString, align 16
   %11 = alloca %class.QString, align 16
   tail call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18ExportObjectAction, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18ExportObjectAction, i64 0, i32 0, i64 2), ptr %0, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %2, ptr %12, align 8
   %.not = icmp eq ptr %2, null

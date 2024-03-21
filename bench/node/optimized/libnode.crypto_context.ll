@@ -1223,7 +1223,7 @@ _ZN4node11Environment10GetCurrentERKN2v820FunctionCallbackInfoINS1_5ValueEEE.exi
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 2728
   %13 = load ptr, ptr %principal_realm_.i.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call1, ptr noundef %13, ptr nonnull %add.ptr.i) #20
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto13SecureContextE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto13SecureContextE, i64 0, i32 0, i64 2), ptr %call1, align 8
   %ctx_.i = getelementptr inbounds i8, ptr %call1, i64 32
   %private_key_engine_.i = getelementptr inbounds i8, ptr %call1, i64 64
   store ptr null, ptr %private_key_engine_.i, align 8
@@ -4647,7 +4647,7 @@ if.then26:                                        ; preds = %do.end21
   br label %cleanup.cont
 
 _ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit121: ; preds = %do.end21
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 0, inrange i32 0, i64 2), ptr %errors, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 0, i32 0, i64 2), ptr %errors, align 8
   %errors_.i = getelementptr inbounds i8, ptr %errors, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i, i8 0, i64 24, i1 false)
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
@@ -4964,7 +4964,7 @@ if.then52:                                        ; preds = %do.end47
   br label %cleanup99
 
 if.end53:                                         ; preds = %do.end47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 0, inrange i32 0, i64 2), ptr %errors, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto16CryptoErrorStoreE, i64 0, i32 0, i64 2), ptr %errors, align 8
   %errors_.i = getelementptr inbounds i8, ptr %errors, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %errors_.i, i8 0, i64 24, i1 false)
   %isolate_.i = getelementptr inbounds i8, ptr %retval.0.i.i, i64 88
@@ -7385,7 +7385,7 @@ if.end:                                           ; preds = %entry
   %call24 = tail call noalias noundef nonnull dereferenceable(128) ptr @_Znwm(i64 noundef 128) #23
   %2 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call24, ptr noundef %2, ptr nonnull %call18) #20
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto13SecureContextE, i64 0, inrange i32 0, i64 2), ptr %call24, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto13SecureContextE, i64 0, i32 0, i64 2), ptr %call24, align 8
   %ctx_.i = getelementptr inbounds i8, ptr %call24, i64 32
   %private_key_engine_.i = getelementptr inbounds i8, ptr %call24, i64 64
   store ptr null, ptr %private_key_engine_.i, align 8
@@ -7414,7 +7414,7 @@ entry:
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %0, ptr %wrap.coerce) #20
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto13SecureContextE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node6crypto13SecureContextE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 32
   %private_key_engine_ = getelementptr inbounds i8, ptr %this, i64 64
   store ptr null, ptr %private_key_engine_, align 8
@@ -7748,7 +7748,7 @@ if.end:                                           ; preds = %entry
   %call6 = call noundef ptr @_ZNK4node6crypto14ManagedEVPPKey3getEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #20
   %call7 = call i32 @SSL_CTX_use_PrivateKey(ptr noundef %2, ptr noundef %call6) #20
   %tobool.not = icmp eq i32 %call7, 0
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto14ManagedEVPPKeyE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %4 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %4, null

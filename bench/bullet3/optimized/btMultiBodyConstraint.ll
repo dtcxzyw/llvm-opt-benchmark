@@ -38,7 +38,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(96) %this, ptr noundef %bodyA, ptr noundef %bodyB, i32 noundef %linkA, i32 noundef %linkB, i32 noundef %numRows, i1 noundef zeroext %isUnilateral, i32 noundef %type) unnamed_addr #0 align 2 {
 entry:
   %frombool = zext i1 %isUnilateral to i8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV21btMultiBodyConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV21btMultiBodyConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_bodyA = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %bodyA, ptr %m_bodyA, align 8
   %m_bodyB = getelementptr inbounds i8, ptr %this, i64 16
@@ -248,7 +248,7 @@ _ZN20btAlignedObjectArrayIfE6resizeEiRKf.exit:    ; preds = %for.body8.i, %_ZN21
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21btMultiBodyConstraintD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV21btMultiBodyConstraint, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV21btMultiBodyConstraint, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null

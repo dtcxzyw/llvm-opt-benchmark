@@ -969,7 +969,7 @@ define void @_ZN12DecodeAsItemC2EPKcPKv(ptr noundef nonnull align 8 dereferencea
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr @_ZL13DEFAULT_TABLE, align 8
   store ptr %11, ptr %10, align 8
@@ -1299,7 +1299,7 @@ define void @_ZN12DecodeAsItemC2EPK11decode_as_sPKv(ptr noundef nonnull align 8 
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.DecodeAsItem, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr @_ZL13DEFAULT_TABLE, align 8
   store ptr %11, ptr %10, align 8
@@ -1391,7 +1391,7 @@ define void @_ZN12DecodeAsItemD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.DecodeAsItem, ptr %3, i32 0, i32 7
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = getelementptr inbounds %class.DecodeAsItem, ptr %3, i32 0, i32 6
@@ -1859,7 +1859,7 @@ define void @_ZN13DecodeAsModelC2EP7QObjectP13_capture_file(ptr noundef nonnull 
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.DecodeAsModel, ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %9, align 8
@@ -1912,7 +1912,7 @@ define void @_ZN13DecodeAsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.DecodeAsModel, ptr %6, i32 0, i32 2
   invoke void @_ZN9QtPrivate21qMakeForeachContainerIR5QListIP12DecodeAsItemEEENS_17QForeachContainerINSt5decayIT_E4typeEEEOS8_(ptr dead_on_unwind writable sret(%"class.QtPrivate::QForeachContainer") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %8 unwind label %39

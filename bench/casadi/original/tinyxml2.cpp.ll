@@ -3021,7 +3021,7 @@ define void @_ZN8tinyxml27XMLNodeC2EPNS_11XMLDocumentE(ptr noundef nonnull align
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml27XMLNodeE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml27XMLNodeE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.tinyxml2::XMLNode", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -3065,7 +3065,7 @@ define void @_ZN8tinyxml27XMLNodeD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml27XMLNodeE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml27XMLNodeE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN8tinyxml27XMLNode14DeleteChildrenEv(ptr noundef nonnull align 8 dereferenceable(104) %3)
           to label %4 unwind label %14
 
@@ -4878,7 +4878,7 @@ define void @_ZN8tinyxml210XMLCommentC2EPNS_11XMLDocumentE(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8tinyxml27XMLNodeC2EPNS_11XMLDocumentE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml210XMLCommentE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml210XMLCommentE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -5036,7 +5036,7 @@ define void @_ZN8tinyxml214XMLDeclarationC2EPNS_11XMLDocumentE(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8tinyxml27XMLNodeC2EPNS_11XMLDocumentE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml214XMLDeclarationE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml214XMLDeclarationE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -5203,7 +5203,7 @@ define void @_ZN8tinyxml210XMLUnknownC2EPNS_11XMLDocumentE(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8tinyxml27XMLNodeC2EPNS_11XMLDocumentE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml210XMLUnknownE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml210XMLUnknownE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -5807,7 +5807,7 @@ define void @_ZN8tinyxml210XMLElementC2EPNS_11XMLDocumentE(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8tinyxml27XMLNodeC2EPNS_11XMLDocumentE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml210XMLElementE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml210XMLElementE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.tinyxml2::XMLElement", ptr %5, i32 0, i32 1
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds %"class.tinyxml2::XMLElement", ptr %5, i32 0, i32 2
@@ -5821,7 +5821,7 @@ define void @_ZN8tinyxml210XMLElementD2Ev(ptr noundef nonnull align 8 dereferenc
   %3 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml210XMLElementE, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml210XMLElementE, i32 0, i32 0, i32 2), ptr %4, align 8
   br label %5
 
 5:                                                ; preds = %16, %1
@@ -7500,7 +7500,7 @@ define linkonce_odr hidden void @_ZN8tinyxml212XMLAttributeC2Ev(ptr noundef nonn
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8tinyxml212XMLAttributeE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8tinyxml212XMLAttributeE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.tinyxml2::XMLAttribute", ptr %5, i32 0, i32 1
   call void @_ZN8tinyxml27StrPairC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
   %7 = getelementptr inbounds %"class.tinyxml2::XMLAttribute", ptr %5, i32 0, i32 2
@@ -8049,7 +8049,7 @@ define void @_ZN8tinyxml211XMLDocumentC2EbNS_10WhitespaceE(ptr noundef nonnull a
   store i32 %2, ptr %6, align 4
   %10 = load ptr, ptr %4, align 8
   call void @_ZN8tinyxml27XMLNodeC2EPNS_11XMLDocumentE(ptr noundef nonnull align 8 dereferenceable(104) %10, ptr noundef null)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml211XMLDocumentE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml211XMLDocumentE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.tinyxml2::XMLDocument", ptr %10, i32 0, i32 1
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.tinyxml2::XMLDocument", ptr %10, i32 0, i32 2
@@ -8211,7 +8211,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi120EEC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN8tinyxml27MemPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.tinyxml2::MemPoolT", ptr %5, i32 0, i32 1
   invoke void @_ZN8tinyxml28DynArrayIPNS_8MemPoolTILi120EE5BlockELi10EEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %7 unwind label %13
@@ -8255,7 +8255,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi80EEC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN8tinyxml27MemPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.tinyxml2::MemPoolT.1", ptr %5, i32 0, i32 1
   invoke void @_ZN8tinyxml28DynArrayIPNS_8MemPoolTILi80EE5BlockELi10EEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %7 unwind label %13
@@ -8299,7 +8299,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi112EEC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN8tinyxml27MemPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.tinyxml2::MemPoolT.3", ptr %5, i32 0, i32 1
   invoke void @_ZN8tinyxml28DynArrayIPNS_8MemPoolTILi112EE5BlockELi10EEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %7 unwind label %13
@@ -8343,7 +8343,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi104EEC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN8tinyxml27MemPoolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.tinyxml2::MemPoolT.5", ptr %5, i32 0, i32 1
   invoke void @_ZN8tinyxml28DynArrayIPNS_8MemPoolTILi104EE5BlockELi10EEC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %6)
           to label %7 unwind label %13
@@ -8384,7 +8384,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi112EED2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi112EEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN8tinyxml28MemPoolTILi112EE5ClearEv(ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %4 unwind label %6
 
@@ -8407,7 +8407,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi80EED2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi80EEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN8tinyxml28MemPoolTILi80EE5ClearEv(ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %4 unwind label %6
 
@@ -8430,7 +8430,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi120EED2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi120EEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN8tinyxml28MemPoolTILi120EE5ClearEv(ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %4 unwind label %6
 
@@ -8482,7 +8482,7 @@ define void @_ZN8tinyxml211XMLDocumentD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml211XMLDocumentE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml211XMLDocumentE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN8tinyxml211XMLDocument5ClearEv(ptr noundef nonnull align 8 dereferenceable(776) %3)
           to label %4 unwind label %11
 
@@ -8555,7 +8555,7 @@ define linkonce_odr hidden void @_ZN8tinyxml28MemPoolTILi104EED2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml28MemPoolTILi104EEE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN8tinyxml28MemPoolTILi104EE5ClearEv(ptr noundef nonnull align 8 dereferenceable(128) %3)
           to label %4 unwind label %6
 
@@ -9156,7 +9156,7 @@ define linkonce_odr hidden void @_ZN8tinyxml210XMLPrinterD2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8tinyxml210XMLPrinterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8tinyxml210XMLPrinterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.tinyxml2::XMLPrinter", ptr %3, i32 0, i32 12
   call void @_ZN8tinyxml28DynArrayIcLi20EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %4) #15
   %5 = getelementptr inbounds %"class.tinyxml2::XMLPrinter", ptr %3, i32 0, i32 2
@@ -9547,7 +9547,7 @@ define void @_ZN8tinyxml210XMLPrinterC2EP8_IO_FILEbi(ptr noundef nonnull align 8
   store i32 %3, ptr %8, align 4
   %16 = load ptr, ptr %5, align 8
   call void @_ZN8tinyxml210XMLVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #15
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8tinyxml210XMLPrinterE, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN8tinyxml210XMLPrinterE, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %"class.tinyxml2::XMLPrinter", ptr %16, i32 0, i32 1
   store i8 0, ptr %17, align 8
   %18 = getelementptr inbounds %"class.tinyxml2::XMLPrinter", ptr %16, i32 0, i32 2
@@ -9701,7 +9701,7 @@ define linkonce_odr hidden void @_ZN8tinyxml210XMLVisitorC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8tinyxml210XMLVisitorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8tinyxml210XMLVisitorE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -11412,7 +11412,7 @@ define linkonce_odr hidden void @_ZN8tinyxml212XMLAttributeD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8tinyxml212XMLAttributeE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8tinyxml212XMLAttributeE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.tinyxml2::XMLAttribute", ptr %3, i32 0, i32 2
   call void @_ZN8tinyxml27StrPairD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #15
   %5 = getelementptr inbounds %"class.tinyxml2::XMLAttribute", ptr %3, i32 0, i32 1
@@ -11693,7 +11693,7 @@ define linkonce_odr hidden void @_ZN8tinyxml27XMLTextC2EPNS_11XMLDocumentE(ptr n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8tinyxml27XMLNodeC2EPNS_11XMLDocumentE(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml27XMLTextE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN8tinyxml27XMLTextE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.tinyxml2::XMLText", ptr %5, i32 0, i32 1
   store i8 0, ptr %7, align 8
   ret void
@@ -11801,7 +11801,7 @@ define linkonce_odr hidden void @_ZN8tinyxml27MemPoolC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml27MemPoolE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8tinyxml27MemPoolE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

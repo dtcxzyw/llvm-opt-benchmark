@@ -209,7 +209,7 @@ define dso_local void @_ZN14CrowdToolStateC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN15SampleToolStateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14CrowdToolState, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14CrowdToolState, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 1
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds %class.CrowdToolState, ptr %5, i32 0, i32 2
@@ -343,7 +343,7 @@ define linkonce_odr dso_local void @_ZN15SampleToolStateC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15SampleToolState, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15SampleToolState, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -366,7 +366,7 @@ define dso_local void @_ZN14CrowdToolStateD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14CrowdToolState, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14CrowdToolState, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.CrowdToolState, ptr %3, i32 0, i32 7
   %5 = load ptr, ptr %4, align 8
   invoke void @_Z32dtFreeObstacleAvoidanceDebugDataP28dtObstacleAvoidanceDebugData(ptr noundef %5)
@@ -4988,7 +4988,7 @@ define dso_local void @_ZN9CrowdToolC2Ev(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #10
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV9CrowdTool, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV9CrowdTool, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.CrowdTool, ptr %3, i32 0, i32 1
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds %class.CrowdTool, ptr %3, i32 0, i32 2
@@ -5003,7 +5003,7 @@ define linkonce_odr dso_local void @_ZN10SampleToolC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

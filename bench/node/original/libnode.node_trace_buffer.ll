@@ -1027,7 +1027,7 @@ entry:
   store ptr %tracing_loop, ptr %tracing_loop.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v88platform7tracing11TraceBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %tracing_loop_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %tracing_loop.addr, align 8
   store ptr %0, ptr %tracing_loop_, align 8
@@ -1123,7 +1123,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2v88platform7tracing11TraceBufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN2v88platform7tracing11TraceBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1298,7 +1298,7 @@ entry:
   %scoped_lock = alloca %"class.node::MutexBase<node::LibuvMutexTraits>::ScopedLock", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %exit_signal_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 3
   %call = call i32 @uv_async_send(ptr noundef %exit_signal_)
   %exit_mutex_ = getelementptr inbounds %"class.node::tracing::NodeTraceBuffer", ptr %this1, i32 0, i32 5

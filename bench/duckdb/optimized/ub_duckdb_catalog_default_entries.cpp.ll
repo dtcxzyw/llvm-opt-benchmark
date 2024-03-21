@@ -2097,7 +2097,7 @@ entry:
   store ptr %catalog, ptr %catalog2.i, align 8, !tbaa !3
   %created_all_entries.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %created_all_entries.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb24DefaultFunctionGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !39
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb24DefaultFunctionGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !39
   %schema2 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %schema, ptr %schema2, align 8, !tbaa !3
   ret void
@@ -2743,7 +2743,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %if.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !39
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !39
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !55
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -2917,7 +2917,7 @@ entry:
   store ptr %catalog, ptr %catalog2.i, align 8, !tbaa !3
   %created_all_entries.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %created_all_entries.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22DefaultSchemaGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !39
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22DefaultSchemaGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !39
   ret void
 }
 
@@ -3265,7 +3265,7 @@ entry:
   store ptr %catalog, ptr %catalog2.i, align 8, !tbaa !3
   %created_all_entries.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %created_all_entries.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb20DefaultTypeGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !39
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb20DefaultTypeGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !39
   %schema2 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %schema, ptr %schema2, align 8, !tbaa !3
   ret void
@@ -3347,7 +3347,7 @@ lpad.i:                                           ; preds = %call.i.noexc
 
 invoke.cont11:                                    ; preds = %call.i.noexc
   store ptr %call.i18, ptr %agg.result, align 8, !tbaa !3, !alias.scope !133
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CreateTypeInfoE, i64 0, inrange i32 0, i64 2), ptr %info, align 8, !tbaa !39
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CreateTypeInfoE, i64 0, i32 0, i64 2), ptr %info, align 8, !tbaa !39
   %query.i = getelementptr inbounds i8, ptr %info, i64 176
   %8 = load ptr, ptr %query.i, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %8, null
@@ -3380,7 +3380,7 @@ if.then.i.i.i:                                    ; preds = %_ZNSt10unique_ptrIN
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb10CreateInfoE, i64 0, inrange i32 0, i64 2), ptr %info, align 8, !tbaa !39
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb10CreateInfoE, i64 0, i32 0, i64 2), ptr %info, align 8, !tbaa !39
   %sql.i.i = getelementptr inbounds i8, ptr %info, i64 88
   %13 = load ptr, ptr %sql.i.i, align 8, !tbaa !55
   %14 = getelementptr inbounds i8, ptr %info, i64 104
@@ -3469,7 +3469,7 @@ declare void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14CreateTypeInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CreateTypeInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !39
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CreateTypeInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !39
   %query = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %query, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %0, null
@@ -3504,7 +3504,7 @@ if.then.i.i:                                      ; preds = %_ZNSt10unique_ptrIN
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb10CreateInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !39
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb10CreateInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !39
   %sql.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %sql.i, align 8, !tbaa !55
   %6 = getelementptr inbounds i8, ptr %this, i64 104
@@ -3796,7 +3796,7 @@ entry:
   store ptr %catalog, ptr %catalog2.i, align 8, !tbaa !3
   %created_all_entries.i = getelementptr inbounds i8, ptr %this, i64 16
   store i8 0, ptr %created_all_entries.i, align 8, !tbaa !82
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb20DefaultViewGeneratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !39
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb20DefaultViewGeneratorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !39
   %schema2 = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %schema, ptr %schema2, align 8, !tbaa !3
   ret void

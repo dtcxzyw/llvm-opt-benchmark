@@ -1725,7 +1725,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46ShortNumberInfoTest_IsPossibleShortNumber_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46ShortNumberInfoTest_IsPossibleShortNumber_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2642,7 +2642,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43ShortNumberInfoTest_IsValidShortNumber_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43ShortNumberInfoTest_IsValidShortNumber_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3609,7 +3609,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers42ShortNumberInfoTest_IsCarrierSpecific_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers42ShortNumberInfoTest_IsCarrierSpecific_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4857,7 +4857,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers37ShortNumberInfoTest_IsSmsService_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers37ShortNumberInfoTest_IsSmsService_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5284,7 +5284,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40ShortNumberInfoTest_GetExpectedCost_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40ShortNumberInfoTest_GetExpectedCost_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7805,7 +7805,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers67ShortNumberInfoTest_GetExpectedCostForSharedCountryCallingCode_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers67ShortNumberInfoTest_GetExpectedCostForSharedCountryCallingCode_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10900,7 +10900,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46ShortNumberInfoTest_GetExampleShortNumber_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46ShortNumberInfoTest_GetExampleShortNumber_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -11644,7 +11644,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_US_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -12287,7 +12287,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_US_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -12928,7 +12928,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers67ShortNumberInfoTest_ConnectsToEmergencyNumberWithFormatting_US_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers67ShortNumberInfoTest_ConnectsToEmergencyNumberWithFormatting_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -13569,7 +13569,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers65ShortNumberInfoTest_ConnectsToEmergencyNumberWithPlusSign_US_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers65ShortNumberInfoTest_ConnectsToEmergencyNumberWithPlusSign_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -14554,7 +14554,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_BR_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_BR_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15200,7 +15200,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_BR_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_BR_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15843,7 +15843,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_CL_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_CL_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -16318,7 +16318,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_CL_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_CL_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -16790,7 +16790,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_AO_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_AO_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17438,7 +17438,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_ZW_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_ZW_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18086,7 +18086,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_US_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18729,7 +18729,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55ShortNumberInfoTest_IsEmergencyNumberLongNumber_US_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55ShortNumberInfoTest_IsEmergencyNumberLongNumber_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -19372,7 +19372,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59ShortNumberInfoTest_IsEmergencyNumberWithFormatting_US_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59ShortNumberInfoTest_IsEmergencyNumberWithFormatting_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20524,7 +20524,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers57ShortNumberInfoTest_IsEmergencyNumberWithPlusSign_US_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers57ShortNumberInfoTest_IsEmergencyNumberWithPlusSign_US_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21509,7 +21509,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_BR_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_BR_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -22150,7 +22150,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_EmergencyNumberLongNumber_BR_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53ShortNumberInfoTest_EmergencyNumberLongNumber_BR_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -22793,7 +22793,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_AO_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_AO_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -23436,7 +23436,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_ZW_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_ZW_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -24079,7 +24079,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers67ShortNumberInfoTest_EmergencyNumberForSharedCountryCallingCode_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers67ShortNumberInfoTest_EmergencyNumberForSharedCountryCallingCode_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -25638,7 +25638,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47ShortNumberInfoTest_OverlappingNANPANumber_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47ShortNumberInfoTest_OverlappingNANPANumber_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -26924,7 +26924,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplIN4i18n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55ShortNumberInfoTest_CountryCallingCodeIsNotIgnored_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55ShortNumberInfoTest_CountryCallingCodeIsNotIgnored_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -28171,7 +28171,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -28251,7 +28251,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46ShortNumberInfoTest_IsPossibleShortNumber_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46ShortNumberInfoTest_IsPossibleShortNumber_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -28263,7 +28263,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19ShortNumberInfoTestE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19ShortNumberInfoTestE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.i18n::phonenumbers::ShortNumberInfoTest", ptr %5, i32 0, i32 1
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtilC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %7 unwind label %16
@@ -28369,7 +28369,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers12StdoutLoggerC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers6LoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -28387,7 +28387,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers19ShortNumberInfoTestD
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19ShortNumberInfoTestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19ShortNumberInfoTestE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.i18n::phonenumbers::ShortNumberInfoTest", ptr %3, i32 0, i32 2
   call void @_ZN4i18n12phonenumbers15ShortNumberInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %"class.i18n::phonenumbers::ShortNumberInfoTest", ptr %3, i32 0, i32 1
@@ -28409,7 +28409,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers6LoggerC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers6LoggerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers6LoggerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.i18n::phonenumbers::Logger", ptr %3, i32 0, i32 1
   store i32 2, ptr %4, align 8
   ret void
@@ -28874,7 +28874,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers43ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43ShortNumberInfoTest_IsValidShortNumber_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43ShortNumberInfoTest_IsValidShortNumber_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -28934,7 +28934,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers42ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers42ShortNumberInfoTest_IsCarrierSpecific_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers42ShortNumberInfoTest_IsCarrierSpecific_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -28994,7 +28994,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers37ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers37ShortNumberInfoTest_IsSmsService_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers37ShortNumberInfoTest_IsSmsService_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29054,7 +29054,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers40ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40ShortNumberInfoTest_GetExpectedCost_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40ShortNumberInfoTest_GetExpectedCost_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29204,7 +29204,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers67ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers67ShortNumberInfoTest_GetExpectedCostForSharedCountryCallingCode_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers67ShortNumberInfoTest_GetExpectedCostForSharedCountryCallingCode_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29264,7 +29264,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers46ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46ShortNumberInfoTest_GetExampleShortNumber_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46ShortNumberInfoTest_GetExampleShortNumber_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29324,7 +29324,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers53ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_US_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29384,7 +29384,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers63ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_US_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29444,7 +29444,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers67ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers67ShortNumberInfoTest_ConnectsToEmergencyNumberWithFormatting_US_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers67ShortNumberInfoTest_ConnectsToEmergencyNumberWithFormatting_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29504,7 +29504,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers65ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers65ShortNumberInfoTest_ConnectsToEmergencyNumberWithPlusSign_US_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers65ShortNumberInfoTest_ConnectsToEmergencyNumberWithPlusSign_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29564,7 +29564,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers53ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_BR_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_BR_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29624,7 +29624,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers63ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_BR_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_BR_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29684,7 +29684,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers53ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_CL_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_CL_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29744,7 +29744,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers63ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_CL_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63ShortNumberInfoTest_ConnectsToEmergencyNumberLongNumber_CL_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29804,7 +29804,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers53ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_AO_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_AO_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29864,7 +29864,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers53ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_ZW_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_ConnectsToEmergencyNumber_ZW_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29924,7 +29924,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers45ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_US_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29984,7 +29984,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers55ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55ShortNumberInfoTest_IsEmergencyNumberLongNumber_US_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55ShortNumberInfoTest_IsEmergencyNumberLongNumber_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30044,7 +30044,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers59ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers59ShortNumberInfoTest_IsEmergencyNumberWithFormatting_US_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers59ShortNumberInfoTest_IsEmergencyNumberWithFormatting_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30104,7 +30104,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers57ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers57ShortNumberInfoTest_IsEmergencyNumberWithPlusSign_US_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers57ShortNumberInfoTest_IsEmergencyNumberWithPlusSign_US_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30164,7 +30164,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers45ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_BR_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_BR_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30224,7 +30224,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers53ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_EmergencyNumberLongNumber_BR_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53ShortNumberInfoTest_EmergencyNumberLongNumber_BR_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30284,7 +30284,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers45ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_AO_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_AO_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30344,7 +30344,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers45ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_ZW_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45ShortNumberInfoTest_IsEmergencyNumber_ZW_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30404,7 +30404,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers67ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers67ShortNumberInfoTest_EmergencyNumberForSharedCountryCallingCode_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers67ShortNumberInfoTest_EmergencyNumberForSharedCountryCallingCode_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30464,7 +30464,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers47ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers47ShortNumberInfoTest_OverlappingNANPANumber_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers47ShortNumberInfoTest_OverlappingNANPANumber_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30524,7 +30524,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers55ShortNumberInfoTest_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers19ShortNumberInfoTestC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55ShortNumberInfoTest_CountryCallingCodeIsNotIgnored_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55ShortNumberInfoTest_CountryCallingCodeIsNotIgnored_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

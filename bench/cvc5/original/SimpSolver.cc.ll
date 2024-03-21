@@ -854,7 +854,7 @@ entry:
   %1 = load ptr, ptr %d.addr, align 8
   %2 = load ptr, ptr %c.addr, align 8
   call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef @.str.28)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10BoolOptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value = getelementptr inbounds %"class.cvc5::internal::Minisat::BoolOption", ptr %this1, i32 0, i32 1
   %3 = load i8, ptr %v.addr, align 1
   %tobool = trunc i8 %3 to i1
@@ -933,7 +933,7 @@ entry:
   %1 = load ptr, ptr %d.addr, align 8
   %2 = load ptr, ptr %c.addr, align 8
   call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef @.str.38)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat9IntOptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %range = getelementptr inbounds %"class.cvc5::internal::Minisat::IntOption", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %range, ptr align 4 %r, i64 8, i1 false)
   %value = getelementptr inbounds %"class.cvc5::internal::Minisat::IntOption", ptr %this1, i32 0, i32 2
@@ -1040,7 +1040,7 @@ entry:
   %1 = load ptr, ptr %d.addr, align 8
   %2 = load ptr, ptr %c.addr, align 8
   call void @_ZN4cvc58internal7Minisat6OptionC2EPKcS4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef @.str.48)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat12DoubleOptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat12DoubleOptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %range = getelementptr inbounds %"class.cvc5::internal::Minisat::DoubleOption", ptr %this1, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %range, ptr align 8 %r, i64 24, i1 false)
   %value = getelementptr inbounds %"class.cvc5::internal::Minisat::DoubleOption", ptr %this1, i32 0, i32 2
@@ -1097,7 +1097,7 @@ entry:
   %5 = load i8, ptr %enableIncremental.addr, align 1
   %tobool = trunc i8 %5 to i1
   call void @_ZN4cvc58internal7Minisat6SolverC2ERNS0_3EnvEPNS0_4prop11TheoryProxyEPNS_7context7ContextEPNS8_11UserContextEPNS0_16ProofNodeManagerEb(ptr noundef nonnull align 8 dereferenceable(850) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %grow = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this1, i32 0, i32 2
   %call = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal7Minisat9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZL8opt_grow)
           to label %invoke.cont unwind label %lpad
@@ -2058,7 +2058,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat10SimpSolverE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %eliminated = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this1, i32 0, i32 22
   call void @_ZN4cvc58internal7Minisat3vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %eliminated) #3
   %frozen = getelementptr inbounds %"class.cvc5::internal::Minisat::SimpSolver", ptr %this1, i32 0, i32 21
@@ -8681,7 +8681,7 @@ entry:
   store ptr %cate_, ptr %cate_.addr, align 8
   store ptr %type_, ptr %type_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6OptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal7Minisat6OptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name = getelementptr inbounds %"class.cvc5::internal::Minisat::Option", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %name_.addr, align 8
   store ptr %0, ptr %name, align 8

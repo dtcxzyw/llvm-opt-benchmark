@@ -739,7 +739,7 @@ entry:
   %call.i1 = call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2, ptr noundef %call.i1, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2, ptr noundef nonnull @.str.11, ptr noundef nonnull getelementptr inbounds ([48 x i8], ptr @.str.11, i64 0, i64 47))
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %_name.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #54
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
@@ -750,14 +750,14 @@ entry:
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #54
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #54
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf8internal26unsupported_implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf8internal26unsupported_implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf8internal26unsupported_implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -1210,7 +1210,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.20, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.21, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::internal::detect_best_supported_implementation_on_first_use", ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, i64 0, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::internal::detect_best_supported_implementation_on_first_use", ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, i64 0, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
   store i32 0, ptr getelementptr inbounds (%"class.simdutf::internal::detect_best_supported_implementation_on_first_use", ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, i64 0, i32 0, i32 3), align 8
@@ -1218,7 +1218,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf8internal49detect_best_supported_implementation_on_first_useE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf8internal49detect_best_supported_implementation_on_first_useE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, align 8
   %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8internal49detect_best_supported_implementation_on_first_useD2Ev, ptr nonnull @_ZZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton, ptr nonnull @__dso_handle) #54
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf25get_active_implementationEvE59detect_best_supported_implementation_on_first_use_singleton) #54
   br label %init.end
@@ -1251,7 +1251,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf8internal49detect_best_supported_implementation_on_first_useD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -51407,7 +51407,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(76) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description) #54
   %_name = getelementptr inbounds i8, ptr %this, i64 8
@@ -51425,7 +51425,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf7icelake14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -51436,7 +51436,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf7icelake14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -51448,7 +51448,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf7haswell14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -51459,7 +51459,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf7haswell14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -51471,7 +51471,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf8westmere14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -51482,7 +51482,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf8westmere14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -51494,7 +51494,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf8fallback14implementationD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i) #54
   %_name.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -51505,7 +51505,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf8fallback14implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -51967,7 +51967,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf8internal26unsupported_implementationD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -52002,7 +52002,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.12, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.13, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::icelake::implementation", ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, i64 0, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::icelake::implementation", ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, i64 0, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
   store i32 122980, ptr getelementptr inbounds (%"class.simdutf::icelake::implementation", ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, i64 0, i32 0, i32 3), align 8
@@ -52010,7 +52010,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf7icelake14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf7icelake14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, align 8
   %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf7icelake14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton, ptr nonnull @__dso_handle) #54
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL21get_icelake_singletonEvE17icelake_singleton) #54
   br label %init.end
@@ -52040,7 +52040,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.14, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.15, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::haswell::implementation", ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, i64 0, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::haswell::implementation", ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, i64 0, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
   store i32 100, ptr getelementptr inbounds (%"class.simdutf::haswell::implementation", ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, i64 0, i32 0, i32 3), align 8
@@ -52048,7 +52048,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf7haswell14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf7haswell14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, align 8
   %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf7haswell14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton, ptr nonnull @__dso_handle) #54
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL21get_haswell_singletonEvE17haswell_singleton) #54
   br label %init.end
@@ -52078,7 +52078,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.16, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.17, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::westmere::implementation", ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, i64 0, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::westmere::implementation", ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, i64 0, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
   store i32 8, ptr getelementptr inbounds (%"class.simdutf::westmere::implementation", ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, i64 0, i32 0, i32 3), align 8
@@ -52086,7 +52086,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf8westmere14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf8westmere14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, align 8
   %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8westmere14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton, ptr nonnull @__dso_handle) #54
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL22get_westmere_singletonEvE18westmere_singleton) #54
   br label %init.end
@@ -52116,7 +52116,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i, ptr noundef nonnull @.str.18, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i, ptr noundef nonnull @.str.19, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i)
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::fallback::implementation", ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, i64 0, i32 0, i32 1), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.simdutf::fallback::implementation", ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, i64 0, i32 0, i32 2), ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2.i) #54
   store i32 0, ptr getelementptr inbounds (%"class.simdutf::fallback::implementation", ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, i64 0, i32 0, i32 3), align 8
@@ -52124,7 +52124,7 @@ init:                                             ; preds = %init.check
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp3.i) #54
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp.i) #54
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp.i) #54
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf8fallback14implementationE, i64 0, inrange i32 0, i64 2), ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf8fallback14implementationE, i64 0, i32 0, i64 2), ptr @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, align 8
   %2 = call i32 @__cxa_atexit(ptr nonnull @_ZN7simdutf8fallback14implementationD2Ev, ptr nonnull @_ZZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton, ptr nonnull @__dso_handle) #54
   call void @__cxa_guard_release(ptr nonnull @_ZGVZN7simdutf8internalL22get_fallback_singletonEvE18fallback_singleton) #54
   br label %init.end
@@ -52999,7 +52999,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7simdutf8internal49detect_best_supported_implementation_on_first_useD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [83 x ptr] }, ptr @_ZTVN7simdutf14implementationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_description.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description.i.i) #54
   %_name.i.i = getelementptr inbounds i8, ptr %this, i64 8

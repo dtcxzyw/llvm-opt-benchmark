@@ -235,21 +235,21 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
-  store ptr getelementptr inbounds ({ [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer4smt211Smt2PrinterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer4smt211Smt2PrinterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %d_variant.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %d_variant.i, align 8
   br label %return
 
 invoke.cont4:                                     ; preds = %entry
   %call2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #17
-  store ptr getelementptr inbounds ({ [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer4smt211Smt2PrinterE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer4smt211Smt2PrinterE, i64 0, i32 0, i64 2), ptr %call2, align 8
   %d_variant.i3 = getelementptr inbounds i8, ptr %call2, i64 8
   store i32 1, ptr %d_variant.i3, align 8
   br label %return
 
 sw.bb5:                                           ; preds = %entry
   %call6 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17
-  store ptr getelementptr inbounds ({ [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer3ast10AstPrinterE, i64 0, inrange i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds ({ [71 x ptr] }, ptr @_ZTVN4cvc58internal7printer3ast10AstPrinterE, i64 0, i32 0, i64 2), ptr %call6, align 8
   br label %return
 
 sw.default:                                       ; preds = %entry

@@ -36,7 +36,7 @@ $_ZTIN3irr17IReferenceCountedE = comdat any
 $_ZTIN3irr7ILoggerE = comdat any
 
 @_ZTVN3irr7CLoggerE = unnamed_addr constant { [9 x ptr], [5 x ptr] } { [9 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTIN3irr7CLoggerE, ptr @_ZN3irr7CLoggerD1Ev, ptr @_ZN3irr7CLoggerD0Ev, ptr @_ZNK3irr7CLogger11getLogLevelEv, ptr @_ZN3irr7CLogger11setLogLevelENS_10ELOG_LEVELE, ptr @_ZN3irr7CLogger3logEPKcNS_10ELOG_LEVELE, ptr @_ZN3irr7CLogger3logEPKcS2_NS_10ELOG_LEVELE], [5 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN3irr7CLoggerE, ptr @_ZTv0_n24_N3irr7CLoggerD1Ev, ptr @_ZTv0_n24_N3irr7CLoggerD0Ev] }, align 8
-@_ZTTN3irr7CLoggerE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTCN3irr7CLoggerE0_NS_7ILoggerE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTCN3irr7CLoggerE0_NS_7ILoggerE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr7CLoggerE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTCN3irr7CLoggerE0_NS_7ILoggerE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTCN3irr7CLoggerE0_NS_7ILoggerE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i32 0, inrange i32 1, i32 3)], align 8
 @.str = private unnamed_addr constant [3 x i8] c": \00", align 1
 @_ZTCN3irr7CLoggerE0_NS_7ILoggerE = unnamed_addr constant { [9 x ptr], [5 x ptr] } { [9 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTIN3irr7ILoggerE, ptr @_ZN3irr7ILoggerD1Ev, ptr @_ZN3irr7ILoggerD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual], [5 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN3irr7ILoggerE, ptr @_ZTv0_n24_N3irr7ILoggerD1Ev, ptr @_ZTv0_n24_N3irr7ILoggerD0Ev] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
@@ -83,8 +83,8 @@ define void @_ZN3irr7CLoggerC1EPNS_14IEventReceiverE(ptr nocapture noundef nonnu
   store ptr null, ptr %4, align 8, !tbaa !13
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 1, ptr %5, align 8, !tbaa !16
-  store ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [9 x ptr], [5 x ptr] }, ptr @_ZTVN3irr7CLoggerE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %6, align 8, !tbaa !6
   %7 = getelementptr inbounds i8, ptr %0, i64 16

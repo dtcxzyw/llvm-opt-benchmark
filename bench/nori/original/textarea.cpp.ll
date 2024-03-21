@@ -346,7 +346,7 @@ define hidden void @_ZN7nanogui8TextAreaC2EPNS_6WidgetE(ptr noundef nonnull alig
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8TextAreaE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8TextAreaE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %"class.nanogui::TextArea", ptr %8, i32 0, i32 1
   call void @_ZNSt6vectorIN7nanogui8TextArea5BlockESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #12
   %11 = getelementptr inbounds %"class.nanogui::TextArea", ptr %8, i32 0, i32 2
@@ -3377,7 +3377,7 @@ define linkonce_odr hidden void @_ZN7nanogui8TextAreaD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8TextAreaE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui8TextAreaE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::TextArea", ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #12
   %5 = getelementptr inbounds %"class.nanogui::TextArea", ptr %3, i32 0, i32 1

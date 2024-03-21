@@ -488,8 +488,8 @@ define void @_ZN22EditManipulatorsPluginC2Ev(ptr noundef nonnull align 8 derefer
           to label %4 unwind label %37
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV22EditManipulatorsPlugin, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV22EditManipulatorsPlugin, i64 0, inrange i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV22EditManipulatorsPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [20 x ptr] }, ptr @_ZTV22EditManipulatorsPlugin, i64 0, i32 1, i64 2), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5QFontC1Ev(ptr noundef nonnull align 8 dereferenceable(12) %5)
           to label %6 unwind label %39

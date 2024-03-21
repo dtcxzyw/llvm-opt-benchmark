@@ -91,7 +91,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3dpx5CodecC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buf = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this1, i32 0, i32 1
   store ptr null, ptr %buf, align 8
   ret void
@@ -105,7 +105,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dpx17RunLengthEncodingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buf = getelementptr inbounds %"class.dpx::RunLengthEncoding", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %buf, align 8
   %tobool = icmp ne ptr %0, null

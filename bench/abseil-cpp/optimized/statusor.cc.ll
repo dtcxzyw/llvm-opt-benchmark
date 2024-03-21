@@ -65,7 +65,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4absl17BadStatusOrAccessC2ENS_6StatusE(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 %status.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZN4absl6StatusD2Ev.exit:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
   store i64 %status.coerce, ptr %status_, align 8
   %init_what_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -110,7 +110,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4absl17BadStatusOrAccessC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(56) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
   %status_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i64, ptr %status_2, align 8
@@ -279,7 +279,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4absl17BadStatusOrAccessC2EOS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr nocapture noundef nonnull align 8 dereferenceable(56) %other) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
   %status_2 = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i64, ptr %status_2, align 8
@@ -568,7 +568,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 define dso_local void @_ZN4absl17internal_statusor22ThrowBadStatusOrAccessENS_6StatusE(i64 %status.coerce) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %exception = tail call ptr @__cxa_allocate_exception(i64 56) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, i32 0, i64 2), ptr %exception, align 8
   %status_.i = getelementptr inbounds i8, ptr %exception, i64 8
   store i64 %status.coerce, ptr %status_.i, align 8
   %init_what_.i = getelementptr inbounds i8, ptr %exception, i64 16
@@ -584,7 +584,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl17BadStatusOrAccessD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %what_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_) #13
   %status_ = getelementptr inbounds i8, ptr %this, i64 8
@@ -615,7 +615,7 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4absl17BadStatusOrAccessD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4absl17BadStatusOrAccessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %what_.i = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %what_.i) #13
   %status_.i = getelementptr inbounds i8, ptr %this, i64 8

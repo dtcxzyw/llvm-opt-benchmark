@@ -19832,9 +19832,9 @@ invoke.cont:                                      ; preds = %if.then
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !506
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i.i115, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !506
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i.i115, align 8, !tbaa !282, !noalias !506
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i.i115, align 8, !tbaa !282, !noalias !506
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i13.i.i.i.i.i115, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !506
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !506
   %buffer_type.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i13.i.i.i.i.i115, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !506
   %aux_data.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i13.i.i.i.i.i115, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -20427,9 +20427,9 @@ call5.i.i.i17.i.i.i.i.i.i.i.noexc:                ; preds = %call.i.i.noexc
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !544
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i.i328, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !544
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i328, align 8, !tbaa !282, !noalias !544
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i328, align 8, !tbaa !282, !noalias !544
   %_M_impl.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i328, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !544
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !544
   %buffer_type.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i328, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !544
   %aux_data.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i328, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -21877,9 +21877,9 @@ sw.bb223:                                         ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i494, align 8, !tbaa !279, !noalias !601
   %_M_weak_count.i.i.i.i.i.i.i.i.i495 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i495, align 4, !tbaa !281, !noalias !601
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !601
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !601
   %_M_impl.i.i.i.i.i.i.i.i.i496 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i496, align 8, !tbaa !282, !noalias !601
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i496, align 8, !tbaa !282, !noalias !601
   %buffer_type.i.i.i.i.i.i.i.i.i.i.i497 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i.i497, align 8, !tbaa !511, !noalias !601
   %aux_data.i.i.i.i.i.i.i.i.i.i.i498 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -24682,7 +24682,7 @@ call5.i.i.i17.i.i.i.i.i.noexc:                    ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !677
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i15, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !677
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i15, align 8, !tbaa !282, !noalias !677
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i15, align 8, !tbaa !282, !noalias !677
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i.i15, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i.i, i64 noundef %slice_count)
           to label %_ZSt11make_sharedIN6duckdb13SelectionDataEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !677
@@ -25308,7 +25308,7 @@ invoke.cont15:                                    ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !690
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i73, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !690
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorChildBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i73, align 8, !tbaa !282, !noalias !690
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorChildBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i73, align 8, !tbaa !282, !noalias !690
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %call5.i.i.i17.i.i.i.i.i73, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i), !noalias !690
   call void @_ZN6duckdb6VectorC1EOS0_(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %child_vector) #46, !noalias !690
@@ -25316,7 +25316,7 @@ invoke.cont15:                                    ; preds = %invoke.cont
   store i8 2, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !690
   %aux_data.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %call5.i.i.i17.i.i.i.i.i73, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !690
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !690
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !690
   %data.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %call5.i.i.i17.i.i.i.i.i73, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   call void @_ZN6duckdb6VectorC1EOS0_(ptr noundef nonnull align 8 dereferenceable(104) %data.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp.i.i.i.i.i.i.i.i) #46, !noalias !690
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp.i.i.i.i.i.i.i.i) #46, !noalias !690
@@ -42596,7 +42596,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !898
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !898
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !898
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !898
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i.i, i64 noundef %count)
           to label %_ZN6duckdb11make_bufferINS_13SelectionDataEJRmEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !898
@@ -47751,7 +47751,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !947
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !947
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !947
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !947
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.668", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !933, !noalias !947
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
@@ -48228,7 +48228,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !965
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !965
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !965
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !965
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.668", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !933, !noalias !965
   %2 = shl nuw nsw i64 %div1.i.i, 3
@@ -48592,7 +48592,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc:                  ; preds = %if.end3
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !976
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i76, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !976
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i76, align 8, !tbaa !282, !noalias !976
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i76, align 8, !tbaa !282, !noalias !976
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.668", ptr %call5.i.i.i17.i.i.i.i.i.i76, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !933, !noalias !976
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
@@ -50278,7 +50278,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %if.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1001
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i37, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1001
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i37, align 8, !tbaa !282, !noalias !1001
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i37, align 8, !tbaa !282, !noalias !1001
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i37, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !1001
   %15 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -50310,7 +50310,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i8 0, ptr %17, align 1, !tbaa !117, !noalias !1001
   %type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i37, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 1, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1001
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1001
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1001
   %str.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i37, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %22 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i37, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %22, ptr %str.i.i.i.i.i.i.i.i, align 8, !tbaa !116, !noalias !1001
@@ -50543,7 +50543,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !279
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i, align 8, !tbaa !282
   %_M_impl.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i)
   %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i, i64 0, i32 2
@@ -50578,7 +50578,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i: ;
   store i8 0, ptr %2, align 8, !tbaa !117
   %type2.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 1, ptr %type2.i.i.i.i.i.i.i.i, align 8, !tbaa !1004
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i, align 8, !tbaa !282
   %str.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %7, ptr %str.i.i.i.i.i.i.i, align 8, !tbaa !116
@@ -55148,14 +55148,14 @@ invoke.cont18:                                    ; preds = %for.cond.cleanup
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1210
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i38, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1210
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i38, align 8, !tbaa !282, !noalias !1210
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i38, align 8, !tbaa !282, !noalias !1210
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i38, i64 0, i32 1
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::Value, std::allocator<duckdb::Value>>::_Vector_impl_data", ptr %struct_values, i64 0, i32 2
   %34 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1213, !noalias !1210
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %struct_values, i8 0, i64 24, i1 false), !noalias !1210
   %type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i38, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1210
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1210
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1210
   %values.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i38, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   store ptr %.lcssa, ptr %values.i.i.i.i.i.i.i.i, align 8, !tbaa !490, !noalias !1210
   %_M_finish.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i38, i64 0, i32 1, i32 0, i32 0, i32 0, i64 24
@@ -57173,7 +57173,7 @@ invoke.cont57:                                    ; preds = %for.cond.cleanup
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1232
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i80, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1232
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i80, align 8, !tbaa !282, !noalias !1232
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i80, align 8, !tbaa !282, !noalias !1232
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i80, i64 0, i32 1
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::Value, std::allocator<duckdb::Value>>::_Vector_impl_data", ptr %values, i64 0, i32 2
   %85 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1213, !noalias !1232
@@ -57182,7 +57182,7 @@ invoke.cont57:                                    ; preds = %for.cond.cleanup
   %86 = load <2 x ptr>, ptr %values, align 8, !tbaa !3, !noalias !1232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values, i8 0, i64 24, i1 false), !noalias !1232
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1232
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1232
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1232
   store <2 x ptr> %86, ptr %values.i.i.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !1232
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i80, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %85, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1213, !noalias !1232
@@ -57587,7 +57587,7 @@ invoke.cont23:                                    ; preds = %_ZN6duckdb5ValueaSE
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i68, align 8, !tbaa !279, !noalias !1239
   %_M_weak_count.i.i.i.i.i.i69 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i70, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i69, align 4, !tbaa !281, !noalias !1239
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i70, align 8, !tbaa !282, !noalias !1239
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i70, align 8, !tbaa !282, !noalias !1239
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i70, i64 0, i32 1
   %35 = load ptr, ptr %_M_end_of_storage.i, align 16, !tbaa !1213, !noalias !1239
   %type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i70, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
@@ -57595,7 +57595,7 @@ invoke.cont23:                                    ; preds = %_ZN6duckdb5ValueaSE
   %36 = load <2 x ptr>, ptr %union_values, align 16, !tbaa !3, !noalias !1239
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %union_values, i8 0, i64 24, i1 false), !noalias !1239
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1239
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1239
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1239
   store <2 x ptr> %36, ptr %values.i.i.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !1239
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i70, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %35, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1213, !noalias !1239
@@ -57911,7 +57911,7 @@ invoke.cont21:                                    ; preds = %invoke.cont16
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1242
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i31, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1242
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i31, align 8, !tbaa !282, !noalias !1242
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i31, align 8, !tbaa !282, !noalias !1242
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i31, i64 0, i32 1
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::Value, std::allocator<duckdb::Value>>::_Vector_impl_data", ptr %values, i64 0, i32 2
   %11 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1213, !noalias !1242
@@ -57920,7 +57920,7 @@ invoke.cont21:                                    ; preds = %invoke.cont16
   %12 = load <2 x ptr>, ptr %values, align 8, !tbaa !3, !noalias !1242
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values, i8 0, i64 24, i1 false), !noalias !1242
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1242
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1242
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1242
   store <2 x ptr> %12, ptr %values.i.i.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !1242
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i31, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %11, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1213, !noalias !1242
@@ -58290,11 +58290,11 @@ invoke.cont5:                                     ; preds = %invoke.cont2
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1248
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i11, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1248
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i11, align 8, !tbaa !282, !noalias !1248
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i11, align 8, !tbaa !282, !noalias !1248
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i11, i64 0, i32 1
   %type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i11, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1248
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1248
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1248
   %values.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i11, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !1248
   %value_info_ = getelementptr inbounds %"class.duckdb::Value", ptr %agg.result, i64 0, i32 3
@@ -58489,7 +58489,7 @@ invoke.cont22:                                    ; preds = %invoke.cont17
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1251
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i32, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1251
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i32, align 8, !tbaa !282, !noalias !1251
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i32, align 8, !tbaa !282, !noalias !1251
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i32, i64 0, i32 1
   %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Vector_base<duckdb::Value, std::allocator<duckdb::Value>>::_Vector_impl_data", ptr %values, i64 0, i32 2
   %13 = load ptr, ptr %_M_end_of_storage4.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1213, !noalias !1251
@@ -58498,7 +58498,7 @@ invoke.cont22:                                    ; preds = %invoke.cont17
   %14 = load <2 x ptr>, ptr %values, align 8, !tbaa !3, !noalias !1251
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values, i8 0, i64 24, i1 false), !noalias !1251
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1251
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1251
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1251
   store <2 x ptr> %14, ptr %values.i.i.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !1251
   %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i17.i.i.i.i32, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %13, ptr %_M_end_of_storage.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1213, !noalias !1251
@@ -58869,11 +58869,11 @@ invoke.cont5:                                     ; preds = %invoke.cont2
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1257
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i11, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1257
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i11, align 8, !tbaa !282, !noalias !1257
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i11, align 8, !tbaa !282, !noalias !1257
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i11, i64 0, i32 1
   %type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i11, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1257
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1257
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1257
   %values.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i11, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %values.i.i.i.i.i.i.i.i, i8 0, i64 24, i1 false), !noalias !1257
   %value_info_ = getelementptr inbounds %"class.duckdb::Value", ptr %agg.result, i64 0, i32 3
@@ -59038,7 +59038,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %invoke.cont6
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1260
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1260
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i18, align 8, !tbaa !282, !noalias !1260
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i18, align 8, !tbaa !282, !noalias !1260
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !1260
   %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -59069,7 +59069,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i8 0, ptr %0, align 8, !tbaa !117, !noalias !1260
   %type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 1, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1260
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1260
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1260
   %str.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %12 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %12, ptr %str.i.i.i.i.i.i.i.i, align 8, !tbaa !116, !noalias !1260
@@ -59264,7 +59264,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %invoke.cont5
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1263
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1263
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i13, align 8, !tbaa !282, !noalias !1263
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i13, align 8, !tbaa !282, !noalias !1263
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !1263
   %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -59299,7 +59299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i8 0, ptr %5, align 8, !tbaa !117, !noalias !1263
   %type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 1, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1263
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1263
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1263
   %str.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %10, ptr %str.i.i.i.i.i.i.i.i, align 8, !tbaa !116, !noalias !1263
@@ -59513,7 +59513,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %invoke.cont6
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1266
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1266
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i18, align 8, !tbaa !282, !noalias !1266
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i18, align 8, !tbaa !282, !noalias !1266
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !1266
   %6 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -59544,7 +59544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i8 0, ptr %0, align 8, !tbaa !117, !noalias !1266
   %type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 1, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1266
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1266
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1266
   %str.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %12 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i18, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %12, ptr %str.i.i.i.i.i.i.i.i, align 8, !tbaa !116, !noalias !1266
@@ -59739,7 +59739,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %invoke.cont5
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1269
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1269
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i13, align 8, !tbaa !282, !noalias !1269
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i13, align 8, !tbaa !282, !noalias !1269
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !1269
   %3 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -59774,7 +59774,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i.i.i.i.i:
   store i8 0, ptr %5, align 8, !tbaa !117, !noalias !1269
   %type2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 1, ptr %type2.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1269
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1269
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1269
   %str.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %10 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i17.i.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %10, ptr %str.i.i.i.i.i.i.i.i, align 8, !tbaa !116, !noalias !1269
@@ -91858,7 +91858,7 @@ call5.i.i.i13.i.i.i.i.noexc.i:                    ; preds = %_ZN6duckdb12Deseria
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1498
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i3.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1498
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i3.i, align 8, !tbaa !282, !noalias !1498
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i3.i, align 8, !tbaa !282, !noalias !1498
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i), !noalias !1498
   invoke void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %children.i)
           to label %_ZSt11make_sharedIN6duckdb15NestedValueInfoEJRNS0_6vectorINS0_5ValueELb1EEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit19.i.i.i.i.i, !noalias !1498
@@ -91873,7 +91873,7 @@ _ZSt11make_sharedIN6duckdb15NestedValueInfoEJRNS0_6vectorINS0_5ValueELb1EEEEESt1
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i3.i, i64 0, i32 1
   %type2.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i3.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !1004, !noalias !1498
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1498
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1498
   %values.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i3.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %114 = load <2 x ptr>, ptr %agg.tmp.i.i.i.i.i.i.i.i, align 16, !tbaa !3, !noalias !1498
   store <2 x ptr> %114, ptr %values.i.i.i.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !1498
@@ -92193,7 +92193,7 @@ call5.i.i.i13.i.i.i.i.noexc.i421:                 ; preds = %_ZN6duckdb12Deseria
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i422, align 8, !tbaa !279, !noalias !1511
   %_M_weak_count.i.i.i.i.i.i.i423 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i3.i405, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i423, align 4, !tbaa !281, !noalias !1511
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i3.i405, align 8, !tbaa !282, !noalias !1511
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i3.i405, align 8, !tbaa !282, !noalias !1511
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i396), !noalias !1511
   invoke void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i.i.i.i.i.i396, ptr noundef nonnull align 8 dereferenceable(24) %children.i397)
           to label %_ZSt11make_sharedIN6duckdb15NestedValueInfoEJRNS0_6vectorINS0_5ValueELb1EEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit.i425 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit19.i.i.i.i.i424, !noalias !1511
@@ -92208,7 +92208,7 @@ _ZSt11make_sharedIN6duckdb15NestedValueInfoEJRNS0_6vectorINS0_5ValueELb1EEEEESt1
   %_M_impl.i.i.i.i.i.i.i427 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i3.i405, i64 0, i32 1
   %type2.i.i.i.i.i.i.i.i.i.i428 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i3.i405, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i.i428, align 8, !tbaa !1004, !noalias !1511
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i427, align 8, !tbaa !282, !noalias !1511
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i427, align 8, !tbaa !282, !noalias !1511
   %values.i.i.i.i.i.i.i.i.i429 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i3.i405, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %153 = load <2 x ptr>, ptr %agg.tmp.i.i.i.i.i.i.i.i396, align 16, !tbaa !3, !noalias !1511
   store <2 x ptr> %153, ptr %values.i.i.i.i.i.i.i.i.i429, align 8, !tbaa !3, !noalias !1511
@@ -92528,7 +92528,7 @@ call5.i.i.i13.i.i.i.i.noexc.i518:                 ; preds = %_ZN6duckdb12Deseria
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i519, align 8, !tbaa !279, !noalias !1524
   %_M_weak_count.i.i.i.i.i.i.i520 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i3.i502, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i520, align 4, !tbaa !281, !noalias !1524
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i3.i502, align 8, !tbaa !282, !noalias !1524
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i3.i502, align 8, !tbaa !282, !noalias !1524
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i493), !noalias !1524
   invoke void @_ZNSt6vectorIN6duckdb5ValueESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i.i.i.i.i.i493, ptr noundef nonnull align 8 dereferenceable(24) %children.i494)
           to label %_ZSt11make_sharedIN6duckdb15NestedValueInfoEJRNS0_6vectorINS0_5ValueELb1EEEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit.i522 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb15NestedValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit19.i.i.i.i.i521, !noalias !1524
@@ -92543,7 +92543,7 @@ _ZSt11make_sharedIN6duckdb15NestedValueInfoEJRNS0_6vectorINS0_5ValueELb1EEEEESt1
   %_M_impl.i.i.i.i.i.i.i524 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i3.i502, i64 0, i32 1
   %type2.i.i.i.i.i.i.i.i.i.i525 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i3.i502, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 2, ptr %type2.i.i.i.i.i.i.i.i.i.i525, align 8, !tbaa !1004, !noalias !1524
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i524, align 8, !tbaa !282, !noalias !1524
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i524, align 8, !tbaa !282, !noalias !1524
   %values.i.i.i.i.i.i.i.i.i526 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.682", ptr %call5.i.i.i13.i.i.i.i3.i502, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %192 = load <2 x ptr>, ptr %agg.tmp.i.i.i.i.i.i.i.i493, align 16, !tbaa !3, !noalias !1524
   store <2 x ptr> %192, ptr %values.i.i.i.i.i.i.i.i.i526, align 8, !tbaa !3, !noalias !1524
@@ -93516,9 +93516,9 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1533
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1533
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1533
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1533
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1533
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1533
   %buffer_type.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !1533
   %aux_data.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -93564,9 +93564,9 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1543
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1543
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1543
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1543
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1543
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1543
   %buffer_type.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !1543
   %aux_data.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -93613,9 +93613,9 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1556
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1556
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1556
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1556
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1556
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1556
   %buffer_type.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !1556
   %aux_data.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -93663,9 +93663,9 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1569
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1569
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1569
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1569
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1569
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1569
   %buffer_type.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !1569
   %aux_data.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -93704,7 +93704,7 @@ entry:
   store i8 3, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStringBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStringBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9Allocator16DefaultAllocatorEv()
           to label %invoke.cont unwind label %lpad
 
@@ -93732,7 +93732,7 @@ entry:
   store i8 %type, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStringBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStringBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %call = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9Allocator16DefaultAllocatorEv()
           to label %invoke.cont unwind label %lpad
 
@@ -93760,7 +93760,7 @@ entry:
   store i8 4, ptr %buffer_type.i.i, align 8, !tbaa !511
   %aux_data.i.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStringBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStringBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %call.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb9Allocator16DefaultAllocatorEv()
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -93778,7 +93778,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %ent
 _ZN6duckdb18VectorStringBufferC2ENS_16VectorBufferTypeE.exit: ; preds = %invoke.cont.i
   %references.i = getelementptr inbounds %"class.duckdb::VectorStringBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %references.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb22VectorFSSTStringBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb22VectorFSSTStringBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %duckdb_fsst_decoder = getelementptr inbounds %"class.duckdb::VectorFSSTStringBuffer", ptr %this, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %duckdb_fsst_decoder, i8 0, i64 24, i1 false)
   ret void
@@ -93791,7 +93791,7 @@ entry:
   store i8 5, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStructBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStructBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %children = getelementptr inbounds %"class.duckdb::VectorStructBuffer", ptr %this, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children, i8 0, i64 24, i1 false)
   ret void
@@ -93806,7 +93806,7 @@ entry:
   store i8 5, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStructBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStructBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %children = getelementptr inbounds %"class.duckdb::VectorStructBuffer", ptr %this, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children, i8 0, i64 24, i1 false)
   %call = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb10StructType13GetChildTypesB5cxx11ERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %type)
@@ -94087,7 +94087,7 @@ entry:
   store i8 5, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStructBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStructBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %children = getelementptr inbounds %"class.duckdb::VectorStructBuffer", ptr %this, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %children, i8 0, i64 24, i1 false)
   %0 = load i8, ptr %other, align 8, !tbaa !444
@@ -94335,7 +94335,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb18VectorStructBufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStructBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStructBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %children = getelementptr inbounds %"class.duckdb::VectorStructBuffer", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %children, align 8, !tbaa !465
   %_M_finish.i = getelementptr inbounds %"class.duckdb::VectorStructBuffer", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -94374,7 +94374,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
   br label %_ZNSt6vectorIN6duckdb10unique_ptrINS0_6VectorESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit
 
 _ZNSt6vectorIN6duckdb10unique_ptrINS0_6VectorESt14default_deleteIS2_ELb1EEESaIS5_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %4 = load ptr, ptr %data.i, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %4, null
@@ -94418,7 +94418,7 @@ entry:
   store i8 6, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16VectorListBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16VectorListBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %child = getelementptr inbounds %"class.duckdb::VectorListBuffer", ptr %this, i64 0, i32 1
   %0 = load i64, ptr %vector, align 8, !tbaa !3
   store i64 %0, ptr %child, align 8, !tbaa !3
@@ -94438,7 +94438,7 @@ entry:
   store i8 6, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16VectorListBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16VectorListBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %call = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb8ListType12GetChildTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %list_type)
           to label %invoke.cont unwind label %lpad
 
@@ -94707,7 +94707,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb16VectorListBufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16VectorListBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16VectorListBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %child = getelementptr inbounds %"class.duckdb::VectorListBuffer", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %child, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %0, null
@@ -94720,7 +94720,7 @@ _ZNKSt14default_deleteIN6duckdb6VectorEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN6duckdb6VectorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb6VectorEEclEPS1_.exit.i, %entry
   store ptr null, ptr %child, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %1 = load ptr, ptr %data.i, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -94764,7 +94764,7 @@ entry:
   store i8 9, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorArrayBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorArrayBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %child = getelementptr inbounds %"class.duckdb::VectorArrayBuffer", ptr %this, i64 0, i32 1
   %0 = load i64, ptr %child_vector, align 8, !tbaa !3
   store i64 %0, ptr %child, align 8, !tbaa !3
@@ -94784,7 +94784,7 @@ entry:
   store i8 9, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorArrayBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorArrayBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %child = getelementptr inbounds %"class.duckdb::VectorArrayBuffer", ptr %this, i64 0, i32 1
   %call = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb9ArrayType12GetChildTypeERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(24) %array)
           to label %invoke.cont unwind label %lpad
@@ -94865,7 +94865,7 @@ declare noundef i64 @_ZN6duckdb9ArrayType7GetSizeERKNS_11LogicalTypeE(ptr nounde
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb17VectorArrayBufferD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorArrayBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorArrayBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %child = getelementptr inbounds %"class.duckdb::VectorArrayBuffer", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %child, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %0, null
@@ -94878,7 +94878,7 @@ _ZNKSt14default_deleteIN6duckdb6VectorEEclEPS1_.exit.i: ; preds = %entry
 
 _ZNSt10unique_ptrIN6duckdb6VectorESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb6VectorEEclEPS1_.exit.i, %entry
   store ptr null, ptr %child, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %1 = load ptr, ptr %data.i, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %1, null
@@ -94949,7 +94949,7 @@ entry:
   store i8 7, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb19ManagedVectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb19ManagedVectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %handle2 = getelementptr inbounds %"class.duckdb::ManagedVectorBuffer", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %handle2, ptr noundef nonnull align 8 dereferenceable(24) %handle) #46
   ret void
@@ -94961,10 +94961,10 @@ declare void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 derefe
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb19ManagedVectorBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb19ManagedVectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb19ManagedVectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %handle = getelementptr inbounds %"class.duckdb::ManagedVectorBuffer", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb12BufferHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle) #46
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %data.i, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -95214,7 +95214,7 @@ invoke.cont:                                      ; preds = %_ZN6duckdb9make_uni
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb18VectorStructBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb18VectorStructBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !tbaa !282
   %_M_ptr.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %call.i.i.i.i, i64 0, i32 1
   store ptr %call.i, ptr %_M_ptr.i.i.i.i.i, align 8, !tbaa !1606
   store ptr %call.i, ptr %auxiliary, align 8, !tbaa !3
@@ -95314,7 +95314,7 @@ invoke.cont11:                                    ; preds = %_ZN6duckdb9make_uni
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i101, align 8, !tbaa !279
   %_M_weak_count.i.i.i.i.i.i102 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i90, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i102, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb16VectorListBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i90, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb16VectorListBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i90, align 8, !tbaa !282
   %_M_ptr.i.i.i.i.i103 = getelementptr inbounds %"class.std::_Sp_counted_ptr.701", ptr %call.i.i.i.i90, i64 0, i32 1
   store ptr %call.i87, ptr %_M_ptr.i.i.i.i.i103, align 8, !tbaa !1611
   store ptr %call.i87, ptr %auxiliary, align 8, !tbaa !3
@@ -95414,7 +95414,7 @@ invoke.cont20:                                    ; preds = %_ZN6duckdb9make_uni
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i170, align 8, !tbaa !279
   %_M_weak_count.i.i.i.i.i.i171 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i159, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i171, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb17VectorArrayBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i159, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb17VectorArrayBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i159, align 8, !tbaa !282
   %_M_ptr.i.i.i.i.i172 = getelementptr inbounds %"class.std::_Sp_counted_ptr.702", ptr %call.i.i.i.i159, i64 0, i32 1
   store ptr %call.i156, ptr %_M_ptr.i.i.i.i.i172, align 8, !tbaa !1616
   store ptr %call.i156, ptr %auxiliary, align 8, !tbaa !3
@@ -95481,9 +95481,9 @@ if.then27:                                        ; preds = %if.end24
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1624
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1624
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1624
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1624
   %_M_impl.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1624
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1624
   %buffer_type.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !1624
   %aux_data.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -96164,9 +96164,9 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1639
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1639
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1639
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1639
   %_M_impl.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1639
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1639
   %buffer_type.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !1639
   %aux_data.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -96600,7 +96600,7 @@ invoke.cont43:                                    ; preds = %for.cond.cleanup
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb18VectorStructBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb18VectorStructBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !tbaa !282
   %_M_ptr.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %call.i.i.i.i, i64 0, i32 1
   store ptr %13, ptr %_M_ptr.i.i.i.i.i, align 8, !tbaa !1606
   %auxiliary = getelementptr inbounds %"class.duckdb::Vector", ptr %this, i64 0, i32 5
@@ -96746,7 +96746,7 @@ invoke.cont60:                                    ; preds = %_ZN6duckdb9make_uni
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i198, align 8, !tbaa !279
   %_M_weak_count.i.i.i.i.i.i199 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i187, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i199, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb16VectorListBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i187, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb16VectorListBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i187, align 8, !tbaa !282
   %_M_ptr.i.i.i.i.i200 = getelementptr inbounds %"class.std::_Sp_counted_ptr.701", ptr %call.i.i.i.i187, i64 0, i32 1
   store ptr %call.i184, ptr %_M_ptr.i.i.i.i.i200, align 8, !tbaa !1611
   %auxiliary61 = getelementptr inbounds %"class.duckdb::Vector", ptr %this, i64 0, i32 5
@@ -96858,7 +96858,7 @@ invoke.cont79:                                    ; preds = %_ZN6duckdb9make_uni
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i267, align 8, !tbaa !279
   %_M_weak_count.i.i.i.i.i.i268 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i.i256, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i268, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb17VectorArrayBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i256, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb17VectorArrayBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i256, align 8, !tbaa !282
   %_M_ptr.i.i.i.i.i269 = getelementptr inbounds %"class.std::_Sp_counted_ptr.702", ptr %call.i.i.i.i256, i64 0, i32 1
   store ptr %call.i253, ptr %_M_ptr.i.i.i.i.i269, align 8, !tbaa !1616
   %auxiliary80 = getelementptr inbounds %"class.duckdb::Vector", ptr %this, i64 0, i32 5
@@ -97229,7 +97229,7 @@ _ZNSt12__shared_ptrIN6duckdb12VectorBufferELN9__gnu_cxx12_Lock_policyE2EEC2INS0_
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !279
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb18VectorStructBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb18VectorStructBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8, !tbaa !282
   %_M_ptr.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %call.i.i.i, i64 0, i32 1
   store ptr %__p, ptr %_M_ptr.i.i.i.i, align 8, !tbaa !1606
   store ptr %call.i.i.i, ptr %_M_refcount.i, align 8, !tbaa !278
@@ -97288,7 +97288,7 @@ _ZNSt12__shared_ptrIN6duckdb12VectorBufferELN9__gnu_cxx12_Lock_policyE2EEC2INS0_
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !279
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb17VectorArrayBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6duckdb17VectorArrayBufferELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8, !tbaa !282
   %_M_ptr.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr.702", ptr %call.i.i.i, i64 0, i32 1
   store ptr %__p, ptr %_M_ptr.i.i.i.i, align 8, !tbaa !1616
   store ptr %call.i.i.i, ptr %_M_refcount.i, align 8, !tbaa !278
@@ -97822,7 +97822,7 @@ if.then4:                                         ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1676
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1676
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1676
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1676
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i.i.i, i64 noundef %count)
           to label %_ZN6duckdb11make_bufferINS_13SelectionDataEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i.i, !noalias !1676
@@ -98131,14 +98131,14 @@ invoke.cont:                                      ; preds = %_ZNK6duckdb15Select
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1686
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i81, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1686
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16DictionaryBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i81, align 8, !tbaa !282, !noalias !1686
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16DictionaryBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i81, align 8, !tbaa !282, !noalias !1686
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i17.i.i.i.i.i81, i64 0, i32 1
   %buffer_type.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i17.i.i.i.i.i81, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %sliced_dictionary, i8 0, i64 16, i1 false), !noalias !1686
   store i8 1, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !1686
   %aux_data.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i17.i.i.i.i.i81, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i.i.i.i.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !1686
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1686
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1686
   %selection_data.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i17.i.i.i.i.i81, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
   store ptr %_M_impl.i.i.i.i.i.i.i.i, ptr %selection_data.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !1686
   %_M_refcount3.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i17.i.i.i.i.i81, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
@@ -98219,7 +98219,7 @@ call5.i.i.i21.i.i.i.i.i.noexc:                    ; preds = %invoke.cont18
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i83, align 8, !tbaa !279, !noalias !1691
   %_M_weak_count.i.i.i.i.i.i.i84 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i21.i.i.i.i.i87, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i84, align 4, !tbaa !281, !noalias !1691
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStructBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i21.i.i.i.i.i87, align 8, !tbaa !282, !noalias !1691
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStructBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i21.i.i.i.i.i87, align 8, !tbaa !282, !noalias !1691
   %_M_impl.i.i.i.i.i.i.i85 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.715", ptr %call5.i.i.i21.i.i.i.i.i87, i64 0, i32 1
   invoke void @_ZN6duckdb18VectorStructBufferC1ERNS_6VectorERKNS_15SelectionVectorEm(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl.i.i.i.i.i.i.i85, ptr noundef nonnull align 8 dereferenceable(104) %new_child, ptr noundef nonnull align 8 dereferenceable(24) %sel, i64 noundef %count)
           to label %invoke.cont21 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStructBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit27.i.i.i.i.i, !noalias !1691
@@ -98292,7 +98292,7 @@ invoke.cont25:                                    ; preds = %_ZNSt12__shared_ptr
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i130, align 8, !tbaa !279, !noalias !1696
   %_M_weak_count.i.i.i.i.i.i.i131 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i135, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i131, align 4, !tbaa !281, !noalias !1696
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorChildBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i135, align 8, !tbaa !282, !noalias !1696
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorChildBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i135, align 8, !tbaa !282, !noalias !1696
   %_M_impl.i.i.i.i.i.i.i132 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %call5.i.i.i17.i.i.i.i.i135, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i), !noalias !1696
   call void @_ZN6duckdb6VectorC1EOS0_(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %new_child) #46, !noalias !1696
@@ -98300,7 +98300,7 @@ invoke.cont25:                                    ; preds = %_ZNSt12__shared_ptr
   store i8 2, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i133, align 8, !tbaa !511, !noalias !1696
   %aux_data.i.i.i.i.i.i.i.i.i.i134 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %call5.i.i.i17.i.i.i.i.i135, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i.i.i.i.i.i.i.i.i.i134, i8 0, i64 16, i1 false), !noalias !1696
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i132, align 8, !tbaa !282, !noalias !1696
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i132, align 8, !tbaa !282, !noalias !1696
   %data.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %call5.i.i.i17.i.i.i.i.i135, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   call void @_ZN6duckdb6VectorC1EOS0_(ptr noundef nonnull align 8 dereferenceable(104) %data.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp.i.i.i.i.i.i.i.i) #46, !noalias !1696
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp.i.i.i.i.i.i.i.i) #46, !noalias !1696
@@ -98471,7 +98471,7 @@ call5.i.i.i21.i.i.i.i.i.noexc204:                 ; preds = %if.then46
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i199, align 8, !tbaa !279, !noalias !1701
   %_M_weak_count.i.i.i.i.i.i.i200 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i21.i.i.i.i.i205, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i200, align 4, !tbaa !281, !noalias !1701
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStructBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i21.i.i.i.i.i205, align 8, !tbaa !282, !noalias !1701
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStructBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i21.i.i.i.i.i205, align 8, !tbaa !282, !noalias !1701
   %_M_impl.i.i.i.i.i.i.i201 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.715", ptr %call5.i.i.i21.i.i.i.i.i205, i64 0, i32 1
   invoke void @_ZN6duckdb18VectorStructBufferC1ERNS_6VectorERKNS_15SelectionVectorEm(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl.i.i.i.i.i.i.i201, ptr noundef nonnull align 8 dereferenceable(104) %this, ptr noundef nonnull align 8 dereferenceable(24) %sel, i64 noundef %count)
           to label %invoke.cont49 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStructBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit27.i.i.i.i.i202, !noalias !1701
@@ -98553,7 +98553,7 @@ invoke.cont55:                                    ; preds = %if.end53
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i253, align 8, !tbaa !279, !noalias !1712
   %_M_weak_count.i.i.i.i.i.i.i254 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i259, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i254, align 4, !tbaa !281, !noalias !1712
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorChildBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i259, align 8, !tbaa !282, !noalias !1712
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorChildBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i259, align 8, !tbaa !282, !noalias !1712
   %_M_impl.i.i.i.i.i.i.i255 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %call5.i.i.i17.i.i.i.i.i259, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i251), !noalias !1712
   call void @_ZN6duckdb6VectorC1EOS0_(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp.i.i.i.i.i.i.i.i251, ptr noundef nonnull align 8 dereferenceable(104) %child_vector39) #46, !noalias !1712
@@ -98561,7 +98561,7 @@ invoke.cont55:                                    ; preds = %if.end53
   store i8 2, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i256, align 8, !tbaa !511, !noalias !1712
   %aux_data.i.i.i.i.i.i.i.i.i.i257 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %call5.i.i.i17.i.i.i.i.i259, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i.i.i.i.i.i.i.i.i.i257, i8 0, i64 16, i1 false), !noalias !1712
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i255, align 8, !tbaa !282, !noalias !1712
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i255, align 8, !tbaa !282, !noalias !1712
   %data.i.i.i.i.i.i.i.i.i258 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.721", ptr %call5.i.i.i17.i.i.i.i.i259, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   call void @_ZN6duckdb6VectorC1EOS0_(ptr noundef nonnull align 8 dereferenceable(104) %data.i.i.i.i.i.i.i.i.i258, ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp.i.i.i.i.i.i.i.i251) #46, !noalias !1712
   call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %agg.tmp.i.i.i.i.i.i.i.i251) #46, !noalias !1712
@@ -98944,9 +98944,9 @@ sw.bb6:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1726
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1726
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1726
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1726
   %_M_impl.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1726
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1726
   %buffer_type.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !1726
   %aux_data.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -100703,7 +100703,7 @@ if.then2:                                         ; preds = %if.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1786
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1786
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1786
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1786
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.737", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb18VectorStringBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %_M_impl.i.i.i.i.i.i.i)
           to label %_ZN6duckdb11make_bufferINS_18VectorStringBufferEJEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1786
@@ -103784,7 +103784,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1813
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1813
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1813
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1813
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.751", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb22VectorFSSTStringBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i.i)
           to label %_ZN6duckdb11make_bufferINS_22VectorFSSTStringBufferEJEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1813
@@ -104701,9 +104701,9 @@ if.then.i.i.i.i.i.i.i.i.i:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1848
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1848
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1848
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1848
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1848
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !1848
   %buffer_type.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !1848
   %aux_data.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -104953,7 +104953,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc:                  ; preds = %invoke.cont7
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1856
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i352, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1856
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i352, align 8, !tbaa !282, !noalias !1856
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i352, align 8, !tbaa !282, !noalias !1856
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.668", ptr %call5.i.i.i17.i.i.i.i.i.i352, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !933, !noalias !1856
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
@@ -105090,7 +105090,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc387:               ; preds = %if.then.i.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i354, align 8, !tbaa !279, !noalias !1864
   %_M_weak_count.i.i.i.i.i.i.i.i355 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i388, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i355, align 4, !tbaa !281, !noalias !1864
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i388, align 8, !tbaa !282, !noalias !1864
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i388, align 8, !tbaa !282, !noalias !1864
   %_M_impl.i.i.i.i.i.i.i.i356 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.668", ptr %call5.i.i.i17.i.i.i.i.i.i388, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i356, align 8, !tbaa !933, !noalias !1864
   %add.i.i.i.i.i.i.i.i.i.i.i357 = add i64 %25, 63
@@ -107172,7 +107172,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1895
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1895
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !282, !noalias !1895
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !282, !noalias !1895
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i, i64 noundef %count)
           to label %_ZSt11make_sharedIN6duckdb13SelectionDataEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !1895
@@ -107680,7 +107680,7 @@ call5.i.i.i17.i.i.i.i.i.noexc:                    ; preds = %invoke.cont69
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1898
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i425, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1898
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i425, align 8, !tbaa !282, !noalias !1898
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i425, align 8, !tbaa !282, !noalias !1898
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i.i425, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i.i, i64 noundef %call70)
           to label %_ZSt11make_sharedIN6duckdb13SelectionDataEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1898
@@ -108396,7 +108396,7 @@ if.then2:                                         ; preds = %if.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1904
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1904
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1904
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1904
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.737", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb18VectorStringBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %_M_impl.i.i.i.i.i.i.i)
           to label %_ZN6duckdb11make_bufferINS_18VectorStringBufferEJEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1904
@@ -108611,7 +108611,7 @@ if.then1:                                         ; preds = %if.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1909
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1909
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1909
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1909
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.737", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb18VectorStringBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %_M_impl.i.i.i.i.i.i.i)
           to label %_ZN6duckdb11make_bufferINS_18VectorStringBufferEJEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1909
@@ -108739,7 +108739,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1914
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1914
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1914
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1914
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.737", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb18VectorStringBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %_M_impl.i.i.i.i.i.i.i)
           to label %_ZN6duckdb11make_bufferINS_18VectorStringBufferEJEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1914
@@ -108814,7 +108814,7 @@ if.end:                                           ; preds = %if.then7.i.i.i.i.i,
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i12, align 8, !tbaa !279, !noalias !1919
   %_M_weak_count.i.i.i.i.i.i.i13 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i11, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i13, align 4, !tbaa !281, !noalias !1919
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ManagedVectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i11, align 8, !tbaa !282, !noalias !1919
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ManagedVectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i11, align 8, !tbaa !282, !noalias !1919
   %_M_impl.i.i.i.i.i.i.i14 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.745", ptr %call5.i.i.i17.i.i.i.i.i11, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i), !noalias !1919
   call void @_ZN6duckdb12BufferHandleC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %handle) #46, !noalias !1919
@@ -109041,7 +109041,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1928
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1928
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1928
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1928
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.737", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb18VectorStringBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(120) %_M_impl.i.i.i.i.i.i.i)
           to label %_ZN6duckdb11make_bufferINS_18VectorStringBufferEJEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1928
@@ -109364,7 +109364,7 @@ if.then2:                                         ; preds = %if.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1933
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1933
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1933
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1933
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.751", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb22VectorFSSTStringBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i.i)
           to label %_ZN6duckdb11make_bufferINS_22VectorFSSTStringBufferEJEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1933
@@ -109462,7 +109462,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1938
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1938
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1938
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1938
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.751", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb22VectorFSSTStringBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i.i)
           to label %_ZN6duckdb11make_bufferINS_22VectorFSSTStringBufferEJEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1938
@@ -109629,7 +109629,7 @@ if.then:                                          ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1943
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1943
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1943
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !282, !noalias !1943
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.751", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb22VectorFSSTStringBufferC1Ev(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl.i.i.i.i.i.i.i)
           to label %_ZN6duckdb11make_bufferINS_22VectorFSSTStringBufferEJEEESt10shared_ptrIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb22VectorFSSTStringBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1943
@@ -111199,7 +111199,7 @@ call5.i.i.i17.i.i.i.i.i.noexc:                    ; preds = %if.then
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1962
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i17, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1962
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i17, align 8, !tbaa !282, !noalias !1962
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i17, align 8, !tbaa !282, !noalias !1962
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i.i17, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i.i, i64 noundef %1)
           to label %_ZSt11make_sharedIN6duckdb13SelectionDataEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1962
@@ -112726,7 +112726,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc:                  ; preds = %invoke.cont5
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1979
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i209, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1979
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i209, align 8, !tbaa !282, !noalias !1979
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i209, align 8, !tbaa !282, !noalias !1979
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i.i.i209, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i.i.i, i64 noundef %count)
           to label %_ZN6duckdb11make_bufferINS_13SelectionDataEJRmEEESt10shared_ptrIT_EDpOT0_.exit.i unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i.i, !noalias !1979
@@ -113173,7 +113173,7 @@ call5.i.i.i17.i.i.i.i.i.noexc:                    ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !1996
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i330, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !1996
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i330, align 8, !tbaa !282, !noalias !1996
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i330, align 8, !tbaa !282, !noalias !1996
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i.i330, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i.i, i64 noundef %count)
           to label %.noexc unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i.i, !noalias !1996
@@ -113942,9 +113942,9 @@ call5.i.i.i17.i.i.i.i.i.i.i.noexc:                ; preds = %call.i.i.noexc
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !2010
   %_M_weak_count.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i.i15, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !2010
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i15, align 8, !tbaa !282, !noalias !2010
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb12VectorBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i.i15, align 8, !tbaa !282, !noalias !2010
   %_M_impl.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i15, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !2010
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i.i.i.i, align 8, !tbaa !282, !noalias !2010
   %buffer_type.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i15, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 0, ptr %buffer_type.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !511, !noalias !2010
   %aux_data.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.697", ptr %call5.i.i.i17.i.i.i.i.i.i.i15, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
@@ -114055,7 +114055,7 @@ call5.i.i.i21.i.i.i.noexc:                        ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i, align 8, !tbaa !279, !noalias !2020
   %_M_weak_count.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i21.i.i.i4, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i, align 4, !tbaa !281, !noalias !2020
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i21.i.i.i4, align 8, !tbaa !282, !noalias !2020
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i21.i.i.i4, align 8, !tbaa !282, !noalias !2020
   %_M_impl.i29.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.760", ptr %call5.i.i.i21.i.i.i4, i64 0, i32 1
   invoke void @_ZN6duckdb17VectorCacheBufferC2ERNS_9AllocatorERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(128) %_M_impl.i29.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef nonnull align 8 dereferenceable(24) %type_p, i64 noundef %capacity_p)
           to label %invoke.cont unwind label %lpad.i.i.i.i, !noalias !2020
@@ -114797,7 +114797,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #21
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb18VectorStringBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStringBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb18VectorStringBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %references = getelementptr inbounds %"class.duckdb::VectorStringBuffer", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %references, align 8, !tbaa !2029
   %_M_finish.i = getelementptr inbounds %"class.duckdb::VectorStringBuffer", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -114877,7 +114877,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 _ZNSt6vectorISt10shared_ptrIN6duckdb12VectorBufferEESaIS3_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
   %heap = getelementptr inbounds %"class.duckdb::VectorStringBuffer", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb14ArenaAllocatorD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %heap) #46
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %10 = load ptr, ptr %data.i, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %10, null
@@ -114917,7 +114917,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb22VectorFSSTStringBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb22VectorFSSTStringBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb22VectorFSSTStringBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %_M_refcount.i = getelementptr inbounds %"class.duckdb::VectorFSSTStringBuffer", ptr %this, i64 0, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !278
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -114975,7 +114975,7 @@ _ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.then
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb22VectorFSSTStringBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb22VectorFSSTStringBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb22VectorFSSTStringBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %_M_refcount.i.i = getelementptr inbounds %"class.duckdb::VectorFSSTStringBuffer", ptr %this, i64 0, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !278
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -118242,7 +118242,7 @@ declare void @_ZN6duckdb10StringUtil5RTrimERNSt7__cxx1112basic_stringIcSt11char_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb12VectorBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %data, align 8, !tbaa !3
   %cmp.not.i = icmp eq ptr %0, null
@@ -118274,7 +118274,7 @@ _ZNSt10unique_ptrIN6duckdb19VectorAuxiliaryDataESt14default_deleteIS1_EED2Ev.exi
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb12VectorBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %data.i, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -123838,7 +123838,7 @@ declare double @fmod(double noundef, double noundef) local_unnamed_addr #39
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !83
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2
@@ -128801,7 +128801,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb15StringValueInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %str = getelementptr inbounds %"struct.duckdb::StringValueInfo", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %str, align 8, !tbaa !83
   %1 = getelementptr inbounds %"struct.duckdb::StringValueInfo", ptr %this, i64 0, i32 1, i32 2
@@ -128826,7 +128826,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb15StringValueInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %str.i = getelementptr inbounds %"struct.duckdb::StringValueInfo", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %str.i, align 8, !tbaa !83
   %1 = getelementptr inbounds %"struct.duckdb::StringValueInfo", ptr %this, i64 0, i32 1, i32 2
@@ -128993,7 +128993,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb15NestedValueInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %values = getelementptr inbounds %"struct.duckdb::NestedValueInfo", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %values, align 8, !tbaa !490
   %_M_finish.i = getelementptr inbounds %"struct.duckdb::NestedValueInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -129028,7 +129028,7 @@ _ZNSt6vectorIN6duckdb5ValueESaIS1_EED2Ev.exit:    ; preds = %if.then.i.i.i, %inv
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb15NestedValueInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15NestedValueInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %values.i = getelementptr inbounds %"struct.duckdb::NestedValueInfo", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %values.i, align 8, !tbaa !490
   %_M_finish.i.i = getelementptr inbounds %"struct.duckdb::NestedValueInfo", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -215085,7 +215085,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !279
   %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15StringValueInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13, align 8, !tbaa !282
   %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i13, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp.i.i.i)
   %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i, i64 0, i32 2
@@ -215134,7 +215134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i.i.i: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %__dnew.i.i.i.i.i) #46
   %type2.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 1, ptr %type2.i.i.i.i.i, align 8, !tbaa !1004
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb15StringValueInfoE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8, !tbaa !282
   %str.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   %8 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.674", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 32
   store ptr %8, ptr %str.i.i.i.i, align 8, !tbaa !116
@@ -215405,7 +215405,7 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16DictionaryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %_M_refcount.i.i = getelementptr inbounds %"class.duckdb::DictionaryBuffer", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !278
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -215456,7 +215456,7 @@ if.then7.i.i.i.i:                                 ; preds = %invoke.cont.i.i.i.i
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit
 
 _ZN6duckdb15SelectionVectorD2Ev.exit:             ; preds = %if.then7.i.i.i.i, %invoke.cont.i.i.i.i, %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %7 = load ptr, ptr %data.i, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %7, null
@@ -215488,7 +215488,7 @@ _ZN6duckdb12VectorBufferD2Ev.exit:                ; preds = %_ZNKSt14default_del
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16DictionaryBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %_M_refcount.i.i.i = getelementptr inbounds %"class.duckdb::DictionaryBuffer", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8, !tbaa !278
   %cmp.not.i.i.i.i = icmp eq ptr %0, null
@@ -215539,7 +215539,7 @@ if.then7.i.i.i.i.i:                               ; preds = %invoke.cont.i.i.i.i
   br label %_ZN6duckdb15SelectionVectorD2Ev.exit.i
 
 _ZN6duckdb15SelectionVectorD2Ev.exit.i:           ; preds = %if.then7.i.i.i.i.i, %invoke.cont.i.i.i.i.i, %if.then.i.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %7 = load ptr, ptr %data.i.i, align 8, !tbaa !3
   %cmp.not.i.i.i = icmp eq ptr %7, null
@@ -215683,10 +215683,10 @@ cleanup:                                          ; preds = %_ZNKSt9type_infoeqE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb17VectorChildBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data = getelementptr inbounds %"class.duckdb::VectorChildBuffer", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %data) #46
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %data.i, align 8, !tbaa !3
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -215718,10 +215718,10 @@ _ZN6duckdb12VectorBufferD2Ev.exit:                ; preds = %_ZNKSt14default_del
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb17VectorChildBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorChildBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorChildBuffer", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb6VectorD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %data.i) #46
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %data.i.i, align 8, !tbaa !3
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -215758,13 +215758,13 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !279
   %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16DictionaryBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16DictionaryBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13, align 8, !tbaa !282
   %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1
   %buffer_type.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 1, ptr %buffer_type.i.i.i.i.i, align 8, !tbaa !511
   %aux_data.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8, !tbaa !282
   %selection_data.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
   %0 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
   store i64 0, ptr %0, align 8
@@ -215860,13 +215860,13 @@ entry:
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !279
   %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16DictionaryBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16DictionaryBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13, align 8, !tbaa !282
   %_M_impl.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1
   %buffer_type.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 8
   store i8 1, ptr %buffer_type.i.i.i.i.i, align 8, !tbaa !511
   %aux_data.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i.i.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb16DictionaryBufferE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i, align 8, !tbaa !282
   %selection_data.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 40
   %0 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.707", ptr %call5.i.i.i13, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
   store i64 0, ptr %0, align 8
@@ -217875,7 +217875,7 @@ entry:
   store i8 8, ptr %buffer_type.i, align 8, !tbaa !511
   %aux_data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %aux_data.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorCacheBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorCacheBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %type = getelementptr inbounds %"class.duckdb::VectorCacheBuffer", ptr %this, i64 0, i32 1
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %type, ptr noundef nonnull align 8 dereferenceable(24) %type_p)
           to label %invoke.cont unwind label %lpad
@@ -217942,7 +217942,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBuf
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !279
   %_M_weak_count.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i21.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i21.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i21.i, align 8, !tbaa !282
   %_M_impl.i29.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.760", ptr %call5.i.i.i21.i, i64 0, i32 1
   %3 = load i64, ptr %capacity, align 8, !tbaa !87
   invoke void @_ZN6duckdb17VectorCacheBufferC2ERNS_9AllocatorERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(128) %_M_impl.i29.i, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef nonnull align 8 dereferenceable(24) %call15, i64 noundef %3)
@@ -218132,7 +218132,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %invoke.cont28
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !279, !noalias !3971
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i190, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !281, !noalias !3971
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16VectorListBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i190, align 8, !tbaa !282, !noalias !3971
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16VectorListBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i190, align 8, !tbaa !282, !noalias !3971
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.774", ptr %call5.i.i.i17.i.i.i.i190, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !3971
   store i64 %25, ptr %agg.tmp.i.i.i.i.i.i.i, align 8, !tbaa !3, !noalias !3971
@@ -218290,7 +218290,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBuf
   store i32 1, ptr %_M_use_count.i.i492, align 8, !tbaa !279
   %_M_weak_count.i.i493 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i493, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i, align 8, !tbaa !282
   %_M_impl.i25.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.760", ptr %call5.i.i.i17.i, i64 0, i32 1
   invoke void @_ZN6duckdb17VectorCacheBufferC2ERNS_9AllocatorERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(128) %_M_impl.i25.i, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef nonnull align 8 dereferenceable(24) %call45, i64 noundef %mul55)
           to label %invoke.cont57 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit24.i
@@ -218481,7 +218481,7 @@ call5.i.i.i21.i.i.i.i.noexc:                      ; preds = %invoke.cont72
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i278, align 8, !tbaa !279, !noalias !3977
   %_M_weak_count.i.i.i.i.i.i279 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i21.i.i.i.i286, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i279, align 4, !tbaa !281, !noalias !3977
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorArrayBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i21.i.i.i.i286, align 8, !tbaa !282, !noalias !3977
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorArrayBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i21.i.i.i.i286, align 8, !tbaa !282, !noalias !3977
   %_M_impl.i.i.i.i.i.i280 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.780", ptr %call5.i.i.i21.i.i.i.i286, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i277), !noalias !3977
   store i64 %64, ptr %agg.tmp.i.i.i.i.i.i.i277, align 8, !tbaa !3, !noalias !3977
@@ -218644,7 +218644,7 @@ call5.i.i.i13.i.i.i.i.noexc:                      ; preds = %for.cond.cleanup
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i332, align 8, !tbaa !279, !noalias !3980
   %_M_weak_count.i.i.i.i.i.i333 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i336, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i333, align 4, !tbaa !281, !noalias !3980
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStructBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i336, align 8, !tbaa !282, !noalias !3980
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStructBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i336, align 8, !tbaa !282, !noalias !3980
   %_M_impl.i.i.i.i.i.i334 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.715", ptr %call5.i.i.i13.i.i.i.i336, i64 0, i32 1
   invoke void @_ZN6duckdb18VectorStructBufferC1ERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl.i.i.i.i.i.i334, ptr noundef nonnull align 8 dereferenceable(24) %type, i64 noundef 2048)
           to label %invoke.cont117 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18VectorStructBufferESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit19.i.i.i.i, !noalias !3980
@@ -218674,7 +218674,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBuf
   store i32 1, ptr %_M_use_count.i.i466, align 8, !tbaa !279
   %_M_weak_count.i.i467 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i21.i458, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i467, align 4, !tbaa !281
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i21.i458, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17VectorCacheBufferESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i21.i458, align 8, !tbaa !282
   %_M_impl.i29.i469 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.760", ptr %call5.i.i.i21.i458, i64 0, i32 1
   %85 = load i64, ptr %capacity, align 8, !tbaa !87
   invoke void @_ZN6duckdb17VectorCacheBufferC2ERNS_9AllocatorERKNS_11LogicalTypeEm(ptr noundef nonnull align 8 dereferenceable(128) %_M_impl.i29.i469, ptr noundef nonnull align 8 dereferenceable(32) %allocator, ptr noundef nonnull align 8 dereferenceable(24) %second, i64 noundef %85)
@@ -219032,7 +219032,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN6duckdb12VectorBufferEESaIS3_EED2Ev.exit: ; 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb17VectorCacheBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorCacheBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb17VectorCacheBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %_M_refcount.i = getelementptr inbounds %"class.duckdb::VectorCacheBuffer", ptr %this, i64 0, i32 4, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !278
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -219164,7 +219164,7 @@ _ZNSt6vectorISt10shared_ptrIN6duckdb12VectorBufferEESaIS3_EED2Ev.exit: ; preds =
   tail call void @_ZN6duckdb13AllocatedDataD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %owned_data) #46
   %type = getelementptr inbounds %"class.duckdb::VectorCacheBuffer", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %type) #46
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !282
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb12VectorBufferE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !282
   %data.i = getelementptr inbounds %"class.duckdb::VectorBuffer", ptr %this, i64 0, i32 3
   %17 = load ptr, ptr %data.i, align 8, !tbaa !3
   %cmp.not.i.i3 = icmp eq ptr %17, null

@@ -4148,7 +4148,7 @@ invoke.cont178:                                   ; preds = %invoke.cont176.thre
   %82 = load ptr, ptr %versions_, align 8
   %column_family_set_.i = getelementptr inbounds i8, ptr %82, i64 64
   %83 = load ptr, ptr %column_family_set_.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables, align 8
   %column_family_set_.i236 = getelementptr inbounds i8, ptr %column_family_memtables, i64 8
   store ptr %83, ptr %column_family_set_.i236, align 8
   %current_.i = getelementptr inbounds i8, ptr %column_family_memtables, i64 16
@@ -4158,7 +4158,7 @@ invoke.cont178:                                   ; preds = %invoke.cont176.thre
           to label %invoke.cont182 unwind label %lpad177
 
 invoke.cont182:                                   ; preds = %invoke.cont178
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 0, inrange i32 0, i64 2), ptr %handle_.i, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 0, i32 0, i64 2), ptr %handle_.i, align 8
   %internal_cfd_.i.i = getelementptr inbounds i8, ptr %column_family_memtables, i64 56
   store ptr null, ptr %internal_cfd_.i.i, align 8
   %84 = load i64, ptr %sequence.i, align 16
@@ -4221,7 +4221,7 @@ call5.i.i.noexc254:                               ; preds = %if.then.i246
   br label %invoke.cont193
 
 invoke.cont193:                                   ; preds = %call5.i.i.noexc254, %_ZN7rocksdb6StatusD2Ev.exit241
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables, align 8
   call void @_ZN7rocksdb22ColumnFamilyHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle_.i) #20
   call void @_ZN7rocksdb13PerfStepTimerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %perf_step_timer_write_memtable_time) #20
   br label %if.end196
@@ -4254,7 +4254,7 @@ lpad177:                                          ; preds = %invoke.cont178, %if
 lpad190:                                          ; preds = %if.then.i246, %invoke.cont182
   %105 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables, align 8
   call void @_ZN7rocksdb22ColumnFamilyHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle_.i) #20
   br label %ehcleanup195
 
@@ -5400,7 +5400,7 @@ if.then554:                                       ; preds = %invoke.cont552
   %285 = load ptr, ptr %versions_556, align 8
   %column_family_set_.i538 = getelementptr inbounds i8, ptr %285, i64 64
   %286 = load ptr, ptr %column_family_set_.i538, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables555, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables555, align 8
   %column_family_set_.i539 = getelementptr inbounds i8, ptr %column_family_memtables555, i64 8
   store ptr %286, ptr %column_family_set_.i539, align 8
   %current_.i540 = getelementptr inbounds i8, ptr %column_family_memtables555, i64 16
@@ -5410,7 +5410,7 @@ if.then554:                                       ; preds = %invoke.cont552
           to label %invoke.cont560 unwind label %lpad530
 
 invoke.cont560:                                   ; preds = %if.then554
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 0, inrange i32 0, i64 2), ptr %handle_.i541, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 0, i32 0, i64 2), ptr %handle_.i541, align 8
   %internal_cfd_.i.i542 = getelementptr inbounds i8, ptr %column_family_memtables555, i64 56
   store ptr null, ptr %internal_cfd_.i.i542, align 8
   %287 = load i64, ptr %sequence.i, align 16
@@ -5448,14 +5448,14 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit548:                   ; preds = %invoke.cont575, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i547
   store ptr null, ptr %state_.i545, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables555, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables555, align 8
   call void @_ZN7rocksdb22ColumnFamilyHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle_.i541) #20
   br label %if.end580
 
 lpad574:                                          ; preds = %invoke.cont560
   %298 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables555, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables555, align 8
   call void @_ZN7rocksdb22ColumnFamilyHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle_.i541) #20
   br label %ehcleanup585
 
@@ -8682,7 +8682,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9, %if.t
   %40 = load ptr, ptr %versions_, align 8
   %column_family_set_.i = getelementptr inbounds i8, ptr %40, i64 64
   %41 = load ptr, ptr %column_family_set_.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables, align 8
   %column_family_set_.i42 = getelementptr inbounds i8, ptr %column_family_memtables, i64 8
   store ptr %41, ptr %column_family_set_.i42, align 8
   %current_.i = getelementptr inbounds i8, ptr %column_family_memtables, i64 16
@@ -8692,7 +8692,7 @@ invoke.cont13:                                    ; preds = %invoke.cont9, %if.t
           to label %invoke.cont17 unwind label %lpad5
 
 invoke.cont17:                                    ; preds = %invoke.cont13
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 0, inrange i32 0, i64 2), ptr %handle_.i, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 0, i32 0, i64 2), ptr %handle_.i, align 8
   %internal_cfd_.i.i = getelementptr inbounds i8, ptr %column_family_memtables, i64 56
   store ptr null, ptr %internal_cfd_.i.i, align 8
   %42 = load i64, ptr %sequence.i, align 16
@@ -8789,12 +8789,12 @@ lpad5:                                            ; preds = %if.then38, %call6.i
 lpad21:                                           ; preds = %invoke.cont17
   %64 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables, align 8
   call void @_ZN7rocksdb22ColumnFamilyHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle_.i) #20
   br label %ehcleanup
 
 if.end:                                           ; preds = %if.then25, %_ZN7rocksdb6StatusD2Ev.exit
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables, align 8
   call void @_ZN7rocksdb22ColumnFamilyHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle_.i) #20
   br label %seqcst.i
 
@@ -10707,7 +10707,7 @@ if.then260:                                       ; preds = %if.end255
   %273 = load ptr, ptr %versions_261, align 8
   %column_family_set_.i = getelementptr inbounds i8, ptr %273, i64 64
   %274 = load ptr, ptr %column_family_set_.i, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables, align 8
   %column_family_set_.i454 = getelementptr inbounds i8, ptr %column_family_memtables, i64 8
   store ptr %274, ptr %column_family_set_.i454, align 8
   %current_.i = getelementptr inbounds i8, ptr %column_family_memtables, i64 16
@@ -10717,7 +10717,7 @@ if.then260:                                       ; preds = %if.end255
           to label %invoke.cont265 unwind label %lpad221
 
 invoke.cont265:                                   ; preds = %if.then260
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 0, inrange i32 0, i64 2), ptr %handle_.i, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb26ColumnFamilyHandleInternalE, i64 0, i32 0, i64 2), ptr %handle_.i, align 8
   %internal_cfd_.i.i = getelementptr inbounds i8, ptr %column_family_memtables, i64 56
   store ptr null, ptr %internal_cfd_.i.i, align 8
   %275 = load i64, ptr %sequence.i, align 16
@@ -10820,12 +10820,12 @@ invoke.cont282:                                   ; preds = %if.then280, %call2.
 lpad273:                                          ; preds = %call2.i.noexc, %.noexc482, %if.then.i478, %invoke.cont282, %_ZN7rocksdb6StatusD2Ev.exit476, %invoke.cont265
   %294 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables, align 8
   call void @_ZN7rocksdb22ColumnFamilyHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle_.i) #20
   br label %ehcleanup298
 
 if.end290:                                        ; preds = %invoke.cont282, %invoke.cont278
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, inrange i32 0, i64 2), ptr %column_family_memtables, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb25ColumnFamilyMemTablesImplE, i64 0, i32 0, i64 2), ptr %column_family_memtables, align 8
   call void @_ZN7rocksdb22ColumnFamilyHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %handle_.i) #20
   br label %if.end292
 

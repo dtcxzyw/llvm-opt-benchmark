@@ -319,7 +319,7 @@ define dso_local void @_ZN21CoverageTestExtensionC2Ei(ptr noundef nonnull align 
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN12AbsExtensionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21CoverageTestExtension, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21CoverageTestExtension, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.CoverageTestExtension, ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -355,7 +355,7 @@ define dso_local void @_ZN21CoverageTestExtensionD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21CoverageTestExtension, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21CoverageTestExtension, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.CoverageTestExtension, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIP14ExtensionValueSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.CoverageTestExtension, ptr %3, i32 0, i32 3

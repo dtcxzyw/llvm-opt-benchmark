@@ -845,7 +845,7 @@ if.end:                                           ; preds = %_ZNK6google8protobu
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf4util18MessageDifferencer21MapEntryKeyComparatorC2EPS2_(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %message_differencer) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer21MapEntryKeyComparatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer21MapEntryKeyComparatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %message_differencer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %message_differencer, ptr %message_differencer_, align 8
   ret void
@@ -854,7 +854,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf4util18MessageDifferencer16MapKeyComparatorC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer16MapKeyComparatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer16MapKeyComparatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -1869,7 +1869,7 @@ invoke.cont9:
   store ptr null, ptr %this, align 8
   %default_field_comparator_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6google8protobuf4util21SimpleFieldComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %default_field_comparator_)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util22DefaultFieldComparatorE, i64 0, inrange i32 0, i64 2), ptr %default_field_comparator_, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util22DefaultFieldComparatorE, i64 0, i32 0, i64 2), ptr %default_field_comparator_, align 8
   %message_field_comparison_ = getelementptr inbounds i8, ptr %this, i64 72
   store i32 0, ptr %message_field_comparison_, align 8
   %scope_ = getelementptr inbounds i8, ptr %this, i64 76
@@ -3415,7 +3415,7 @@ lpad58.body:                                      ; preds = %lpad.i, %lpad58
 cleanup.done78:                                   ; preds = %for.end.i.i, %_ZN4absl12lts_2023080218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIPKN6google8protobuf15FieldDescriptorENS5_4util18MessageDifferencer23RepeatedFieldComparisonEEENS1_6HashEqIS8_vE4HashENSE_2EqESaISt4pairIKS8_SB_EEE4findIS8_EENSL_8iteratorERKT_.exit
   %call82 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %key_field_path.i)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i64 0, inrange i32 0, i64 2), ptr %call82, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i64 0, i32 0, i64 2), ptr %call82, align 8
   %message_differencer_.i = getelementptr inbounds i8, ptr %call82, i64 8
   store ptr %this, ptr %message_differencer_.i, align 8
   %key_field_paths_.i = getelementptr inbounds i8, ptr %call82, i64 16
@@ -4468,7 +4468,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf4util18MessageDifferencer30M
 entry:
   %ref.tmp4 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %ref.tmp25 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %message_differencer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %message_differencer, ptr %message_differencer_, align 8
   %key_field_paths_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -14437,7 +14437,7 @@ entry:
   %4 = load ptr, ptr %this, align 8
   %.fr = freeze ptr %4
   store ptr null, ptr %this, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf4util16NumDiffsReporterE, i64 0, inrange i32 0, i64 2), ptr %num_diffs_reporter, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf4util16NumDiffsReporterE, i64 0, i32 0, i64 2), ptr %num_diffs_reporter, align 8
   %num_diffs_.i = getelementptr inbounds i8, ptr %num_diffs_reporter, i64 8
   store i32 0, ptr %num_diffs_.i, align 8
   %cmp.i241 = icmp ne i32 %call2, 0
@@ -15505,7 +15505,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf4util18MessageDifferencer8ReporterC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer8ReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer8ReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -15540,7 +15540,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf4util18MessageDifferencer14IgnoreCriteriaC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14IgnoreCriteriaE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14IgnoreCriteriaE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -15563,7 +15563,7 @@ declare void @llvm.trap() #15
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf4util18MessageDifferencer14StreamReporterC2EPNS0_2io20ZeroCopyOutputStreamE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %output) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(256) ptr @_Znwm(i64 noundef 256) #32
   invoke void @_ZN6google8protobuf2io7PrinterC1EPNS1_20ZeroCopyOutputStreamEcPNS1_19AnnotationCollectorE(ptr noundef nonnull align 8 dereferenceable(256) %call, ptr noundef %output, i8 noundef signext 36, ptr noundef null)
           to label %invoke.cont3 unwind label %lpad2
@@ -15591,7 +15591,7 @@ declare void @_ZN6google8protobuf2io7PrinterC1EPNS1_20ZeroCopyOutputStreamEcPNS1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf4util18MessageDifferencer14StreamReporterC2EPNS0_2io7PrinterE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(48) %this, ptr noundef %printer) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %printer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %printer, ptr %printer_, align 8
   %delete_printer_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -15606,7 +15606,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6google8protobuf4util18MessageDifferencer14StreamReporterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %delete_printer_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr %delete_printer_, align 8
   %1 = and i8 %0, 1
@@ -18696,7 +18696,7 @@ declare noundef nonnull ptr @_ZN4absl12lts_2023080212log_internal17MakeCheckOpSt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %key_field_paths_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %key_field_paths_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -18739,7 +18739,7 @@ _ZNSt6vectorIS_IPKN6google8protobuf15FieldDescriptorESaIS4_EESaIS6_EED2Ev.exit: 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %key_field_paths_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %key_field_paths_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 24

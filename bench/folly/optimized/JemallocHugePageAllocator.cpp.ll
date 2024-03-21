@@ -761,7 +761,7 @@ cleanup195.i:                                     ; preds = %if.end193.i, %invok
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 %vbase.offset.i.i.i
   store ptr %80, ptr %add.ptr.i.i.i, align 8, !tbaa !73
   %_M_stringbuf.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
   %_M_string.i.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 80
   %81 = load ptr, ptr %_M_string.i.i.i.i, align 8, !tbaa !38
   %82 = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 96
@@ -780,7 +780,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %cleanup195.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit.i: ; preds = %if.then.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i.i = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i.i) #20
   %84 = getelementptr inbounds i8, ptr %muzzy_decay_key.i, i64 112
@@ -808,7 +808,7 @@ cleanup199.i:                                     ; preds = %_ZNSt7__cxx1119basi
   %add.ptr.i.i424.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 %vbase.offset.i.i423.i
   store ptr %85, ptr %add.ptr.i.i424.i, align 8, !tbaa !73
   %_M_stringbuf.i.i425.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
   %_M_string.i.i.i426.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 80
   %87 = load ptr, ptr %_M_string.i.i.i426.i, align 8, !tbaa !38
   %88 = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 96
@@ -827,7 +827,7 @@ if.then.i.i.i.i.i428.i:                           ; preds = %cleanup199.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit433.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit433.i: ; preds = %if.then.i.i.i.i.i428.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i430.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i425.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i429.i = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i429.i) #20
   %90 = getelementptr inbounds i8, ptr %dirty_decay_key.i, i64 112
@@ -868,7 +868,7 @@ cleanup207.i:                                     ; preds = %cleanup205.i, %if.t
   %add.ptr.i.i436.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 %vbase.offset.i.i435.i
   store ptr %92, ptr %add.ptr.i.i436.i, align 8, !tbaa !73
   %_M_stringbuf.i.i437.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
   %_M_string.i.i.i438.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 80
   %93 = load ptr, ptr %_M_string.i.i.i438.i, align 8, !tbaa !38
   %94 = getelementptr inbounds i8, ptr %hooks_key.i, i64 96
@@ -887,7 +887,7 @@ if.then.i.i.i.i.i440.i:                           ; preds = %cleanup207.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit445.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit445.i: ; preds = %if.then.i.i.i.i.i440.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i442.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i437.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i441.i = getelementptr inbounds i8, ptr %hooks_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i441.i) #20
   %96 = getelementptr inbounds i8, ptr %hooks_key.i, i64 112
@@ -930,7 +930,7 @@ cleanup215.i:                                     ; preds = %cleanup213.i, %if.t
   %add.ptr.i.i448.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 %vbase.offset.i.i447.i
   store ptr %98, ptr %add.ptr.i.i448.i, align 8, !tbaa !73
   %_M_stringbuf.i.i449.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
   %_M_string.i.i.i450.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 80
   %99 = load ptr, ptr %_M_string.i.i.i450.i, align 8, !tbaa !38
   %100 = getelementptr inbounds i8, ptr %rtl_key.i, i64 96
@@ -949,7 +949,7 @@ if.then.i.i.i.i.i452.i:                           ; preds = %cleanup215.i
   br label %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit457.i
 
 _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit457.i: ; preds = %if.then.i.i.i.i.i452.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i454.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i449.i, align 8, !tbaa !73
   %_M_buf_locale.i.i.i.i453.i = getelementptr inbounds i8, ptr %rtl_key.i, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i453.i) #20
   %102 = getelementptr inbounds i8, ptr %rtl_key.i, i64 112

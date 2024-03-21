@@ -309,7 +309,7 @@ entry:
   store ptr %serverIdleSessionController, ptr %serverIdleSessionController.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen13SessionHolder8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %stats_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this2, i32 0, i32 1
   %0 = load ptr, ptr %stats.addr, align 8
   store ptr %0, ptr %stats_, align 8
@@ -431,7 +431,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen13SessionHolder8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen13SessionHolder8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -463,7 +463,7 @@ entry:
   %cleanup.cond = alloca i1, align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN8proxygen11SessionPoolE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %idleSessionList_ = getelementptr inbounds %"class.proxygen::SessionPool", ptr %this1, i32 0, i32 5
   invoke void @_ZN8proxygen11SessionPool16drainSessionListERN5boost9intrusive4listINS_13SessionHolderEJNS2_11member_hookIS4_NS2_16list_member_hookIJNS2_9link_modeILNS2_14link_mode_typeE1EEEEEEXadL_ZNS4_8listHookEEEEENS2_18constant_time_sizeILb1EEEEEE(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef nonnull align 8 dereferenceable(24) %idleSessionList_)
           to label %invoke.cont unwind label %terminate.lpad

@@ -425,7 +425,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont7
           to label %.noexc unwind label %lpad8
 
 .noexc:                                           ; preds = %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !16
   %type.i.i.i.i.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %4, i64 0, i32 1
   %type2.i.i.i.i.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp4, i64 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %type.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %type2.i.i.i.i.i.i, i64 24, i1 false)
@@ -483,7 +483,7 @@ invoke.cont9.thread:                              ; preds = %if.then.i.i.i.i.i.i
   %13 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !34
   %incdec.ptr.i.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %13, i64 1
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !34
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp4, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp4, align 8, !tbaa !16
   %named_parameters.i174 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp4, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i175 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp4, i64 0, i32 4, i32 0, i32 2
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N6duckdb11LogicalTypeEESaISA_ENSt8__detail10_Select1stENS8_29CaseInsensitiveStringEqualityENS8_33CaseInsensitiveStringHashFunctionENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i.i
@@ -496,7 +496,7 @@ if.else.i.i.i:                                    ; preds = %invoke.cont7
 invoke.cont9:                                     ; preds = %if.else.i.i.i
   %_M_before_begin.i.i.i.i.i.phi.trans.insert = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp4, i64 0, i32 4, i32 0, i32 2
   %.pre = load ptr, ptr %_M_before_begin.i.i.i.i.i.phi.trans.insert, align 8, !tbaa !24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp4, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp4, align 8, !tbaa !16
   %named_parameters.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp4, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp4, i64 0, i32 4, i32 0, i32 2
   %tobool.not4.i.i.i.i.i = icmp eq ptr %.pre, null
@@ -939,7 +939,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14PragmaFunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %named_parameters = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %this, i64 0, i32 4
   %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %this, i64 0, i32 4, i32 0, i32 2
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !24
@@ -1130,7 +1130,7 @@ invoke.cont3:                                     ; preds = %entry
           to label %invoke.cont5 unwind label %lpad4
 
 invoke.cont5:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp, align 8, !tbaa !16
   %named_parameters.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp, i64 0, i32 4, i32 0, i32 2
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8, !tbaa !24
@@ -1225,7 +1225,7 @@ invoke.cont15:                                    ; preds = %call2.i10.i.noexc38
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp9, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp9, align 8, !tbaa !16
   %named_parameters.i389 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp9, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i390 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp9, i64 0, i32 4, i32 0, i32 2
   %14 = load ptr, ptr %_M_before_begin.i.i.i.i.i390, align 8, !tbaa !24
@@ -1320,7 +1320,7 @@ invoke.cont29:                                    ; preds = %call2.i10.i.noexc42
           to label %invoke.cont31 unwind label %lpad30
 
 invoke.cont31:                                    ; preds = %invoke.cont29
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp23, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp23, align 8, !tbaa !16
   %named_parameters.i428 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp23, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i429 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp23, i64 0, i32 4, i32 0, i32 2
   %27 = load ptr, ptr %_M_before_begin.i.i.i.i.i429, align 8, !tbaa !24
@@ -1415,7 +1415,7 @@ invoke.cont43:                                    ; preds = %call2.i10.i.noexc46
           to label %invoke.cont45 unwind label %lpad44
 
 invoke.cont45:                                    ; preds = %invoke.cont43
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp37, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp37, align 8, !tbaa !16
   %named_parameters.i467 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp37, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i468 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp37, i64 0, i32 4, i32 0, i32 2
   %40 = load ptr, ptr %_M_before_begin.i.i.i.i.i468, align 8, !tbaa !24
@@ -1499,7 +1499,7 @@ invoke.cont57:                                    ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont59 unwind label %lpad58
 
 invoke.cont59:                                    ; preds = %invoke.cont57
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp51, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp51, align 8, !tbaa !16
   %named_parameters.i506 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp51, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i507 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp51, i64 0, i32 4, i32 0, i32 2
   %51 = load ptr, ptr %_M_before_begin.i.i.i.i.i507, align 8, !tbaa !24
@@ -1594,7 +1594,7 @@ invoke.cont71:                                    ; preds = %call2.i10.i.noexc54
           to label %invoke.cont73 unwind label %lpad72
 
 invoke.cont73:                                    ; preds = %invoke.cont71
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp65, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp65, align 8, !tbaa !16
   %named_parameters.i545 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp65, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i546 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp65, i64 0, i32 4, i32 0, i32 2
   %64 = load ptr, ptr %_M_before_begin.i.i.i.i.i546, align 8, !tbaa !24
@@ -1689,7 +1689,7 @@ invoke.cont85:                                    ; preds = %call2.i10.i.noexc58
           to label %invoke.cont87 unwind label %lpad86
 
 invoke.cont87:                                    ; preds = %invoke.cont85
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp79, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp79, align 8, !tbaa !16
   %named_parameters.i584 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp79, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i585 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp79, i64 0, i32 4, i32 0, i32 2
   %77 = load ptr, ptr %_M_before_begin.i.i.i.i.i585, align 8, !tbaa !24
@@ -1784,7 +1784,7 @@ invoke.cont99:                                    ; preds = %call2.i10.i.noexc62
           to label %invoke.cont101 unwind label %lpad100
 
 invoke.cont101:                                   ; preds = %invoke.cont99
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp93, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp93, align 8, !tbaa !16
   %named_parameters.i623 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp93, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i624 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp93, i64 0, i32 4, i32 0, i32 2
   %90 = load ptr, ptr %_M_before_begin.i.i.i.i.i624, align 8, !tbaa !24
@@ -1879,7 +1879,7 @@ invoke.cont113:                                   ; preds = %call2.i10.i.noexc65
           to label %invoke.cont115 unwind label %lpad114
 
 invoke.cont115:                                   ; preds = %invoke.cont113
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp107, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp107, align 8, !tbaa !16
   %named_parameters.i662 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp107, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i663 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp107, i64 0, i32 4, i32 0, i32 2
   %103 = load ptr, ptr %_M_before_begin.i.i.i.i.i663, align 8, !tbaa !24
@@ -1974,7 +1974,7 @@ invoke.cont127:                                   ; preds = %call2.i10.i.noexc69
           to label %invoke.cont129 unwind label %lpad128
 
 invoke.cont129:                                   ; preds = %invoke.cont127
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp121, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp121, align 8, !tbaa !16
   %named_parameters.i701 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp121, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i702 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp121, i64 0, i32 4, i32 0, i32 2
   %116 = load ptr, ptr %_M_before_begin.i.i.i.i.i702, align 8, !tbaa !24
@@ -2069,7 +2069,7 @@ invoke.cont141:                                   ; preds = %call2.i10.i.noexc73
           to label %invoke.cont143 unwind label %lpad142
 
 invoke.cont143:                                   ; preds = %invoke.cont141
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp135, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp135, align 8, !tbaa !16
   %named_parameters.i740 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp135, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i741 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp135, i64 0, i32 4, i32 0, i32 2
   %129 = load ptr, ptr %_M_before_begin.i.i.i.i.i741, align 8, !tbaa !24
@@ -2164,7 +2164,7 @@ invoke.cont155:                                   ; preds = %call2.i10.i.noexc77
           to label %invoke.cont157 unwind label %lpad156
 
 invoke.cont157:                                   ; preds = %invoke.cont155
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp149, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp149, align 8, !tbaa !16
   %named_parameters.i779 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp149, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i780 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp149, i64 0, i32 4, i32 0, i32 2
   %142 = load ptr, ptr %_M_before_begin.i.i.i.i.i780, align 8, !tbaa !24
@@ -2259,7 +2259,7 @@ invoke.cont169:                                   ; preds = %call2.i10.i.noexc81
           to label %invoke.cont171 unwind label %lpad170
 
 invoke.cont171:                                   ; preds = %invoke.cont169
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp163, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp163, align 8, !tbaa !16
   %named_parameters.i818 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp163, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i819 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp163, i64 0, i32 4, i32 0, i32 2
   %155 = load ptr, ptr %_M_before_begin.i.i.i.i.i819, align 8, !tbaa !24
@@ -2354,7 +2354,7 @@ invoke.cont183:                                   ; preds = %call2.i10.i.noexc85
           to label %invoke.cont185 unwind label %lpad184
 
 invoke.cont185:                                   ; preds = %invoke.cont183
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp177, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp177, align 8, !tbaa !16
   %named_parameters.i857 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp177, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i858 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp177, i64 0, i32 4, i32 0, i32 2
   %168 = load ptr, ptr %_M_before_begin.i.i.i.i.i858, align 8, !tbaa !24
@@ -2449,7 +2449,7 @@ invoke.cont197:                                   ; preds = %call2.i10.i.noexc89
           to label %invoke.cont199 unwind label %lpad198
 
 invoke.cont199:                                   ; preds = %invoke.cont197
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp191, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp191, align 8, !tbaa !16
   %named_parameters.i896 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp191, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i897 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp191, i64 0, i32 4, i32 0, i32 2
   %181 = load ptr, ptr %_M_before_begin.i.i.i.i.i897, align 8, !tbaa !24
@@ -2544,7 +2544,7 @@ invoke.cont211:                                   ; preds = %call2.i10.i.noexc93
           to label %invoke.cont213 unwind label %lpad212
 
 invoke.cont213:                                   ; preds = %invoke.cont211
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp205, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp205, align 8, !tbaa !16
   %named_parameters.i935 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp205, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i936 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp205, i64 0, i32 4, i32 0, i32 2
   %194 = load ptr, ptr %_M_before_begin.i.i.i.i.i936, align 8, !tbaa !24
@@ -2639,7 +2639,7 @@ invoke.cont225:                                   ; preds = %call2.i10.i.noexc97
           to label %invoke.cont227 unwind label %lpad226
 
 invoke.cont227:                                   ; preds = %invoke.cont225
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp219, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp219, align 8, !tbaa !16
   %named_parameters.i974 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp219, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i975 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp219, i64 0, i32 4, i32 0, i32 2
   %207 = load ptr, ptr %_M_before_begin.i.i.i.i.i975, align 8, !tbaa !24
@@ -2734,7 +2734,7 @@ invoke.cont239:                                   ; preds = %call2.i10.i.noexc10
           to label %invoke.cont241 unwind label %lpad240
 
 invoke.cont241:                                   ; preds = %invoke.cont239
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp233, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp233, align 8, !tbaa !16
   %named_parameters.i1013 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp233, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i1014 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp233, i64 0, i32 4, i32 0, i32 2
   %220 = load ptr, ptr %_M_before_begin.i.i.i.i.i1014, align 8, !tbaa !24
@@ -2829,7 +2829,7 @@ invoke.cont253:                                   ; preds = %call2.i10.i.noexc10
           to label %invoke.cont255 unwind label %lpad254
 
 invoke.cont255:                                   ; preds = %invoke.cont253
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp247, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp247, align 8, !tbaa !16
   %named_parameters.i1052 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp247, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i1053 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp247, i64 0, i32 4, i32 0, i32 2
   %233 = load ptr, ptr %_M_before_begin.i.i.i.i.i1053, align 8, !tbaa !24
@@ -2924,7 +2924,7 @@ invoke.cont267:                                   ; preds = %call2.i10.i.noexc10
           to label %invoke.cont269 unwind label %lpad268
 
 invoke.cont269:                                   ; preds = %invoke.cont267
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp261, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp261, align 8, !tbaa !16
   %named_parameters.i1091 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp261, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i1092 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp261, i64 0, i32 4, i32 0, i32 2
   %246 = load ptr, ptr %_M_before_begin.i.i.i.i.i1092, align 8, !tbaa !24
@@ -3019,7 +3019,7 @@ invoke.cont281:                                   ; preds = %call2.i10.i.noexc11
           to label %invoke.cont283 unwind label %lpad282
 
 invoke.cont283:                                   ; preds = %invoke.cont281
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp275, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp275, align 8, !tbaa !16
   %named_parameters.i1130 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp275, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i1131 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp275, i64 0, i32 4, i32 0, i32 2
   %259 = load ptr, ptr %_M_before_begin.i.i.i.i.i1131, align 8, !tbaa !24
@@ -8030,7 +8030,7 @@ declare void @_ZN6duckdb19PermissionExceptionC1ERKNSt7__cxx1112basic_stringIcSt1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !12
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2
@@ -9242,7 +9242,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont17 unwind label %lpad16
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp, align 8, !tbaa !16
   %named_parameters.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp, i64 0, i32 4, i32 0, i32 2
   %8 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8, !tbaa !24
@@ -9417,7 +9417,7 @@ invoke.cont67:                                    ; preds = %invoke.cont65
           to label %invoke.cont69 unwind label %lpad68
 
 invoke.cont69:                                    ; preds = %invoke.cont67
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp38, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp38, align 8, !tbaa !16
   %named_parameters.i541 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp38, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i542 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp38, i64 0, i32 4, i32 0, i32 2
   %29 = load ptr, ptr %_M_before_begin.i.i.i.i.i542, align 8, !tbaa !24
@@ -9535,7 +9535,7 @@ invoke.cont103:                                   ; preds = %invoke.cont101
           to label %invoke.cont105 unwind label %lpad104
 
 invoke.cont105:                                   ; preds = %invoke.cont103
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp93, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp93, align 8, !tbaa !16
   %named_parameters.i593 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp93, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i594 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp93, i64 0, i32 4, i32 0, i32 2
   %43 = load ptr, ptr %_M_before_begin.i.i.i.i.i594, align 8, !tbaa !24
@@ -9647,7 +9647,7 @@ invoke.cont119:                                   ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont121 unwind label %lpad120
 
 invoke.cont121:                                   ; preds = %invoke.cont119
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp113, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp113, align 8, !tbaa !16
   %named_parameters.i645 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp113, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i646 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp113, i64 0, i32 4, i32 0, i32 2
   %57 = load ptr, ptr %_M_before_begin.i.i.i.i.i646, align 8, !tbaa !24
@@ -9742,7 +9742,7 @@ invoke.cont133:                                   ; preds = %call2.i10.i.noexc68
           to label %invoke.cont135 unwind label %lpad134
 
 invoke.cont135:                                   ; preds = %invoke.cont133
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp127, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp127, align 8, !tbaa !16
   %named_parameters.i685 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp127, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i686 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp127, i64 0, i32 4, i32 0, i32 2
   %70 = load ptr, ptr %_M_before_begin.i.i.i.i.i686, align 8, !tbaa !24
@@ -9826,7 +9826,7 @@ invoke.cont147:                                   ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont149 unwind label %lpad148
 
 invoke.cont149:                                   ; preds = %invoke.cont147
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp141, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp141, align 8, !tbaa !16
   %named_parameters.i725 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp141, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i726 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp141, i64 0, i32 4, i32 0, i32 2
   %81 = load ptr, ptr %_M_before_begin.i.i.i.i.i726, align 8, !tbaa !24
@@ -9910,7 +9910,7 @@ invoke.cont161:                                   ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont163 unwind label %lpad162
 
 invoke.cont163:                                   ; preds = %invoke.cont161
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp155, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp155, align 8, !tbaa !16
   %named_parameters.i765 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp155, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i766 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp155, i64 0, i32 4, i32 0, i32 2
   %92 = load ptr, ptr %_M_before_begin.i.i.i.i.i766, align 8, !tbaa !24
@@ -9994,7 +9994,7 @@ invoke.cont175:                                   ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont177 unwind label %lpad176
 
 invoke.cont177:                                   ; preds = %invoke.cont175
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp169, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp169, align 8, !tbaa !16
   %named_parameters.i805 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp169, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i806 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp169, i64 0, i32 4, i32 0, i32 2
   %103 = load ptr, ptr %_M_before_begin.i.i.i.i.i806, align 8, !tbaa !24
@@ -10140,7 +10140,7 @@ invoke.cont212:                                   ; preds = %invoke.cont210
           to label %invoke.cont214 unwind label %lpad213
 
 invoke.cont214:                                   ; preds = %invoke.cont212
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp183, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp183, align 8, !tbaa !16
   %named_parameters.i852 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp183, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i853 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp183, i64 0, i32 4, i32 0, i32 2
   %121 = load ptr, ptr %_M_before_begin.i.i.i.i.i853, align 8, !tbaa !24
@@ -10253,7 +10253,7 @@ invoke.cont244:                                   ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont246 unwind label %lpad245
 
 invoke.cont246:                                   ; preds = %invoke.cont244
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp238, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp238, align 8, !tbaa !16
   %named_parameters.i904 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp238, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i905 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp238, i64 0, i32 4, i32 0, i32 2
   %135 = load ptr, ptr %_M_before_begin.i.i.i.i.i905, align 8, !tbaa !24
@@ -10337,7 +10337,7 @@ invoke.cont258:                                   ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont260 unwind label %lpad259
 
 invoke.cont260:                                   ; preds = %invoke.cont258
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp252, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp252, align 8, !tbaa !16
   %named_parameters.i944 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp252, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i945 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp252, i64 0, i32 4, i32 0, i32 2
   %146 = load ptr, ptr %_M_before_begin.i.i.i.i.i945, align 8, !tbaa !24
@@ -10421,7 +10421,7 @@ invoke.cont272:                                   ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont274 unwind label %lpad273
 
 invoke.cont274:                                   ; preds = %invoke.cont272
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp266, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp266, align 8, !tbaa !16
   %named_parameters.i984 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp266, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i985 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp266, i64 0, i32 4, i32 0, i32 2
   %157 = load ptr, ptr %_M_before_begin.i.i.i.i.i985, align 8, !tbaa !24
@@ -10505,7 +10505,7 @@ invoke.cont286:                                   ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont288 unwind label %lpad287
 
 invoke.cont288:                                   ; preds = %invoke.cont286
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp280, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp280, align 8, !tbaa !16
   %named_parameters.i1024 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp280, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i1025 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp280, i64 0, i32 4, i32 0, i32 2
   %168 = load ptr, ptr %_M_before_begin.i.i.i.i.i1025, align 8, !tbaa !24
@@ -10651,7 +10651,7 @@ invoke.cont323:                                   ; preds = %invoke.cont321
           to label %invoke.cont325 unwind label %lpad324
 
 invoke.cont325:                                   ; preds = %invoke.cont323
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp294, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp294, align 8, !tbaa !16
   %named_parameters.i1071 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp294, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i1072 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp294, i64 0, i32 4, i32 0, i32 2
   %186 = load ptr, ptr %_M_before_begin.i.i.i.i.i1072, align 8, !tbaa !24
@@ -10853,7 +10853,7 @@ invoke.cont379:                                   ; preds = %invoke.cont377
           to label %invoke.cont381 unwind label %lpad380
 
 invoke.cont381:                                   ; preds = %invoke.cont379
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp349, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp349, align 8, !tbaa !16
   %named_parameters.i1130 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp349, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i1131 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp349, i64 0, i32 4, i32 0, i32 2
   %211 = load ptr, ptr %_M_before_begin.i.i.i.i.i1131, align 8, !tbaa !24
@@ -10979,7 +10979,7 @@ invoke.cont411:                                   ; preds = %call2.i10.i.noexc11
           to label %invoke.cont413 unwind label %lpad412
 
 invoke.cont413:                                   ; preds = %invoke.cont411
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp405, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp405, align 8, !tbaa !16
   %named_parameters.i1182 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp405, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i1183 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp405, i64 0, i32 4, i32 0, i32 2
   %227 = load ptr, ptr %_M_before_begin.i.i.i.i.i1183, align 8, !tbaa !24
@@ -11063,7 +11063,7 @@ invoke.cont425:                                   ; preds = %_ZNSt7__cxx1112basi
           to label %invoke.cont427 unwind label %lpad426
 
 invoke.cont427:                                   ; preds = %invoke.cont425
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp419, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %agg.tmp419, align 8, !tbaa !16
   %named_parameters.i1222 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp419, i64 0, i32 4
   %_M_before_begin.i.i.i.i.i1223 = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %agg.tmp419, i64 0, i32 4, i32 0, i32 2
   %238 = load ptr, ptr %_M_before_begin.i.i.i.i.i1223, align 8, !tbaa !24
@@ -12079,7 +12079,7 @@ for.body:                                         ; preds = %for.inc, %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %__cur.020, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %__cur.020, align 8, !tbaa !16
   %type.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %__cur.020, i64 0, i32 1
   %type2.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %__first.sroa.0.019, i64 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %type.i.i, ptr noundef nonnull align 8 dereferenceable(24) %type2.i.i, i64 24, i1 false)
@@ -12177,7 +12177,7 @@ define linkonce_odr void @_ZN6duckdb28SimpleNamedParameterFunctionC2ERKS0_(ptr n
 entry:
   %__alloc_node_gen.i.i = alloca %"struct.std::__detail::_AllocNode", align 8
   tail call void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %arguments.i = getelementptr inbounds %"class.duckdb::SimpleFunction", ptr %this, i64 0, i32 1
   %arguments2.i = getelementptr inbounds %"class.duckdb::SimpleFunction", ptr %0, i64 0, i32 1
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %arguments.i, ptr noundef nonnull align 8 dereferenceable(24) %arguments2.i)
@@ -12226,7 +12226,7 @@ ehcleanup9.i:                                     ; preds = %ehcleanup.i, %lpad.
   br label %common.resume
 
 _ZN6duckdb14SimpleFunctionC2ERKS0_.exit:          ; preds = %invoke.cont5.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb28SimpleNamedParameterFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb28SimpleNamedParameterFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %named_parameters = getelementptr inbounds %"class.duckdb::SimpleNamedParameterFunction", ptr %this, i64 0, i32 1
   %named_parameters2 = getelementptr inbounds %"class.duckdb::SimpleNamedParameterFunction", ptr %0, i64 0, i32 1
   store ptr null, ptr %named_parameters, align 8, !tbaa !18
@@ -12269,7 +12269,7 @@ define linkonce_odr void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 
 entry:
   %__dnew.i.i6 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb8FunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb8FunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %name = getelementptr inbounds %"class.duckdb::Function", ptr %this, i64 0, i32 1
   %name2 = getelementptr inbounds %"class.duckdb::Function", ptr %0, i64 0, i32 1
   %1 = getelementptr inbounds %"class.duckdb::Function", ptr %this, i64 0, i32 1, i32 2
@@ -13812,7 +13812,7 @@ _ZNSt12_Vector_baseIN6duckdb14PragmaFunctionESaIS1_EE11_M_allocateEm.exit: ; pre
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %_ZNSt12_Vector_baseIN6duckdb14PragmaFunctionESaIS1_EE11_M_allocateEm.exit
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %add.ptr, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8, !tbaa !16
   %type.i.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %cond.i52, i64 %sub.ptr.div.i, i32 1
   %type2.i.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %__args, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %type.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %type2.i.i.i, i64 24, i1 false)
@@ -13992,7 +13992,7 @@ for.body:                                         ; preds = %for.inc, %entry
           to label %.noexc unwind label %lpad
 
 .noexc:                                           ; preds = %for.body
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, inrange i32 0, i64 2), ptr %__cur.018, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14PragmaFunctionE, i64 0, i32 0, i64 2), ptr %__cur.018, align 8, !tbaa !16
   %type.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %__cur.018, i64 0, i32 1
   %type2.i.i = getelementptr inbounds %"class.duckdb::PragmaFunction", ptr %__first.addr.017, i64 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %type.i.i, ptr noundef nonnull align 8 dereferenceable(24) %type2.i.i, i64 24, i1 false)

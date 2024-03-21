@@ -106,7 +106,7 @@ $_ZTIZN15register_cflushC1EvEUlvE_ = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @"_ZTV3$_0" = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @"_ZTI3$_0", ptr @"_ZNK3$_09to_stringB5cxx11E6insn_t", ptr @"_ZN3$_0D2Ev", ptr @"_ZN3$_0D0Ev"] }, align 8
-@xrs1 = internal global { ptr } { ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTV3$_0", i32 0, inrange i32 0, i32 2) }, align 8
+@xrs1 = internal global { ptr } { ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTV3$_0", i32 0, i32 0, i32 2) }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @"_ZTS3$_0" = internal constant [5 x i8] c"3$_0\00", align 1
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
@@ -188,7 +188,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #6
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNSt17_Function_handlerIFP11extension_tvEZN15register_cflushC1EvEUlvE_E9_M_invokeERKSt9_Any_data(ptr noundef nonnull align 8 dereferenceable(16) %0) #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV8cflush_t, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV8cflush_t, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 }
 
@@ -598,7 +598,7 @@ define internal noundef i64 @_ZL13custom_cflushP11processor_t6insn_tm(ptr nocapt
   store i8 0, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 24
   store i64 %1, ptr %11, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i64 0, i32 0, i64 2), ptr %8, align 8
   tail call void @__cxa_throw(ptr nonnull %8, ptr nonnull @_ZTI24trap_illegal_instruction, ptr nonnull @_ZN24trap_illegal_instructionD2Ev) #21
   unreachable
 

@@ -339,7 +339,7 @@ entry:
   store i32 %proxyCapacity, ptr %proxyCapacity.addr, align 4
   store ptr %paircache, ptr %paircache.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22b3DynamicBvhBroadphase, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22b3DynamicBvhBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_sets = getelementptr inbounds %struct.b3DynamicBvhBroadphase, ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [2 x %struct.b3DynamicBvh], ptr %m_sets, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %struct.b3DynamicBvh, ptr %array.begin, i64 2
@@ -666,7 +666,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22b3DynamicBvhBroadphase, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22b3DynamicBvhBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_releasepaircache = getelementptr inbounds %struct.b3DynamicBvhBroadphase, ptr %this1, i32 0, i32 17
   %0 = load i8, ptr %m_releasepaircache, align 8
   %tobool = trunc i8 %0 to i1
@@ -1004,7 +1004,7 @@ entry:
   store ptr %p, ptr %p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12b3DynamicBvh8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV18b3DbvtTreeCollider, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV18b3DbvtTreeCollider, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pbp = getelementptr inbounds %struct.b3DbvtTreeCollider, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %p.addr, align 8
   store ptr %0, ptr %pbp, align 8
@@ -1439,7 +1439,7 @@ entry:
   store ptr %orgCallback, ptr %orgCallback.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12b3DynamicBvh8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19BroadphaseRayTester, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19BroadphaseRayTester, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rayCallback = getelementptr inbounds %struct.BroadphaseRayTester, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %orgCallback.addr, align 8
   store ptr %0, ptr %m_rayCallback, align 8
@@ -1712,7 +1712,7 @@ entry:
   store ptr %orgCallback, ptr %orgCallback.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12b3DynamicBvh8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20BroadphaseAabbTester, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20BroadphaseAabbTester, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_aabbCallback = getelementptr inbounds %struct.BroadphaseAabbTester, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %orgCallback.addr, align 8
   store ptr %0, ptr %m_aabbCallback, align 8
@@ -4170,7 +4170,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12b3DynamicBvh8ICollideE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12b3DynamicBvh8ICollideE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

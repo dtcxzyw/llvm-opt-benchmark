@@ -584,7 +584,7 @@ invoke.cont204:                                   ; preds = %for.end167
   %m_origin3.i302 = getelementptr inbounds i8, ptr %input, i64 112
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_origin3.i302, ptr noundef nonnull align 4 dereferenceable(16) %m_origin.i301, i64 16, i1 false)
   store float 0x43ABC16D60000000, ptr %m_maximumDistanceSquared.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawE20btIntermediateResult, i64 0, inrange i32 0, i64 2), ptr %res, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVZN33btMinkowskiPenetrationDepthSolver12calcPenDepthER22btVoronoiSimplexSolverPK13btConvexShapeS4_RK11btTransformS7_R9btVector3S9_S9_P12btIDebugDrawE20btIntermediateResult, i64 0, i32 0, i64 2), ptr %res, align 8
   %m_hasResult.i = getelementptr inbounds i8, ptr %res, i64 44
   store i8 0, ptr %m_hasResult.i, align 4
   %268 = fneg <2 x float> %261

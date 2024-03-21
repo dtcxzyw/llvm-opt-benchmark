@@ -452,7 +452,7 @@ define void @_ZN16RichDynamicFloatC2ERK7QStringfffS2_S2_bS2_(ptr noundef nonnull
 
 31:                                               ; preds = %9
   call void @_ZN10FloatValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %19) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16RichDynamicFloat, i32 0, inrange i32 0, i32 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16RichDynamicFloat, i32 0, i32 0, i32 2), ptr %23, align 8
   %32 = getelementptr inbounds %class.RichDynamicFloat, ptr %23, i32 0, i32 1
   %33 = load float, ptr %13, align 4
   store float %33, ptr %32, align 8
@@ -783,7 +783,7 @@ define linkonce_odr void @_ZN16RichDynamicFloatC2ERKS_(ptr noundef nonnull align
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16RichDynamicFloat, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16RichDynamicFloat, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.RichDynamicFloat, ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %class.RichDynamicFloat, ptr %8, i32 0, i32 1

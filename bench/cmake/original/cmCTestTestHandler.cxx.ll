@@ -5707,7 +5707,7 @@ define dso_local void @_ZN18cmCTestTestHandlerC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN21cmCTestGenericHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %5)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.cmCTestTestHandler, ptr %5, i32 0, i32 2
   call void @_ZNSt6vectorIN18cmCTestTestHandler17cmCTestTestResultESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   %7 = getelementptr inbounds %class.cmCTestTestHandler, ptr %5, i32 0, i32 3
@@ -26462,7 +26462,7 @@ define internal void @_ZN12_GLOBAL__N_121cmCTestAddTestCommandCI2NS_14cmCTestCom
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_114cmCTestCommandC2EP18cmCTestTestHandler(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -26850,7 +26850,7 @@ define internal void @_ZN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandCI2NS_1
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_114cmCTestCommandC2EP18cmCTestTestHandler(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -26926,7 +26926,7 @@ define internal void @_ZN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandCI2
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_114cmCTestCommandC2EP18cmCTestTestHandler(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -27781,7 +27781,7 @@ define linkonce_odr dso_local void @_ZN31cmCTestTestMeasurementXMLParserC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 2
@@ -27891,7 +27891,7 @@ define linkonce_odr dso_local void @_ZN31cmCTestTestMeasurementXMLParserD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV31cmCTestTestMeasurementXMLParser, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmCTestTestMeasurementXMLParser, ptr %3, i32 0, i32 3
@@ -34674,7 +34674,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestHandlerD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestHandler, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestTestHandler, ptr %3, i32 0, i32 45
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmCTestTestHandler, ptr %3, i32 0, i32 40
@@ -41806,7 +41806,7 @@ define internal void @_ZN12_GLOBAL__N_114cmCTestCommandC2EP18cmCTestTestHandler(
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114cmCTestCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114cmCTestCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.(anonymous namespace)::cmCTestCommand", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -74766,7 +74766,7 @@ define internal void @_ZN12_GLOBAL__N_121cmCTestAddTestCommandC2EOS0_(ptr nounde
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_114cmCTestCommandC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -74786,7 +74786,7 @@ define internal void @_ZN12_GLOBAL__N_114cmCTestCommandC2ERKS0_(ptr noundef nonn
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114cmCTestCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114cmCTestCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.(anonymous namespace)::cmCTestCommand", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"class.(anonymous namespace)::cmCTestCommand", ptr %7, i32 0, i32 1
@@ -75044,7 +75044,7 @@ define internal void @_ZN12_GLOBAL__N_121cmCTestAddTestCommandC2ERKS0_(ptr nound
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_114cmCTestCommandC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121cmCTestAddTestCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -75146,7 +75146,7 @@ define internal void @_ZN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandC2EOS0_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_114cmCTestCommandC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -75311,7 +75311,7 @@ define internal void @_ZN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandC2ERKS0
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_114cmCTestCommandC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_132cmCTestSetTestsPropertiesCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -75413,7 +75413,7 @@ define internal void @_ZN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandC2E
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_114cmCTestCommandC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -75578,7 +75578,7 @@ define internal void @_ZN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandC2E
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_114cmCTestCommandC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136cmCTestSetDirectoryPropertiesCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 

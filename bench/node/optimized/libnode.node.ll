@@ -3380,7 +3380,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
   %call.i15 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #28, !noalias !47
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(104) %call.i15, i8 0, i64 96, i1 false), !noalias !47
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node24InitializationResultImplE, i64 0, inrange i32 0, i64 2), ptr %call.i15, align 8, !noalias !47
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node24InitializationResultImplE, i64 0, i32 0, i64 2), ptr %call.i15, align 8, !noalias !47
   %args_.i.i = getelementptr inbounds i8, ptr %call.i15, i64 16
   %platform_.i.i = getelementptr inbounds i8, ptr %call.i15, i64 96
   store ptr null, ptr %platform_.i.i, align 8, !noalias !47
@@ -6678,7 +6678,7 @@ do.body4.i:                                       ; preds = %_ZNSt10unique_ptrIN
 
 _ZN4node7tracing5Agent20GetTracingControllerEv.exit: ; preds = %_ZNSt10unique_ptrIN4node7tracing5AgentESt14default_deleteIS2_EED2Ev.exit
   %call.i2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #28, !noalias !87
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node22NodeTraceStateObserverE, i64 0, inrange i32 0, i64 2), ptr %call.i2, align 8, !noalias !87
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node22NodeTraceStateObserverE, i64 0, i32 0, i64 2), ptr %call.i2, align 8, !noalias !87
   %controller_.i.i = getelementptr inbounds i8, ptr %call.i2, i64 8
   store ptr %5, ptr %controller_.i.i, align 8, !noalias !87
   %trace_state_observer_ = getelementptr inbounds i8, ptr %this, i64 8

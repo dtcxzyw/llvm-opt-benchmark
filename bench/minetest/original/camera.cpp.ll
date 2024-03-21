@@ -1432,7 +1432,7 @@ define dso_local void @_ZN6Camera4stepEf(ptr noundef nonnull align 8 dereference
   %86 = load ptr, ptr %85, align 8, !tbaa !13
   %87 = tail call noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %86)
   %88 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %88, align 8, !tbaa !68
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %88, align 8, !tbaa !68
   %89 = getelementptr inbounds i8, ptr %88, i64 8
   store i8 0, ptr %89, align 8, !tbaa !131
   %90 = load ptr, ptr %87, align 8, !tbaa !68
@@ -1478,7 +1478,7 @@ define dso_local void @_ZN6Camera4stepEf(ptr noundef nonnull align 8 dereference
   %111 = load ptr, ptr %110, align 8, !tbaa !13
   %112 = tail call noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %111)
   %113 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %113, align 8, !tbaa !68
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %113, align 8, !tbaa !68
   %114 = getelementptr inbounds i8, ptr %113, i64 8
   store i8 1, ptr %114, align 8, !tbaa !131
   %115 = load ptr, ptr %112, align 8, !tbaa !68
@@ -1492,7 +1492,7 @@ define dso_local void @_ZN6Camera4stepEf(ptr noundef nonnull align 8 dereference
   %120 = load ptr, ptr %119, align 8, !tbaa !13
   %121 = tail call noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %120)
   %122 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %122, align 8, !tbaa !68
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %122, align 8, !tbaa !68
   %123 = getelementptr inbounds i8, ptr %122, i64 8
   store i8 2, ptr %123, align 8, !tbaa !131
   %124 = load ptr, ptr %121, align 8, !tbaa !68
@@ -4594,7 +4594,7 @@ define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1Ev(ptr noundef nonnu
   %3 = alloca %"struct.std::__detail::_AllocNode", align 8
   %4 = alloca %"class.std::unordered_map.6", align 8
   %5 = alloca %"class.std::unordered_map.20", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9IMetadata, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9IMetadata, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !68
   %6 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT17ItemStackMetadata, i64 0, i64 1), align 8
   store ptr %6, ptr %0, align 8, !tbaa !68
   %7 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTT17ItemStackMetadata, i64 0, i64 2), align 8
@@ -4615,7 +4615,7 @@ define linkonce_odr dso_local void @_ZN17ItemStackMetadataC1Ev(ptr noundef nonnu
   store float 1.000000e+00, ptr %16, align 8, !tbaa !313
   %17 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, inrange i32 0, i64 10), ptr %0, align 8, !tbaa !68
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV17ItemStackMetadata, i64 0, i32 0, i64 10), ptr %0, align 8, !tbaa !68
   %18 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %18, align 8, !tbaa !266
   %19 = getelementptr inbounds i8, ptr %0, i64 80

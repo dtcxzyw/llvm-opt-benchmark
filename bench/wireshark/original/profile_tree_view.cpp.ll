@@ -398,7 +398,7 @@ define void @_ZN22ProfileUrlLinkDelegateC2EP7QObject(ptr noundef nonnull align 8
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN15UrlLinkDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV22ProfileUrlLinkDelegate, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV22ProfileUrlLinkDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -514,7 +514,7 @@ define void @_ZN23ProfileTreeEditDelegateC2EP7QWidget(ptr noundef nonnull align 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13QItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV23ProfileTreeEditDelegate, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV23ProfileTreeEditDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.ProfileTreeEditDelegate, ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds %class.ProfileTreeEditDelegate, ptr %5, i32 0, i32 2
@@ -651,9 +651,9 @@ define void @_ZN15ProfileTreeViewC2EP7QWidget(ptr noundef nonnull align 8 derefe
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %4, align 8
   call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, inrange i32 1, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 1, i32 2), ptr %15, align 8
   %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #11
           to label %17 unwind label %35
 
@@ -908,9 +908,9 @@ define void @_ZN15ProfileTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [101 x ptr], [10 x ptr] }, ptr @_ZTV15ProfileTreeView, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.ProfileTreeView, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

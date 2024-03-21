@@ -55,7 +55,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ci.addr, align 8
   call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV30btActivatingCollisionAlgorithm, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV30btActivatingCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -75,7 +75,7 @@ entry:
   %this2 = load ptr, ptr %this.addr, align 8
   %2 = load ptr, ptr %ci.addr, align 8
   call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this2, ptr noundef nonnull align 8 dereferenceable(16) %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV30btActivatingCollisionAlgorithm, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV30btActivatingCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this2, align 8
   ret void
 }
 

@@ -1533,7 +1533,7 @@ $_ZTVN4llvh2cl11OptionValueIN6hermes7WarningEEE = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Positions = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %Positions, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -1572,7 +1572,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZSt8_DestroyIPNSt7
   br label %_ZN4llvh2cl12list_storageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbED2Ev.exit
 
 _ZN4llvh2cl12list_storageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, %if.then.i.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -1621,15 +1621,15 @@ entry:
   store i32 0, ptr %0, align 8
   %Default.i = getelementptr inbounds i8, ptr %this, i64 160
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 172
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl8OptLevelEEE, i64 0, inrange i32 0, i64 2), ptr %Default.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl8OptLevelEEE, i64 0, i32 0, i64 2), ptr %Default.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %Value.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl8OptLevelELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl8OptLevelELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
   %Owner.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %this, ptr %Owner.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Values.i, align 8
@@ -1696,7 +1696,7 @@ _ZN4llvh2cl6parserIN2cl8OptLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6_.e
   store i32 %Value.sroa.3.0.copyload.i.i.i.i.i, ptr %Value.i.i.i.i.i.i.i.i.i.i.i, align 8
   %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 44
   store i8 1, ptr %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl8OptLevelEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl8OptLevelEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
   %10 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i32 %10, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %Size.i.i.i.i.i.i, align 8
@@ -1732,9 +1732,9 @@ _ZN4llvh11SmallVectorINS_2cl15OptionEnumValueELj4EED2Ev.exit: ; preds = %entry, 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN2cl8OptLevelELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl8OptLevelELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl8OptLevelELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -1746,7 +1746,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4llvh2cl6parserIN2cl8OptLevelEED2Ev.exit
 
 _ZN4llvh2cl6parserIN2cl8OptLevelEED2Ev.exit:      ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -1792,15 +1792,15 @@ entry:
   store i32 0, ptr %0, align 8
   %Default.i = getelementptr inbounds i8, ptr %this, i64 160
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 172
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl20StaticBuiltinSettingEEE, i64 0, inrange i32 0, i64 2), ptr %Default.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl20StaticBuiltinSettingEEE, i64 0, i32 0, i64 2), ptr %Default.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %Value.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl20StaticBuiltinSettingELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl20StaticBuiltinSettingELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
   %Owner.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %this, ptr %Owner.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Values.i, align 8
@@ -1867,7 +1867,7 @@ _ZN4llvh2cl6parserIN2cl20StaticBuiltinSettingEE16addLiteralOptionIiEEvNS_9String
   store i32 %Value.sroa.3.0.copyload.i.i.i.i.i, ptr %Value.i.i.i.i.i.i.i.i.i.i.i, align 8
   %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 44
   store i8 1, ptr %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl20StaticBuiltinSettingEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl20StaticBuiltinSettingEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
   %10 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i32 %10, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %Size.i.i.i.i.i.i, align 8
@@ -1887,9 +1887,9 @@ _ZN4llvh2cl5applyINS0_3optIN2cl20StaticBuiltinSettingELb0ENS0_6parserIS4_EEEENS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN2cl20StaticBuiltinSettingELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl20StaticBuiltinSettingELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl20StaticBuiltinSettingELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -1901,7 +1901,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4llvh2cl6parserIN2cl20StaticBuiltinSettingEED2Ev.exit
 
 _ZN4llvh2cl6parserIN2cl20StaticBuiltinSettingEED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -1947,15 +1947,15 @@ entry:
   store i32 0, ptr %0, align 8
   %Default.i = getelementptr inbounds i8, ptr %this, i64 160
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 172
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16OutputFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %Default.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16OutputFormatKindEEE, i64 0, i32 0, i64 2), ptr %Default.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %Value.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16OutputFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16OutputFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
   %Owner.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %this, ptr %Owner.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Values.i, align 8
@@ -2022,7 +2022,7 @@ _ZN4llvh2cl6parserIN6hermes16OutputFormatKindEE16addLiteralOptionIiEEvNS_9String
   store i32 %Value.sroa.3.0.copyload.i.i.i.i.i, ptr %Value.i.i.i.i.i.i.i.i.i.i.i, align 8
   %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 44
   store i8 1, ptr %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16OutputFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16OutputFormatKindEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
   %10 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i32 %10, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %Size.i.i.i.i.i.i, align 8
@@ -2042,9 +2042,9 @@ _ZN4llvh2cl5applyINS0_3optIN6hermes16OutputFormatKindELb0ENS0_6parserIS4_EEEENS0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN6hermes16OutputFormatKindELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16OutputFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16OutputFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -2056,7 +2056,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4llvh2cl6parserIN6hermes16OutputFormatKindEED2Ev.exit
 
 _ZN4llvh2cl6parserIN6hermes16OutputFormatKindEED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -2075,7 +2075,7 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvh2cl6parserI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -2119,7 +2119,7 @@ entry:
   store i32 0, ptr %NumTombstones.i.i.i.i, align 8
   %FullyInitialized.i = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %FullyInitialized.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl5aliasE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl5aliasE, i64 0, i32 0, i64 2), ptr %this, align 8
   %AliasFor = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %AliasFor, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Ms) #26
@@ -2165,7 +2165,7 @@ _ZN4llvh2cl5applyINS0_5aliasEA12_cJNS0_4descENS0_12OptionHiddenENS0_8aliasoptEEE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl5aliasD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -2209,7 +2209,7 @@ entry:
   store i32 0, ptr %NumTombstones.i.i.i.i, align 8
   %FullyInitialized.i = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %FullyInitialized.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl5aliasE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl5aliasE, i64 0, i32 0, i64 2), ptr %this, align 8
   %AliasFor = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %AliasFor, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Ms) #26
@@ -2280,7 +2280,7 @@ entry:
   store i32 0, ptr %NumTombstones.i.i.i.i, align 8
   %FullyInitialized.i = getelementptr inbounds i8, ptr %this, i64 144
   store i8 0, ptr %FullyInitialized.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl5aliasE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl5aliasE, i64 0, i32 0, i64 2), ptr %this, align 8
   %AliasFor = getelementptr inbounds i8, ptr %this, i64 152
   store ptr null, ptr %AliasFor, align 8
   %call.i.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %Ms) #26
@@ -2326,9 +2326,9 @@ _ZN4llvh2cl5applyINS0_5aliasEA3_cJNS0_4descENS0_12OptionHiddenENS0_8aliasoptEEEE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN2cl18BytecodeFormatKindELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl18BytecodeFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl18BytecodeFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -2340,7 +2340,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4llvh2cl6parserIN2cl18BytecodeFormatKindEED2Ev.exit
 
 _ZN4llvh2cl6parserIN2cl18BytecodeFormatKindEED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -2361,11 +2361,11 @@ define linkonce_odr hidden void @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 152
   %Default.i = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %Default.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %Default.i, align 8
   %Value.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %Value.i.i.i) #25
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -2411,15 +2411,15 @@ entry:
   store i32 0, ptr %0, align 8
   %Default.i = getelementptr inbounds i8, ptr %this, i64 160
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 172
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl10DebugLevelEEE, i64 0, inrange i32 0, i64 2), ptr %Default.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl10DebugLevelEEE, i64 0, i32 0, i64 2), ptr %Default.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %this, i64 168
   store i32 0, ptr %Value.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl10DebugLevelELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl10DebugLevelELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
   %Owner.i.i = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %this, ptr %Owner.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   store ptr %add.ptr.i.i.i.i.i.i, ptr %Values.i, align 8
@@ -2486,7 +2486,7 @@ _ZN4llvh2cl6parserIN2cl10DebugLevelEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6
   store i32 %Value.sroa.3.0.copyload.i.i.i.i.i, ptr %Value.i.i.i.i.i.i.i.i.i.i.i, align 8
   %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 44
   store i8 1, ptr %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl10DebugLevelEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl10DebugLevelEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
   %10 = load i32, ptr %Size.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i32 %10, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %Size.i.i.i.i.i.i, align 8
@@ -2506,9 +2506,9 @@ _ZN4llvh2cl5applyINS0_3optIN2cl10DebugLevelELb0ENS0_6parserIS4_EEEENS0_4descEJNS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN2cl10DebugLevelELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl10DebugLevelELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl10DebugLevelELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -2520,7 +2520,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4llvh2cl6parserIN2cl10DebugLevelEED2Ev.exit
 
 _ZN4llvh2cl6parserIN2cl10DebugLevelEED2Ev.exit:   ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -2539,9 +2539,9 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvh2cl6parserI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN6hermes16LocationDumpModeELb0ENS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16LocationDumpModeELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16LocationDumpModeELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -2553,7 +2553,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZN4llvh2cl6parserIN6hermes16LocationDumpModeEED2Ev.exit
 
 _ZN4llvh2cl6parserIN6hermes16LocationDumpModeEED2Ev.exit: ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -2572,7 +2572,7 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %_ZN4llvh2cl6parserI
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIiLb0ENS0_6parserIiEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -2776,14 +2776,14 @@ _ZN4llvhplERKNS_5TwineES2_.exit132:               ; preds = %lor.lhs.false.i.i10
   store i8 0, ptr %9, align 8
   %Default.i.i = getelementptr inbounds i8, ptr %this, i64 288
   %Valid.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 297
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr %Default.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr %Default.i.i, align 8
   store i8 1, ptr %Valid.i.i.i.i.i, align 1
   %Value.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 296
   store i8 0, ptr %Value.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr %yes_, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr %yes_, align 8
   %Parser.i = getelementptr inbounds i8, ptr %this, i64 304
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) %Parser.i, ptr noundef nonnull align 8 dereferenceable(145) %yes_) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr %Parser.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr %Parser.i, align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) %yes_, ptr %call.i, i64 %call2.i) #25
   %bf.load.i.i.i.i.i = load i16, ptr %Occurrences.i.i, align 4
   %bf.set.i.i.i.i.i = or i16 %bf.load.i.i.i.i.i, 24
@@ -2826,14 +2826,14 @@ _ZN4llvhplERKNS_5TwineES2_.exit132:               ; preds = %lor.lhs.false.i.i10
   store i8 0, ptr %10, align 8
   %Default.i.i147 = getelementptr inbounds i8, ptr %this, i64 472
   %Valid.i.i.i.i.i148 = getelementptr inbounds i8, ptr %this, i64 481
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr %Default.i.i147, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr %Default.i.i147, align 8
   store i8 1, ptr %Valid.i.i.i.i.i148, align 1
   %Value.i.i.i.i149 = getelementptr inbounds i8, ptr %this, i64 480
   store i8 0, ptr %Value.i.i.i.i149, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr %no_, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr %no_, align 8
   %Parser.i150 = getelementptr inbounds i8, ptr %this, i64 488
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) %Parser.i150, ptr noundef nonnull align 8 dereferenceable(145) %no_) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr %Parser.i150, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr %Parser.i150, align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) %no_, ptr %call.i35, i64 %call2.i37) #25
   %bf.load.i.i.i.i.i154 = load i16, ptr %Occurrences.i.i135, align 4
   %bf.set.i.i.i.i.i158 = and i16 %bf.load.i.i.i.i.i154, -121
@@ -2854,7 +2854,7 @@ _ZN4llvhplERKNS_5TwineES2_.exit132:               ; preds = %lor.lhs.false.i.i10
 define linkonce_odr hidden void @_ZN2cl6CLFlagD2Ev(ptr noundef nonnull align 8 dereferenceable(497) %this) unnamed_addr #0 comdat align 2 {
 entry:
   %no_ = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %no_, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %no_, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 392
   %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 400
   %0 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
@@ -2868,7 +2868,7 @@ if.then.i.i.i.i.i:                                ; preds = %entry
 
 _ZN4llvh2cl3optIbLb0ENS0_6parserIbEEED2Ev.exit:   ; preds = %entry, %if.then.i.i.i.i.i
   %yes_ = getelementptr inbounds i8, ptr %this, i64 128
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %yes_, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %yes_, align 8
   %Subs.i.i1 = getelementptr inbounds i8, ptr %this, i64 208
   %CurArray.i.i.i.i.i.i2 = getelementptr inbounds i8, ptr %this, i64 216
   %2 = load ptr, ptr %CurArray.i.i.i.i.i.i2, align 8
@@ -2894,7 +2894,7 @@ _ZN4llvh2cl3optIbLb0ENS0_6parserIbEEED2Ev.exit5:  ; preds = %_ZN4llvh2cl3optIbLb
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIjLb0ENS0_6parserIjEEED2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -2913,9 +2913,9 @@ _ZN4llvh2cl6OptionD2Ev.exit:                      ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(616) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser = getelementptr inbounds i8, ptr %this, i64 200
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, inrange i32 0, i64 2), ptr %Parser, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, i32 0, i64 2), ptr %Parser, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -2947,7 +2947,7 @@ if.then.i.i.i.i:                                  ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZN4llvh2cl12list_storageIN6hermes7WarningEbED2Ev.exit
 
 _ZN4llvh2cl12list_storageIN6hermes7WarningEbED2Ev.exit: ; preds = %_ZNSt6vectorIjSaIjEED2Ev.exit, %if.then.i.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load ptr, ptr %CurArray.i.i.i.i.i, align 8
@@ -7020,7 +7020,7 @@ _ZNK4llvh9StringRefcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv.exit
   %sub.ptr.sub.i.i.i.i.i310 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i308, %sub.ptr.rhs.cast.i.i.i.i.i309
   %size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i307, i64 16
   store i64 %sub.ptr.sub.i.i.i.i.i310, ptr %size_.i.i.i.i, align 8, !noalias !94
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes17OwnedMemoryBufferE, i64 0, inrange i32 0, i64 2), ptr %call.i.i307, align 8, !noalias !94
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes17OwnedMemoryBufferE, i64 0, i32 0, i64 2), ptr %call.i.i307, align 8, !noalias !94
   %data_.i.i.i = getelementptr inbounds i8, ptr %call.i.i307, i64 32
   store i64 %422, ptr %data_.i.i.i, align 8, !noalias !94
   store ptr %call.i.i307, ptr %agg.tmp.i, align 8, !noalias !85
@@ -7487,7 +7487,7 @@ _ZNK2cl6CLFlagcvbEv.exit35.i:                     ; preds = %if.end9.i.i32.i, %i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !noalias !116
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i357, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !noalias !116
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6hermes7ContextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i357, align 8, !noalias !116
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6hermes7ContextESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i.i357, align 8, !noalias !116
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i.i357, i64 16
   call void @_ZSt10_ConstructIN6hermes7ContextEJRNS0_22CodeGenerationSettingsERNS0_20OptimizationSettingsESt10unique_ptrIN4llvh8DenseMapINS7_9StringRefENS8_IS9_S9_NS7_12DenseMapInfoIS9_EENS7_6detail12DenseMapPairIS9_S9_EEEESB_NSD_IS9_SF_EEEESt14default_deleteISH_EESt6vectorIjSaIjEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(392) %codeGenOpts.i, ptr noundef nonnull align 1 dereferenceable(6) %optimizationOpts.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp65, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp66), !noalias !116
   %481 = load i8, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 2, i32 0), align 8, !noalias !97
@@ -10726,9 +10726,9 @@ if.then.i.i.i138:                                 ; preds = %if.end100, %if.end1
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i132, align 8, !noalias !152
   %_M_weak_count.i.i.i.i.i.i133 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i131, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i133, align 4, !noalias !152
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6hermes19SourceMapTranslatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i131, align 8, !noalias !152
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6hermes19SourceMapTranslatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i131, align 8, !noalias !152
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i131, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes19SourceMapTranslatorE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !152
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes19SourceMapTranslatorE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !152
   %sourceMaps_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i131, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %sourceMaps_.i.i.i.i.i.i.i.i, i8 0, i64 20, i1 false), !noalias !152
   %sourceErrorManager_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i131, i64 48
@@ -12227,7 +12227,7 @@ declare void @_ZN4llvh2cl6Option6anchorEv(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Positions.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %Positions.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -12266,7 +12266,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZSt8_DestroyIPNSt7
   br label %_ZN4llvh2cl12list_storageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbED2Ev.exit.i
 
 _ZN4llvh2cl12list_storageINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %5 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
@@ -12505,7 +12505,7 @@ declare void @_ZNK4llvh2cl17basic_parser_impl15printOptionInfoERKNS0_6OptionEm(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN2cl8OptLevelEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -12556,9 +12556,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN2cl8OptLevelELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl8OptLevelELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl8OptLevelELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser.i = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, inrange i32 0, i64 2), ptr %Parser.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, i32 0, i64 2), ptr %Parser.i, align 8
   %Values.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -12570,7 +12570,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN4llvh2cl6parserIN2cl8OptLevelEED2Ev.exit.i
 
 _ZN4llvh2cl6parserIN2cl8OptLevelEED2Ev.exit.i:    ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
@@ -12627,7 +12627,7 @@ if.then:                                          ; preds = %entry, %lor.rhs
   %Default.i1 = getelementptr inbounds i8, ptr %this, i64 160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %OV.i)
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 12
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl8OptLevelEEE, i64 0, inrange i32 0, i64 2), ptr %OV.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl8OptLevelEEE, i64 0, i32 0, i64 2), ptr %OV.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 8
   store i32 %.pre, ptr %Value.i.i.i, align 8
@@ -12724,7 +12724,7 @@ _ZN4llvh2cl19generic_parser_base19getExtraOptionNamesERNS_15SmallVectorImplINS_9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN2cl8OptLevelEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl8OptLevelEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -12928,7 +12928,7 @@ declare void @_ZN4llvh15SmallVectorBase8grow_podEPvmm(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN2cl20StaticBuiltinSettingEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -12979,9 +12979,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN2cl20StaticBuiltinSettingELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl20StaticBuiltinSettingELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl20StaticBuiltinSettingELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser.i = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, inrange i32 0, i64 2), ptr %Parser.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, i32 0, i64 2), ptr %Parser.i, align 8
   %Values.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -12993,7 +12993,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN4llvh2cl6parserIN2cl20StaticBuiltinSettingEED2Ev.exit.i
 
 _ZN4llvh2cl6parserIN2cl20StaticBuiltinSettingEED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
@@ -13050,7 +13050,7 @@ if.then:                                          ; preds = %entry, %lor.rhs
   %Default.i1 = getelementptr inbounds i8, ptr %this, i64 160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %OV.i)
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 12
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl20StaticBuiltinSettingEEE, i64 0, inrange i32 0, i64 2), ptr %OV.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl20StaticBuiltinSettingEEE, i64 0, i32 0, i64 2), ptr %OV.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 8
   store i32 %.pre, ptr %Value.i.i.i, align 8
@@ -13147,7 +13147,7 @@ _ZN4llvh2cl19generic_parser_base19getExtraOptionNamesERNS_15SmallVectorImplINS_9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN2cl20StaticBuiltinSettingEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl20StaticBuiltinSettingEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -13336,7 +13336,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN6hermes16OutputFormatKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -13387,9 +13387,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN6hermes16OutputFormatKindELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16OutputFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16OutputFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser.i = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %Parser.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, i32 0, i64 2), ptr %Parser.i, align 8
   %Values.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -13401,7 +13401,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN4llvh2cl6parserIN6hermes16OutputFormatKindEED2Ev.exit.i
 
 _ZN4llvh2cl6parserIN6hermes16OutputFormatKindEED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
@@ -13458,7 +13458,7 @@ if.then:                                          ; preds = %entry, %lor.rhs
   %Default.i1 = getelementptr inbounds i8, ptr %this, i64 160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %OV.i)
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 12
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16OutputFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %OV.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16OutputFormatKindEEE, i64 0, i32 0, i64 2), ptr %OV.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 8
   store i32 %.pre, ptr %Value.i.i.i, align 8
@@ -13555,7 +13555,7 @@ _ZN4llvh2cl19generic_parser_base19getExtraOptionNamesERNS_15SmallVectorImplINS_9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN6hermes16OutputFormatKindEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16OutputFormatKindEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -13744,7 +13744,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN2cl18BytecodeFormatKindEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -13795,9 +13795,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN2cl18BytecodeFormatKindELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl18BytecodeFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl18BytecodeFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser.i = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %Parser.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, i32 0, i64 2), ptr %Parser.i, align 8
   %Values.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -13809,7 +13809,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN4llvh2cl6parserIN2cl18BytecodeFormatKindEED2Ev.exit.i
 
 _ZN4llvh2cl6parserIN2cl18BytecodeFormatKindEED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
@@ -13866,7 +13866,7 @@ if.then:                                          ; preds = %entry, %lor.rhs
   %Default.i1 = getelementptr inbounds i8, ptr %this, i64 160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %OV.i)
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 12
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl18BytecodeFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %OV.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl18BytecodeFormatKindEEE, i64 0, i32 0, i64 2), ptr %OV.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 8
   store i32 %.pre, ptr %Value.i.i.i, align 8
@@ -13963,7 +13963,7 @@ _ZN4llvh2cl19generic_parser_base19getExtraOptionNamesERNS_15SmallVectorImplINS_9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN2cl18BytecodeFormatKindEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -14202,7 +14202,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN2cl10DebugLevelEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -14253,9 +14253,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN2cl10DebugLevelELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl10DebugLevelELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl10DebugLevelELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser.i = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, inrange i32 0, i64 2), ptr %Parser.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, i32 0, i64 2), ptr %Parser.i, align 8
   %Values.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -14267,7 +14267,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN4llvh2cl6parserIN2cl10DebugLevelEED2Ev.exit.i
 
 _ZN4llvh2cl6parserIN2cl10DebugLevelEED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
@@ -14324,7 +14324,7 @@ if.then:                                          ; preds = %entry, %lor.rhs
   %Default.i1 = getelementptr inbounds i8, ptr %this, i64 160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %OV.i)
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 12
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl10DebugLevelEEE, i64 0, inrange i32 0, i64 2), ptr %OV.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl10DebugLevelEEE, i64 0, i32 0, i64 2), ptr %OV.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 8
   store i32 %.pre, ptr %Value.i.i.i, align 8
@@ -14421,7 +14421,7 @@ _ZN4llvh2cl19generic_parser_base19getExtraOptionNamesERNS_15SmallVectorImplINS_9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN2cl10DebugLevelEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl10DebugLevelEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -14610,7 +14610,7 @@ return:                                           ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN6hermes16LocationDumpModeEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -14661,9 +14661,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl3optIN6hermes16LocationDumpModeELb0ENS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(592) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16LocationDumpModeELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16LocationDumpModeELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser.i = getelementptr inbounds i8, ptr %this, i64 176
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, inrange i32 0, i64 2), ptr %Parser.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, i32 0, i64 2), ptr %Parser.i, align 8
   %Values.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load ptr, ptr %Values.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
@@ -14675,7 +14675,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZN4llvh2cl6parserIN6hermes16LocationDumpModeEED2Ev.exit.i
 
 _ZN4llvh2cl6parserIN6hermes16LocationDumpModeEED2Ev.exit.i: ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %1 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
@@ -14732,7 +14732,7 @@ if.then:                                          ; preds = %entry, %lor.rhs
   %Default.i1 = getelementptr inbounds i8, ptr %this, i64 160
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %OV.i)
   %Valid.i.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 12
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16LocationDumpModeEEE, i64 0, inrange i32 0, i64 2), ptr %OV.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16LocationDumpModeEEE, i64 0, i32 0, i64 2), ptr %OV.i, align 8
   store i8 1, ptr %Valid.i.i.i.i, align 4
   %Value.i.i.i = getelementptr inbounds i8, ptr %OV.i, i64 8
   store i32 %.pre, ptr %Value.i.i.i, align 8
@@ -14829,7 +14829,7 @@ _ZN4llvh2cl19generic_parser_base19getExtraOptionNamesERNS_15SmallVectorImplINS_9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN6hermes16LocationDumpModeEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -15057,7 +15057,7 @@ declare void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN6hermes7WarningEED2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values, align 8
   %add.ptr.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -15246,9 +15246,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(616) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Parser.i = getelementptr inbounds i8, ptr %this, i64 200
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, inrange i32 0, i64 2), ptr %Parser.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, i32 0, i64 2), ptr %Parser.i, align 8
   %Values.i.i = getelementptr inbounds i8, ptr %this, i64 216
   %0 = load ptr, ptr %Values.i.i, align 8
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -15280,7 +15280,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorIjSaIjE
   br label %_ZN4llvh2cl12list_storageIN6hermes7WarningEbED2Ev.exit.i
 
 _ZN4llvh2cl12list_storageIN6hermes7WarningEbED2Ev.exit.i: ; preds = %if.then.i.i.i.i.i, %_ZNSt6vectorIjSaIjEED2Ev.exit.i
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Subs.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %CurArray.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 88
   %4 = load ptr, ptr %CurArray.i.i.i.i.i.i, align 8
@@ -15390,7 +15390,7 @@ _ZN4llvh2cl19generic_parser_base19getExtraOptionNamesERNS_15SmallVectorImplINS_9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvh2cl6parserIN6hermes7WarningEED0Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Values.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %Values.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -18656,7 +18656,7 @@ _ZN12_GLOBAL__N_112OutputStreamD2Ev.exit:         ; preds = %_ZNSt10unique_ptrIN
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes17OwnedMemoryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes17OwnedMemoryBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes17OwnedMemoryBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %data_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -18678,7 +18678,7 @@ _ZNSt10unique_ptrIN4llvh12MemoryBufferESt14default_deleteIS1_EED2Ev.exit: ; pred
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes17OwnedMemoryBufferD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes17OwnedMemoryBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes17OwnedMemoryBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %data_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %data_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -18803,7 +18803,7 @@ _ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i: ; preds = %_ZN4llvh8Opt
 
 _ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4llvh8OptionalISt6threadED2Ev.exit, %_ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i
   store ptr null, ptr %buffer_, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %errstr_.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr_.i) #25
   ret void
@@ -18832,7 +18832,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc14BCProviderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %errstr_ = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr_) #25
   ret void
@@ -19382,7 +19382,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IN6hermes3hbc14BCProviderB
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes3hbc14BCProviderBaseESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes3hbc14BCProviderBaseESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -21767,13 +21767,13 @@ entry:
   store i8 121, ptr %emptySentinel_, align 8
   %literalNumbers = getelementptr inbounds i8, ptr %this, i64 664
   tail call void @_ZN4llvh14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %literalNumbers, i32 noundef 6) #25
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes13LiteralNumberEEE, i64 0, inrange i32 0, i64 2), ptr %literalNumbers, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes13LiteralNumberEEE, i64 0, i32 0, i64 2), ptr %literalNumbers, align 8
   %literalBigInts = getelementptr inbounds i8, ptr %this, i64 688
   tail call void @_ZN4llvh14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %literalBigInts, i32 noundef 6) #25
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes13LiteralBigIntEEE, i64 0, inrange i32 0, i64 2), ptr %literalBigInts, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes13LiteralBigIntEEE, i64 0, i32 0, i64 2), ptr %literalBigInts, align 8
   %literalStrings = getelementptr inbounds i8, ptr %this, i64 712
   tail call void @_ZN4llvh14FoldingSetBaseC2Ej(ptr noundef nonnull align 8 dereferenceable(24) %literalStrings, i32 noundef 6) #25
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes13LiteralStringEEE, i64 0, inrange i32 0, i64 2), ptr %literalStrings, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh10FoldingSetIN6hermes13LiteralStringEEE, i64 0, i32 0, i64 2), ptr %literalStrings, align 8
   %internalNamesMap_ = getelementptr inbounds i8, ptr %this, i64 736
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %internalNamesMap_, i8 0, i64 20, i1 false)
   %cjsModules_ = getelementptr inbounds i8, ptr %this, i64 760
@@ -25109,7 +25109,7 @@ if.end:                                           ; preds = %entry
   %sub.ptr.sub.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store i64 %sub.ptr.sub.i.i.i.i, ptr %size_.i.i.i, align 8, !noalias !325
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes17OwnedMemoryBufferE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !325
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes17OwnedMemoryBufferE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !325
   %data_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   store i64 %4, ptr %data_.i.i, align 8, !noalias !325
   store ptr %call.i, ptr %agg.tmp, align 8
@@ -25930,7 +25930,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %Value.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %Value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %Value.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %Value2.i.i.i.i.i.i.i.i.i, i64 5, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl8OptLevelEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl8OptLevelEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
@@ -26015,7 +26015,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %Value.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %Value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %Value.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %Value2.i.i.i.i.i.i.i.i.i, i64 5, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl20StaticBuiltinSettingEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl20StaticBuiltinSettingEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
@@ -26095,7 +26095,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %Value.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %Value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %Value.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %Value2.i.i.i.i.i.i.i.i.i, i64 5, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16OutputFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16OutputFormatKindEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
@@ -26248,7 +26248,7 @@ _ZN4llvh2cl6parserIN2cl18BytecodeFormatKindEE16addLiteralOptionIiEEvNS_9StringRe
   store i32 %Value.sroa.3.0.copyload.i.i.i.i.i, ptr %Value.i.i.i.i.i.i.i.i.i.i.i, align 8
   %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 44
   store i8 1, ptr %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl18BytecodeFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl18BytecodeFormatKindEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
   %9 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i32 %9, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %Size.i.i.i.i.i.i.i.i, align 8
@@ -26323,7 +26323,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %Value.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %Value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %Value.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %Value2.i.i.i.i.i.i.i.i.i, i64 5, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl18BytecodeFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl18BytecodeFormatKindEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
@@ -26436,7 +26436,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %Value.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %Value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %Value.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %Value2.i.i.i.i.i.i.i.i.i, i64 5, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl10DebugLevelEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl10DebugLevelEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
@@ -26532,7 +26532,7 @@ _ZN4llvh2cl6parserIN6hermes16LocationDumpModeEE16addLiteralOptionIiEEvNS_9String
   store i32 %Value.sroa.3.0.copyload.i.i.i.i.i, ptr %Value.i.i.i.i.i.i.i.i.i.i.i, align 8
   %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 44
   store i8 1, ptr %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16LocationDumpModeEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16LocationDumpModeEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
   %9 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i32 %9, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %Size.i.i.i.i.i.i.i.i, align 8
@@ -26607,7 +26607,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %Value.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %Value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %Value.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %Value2.i.i.i.i.i.i.i.i.i, i64 5, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16LocationDumpModeEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16LocationDumpModeEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
@@ -26767,7 +26767,7 @@ _ZN4llvh2cl6parserIN6hermes7WarningEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6
   store i32 %Value.sroa.3.0.copyload.i.i.i.i.i, ptr %Value.i.i.i.i.i.i.i.i.i.i.i, align 8
   %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i, i64 44
   store i8 1, ptr %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes7WarningEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes7WarningEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i, align 8
   %6 = load i32, ptr %Size.i.i.i.i.i.i.i.i, align 8
   %add.i.i.i.i.i.i.i = add i32 %6, 1
   store i32 %add.i.i.i.i.i.i.i, ptr %Size.i.i.i.i.i.i.i.i, align 8
@@ -26869,7 +26869,7 @@ for.body.i.i.i.i:                                 ; preds = %_ZN4llvh11safe_mall
   %Value.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 40
   %Value2.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %Value.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(5) %Value2.i.i.i.i.i.i.i.i.i, i64 5, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes7WarningEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes7WarningEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i, align 8
   %incdec.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.sroa.0.06.i.i.i.i, i64 48
   %incdec.ptr.i.i.i.i = getelementptr inbounds i8, ptr %__cur.07.i.i.i.i, i64 48
   %cmp.i.i.not.i.i.i.i = icmp eq ptr %incdec.ptr.i.i.i.i.i, %add.ptr.i30
@@ -27026,10 +27026,10 @@ entry:
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 0, i32 11), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2cl14InputFilenamesB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2cl14InputFilenamesB5cxx11E, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
   tail call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl14InputFilenamesB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   store ptr @.str.3, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 18, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 0, i32 7, i32 1), align 8
   %bf.load.i.i.i.i.i.i = load i16, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2cl14InputFilenamesB5cxx11E, i64 0, i32 0, i32 2), align 4
@@ -27176,10 +27176,10 @@ __cxx_global_var_init.12.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 0, i32 0, i32 11), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL14CustomOptimizeB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL14CustomOptimizeB5cxx11E, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL14CustomOptimizeB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL14CustomOptimizeB5cxx11E, ptr nonnull @.str.21, i64 10) #25
   store ptr @.str.22, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 19, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14CustomOptimizeB5cxx11E, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27364,12 +27364,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL6PrettyE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL6PrettyE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL6PrettyE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL6PrettyE, ptr nonnull @.str.50, i64 6) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2clL6PrettyE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i39) #25
   store ptr @.str.51, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL6PrettyE, i64 0, i32 0, i32 7, i32 0), align 8
@@ -27417,12 +27417,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL19unused_HermesParserE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL19unused_HermesParserE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL19unused_HermesParserE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL19unused_HermesParserE, ptr nonnull @.str.58, i64 13) #25
   store ptr @.str.59, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 29, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19unused_HermesParserE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27448,12 +27448,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL10FlowParserE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL10FlowParserE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL10FlowParserE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL10FlowParserE, ptr nonnull @.str.61, i64 12) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2clL10FlowParserE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i55) #25
   store ptr @.str.62, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10FlowParserE, i64 0, i32 0, i32 7, i32 0), align 8
@@ -27479,12 +27479,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL12BytecodeModeE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL12BytecodeModeE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL12BytecodeModeE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL12BytecodeModeE, ptr nonnull @.str.64, i64 1) #25
   store ptr @.str.65, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 38, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12BytecodeModeE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27503,12 +27503,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL13NonStrictModeE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL13NonStrictModeE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL13NonStrictModeE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL13NonStrictModeE, ptr nonnull @.str.67, i64 10) #25
   store ptr @.str.68, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 23, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13NonStrictModeE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27528,12 +27528,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL10StrictModeE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL10StrictModeE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL10StrictModeE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL10StrictModeE, ptr nonnull @.str.70, i64 6) #25
   store ptr @.str.71, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 19, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL10StrictModeE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27555,12 +27555,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL15LazyCompilationE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL15LazyCompilationE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL15LazyCompilationE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL15LazyCompilationE, ptr nonnull @.str.73, i64 4) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2clL15LazyCompilationE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i64) #25
   store ptr @.str.74, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15LazyCompilationE, i64 0, i32 0, i32 7, i32 0), align 8
@@ -27584,12 +27584,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL16EagerCompilationE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL16EagerCompilationE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL16EagerCompilationE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL16EagerCompilationE, ptr nonnull @.str.76, i64 5) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2clL16EagerCompilationE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i67) #25
   store ptr @.str.77, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL16EagerCompilationE, i64 0, i32 0, i32 7, i32 0), align 8
@@ -27613,12 +27613,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2cl19BasicBlockProfilingE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2cl19BasicBlockProfilingE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl19BasicBlockProfilingE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl19BasicBlockProfilingE, ptr nonnull @.str.79, i64 21) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2cl19BasicBlockProfilingE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i70) #25
   store ptr @.str.80, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19BasicBlockProfilingE, i64 0, i32 0, i32 7, i32 0), align 8
@@ -27641,12 +27641,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2cl18EnableBlockScopingE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2cl18EnableBlockScopingE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl18EnableBlockScopingE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl18EnableBlockScopingE, ptr nonnull @.str.82, i64 13) #25
   store ptr @.str.83, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 30, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl18EnableBlockScopingE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27687,12 +27687,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2cl8ES6ClassE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2cl8ES6ClassE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl8ES6ClassE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl8ES6ClassE, ptr nonnull @.str.88, i64 10) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2cl8ES6ClassE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i83) #25
   store ptr @.str.89, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8ES6ClassE, i64 0, i32 0, i32 7, i32 0), align 8
@@ -27720,12 +27720,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2cl10EnableEvalE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2cl10EnableEvalE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl10EnableEvalE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl10EnableEvalE, ptr nonnull @.str.91, i64 11) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2cl10EnableEvalE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i89) #25
   store ptr @.str.92, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl10EnableEvalE, i64 0, i32 0, i32 7, i32 0), align 8
@@ -27748,12 +27748,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2cl8VerifyIRE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2cl8VerifyIRE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl8VerifyIRE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl8VerifyIRE, ptr nonnull @.str.94, i64 9) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2cl8VerifyIRE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i92) #25
   %bf.load.i.i.i.i.i.i.i95 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl8VerifyIRE, i64 0, i32 0, i32 2), align 4
@@ -27781,12 +27781,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2cl19EmitAsyncBreakCheckE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2cl19EmitAsyncBreakCheckE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl19EmitAsyncBreakCheckE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl19EmitAsyncBreakCheckE, ptr nonnull @.str.97, i64 22) #25
   store ptr @.str.98, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 45, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl19EmitAsyncBreakCheckE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27810,12 +27810,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2cl13OptimizedEvalE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2cl13OptimizedEvalE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl13OptimizedEvalE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2cl13OptimizedEvalE, ptr nonnull @.str.100, i64 14) #25
   store ptr @.str.101, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 39, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2cl13OptimizedEvalE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27837,10 +27837,10 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14IncludeGlobalsB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14IncludeGlobalsB5cxx11E, i64 0, i32 0, i32 11), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14IncludeGlobalsB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL14IncludeGlobalsB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL14IncludeGlobalsB5cxx11E, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14IncludeGlobalsB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14IncludeGlobalsB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL14IncludeGlobalsB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14IncludeGlobalsB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14IncludeGlobalsB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL14IncludeGlobalsB5cxx11E, ptr nonnull @.str.103, i64 15) #25
   store ptr @.str.104, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14IncludeGlobalsB5cxx11E, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 78, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL14IncludeGlobalsB5cxx11E, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27887,12 +27887,12 @@ __cxx_global_var_init.23.exit:                    ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 0, i32 11), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl18BytecodeFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN2cl18BytecodeFormatKindEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 4
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl18BytecodeFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL14BytecodeFormatE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN2cl18BytecodeFormatKindELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL14BytecodeFormatE, align 8
   store ptr @_ZN2clL14BytecodeFormatE, ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 3, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 3, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN2cl18BytecodeFormatKindEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 3, i32 0, i32 0), align 8
   store ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 3, i32 1, i32 1, i32 0, i64 0, i32 0, i32 0, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   store i32 8, ptr getelementptr inbounds (%"class.llvh::cl::opt.56", ptr @_ZN2clL14BytecodeFormatE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2), align 4
@@ -27913,7 +27913,7 @@ __cxx_global_var_init.106.exit:                   ; preds = %__cxx_global_var_in
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp2.i109)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %ref.tmp3.i110)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp5.i)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 0, i32 1), align 8
   %bf.load.i.i.i119 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 0, i32 2), align 4
   %bf.clear.i.i.i120 = and i16 %bf.load.i.i.i119, -4096
@@ -27927,13 +27927,13 @@ __cxx_global_var_init.106.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 0, i32 11), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0)) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 1, i32 0, i32 0)) #25
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, align 8
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL22BytecodeOutputFilenameB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL22BytecodeOutputFilenameB5cxx11E, ptr nonnull @.str.112, i64 3) #25
   store ptr @.str.113, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 16, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL22BytecodeOutputFilenameB5cxx11E, i64 0, i32 0, i32 7, i32 1), align 8
@@ -27942,7 +27942,7 @@ __cxx_global_var_init.106.exit:                   ; preds = %__cxx_global_var_in
   %30 = call i32 @__cxa_atexit(ptr nonnull @_ZN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEED2Ev, ptr nonnull @_ZN2clL22BytecodeOutputFilenameB5cxx11E, ptr nonnull @__dso_handle) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i121)
   store ptr @.str.116, ptr %ref.tmp.i121, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 0, i32 1), align 8
   %bf.load.i.i.i122 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 0, i32 2), align 4
   %bf.clear.i.i.i123 = and i16 %bf.load.i.i.i122, -4096
@@ -27956,13 +27956,13 @@ __cxx_global_var_init.106.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 0, i32 11), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0)) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 1, i32 0, i32 0)) #25
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, align 8
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL24BytecodeManifestFilenameB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL24BytecodeManifestFilenameB5cxx11E, ptr nonnull @.str.115, i64 24) #25
   call void @_ZNK4llvh2cl11initializerIA14_cE5applyINS0_3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserISB_EEEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp.i121, ptr noundef nonnull align 8 dereferenceable(240) @_ZN2clL24BytecodeManifestFilenameB5cxx11E)
   store ptr @.str.117, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL24BytecodeManifestFilenameB5cxx11E, i64 0, i32 0, i32 7, i32 0), align 8
@@ -28060,7 +28060,7 @@ __cxx_global_var_init.118.exit:                   ; preds = %__cxx_global_var_in
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %ref.tmp2.i126)
   call void @llvm.lifetime.end.p0(i64 176, ptr nonnull %ref.tmp3.i127)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp21.i)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL14InputSourceMapB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr @_ZN2clL14InputSourceMapB5cxx11E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 0, i32 1), align 8
   %bf.load.i.i.i162 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 0, i32 2), align 4
   %bf.clear.i.i.i163 = and i16 %bf.load.i.i.i162, -4096
@@ -28074,13 +28074,13 @@ __cxx_global_var_init.118.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 0, i32 11), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0)) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 1, i32 0, i32 0)) #25
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL14InputSourceMapB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL14InputSourceMapB5cxx11E, align 8
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL14InputSourceMapB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL14InputSourceMapB5cxx11E, ptr nonnull @.str.131, i64 10) #25
   store ptr @.str.132, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 51, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL14InputSourceMapB5cxx11E, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28100,12 +28100,12 @@ __cxx_global_var_init.118.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL15OutputSourceMapE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL15OutputSourceMapE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL15OutputSourceMapE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL15OutputSourceMapE, ptr nonnull @.str.134, i64 17) #25
   store ptr @.str.135, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 60, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL15OutputSourceMapE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28125,12 +28125,12 @@ __cxx_global_var_init.118.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL20DumpOperandRegistersE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL20DumpOperandRegistersE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL20DumpOperandRegistersE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL20DumpOperandRegistersE, ptr nonnull @.str.137, i64 22) #25
   store ptr @.str.138, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 47, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpOperandRegistersE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28152,12 +28152,12 @@ __cxx_global_var_init.118.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL20DumpSourceLevelScopeE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL20DumpSourceLevelScopeE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL20DumpSourceLevelScopeE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL20DumpSourceLevelScopeE, ptr nonnull @.str.140, i64 23) #25
   store ptr @.str.141, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 43, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20DumpSourceLevelScopeE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28181,12 +28181,12 @@ __cxx_global_var_init.118.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL19DumpTextifiedCalleeE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL19DumpTextifiedCalleeE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL19DumpTextifiedCalleeE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL19DumpTextifiedCalleeE, ptr nonnull @.str.143, i64 21) #25
   store ptr @.str.144, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 46, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL19DumpTextifiedCalleeE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28210,12 +28210,12 @@ __cxx_global_var_init.118.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL11DumpUseListE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL11DumpUseListE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL11DumpUseListE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL11DumpUseListE, ptr nonnull @.str.146, i64 18) #25
   store ptr @.str.147, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 52, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL11DumpUseListE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28283,12 +28283,12 @@ __cxx_global_var_init.118.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 0, i32 11), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16LocationDumpModeEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes16LocationDumpModeEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 4
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16LocationDumpModeELb0ENS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL18DumpSourceLocationE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIN6hermes16LocationDumpModeELb0ENS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL18DumpSourceLocationE, align 8
   store ptr @_ZN2clL18DumpSourceLocationE, ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 3, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 3, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes16LocationDumpModeEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 3, i32 0, i32 0), align 8
   store ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 3, i32 1, i32 1, i32 0, i64 0, i32 0, i32 0, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   store i32 8, ptr getelementptr inbounds (%"class.llvh::cl::opt.98", ptr @_ZN2clL18DumpSourceLocationE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2), align 4
@@ -28322,12 +28322,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL20IncludeEmptyASTNodesE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL20IncludeEmptyASTNodesE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL20IncludeEmptyASTNodesE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL20IncludeEmptyASTNodesE, ptr nonnull @.str.158, i64 24) #25
   store ptr @.str.159, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 64, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL20IncludeEmptyASTNodesE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28353,12 +28353,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL17IncludeRawASTPropE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL17IncludeRawASTPropE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL17IncludeRawASTPropE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL17IncludeRawASTPropE, ptr nonnull @.str.161, i64 21) #25
   store ptr @.str.162, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 45, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL17IncludeRawASTPropE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28386,12 +28386,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL13DumpBeforeAllE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL13DumpBeforeAllE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL13DumpBeforeAllE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL13DumpBeforeAllE, ptr nonnull @.str.164, i64 16) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2clL13DumpBeforeAllE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i215) #25
   %bf.load.i.i.i.i.i.i.i218 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL13DumpBeforeAllE, i64 0, i32 0, i32 2), align 4
@@ -28418,10 +28418,10 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL10DumpBeforeB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL10DumpBeforeB5cxx11E, i64 0, i32 0, i32 11), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL10DumpBeforeB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL10DumpBeforeB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL10DumpBeforeB5cxx11E, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL10DumpBeforeB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL10DumpBeforeB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL10DumpBeforeB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL10DumpBeforeB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL10DumpBeforeB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL10DumpBeforeB5cxx11E, ptr nonnull @.str.167, i64 12) #25
   %bf.load.i.i.i.i.i.i224 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL10DumpBeforeB5cxx11E, i64 0, i32 0, i32 2), align 4
   %bf.clear.i.i.i.i.i.i225 = and i16 %bf.load.i.i.i.i.i.i224, -97
@@ -28447,12 +28447,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL12DumpAfterAllE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL12DumpAfterAllE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL12DumpAfterAllE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL12DumpAfterAllE, ptr nonnull @.str.170, i64 15) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2clL12DumpAfterAllE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i227) #25
   %bf.load.i.i.i.i.i.i.i230 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12DumpAfterAllE, i64 0, i32 0, i32 2), align 4
@@ -28479,10 +28479,10 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL9DumpAfterB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL9DumpAfterB5cxx11E, i64 0, i32 0, i32 11), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL9DumpAfterB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL9DumpAfterB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL9DumpAfterB5cxx11E, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL9DumpAfterB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL9DumpAfterB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL9DumpAfterB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL9DumpAfterB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL9DumpAfterB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL9DumpAfterB5cxx11E, ptr nonnull @.str.173, i64 11) #25
   %bf.load.i.i.i.i.i.i236 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL9DumpAfterB5cxx11E, i64 0, i32 0, i32 2), align 4
   %bf.clear.i.i.i.i.i.i237 = and i16 %bf.load.i.i.i.i.i.i236, -97
@@ -28507,10 +28507,10 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL15FunctionsToDumpB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL15FunctionsToDumpB5cxx11E, i64 0, i32 0, i32 11), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL15FunctionsToDumpB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL15FunctionsToDumpB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbNS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL15FunctionsToDumpB5cxx11E, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL15FunctionsToDumpB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL15FunctionsToDumpB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL15FunctionsToDumpB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL15FunctionsToDumpB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL15FunctionsToDumpB5cxx11E, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL15FunctionsToDumpB5cxx11E, ptr nonnull @.str.176, i64 18) #25
   %bf.load.i.i.i.i.i.i242 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::list", ptr @_ZN2clL15FunctionsToDumpB5cxx11E, i64 0, i32 0, i32 2), align 4
   %bf.clear.i.i.i.i.i.i243 = and i16 %bf.load.i.i.i.i.i.i242, -97
@@ -28536,12 +28536,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL34GenerateNamesForAnonymousFunctionsE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL34GenerateNamesForAnonymousFunctionsE, ptr nonnull @.str.179, i64 25) #25
   call void @_ZN4llvh2cl3optIbLb0ENS0_6parserIbEEE15setInitialValueERKb(ptr noundef nonnull align 8 dereferenceable(184) @_ZN2clL34GenerateNamesForAnonymousFunctionsE, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp1.i245) #25
   %bf.load.i.i.i.i.i.i.i248 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL34GenerateNamesForAnonymousFunctionsE, i64 0, i32 0, i32 2), align 4
@@ -28569,12 +28569,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 0, i32 11), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIiEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIiEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 4
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIiLb0ENS0_6parserIiEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL18MaxDiagnosticWidthE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIiLb0ENS0_6parserIiEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL18MaxDiagnosticWidthE, align 8
   call void @_ZN4llvh2cl12basic_parserIiEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL18MaxDiagnosticWidthE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIiEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIiEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL18MaxDiagnosticWidthE, ptr nonnull @.str.182, i64 20) #25
   store ptr @.str.183, ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 34, ptr getelementptr inbounds (%"class.llvh::cl::opt.114", ptr @_ZN2clL18MaxDiagnosticWidthE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28598,12 +28598,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL8CommonJSE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL8CommonJSE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL8CommonJSE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL8CommonJSE, ptr nonnull @.str.185, i64 8) #25
   store ptr @.str.186, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 20, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL8CommonJSE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28627,12 +28627,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL3JSXE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL3JSXE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL3JSXE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL3JSXE, ptr nonnull @.str.188, i64 9) #25
   store ptr @.str.189, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 9, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL3JSXE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28656,12 +28656,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL9ParseFlowE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL9ParseFlowE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL9ParseFlowE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL9ParseFlowE, ptr nonnull @.str.191, i64 10) #25
   store ptr @.str.192, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 10, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL9ParseFlowE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28685,12 +28685,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL24ParseFlowComponentSyntaxE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL24ParseFlowComponentSyntaxE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL24ParseFlowComponentSyntaxE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL24ParseFlowComponentSyntaxE, ptr nonnull @.str.194, i64 23) #25
   store ptr @.str.195, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 22, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL24ParseFlowComponentSyntaxE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28718,12 +28718,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL7ParseTSE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL7ParseTSE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL7ParseTSE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL7ParseTSE, ptr nonnull @.str.197, i64 8) #25
   store ptr @.str.198, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 16, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL7ParseTSE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28761,12 +28761,12 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 0, i32 11), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIjEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIjEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 4
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIjLb0ENS0_6parserIjEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL10ErrorLimitE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIjLb0ENS0_6parserIjEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL10ErrorLimitE, align 8
   call void @_ZN4llvh2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL10ErrorLimitE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIjEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIjEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL10ErrorLimitE, ptr nonnull @.str.203, i64 12) #25
   store ptr @.str.204, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 44, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL10ErrorLimitE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -28860,10 +28860,10 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 0, i32 11), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL6WerrorE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL6WerrorE, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
   store ptr @_ZN2clL6WerrorE, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 3, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 3, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 3, i32 0, i32 0), align 8
   store ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 3, i32 1, i32 1, i32 0, i64 0, i32 0, i32 0, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   store i32 8, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL6WerrorE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2), align 4
@@ -28887,10 +28887,10 @@ __cxx_global_var_init.148.exit:                   ; preds = %__cxx_global_var_in
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 0, i32 11), align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL8WnoerrorE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl4listIN6hermes7WarningEbNS0_6parserIS3_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL8WnoerrorE, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0), i8 0, i64 24, i1 false)
   store ptr @_ZN2clL8WnoerrorE, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 3, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 3, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4llvh2cl6parserIN6hermes7WarningEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 3, i32 0, i32 0), align 8
   store ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 3, i32 1, i32 1, i32 0, i64 0, i32 0, i32 0, i64 0), ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 0), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   store i32 8, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 2), align 4
@@ -28950,7 +28950,7 @@ _ZN4llvh2cl6parserIN6hermes7WarningEE16addLiteralOptionIiEEvNS_9StringRefERKT_S6
   store i32 %Value.sroa.3.0.copyload.i.i.i.i.i.i.i, ptr %Value.i.i.i.i.i.i.i.i.i.i.i.i.i, align 8
   %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr.i.i.i.i.i.i.i.i.i.i, i64 44
   store i8 1, ptr %X.sroa.8.40.Value.i.i.i.i.i.sroa_idx.i.i.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes7WarningEEE, i64 0, inrange i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIN6hermes7WarningEEE, i64 0, i32 0, i64 2), ptr %V.i.i.i.i.i.i.i.i.i.i, align 8
   %68 = load i32, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
   %add.i.i.i.i.i.i.i.i.i = add i32 %68, 1
   store i32 %add.i.i.i.i.i.i.i.i.i, ptr getelementptr inbounds (%"class.llvh::cl::list.135", ptr @_ZN2clL8WnoerrorE, i64 0, i32 3, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1), align 8
@@ -28979,12 +28979,12 @@ __cxx_global_var_init.220.exit:                   ; preds = %_ZN4llvh2cl6parserI
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL18DisableAllWarningsE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL18DisableAllWarningsE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL18DisableAllWarningsE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL18DisableAllWarningsE, ptr nonnull @.str.224, i64 1) #25
   store ptr @.str.225, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 20, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL18DisableAllWarningsE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -29008,12 +29008,12 @@ __cxx_global_var_init.220.exit:                   ; preds = %_ZN4llvh2cl6parserI
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL14ReusePropCacheE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL14ReusePropCacheE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL14ReusePropCacheE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL14ReusePropCacheE, ptr nonnull @.str.227, i64 16) #25
   store ptr @.str.228, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 51, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL14ReusePropCacheE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -29103,7 +29103,7 @@ __cxx_global_var_init.220.exit:                   ; preds = %_ZN4llvh2cl6parserI
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp1.i316)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp1.i321)
   store ptr @.str.206, ptr %ref.tmp1.i321, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl6OptionE, i64 0, i32 0, i64 2), ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 0, i32 1), align 8
   %bf.load.i.i.i322 = load i16, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 0, i32 2), align 4
   %bf.clear.i.i.i323 = and i16 %bf.load.i.i.i322, -4096
@@ -29117,13 +29117,13 @@ __cxx_global_var_init.220.exit:                   ; preds = %_ZN4llvh2cl6parserI
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 0, i32 11), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 1, i32 0, i32 0, i32 0)) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl15OptionValueCopyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 1, i32 0, i32 0)) #25
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 2), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 1, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ENS0_6parserIS7_EEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, align 8
   call void @_ZN4llvh2cl12basic_parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL16BaseBytecodeFileB5cxx11E) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL16BaseBytecodeFileB5cxx11E, ptr nonnull @.str.239, i64 13) #25
   store ptr @.str.240, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 45, ptr getelementptr inbounds (%"class.llvh::cl::opt.72", ptr @_ZN2clL16BaseBytecodeFileB5cxx11E, i64 0, i32 0, i32 7, i32 1), align 8
@@ -29145,12 +29145,12 @@ __cxx_global_var_init.220.exit:                   ; preds = %_ZN4llvh2cl6parserI
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 0, i32 11), align 8
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIjEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIjEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 4
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIjLb0ENS0_6parserIjEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL24PadFunctionBodiesPercentE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIjLb0ENS0_6parserIjEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL24PadFunctionBodiesPercentE, align 8
   call void @_ZN4llvh2cl12basic_parserIjEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL24PadFunctionBodiesPercentE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIjEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIjEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL24PadFunctionBodiesPercentE, ptr nonnull @.str.242, i64 27) #25
   store ptr @.str.243, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 70, ptr getelementptr inbounds (%"class.llvh::cl::opt.125", ptr @_ZN2clL24PadFunctionBodiesPercentE, i64 0, i32 0, i32 7, i32 1), align 8
@@ -29180,12 +29180,12 @@ __cxx_global_var_init.220.exit:                   ; preds = %_ZN4llvh2cl6parserI
   store i32 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 0, i32 10, i32 0, i32 0, i32 4), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 0, i32 11), align 8
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 2, i32 0), align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl11OptionValueIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 0, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 2), align 1
   store i8 0, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 2, i32 2, i32 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, inrange i32 0, i64 2), ptr @_ZN2clL12InstrumentIRE, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh2cl3optIbLb0ENS0_6parserIbEEEE, i64 0, i32 0, i64 2), ptr @_ZN2clL12InstrumentIRE, align 8
   call void @_ZN4llvh2cl12basic_parserIbEC2ERNS0_6OptionE(ptr noundef nonnull align 8 dereferenceable(8) getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 3, i32 0, i32 0, i32 0), ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL12InstrumentIRE) #25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh2cl6parserIbEE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   call void @_ZN4llvh2cl6Option9setArgStrENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(145) @_ZN2clL12InstrumentIRE, ptr nonnull @.str.245, i64 10) #25
   store ptr @.str.246, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 0, i32 7, i32 0), align 8
   store i64 36, ptr getelementptr inbounds (%"class.llvh::cl::opt.45", ptr @_ZN2clL12InstrumentIRE, i64 0, i32 0, i32 7, i32 1), align 8

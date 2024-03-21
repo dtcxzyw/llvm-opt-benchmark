@@ -33,7 +33,7 @@ $_ZN6icu_7512LocalPointerINS_13Norm2AllModesEED2Ev = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7521LoadedNormalizer2ImplD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %memory = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load ptr, ptr %memory, align 8
   invoke void @udata_close_75(ptr noundef %0)
@@ -226,7 +226,7 @@ if.end3:                                          ; preds = %if.end
   store ptr null, ptr %normTrie.i.i, align 8
   %fCanonIterDataInitOnce.i.i = getelementptr inbounds i8, ptr %call1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fCanonIterDataInitOnce.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, i32 0, i64 2), ptr %call1, align 8
   %memory.i = getelementptr inbounds i8, ptr %call1, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory.i, i8 0, i64 16, i1 false)
   tail call void @_ZN6icu_7521LoadedNormalizer2Impl4loadEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %call1, ptr noundef %packageName, ptr noundef %name, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -311,7 +311,7 @@ if.end3.i:                                        ; preds = %if.end.i
   store ptr null, ptr %normTrie.i.i.i, align 8
   %fCanonIterDataInitOnce.i.i.i = getelementptr inbounds i8, ptr %call1.i, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fCanonIterDataInitOnce.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %call1.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, i32 0, i64 2), ptr %call1.i, align 8
   %memory.i.i = getelementptr inbounds i8, ptr %call1.i, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory.i.i, i8 0, i64 16, i1 false)
   tail call void @_ZN6icu_7521LoadedNormalizer2Impl4loadEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %call1.i, ptr noundef null, ptr noundef nonnull @.str.1, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -347,7 +347,7 @@ if.end3.i10:                                      ; preds = %if.end.i7
   store ptr null, ptr %normTrie.i.i.i11, align 8
   %fCanonIterDataInitOnce.i.i.i12 = getelementptr inbounds i8, ptr %call1.i8, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fCanonIterDataInitOnce.i.i.i12, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %call1.i8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, i32 0, i64 2), ptr %call1.i8, align 8
   %memory.i.i13 = getelementptr inbounds i8, ptr %call1.i8, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory.i.i13, i8 0, i64 16, i1 false)
   tail call void @_ZN6icu_7521LoadedNormalizer2Impl4loadEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %call1.i8, ptr noundef null, ptr noundef nonnull @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)
@@ -383,7 +383,7 @@ if.end3.i22:                                      ; preds = %if.end.i19
   store ptr null, ptr %normTrie.i.i.i23, align 8
   %fCanonIterDataInitOnce.i.i.i24 = getelementptr inbounds i8, ptr %call1.i20, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %fCanonIterDataInitOnce.i.i.i24, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, inrange i32 0, i64 2), ptr %call1.i20, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i64 0, i32 0, i64 2), ptr %call1.i20, align 8
   %memory.i.i25 = getelementptr inbounds i8, ptr %call1.i20, i64 80
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %memory.i.i25, i8 0, i64 16, i1 false)
   tail call void @_ZN6icu_7521LoadedNormalizer2Impl4loadEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(96) %call1.i20, ptr noundef null, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %errorCode)

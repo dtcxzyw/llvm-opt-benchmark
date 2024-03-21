@@ -26,7 +26,7 @@ define hidden noundef ptr @_ZN25b2PolygonAndCircleContact6CreateEP9b2FixtureiS1_
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 208)
   tail call void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr noundef nonnull align 8 dereferenceable(208) %call, ptr noundef %fixtureA, i32 noundef 0, ptr noundef %fixtureB, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25b2PolygonAndCircleContact, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25b2PolygonAndCircleContact, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -49,7 +49,7 @@ declare void @_ZN16b2BlockAllocator4FreeEPvi(ptr noundef nonnull align 8 derefer
 define hidden void @_ZN25b2PolygonAndCircleContactC2EP9b2FixtureS1_(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %fixtureA, ptr noundef %fixtureB) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN9b2ContactC2EP9b2FixtureiS1_i(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef %fixtureA, i32 noundef 0, ptr noundef %fixtureB, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25b2PolygonAndCircleContact, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25b2PolygonAndCircleContact, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

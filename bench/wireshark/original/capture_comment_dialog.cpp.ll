@@ -919,9 +919,9 @@ define void @_ZN20CaptureCommentDialogC2ER7QWidgetR11CaptureFile(ptr noundef non
   %17 = load ptr, ptr %5, align 8
   %18 = load ptr, ptr %6, align 8
   call void @_ZN15WiresharkDialogC2ER7QWidgetR11CaptureFile(ptr noundef nonnull align 8 dereferenceable(133) %16, ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef nonnull align 8 dereferenceable(48) %18)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV20CaptureCommentDialog, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV20CaptureCommentDialog, i32 0, i32 0, i32 2), ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV20CaptureCommentDialog, i32 0, inrange i32 1, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV20CaptureCommentDialog, i32 0, i32 1, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds %class.CaptureCommentDialog, ptr %16, i32 0, i32 2
   %21 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #13
           to label %22 unwind label %54
@@ -1475,9 +1475,9 @@ define linkonce_odr void @_ZN15WiresharkDialogD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV15WiresharkDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 5
   call void @_ZN5QListIPvED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #11
   %6 = getelementptr inbounds %class.WiresharkDialog, ptr %3, i32 0, i32 4
@@ -1491,9 +1491,9 @@ define void @_ZN20CaptureCommentDialogD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV20CaptureCommentDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV20CaptureCommentDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV20CaptureCommentDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV20CaptureCommentDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.CaptureCommentDialog, ptr %3, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -1981,9 +1981,9 @@ define linkonce_odr void @_ZN23CaptureCommentTabWidgetC2EP7QWidget(ptr noundef n
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %4, align 8
   call void @_ZN10QTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23CaptureCommentTabWidget, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23CaptureCommentTabWidget, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23CaptureCommentTabWidget, i32 0, inrange i32 1, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23CaptureCommentTabWidget, i32 0, i32 1, i32 2), ptr %15, align 8
   invoke void @_ZN10QTabWidget15setTabsClosableEb(ptr noundef nonnull align 8 dereferenceable(40) %13, i1 noundef zeroext true)
           to label %16 unwind label %30
 

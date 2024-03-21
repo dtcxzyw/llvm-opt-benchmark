@@ -34,7 +34,7 @@ $_ZN5folly17TcpInfoDispatcherD0Ev = comdat any
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN5folly17TcpInfoDispatcherE = constant [28 x i8] c"N5folly17TcpInfoDispatcherE\00", align 1
 @_ZTIN5folly17TcpInfoDispatcherE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5folly17TcpInfoDispatcherE }, align 8
-@_ZZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher = internal global %"class.folly::TcpInfoDispatcher" { ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17TcpInfoDispatcherE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher = internal global %"class.folly::TcpInfoDispatcher" { ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17TcpInfoDispatcherE, i32 0, i32 0, i32 2) }, align 8
 @_ZGVZN5folly17TcpInfoDispatcher11getInstanceEvE10dispatcher = internal global i64 0, align 8
 
 ; Function Attrs: mustprogress uwtable

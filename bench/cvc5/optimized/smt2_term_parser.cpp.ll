@@ -395,7 +395,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN4cvc56parser14Smt2TermParserC2ERNS0_9Smt2LexerERNS0_9Smt2StateE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(33178) %lex, ptr noundef nonnull align 8 dereferenceable(512) %state) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser14Smt2TermParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser14Smt2TermParserE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_lex = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %lex, ptr %d_lex, align 8
   %d_state = getelementptr inbounds i8, ptr %this, i64 16

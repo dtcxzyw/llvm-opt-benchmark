@@ -30,7 +30,7 @@ $__clang_call_terminate = comdat any
 define noundef ptr @_ZN4YAML24BuildGraphOfNextDocumentERNS_6ParserERNS_21GraphBuilderInterfaceE(ptr noundef nonnull align 8 dereferenceable(16) %parser, ptr noundef nonnull align 1 %graphBuilder) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %eventHandler = alloca %"class.YAML::GraphBuilderAdapter", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 0, inrange i32 0, i64 2), ptr %eventHandler, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 0, i32 0, i64 2), ptr %eventHandler, align 8
   %m_builder.i = getelementptr inbounds i8, ptr %eventHandler, i64 8
   store ptr %graphBuilder, ptr %m_builder.i, align 8
   %m_containers.i = getelementptr inbounds i8, ptr %eventHandler, i64 16
@@ -44,7 +44,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   %m_pRootNode.i = getelementptr inbounds i8, ptr %eventHandler, i64 120
   %0 = load ptr, ptr %m_pRootNode.i, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 0, inrange i32 0, i64 2), ptr %eventHandler, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 0, i32 0, i64 2), ptr %eventHandler, align 8
   %1 = load ptr, ptr %m_anchors.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
   br i1 %tobool.not.i.i.i.i.i, label %_ZN4YAML10AnchorDictIPvED2Ev.exit.i, label %if.then.i.i.i.i.i
@@ -102,7 +102,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML19GraphBuilderAdapterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML19GraphBuilderAdapterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_anchors = getelementptr inbounds i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_anchors, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

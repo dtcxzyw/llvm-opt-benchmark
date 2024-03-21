@@ -46,7 +46,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN19btMinkowskiSumShapeC2EPK13btConvexShapeS2_(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef %shapeA, ptr noundef %shapeB) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont6:
   tail call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV19btMinkowskiSumShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV19btMinkowskiSumShape, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_transA = getelementptr inbounds i8, ptr %this, i64 72
   %m_transB = getelementptr inbounds i8, ptr %this, i64 136
   %m_shapeA = getelementptr inbounds i8, ptr %this, i64 200

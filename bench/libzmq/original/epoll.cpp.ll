@@ -221,7 +221,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %ctx_.addr, align 8
   call void @_ZN3zmq20worker_poller_base_tC2ERKNS_12thread_ctx_tE(ptr noundef nonnull align 8 dereferenceable(192) %this1, ptr noundef nonnull align 8 dereferenceable(136) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq7epoll_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq7epoll_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_retired = getelementptr inbounds %"class.zmq::epoll_t", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIPN3zmq7epoll_t12poll_entry_tESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %_retired) #13
   %call = call i32 @epoll_create1(i32 noundef 524288) #13
@@ -1336,7 +1336,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq20worker_poller_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_worker = getelementptr inbounds %"class.zmq::worker_poller_base_t", ptr %this1, i32 0, i32 2
   call void @_ZN3zmq8thread_tD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %_worker) #13
   call void @_ZN3zmq13poller_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1) #13

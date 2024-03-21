@@ -706,7 +706,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !7
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !15, !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !7
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIbEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !7
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !7
   %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -1643,7 +1643,7 @@ invoke.cont32:                                    ; preds = %if.else.i.i.i.i.i, 
   store ptr %_M_impl.i.i.i.i.i.i, ptr %info_.i.i, align 8, !tbaa !38
   %_M_refcount.i.i.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase", ptr %call29, i64 0, i32 1, i32 0, i32 1
   store ptr %call5.i.i.i19.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122BoolGFlagValueSemanticE, i64 0, inrange i32 0, i64 2), ptr %call29, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122BoolGFlagValueSemanticE, i64 0, i32 0, i64 2), ptr %call29, align 8, !tbaa !16
   %160 = load ptr, ptr %description.i19.i.i.i.i.i.i.i, align 8, !tbaa !21
   %call35 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost15program_options29options_description_easy_initclEPKcPKNS0_14value_semanticES3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp22, ptr noundef %156, ptr noundef nonnull %call29, ptr noundef %160)
           to label %invoke.cont34 unwind label %lpad31
@@ -1678,7 +1678,7 @@ invoke.cont45:                                    ; preds = %if.else.i.i.i.i.i10
   store ptr %_M_impl.i.i.i.i.i.i, ptr %info_.i.i.i, align 8, !tbaa !38
   %_M_refcount.i.i.i.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase", ptr %call42, i64 0, i32 1, i32 0, i32 1
   store ptr %call5.i.i.i19.i.i.i.i, ptr %_M_refcount.i.i.i.i.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_130NegativeBoolGFlagValueSemanticE, i64 0, inrange i32 0, i64 2), ptr %call42, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_130NegativeBoolGFlagValueSemanticE, i64 0, i32 0, i64 2), ptr %call42, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %ref.tmp47) #31
   call void @llvm.experimental.noalias.scope.decl(metadata !42)
   %165 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %ref.tmp47, i64 0, i32 2
@@ -1957,7 +1957,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !47
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !15, !noalias !47
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !47
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIiEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !47
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.97", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !47
   %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -2870,7 +2870,7 @@ invoke.cont24:                                    ; preds = %if.else.i.i.i.i.i, 
   store ptr %_M_impl.i.i.i.i.i.i, ptr %info_.i.i, align 8, !tbaa !55
   %_M_refcount.i.i.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.92", ptr %call21, i64 0, i32 1, i32 0, i32 1
   store ptr %call5.i.i.i19.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticIiEE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticIiEE, i64 0, i32 0, i64 2), ptr %call21, align 8, !tbaa !16
   %154 = load ptr, ptr %description.i19.i.i.i.i.i.i.i, align 8, !tbaa !21
   %call27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost15program_options29options_description_easy_initclEPKcPKNS0_14value_semanticES3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, ptr noundef %150, ptr noundef nonnull %call21, ptr noundef %154)
           to label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIiEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %lpad23
@@ -2984,7 +2984,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !57
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !15, !noalias !57
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !57
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIlEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !57
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.118", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !57
   %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -3897,7 +3897,7 @@ invoke.cont24:                                    ; preds = %if.else.i.i.i.i.i, 
   store ptr %_M_impl.i.i.i.i.i.i, ptr %info_.i.i, align 8, !tbaa !65
   %_M_refcount.i.i.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.113", ptr %call21, i64 0, i32 1, i32 0, i32 1
   store ptr %call5.i.i.i19.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticIlEE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticIlEE, i64 0, i32 0, i64 2), ptr %call21, align 8, !tbaa !16
   %154 = load ptr, ptr %description.i19.i.i.i.i.i.i.i, align 8, !tbaa !21
   %call27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost15program_options29options_description_easy_initclEPKcPKNS0_14value_semanticES3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, ptr noundef %150, ptr noundef nonnull %call21, ptr noundef %154)
           to label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIlEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %lpad23
@@ -4011,7 +4011,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !67
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !15, !noalias !67
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !67
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIjEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !67
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.138", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !67
   %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -4924,7 +4924,7 @@ invoke.cont24:                                    ; preds = %if.else.i.i.i.i.i, 
   store ptr %_M_impl.i.i.i.i.i.i, ptr %info_.i.i, align 8, !tbaa !75
   %_M_refcount.i.i.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.133", ptr %call21, i64 0, i32 1, i32 0, i32 1
   store ptr %call5.i.i.i19.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticIjEE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticIjEE, i64 0, i32 0, i64 2), ptr %call21, align 8, !tbaa !16
   %154 = load ptr, ptr %description.i19.i.i.i.i.i.i.i, align 8, !tbaa !21
   %call27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost15program_options29options_description_easy_initclEPKcPKNS0_14value_semanticES3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, ptr noundef %150, ptr noundef nonnull %call21, ptr noundef %154)
           to label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIjEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %lpad23
@@ -5038,7 +5038,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !77
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !15, !noalias !77
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !77
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !77
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.159", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !77
   %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -5951,7 +5951,7 @@ invoke.cont24:                                    ; preds = %if.else.i.i.i.i.i, 
   store ptr %_M_impl.i.i.i.i.i.i, ptr %info_.i.i, align 8, !tbaa !85
   %_M_refcount.i.i.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.154", ptr %call21, i64 0, i32 1, i32 0, i32 1
   store ptr %call5.i.i.i19.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticImEE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticImEE, i64 0, i32 0, i64 2), ptr %call21, align 8, !tbaa !16
   %154 = load ptr, ptr %description.i19.i.i.i.i.i.i.i, align 8, !tbaa !21
   %call27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost15program_options29options_description_easy_initclEPKcPKNS0_14value_semanticES3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, ptr noundef %150, ptr noundef nonnull %call21, ptr noundef %154)
           to label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoImEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %lpad23
@@ -6065,7 +6065,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !87
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !15, !noalias !87
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !87
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoIdEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !87
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.179", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !87
   %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -6978,7 +6978,7 @@ invoke.cont24:                                    ; preds = %if.else.i.i.i.i.i, 
   store ptr %_M_impl.i.i.i.i.i.i, ptr %info_.i.i, align 8, !tbaa !95
   %_M_refcount.i.i.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.174", ptr %call21, i64 0, i32 1, i32 0, i32 1
   store ptr %call5.i.i.i19.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticIdEE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticIdEE, i64 0, i32 0, i64 2), ptr %call21, align 8, !tbaa !16
   %154 = load ptr, ptr %description.i19.i.i.i.i.i.i.i, align 8, !tbaa !21
   %call27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost15program_options29options_description_easy_initclEPKcPKNS0_14value_semanticES3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, ptr noundef %150, ptr noundef nonnull %call21, ptr noundef %154)
           to label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIdEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %lpad23
@@ -7092,7 +7092,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !97
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !15, !noalias !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !97
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly12_GLOBAL__N_19GFlagInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i, align 8, !tbaa !16, !noalias !97
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.199", ptr %call5.i.i.i19.i.i.i.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !97
   %0 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %agg.tmp.i.i.i.i.i.i.i, i64 0, i32 2
@@ -8005,7 +8005,7 @@ invoke.cont24:                                    ; preds = %if.else.i.i.i.i.i, 
   store ptr %_M_impl.i.i.i.i.i.i, ptr %info_.i.i, align 8, !tbaa !105
   %_M_refcount.i.i.i.i = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.194", ptr %call21, i64 0, i32 1, i32 0, i32 1
   store ptr %call5.i.i.i19.i.i.i.i, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !41
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %call21, align 8, !tbaa !16
   %154 = load ptr, ptr %description.i19.i.i.i.i.i.i.i, align 8, !tbaa !21
   %call27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost15program_options29options_description_easy_initclEPKcPKNS0_14value_semanticES3_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp14, ptr noundef %150, ptr noundef nonnull %call21, ptr noundef %154)
           to label %_ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit unwind label %lpad23
@@ -10064,7 +10064,7 @@ unreachable.i:                                    ; preds = %invoke.cont6.i
 
 _ZN5folly12_GLOBAL__N_19GFlagInfoIbE3setERKb.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i, %try.cont
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIbEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIbEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder", ptr %call.i.i, i64 0, i32 1
   %34 = load i8, ptr %val, align 1, !tbaa !142, !range !143, !noundef !144
   store i8 %34, ptr %held.i.i.i, align 8, !tbaa !145
@@ -10280,7 +10280,7 @@ _ZNK5folly12_GLOBAL__N_19GFlagInfoIbE3getEv.exit: ; preds = %if.then.i.i.i, %_ZN
   %15 = load ptr, ptr %vfn, align 8
   call void %15(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 1 dereferenceable(1) %val)
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIbEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIbEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder", ptr %call.i.i, i64 0, i32 1
   %16 = load i8, ptr %val, align 1, !tbaa !142, !range !143, !noundef !144
   store i8 %16, ptr %held.i.i.i, align 8, !tbaa !145
@@ -10310,7 +10310,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122BoolGFlagValueSemanticD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val.i = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i.i = icmp eq ptr %info_.val.i, null
@@ -10394,7 +10394,7 @@ declare void @_ZN5boost15program_options20invalid_option_valueC1ERKNSt7__cxx1112
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost15program_options22error_with_option_nameD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5boost15program_options22error_with_option_nameE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5boost15program_options22error_with_option_nameE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %m_message = getelementptr inbounds %"class.boost::program_options::error_with_option_name", ptr %this, i64 0, i32 5
   %0 = load ptr, ptr %m_message, align 8, !tbaa !21
   %1 = getelementptr inbounds %"class.boost::program_options::error_with_option_name", ptr %this, i64 0, i32 5, i32 2
@@ -10958,7 +10958,7 @@ define linkonce_odr noundef ptr @_ZNK5boost3any6holderIbE5cloneEv(ptr noundef no
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   %held = getelementptr inbounds %"class.boost::any::holder", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIbEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIbEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !16
   %held.i = getelementptr inbounds %"class.boost::any::holder", ptr %call, i64 0, i32 1
   %0 = load i8, ptr %held, align 8, !tbaa !142, !range !143, !noundef !144
   store i8 %0, ptr %held.i, align 8, !tbaa !145
@@ -10984,7 +10984,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !16
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #36
           to label %invoke.cont unwind label %lpad
 
@@ -11003,7 +11003,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #21 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !16
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessIvEE, ptr nonnull @_ZNSt9exceptionD2Ev) #33
   unreachable
 }
@@ -11067,7 +11067,7 @@ declare void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr void @_ZN5folly15ConversionErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #2 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %code_ = getelementptr inbounds %"class.folly::ConversionError", ptr %this, i64 0, i32 1
   %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %0, i64 0, i32 1
   %1 = load i8, ptr %code_2, align 8, !tbaa !182
@@ -11094,7 +11094,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.85", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !16
   %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.85", ptr %ref.tmp, i64 0, i32 1
   store i8 %args, ptr %error_.i, align 8, !tbaa !190
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #36
@@ -11115,7 +11115,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ex) local_unnamed_addr #21 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #31
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !16
   %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.85", ptr %exception, i64 0, i32 1
   %error_2.i = getelementptr inbounds %"class.folly::BadExpectedAccess.85", ptr %ex, i64 0, i32 1
   %0 = load i8, ptr %error_2.i, align 8, !tbaa !190
@@ -11179,7 +11179,7 @@ lpad:                                             ; preds = %_ZNR5folly8Expected
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i = icmp eq ptr %info_.val, null
@@ -11236,7 +11236,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIbEELN9__gnu_cxx12_Lock_polic
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_130NegativeBoolGFlagValueSemanticD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIbEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val.i = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i.i = icmp eq ptr %info_.val.i, null
@@ -11889,7 +11889,7 @@ unreachable.i:                                    ; preds = %invoke.cont6.i
 
 _ZN5folly12_GLOBAL__N_19GFlagInfoIiE3setERKi.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i, %try.cont
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIiEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIiEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.99", ptr %call.i.i, i64 0, i32 1
   %36 = load i32, ptr %val, align 4, !tbaa !37
   store i32 %36, ptr %held.i.i.i, align 8, !tbaa !203
@@ -12031,7 +12031,7 @@ _ZNK5folly12_GLOBAL__N_19GFlagInfoIiE3getEv.exit: ; preds = %if.then.i.i.i, %_ZN
   %10 = load ptr, ptr %vfn, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %val)
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIiEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIiEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.99", ptr %call.i.i, i64 0, i32 1
   %11 = load i32, ptr %val, align 4, !tbaa !37
   store i32 %11, ptr %held.i.i.i, align 8, !tbaa !203
@@ -12061,7 +12061,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.92", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i = icmp eq ptr %info_.val, null
@@ -12118,7 +12118,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIiEELN9__gnu_cxx12_Lock_polic
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIiED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIiEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.92", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val.i = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i.i = icmp eq ptr %info_.val.i, null
@@ -12292,7 +12292,7 @@ define linkonce_odr noundef ptr @_ZNK5boost3any6holderIiE5cloneEv(ptr noundef no
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   %held = getelementptr inbounds %"class.boost::any::holder.99", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIiEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIiEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !16
   %held.i = getelementptr inbounds %"class.boost::any::holder.99", ptr %call, i64 0, i32 1
   %0 = load i32, ptr %held, align 8, !tbaa !37
   store i32 %0, ptr %held.i, align 8, !tbaa !203
@@ -12957,7 +12957,7 @@ unreachable.i:                                    ; preds = %invoke.cont6.i
 
 _ZN5folly12_GLOBAL__N_19GFlagInfoIlE3setERKl.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i, %try.cont
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIlEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIlEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.120", ptr %call.i.i, i64 0, i32 1
   %36 = load i64, ptr %val, align 8, !tbaa !30
   store i64 %36, ptr %held.i.i.i, align 8, !tbaa !226
@@ -13173,7 +13173,7 @@ _ZNK5folly12_GLOBAL__N_19GFlagInfoIlE3getEv.exit: ; preds = %if.then.i.i.i, %_ZN
   %17 = load ptr, ptr %vfn, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %val)
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIlEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIlEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.120", ptr %call.i.i, i64 0, i32 1
   %18 = load i64, ptr %val, align 8, !tbaa !30
   store i64 %18, ptr %held.i.i.i, align 8, !tbaa !226
@@ -13203,7 +13203,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.113", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i = icmp eq ptr %info_.val, null
@@ -13260,7 +13260,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIlEELN9__gnu_cxx12_Lock_polic
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIlED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIlEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.113", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val.i = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i.i = icmp eq ptr %info_.val.i, null
@@ -13425,7 +13425,7 @@ define linkonce_odr noundef ptr @_ZNK5boost3any6holderIlE5cloneEv(ptr noundef no
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   %held = getelementptr inbounds %"class.boost::any::holder.120", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIlEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIlEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !16
   %held.i = getelementptr inbounds %"class.boost::any::holder.120", ptr %call, i64 0, i32 1
   %0 = load i64, ptr %held, align 8, !tbaa !30
   store i64 %0, ptr %held.i, align 8, !tbaa !226
@@ -14068,7 +14068,7 @@ unreachable.i:                                    ; preds = %invoke.cont6.i
 
 _ZN5folly12_GLOBAL__N_19GFlagInfoIjE3setERKj.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i, %try.cont
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIjEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIjEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.140", ptr %call.i.i, i64 0, i32 1
   %34 = load i32, ptr %val, align 4, !tbaa !37
   store i32 %34, ptr %held.i.i.i, align 8, !tbaa !260
@@ -14210,7 +14210,7 @@ _ZNK5folly12_GLOBAL__N_19GFlagInfoIjE3getEv.exit: ; preds = %if.then.i.i.i, %_ZN
   %10 = load ptr, ptr %vfn, align 8
   call void %10(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 4 dereferenceable(4) %val)
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIjEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIjEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.140", ptr %call.i.i, i64 0, i32 1
   %11 = load i32, ptr %val, align 4, !tbaa !37
   store i32 %11, ptr %held.i.i.i, align 8, !tbaa !260
@@ -14240,7 +14240,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.133", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i = icmp eq ptr %info_.val, null
@@ -14297,7 +14297,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIjEELN9__gnu_cxx12_Lock_polic
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIjED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIjEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.133", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val.i = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i.i = icmp eq ptr %info_.val.i, null
@@ -14462,7 +14462,7 @@ define linkonce_odr noundef ptr @_ZNK5boost3any6holderIjE5cloneEv(ptr noundef no
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   %held = getelementptr inbounds %"class.boost::any::holder.140", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIjEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIjEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !16
   %held.i = getelementptr inbounds %"class.boost::any::holder.140", ptr %call, i64 0, i32 1
   %0 = load i32, ptr %held, align 8, !tbaa !37
   store i32 %0, ptr %held.i, align 8, !tbaa !260
@@ -15100,7 +15100,7 @@ unreachable.i:                                    ; preds = %invoke.cont6.i
 
 _ZN5folly12_GLOBAL__N_19GFlagInfoImE3setERKm.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i, %try.cont
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderImEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderImEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.161", ptr %call.i.i, i64 0, i32 1
   %34 = load i64, ptr %val, align 8, !tbaa !30
   store i64 %34, ptr %held.i.i.i, align 8, !tbaa !280
@@ -15316,7 +15316,7 @@ _ZNK5folly12_GLOBAL__N_19GFlagInfoImE3getEv.exit: ; preds = %if.then.i.i.i, %_ZN
   %17 = load ptr, ptr %vfn, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %val)
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderImEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderImEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.161", ptr %call.i.i, i64 0, i32 1
   %18 = load i64, ptr %val, align 8, !tbaa !30
   store i64 %18, ptr %held.i.i.i, align 8, !tbaa !280
@@ -15346,7 +15346,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.154", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i = icmp eq ptr %info_.val, null
@@ -15403,7 +15403,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoImEELN9__gnu_cxx12_Lock_polic
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticImED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseImEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.154", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val.i = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i.i = icmp eq ptr %info_.val.i, null
@@ -15562,7 +15562,7 @@ define linkonce_odr noundef ptr @_ZNK5boost3any6holderImE5cloneEv(ptr noundef no
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   %held = getelementptr inbounds %"class.boost::any::holder.161", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderImEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderImEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !16
   %held.i = getelementptr inbounds %"class.boost::any::holder.161", ptr %call, i64 0, i32 1
   %0 = load i64, ptr %held, align 8, !tbaa !30
   store i64 %0, ptr %held.i, align 8, !tbaa !280
@@ -16227,7 +16227,7 @@ unreachable.i:                                    ; preds = %invoke.cont6.i
 
 _ZN5folly12_GLOBAL__N_19GFlagInfoIdE3setERKd.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i, %try.cont
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIdEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIdEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.181", ptr %call.i.i, i64 0, i32 1
   %36 = load double, ptr %val, align 8, !tbaa !314
   store double %36, ptr %held.i.i.i, align 8, !tbaa !319
@@ -16443,7 +16443,7 @@ _ZNK5folly12_GLOBAL__N_19GFlagInfoIdE3getEv.exit: ; preds = %if.then.i.i.i, %_ZN
   %17 = load ptr, ptr %vfn, align 8
   call void %17(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(8) %val)
   %call.i.i = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIdEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIdEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.181", ptr %call.i.i, i64 0, i32 1
   %18 = load double, ptr %val, align 8, !tbaa !314
   store double %18, ptr %held.i.i.i, align 8, !tbaa !319
@@ -16473,7 +16473,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.174", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i = icmp eq ptr %info_.val, null
@@ -16530,7 +16530,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoIdEELN9__gnu_cxx12_Lock_polic
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticIdED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseIdEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.174", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val.i = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i.i = icmp eq ptr %info_.val.i, null
@@ -16757,7 +16757,7 @@ define linkonce_odr noundef ptr @_ZNK5boost3any6holderIdE5cloneEv(ptr noundef no
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #30
   %held = getelementptr inbounds %"class.boost::any::holder.181", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIdEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderIdEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !16
   %held.i = getelementptr inbounds %"class.boost::any::holder.181", ptr %call, i64 0, i32 1
   %0 = load double, ptr %held, align 8, !tbaa !314
   store double %0, ptr %held.i, align 8, !tbaa !319
@@ -17586,7 +17586,7 @@ invoke.cont19:                                    ; preds = %_ZNSt7__cxx1112basi
           to label %call.i.i.noexc unwind label %lpad18
 
 call.i.i.noexc:                                   ; preds = %invoke.cont19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i47, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i47, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.204", ptr %call.i.i47, i64 0, i32 1
   %60 = getelementptr inbounds %"class.boost::any::holder.204", ptr %call.i.i47, i64 0, i32 1, i32 2
   store ptr %60, ptr %held.i.i.i, align 8, !tbaa !18
@@ -17859,7 +17859,7 @@ invoke.cont:                                      ; preds = %_ZNK5folly12_GLOBAL
           to label %call.i.i.noexc unwind label %lpad
 
 call.i.i.noexc:                                   ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i5, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i5, align 8, !tbaa !16
   %held.i.i.i = getelementptr inbounds %"class.boost::any::holder.204", ptr %call.i.i5, i64 0, i32 1
   %17 = getelementptr inbounds %"class.boost::any::holder.204", ptr %call.i.i5, i64 0, i32 1, i32 2
   store ptr %17, ptr %held.i.i.i, align 8, !tbaa !18
@@ -17976,7 +17976,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.194", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i = icmp eq ptr %info_.val, null
@@ -18033,7 +18033,7 @@ _ZNSt12__shared_ptrIN5folly12_GLOBAL__N_19GFlagInfoINSt7__cxx1112basic_stringIcS
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN5folly12_GLOBAL__N_118GFlagValueSemanticINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly12_GLOBAL__N_122GFlagValueSemanticBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !16
   %0 = getelementptr inbounds %"class.folly::(anonymous namespace)::GFlagValueSemanticBase.194", ptr %this, i64 0, i32 1, i32 0, i32 1
   %info_.val.i = load ptr, ptr %0, align 8, !tbaa !41
   %cmp.not.i.i.i = icmp eq ptr %info_.val.i, null
@@ -18242,7 +18242,7 @@ entry:
   %__dnew.i.i.i = alloca i64, align 8
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
   %held = getelementptr inbounds %"class.boost::any::holder.204", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost3any6holderINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !16
   %held.i = getelementptr inbounds %"class.boost::any::holder.204", ptr %call, i64 0, i32 1
   %0 = getelementptr inbounds %"class.boost::any::holder.204", ptr %call, i64 0, i32 1, i32 2
   store ptr %0, ptr %held.i, align 8, !tbaa !18

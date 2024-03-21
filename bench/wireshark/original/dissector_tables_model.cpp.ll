@@ -489,7 +489,7 @@ define void @_ZN19DissectorTablesItemC2E7QStringS0_PS_(ptr noundef nonnull align
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %8, align 8
   call void @_ZN19ModelHelperTreeItemI19DissectorTablesItemEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19DissectorTablesItem, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19DissectorTablesItem, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.DissectorTablesItem, ptr %9, i32 0, i32 1
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %1) #10
   %12 = getelementptr inbounds %class.DissectorTablesItem, ptr %9, i32 0, i32 2
@@ -504,7 +504,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI19DissectorTablesItemEC2EPS0_
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19DissectorTablesItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19DissectorTablesItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -532,7 +532,7 @@ define void @_ZN19DissectorTablesItemD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19DissectorTablesItem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19DissectorTablesItem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.DissectorTablesItem, ptr %3, i32 0, i32 2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #10
   %5 = getelementptr inbounds %class.DissectorTablesItem, ptr %3, i32 0, i32 1
@@ -674,7 +674,7 @@ define void @_ZN17IntegerTablesItemC2Ej7QStringP19DissectorTablesItem(ptr nounde
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #10
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #10
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17IntegerTablesItem, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17IntegerTablesItem, i32 0, i32 0, i32 2), ptr %16, align 8
   %25 = getelementptr inbounds %class.IntegerTablesItem, ptr %16, i32 0, i32 1
   %26 = load i32, ptr %6, align 4
   store i32 %26, ptr %25, align 8
@@ -864,7 +864,7 @@ define void @_ZN20DissectorTablesModelC2EP7QObject(ptr noundef nonnull align 8 d
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV20DissectorTablesModel, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV20DissectorTablesModel, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.DissectorTablesModel, ptr %10, i32 0, i32 1
   %13 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 88) #12
           to label %14 unwind label %19
@@ -1284,7 +1284,7 @@ define void @_ZN20DissectorTablesModelD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV20DissectorTablesModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV20DissectorTablesModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.DissectorTablesModel, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2328,7 +2328,7 @@ define void @_ZN25DissectorTablesProxyModelC2EP7QObject(ptr noundef nonnull alig
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV25DissectorTablesProxyModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV25DissectorTablesProxyModel, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.DissectorTablesProxyModel, ptr %7, i32 0, i32 1
   invoke void @_ZN25DissectorTablesProxyModel2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %9, ptr noundef @.str.3, ptr noundef null, i32 noundef -1)
           to label %10 unwind label %13
@@ -4327,7 +4327,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI19DissectorTablesItemED2Ev(pt
   %4 = alloca %class.QVariant, align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19DissectorTablesItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19DissectorTablesItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   store i32 0, ptr %3, align 4
   br label %6
 

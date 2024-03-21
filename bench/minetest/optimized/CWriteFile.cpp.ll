@@ -20,7 +20,7 @@ $_ZTIN3irr17IReferenceCountedE = comdat any
 $_ZTIN3irr2io10IWriteFileE = comdat any
 
 @_ZTVN3irr2io10CWriteFileE = unnamed_addr constant { [10 x ptr], [5 x ptr] } { [10 x ptr] [ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3irr2io10CWriteFileE, ptr @_ZN3irr2io10CWriteFile5writeEPKvm, ptr @_ZN3irr2io10CWriteFile4seekElb, ptr @_ZNK3irr2io10CWriteFile6getPosEv, ptr @_ZNK3irr2io10CWriteFile11getFileNameEv, ptr @_ZN3irr2io10CWriteFile5flushEv, ptr @_ZN3irr2io10CWriteFileD1Ev, ptr @_ZN3irr2io10CWriteFileD0Ev], [5 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3irr2io10CWriteFileE, ptr @_ZTv0_n24_N3irr2io10CWriteFileD1Ev, ptr @_ZTv0_n24_N3irr2io10CWriteFileD0Ev] }, align 8
-@_ZTTN3irr2io10CWriteFileE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CWriteFileE0_NS0_10IWriteFileE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CWriteFileE0_NS0_10IWriteFileE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr2io10CWriteFileE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CWriteFileE0_NS0_10IWriteFileE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CWriteFileE0_NS0_10IWriteFileE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i32 0, inrange i32 1, i32 3)], align 8
 @.str = private unnamed_addr constant [3 x i8] c"ab\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"wb\00", align 1
 @_ZTCN3irr2io10CWriteFileE0_NS0_10IWriteFileE = unnamed_addr constant { [10 x ptr], [5 x ptr] } { [10 x ptr] [ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3irr2io10IWriteFileE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3irr2io10IWriteFileD1Ev, ptr @_ZN3irr2io10IWriteFileD0Ev], [5 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3irr2io10IWriteFileE, ptr @_ZTv0_n24_N3irr2io10IWriteFileD1Ev, ptr @_ZTv0_n24_N3irr2io10IWriteFileD0Ev] }, align 8
@@ -147,8 +147,8 @@ define void @_ZN3irr2io10CWriteFileC1ERKNS_4core6stringIcEEb(ptr noundef nonnull
   store ptr null, ptr %5, align 8, !tbaa !20
   %6 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %6, align 8, !tbaa !23
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 1, i64 3), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 1, i64 3), ptr %4, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %8, ptr %7, align 8, !tbaa !6
@@ -245,9 +245,9 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CWriteFileD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = icmp eq ptr %4, null
@@ -285,9 +285,9 @@ define void @_ZTv0_n24_N3irr2io10CWriteFileD1Ev(ptr noundef %0) unnamed_addr #3 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = icmp eq ptr %8, null
@@ -321,9 +321,9 @@ define void @_ZTv0_n24_N3irr2io10CWriteFileD1Ev(ptr noundef %0) unnamed_addr #3 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CWriteFileD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   %5 = icmp eq ptr %4, null
@@ -365,9 +365,9 @@ define void @_ZTv0_n24_N3irr2io10CWriteFileD0Ev(ptr noundef %0) unnamed_addr #3 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io10CWriteFileE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   %9 = icmp eq ptr %8, null

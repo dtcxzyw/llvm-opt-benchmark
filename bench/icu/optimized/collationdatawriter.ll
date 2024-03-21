@@ -566,7 +566,7 @@ invoke.cont214:                                   ; preds = %if.end163, %invoke.
   store i32 %totalSize.5, ptr %arrayidx211, align 4
   %mul212 = shl nsw i32 %fastLatinTableLength.0, 1
   %add213 = add nsw i32 %totalSize.5, %mul212
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %scripts, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %scripts, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %scripts, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %arrayidx215 = getelementptr i8, ptr %indexes, i64 64

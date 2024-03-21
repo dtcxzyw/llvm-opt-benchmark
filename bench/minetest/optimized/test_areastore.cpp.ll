@@ -165,7 +165,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -351,14 +351,14 @@ define dso_local void @_ZN13TestAreaStore15testVectorStoreEv(ptr nocapture nonnu
   store ptr @_ZN9AreaStore9cacheMissEPvRKN3irr4core8vector3dIsEEPSt6vectorIP4AreaSaIS9_EE, ptr %10, align 8, !tbaa !51
   %20 = getelementptr inbounds i8, ptr %2, i64 72
   store ptr %2, ptr %20, align 8, !tbaa !52
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %21 = getelementptr inbounds i8, ptr %2, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, i8 0, i64 24, i1 false)
   invoke void @_ZN13TestAreaStore16genericStoreTestEP9AreaStore(ptr nonnull align 8 poison, ptr noundef nonnull %2)
           to label %22 unwind label %44
 
 22:                                               ; preds = %1
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %23 = load ptr, ptr %21, align 8, !tbaa !53
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %25
@@ -368,7 +368,7 @@ define dso_local void @_ZN13TestAreaStore15testVectorStoreEv(ptr nocapture nonnu
   br label %26
 
 26:                                               ; preds = %25, %22
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9AreaStore, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9AreaStore, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %27 = load ptr, ptr %16, align 8, !tbaa !48
   %28 = icmp eq ptr %27, %16
   br i1 %28, label %.loopexit, label %.preheader
@@ -2066,7 +2066,7 @@ define dso_local void @_ZN13TestAreaStore16genericStoreTestEP9AreaStore(ptr noca
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15VectorAreaStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8, !tbaa !53
   %4 = icmp eq ptr %3, null
@@ -2077,7 +2077,7 @@ define linkonce_odr dso_local void @_ZN15VectorAreaStoreD2Ev(ptr noundef nonnull
   br label %6
 
 6:                                                ; preds = %5, %1
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9AreaStore, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9AreaStore, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %7 = getelementptr inbounds i8, ptr %0, i64 136
   %8 = load ptr, ptr %7, align 8, !tbaa !48
   %9 = icmp eq ptr %8, %7
@@ -2425,7 +2425,7 @@ define dso_local void @_ZN13TestAreaStore17testSerializationEv(ptr nocapture non
   store ptr @_ZN9AreaStore9cacheMissEPvRKN3irr4core8vector3dIsEEPSt6vectorIP4AreaSaIS9_EE, ptr %24, align 8, !tbaa !51
   %34 = getelementptr inbounds i8, ptr %3, i64 72
   store ptr %3, ptr %34, align 8, !tbaa !52
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !4
   %35 = getelementptr inbounds i8, ptr %3, i64 160
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %35, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #24
@@ -2977,7 +2977,7 @@ define dso_local void @_ZN13TestAreaStore17testSerializationEv(ptr nocapture non
   %286 = getelementptr inbounds i8, ptr %11, i64 %285
   store ptr %283, ptr %286, align 8, !tbaa !4
   %287 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %287, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %287, align 8, !tbaa !4
   %288 = getelementptr inbounds i8, ptr %11, i64 88
   %289 = load ptr, ptr %288, align 8, !tbaa !7
   %290 = getelementptr inbounds i8, ptr %11, i64 104
@@ -2996,7 +2996,7 @@ define dso_local void @_ZN13TestAreaStore17testSerializationEv(ptr nocapture non
   br label %297
 
 297:                                              ; preds = %296, %292
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %287, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %287, align 8, !tbaa !4
   %298 = getelementptr inbounds i8, ptr %11, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %298) #24
   %299 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -3051,7 +3051,7 @@ define dso_local void @_ZN13TestAreaStore17testSerializationEv(ptr nocapture non
   %324 = getelementptr inbounds i8, ptr %6, i64 %323
   store ptr %321, ptr %324, align 8, !tbaa !4
   %325 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %325, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %325, align 8, !tbaa !4
   %326 = getelementptr inbounds i8, ptr %6, i64 80
   %327 = load ptr, ptr %326, align 8, !tbaa !7
   %328 = getelementptr inbounds i8, ptr %6, i64 96
@@ -3070,7 +3070,7 @@ define dso_local void @_ZN13TestAreaStore17testSerializationEv(ptr nocapture non
   br label %335
 
 335:                                              ; preds = %334, %330
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %325, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %325, align 8, !tbaa !4
   %336 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %336) #24
   %337 = getelementptr inbounds i8, ptr %6, i64 112
@@ -3108,7 +3108,7 @@ define dso_local void @_ZN13TestAreaStore17testSerializationEv(ptr nocapture non
 
 351:                                              ; preds = %350, %347
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #24
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV15VectorAreaStore, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !4
   %352 = load ptr, ptr %35, align 8, !tbaa !53
   %353 = icmp eq ptr %352, null
   br i1 %353, label %355, label %354
@@ -3118,7 +3118,7 @@ define dso_local void @_ZN13TestAreaStore17testSerializationEv(ptr nocapture non
   br label %355
 
 355:                                              ; preds = %354, %351
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9AreaStore, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9AreaStore, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !4
   %356 = load ptr, ptr %30, align 8, !tbaa !48
   %357 = icmp eq ptr %356, %30
   br i1 %357, label %.loopexit, label %.preheader
@@ -3442,7 +3442,7 @@ declare void @_ZN9AreaStore9cacheMissEPvRKN3irr4core8vector3dIsEEPSt6vectorIP4Ar
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN9AreaStoreD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9AreaStore, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9AreaStore, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load ptr, ptr %2, align 8, !tbaa !48
   %4 = icmp eq ptr %3, %2
@@ -3665,14 +3665,14 @@ define internal void @_GLOBAL__sub_I_test_areastore.cpp() #18 section ".text.sta
   store ptr getelementptr inbounds (%class.TestAreaStore, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestAreaStore, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !63
   store i64 0, ptr getelementptr inbounds (%class.TestAreaStore, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestAreaStore, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !64
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TestAreaStore, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13TestAreaStore, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%class.TestAreaStore, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestAreaStore, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

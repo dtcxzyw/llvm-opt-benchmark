@@ -240,7 +240,7 @@ _ZNSt10unique_ptrI19cmCTestSleepCommandSt14default_deleteIS0_EED2Ev.exit:
   %2 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #14, !noalias !5
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 16, i1 false), !noalias !5
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19cmCTestSleepCommand, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !noalias !5
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19cmCTestSleepCommand, i64 0, i32 0, i64 2), ptr %2, align 8, !noalias !5
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = getelementptr inbounds i8, ptr %2, i64 24
   %6 = load <2 x ptr>, ptr %4, align 8

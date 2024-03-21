@@ -138,7 +138,7 @@ cond.false:                                       ; preds = %entry
 invoke.cont:                                      ; preds = %cond.false
   %arg_.i.i = getelementptr inbounds i8, ptr %call2, i64 8
   %freeFunc_.i.i = getelementptr inbounds i8, ptr %call2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2, align 8, !tbaa !18
   %timerData_.i = getelementptr inbounds i8, ptr %call2, i64 48
   store i64 0, ptr %timerData_.i, align 8, !tbaa !20
   store ptr %this, ptr %arg_.i.i, align 8, !tbaa !24
@@ -197,7 +197,7 @@ cond.false.i:                                     ; preds = %entry
 invoke.cont.i:                                    ; preds = %cond.false.i
   %arg_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 8
   %freeFunc_.i.i.i = getelementptr inbounds i8, ptr %call2.i, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, inrange i32 0, i64 2), ptr %call2.i, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7TimerFD5IoVecE, i64 0, i32 0, i64 2), ptr %call2.i, align 8, !tbaa !18
   %timerData_.i.i = getelementptr inbounds i8, ptr %call2.i, i64 48
   store i64 0, ptr %timerData_.i.i, align 8, !tbaa !20
   store ptr %0, ptr %arg_.i.i.i, align 8, !tbaa !24
@@ -288,11 +288,11 @@ if.end:                                           ; preds = %if.else, %if.then
 define void @_ZN5folly21TimerFDTimeoutManagerC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(288) %this, ptr noundef %eventBase) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   tail call void @_ZN5folly7TimerFDC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(220) %this, ptr noundef %eventBase)
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !18
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 192
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !18
   %processingExpired_ = getelementptr inbounds i8, ptr %this, i64 220
   store i8 0, ptr %processingExpired_, align 4, !tbaa !36
   %0 = getelementptr inbounds i8, ptr %this, i64 232
@@ -379,11 +379,11 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #8
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly21TimerFDTimeoutManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !18
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 184
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !18
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 192
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly21TimerFDTimeoutManagerE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !18
   %call = invoke noundef i64 @_ZN5folly21TimerFDTimeoutManager9cancelAllEv(ptr noundef nonnull align 8 dereferenceable(288) %this)
           to label %invoke.cont unwind label %terminate.lpad
 

@@ -1385,7 +1385,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix34SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34SearchPathElem_parse_justPath_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34SearchPathElem_parse_justPath_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1829,7 +1829,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix37SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37SearchPathElem_parse_emptyPrefix_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37SearchPathElem_parse_emptyPrefix_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2126,7 +2126,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix31SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31SearchPathElem_parse_oneEq_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31SearchPathElem_parse_oneEq_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2423,7 +2423,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix32SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32SearchPathElem_parse_twoEqs_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32SearchPathElem_parse_twoEqs_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2720,7 +2720,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix51SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51SearchPathElem_suffixIfPotentialMatch_justPath_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51SearchPathElem_suffixIfPotentialMatch_justPath_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3040,7 +3040,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix60SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix1_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix1_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3334,7 +3334,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix60SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix2_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix2_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3608,7 +3608,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix56SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56SearchPathElem_suffixIfPotentialMatch_partialPrefix_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56SearchPathElem_suffixIfPotentialMatch_partialPrefix_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3882,7 +3882,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix54SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54SearchPathElem_suffixIfPotentialMatch_exactPrefix_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix54SearchPathElem_suffixIfPotentialMatch_exactPrefix_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4180,7 +4180,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix51SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51SearchPathElem_suffixIfPotentialMatch_multiKey_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51SearchPathElem_suffixIfPotentialMatch_multiKey_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4478,7 +4478,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix56SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56SearchPathElem_suffixIfPotentialMatch_trailingSlash_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56SearchPathElem_suffixIfPotentialMatch_trailingSlash_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4754,7 +4754,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix62SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix62SearchPathElem_suffixIfPotentialMatch_trailingDoubleSlash_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix62SearchPathElem_suffixIfPotentialMatch_trailingDoubleSlash_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5052,7 +5052,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryImplIN3nix55SearchPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55SearchPathElem_suffixIfPotentialMatch_trailingPath_TestEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55SearchPathElem_suffixIfPotentialMatch_trailingPath_TestEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6502,7 +6502,7 @@ define linkonce_odr void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6582,7 +6582,7 @@ define linkonce_odr void @_ZN3nix34SearchPathElem_parse_justPath_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34SearchPathElem_parse_justPath_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34SearchPathElem_parse_justPath_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7069,7 +7069,7 @@ define linkonce_odr void @_ZN3nix37SearchPathElem_parse_emptyPrefix_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37SearchPathElem_parse_emptyPrefix_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37SearchPathElem_parse_emptyPrefix_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7129,7 +7129,7 @@ define linkonce_odr void @_ZN3nix31SearchPathElem_parse_oneEq_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31SearchPathElem_parse_oneEq_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31SearchPathElem_parse_oneEq_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7189,7 +7189,7 @@ define linkonce_odr void @_ZN3nix32SearchPathElem_parse_twoEqs_TestC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix32SearchPathElem_parse_twoEqs_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix32SearchPathElem_parse_twoEqs_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7249,7 +7249,7 @@ define linkonce_odr void @_ZN3nix51SearchPathElem_suffixIfPotentialMatch_justPat
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix51SearchPathElem_suffixIfPotentialMatch_justPath_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix51SearchPathElem_suffixIfPotentialMatch_justPath_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7362,7 +7362,7 @@ define linkonce_odr void @_ZN3nix60SearchPathElem_suffixIfPotentialMatch_mislead
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix1_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix1_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7422,7 +7422,7 @@ define linkonce_odr void @_ZN3nix60SearchPathElem_suffixIfPotentialMatch_mislead
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix2_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix60SearchPathElem_suffixIfPotentialMatch_misleadingPrefix2_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7482,7 +7482,7 @@ define linkonce_odr void @_ZN3nix56SearchPathElem_suffixIfPotentialMatch_partial
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix56SearchPathElem_suffixIfPotentialMatch_partialPrefix_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix56SearchPathElem_suffixIfPotentialMatch_partialPrefix_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7542,7 +7542,7 @@ define linkonce_odr void @_ZN3nix54SearchPathElem_suffixIfPotentialMatch_exactPr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix54SearchPathElem_suffixIfPotentialMatch_exactPrefix_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix54SearchPathElem_suffixIfPotentialMatch_exactPrefix_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7655,7 +7655,7 @@ define linkonce_odr void @_ZN3nix51SearchPathElem_suffixIfPotentialMatch_multiKe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix51SearchPathElem_suffixIfPotentialMatch_multiKey_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix51SearchPathElem_suffixIfPotentialMatch_multiKey_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7768,7 +7768,7 @@ define linkonce_odr void @_ZN3nix56SearchPathElem_suffixIfPotentialMatch_trailin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix56SearchPathElem_suffixIfPotentialMatch_trailingSlash_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix56SearchPathElem_suffixIfPotentialMatch_trailingSlash_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7828,7 +7828,7 @@ define linkonce_odr void @_ZN3nix62SearchPathElem_suffixIfPotentialMatch_trailin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix62SearchPathElem_suffixIfPotentialMatch_trailingDoubleSlash_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix62SearchPathElem_suffixIfPotentialMatch_trailingDoubleSlash_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7941,7 +7941,7 @@ define linkonce_odr void @_ZN3nix55SearchPathElem_suffixIfPotentialMatch_trailin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix55SearchPathElem_suffixIfPotentialMatch_trailingPath_TestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix55SearchPathElem_suffixIfPotentialMatch_trailingPath_TestE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

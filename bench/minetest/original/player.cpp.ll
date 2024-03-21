@@ -365,7 +365,7 @@ define dso_local void @_ZN6PlayerC2EPKcP15IItemDefManager(ptr noundef nonnull al
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV6Player, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV6Player, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %8, i8 0, i64 36, i1 false)
@@ -1553,7 +1553,7 @@ declare void @_ZN9InventoryD1Ev(ptr noundef nonnull align 8 dereferenceable(33))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6PlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV6Player, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV6Player, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 432
   %3 = getelementptr inbounds i8, ptr %0, i64 440
   %4 = load ptr, ptr @g_settings, align 8, !tbaa !37

@@ -5592,7 +5592,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit176: ; preds = %if
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing32ScopedFakeTestPartResultReporterC2EPNS_19TestPartResultArrayE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %intercept_mode_ = getelementptr inbounds %"class.testing::ScopedFakeTestPartResultReporter", ptr %this, i64 0, i32 1
   store i32 0, ptr %intercept_mode_, align 8
   %result_ = getelementptr inbounds %"class.testing::ScopedFakeTestPartResultReporter", ptr %this, i64 0, i32 3
@@ -5680,7 +5680,7 @@ _ZN7testing8internal15GetUnitTestImplEv.exit:     ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing32ScopedFakeTestPartResultReporterC2ENS0_13InterceptModeEPNS_19TestPartResultArrayE(ptr noundef nonnull align 8 dereferenceable(32) %this, i32 noundef %intercept_mode, ptr noundef %result) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %intercept_mode_ = getelementptr inbounds %"class.testing::ScopedFakeTestPartResultReporter", ptr %this, i64 0, i32 1
   store i32 %intercept_mode, ptr %intercept_mode_, align 8
   %result_ = getelementptr inbounds %"class.testing::ScopedFakeTestPartResultReporter", ptr %this, i64 0, i32 3
@@ -5758,7 +5758,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing32ScopedFakeTestPartResultReporterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing32ScopedFakeTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont, !prof !5
@@ -7193,7 +7193,7 @@ terminate.lpad.body:                              ; preds = %terminate.lpad, %lp
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN7testing8internal35DefaultGlobalTestPartResultReporterC2EPNS0_12UnitTestImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %unit_test) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %unit_test_ = getelementptr inbounds %"class.testing::internal::DefaultGlobalTestPartResultReporter", ptr %this, i64 0, i32 1
   store ptr %unit_test, ptr %unit_test_, align 8
   ret void
@@ -7288,7 +7288,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN7testing8internal38DefaultPerThreadTestPartResultReporterC2EPNS0_12UnitTestImplE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %unit_test) unnamed_addr #9 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %unit_test_ = getelementptr inbounds %"class.testing::internal::DefaultPerThreadTestPartResultReporter", ptr %this, i64 0, i32 1
   store ptr %unit_test, ptr %unit_test_, align 8
   ret void
@@ -10446,7 +10446,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end.i.i.i, %_ZNS
   %20 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %20, ptr %add.ptr10, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val2_ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val2_ss, i64 0, i32 1, i32 2
   %21 = load ptr, ptr %_M_string.i.i.i, align 8
   %22 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val2_ss, i64 0, i32 1, i32 2, i32 2
@@ -10465,7 +10465,7 @@ if.then.i.i.i.i.i88:                              ; preds = %_ZN7testing15Assert
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i88, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i89
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val2_ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %24 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -10486,7 +10486,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store ptr %19, ptr %add.ptr.i.i94, align 8
   store ptr %20, ptr %add.ptr, align 8
   %_M_stringbuf.i.i96 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val1_ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i96, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i96, align 8
   %_M_string.i.i.i97 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val1_ss, i64 0, i32 1, i32 2
   %27 = load ptr, ptr %_M_string.i.i.i97, align 8
   %28 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val1_ss, i64 0, i32 1, i32 2, i32 2
@@ -10505,7 +10505,7 @@ if.then.i.i.i.i.i99:                              ; preds = %_ZNSt7__cxx1118basi
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit108
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit108: ; preds = %if.then.i.i.i.i.i99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i105
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i96, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i96, align 8
   %_M_buf_locale.i.i.i.i100 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val1_ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i100) #53
   store ptr %24, ptr %val1_ss, align 8
@@ -10856,7 +10856,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %if.end.i.i.i, %_ZNS
   %20 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %20, ptr %add.ptr10, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val2_ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val2_ss, i64 0, i32 1, i32 2
   %21 = load ptr, ptr %_M_string.i.i.i, align 8
   %22 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val2_ss, i64 0, i32 1, i32 2, i32 2
@@ -10875,7 +10875,7 @@ if.then.i.i.i.i.i87:                              ; preds = %_ZN7testing15Assert
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i87, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i88
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val2_ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %24 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -10896,7 +10896,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
   store ptr %19, ptr %add.ptr.i.i93, align 8
   store ptr %20, ptr %add.ptr, align 8
   %_M_stringbuf.i.i95 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val1_ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i95, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i95, align 8
   %_M_string.i.i.i96 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val1_ss, i64 0, i32 1, i32 2
   %27 = load ptr, ptr %_M_string.i.i.i96, align 8
   %28 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val1_ss, i64 0, i32 1, i32 2, i32 2
@@ -10915,7 +10915,7 @@ if.then.i.i.i.i.i98:                              ; preds = %_ZNSt7__cxx1118basi
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit107
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit107: ; preds = %if.then.i.i.i.i.i98, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i104
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i95, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i95, align 8
   %_M_buf_locale.i.i.i.i99 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %val1_ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i99) #53
   store ptr %24, ptr %val1_ss, align 8
@@ -12509,7 +12509,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2, i32 2
@@ -12528,7 +12528,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -14189,7 +14189,7 @@ invoke.cont5:                                     ; preds = %if.else.i.i, %if.th
   %11 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %11, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2
   %12 = load ptr, ptr %_M_string.i.i.i, align 8
   %13 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2, i32 2
@@ -14208,7 +14208,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont5
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -14346,7 +14346,7 @@ invoke.cont34:                                    ; preds = %cleanup31
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %stream, i64 16
   store ptr %12, ptr %add.ptr3.i.i, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %stream, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %stream, i64 0, i32 1, i32 2
   %13 = load ptr, ptr %_M_string.i.i.i, align 8
   %14 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %stream, i64 0, i32 1, i32 2, i32 2
@@ -14365,7 +14365,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont34
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %stream, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %16 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -14624,7 +14624,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2, i32 2
@@ -14643,7 +14643,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -15076,7 +15076,7 @@ invoke.cont13:                                    ; preds = %if.else.i.i, %if.th
   %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %13, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2
   %14 = load ptr, ptr %_M_string.i.i.i, align 8
   %15 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2, i32 2
@@ -15095,7 +15095,7 @@ if.then.i.i.i.i.i21:                              ; preds = %invoke.cont13
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %17 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -15267,7 +15267,7 @@ invoke.cont17:                                    ; preds = %if.else.i.i, %if.th
   %15 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %15, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2
   %16 = load ptr, ptr %_M_string.i.i.i, align 8
   %17 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2, i32 2
@@ -15286,7 +15286,7 @@ if.then.i.i.i.i.i37:                              ; preds = %invoke.cont17
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %19 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -17188,7 +17188,7 @@ _ZN7testing8internal7CountIfISt6vectorINS_14TestPartResultESaIS3_EEPFbRKS3_EEEiR
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing4TestC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(248) ptr @_Znwm(i64 noundef 248) #56
   invoke void @_ZN7testing8internal14GTestFlagSaverC2Ev(ptr noundef nonnull align 8 dereferenceable(241) %call)
           to label %invoke.cont unwind label %lpad
@@ -17401,7 +17401,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit73: ; preds = %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing4TestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing4TestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %gtest_flag_saver_ = getelementptr inbounds %"class.testing::Test", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %gtest_flag_saver_, align 8
   %isnull = icmp eq ptr %0, null
@@ -18511,7 +18511,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #53
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal26GoogleTestFailureExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal26GoogleTestFailureExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -18741,14 +18741,14 @@ _ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl2
 
 invoke.cont.i:                                    ; preds = %_ZN7testing8internal15GetUnitTestImplEv.exit
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %caller_frame_.i.i = getelementptr inbounds %"class.testing::internal::OsStackTraceGetter", ptr %call.i, i64 0, i32 2
   store ptr null, ptr %caller_frame_.i.i, align 8
   store ptr %call.i, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit: ; preds = %invoke.cont.i, %_ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge
-  %vtable = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i ], [ %vtable.pre, %_ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
+  %vtable = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i ], [ %vtable.pre, %_ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %6 = phi ptr [ %call.i, %invoke.cont.i ], [ %5, %_ZN7testing8internal15GetUnitTestImplEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
   %7 = load ptr, ptr %vfn, align 8
@@ -18768,14 +18768,14 @@ if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit
 
 invoke.cont.i19:                                  ; preds = %if.then5
   %call.i20 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i20, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i20, align 8
   %caller_frame_.i.i21 = getelementptr inbounds %"class.testing::internal::OsStackTraceGetter", ptr %call.i20, i64 0, i32 2
   store ptr null, ptr %caller_frame_.i.i21, align 8
   store ptr %call.i20, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22: ; preds = %invoke.cont.i19, %if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit_edge
-  %vtable7 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i19 ], [ %vtable7.pre, %if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit_edge ]
+  %vtable7 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i19 ], [ %vtable7.pre, %if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit_edge ]
   %9 = phi ptr [ %call.i20, %invoke.cont.i19 ], [ %8, %if.then5._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit22_crit_edge ]
   %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 3
   %10 = load ptr, ptr %vfn8, align 8
@@ -18794,14 +18794,14 @@ if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit28_crit
 
 invoke.cont.i25:                                  ; preds = %if.end10
   %call.i26 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i26, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i26, align 8
   %caller_frame_.i.i27 = getelementptr inbounds %"class.testing::internal::OsStackTraceGetter", ptr %call.i26, i64 0, i32 2
   store ptr null, ptr %caller_frame_.i.i27, align 8
   store ptr %call.i26, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit28
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit28: ; preds = %invoke.cont.i25, %if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit28_crit_edge
-  %vtable12 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i25 ], [ %vtable12.pre, %if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit28_crit_edge ]
+  %vtable12 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i25 ], [ %vtable12.pre, %if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit28_crit_edge ]
   %12 = phi ptr [ %call.i26, %invoke.cont.i25 ], [ %11, %if.end10._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit28_crit_edge ]
   %vfn13 = getelementptr inbounds ptr, ptr %vtable12, i64 3
   %13 = load ptr, ptr %vfn13, align 8
@@ -18823,7 +18823,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %call = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %caller_frame_.i = getelementptr inbounds %"class.testing::internal::OsStackTraceGetter", ptr %call, i64 0, i32 2
   store ptr null, ptr %caller_frame_.i, align 8
   store ptr %call, ptr %os_stack_trace_getter_, align 8
@@ -20909,14 +20909,14 @@ _ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_
 
 invoke.cont.i26:                                  ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit
   %call.i27 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i27, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i27, align 8
   %caller_frame_.i.i = getelementptr inbounds %"class.testing::internal::OsStackTraceGetter", ptr %call.i27, i64 0, i32 2
   store ptr null, ptr %caller_frame_.i.i, align 8
   store ptr %call.i27, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit: ; preds = %invoke.cont.i26, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge
-  %vtable7 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i26 ], [ %vtable7.pre, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
+  %vtable7 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i26 ], [ %vtable7.pre, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %16 = phi ptr [ %call.i27, %invoke.cont.i26 ], [ %15, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %vfn8 = getelementptr inbounds ptr, ptr %vtable7, i64 3
   %17 = load ptr, ptr %vfn8, align 8
@@ -20946,14 +20946,14 @@ if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit33_crit
 
 invoke.cont.i30:                                  ; preds = %if.end12
   %call.i31 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i31, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i31, align 8
   %caller_frame_.i.i32 = getelementptr inbounds %"class.testing::internal::OsStackTraceGetter", ptr %call.i31, i64 0, i32 2
   store ptr null, ptr %caller_frame_.i.i32, align 8
   store ptr %call.i31, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit33
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit33: ; preds = %invoke.cont.i30, %if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit33_crit_edge
-  %vtable14 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i30 ], [ %vtable14.pre, %if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit33_crit_edge ]
+  %vtable14 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i30 ], [ %vtable14.pre, %if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit33_crit_edge ]
   %20 = phi ptr [ %call.i31, %invoke.cont.i30 ], [ %19, %if.end12._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit33_crit_edge ]
   %vfn15 = getelementptr inbounds ptr, ptr %vtable14, i64 3
   %21 = load ptr, ptr %vfn15, align 8
@@ -21257,7 +21257,7 @@ define hidden void @_ZN7testing8TestCaseC2EPKcS2_PFvvES4_(ptr noundef nonnull al
 entry:
   %__dnew.i.i30 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %name_ = getelementptr inbounds %"class.testing::TestCase", ptr %this, i64 0, i32 1
   %0 = getelementptr inbounds %"class.testing::TestCase", ptr %this, i64 0, i32 1, i32 2
   store ptr %0, ptr %name_, align 8
@@ -21412,7 +21412,7 @@ eh.resume:                                        ; preds = %if.then.i.i48, %_ZN
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing8TestCaseD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8TestCaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %test_info_list_ = getelementptr inbounds %"class.testing::TestCase", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %test_info_list_, align 8
   %_M_finish.i.i = getelementptr inbounds %"class.testing::TestCase", ptr %this, i64 0, i32 3, i32 0, i32 0, i32 0, i32 1
@@ -21827,14 +21827,14 @@ _ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_
 
 invoke.cont.i24:                                  ; preds = %_ZN7testing8UnitTest11GetInstanceEv.exit
   %call.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %caller_frame_.i.i = getelementptr inbounds %"class.testing::internal::OsStackTraceGetter", ptr %call.i, i64 0, i32 2
   store ptr null, ptr %caller_frame_.i.i, align 8
   store ptr %call.i, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit: ; preds = %invoke.cont.i24, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge
-  %vtable6 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i24 ], [ %vtable6.pre, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
+  %vtable6 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i24 ], [ %vtable6.pre, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %14 = phi ptr [ %call.i, %invoke.cont.i24 ], [ %13, %_ZN7testing8UnitTest11GetInstanceEv.exit._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit_crit_edge ]
   %vfn7 = getelementptr inbounds ptr, ptr %vtable6, i64 3
   %15 = load ptr, ptr %vfn7, align 8
@@ -21888,14 +21888,14 @@ for.cond.cleanup._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exi
 
 invoke.cont.i34:                                  ; preds = %for.cond.cleanup
   %call.i35 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), ptr %call.i35, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), ptr %call.i35, align 8
   %caller_frame_.i.i36 = getelementptr inbounds %"class.testing::internal::OsStackTraceGetter", ptr %call.i35, i64 0, i32 2
   store ptr null, ptr %caller_frame_.i.i36, align 8
   store ptr %call.i35, ptr %os_stack_trace_getter_.i, align 8
   br label %_ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit37
 
 _ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit37: ; preds = %invoke.cont.i34, %for.cond.cleanup._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit37_crit_edge
-  %vtable13 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, inrange i32 0, i64 2), %invoke.cont.i34 ], [ %vtable13.pre, %for.cond.cleanup._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit37_crit_edge ]
+  %vtable13 = phi ptr [ getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal18OsStackTraceGetterE, i64 0, i32 0, i64 2), %invoke.cont.i34 ], [ %vtable13.pre, %for.cond.cleanup._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit37_crit_edge ]
   %23 = phi ptr [ %call.i35, %invoke.cont.i34 ], [ %22, %for.cond.cleanup._ZN7testing8internal12UnitTestImpl21os_stack_trace_getterEv.exit37_crit_edge ]
   %vfn14 = getelementptr inbounds ptr, ptr %vtable13, i64 3
   %24 = load ptr, ptr %vfn14, align 8
@@ -25356,7 +25356,7 @@ _ZNK7testing8internal12UnitTestImpl30reportable_disabled_test_countEv.exit: ; pr
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing8internal17TestEventRepeaterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %listeners_ = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %listeners_, align 8
   %_M_finish.i.i = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
@@ -25402,7 +25402,7 @@ _ZNSt6vectorIPN7testing17TestEventListenerESaIS2_EED2Ev.exit: ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing8internal17TestEventRepeaterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %listeners_.i = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %listeners_.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 1
@@ -26106,7 +26106,7 @@ if.end:                                           ; preds = %for.body, %if.then,
 define hidden void @_ZN7testing8internal24XmlUnitTestResultPrinterC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef readonly %output_file) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %output_file_ = getelementptr inbounds %"class.testing::internal::XmlUnitTestResultPrinter", ptr %this, i64 0, i32 1
   %0 = getelementptr inbounds %"class.testing::internal::XmlUnitTestResultPrinter", ptr %this, i64 0, i32 1, i32 2
   store ptr %0, ptr %output_file_, align 8
@@ -26336,7 +26336,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
   %24 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %24, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %stream, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %stream, i64 0, i32 1, i32 2
   %25 = load ptr, ptr %_M_string.i.i.i, align 8
   %26 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %stream, i64 0, i32 1, i32 2, i32 2
@@ -26355,7 +26355,7 @@ if.then.i.i.i.i.i44:                              ; preds = %_ZNSt7__cxx1112basi
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i44, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %stream, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %28 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -28759,7 +28759,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %9 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %9, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2
   %10 = load ptr, ptr %_M_string.i.i.i, align 8
   %11 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2, i32 2
@@ -28778,7 +28778,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %13 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -35170,7 +35170,7 @@ entry:
 define hidden void @_ZN7testing18TestEventListenersC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #56
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %forwarding_enabled_.i = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %call, i64 0, i32 1
   store i8 1, ptr %forwarding_enabled_.i, align 8
   %listeners_.i = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %call, i64 0, i32 2
@@ -37488,7 +37488,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing8UnitTestC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = tail call noalias noundef nonnull dereferenceable(408) ptr @_Znwm(i64 noundef 408) #56
   invoke void @_ZN7testing8internal12UnitTestImplC2EPNS_8UnitTestE(ptr noundef nonnull align 8 dereferenceable(401) %call, ptr noundef nonnull %this)
           to label %invoke.cont unwind label %lpad
@@ -37508,7 +37508,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing8UnitTestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds %"class.testing::UnitTest", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %impl_, align 8
   %isnull = icmp eq ptr %0, null
@@ -37528,7 +37528,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing8UnitTestD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8UnitTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds %"class.testing::UnitTest", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %impl_.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -37549,7 +37549,7 @@ _ZN7testing8UnitTestD2Ev.exit:                    ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing8internal12UnitTestImplC2EPNS_8UnitTestE(ptr noundef nonnull align 8 dereferenceable(401) %this, ptr noundef %parent) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont13:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %parent_ = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 1
   store ptr %parent, ptr %parent_, align 8
   %original_working_dir_ = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 2
@@ -37559,11 +37559,11 @@ invoke.cont13:
   store i64 0, ptr %_M_string_length.i.i.i.i.i, align 8
   store i8 0, ptr %0, align 8
   %default_global_test_part_result_reporter_ = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %default_global_test_part_result_reporter_, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal35DefaultGlobalTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %default_global_test_part_result_reporter_, align 8
   %unit_test_.i = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 3, i32 1
   store ptr %this, ptr %unit_test_.i, align 8
   %default_per_thread_test_part_result_reporter_ = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i64 0, inrange i32 0, i64 2), ptr %default_per_thread_test_part_result_reporter_, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal38DefaultPerThreadTestPartResultReporterE, i64 0, i32 0, i64 2), ptr %default_per_thread_test_part_result_reporter_, align 8
   %unit_test_.i47 = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 4, i32 1
   store ptr %this, ptr %unit_test_.i47, align 8
   %global_test_part_result_repoter_ = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 5
@@ -37589,7 +37589,7 @@ invoke.cont13:
           to label %invoke.cont15 unwind label %lpad14
 
 invoke.cont15:                                    ; preds = %invoke.cont13
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, inrange i32 0, i64 2), ptr %call.i48, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17TestEventRepeaterE, i64 0, i32 0, i64 2), ptr %call.i48, align 8
   %forwarding_enabled_.i.i = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %call.i48, i64 0, i32 1
   store i8 1, ptr %forwarding_enabled_.i.i, align 8
   %listeners_.i.i = getelementptr inbounds %"class.testing::internal::TestEventRepeater", ptr %call.i48, i64 0, i32 2
@@ -37609,7 +37609,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
           to label %invoke.cont20 unwind label %lpad19
 
 invoke.cont20:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal23DefaultDeathTestFactoryE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal23DefaultDeathTestFactoryE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr %death_test_factory_, align 8
   %gtest_trace_stack_ = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 30
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %gtest_trace_stack_, i8 0, i64 25, i1 false)
@@ -37617,7 +37617,7 @@ invoke.cont20:                                    ; preds = %invoke.cont15
           to label %invoke.cont27 unwind label %lpad24
 
 invoke.cont27:                                    ; preds = %invoke.cont20
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal27PrettyUnitTestResultPrinterE, i64 0, inrange i32 0, i64 2), ptr %call28, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal27PrettyUnitTestResultPrinterE, i64 0, i32 0, i64 2), ptr %call28, align 8
   invoke void @_ZN7testing18TestEventListeners23SetDefaultResultPrinterEPNS_17TestEventListenerE(ptr noundef nonnull align 8 dereferenceable(24) %listeners_, ptr noundef nonnull %call28)
           to label %invoke.cont31 unwind label %lpad24
 
@@ -37869,7 +37869,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing8internal12UnitTestImplD2Ev(ptr noundef nonnull align 8 dereferenceable(401) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7testing8internal12UnitTestImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %test_cases_ = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 10
   %0 = load ptr, ptr %test_cases_, align 8
   %_M_finish.i.i = getelementptr inbounds %"class.testing::internal::UnitTestImpl", ptr %this, i64 0, i32 10, i32 0, i32 0, i32 0, i32 1
@@ -38644,7 +38644,7 @@ define linkonce_odr hidden void @_ZN7testing8internal17StreamingListenerC2ERKNSt
 entry:
   %__dnew.i.i.i = alloca i64, align 8
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %socket_writer_ = getelementptr inbounds %"class.testing::internal::StreamingListener", ptr %this, i64 0, i32 1
   %call = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #56
   invoke void @_ZN7testing8internal17StreamingListener12SocketWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_(ptr noundef nonnull align 8 dereferenceable(80) %call, ptr noundef nonnull align 8 dereferenceable(32) %host, ptr noundef nonnull align 8 dereferenceable(32) %port)
@@ -43024,7 +43024,7 @@ define hidden void @_ZN7testing8internal9DeathTestC2Ev(ptr nocapture noundef non
 entry:
   %__dnew.i.i = alloca i64, align 8
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal9DeathTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal9DeathTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %_ZN7testing8internal15GetUnitTestImplEv.exit, !prof !5
@@ -46173,7 +46173,7 @@ entry:
   store i8 0, ptr %spawned_.i, align 8
   %status_.i = getelementptr inbounds %"class.testing::internal::DeathTestImpl", ptr %this, i64 0, i32 5
   store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %status_.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal16ForkingDeathTestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal16ForkingDeathTestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_pid_ = getelementptr inbounds %"class.testing::internal::ForkingDeathTest", ptr %this, i64 0, i32 1
   store i32 -1, ptr %child_pid_, align 4
   ret void
@@ -58166,7 +58166,7 @@ _ZN7testing8internal13ExecDeathTestC2EPKcPKNS0_2REES3_i.exit: ; preds = %if.then
   store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %status_.i.i.i, align 4
   %child_pid_.i.i = getelementptr inbounds %"class.testing::internal::ForkingDeathTest", ptr %call49, i64 0, i32 1
   store i32 -1, ptr %child_pid_.i.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13ExecDeathTestE, i64 0, inrange i32 0, i64 2), ptr %call49, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13ExecDeathTestE, i64 0, i32 0, i64 2), ptr %call49, align 8
   %file_.i = getelementptr inbounds %"class.testing::internal::ExecDeathTest", ptr %call49, i64 0, i32 1
   store ptr %file, ptr %file_.i, align 8
   %line_.i254 = getelementptr inbounds %"class.testing::internal::ExecDeathTest", ptr %call49, i64 0, i32 2
@@ -58200,7 +58200,7 @@ _ZN7testing8internal15NoExecDeathTestC2EPKcPKNS0_2REE.exit: ; preds = %if.then54
   store <4 x i32> <i32 -1, i32 0, i32 -1, i32 -1>, ptr %status_.i.i.i261, align 4
   %child_pid_.i.i265 = getelementptr inbounds %"class.testing::internal::ForkingDeathTest", ptr %call55, i64 0, i32 1
   store i32 -1, ptr %child_pid_.i.i265, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal15NoExecDeathTestE, i64 0, inrange i32 0, i64 2), ptr %call55, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal15NoExecDeathTestE, i64 0, i32 0, i64 2), ptr %call55, align 8
   br label %if.end71
 
 lpad56:                                           ; preds = %if.then54
@@ -63353,7 +63353,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing8internal24HasNewFatalFailureHelperC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %has_new_fatal_failure_ = getelementptr inbounds %"class.testing::internal::HasNewFatalFailureHelper", ptr %this, i64 0, i32 1
   store i8 0, ptr %has_new_fatal_failure_, align 8
   %original_reporter_ = getelementptr inbounds %"class.testing::internal::HasNewFatalFailureHelper", ptr %this, i64 0, i32 2
@@ -63423,7 +63423,7 @@ lpad.body:                                        ; preds = %lpad.i.i12, %lpad.i
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7testing8internal24HasNewFatalFailureHelperD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal24HasNewFatalFailureHelperE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN7testing8UnitTest11GetInstanceEvE8instance acquire, align 8
   %guard.uninitialized.i.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i.i, label %init.check.i.i, label %invoke.cont2, !prof !5
@@ -64286,7 +64286,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal24XmlUnitTestResultPrinterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %output_file_ = getelementptr inbounds %"class.testing::internal::XmlUnitTestResultPrinter", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %output_file_, align 8
   %1 = getelementptr inbounds %"class.testing::internal::XmlUnitTestResultPrinter", ptr %this, i64 0, i32 1, i32 2
@@ -64311,7 +64311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal24XmlUnitTestResultPrinterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal24XmlUnitTestResultPrinterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %output_file_.i = getelementptr inbounds %"class.testing::internal::XmlUnitTestResultPrinter", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %output_file_.i, align 8
   %1 = getelementptr inbounds %"class.testing::internal::XmlUnitTestResultPrinter", ptr %this, i64 0, i32 1, i32 2
@@ -64452,7 +64452,7 @@ do.body:
   %ref.tmp5 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13DeathTestImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7testing8internal13DeathTestImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %read_fd_ = getelementptr inbounds %"class.testing::internal::DeathTestImpl", ptr %this, i64 0, i32 7
   %0 = load i32, ptr %read_fd_, align 4
   %cmp = icmp eq i32 %0, -1
@@ -65054,7 +65054,7 @@ define linkonce_odr hidden void @_ZN7testing8internal17StreamingListener12Socket
 entry:
   %__dnew.i.i11 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %sockfd_ = getelementptr inbounds %"class.testing::internal::StreamingListener::SocketWriter", ptr %this, i64 0, i32 1
   store i32 -1, ptr %sockfd_, align 8
   %host_name_ = getelementptr inbounds %"class.testing::internal::StreamingListener::SocketWriter", ptr %this, i64 0, i32 2
@@ -65195,7 +65195,7 @@ ehcleanup6:                                       ; preds = %if.then.i.i25, %_ZN
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal17StreamingListenerD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %socket_writer_ = getelementptr inbounds %"class.testing::internal::StreamingListener", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %socket_writer_, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -65216,7 +65216,7 @@ _ZN7testing8internal10scoped_ptrINS0_17StreamingListener20AbstractSocketWriterEE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal17StreamingListenerD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #16 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListenerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %socket_writer_.i = getelementptr inbounds %"class.testing::internal::StreamingListener", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %socket_writer_.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -68566,7 +68566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal17StreamingListener12SocketWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %sockfd_ = getelementptr inbounds %"class.testing::internal::StreamingListener::SocketWriter", ptr %this, i64 0, i32 1
   %0 = load i32, ptr %sockfd_, align 8
   %cmp.not = icmp eq i32 %0, -1
@@ -68626,7 +68626,7 @@ terminate.lpad:                                   ; preds = %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7testing8internal17StreamingListener12SocketWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal17StreamingListener12SocketWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %sockfd_.i = getelementptr inbounds %"class.testing::internal::StreamingListener::SocketWriter", ptr %this, i64 0, i32 1
   %0 = load i32, ptr %sockfd_.i, align 8
   %cmp.not.i = icmp eq i32 %0, -1
@@ -71555,7 +71555,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8
   %_M_stringbuf.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_string.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2
   %11 = load ptr, ptr %_M_string.i.i.i, align 8
   %12 = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 2, i32 2
@@ -71574,7 +71574,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8
   %_M_buf_locale.i.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_stringstream", ptr %ss, i64 0, i32 1, i32 0, i32 7
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #53
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8

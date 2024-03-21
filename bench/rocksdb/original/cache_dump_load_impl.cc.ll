@@ -3801,7 +3801,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb15CacheDumperImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb15CacheDumperImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %writer_ = getelementptr inbounds %"class.rocksdb::CacheDumperImpl", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN7rocksdb15CacheDumpWriterESt14default_deleteIS1_EE5resetEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %writer_, ptr noundef null) #3
   %prefix_filter_ = getelementptr inbounds %"class.rocksdb::CacheDumperImpl", ptr %this1, i32 0, i32 6
@@ -3831,7 +3831,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb21CacheDumpedLoaderImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb21CacheDumpedLoaderImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %reader_ = getelementptr inbounds %"class.rocksdb::CacheDumpedLoaderImpl", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN7rocksdb15CacheDumpReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %reader_) #3
   %secondary_cache_ = getelementptr inbounds %"class.rocksdb::CacheDumpedLoaderImpl", ptr %this1, i32 0, i32 2

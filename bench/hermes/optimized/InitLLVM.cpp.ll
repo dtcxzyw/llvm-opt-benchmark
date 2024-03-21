@@ -38,7 +38,7 @@ entry:
   %0 = load i32, ptr %Argc, align 4
   %1 = load ptr, ptr %Argv, align 8
   tail call void @_ZN4llvh21PrettyStackTraceEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i.i.i.i) #6
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh23PrettyStackTraceProgramE, i64 0, inrange i32 0, i64 2), ptr %add.ptr.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh23PrettyStackTraceProgramE, i64 0, i32 0, i64 2), ptr %add.ptr.i.i.i.i.i, align 8
   %ArgC.i = getelementptr inbounds i8, ptr %this, i64 136
   store i32 %0, ptr %ArgC.i, align 8
   %ArgV.i = getelementptr inbounds i8, ptr %this, i64 144

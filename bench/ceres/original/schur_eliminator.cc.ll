@@ -6060,7 +6060,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi2
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi2ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi2ELi2EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -6203,7 +6203,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal19SchurEliminatorBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal19SchurEliminatorBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7880,7 +7880,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi3
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi2ELi3EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.204", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -8651,7 +8651,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELi4
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi2ELi4EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.212", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -9422,7 +9422,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi2ELin
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi2ELin1EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.220", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -10193,7 +10193,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi3
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELi3EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.228", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -10964,7 +10964,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi4
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELi4EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.236", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -11735,7 +11735,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi6
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELi6EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.244", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -12506,7 +12506,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELi9
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELi9EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.252", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -13277,7 +13277,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi3ELin
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi3ELin1EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.260", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -14048,7 +14048,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi3
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi3EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.268", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -14819,7 +14819,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi4
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi4EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.276", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -15590,7 +15590,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi6
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi6EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.284", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -16361,7 +16361,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi8
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi8EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.292", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -17132,7 +17132,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELi9
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELi9EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.300", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -17903,7 +17903,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELi4ELin
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELi4ELin1EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.308", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -18674,7 +18674,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi2ELin1ELi
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi2ELin1ELin1EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.316", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -19445,7 +19445,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi3ELi3ELi3
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi3ELi3ELi3EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.324", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -20216,7 +20216,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi2
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi4ELi4ELi2EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.332", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -20987,7 +20987,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi3
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi4ELi4ELi3EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.340", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -21758,7 +21758,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELi4
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi4ELi4ELi4EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.348", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -22529,7 +22529,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILi4ELi4ELin
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILi4ELi4ELin1EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.356", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13
@@ -23300,7 +23300,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SchurEliminatorILin1ELin1EL
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19SchurEliminatorBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5ceres8internal15SchurEliminatorILin1ELin1ELin1EEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.ceres::internal::SchurEliminator.364", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %"struct.ceres::internal::LinearSolver::Options", ptr %12, i32 0, i32 13

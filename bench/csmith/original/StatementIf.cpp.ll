@@ -1388,7 +1388,7 @@ define dso_local void @_ZN11StatementIfC2EP5BlockRK10ExpressionRKS0_S6_(ptr noun
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %7, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11StatementIf, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11StatementIf, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.StatementIf, ptr %11, i32 0, i32 1
   %14 = load ptr, ptr %8, align 8
   store ptr %14, ptr %13, align 8
@@ -1416,7 +1416,7 @@ define dso_local void @_ZN11StatementIfC2ERKS_(ptr noundef nonnull align 8 deref
   %9 = getelementptr inbounds %class.Statement, ptr %8, i32 0, i32 4
   %10 = load ptr, ptr %9, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef %7, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11StatementIf, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11StatementIf, i32 0, i32 0, i32 2), ptr %5, align 8
   %11 = getelementptr inbounds %class.StatementIf, ptr %5, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   %13 = getelementptr inbounds %class.StatementIf, ptr %12, i32 0, i32 1
@@ -1450,7 +1450,7 @@ define dso_local void @_ZN11StatementIfD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11StatementIf, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11StatementIf, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.StatementIf, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

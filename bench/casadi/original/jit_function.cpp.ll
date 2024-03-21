@@ -1155,7 +1155,7 @@ define void @_ZN6casadi11JitFunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_tra
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %9, align 8
   call void @_ZN6casadi16FunctionInternalC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1304) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi11JitFunctionE, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi11JitFunctionE, i32 0, i32 0, i32 2), ptr %17, align 8
   %19 = getelementptr inbounds %"class.casadi::JitFunction", ptr %17, i32 0, i32 2
   %20 = load ptr, ptr %10, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %20)
@@ -2458,7 +2458,7 @@ define void @_ZN6casadi11JitFunctionD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi11JitFunctionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi11JitFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %4 unwind label %8
 

@@ -76,7 +76,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %delegate, ptr %delegate.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 1
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEEC2IS2_EEONS0_IT_EE(ptr noundef nonnull align 8 dereferenceable(8) %delegate_, ptr noundef nonnull align 8 dereferenceable(8) %delegate)
   %deadline_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 2
@@ -163,7 +163,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net9QuicAlarmE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %delegate_ = getelementptr inbounds %"class.net::QuicAlarm", ptr %this1, i32 0, i32 1
   call void @_ZN3net18QuicArenaScopedPtrINS_9QuicAlarm8DelegateEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %delegate_) #8
   ret void

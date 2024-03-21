@@ -329,7 +329,7 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
   %p.addr.06.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %.noexc5 ]
   %i.05.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %.noexc5 ]
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i64 0, inrange i32 0, i64 2), ptr %read.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i64 0, i32 0, i64 2), ptr %read.i, align 8
   store i8 0, ptr %flag.i.i, align 8
   store i32 0, ptr %mat_nr.i.i, align 4
   store i32 0, ptr %bweight.i.i, align 8
@@ -499,7 +499,7 @@ invoke.cont:                                      ; preds = %new.ctorloop, %invo
   %arrayctor.cur.ptr.ptr = getelementptr inbounds i8, ptr %call, i64 %arrayctor.cur.idx
   %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MVertE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.ptr, align 8
   %flag.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 40
   store i8 0, ptr %flag.i, align 8
   %mat_nr.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.ptr, i64 44
@@ -605,7 +605,7 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
   %p.addr.06.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %.noexc5 ]
   %i.05.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %.noexc5 ]
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 0, inrange i32 0, i64 2), ptr %read.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 0, i32 0, i64 2), ptr %read.i, align 8
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertINS0_5MEdgeEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef nonnull align 8 dereferenceable(28) %read.i, ptr noundef nonnull align 8 dereferenceable(232) %db)
           to label %.noexc5 unwind label %lpad2.loopexit
 
@@ -677,7 +677,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
   %arrayctor.cur = phi ptr [ %4, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MEdgeE, i64 0, i32 0, i64 2), ptr %arrayctor.cur, align 8
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 32
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
@@ -764,7 +764,7 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
   %p.addr.06.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %.noexc5 ]
   %i.05.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %.noexc5 ]
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, inrange i32 0, i64 2), ptr %read.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %read.i, align 8
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertINS0_5MFaceEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef nonnull align 8 dereferenceable(37) %read.i, ptr noundef nonnull align 8 dereferenceable(232) %db)
           to label %.noexc5 unwind label %lpad2.loopexit
 
@@ -840,7 +840,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
   %arrayctor.cur = phi ptr [ %8, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MFaceE, i64 0, i32 0, i64 2), ptr %arrayctor.cur, align 8
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 40
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
@@ -931,7 +931,7 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
   %p.addr.06.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %.noexc5 ]
   %i.05.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %.noexc5 ]
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, inrange i32 0, i64 2), ptr %read.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %read.i, align 8
   store i8 0, ptr %flag.i.i, align 8
   store i16 0, ptr %mode.i.i, align 2
   store i16 0, ptr %tile.i.i, align 4
@@ -1011,7 +1011,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
   %arrayctor.cur = phi ptr [ %8, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender6MTFaceE, i64 0, i32 0, i64 2), ptr %arrayctor.cur, align 8
   %flag.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 48
   store i8 0, ptr %flag.i, align 8
   %mode.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 50
@@ -1106,7 +1106,7 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
   %p.addr.06.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %.noexc5 ]
   %i.05.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %.noexc5 ]
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 0, inrange i32 0, i64 2), ptr %read.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 0, i32 0, i64 2), ptr %read.i, align 8
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertINS0_8MTexPolyEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef nonnull align 8 dereferenceable(32) %read.i, ptr noundef nonnull align 8 dereferenceable(232) %db)
           to label %.noexc5 unwind label %lpad2.loopexit
 
@@ -1178,7 +1178,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
   %arrayctor.cur = phi ptr [ %4, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MTexPolyE, i64 0, i32 0, i64 2), ptr %arrayctor.cur, align 8
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 32
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
@@ -1265,7 +1265,7 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
   %p.addr.06.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %.noexc5 ]
   %i.05.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %.noexc5 ]
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 0, inrange i32 0, i64 2), ptr %read.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 0, i32 0, i64 2), ptr %read.i, align 8
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertINS0_7MLoopUVEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef nonnull align 8 dereferenceable(28) %read.i, ptr noundef nonnull align 8 dereferenceable(232) %db)
           to label %.noexc5 unwind label %lpad2.loopexit
 
@@ -1337,7 +1337,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
   %arrayctor.cur = phi ptr [ %4, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender7MLoopUVE, i64 0, i32 0, i64 2), ptr %arrayctor.cur, align 8
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 32
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
@@ -1424,7 +1424,7 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
   %p.addr.06.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %.noexc5 ]
   %i.05.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %.noexc5 ]
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 0, inrange i32 0, i64 2), ptr %read.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 0, i32 0, i64 2), ptr %read.i, align 8
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertINS0_8MLoopColEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef nonnull align 8 dereferenceable(20) %read.i, ptr noundef nonnull align 8 dereferenceable(232) %db)
           to label %.noexc5 unwind label %lpad2.loopexit
 
@@ -1501,7 +1501,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
   %arrayctor.cur = phi ptr [ %8, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender8MLoopColE, i64 0, i32 0, i64 2), ptr %arrayctor.cur, align 8
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 24
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
@@ -1588,7 +1588,7 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
   %p.addr.06.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %.noexc5 ]
   %i.05.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %.noexc5 ]
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 0, inrange i32 0, i64 2), ptr %read.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 0, i32 0, i64 2), ptr %read.i, align 8
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertINS0_5MPolyEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef nonnull align 8 dereferenceable(27) %read.i, ptr noundef nonnull align 8 dereferenceable(232) %db)
           to label %.noexc5 unwind label %lpad2.loopexit
 
@@ -1660,7 +1660,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
   %arrayctor.cur = phi ptr [ %4, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MPolyE, i64 0, i32 0, i64 2), ptr %arrayctor.cur, align 8
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 32
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
@@ -1747,7 +1747,7 @@ for.body.i:                                       ; preds = %.noexc5, %for.body.
   %p.addr.06.i = phi ptr [ %1, %for.body.lr.ph.i ], [ %incdec.ptr.i, %.noexc5 ]
   %i.05.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %.noexc5 ]
   store ptr null, ptr %dna_type.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 0, inrange i32 0, i64 2), ptr %read.i, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 0, i32 0, i64 2), ptr %read.i, align 8
   invoke void @_ZNK6Assimp7Blender9Structure7ConvertINS0_5MLoopEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %call, ptr noundef nonnull align 8 dereferenceable(24) %read.i, ptr noundef nonnull align 8 dereferenceable(232) %db)
           to label %.noexc5 unwind label %lpad2.loopexit
 
@@ -1824,7 +1824,7 @@ arrayctor.loop:                                   ; preds = %arrayctor.loop, %ne
   %arrayctor.cur = phi ptr [ %8, %new.ctorloop ], [ %arrayctor.next, %arrayctor.loop ]
   %dna_type.i.i = getelementptr inbounds i8, ptr %arrayctor.cur, i64 8
   store ptr null, ptr %dna_type.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6Assimp7Blender5MLoopE, i64 0, i32 0, i64 2), ptr %arrayctor.cur, align 8
   %arrayctor.next = getelementptr inbounds i8, ptr %arrayctor.cur, i64 24
   %arrayctor.done = icmp eq ptr %arrayctor.next, %arrayctor.end
   br i1 %arrayctor.done, label %arrayctor.cont, label %arrayctor.loop
@@ -1938,7 +1938,7 @@ lpad.i:                                           ; preds = %entry
 _ZN17DeadlyImportErrorC2IJRA17_KcRKiRA14_S1_EEEDpOT_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp.i) #14
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -1998,7 +1998,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8ElemBaseELN9__gnu_cxx12_Lock_policyE2EEC2IS
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i4.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6Assimp7Blender8ElemBaseEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i4.i.i.i, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i, i64 16
   store ptr %__d, ptr %_M_impl.i.i.i.i, align 8
   %_M_ptr.i.i5.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i4.i.i.i, i64 24
@@ -2314,7 +2314,7 @@ lpad.i:                                           ; preds = %entry
 _ZN17DeadlyImportErrorC2IJRA43_KcRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERA2_S1_EEEDpOT_.exit: ; preds = %entry
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %agg.tmp.i) #14
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %agg.tmp.i)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp7Blender5ErrorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

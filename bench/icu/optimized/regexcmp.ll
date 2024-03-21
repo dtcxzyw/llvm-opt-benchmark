@@ -569,9 +569,9 @@ declare void @uprv_free_75(ptr noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7512RegexCompileC2EPNS_12RegexPatternER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef %rxp, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512RegexCompileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512RegexCompileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fLiteralChars = getelementptr inbounds i8, ptr %this, i64 296
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %fLiteralChars, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %fLiteralChars, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 304
   store i16 2, ptr %fUnion2.i, align 8
   %fParenStack = getelementptr inbounds i8, ptr %this, i64 368
@@ -702,7 +702,7 @@ declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 derefere
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7512RegexCompileD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512RegexCompileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7512RegexCompileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fCaptureName = getelementptr inbounds i8, ptr %this, i64 504
   %0 = load ptr, ptr %fCaptureName, align 8
   %isnull = icmp eq ptr %0, null
@@ -2674,7 +2674,7 @@ sw.bb27:                                          ; preds = %entry
   br i1 %new.isnull, label %if.then31, label %new.cont
 
 new.cont:                                         ; preds = %sw.bb27
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %call28, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %call28, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %call28, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fCaptureName = getelementptr inbounds i8, ptr %this, i64 504
@@ -3850,7 +3850,7 @@ sw.bb664:                                         ; preds = %entry
   br i1 %new.isnull666, label %if.then679, label %new.cont675
 
 new.cont675:                                      ; preds = %sw.bb664
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %call665, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %call665, align 8
   %fUnion2.i184 = getelementptr inbounds i8, ptr %call665, i64 8
   store i16 2, ptr %fUnion2.i184, align 8
   %fCaptureName676 = getelementptr inbounds i8, ptr %this, i64 504
@@ -4863,7 +4863,7 @@ if.end:                                           ; preds = %entry
   br i1 %cmp102, label %for.body.lr.ph, label %for.end.thread
 
 for.end.thread:                                   ; preds = %if.end
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %caseStringBuffer, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %caseStringBuffer, align 8
   %fUnion2.i114 = getelementptr inbounds i8, ptr %caseStringBuffer, i64 8
   store i16 2, ptr %fUnion2.i114, align 8
   br label %for.end65
@@ -4943,7 +4943,7 @@ lpad:                                             ; preds = %_ZN6icu_759UVector3
   br label %ehcleanup
 
 for.end:                                          ; preds = %_ZNK6icu_759UVector6410elementAtiEi.exit
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %caseStringBuffer, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %caseStringBuffer, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %caseStringBuffer, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br i1 %cmp102, label %for.body16.lr.ph, label %for.end65
@@ -8609,7 +8609,7 @@ if.end:                                           ; preds = %entry
   %2 = load i32, ptr %fC, align 8
   %cmp = icmp eq i32 %2, 80
   %conv = zext i1 %cmp to i8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %propertyName, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %propertyName, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %propertyName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7512RegexCompile8nextCharERNS0_16RegexPatternCharE(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 4 dereferenceable(8) %fC)
@@ -8813,7 +8813,7 @@ if.then3:                                         ; preds = %if.end
   br label %return
 
 if.end4:                                          ; preds = %if.end
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %charName, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %charName, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %charName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   br label %for.cond
@@ -9396,7 +9396,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %14 = load <2 x i32>, ptr %fLastChar, align 8
   %fC = getelementptr inbounds i8, ptr %this, i64 72
   %15 = load i64, ptr %fC, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %propName, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %propName, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %propName, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7512RegexCompile8nextCharERNS0_16RegexPatternCharE(ptr noundef nonnull align 8 dereferenceable(512) %this, ptr noundef nonnull align 4 dereferenceable(8) %fC)
@@ -10140,7 +10140,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   store ptr null, ptr %set, align 8
   store i32 0, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %setExpr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %setExpr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %setExpr, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call2.i36 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %setExpr, ptr noundef nonnull @.str, i32 noundef 0, i32 noundef -1)

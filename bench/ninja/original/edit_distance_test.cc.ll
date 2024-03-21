@@ -756,7 +756,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI31Edit
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31EditDistanceTest_TestEmpty_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31EditDistanceTest_TestEmpty_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1235,7 +1235,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI37Edit
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37EditDistanceTest_TestMaxDistance_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37EditDistanceTest_TestMaxDistance_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1469,7 +1469,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI43Edit
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43EditDistanceTest_TestAllowReplacements_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43EditDistanceTest_TestAllowReplacements_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1933,7 +1933,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Edit
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32EditDistanceTest_TestBasics_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32EditDistanceTest_TestBasics_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2290,7 +2290,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2370,7 +2370,7 @@ define linkonce_odr dso_local void @_ZN31EditDistanceTest_TestEmpty_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31EditDistanceTest_TestEmpty_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31EditDistanceTest_TestEmpty_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2855,7 +2855,7 @@ define linkonce_odr dso_local void @_ZN37EditDistanceTest_TestMaxDistance_TestC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV37EditDistanceTest_TestMaxDistance_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV37EditDistanceTest_TestMaxDistance_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2915,7 +2915,7 @@ define linkonce_odr dso_local void @_ZN43EditDistanceTest_TestAllowReplacements_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV43EditDistanceTest_TestAllowReplacements_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV43EditDistanceTest_TestAllowReplacements_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2975,7 +2975,7 @@ define linkonce_odr dso_local void @_ZN32EditDistanceTest_TestBasics_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32EditDistanceTest_TestBasics_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32EditDistanceTest_TestBasics_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

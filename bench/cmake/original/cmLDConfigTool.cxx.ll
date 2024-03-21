@@ -25,7 +25,7 @@ define dso_local void @_ZN14cmLDConfigToolC2EP26cmRuntimeDependencyArchive(ptr n
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14cmLDConfigTool, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14cmLDConfigTool, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.cmLDConfigTool, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8

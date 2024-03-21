@@ -4270,7 +4270,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %30 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers9SingletonINS0_15PhoneNumberUtilEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %30)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberUtilE, i32 0, inrange i32 0, i32 2), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberUtilE, i32 0, i32 0, i32 2), ptr %30, align 8
   %31 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberUtil", ptr %30, i32 0, i32 1
   %32 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 16) #23
           to label %33 unwind label %71
@@ -4888,7 +4888,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers9SingletonINS0_15Phone
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers9SingletonINS0_15PhoneNumberUtilEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers9SingletonINS0_15PhoneNumberUtilEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4904,7 +4904,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers10NullLoggerC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers6LoggerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers10NullLoggerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers10NullLoggerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8194,7 +8194,7 @@ define dso_local void @_ZN4i18n12phonenumbers15PhoneNumberUtilD2Ev(ptr noundef n
   %4 = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberUtilE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers15PhoneNumberUtilE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberUtil", ptr %5, i32 0, i32 4
   %7 = call noundef ptr @_ZNK5boost10scoped_ptrISt6vectorISt4pairIiPNSt7__cxx114listINS3_12basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EEEESaISD_EEEptEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   %8 = call ptr @_ZNSt6vectorISt4pairIiPNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEESaISB_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %7) #3
@@ -26782,7 +26782,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers6LoggerC2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers6LoggerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers6LoggerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.i18n::phonenumbers::Logger", ptr %3, i32 0, i32 1
   store i32 2, ptr %4, align 8
   ret void
@@ -27953,7 +27953,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers16ICURegExpFactoryC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4i18n12phonenumbers21AbstractRegExpFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers16ICURegExpFactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29382,7 +29382,7 @@ define linkonce_odr dso_local void @_ZN4i18n12phonenumbers21AbstractRegExpFactor
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers21AbstractRegExpFactoryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers21AbstractRegExpFactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

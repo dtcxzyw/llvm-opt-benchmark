@@ -1463,15 +1463,15 @@ $_ZN6google8protobuf8internal8MapFieldINS0_27Struct_FieldsEntry_DoNotUseENSt7__c
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN6google8protobuf9ListValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf9ListValueE, ptr @_ZN6google8protobuf9ListValueD1Ev, ptr @_ZN6google8protobuf9ListValueD0Ev, ptr @_ZNK6google8protobuf9ListValue3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf9ListValue5ClearEv, ptr @_ZNK6google8protobuf9ListValue13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf9ListValue12ByteSizeLongEv, ptr @_ZN6google8protobuf9ListValue14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf9ListValue12GetClassDataEv, ptr @_ZNK6google8protobuf9ListValue18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf9ListValue11GetMetadataEv] }, align 8
-@_ZN6google8protobuf28_ListValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, i32, i32, ptr }, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, i32, i32, ptr }, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, i32, i32, ptr }, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9ListValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { { ptr, i32, i32, ptr }, %"class.google::protobuf::internal::CachedSize" } } zeroinitializer } } }, align 8
+@_ZN6google8protobuf28_ListValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, i32, i32, ptr }, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, i32, i32, ptr }, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, i32, i32, ptr }, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9ListValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { { ptr, i32, i32, ptr }, %"class.google::protobuf::internal::CachedSize" } } zeroinitializer } } }, align 8
 @_ZTVN6google8protobuf6StructE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf6StructE, ptr @_ZN6google8protobuf6StructD1Ev, ptr @_ZN6google8protobuf6StructD0Ev, ptr @_ZNK6google8protobuf6Struct3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf6Struct5ClearEv, ptr @_ZNK6google8protobuf6Struct13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf6Struct12ByteSizeLongEv, ptr @_ZN6google8protobuf6Struct14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf6Struct12GetClassDataEv, ptr @_ZNK6google8protobuf6Struct18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf6Struct11GetMetadataEv] }, align 8
 @_ZN6google8protobuf8internal17kGlobalEmptyTableE = external constant [1 x i64], align 8
-@_ZN6google8protobuf25_Struct_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf6StructE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } } { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } } { ptr @_ZN6google8protobuf8internal8MapFieldINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE7kVTableE, %"struct.std::atomic" zeroinitializer, { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } { i32 0, i32 1, i32 0, i32 1, ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, %"class.google::protobuf::internal::MapAllocator" zeroinitializer } } }, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } } } }, align 8
+@_ZN6google8protobuf25_Struct_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf6StructE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } } { { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } }, %"class.google::protobuf::internal::CachedSize" } { { ptr, %"struct.std::atomic", { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } } { ptr @_ZN6google8protobuf8internal8MapFieldINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE7kVTableE, %"struct.std::atomic" zeroinitializer, { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } } { { i32, i32, i32, i32, ptr, %"class.google::protobuf::internal::MapAllocator" } { i32 0, i32 1, i32 0, i32 1, ptr @_ZN6google8protobuf8internal17kGlobalEmptyTableE, %"class.google::protobuf::internal::MapAllocator" zeroinitializer } } }, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } } } }, align 8
 @_ZTVN6google8protobuf27Struct_FieldsEntry_DoNotUseE = hidden unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf27Struct_FieldsEntry_DoNotUseE, ptr @_ZN6google8protobuf27Struct_FieldsEntry_DoNotUseD2Ev, ptr @_ZN6google8protobuf27Struct_FieldsEntry_DoNotUseD0Ev, ptr @_ZNK6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf7Message5ClearEv, ptr @_ZNK6google8protobuf7Message13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf7Message12ByteSizeLongEv, ptr @_ZN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EE14_InternalParseEPKcPNS1_12ParseContextE, ptr @_ZNK6google8protobuf8internal12MapEntryBase12GetClassDataEv, ptr @_ZNK6google8protobuf7Message18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf27Struct_FieldsEntry_DoNotUse11GetMetadataEv] }, align 8
 @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E = external global %"class.google::protobuf::internal::ExplicitlyConstructed", align 8
-@_ZN6google8protobuf46_Struct_FieldsEntry_DoNotUse_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", %"struct.google::protobuf::internal::ArenaStringPtr", ptr } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", %"struct.google::protobuf::internal::ArenaStringPtr", ptr } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", %"struct.google::protobuf::internal::ArenaStringPtr", ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf27Struct_FieldsEntry_DoNotUseE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %"class.google::protobuf::internal::HasBits" zeroinitializer, %"class.google::protobuf::internal::CachedSize" zeroinitializer, %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, ptr null } } }, align 8
+@_ZN6google8protobuf46_Struct_FieldsEntry_DoNotUse_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", %"struct.google::protobuf::internal::ArenaStringPtr", ptr } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", %"struct.google::protobuf::internal::ArenaStringPtr", ptr } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::HasBits", %"class.google::protobuf::internal::CachedSize", %"struct.google::protobuf::internal::ArenaStringPtr", ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf27Struct_FieldsEntry_DoNotUseE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %"class.google::protobuf::internal::HasBits" zeroinitializer, %"class.google::protobuf::internal::CachedSize" zeroinitializer, %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, ptr null } } }, align 8
 @_ZTVN6google8protobuf5ValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf5ValueE, ptr @_ZN6google8protobuf5ValueD1Ev, ptr @_ZN6google8protobuf5ValueD0Ev, ptr @_ZNK6google8protobuf5Value3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf5Value5ClearEv, ptr @_ZNK6google8protobuf5Value13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf5Value12ByteSizeLongEv, ptr @_ZN6google8protobuf5Value14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf5Value12GetClassDataEv, ptr @_ZNK6google8protobuf5Value18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf5Value11GetMetadataEv] }, align 8
-@_ZN6google8protobuf24_Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5ValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } } { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] } undef, %"class.google::protobuf::internal::CachedSize" zeroinitializer, [1 x i32] zeroinitializer } } } } }, align 8
+@_ZN6google8protobuf24_Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5ValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } } { { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] }, %"class.google::protobuf::internal::CachedSize", [1 x i32] } { { %"struct.google::protobuf::internal::ConstantInitialized", [7 x i8] } undef, %"class.google::protobuf::internal::CachedSize" zeroinitializer, [1 x i32] zeroinitializer } } } } }, align 8
 @_ZN46TableStruct_google_2fprotobuf_2fstruct_2eproto7offsetsE = constant [45 x i32] [i32 16, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 24, i32 32, i32 0, i32 1, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 -1, i32 8, i32 -1, i32 28, i32 -1, i32 -1, i32 -1, i32 -1, i32 1073741824, i32 1073741824, i32 1073741824, i32 1073741824, i32 1073741824, i32 1073741824, i32 16, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16], section "protodesc_cold", align 16
 @_ZL60descriptor_table_protodef_google_2fprotobuf_2fstruct_2eproto = internal constant [639 x i8] c"\0A\1Cgoogle/protobuf/struct.proto\12\0Fgoogle.protobuf\22\84\01\0A\06Struct\123\0A\06fields\18\01 \03(\0B2#.google.protobuf.Struct.FieldsEntry\1AE\0A\0BFieldsEntry\12\0B\0A\03key\18\01 \01(\09\12%\0A\05value\18\02 \01(\0B2\16.google.protobuf.Value:\028\01\22\EA\01\0A\05Value\120\0A\0Anull_value\18\01 \01(\0E2\1A.google.protobuf.NullValueH\00\12\16\0A\0Cnumber_value\18\02 \01(\01H\00\12\16\0A\0Cstring_value\18\03 \01(\09H\00\12\14\0A\0Abool_value\18\04 \01(\08H\00\12/\0A\0Cstruct_value\18\05 \01(\0B2\17.google.protobuf.StructH\00\120\0A\0Alist_value\18\06 \01(\0B2\1A.google.protobuf.ListValueH\00B\06\0A\04kind\223\0A\09ListValue\12&\0A\06values\18\01 \03(\0B2\16.google.protobuf.Value*\1B\0A\09NullValue\12\0E\0A\0ANULL_VALUE\10\00B\7F\0A\13com.google.protobufB\0BStructProtoP\01Z/google.golang.org/protobuf/types/known/structpb\F8\01\01\A2\02\03GPB\AA\02\1EGoogle.Protobuf.WellKnownTypesb\06proto3\00", section "protodesc_cold", align 16
 @.str = private unnamed_addr constant [29 x i8] c"google/protobuf/struct.proto\00", align 1
@@ -1605,7 +1605,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf27Struct_FieldsEntry_DoNotUseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf27Struct_FieldsEntry_DoNotUseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1618,7 +1618,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf8internal12MapEntryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.google::protobuf::internal::MapEntry", ptr %this1, i32 0, i32 1
   %call = invoke ptr @_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9ConstinitEv()
           to label %invoke.cont unwind label %lpad
@@ -1663,7 +1663,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf27Struct_FieldsEntry_DoNotUseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf27Struct_FieldsEntry_DoNotUseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1679,7 +1679,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf8internal12MapEntryBaseCI2NS0_7MessageEEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.google::protobuf::internal::MapEntry", ptr %this1, i32 0, i32 1
   %call = invoke ptr @_ZN6google8protobuf8internal14MapTypeHandlerILNS1_14WireFormatLite9FieldTypeE9ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE9ConstinitEv()
           to label %invoke.cont unwind label %lpad
@@ -1742,7 +1742,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf6StructE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf6StructE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN6google8protobuf6Struct10SharedCtorEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -1778,7 +1778,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1844,7 +1844,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf6StructE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf6StructE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store ptr %this1, ptr %_this, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %from.addr, align 8
@@ -3374,7 +3374,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5ValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5ValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN6google8protobuf5Value10SharedCtorEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -3465,7 +3465,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5ValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5ValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store ptr %this1, ptr %_this, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %from.addr, align 8
@@ -5019,7 +5019,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9ListValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9ListValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN6google8protobuf9ListValue10SharedCtorEPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -5095,7 +5095,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9ListValueE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9ListValueE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store ptr %this1, ptr %_this, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %from.addr, align 8
@@ -6091,7 +6091,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_has_bits_ = getelementptr inbounds %"class.google::protobuf::internal::MapEntryBase", ptr %this1, i32 0, i32 1
   store ptr %_has_bits_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8
@@ -6155,7 +6155,7 @@ entry:
   %cleanup.dest.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryINS0_27Struct_FieldsEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_5ValueELNS1_14WireFormatLite9FieldTypeE9ELSC_11EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef ptr @_ZNK6google8protobuf11MessageLite8GetArenaEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -6227,7 +6227,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6269,7 +6269,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_)
   ret void
@@ -6382,7 +6382,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %arena, ptr %arena.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef %0)
@@ -15839,7 +15839,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_has_bits_ = getelementptr inbounds %"class.google::protobuf::internal::MapEntryBase", ptr %this1, i32 0, i32 1
   store ptr %_has_bits_, ptr %this.addr.i, align 8
   %this1.i = load ptr, ptr %this.addr.i, align 8

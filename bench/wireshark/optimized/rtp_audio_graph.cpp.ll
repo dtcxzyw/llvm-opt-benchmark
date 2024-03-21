@@ -31,7 +31,7 @@ define void @_ZN13RtpAudioGraphC2EP11QCustomPlotj(ptr noundef nonnull align 8 de
   %6 = alloca %class.QPen, align 8
   %7 = alloca %class.QColor, align 4
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13RtpAudioGraph, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13RtpAudioGraph, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 28
   store i32 0, ptr %8, align 4
   %9 = getelementptr inbounds i8, ptr %0, i64 32

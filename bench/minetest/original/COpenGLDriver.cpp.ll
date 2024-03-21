@@ -365,7 +365,7 @@ $_ZTIN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE = comdat any
 
 @_ZN3irr5video13COpenGLDriver13Quad2DIndicesE = constant [4 x i16] [i16 0, i16 1, i16 2, i16 3], align 2
 @_ZTVN3irr5video13COpenGLDriverE = unnamed_addr constant { [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] } { [143 x ptr] [ptr inttoptr (i64 4344 to ptr), ptr null, ptr @_ZTIN3irr5video13COpenGLDriverE, ptr @_ZN3irr5video13COpenGLDriver10beginSceneEtNS0_6SColorEfhRKNS0_17SExposedVideoDataEPNS_4core4rectIiEE, ptr @_ZN3irr5video13COpenGLDriver8endSceneEv, ptr @_ZNK3irr5video13COpenGLDriver12queryFeatureENS0_22E_VIDEO_DRIVER_FEATUREE, ptr @_ZN3irr5video13COpenGLDriver14disableFeatureENS0_22E_VIDEO_DRIVER_FEATUREEb, ptr @_ZNK3irr5video11CNullDriver19getDriverAttributesEv, ptr @_ZN3irr5video11CNullDriver16checkDriverResetEv, ptr @_ZN3irr5video13COpenGLDriver12setTransformENS0_22E_TRANSFORMATION_STATEERKNS_4core8CMatrix4IfEE, ptr @_ZNK3irr5video13COpenGLDriver12getTransformENS0_22E_TRANSFORMATION_STATEE, ptr @_ZNK3irr5video11CNullDriver19getImageLoaderCountEv, ptr @_ZN3irr5video11CNullDriver14getImageLoaderEj, ptr @_ZNK3irr5video11CNullDriver19getImageWriterCountEv, ptr @_ZN3irr5video11CNullDriver14getImageWriterEj, ptr @_ZN3irr5video13COpenGLDriver11setMaterialERKNS0_9SMaterialE, ptr @_ZN3irr5video11CNullDriver10getTextureERKNS_4core6stringIcEE, ptr @_ZN3irr5video11CNullDriver10getTextureEPNS_2io9IReadFileE, ptr @_ZNK3irr5video11CNullDriver15getTextureCountEv, ptr @_ZN3irr5video11CNullDriver10addTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE, ptr @_ZN3irr5video11CNullDriver10addTextureERKNS_4core6stringIcEEPNS0_6IImageE, ptr @_ZN3irr5video11CNullDriver17addTextureCubemapERKNS_4core6stringIcEEPNS0_6IImageES8_S8_S8_S8_S8_, ptr @_ZN3irr5video11CNullDriver17addTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE, ptr @_ZN3irr5video13COpenGLDriver22addRenderTargetTextureERKNS_4core11dimension2dIjEERKNS2_6stringIcEENS0_13ECOLOR_FORMATE, ptr @_ZN3irr5video13COpenGLDriver29addRenderTargetTextureCubemapEjRKNS_4core6stringIcEENS0_13ECOLOR_FORMATE, ptr @_ZN3irr5video13COpenGLDriver13removeTextureEPNS0_8ITextureE, ptr @_ZN3irr5video11CNullDriver17removeAllTexturesEv, ptr @_ZN3irr5video11CNullDriver20removeHardwareBufferEPKNS_5scene11IMeshBufferE, ptr @_ZN3irr5video11CNullDriver24removeAllHardwareBuffersEv, ptr @_ZN3irr5video13COpenGLDriver17addOcclusionQueryEPNS_5scene10ISceneNodeEPKNS2_5IMeshE, ptr @_ZN3irr5video13COpenGLDriver20removeOcclusionQueryEPNS_5scene10ISceneNodeE, ptr @_ZN3irr5video11CNullDriver25removeAllOcclusionQueriesEv, ptr @_ZN3irr5video13COpenGLDriver17runOcclusionQueryEPNS_5scene10ISceneNodeEb, ptr @_ZN3irr5video11CNullDriver22runAllOcclusionQueriesEb, ptr @_ZN3irr5video13COpenGLDriver20updateOcclusionQueryEPNS_5scene10ISceneNodeEb, ptr @_ZN3irr5video11CNullDriver25updateAllOcclusionQueriesEb, ptr @_ZNK3irr5video13COpenGLDriver23getOcclusionQueryResultEPNS_5scene10ISceneNodeE, ptr @_ZN3irr5video13COpenGLDriver15addRenderTargetEv, ptr @_ZN3irr5video11CNullDriver18removeRenderTargetEPNS0_13IRenderTargetE, ptr @_ZN3irr5video11CNullDriver22removeAllRenderTargetsEv, ptr @_ZNK3irr5video11CNullDriver19makeColorKeyTextureEPNS0_8ITextureENS0_6SColorE, ptr @_ZNK3irr5video11CNullDriver19makeColorKeyTextureEPNS0_8ITextureENS_4core8vector2dIiEE, ptr @_ZN3irr5video13COpenGLDriver17setRenderTargetExEPNS0_13IRenderTargetEtNS0_6SColorEfh, ptr @_ZN3irr5video11CNullDriver15setRenderTargetEPNS0_8ITextureEtNS0_6SColorEfh, ptr @_ZN3irr5video13COpenGLDriver11setViewPortERKNS_4core4rectIiEE, ptr @_ZNK3irr5video11CNullDriver11getViewPortEv, ptr @_ZN3irr5video13COpenGLDriver23drawVertexPrimitiveListEPKvjS3_jNS0_13E_VERTEX_TYPEENS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE, ptr @_ZN3irr5video13COpenGLDriver25draw2DVertexPrimitiveListEPKvjS3_jNS0_13E_VERTEX_TYPEENS_5scene16E_PRIMITIVE_TYPEENS0_12E_INDEX_TYPEE, ptr @_ZN3irr5video13COpenGLDriver10draw3DLineERKNS_4core8vector3dIfEES6_NS0_6SColorE, ptr @_ZN3irr5video13COpenGLDriver9draw3DBoxERKNS_4core8aabbox3dIfEENS0_6SColorE, ptr @_ZN3irr5video11CNullDriver11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEEb, ptr @_ZN3irr5video13COpenGLDriver11draw2DImageEPKNS0_8ITextureERKNS_4core8vector2dIiEERKNS5_4rectIiEEPSC_NS0_6SColorEb, ptr @_ZN3irr5video13COpenGLDriver16draw2DImageBatchEPKNS0_8ITextureERKNS_4core5arrayINS5_8vector2dIiEEEERKNS6_INS5_4rectIiEEEEPKSD_NS0_6SColorEb, ptr @_ZN3irr5video13COpenGLDriver11draw2DImageEPKNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb, ptr @_ZN3irr5video13COpenGLDriver15draw2DRectangleENS0_6SColorERKNS_4core4rectIiEEPS6_, ptr @_ZN3irr5video13COpenGLDriver15draw2DRectangleERKNS_4core4rectIiEENS0_6SColorES7_S7_S7_PS5_, ptr @_ZN3irr5video13COpenGLDriver10draw2DLineERKNS_4core8vector2dIiEES6_NS0_6SColorE, ptr @_ZN3irr5video11CNullDriver14drawMeshBufferEPKNS_5scene11IMeshBufferE, ptr @_ZN3irr5video11CNullDriver21drawMeshBufferNormalsEPKNS_5scene11IMeshBufferEfNS0_6SColorE, ptr @_ZN3irr5video13COpenGLDriver6setFogENS0_6SColorENS0_10E_FOG_TYPEEfffbb, ptr @_ZN3irr5video11CNullDriver6getFogERNS0_6SColorERNS0_10E_FOG_TYPEERfS6_S6_RbS7_, ptr @_ZNK3irr5video13COpenGLDriver14getColorFormatEv, ptr @_ZNK3irr5video11CNullDriver13getScreenSizeEv, ptr @_ZNK3irr5video11CNullDriver26getCurrentRenderTargetSizeEv, ptr @_ZNK3irr5video11CNullDriver6getFPSEv, ptr @_ZNK3irr5video11CNullDriver22getPrimitiveCountDrawnEj, ptr @_ZNK3irr5video13COpenGLDriver7getNameEv, ptr @_ZN3irr5video11CNullDriver22addExternalImageLoaderEPNS0_12IImageLoaderE, ptr @_ZN3irr5video11CNullDriver22addExternalImageWriterEPNS0_12IImageWriterE, ptr @_ZNK3irr5video13COpenGLDriver24getMaximalPrimitiveCountEv, ptr @_ZN3irr5video11CNullDriver22setTextureCreationFlagENS0_23E_TEXTURE_CREATION_FLAGEb, ptr @_ZNK3irr5video11CNullDriver22getTextureCreationFlagENS0_23E_TEXTURE_CREATION_FLAGE, ptr @_ZN3irr5video11CNullDriver19createImageFromFileERKNS_4core6stringIcEE, ptr @_ZN3irr5video11CNullDriver19createImageFromFileEPNS_2io9IReadFileE, ptr @_ZN3irr5video11CNullDriver16writeImageToFileEPNS0_6IImageERKNS_4core6stringIcEEj, ptr @_ZN3irr5video11CNullDriver16writeImageToFileEPNS0_6IImageEPNS_2io10IWriteFileEj, ptr @_ZN3irr5video11CNullDriver19createImageFromDataENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEEPvbb, ptr @_ZN3irr5video11CNullDriver11createImageENS0_13ECOLOR_FORMATERKNS_4core11dimension2dIjEE, ptr @_ZN3irr5video11CNullDriver11createImageEPNS0_8ITextureERKNS_4core8vector2dIiEERKNS4_11dimension2dIjEE, ptr @_ZN3irr5video13COpenGLDriver8OnResizeERKNS_4core11dimension2dIjEE, ptr @_ZN3irr5video11CNullDriver19addMaterialRendererEPNS0_17IMaterialRendererEPKc, ptr @_ZNK3irr5video11CNullDriver19getMaterialRendererEj, ptr @_ZNK3irr5video11CNullDriver24getMaterialRendererCountEv, ptr @_ZNK3irr5video11CNullDriver23getMaterialRendererNameEj, ptr @_ZN3irr5video11CNullDriver23setMaterialRendererNameEjPKc, ptr @_ZN3irr5video11CNullDriver21swapMaterialRenderersEjjb, ptr @_ZN3irr5video11CNullDriver19getExposedVideoDataEv, ptr @_ZNK3irr5video13COpenGLDriver13getDriverTypeEv, ptr @_ZN3irr5video11CNullDriver25getGPUProgrammingServicesEv, ptr @_ZN3irr5video11CNullDriver18getMeshManipulatorEv, ptr @_ZN3irr5video13COpenGLDriver12clearBuffersEtNS0_6SColorEfh, ptr @_ZN3irr5video13COpenGLDriver16createScreenShotENS0_13ECOLOR_FORMATENS0_15E_RENDER_TARGETE, ptr @_ZN3irr5video11CNullDriver11findTextureERKNS_4core6stringIcEE, ptr @_ZN3irr5video13COpenGLDriver12setClipPlaneEjRKNS_4core7plane3dIfEEb, ptr @_ZN3irr5video13COpenGLDriver15enableClipPlaneEjb, ptr @_ZN3irr5video11CNullDriver31setMinHardwareBufferVertexCountEj, ptr @_ZN3irr5video11CNullDriver19getOverrideMaterialEv, ptr @_ZN3irr5video11CNullDriver13getMaterial2DEv, ptr @_ZN3irr5video13COpenGLDriver16enableMaterial2DEb, ptr @_ZN3irr5video13COpenGLDriver13getVendorInfoEv, ptr @_ZN3irr5video13COpenGLDriver15setAmbientLightERKNS0_7SColorfE, ptr @_ZNK3irr5video11CNullDriver15getAmbientLightEv, ptr @_ZN3irr5video11CNullDriver27setAllowZWriteOnTransparentEb, ptr @_ZNK3irr5video13COpenGLDriver17getMaxTextureSizeEv, ptr @_ZNK3irr5video11CNullDriver12convertColorEPKvNS0_13ECOLOR_FORMATEiPvS4_, ptr @_ZNK3irr5video13COpenGLDriver18queryTextureFormatENS0_13ECOLOR_FORMATE, ptr @_ZNK3irr5video13COpenGLDriver26needsTransparentRenderPassERKNS0_9SMaterialE, ptr @_ZN3irr5video13COpenGLDriverD1Ev, ptr @_ZN3irr5video13COpenGLDriverD0Ev, ptr @_ZN3irr5video11CNullDriver14draw3DTriangleERKNS_4core10triangle3dIfEENS0_6SColorE, ptr @_ZN3irr5video13COpenGLDriver16draw2DImageBatchEPKNS0_8ITextureERKNS_4core8vector2dIiEERKNS5_5arrayINS5_4rectIiEEEERKNSA_IiEEiPKSC_NS0_6SColorEb, ptr @_ZN3irr5video11CNullDriver22draw2DRectangleOutlineERKNS_4core4rectIiEENS0_6SColorE, ptr @_ZN3irr5video13COpenGLDriver9drawPixelEjjRKNS0_6SColorE, ptr @_ZN3irr5video11CNullDriver13draw2DPolygonENS_4core8vector2dIiEEfNS0_6SColorEi, ptr @_ZN3irr5video13COpenGLDriver23drawStencilShadowVolumeERKNS_4core5arrayINS2_8vector3dIfEEEEbj, ptr @_ZN3irr5video13COpenGLDriver17drawStencilShadowEbNS0_6SColorES2_S2_S2_, ptr @_ZN3irr5video11CNullDriver13getBufferLinkEPKNS_5scene11IMeshBufferE, ptr @_ZN3irr5video13COpenGLDriver20updateHardwareBufferEPNS0_11CNullDriver13SHWBufferLinkE, ptr @_ZN3irr5video13COpenGLDriver18drawHardwareBufferEPNS0_11CNullDriver13SHWBufferLinkE, ptr @_ZN3irr5video13COpenGLDriver20deleteHardwareBufferEPNS0_11CNullDriver13SHWBufferLinkE, ptr @_ZN3irr5video13COpenGLDriver20createHardwareBufferEPKNS_5scene11IMeshBufferE, ptr @_ZN3irr5video11CNullDriver24updateAllHardwareBuffersEv, ptr @_ZN3irr5video11CNullDriver25isHardwareBufferRecommendEPKNS_5scene11IMeshBufferE, ptr @_ZN3irr5video13COpenGLDriver26addHighLevelShaderMaterialEPKcS3_NS0_20E_VERTEX_SHADER_TYPEES3_S3_NS0_19E_PIXEL_SHADER_TYPEES3_S3_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEES8_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi, ptr @_ZN3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesERKNS_4core6stringIcEEPKcNS0_20E_VERTEX_SHADER_TYPEES6_S8_NS0_19E_PIXEL_SHADER_TYPEES6_S8_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESD_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi, ptr @_ZN3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesEPNS_2io9IReadFileEPKcNS0_20E_VERTEX_SHADER_TYPEES4_S6_NS0_19E_PIXEL_SHADER_TYPEES4_S6_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESB_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi, ptr @_ZN3irr5video11CNullDriver20deleteShaderMaterialEi, ptr @_ZN3irr5video11CNullDriver25createRenderTargetTextureERKNS_4core11dimension2dIjEEPKc, ptr @_ZN3irr5video13COpenGLDriver28createDeviceDependentTextureERKNS_4core6stringIcEEPNS0_6IImageE, ptr @_ZN3irr5video13COpenGLDriver35createDeviceDependentTextureCubemapERKNS_4core6stringIcEERKNS2_5arrayIPNS0_6IImageEEE, ptr @_ZN3irr5video13COpenGLDriver11draw2DImageEPKNS0_8ITextureEjb, ptr @_ZN3irr5video13COpenGLDriver20setBasicRenderStatesERKNS0_9SMaterialES4_b, ptr @_ZN3irr5video13COpenGLDriver22setTextureRenderStatesERKNS0_9SMaterialEb, ptr @_ZN3irr5video13COpenGLDriver25getVertexShaderConstantIDEPKc, ptr @_ZN3irr5video13COpenGLDriver24getPixelShaderConstantIDEPKc, ptr @_ZN3irr5video13COpenGLDriver23setVertexShaderConstantEiPKfi, ptr @_ZN3irr5video13COpenGLDriver23setVertexShaderConstantEiPKii, ptr @_ZN3irr5video13COpenGLDriver23setVertexShaderConstantEiPKji, ptr @_ZN3irr5video13COpenGLDriver22setPixelShaderConstantEiPKfi, ptr @_ZN3irr5video13COpenGLDriver22setPixelShaderConstantEiPKii, ptr @_ZN3irr5video13COpenGLDriver22setPixelShaderConstantEiPKji, ptr @_ZN3irr5video13COpenGLDriver14getVideoDriverEv, ptr @_ZN3irr5video13COpenGLDriver14setViewPortRawEjj], [8 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3irr5video13COpenGLDriverE, ptr @_ZThn8_N3irr5video13COpenGLDriverD1Ev, ptr @_ZThn8_N3irr5video13COpenGLDriverD0Ev, ptr @_ZThn8_N3irr5video13COpenGLDriver26addHighLevelShaderMaterialEPKcS3_NS0_20E_VERTEX_SHADER_TYPEES3_S3_NS0_19E_PIXEL_SHADER_TYPEES3_S3_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEES8_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi, ptr @_ZThn8_N3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesERKNS_4core6stringIcEEPKcNS0_20E_VERTEX_SHADER_TYPEES6_S8_NS0_19E_PIXEL_SHADER_TYPEES6_S8_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESD_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi, ptr @_ZThn8_N3irr5video11CNullDriver35addHighLevelShaderMaterialFromFilesEPNS_2io9IReadFileEPKcNS0_20E_VERTEX_SHADER_TYPEES4_S6_NS0_19E_PIXEL_SHADER_TYPEES4_S6_NS0_22E_GEOMETRY_SHADER_TYPEENS_5scene16E_PRIMITIVE_TYPEESB_jPNS0_26IShaderConstantSetCallBackENS0_15E_MATERIAL_TYPEEi, ptr @_ZThn8_N3irr5video11CNullDriver20deleteShaderMaterialEi], [14 x ptr] [ptr inttoptr (i64 -1168 to ptr), ptr @_ZTIN3irr5video13COpenGLDriverE, ptr @_ZThn1168_N3irr5video13COpenGLDriverD1Ev, ptr @_ZThn1168_N3irr5video13COpenGLDriverD0Ev, ptr @_ZThn1168_N3irr5video13COpenGLDriver20setBasicRenderStatesERKNS0_9SMaterialES4_b, ptr @_ZThn1168_N3irr5video13COpenGLDriver25getVertexShaderConstantIDEPKc, ptr @_ZThn1168_N3irr5video13COpenGLDriver23setVertexShaderConstantEiPKfi, ptr @_ZThn1168_N3irr5video13COpenGLDriver23setVertexShaderConstantEiPKii, ptr @_ZThn1168_N3irr5video13COpenGLDriver23setVertexShaderConstantEiPKji, ptr @_ZThn1168_N3irr5video13COpenGLDriver24getPixelShaderConstantIDEPKc, ptr @_ZThn1168_N3irr5video13COpenGLDriver22setPixelShaderConstantEiPKfi, ptr @_ZThn1168_N3irr5video13COpenGLDriver22setPixelShaderConstantEiPKii, ptr @_ZThn1168_N3irr5video13COpenGLDriver22setPixelShaderConstantEiPKji, ptr @_ZThn1168_N3irr5video13COpenGLDriver14getVideoDriverEv], [5 x ptr] [ptr inttoptr (i64 -4344 to ptr), ptr inttoptr (i64 -4344 to ptr), ptr @_ZTIN3irr5video13COpenGLDriverE, ptr @_ZTv0_n24_N3irr5video13COpenGLDriverD1Ev, ptr @_ZTv0_n24_N3irr5video13COpenGLDriverD0Ev] }, align 8
-@_ZTTN3irr5video13COpenGLDriverE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [130 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video13COpenGLDriverE0_NS0_11CNullDriverE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [109 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video13COpenGLDriverE0_NS0_12IVideoDriverE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [109 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video13COpenGLDriverE0_NS0_12IVideoDriverE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [130 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video13COpenGLDriverE0_NS0_11CNullDriverE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i32 0, inrange i32 3, i32 3)], align 8
+@_ZTTN3irr5video13COpenGLDriverE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [130 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video13COpenGLDriverE0_NS0_11CNullDriverE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [109 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video13COpenGLDriverE0_NS0_12IVideoDriverE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [109 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video13COpenGLDriverE0_NS0_12IVideoDriverE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [130 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video13COpenGLDriverE0_NS0_11CNullDriverE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i32 0, inrange i32 3, i32 3)], align 8
 @GL = external global %class.OpenGLProcedures, align 8
 @.str.1 = private unnamed_addr constant [6 x i8] c"%u.%u\00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"GLSL version\00", align 1
@@ -437,7 +437,7 @@ $_ZTIN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE = comdat any
 @.str.29 = private unnamed_addr constant [26 x i8] c"vector::_M_default_append\00", align 1
 @.str.31 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE = linkonce_odr unnamed_addr constant { [6 x ptr], [5 x ptr] } { [6 x ptr] [ptr inttoptr (i64 152 to ptr), ptr null, ptr @_ZTIN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, ptr @_ZN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE11setTexturesEPKPNS0_8ITextureEjS7_PKNS0_14E_CUBE_SURFACEEj, ptr @_ZN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEED1Ev, ptr @_ZN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEED0Ev], [5 x ptr] [ptr inttoptr (i64 -152 to ptr), ptr inttoptr (i64 -152 to ptr), ptr @_ZTIN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, ptr @_ZTv0_n24_N3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEED1Ev, ptr @_ZTv0_n24_N3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEED0Ev] }, comdat, align 8
-@_ZTTN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE0_NS0_13IRenderTargetE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE0_NS0_13IRenderTargetE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE0_NS0_13IRenderTargetE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE0_NS0_13IRenderTargetE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE0_NS0_13IRenderTargetE = linkonce_odr unnamed_addr constant { [6 x ptr], [5 x ptr] } { [6 x ptr] [ptr inttoptr (i64 152 to ptr), ptr null, ptr @_ZTIN3irr5video13IRenderTargetE, ptr @__cxa_pure_virtual, ptr @_ZN3irr5video13IRenderTargetD1Ev, ptr @_ZN3irr5video13IRenderTargetD0Ev], [5 x ptr] [ptr inttoptr (i64 -152 to ptr), ptr inttoptr (i64 -152 to ptr), ptr @_ZTIN3irr5video13IRenderTargetE, ptr @_ZTv0_n24_N3irr5video13IRenderTargetD1Ev, ptr @_ZTv0_n24_N3irr5video13IRenderTargetD0Ev] }, comdat, align 8
 @_ZTSN3irr5video13IRenderTargetE = linkonce_odr constant [28 x i8] c"N3irr5video13IRenderTargetE\00", comdat, align 1
 @_ZTIN3irr5video13IRenderTargetE = linkonce_odr constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN3irr5video13IRenderTargetE, i32 0, i32 1, ptr @_ZTIN3irr17IReferenceCountedE, i64 -6141 }, comdat, align 8
@@ -451,7 +451,7 @@ $_ZTIN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE = comdat any
 @.str.37 = private unnamed_addr constant [13 x i8] c"Texture type\00", align 1
 @.str.38 = private unnamed_addr constant [31 x i8] c"Driver (or cache handler) type\00", align 1
 @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE = linkonce_odr unnamed_addr constant { [8 x ptr], [5 x ptr] } { [8 x ptr] [ptr inttoptr (i64 240 to ptr), ptr null, ptr @_ZTIN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, ptr @_ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE4lockENS0_19E_TEXTURE_LOCK_MODEEjjNS0_20E_TEXTURE_LOCK_FLAGSE, ptr @_ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE6unlockEv, ptr @_ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE22regenerateMipMapLevelsEPvj, ptr @_ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEED1Ev, ptr @_ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEED0Ev], [5 x ptr] [ptr inttoptr (i64 -240 to ptr), ptr inttoptr (i64 -240 to ptr), ptr @_ZTIN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, ptr @_ZTv0_n24_N3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEED1Ev, ptr @_ZTv0_n24_N3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEED0Ev] }, comdat, align 8
-@_ZTTN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE0_NS0_8ITextureE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE0_NS0_8ITextureE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE0_NS0_8ITextureE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE0_NS0_8ITextureE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @.str.39 = private unnamed_addr constant [85 x i8] c"COpenGLCoreTexture: Can't handle format changes for mipmap data. Mipmap data dropped\00", align 1
 @_ZTCN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE0_NS0_8ITextureE = linkonce_odr unnamed_addr constant { [8 x ptr], [5 x ptr] } { [8 x ptr] [ptr inttoptr (i64 240 to ptr), ptr null, ptr @_ZTIN3irr5video8ITextureE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3irr5video8ITextureD1Ev, ptr @_ZN3irr5video8ITextureD0Ev], [5 x ptr] [ptr inttoptr (i64 -240 to ptr), ptr inttoptr (i64 -240 to ptr), ptr @_ZTIN3irr5video8ITextureE, ptr @_ZTv0_n24_N3irr5video8ITextureD1Ev, ptr @_ZTv0_n24_N3irr5video8ITextureD0Ev] }, comdat, align 8
 @_ZTSN3irr5video8ITextureE = linkonce_odr constant [22 x i8] c"N3irr5video8ITextureE\00", comdat, align 1
@@ -493,7 +493,7 @@ define void @_ZN3irr5video13COpenGLDriverC2ERKNS_27SIrrlichtCreationParametersEP
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN3irr5video11CNullDriverC2EPNS_2io11IFileSystemERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164) %0, ptr noundef nonnull %7, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(8) %6) #24
   %8 = getelementptr inbounds i8, ptr %0, i64 1168
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %0, i64 1176
   tail call void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(1872) %9) #24
   %10 = load ptr, ptr %1, align 8
@@ -505,8 +505,8 @@ define void @_ZN3irr5video13COpenGLDriverC2ERKNS_27SIrrlichtCreationParametersEP
   %15 = getelementptr inbounds i8, ptr %0, i64 %14
   store ptr %12, ptr %15, align 8, !tbaa !3
   %16 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, inrange i32 1, i64 2), ptr %16, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, inrange i32 2, i64 2), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 1, i64 2), ptr %16, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 2, i64 2), ptr %8, align 8, !tbaa !3
   %17 = getelementptr inbounds i8, ptr %0, i64 3048
   store ptr null, ptr %17, align 8, !tbaa !6
   %18 = getelementptr inbounds i8, ptr %0, i64 3056
@@ -861,7 +861,7 @@ declare void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr noundef nonnull ali
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5video13COpenGLDriverC1ERKNS_27SIrrlichtCreationParametersEPNS_2io11IFileSystemEPNS0_15IContextManagerE(ptr noundef nonnull align 8 dereferenceable(4344) %0, ptr noundef nonnull align 8 dereferenceable(112) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds i8, ptr %0, i64 4344
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %0, i64 4352
   store ptr null, ptr %6, align 8, !tbaa !138
   %7 = getelementptr inbounds i8, ptr %0, i64 4360
@@ -869,14 +869,14 @@ define void @_ZN3irr5video13COpenGLDriverC1ERKNS_27SIrrlichtCreationParametersEP
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZN3irr5video11CNullDriverC2EPNS_2io11IFileSystemERKNS_4core11dimension2dIjEE(ptr noundef nonnull align 8 dereferenceable(1164) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr5video13COpenGLDriverE, i64 0, i64 1), ptr noundef %2, ptr noundef nonnull align 4 dereferenceable(8) %8) #24
   %9 = getelementptr inbounds i8, ptr %0, i64 1168
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, inrange i32 0, i64 2), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3irr5video25IMaterialRendererServicesE, i64 0, i32 0, i64 2), ptr %9, align 8, !tbaa !3
   %10 = getelementptr inbounds i8, ptr %0, i64 1176
   tail call void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(1872) %10) #24
-  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, inrange i32 3, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 3, i64 3), ptr %5, align 8, !tbaa !3
   %11 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, inrange i32 1, i64 2), ptr %11, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, inrange i32 2, i64 2), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 1, i64 2), ptr %11, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 2, i64 2), ptr %9, align 8, !tbaa !3
   %12 = getelementptr inbounds i8, ptr %0, i64 3048
   store ptr null, ptr %12, align 8, !tbaa !6
   %13 = getelementptr inbounds i8, ptr %0, i64 3056
@@ -1976,9 +1976,9 @@ define void @_ZN3irr5video13COpenGLDriverD2Ev(ptr noundef nonnull align 8 derefe
   %8 = getelementptr inbounds i8, ptr %0, i64 %7
   store ptr %5, ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, inrange i32 1, i64 2), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 1, i64 2), ptr %9, align 8, !tbaa !3
   %10 = getelementptr inbounds i8, ptr %0, i64 1168
-  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, inrange i32 2, i64 2), ptr %10, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [143 x ptr], [8 x ptr], [14 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriverE, i64 0, i32 2, i64 2), ptr %10, align 8, !tbaa !3
   tail call void @_ZN3irr5video11CNullDriver21deleteMaterialRendersEv(ptr noundef nonnull align 8 dereferenceable(1164) %0) #24
   %11 = getelementptr inbounds i8, ptr %0, i64 3048
   %12 = load ptr, ptr %11, align 8, !tbaa !6
@@ -2783,8 +2783,8 @@ define void @_ZN3irr5video13COpenGLDriver23createMaterialRenderersEv(ptr noundef
   store ptr null, ptr %4, align 8, !tbaa !138
   %5 = getelementptr inbounds i8, ptr %2, i64 32
   store i32 1, ptr %5, align 8, !tbaa !140
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video29COpenGLMaterialRenderer_SOLIDE, i64 0, inrange i32 0, i64 3), ptr %2, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video29COpenGLMaterialRenderer_SOLIDE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video29COpenGLMaterialRenderer_SOLIDE, i64 0, i32 0, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video29COpenGLMaterialRenderer_SOLIDE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %0, ptr %6, align 8, !tbaa !195
   %7 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %0, ptr noundef nonnull %2) #24
@@ -2794,8 +2794,8 @@ define void @_ZN3irr5video13COpenGLDriver23createMaterialRenderersEv(ptr noundef
   store ptr null, ptr %10, align 8, !tbaa !138
   %11 = getelementptr inbounds i8, ptr %8, i64 32
   store i32 1, ptr %11, align 8, !tbaa !140
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video49COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNELE, i64 0, inrange i32 0, i64 3), ptr %8, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video49COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNELE, i64 0, inrange i32 1, i64 3), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video49COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNELE, i64 0, i32 0, i64 3), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video49COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNELE, i64 0, i32 1, i64 3), ptr %9, align 8, !tbaa !3
   %12 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %0, ptr %12, align 8, !tbaa !198
   %13 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %0, ptr noundef nonnull %8) #24
@@ -2805,8 +2805,8 @@ define void @_ZN3irr5video13COpenGLDriver23createMaterialRenderersEv(ptr noundef
   store ptr null, ptr %16, align 8, !tbaa !138
   %17 = getelementptr inbounds i8, ptr %14, i64 32
   store i32 1, ptr %17, align 8, !tbaa !140
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video53COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNEL_REFE, i64 0, inrange i32 0, i64 3), ptr %14, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video53COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNEL_REFE, i64 0, inrange i32 1, i64 3), ptr %15, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video53COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNEL_REFE, i64 0, i32 0, i64 3), ptr %14, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video53COpenGLMaterialRenderer_TRANSPARENT_ALPHA_CHANNEL_REFE, i64 0, i32 1, i64 3), ptr %15, align 8, !tbaa !3
   %18 = getelementptr inbounds i8, ptr %14, i64 8
   store ptr %0, ptr %18, align 8, !tbaa !200
   %19 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %0, ptr noundef nonnull %14) #24
@@ -2816,8 +2816,8 @@ define void @_ZN3irr5video13COpenGLDriver23createMaterialRenderersEv(ptr noundef
   store ptr null, ptr %22, align 8, !tbaa !138
   %23 = getelementptr inbounds i8, ptr %20, i64 32
   store i32 1, ptr %23, align 8, !tbaa !140
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video48COpenGLMaterialRenderer_TRANSPARENT_VERTEX_ALPHAE, i64 0, inrange i32 0, i64 3), ptr %20, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video48COpenGLMaterialRenderer_TRANSPARENT_VERTEX_ALPHAE, i64 0, inrange i32 1, i64 3), ptr %21, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video48COpenGLMaterialRenderer_TRANSPARENT_VERTEX_ALPHAE, i64 0, i32 0, i64 3), ptr %20, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video48COpenGLMaterialRenderer_TRANSPARENT_VERTEX_ALPHAE, i64 0, i32 1, i64 3), ptr %21, align 8, !tbaa !3
   %24 = getelementptr inbounds i8, ptr %20, i64 8
   store ptr %0, ptr %24, align 8, !tbaa !202
   %25 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %0, ptr noundef nonnull %20) #24
@@ -2827,8 +2827,8 @@ define void @_ZN3irr5video13COpenGLDriver23createMaterialRenderersEv(ptr noundef
   store ptr null, ptr %28, align 8, !tbaa !138
   %29 = getelementptr inbounds i8, ptr %26, i64 32
   store i32 1, ptr %29, align 8, !tbaa !140
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLENDE, i64 0, inrange i32 0, i64 3), ptr %26, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLENDE, i64 0, inrange i32 1, i64 3), ptr %27, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLENDE, i64 0, i32 0, i64 3), ptr %26, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLENDE, i64 0, i32 1, i64 3), ptr %27, align 8, !tbaa !3
   %30 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %0, ptr %30, align 8, !tbaa !204
   %31 = tail call noundef i32 @_ZN3irr5video11CNullDriver26addAndDropMaterialRendererEPNS0_17IMaterialRendererE(ptr noundef nonnull align 8 dereferenceable(1164) %0, ptr noundef nonnull %26) #24
@@ -3952,7 +3952,7 @@ define noundef ptr @_ZN3irr5video13COpenGLDriver20createHardwareBufferEPKNS_5sce
 
 16:                                               ; preds = %10, %4
   %17 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, inrange i32 0, i64 2), ptr %17, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, i32 0, i64 2), ptr %17, align 8, !tbaa !3
   %18 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %1, ptr %18, align 8, !tbaa !244
   %19 = getelementptr inbounds i8, ptr %17, i64 16
@@ -3968,7 +3968,7 @@ define noundef ptr @_ZN3irr5video13COpenGLDriver20createHardwareBufferEPKNS_5sce
   %27 = getelementptr inbounds i8, ptr %20, i64 208
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull %17) #24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriver20SHWBufferLink_openglE, i64 0, inrange i32 0, i64 2), ptr %17, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video13COpenGLDriver20SHWBufferLink_openglE, i64 0, i32 0, i64 2), ptr %17, align 8, !tbaa !3
   %29 = getelementptr inbounds i8, ptr %17, i64 40
   store i32 0, ptr %29, align 8, !tbaa !251
   %30 = getelementptr inbounds i8, ptr %17, i64 44
@@ -5298,8 +5298,8 @@ define linkonce_odr void @_ZN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDr
   store i8 1, ptr %9, align 8, !tbaa !287
   %10 = getelementptr inbounds i8, ptr %0, i64 80
   store i32 0, ptr %10, align 8, !tbaa !293
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video23COpenGLCoreRenderTargetINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEEE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %11 = getelementptr inbounds i8, ptr %0, i64 88
   %12 = getelementptr inbounds i8, ptr %0, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
@@ -11473,14 +11473,14 @@ define noundef nonnull ptr @_ZN3irr5video13COpenGLDriver28createDeviceDependentT
 define linkonce_odr void @_ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEC1ERKNS_4core6stringIcEERKNS4_5arrayIPNS0_6IImageEEENS0_14E_TEXTURE_TYPEEPS2_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(25) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 comdat align 2 {
   %6 = alloca %"class.irr::core::vector2d", align 4
   %7 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr null, ptr %8, align 8, !tbaa !138
   %9 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 1, ptr %9, align 8, !tbaa !140
   tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %3)
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !3
   %10 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %4, ptr %10, align 8, !tbaa !371
   %11 = getelementptr inbounds i8, ptr %0, i64 128
@@ -19181,14 +19181,14 @@ define noundef ptr @_ZN3irr5video13COpenGLDriver22addRenderTargetTextureERKNS_4c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEC1ERKNS_4core6stringIcEERKNS4_11dimension2dIjEENS0_14E_TEXTURE_TYPEENS0_13ECOLOR_FORMATEPS2_(ptr noundef nonnull align 8 dereferenceable(240) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 dereferenceable(8) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) unnamed_addr #0 comdat align 2 {
   %7 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %0, i64 248
   store ptr null, ptr %8, align 8, !tbaa !138
   %9 = getelementptr inbounds i8, ptr %0, i64 256
   store i32 1, ptr %9, align 8, !tbaa !140
   tail call void @_ZN3irr5video8ITextureC2ERKNS_4core6stringIcEENS0_14E_TEXTURE_TYPEE(ptr noundef nonnull align 8 dereferenceable(116) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %3)
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEEE, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !3
   %10 = getelementptr inbounds i8, ptr %0, i64 120
   store ptr %5, ptr %10, align 8, !tbaa !371
   %11 = getelementptr inbounds i8, ptr %0, i64 128
@@ -23472,7 +23472,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video11CNullDriver13SHWBufferLinkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !244
   %4 = icmp eq ptr %3, null
@@ -23508,7 +23508,7 @@ define linkonce_odr void @_ZN3irr5video11CNullDriver13SHWBufferLinkD2Ev(ptr noun
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video13COpenGLDriver20SHWBufferLink_openglD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #10 comdat align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !244
   %4 = icmp eq ptr %3, null
@@ -23545,7 +23545,7 @@ define linkonce_odr void @_ZN3irr5video13COpenGLDriver20SHWBufferLink_openglD0Ev
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5video11CNullDriver13SHWBufferLinkD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video11CNullDriver13SHWBufferLinkE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !244
   %4 = icmp eq ptr %3, null

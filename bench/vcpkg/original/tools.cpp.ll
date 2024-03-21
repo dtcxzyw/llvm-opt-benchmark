@@ -11705,7 +11705,7 @@ define linkonce_odr dso_local void @_ZNSt11regex_errorC2ENSt15regex_constants10e
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.std::regex_error", ptr %7, i32 0, i32 1
   %10 = load i32, ptr %5, align 4
   store i32 %10, ptr %9, align 8
@@ -14005,7 +14005,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %10, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(88) %11) #5
   %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %10) #5
@@ -14199,7 +14199,7 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -68516,7 +68516,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg13ToolCacheImplC2ERKNS_10Filesystem
   store i32 %6, ptr %14, align 4
   %17 = load ptr, ptr %8, align 8
   call void @_ZN5vcpkg9ToolCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #5
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg13ToolCacheImplE, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg13ToolCacheImplE, i32 0, i32 0, i32 2), ptr %17, align 8
   %18 = getelementptr inbounds %"struct.vcpkg::ToolCacheImpl", ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %9, align 8
   store ptr %19, ptr %18, align 8
@@ -68591,7 +68591,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg9ToolCacheC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg9ToolCacheE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg9ToolCacheE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72110,7 +72110,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg13CMakeProviderC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13CMakeProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13CMakeProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72120,7 +72120,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg11GitProviderC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg11GitProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg11GitProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72130,7 +72130,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg13NinjaProviderC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13NinjaProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13NinjaProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72140,7 +72140,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg22PowerShellCoreProviderC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg22PowerShellCoreProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg22PowerShellCoreProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72150,7 +72150,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg13NuGetProviderC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13NuGetProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13NuGetProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72160,7 +72160,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg13Aria2ProviderC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13Aria2ProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg13Aria2ProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72170,7 +72170,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg12NodeProviderC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12NodeProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12NodeProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72180,7 +72180,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg24IfwInstallerBaseProviderC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg24IfwInstallerBaseProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg24IfwInstallerBaseProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72190,7 +72190,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg12MonoProviderC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12MonoProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12MonoProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72200,7 +72200,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg14GsutilProviderC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14GsutilProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14GsutilProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72210,7 +72210,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg14AwsCliProviderC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14AwsCliProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14AwsCliProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72220,7 +72220,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg14CosCliProviderC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14CosCliProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg14CosCliProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72230,7 +72230,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg15Python3ProviderC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg15Python3ProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg15Python3ProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72240,7 +72240,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg23Python3WithVEnvProviderC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg15Python3ProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg23Python3WithVEnvProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg23Python3WithVEnvProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72293,7 +72293,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg19GenericToolProviderC2ENS_10String
   store ptr %0, ptr %5, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #5
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg19GenericToolProviderE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg19GenericToolProviderE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"struct.vcpkg::GenericToolProvider", ptr %8, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 %4, i64 16, i1 false)
   ret void
@@ -82767,7 +82767,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg12ToolProviderC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12ToolProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5vcpkg12ToolProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

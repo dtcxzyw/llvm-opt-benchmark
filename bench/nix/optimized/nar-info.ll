@@ -827,7 +827,7 @@ $_ZTIN8nlohmann6detail21output_stream_adapterIcEE = comdat any
 @_ZN3nix39NarInfoTest_NarInfo_impure_to_json_Test10test_info_E = local_unnamed_addr global ptr null, align 8
 @.str.14 = private unnamed_addr constant [23 x i8] c"NarInfo_impure_to_json\00", align 1
 @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, ptr @_ZNK3nix11NarInfoTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix39NarInfoTest_NarInfo_pure_from_json_TestD1Ev, ptr @_ZN3nix39NarInfoTest_NarInfo_pure_from_json_TestD0Ev, ptr @_ZN3nix39NarInfoTest_NarInfo_pure_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, ptr @_ZThn8_N3nix39NarInfoTest_NarInfo_pure_from_json_TestD1Ev, ptr @_ZThn8_N3nix39NarInfoTest_NarInfo_pure_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -64 to ptr), ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, ptr @_ZTv0_n24_N3nix39NarInfoTest_NarInfo_pure_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix39NarInfoTest_NarInfo_pure_from_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix39NarInfoTest_NarInfo_pure_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix39NarInfoTest_NarInfo_pure_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix39NarInfoTest_NarInfo_pure_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix39NarInfoTest_NarInfo_pure_from_json_TestE0_NS_11NarInfoTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZNK3nix11NarInfoTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix11NarInfoTestD1Ev, ptr @_ZN3nix11NarInfoTestD0Ev], [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZThn8_N3nix11NarInfoTestD1Ev, ptr @_ZThn8_N3nix11NarInfoTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZTv0_n24_N3nix11NarInfoTestD1Ev, ptr @_ZTv0_n24_N3nix11NarInfoTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3nix11NarInfoTestE = linkonce_odr constant [20 x i8] c"N3nix11NarInfoTestE\00", comdat, align 1
@@ -843,21 +843,21 @@ $_ZTIN8nlohmann6detail21output_stream_adapterIcEE = comdat any
 @_ZTSN3nix39NarInfoTest_NarInfo_pure_from_json_TestE = constant [48 x i8] c"N3nix39NarInfoTest_NarInfo_pure_from_json_TestE\00", align 1
 @_ZTIN3nix39NarInfoTest_NarInfo_pure_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, ptr @_ZTIN3nix11NarInfoTestE }, align 8
 @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, ptr @_ZNK3nix11NarInfoTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix37NarInfoTest_NarInfo_pure_to_json_TestD1Ev, ptr @_ZN3nix37NarInfoTest_NarInfo_pure_to_json_TestD0Ev, ptr @_ZN3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, ptr @_ZThn8_N3nix37NarInfoTest_NarInfo_pure_to_json_TestD1Ev, ptr @_ZThn8_N3nix37NarInfoTest_NarInfo_pure_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -64 to ptr), ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, ptr @_ZTv0_n24_N3nix37NarInfoTest_NarInfo_pure_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix37NarInfoTest_NarInfo_pure_to_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix37NarInfoTest_NarInfo_pure_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix37NarInfoTest_NarInfo_pure_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix37NarInfoTest_NarInfo_pure_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_11NarInfoTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZNK3nix11NarInfoTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix11NarInfoTestD1Ev, ptr @_ZN3nix11NarInfoTestD0Ev], [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZThn8_N3nix11NarInfoTestD1Ev, ptr @_ZThn8_N3nix11NarInfoTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZTv0_n24_N3nix11NarInfoTestD1Ev, ptr @_ZTv0_n24_N3nix11NarInfoTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix37NarInfoTest_NarInfo_pure_to_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix37NarInfoTest_NarInfo_pure_to_json_TestE = constant [46 x i8] c"N3nix37NarInfoTest_NarInfo_pure_to_json_TestE\00", align 1
 @_ZTIN3nix37NarInfoTest_NarInfo_pure_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, ptr @_ZTIN3nix11NarInfoTestE }, align 8
 @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, ptr @_ZNK3nix11NarInfoTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix41NarInfoTest_NarInfo_impure_from_json_TestD1Ev, ptr @_ZN3nix41NarInfoTest_NarInfo_impure_from_json_TestD0Ev, ptr @_ZN3nix41NarInfoTest_NarInfo_impure_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, ptr @_ZThn8_N3nix41NarInfoTest_NarInfo_impure_from_json_TestD1Ev, ptr @_ZThn8_N3nix41NarInfoTest_NarInfo_impure_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -64 to ptr), ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, ptr @_ZTv0_n24_N3nix41NarInfoTest_NarInfo_impure_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix41NarInfoTest_NarInfo_impure_from_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix41NarInfoTest_NarInfo_impure_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix41NarInfoTest_NarInfo_impure_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix41NarInfoTest_NarInfo_impure_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_11NarInfoTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZNK3nix11NarInfoTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix11NarInfoTestD1Ev, ptr @_ZN3nix11NarInfoTestD0Ev], [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZThn8_N3nix11NarInfoTestD1Ev, ptr @_ZThn8_N3nix11NarInfoTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZTv0_n24_N3nix11NarInfoTestD1Ev, ptr @_ZTv0_n24_N3nix11NarInfoTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix41NarInfoTest_NarInfo_impure_from_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix41NarInfoTest_NarInfo_impure_from_json_TestE = constant [50 x i8] c"N3nix41NarInfoTest_NarInfo_impure_from_json_TestE\00", align 1
 @_ZTIN3nix41NarInfoTest_NarInfo_impure_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, ptr @_ZTIN3nix11NarInfoTestE }, align 8
 @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, ptr @_ZNK3nix11NarInfoTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix39NarInfoTest_NarInfo_impure_to_json_TestD1Ev, ptr @_ZN3nix39NarInfoTest_NarInfo_impure_to_json_TestD0Ev, ptr @_ZN3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, ptr @_ZThn8_N3nix39NarInfoTest_NarInfo_impure_to_json_TestD1Ev, ptr @_ZThn8_N3nix39NarInfoTest_NarInfo_impure_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -64 to ptr), ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, ptr @_ZTv0_n24_N3nix39NarInfoTest_NarInfo_impure_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix39NarInfoTest_NarInfo_impure_to_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix39NarInfoTest_NarInfo_impure_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix39NarInfoTest_NarInfo_impure_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix39NarInfoTest_NarInfo_impure_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_11NarInfoTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_11NarInfoTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZNK3nix11NarInfoTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix11NarInfoTestD1Ev, ptr @_ZN3nix11NarInfoTestD0Ev], [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZThn8_N3nix11NarInfoTestD1Ev, ptr @_ZThn8_N3nix11NarInfoTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix11NarInfoTestE, ptr @_ZTv0_n24_N3nix11NarInfoTestD1Ev, ptr @_ZTv0_n24_N3nix11NarInfoTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix39NarInfoTest_NarInfo_impure_to_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -3864,10 +3864,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Na
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_pure_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -4580,7 +4580,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #16 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #27
   unreachable
 }
@@ -4639,10 +4639,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37Na
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix37NarInfoTest_NarInfo_pure_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -4685,10 +4685,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41Na
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix41NarInfoTest_NarInfo_impure_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -4731,10 +4731,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39Na
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix39NarInfoTest_NarInfo_impure_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -5466,7 +5466,7 @@ _ZN3nix28ContentAddressWithReferencesC2IJNS_15FixedOutputInfoEEEEDpOT_.exit: ; p
           to label %46 unwind label %126
 
 46:                                               ; preds = %45
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, i32 0, i64 2), ptr %4, align 8
   %47 = getelementptr inbounds i8, ptr %4, i64 352
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %4, i64 368
@@ -5787,7 +5787,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7NarInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(544) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix7NarInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix7NarInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 416
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 432
@@ -5826,7 +5826,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 352
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 368
@@ -6000,7 +6000,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
 
 67:                                               ; preds = %62
   %68 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   %70 = getelementptr inbounds i8, ptr %7, i64 8
   %71 = load i32, ptr %70, align 8
@@ -6008,7 +6008,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   %72 = getelementptr inbounds i8, ptr %68, i64 16
   %73 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %73) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %68, align 8
   %74 = getelementptr inbounds i8, ptr %68, i64 32
   %75 = getelementptr inbounds i8, ptr %7, i64 32
   %76 = load i64, ptr %75, align 8
@@ -6020,7 +6020,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %62
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %77 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %77) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #26
@@ -6134,7 +6134,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
 116:                                              ; preds = %67
   %117 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %73) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #26
   br label %118
@@ -6276,7 +6276,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 165:                                              ; preds = %161
   %166 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %166, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 8
   %168 = getelementptr inbounds i8, ptr %17, i64 8
   %169 = load i32, ptr %168, align 8
@@ -6284,7 +6284,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %170 = getelementptr inbounds i8, ptr %166, i64 16
   %171 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef nonnull align 8 dereferenceable(16) %171) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %166, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %166, align 8
   %172 = getelementptr inbounds i8, ptr %166, i64 32
   %173 = getelementptr inbounds i8, ptr %17, i64 32
   %174 = load i64, ptr %173, align 8
@@ -6296,7 +6296,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %161
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
   %175 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %175) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #26
@@ -6392,7 +6392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 206:                                              ; preds = %165
   %207 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %171) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #26
   br label %208
@@ -7577,7 +7577,7 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -7586,7 +7586,7 @@ define linkonce_odr void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -10671,7 +10671,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %101 unwind label %109
 
 101:                                              ; preds = %99
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %102 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #26
@@ -10700,7 +10700,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 109:                                              ; preds = %99
   %110 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %111 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %111) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #26
@@ -10767,7 +10767,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %129 unwind label %137
 
 129:                                              ; preds = %127
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %130 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %130) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
@@ -10796,7 +10796,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 137:                                              ; preds = %127
   %138 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %139 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %139) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
@@ -10952,7 +10952,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
           to label %194 unwind label %204
 
 194:                                              ; preds = %192
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %195 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %195) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #26
@@ -10986,7 +10986,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
 204:                                              ; preds = %192
   %205 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %206 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %206) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #26
@@ -11107,7 +11107,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
           to label %241 unwind label %249
 
 241:                                              ; preds = %239
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %242 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %242) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #26
@@ -11136,7 +11136,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
 249:                                              ; preds = %239
   %250 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %251 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %251) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #26
@@ -11187,7 +11187,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
           to label %263 unwind label %271
 
 263:                                              ; preds = %261
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %264 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %264) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #26
@@ -11216,7 +11216,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
 271:                                              ; preds = %261
   %272 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %273 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %273) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #26
@@ -11338,7 +11338,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 320:                                              ; preds = %315
   %321 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %321, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %321, align 8
   %322 = getelementptr inbounds i8, ptr %321, i64 8
   %323 = getelementptr inbounds i8, ptr %45, i64 8
   %324 = load i32, ptr %323, align 8
@@ -11346,7 +11346,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %325 = getelementptr inbounds i8, ptr %321, i64 16
   %326 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %326) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %321, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %321, align 8
   %327 = getelementptr inbounds i8, ptr %321, i64 32
   %328 = getelementptr inbounds i8, ptr %45, i64 32
   %329 = load i64, ptr %328, align 8
@@ -11358,7 +11358,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %315
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   %330 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %330) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #26
@@ -11449,7 +11449,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 359:                                              ; preds = %320
   %360 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %326) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #26
   br label %361
@@ -11524,7 +11524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 
 381:                                              ; preds = %376
   %382 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %382, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %382, align 8
   %383 = getelementptr inbounds i8, ptr %382, i64 8
   %384 = getelementptr inbounds i8, ptr %52, i64 8
   %385 = load i32, ptr %384, align 8
@@ -11532,7 +11532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %386 = getelementptr inbounds i8, ptr %382, i64 16
   %387 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %386, ptr noundef nonnull align 8 dereferenceable(16) %387) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %382, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %382, align 8
   %388 = getelementptr inbounds i8, ptr %382, i64 32
   %389 = getelementptr inbounds i8, ptr %52, i64 32
   %390 = load i64, ptr %389, align 8
@@ -11544,7 +11544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit142: ; preds = %376
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %391 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %391) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #26
@@ -11635,7 +11635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 420:                                              ; preds = %381
   %421 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %387) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #26
   br label %422
@@ -11706,7 +11706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 
 442:                                              ; preds = %437
   %443 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %443, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %443, align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 8
   %445 = getelementptr inbounds i8, ptr %59, i64 8
   %446 = load i32, ptr %445, align 8
@@ -11714,7 +11714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   %447 = getelementptr inbounds i8, ptr %443, i64 16
   %448 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %447, ptr noundef nonnull align 8 dereferenceable(16) %448) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %443, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %443, align 8
   %449 = getelementptr inbounds i8, ptr %443, i64 32
   %450 = getelementptr inbounds i8, ptr %59, i64 32
   %451 = load i64, ptr %450, align 8
@@ -11726,7 +11726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit157: ; preds = %437
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   %452 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %452) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #26
@@ -11817,7 +11817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167: ; preds = %_Z
 481:                                              ; preds = %442
   %482 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %448) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #26
   br label %483
@@ -11905,7 +11905,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 509:                                              ; preds = %504
   %510 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %510, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %510, align 8
   %511 = getelementptr inbounds i8, ptr %510, i64 8
   %512 = getelementptr inbounds i8, ptr %66, i64 8
   %513 = load i32, ptr %512, align 8
@@ -11913,7 +11913,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %514 = getelementptr inbounds i8, ptr %510, i64 16
   %515 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %514, ptr noundef nonnull align 8 dereferenceable(16) %515) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %510, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %510, align 8
   %516 = getelementptr inbounds i8, ptr %510, i64 32
   %517 = getelementptr inbounds i8, ptr %66, i64 32
   %518 = load i64, ptr %517, align 8
@@ -11925,7 +11925,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit173: ; preds = %504
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   %519 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %519) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #26
@@ -12016,7 +12016,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183: ; preds = %_Z
 548:                                              ; preds = %509
   %549 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %515) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #26
   br label %550
@@ -12451,7 +12451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #26
   %76 = load i64, ptr %2, align 8
   %77 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %78 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12466,7 +12466,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br label %112
 
 81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %76, ptr %82, align 8
   %83 = load ptr, ptr %7, align 8
@@ -13480,7 +13480,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -13764,7 +13764,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %103 unwind label %111
 
 103:                                              ; preds = %101
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %104 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #26
@@ -13793,7 +13793,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 111:                                              ; preds = %101
   %112 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %113 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %113) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #26
@@ -13863,7 +13863,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %135 unwind label %143
 
 135:                                              ; preds = %133
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %136 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %136) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
@@ -13892,7 +13892,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 143:                                              ; preds = %133
   %144 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %145 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %145) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #26
@@ -14047,7 +14047,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
           to label %200 unwind label %210
 
 200:                                              ; preds = %198
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %201 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %201) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #26
@@ -14081,7 +14081,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
 210:                                              ; preds = %198
   %211 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %212 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %212) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #26
@@ -14202,7 +14202,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
           to label %247 unwind label %255
 
 247:                                              ; preds = %245
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %248 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %248) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #26
@@ -14231,7 +14231,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
 255:                                              ; preds = %245
   %256 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %257 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %257) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #26
@@ -14282,7 +14282,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
           to label %269 unwind label %277
 
 269:                                              ; preds = %267
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %270 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %270) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #26
@@ -14311,7 +14311,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
 277:                                              ; preds = %267
   %278 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %279 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %279) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #26
@@ -14429,7 +14429,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 325:                                              ; preds = %320
   %326 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %326, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %326, align 8
   %327 = getelementptr inbounds i8, ptr %326, i64 8
   %328 = getelementptr inbounds i8, ptr %45, i64 8
   %329 = load i32, ptr %328, align 8
@@ -14437,7 +14437,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %330 = getelementptr inbounds i8, ptr %326, i64 16
   %331 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %330, ptr noundef nonnull align 8 dereferenceable(16) %331) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %326, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %326, align 8
   %332 = getelementptr inbounds i8, ptr %326, i64 32
   %333 = getelementptr inbounds i8, ptr %45, i64 32
   %334 = load i64, ptr %333, align 8
@@ -14449,7 +14449,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %320
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   %335 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %335) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #26
@@ -14540,7 +14540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 364:                                              ; preds = %325
   %365 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %331) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #26
   br label %366
@@ -14615,7 +14615,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 
 386:                                              ; preds = %381
   %387 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %387, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %387, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 8
   %389 = getelementptr inbounds i8, ptr %52, i64 8
   %390 = load i32, ptr %389, align 8
@@ -14623,7 +14623,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %391 = getelementptr inbounds i8, ptr %387, i64 16
   %392 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %391, ptr noundef nonnull align 8 dereferenceable(16) %392) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %387, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %387, align 8
   %393 = getelementptr inbounds i8, ptr %387, i64 32
   %394 = getelementptr inbounds i8, ptr %52, i64 32
   %395 = load i64, ptr %394, align 8
@@ -14635,7 +14635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit142: ; preds = %381
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %396 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %396) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #26
@@ -14726,7 +14726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 425:                                              ; preds = %386
   %426 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %392) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #26
   br label %427
@@ -14800,7 +14800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 
 451:                                              ; preds = %446
   %452 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %452, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %452, align 8
   %453 = getelementptr inbounds i8, ptr %452, i64 8
   %454 = getelementptr inbounds i8, ptr %59, i64 8
   %455 = load i32, ptr %454, align 8
@@ -14808,7 +14808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   %456 = getelementptr inbounds i8, ptr %452, i64 16
   %457 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %456, ptr noundef nonnull align 8 dereferenceable(16) %457) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %452, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %452, align 8
   %458 = getelementptr inbounds i8, ptr %452, i64 32
   %459 = getelementptr inbounds i8, ptr %59, i64 32
   %460 = load i64, ptr %459, align 8
@@ -14820,7 +14820,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit159: ; preds = %446
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   %461 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %461) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #26
@@ -14911,7 +14911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169: ; preds = %_Z
 490:                                              ; preds = %451
   %491 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %457) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #26
   br label %492
@@ -14995,7 +14995,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 517:                                              ; preds = %512
   %518 = call ptr @__cxa_allocate_exception(i64 40) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %518, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %518, align 8
   %519 = getelementptr inbounds i8, ptr %518, i64 8
   %520 = getelementptr inbounds i8, ptr %66, i64 8
   %521 = load i32, ptr %520, align 8
@@ -15003,7 +15003,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %522 = getelementptr inbounds i8, ptr %518, i64 16
   %523 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %522, ptr noundef nonnull align 8 dereferenceable(16) %523) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %518, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %518, align 8
   %524 = getelementptr inbounds i8, ptr %518, i64 32
   %525 = getelementptr inbounds i8, ptr %66, i64 32
   %526 = load i64, ptr %525, align 8
@@ -15015,7 +15015,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit175: ; preds = %512
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   %527 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %527) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #26
@@ -15106,7 +15106,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185: ; preds = %_Z
 556:                                              ; preds = %517
   %557 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %523) #26
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #26
   br label %558
@@ -16685,7 +16685,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #26
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -16700,7 +16700,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -16809,7 +16809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -18386,7 +18386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #26
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -18401,7 +18401,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -18470,7 +18470,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -18479,7 +18479,7 @@ define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -18690,7 +18690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #26
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #26
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -18705,7 +18705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -18791,7 +18791,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail10type_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -18852,7 +18852,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail10type_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -20022,7 +20022,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -20030,13 +20030,13 @@ define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -21535,7 +21535,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -21543,7 +21543,7 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
@@ -21553,7 +21553,7 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #26
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -23804,7 +23804,7 @@ define linkonce_odr void @_ZN3nix7NarInfoC2ERKNS_13ValidPathInfoE(ptr noundef no
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
   tail call void @_ZN3nix20UnkeyedValidPathInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 352
   %6 = getelementptr inbounds i8, ptr %1, i64 352
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
@@ -23817,7 +23817,7 @@ define linkonce_odr void @_ZN3nix7NarInfoC2ERKNS_13ValidPathInfoE(ptr noundef no
   resume { ptr, i32 } %8
 
 _ZN3nix13ValidPathInfoC2ERKS0_.exit:              ; preds = %2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix7NarInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix7NarInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 384
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   %10 = getelementptr inbounds i8, ptr %0, i64 400
@@ -23851,7 +23851,7 @@ _ZN3nix13ValidPathInfoC2ERKS0_.exit:              ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix13ValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 368
@@ -24340,7 +24340,7 @@ _ZNSt8_Rb_treeIN3nix9StorePathES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EED2Ev.exit
 define linkonce_odr void @_ZN3nix20UnkeyedValidPathInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef nonnull align 8 dereferenceable(352) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %4 = alloca %"struct.std::_Rb_tree<nix::StorePath, nix::StorePath, std::_Identity<nix::StorePath>, std::less<nix::StorePath>>::_Alloc_node", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   %6 = getelementptr inbounds i8, ptr %1, i64 40
   %7 = getelementptr inbounds i8, ptr %0, i64 40
@@ -24487,7 +24487,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix20UnkeyedValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
@@ -24551,7 +24551,7 @@ _ZNSt8optionalIN3nix9StorePathEED2Ev.exit:        ; preds = %_ZNSt3setIN3nix9Sto
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix13ValidPathInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 368
@@ -25750,9 +25750,9 @@ define linkonce_odr void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112
   store i32 1, ptr %16, align 8, !noalias !195
   %17 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 1, ptr %17, align 4, !noalias !195
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %14, align 8, !noalias !195
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %14, align 8, !noalias !195
   %18 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %18, align 8, !noalias !195
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %18, align 8, !noalias !195
   %19 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %0, ptr %19, align 8, !noalias !195
   store ptr %18, ptr %10, align 8
@@ -29770,9 +29770,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nlohmann
   store i32 1, ptr %14, align 8, !noalias !241
   %15 = getelementptr inbounds i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !noalias !241
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %13, align 8, !noalias !241
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %13, align 8, !noalias !241
   %16 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_stream_adapterIcEE, i64 0, inrange i32 0, i64 2), ptr %16, align 8, !noalias !241
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_stream_adapterIcEE, i64 0, i32 0, i64 2), ptr %16, align 8, !noalias !241
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %0, ptr %17, align 8, !noalias !241
   store ptr %16, ptr %5, align 8
@@ -30204,7 +30204,7 @@ define internal void @_GLOBAL__sub_I_nar_info.cc() #8 section ".text.startup" pe
           to label %22 unwind label %41
 
 22:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39NarInfoTest_NarInfo_pure_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39NarInfoTest_NarInfo_pure_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %21, align 8
   %23 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix11NarInfoTestEE6dummy_E, ptr noundef %17, ptr noundef %19, ptr noundef nonnull %21)
           to label %24 unwind label %41
 
@@ -30303,7 +30303,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %52 unwind label %71
 
 52:                                               ; preds = %50
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37NarInfoTest_NarInfo_pure_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37NarInfoTest_NarInfo_pure_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %51, align 8
   %53 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.9, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix11NarInfoTestEE6dummy_E, ptr noundef %47, ptr noundef %49, ptr noundef nonnull %51)
           to label %54 unwind label %71
 
@@ -30396,7 +30396,7 @@ __cxx_global_var_init.8.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %82 unwind label %101
 
 82:                                               ; preds = %80
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41NarInfoTest_NarInfo_impure_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %81, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41NarInfoTest_NarInfo_impure_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %81, align 8
   %83 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix11NarInfoTestEE6dummy_E, ptr noundef %77, ptr noundef %79, ptr noundef nonnull %81)
           to label %84 unwind label %101
 
@@ -30489,7 +30489,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %112 unwind label %131
 
 112:                                              ; preds = %110
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39NarInfoTest_NarInfo_impure_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %111, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39NarInfoTest_NarInfo_impure_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %111, align 8
   %113 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.14, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix11NarInfoTestEE6dummy_E, ptr noundef %107, ptr noundef %109, ptr noundef nonnull %111)
           to label %114 unwind label %131
 

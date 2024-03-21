@@ -6175,7 +6175,7 @@ define void @_ZN12MeshDocumentC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12MeshDocument, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12MeshDocument, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.MeshDocument, ptr %5, i32 0, i32 1
   invoke void @_ZN11GLLogStreamC1Ev(ptr noundef nonnull align 8 dereferenceable(40) %6)
           to label %7 unwind label %21
@@ -6353,7 +6353,7 @@ define linkonce_odr void @_ZN11GLLogStreamD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11GLLogStream, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV11GLLogStream, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.GLLogStream, ptr %3, i32 0, i32 3
   call void @_ZN9QMultiMapI7QString5QPairIS0_S0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.GLLogStream, ptr %3, i32 0, i32 2
@@ -7642,7 +7642,7 @@ define void @_ZN12MeshDocumentD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12MeshDocument, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12MeshDocument, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 9
   call void @_ZN21MeshDocumentStateDataD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds %class.MeshDocument, ptr %3, i32 0, i32 8

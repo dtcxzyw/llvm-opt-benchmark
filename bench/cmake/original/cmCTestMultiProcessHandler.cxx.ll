@@ -5477,7 +5477,7 @@ define dso_local void @_ZN26cmCTestMultiProcessHandlerC2Ev(ptr noundef nonnull a
   %5 = alloca %"class.std::set", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 1
   store i8 0, ptr %7, align 8
   %8 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %6, i32 0, i32 3
@@ -6000,7 +6000,7 @@ define dso_local void @_ZN26cmCTestMultiProcessHandlerD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26cmCTestMultiProcessHandler, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 35
   call void @_ZN2cm12uv_timer_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds %class.cmCTestMultiProcessHandler, ptr %3, i32 0, i32 34

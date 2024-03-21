@@ -616,7 +616,7 @@ define dso_local void @_ZN15cmCTestGlobalVCC2EP7cmCTestRSo(ptr noundef nonnull a
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN9cmCTestVCC2EP7cmCTestRSo(ptr noundef nonnull align 8 dereferenceable(388) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV15cmCTestGlobalVC, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV15cmCTestGlobalVC, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.cmCTestGlobalVC, ptr %9, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN15cmCTestGlobalVC9DirectoryESt4lessIS5_ESaISt4pairIKS5_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %12) #3
   %13 = getelementptr inbounds %class.cmCTestGlobalVC, ptr %9, i32 0, i32 2
@@ -804,7 +804,7 @@ define dso_local void @_ZN15cmCTestGlobalVCD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV15cmCTestGlobalVC, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV15cmCTestGlobalVC, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCTestGlobalVC, ptr %3, i32 0, i32 5
   call void @_ZNSt7__cxx114listIN9cmCTestVC8RevisionESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.cmCTestGlobalVC, ptr %3, i32 0, i32 4

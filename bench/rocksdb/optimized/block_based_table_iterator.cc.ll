@@ -3700,7 +3700,7 @@ _ZN7rocksdb13DataBlockIterC2Ev.exit:              ; preds = %invoke.cont2
   store i64 0, ptr %size_.i6.i.i, align 8
   %ts_sz_.i.i = getelementptr inbounds i8, ptr %call, i64 272
   store i64 0, ptr %ts_sz_.i.i, align 8
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN7rocksdb13DataBlockIterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN7rocksdb13DataBlockIterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %read_amp_bitmap_.i = getelementptr inbounds i8, ptr %call, i64 320
   store ptr null, ptr %read_amp_bitmap_.i, align 8
   %last_bitmap_offset_.i = getelementptr inbounds i8, ptr %call, i64 328
@@ -4843,7 +4843,7 @@ _ZN7rocksdb13DataBlockIterC2Ev.exit:              ; preds = %invoke.cont4
   store i64 0, ptr %size_.i6.i.i, align 8
   %ts_sz_.i.i = getelementptr inbounds i8, ptr %call, i64 272
   store i64 0, ptr %ts_sz_.i.i, align 8
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN7rocksdb13DataBlockIterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN7rocksdb13DataBlockIterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %read_amp_bitmap_.i = getelementptr inbounds i8, ptr %call, i64 320
   store ptr null, ptr %read_amp_bitmap_.i, align 8
   %last_bitmap_offset_.i = getelementptr inbounds i8, ptr %call, i64 328
@@ -6126,7 +6126,7 @@ define linkonce_odr void @_ZN7rocksdb23BlockBasedTableIteratorD2Ev(ptr noundef n
 entry:
   %agg.tmp.i.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
   %agg.tmp2.i.i.i.i = alloca %"struct.std::_Deque_iterator", align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb23BlockBasedTableIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb23BlockBasedTableIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %block_handles_.i = getelementptr inbounds i8, ptr %this, i64 696
   %_M_start.i.i.i = getelementptr inbounds i8, ptr %this, i64 712
   %0 = load ptr, ptr %_M_start.i.i.i, align 8, !noalias !67
@@ -8056,7 +8056,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb9BlockIterINS_5SliceEED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN7rocksdb9BlockIterINS_5SliceEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN7rocksdb9BlockIterINS_5SliceEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %state_.i = getelementptr inbounds i8, ptr %this, i64 240
   %0 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

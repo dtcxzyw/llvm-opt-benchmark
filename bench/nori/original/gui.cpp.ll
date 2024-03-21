@@ -468,7 +468,7 @@ define hidden void @_ZN4nori10NoriScreenC2ERKNS_10ImageBlockE(ptr noundef nonnul
 63:                                               ; preds = %62
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %7) #3
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i32 0, inrange i32 0, i32 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i32 0, i32 0, i32 2), ptr %52, align 8
   %64 = getelementptr inbounds %"class.nori::NoriScreen", ptr %52, i32 0, i32 1
   %65 = load ptr, ptr %4, align 8
   store ptr %65, ptr %64, align 8
@@ -2470,7 +2470,7 @@ define linkonce_odr hidden void @_ZN4nori10NoriScreenD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN4nori10NoriScreenE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nori::NoriScreen", ptr %3, i32 0, i32 4
   call void @_ZN7nanogui3refINS_10RenderPassEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %"class.nori::NoriScreen", ptr %3, i32 0, i32 3

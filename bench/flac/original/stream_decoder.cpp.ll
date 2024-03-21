@@ -26,7 +26,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %decoder_ = getelementptr inbounds %"class.FLAC::Decoder::Stream", ptr %this1, i32 0, i32 1
   %call = call ptr @FLAC__stream_decoder_new()
   store ptr %call, ptr %decoder_, align 8
@@ -41,7 +41,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTVN4FLAC7Decoder6StreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %decoder_ = getelementptr inbounds %"class.FLAC::Decoder::Stream", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %decoder_, align 8
   %cmp = icmp ne ptr null, %0
@@ -780,7 +780,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4FLAC7Decoder6StreamC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [45 x ptr] }, ptr @_ZTVN4FLAC7Decoder4FileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [45 x ptr] }, ptr @_ZTVN4FLAC7Decoder4FileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

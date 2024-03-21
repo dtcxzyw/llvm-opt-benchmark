@@ -2812,7 +2812,7 @@ entry:
   store ptr %range_tombstones, ptr %range_tombstones.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb20InternalIteratorBaseINS_5SliceEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb25CompactionMergingIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb25CompactionMergingIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %is_arena_mode_ = getelementptr inbounds %"class.rocksdb::CompactionMergingIterator", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %is_arena_mode.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -3109,7 +3109,7 @@ entry:
   %child17 = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb25CompactionMergingIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb25CompactionMergingIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %range_tombstone_iters_ = getelementptr inbounds %"class.rocksdb::CompactionMergingIterator", ptr %this1, i32 0, i32 5
   store ptr %range_tombstone_iters_, ptr %__range2, align 8
   %0 = load ptr, ptr %__range2, align 8
@@ -5965,7 +5965,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb20InternalIteratorBaseINS_5SliceEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb20InternalIteratorBaseINS_5SliceEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

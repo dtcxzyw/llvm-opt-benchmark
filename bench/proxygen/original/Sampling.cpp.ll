@@ -56,7 +56,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store double %rate, ptr %rate.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen8SamplingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8proxygen8SamplingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rate_ = getelementptr inbounds %"class.proxygen::Sampling", ptr %this1, i32 0, i32 1
   store double 0.000000e+00, ptr %rate_, align 8
   %weight_ = getelementptr inbounds %"class.proxygen::Sampling", ptr %this1, i32 0, i32 2

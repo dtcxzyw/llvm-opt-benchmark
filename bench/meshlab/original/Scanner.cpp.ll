@@ -1685,7 +1685,7 @@ define void @_ZN14VrmlTranslator6BufferC2EP8_IO_FILEb(ptr noundef nonnull align 
   %7 = zext i1 %2 to i8
   store i8 %7, ptr %6, align 1
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   %10 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %8, i32 0, i32 8
   store ptr %9, ptr %10, align 8
@@ -1834,7 +1834,7 @@ define void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds %"class.VrmlTranslator::Buffer", ptr %6, i32 0, i32 1
   %8 = load ptr, ptr %7, align 8
@@ -1895,7 +1895,7 @@ define void @_ZN14VrmlTranslator6BufferC2EPKhi(ptr noundef nonnull align 8 deref
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = load i32, ptr %6, align 4
   %9 = sext i32 %8 to i64
   %10 = call noalias noundef nonnull ptr @_Znam(i64 noundef %9) #14
@@ -1933,7 +1933,7 @@ define void @_ZN14VrmlTranslator6BufferD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator6BufferE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds ptr, ptr %4, i64 2
   %6 = load ptr, ptr %5, align 8
@@ -2180,7 +2180,7 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator11StartStatesE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator11StartStatesE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = call noalias noundef nonnull ptr @_Znam(i64 noundef 1024) #14
   %5 = getelementptr inbounds %"class.VrmlTranslator::StartStates", ptr %3, i32 0, i32 1
   store ptr %4, ptr %5, align 8
@@ -2195,7 +2195,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = call noalias noundef nonnull ptr @_Znam(i64 noundef 1024) #14
   %5 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap", ptr %3, i32 0, i32 1
   store ptr %4, ptr %5, align 8
@@ -2798,7 +2798,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMapD2Ev(ptr noundef nonnul
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMapE, i32 0, i32 0, i32 2), ptr %6, align 8
   store i32 0, ptr %3, align 4
   br label %7
 
@@ -2874,7 +2874,7 @@ define linkonce_odr void @_ZN14VrmlTranslator11StartStatesD2Ev(ptr noundef nonnu
   %5 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator11StartStatesE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator11StartStatesE, i32 0, i32 0, i32 2), ptr %6, align 8
   store i32 0, ptr %3, align 4
   br label %7
 
@@ -3439,7 +3439,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10UTF8BufferC2EPNS_6BufferE(ptr nou
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN14VrmlTranslator6BufferC2EPS0_(ptr noundef nonnull align 8 dereferenceable(49) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN14VrmlTranslator10UTF8BufferE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -3509,7 +3509,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemC2EPKwi(ptr nounde
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = load ptr, ptr %5, align 8
   %9 = call noundef ptr @_Z18coco_string_createPKw(ptr noundef %8)
   %10 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %7, i32 0, i32 1
@@ -3527,7 +3527,7 @@ define linkonce_odr void @_ZN14VrmlTranslator10KeywordMap4ElemD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN14VrmlTranslator10KeywordMap4ElemE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.VrmlTranslator::KeywordMap::Elem", ptr %3, i32 0, i32 1
   call void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 dereferenceable(8) %4)
   ret void

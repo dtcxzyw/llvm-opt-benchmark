@@ -55564,10 +55564,10 @@ lpad18:                                           ; preds = %invoke.cont16
   br label %cleanup.action29
 
 cleanup.done27:                                   ; preds = %_ZNK6google8protobuf15FieldDescriptor12message_typeEv.exit
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, inrange i32 0, i64 2), ptr %collector, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, i32 0, i64 2), ptr %collector, align 8
   %error_.i = getelementptr inbounds i8, ptr %collector, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_.i) #37
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6google8protobuf17DescriptorBuilder17OptionInterpreter21AggregateOptionFinderE, i64 0, inrange i32 0, i64 2), ptr %finder, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6google8protobuf17DescriptorBuilder17OptionInterpreter21AggregateOptionFinderE, i64 0, i32 0, i64 2), ptr %finder, align 8
   %17 = load ptr, ptr %this, align 8
   %builder_32 = getelementptr inbounds i8, ptr %finder, i64 8
   store ptr %17, ptr %builder_32, align 8
@@ -55765,7 +55765,7 @@ if.end88:                                         ; preds = %invoke.cont84, %cal
 _ZNSt10unique_ptrIN6google8protobuf7MessageESt14default_deleteIS2_EED2Ev.exit: ; preds = %if.then46, %if.end88
   call void @_ZN6google8protobuf10TextFormat6ParserD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %parser) #37
   call void @_ZN6google8protobuf10TextFormat6FinderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %finder) #37
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, inrange i32 0, i64 2), ptr %collector, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, i32 0, i64 2), ptr %collector, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_.i) #37
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %collector) #37
   %vtable.i.i = load ptr, ptr %call.i, align 8
@@ -55782,7 +55782,7 @@ ehcleanup90:                                      ; preds = %lpad53, %lpad35
 _ZNKSt14default_deleteIN6google8protobuf7MessageEEclEPS2_.exit.i39: ; preds = %ehcleanup90, %lpad33
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup90 ], [ %28, %lpad33 ]
   call void @_ZN6google8protobuf10TextFormat6FinderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %finder) #37
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, inrange i32 0, i64 2), ptr %collector, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, i32 0, i64 2), ptr %collector, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_.i) #37
   call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %collector) #37
   %vtable.i.i40 = load ptr, ptr %call.i, align 8
@@ -55817,7 +55817,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %error_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_) #37
   tail call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #37
@@ -63270,7 +63270,7 @@ declare void @_ZN6google8protobuf15UnknownFieldSet13ClearFallbackEv(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf12_GLOBAL__N_123AggregateErrorCollectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %error_.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %error_.i) #37
   tail call void @_ZN6google8protobuf2io14ErrorCollectorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #37

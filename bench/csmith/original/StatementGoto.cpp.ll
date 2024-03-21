@@ -4210,7 +4210,7 @@ define dso_local void @_ZN13StatementGotoC2EP5BlockRK10ExpressionPK9StatementRKS
   %16 = load ptr, ptr %6, align 8
   %17 = load ptr, ptr %7, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef 8, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i32 0, i32 0, i32 2), ptr %16, align 8
   %18 = getelementptr inbounds %class.StatementGoto, ptr %16, i32 0, i32 1
   %19 = load ptr, ptr %8, align 8
   store ptr %19, ptr %18, align 8
@@ -4442,7 +4442,7 @@ define dso_local void @_ZN13StatementGotoC2ERKS_(ptr noundef nonnull align 8 der
   %11 = getelementptr inbounds %class.Statement, ptr %10, i32 0, i32 4
   %12 = load ptr, ptr %11, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %9, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i32 0, i32 0, i32 2), ptr %7, align 8
   %13 = getelementptr inbounds %class.StatementGoto, ptr %7, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds %class.StatementGoto, ptr %14, i32 0, i32 1
@@ -4517,7 +4517,7 @@ define dso_local void @_ZN13StatementGotoD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementGoto, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.StatementGoto, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

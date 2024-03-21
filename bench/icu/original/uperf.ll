@@ -102,7 +102,7 @@ entry:
   store ptr %argv, ptr %argv.addr, align 8
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_argc = getelementptr inbounds %class.UPerfTest, ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %argc.addr, align 4
   store i32 %0, ptr %_argc, align 8
@@ -464,7 +464,7 @@ entry:
   store ptr %addUsage, ptr %addUsage.addr, align 8
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_argc = getelementptr inbounds %class.UPerfTest, ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %argc.addr, align 4
   store i32 %0, ptr %_argc, align 8
@@ -1786,7 +1786,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lines = getelementptr inbounds %class.UPerfTest, ptr %this1, i32 0, i32 11
   %0 = load ptr, ptr %lines, align 8
   %cmp = icmp ne ptr %0, null

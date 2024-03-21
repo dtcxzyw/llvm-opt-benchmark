@@ -17373,7 +17373,7 @@ entry:
   store ptr %runtime, ptr %runtime.addr, align 8
   %this4 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes2vm9SortModelC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this4) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i32 0, inrange i32 0, i32 2), ptr %this4, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i32 0, i32 0, i32 2), ptr %this4, align 8
   %runtime_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::StandardSortModel", ptr %this4, i32 0, i32 1
   %0 = load ptr, ptr %runtime.addr, align 8
   store ptr %0, ptr %runtime_, align 8
@@ -17460,7 +17460,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm12_GLOBAL__N_117StandardSortModelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %gcScope_ = getelementptr inbounds %"class.hermes::vm::(anonymous namespace)::StandardSortModel", ptr %this1, i32 0, i32 2
   call void @_ZN6hermes2vm7GCScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(212) %gcScope_) #10
   call void @_ZN6hermes2vm9SortModelD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
@@ -27246,7 +27246,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm9SortModelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6hermes2vm9SortModelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

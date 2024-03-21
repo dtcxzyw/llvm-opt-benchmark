@@ -506,8 +506,8 @@ entry:
 define void @_ZN6icu_7510QuantifierC2EPNS_14UnicodeFunctorEjj(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %this, ptr noundef %adoptedMatcher, i32 noundef %_minCount, i32 noundef %_maxCount) unnamed_addr #7 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, i32 1, i64 2), ptr %0, align 8
   %matcher = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %adoptedMatcher, ptr %matcher, align 8
   %minCount = getelementptr inbounds i8, ptr %this, i64 24
@@ -521,8 +521,8 @@ entry:
 define void @_ZN6icu_7510QuantifierC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, i32 1, i64 2), ptr %0, align 8
   %matcher3 = getelementptr inbounds i8, ptr %o, i64 16
   %1 = load ptr, ptr %matcher3, align 8
   %vtable = load ptr, ptr %1, align 8
@@ -561,9 +561,9 @@ declare void @_ZN6icu_7514UnicodeFunctorD2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7510QuantifierD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [8 x ptr] }, ptr @_ZTVN6icu_7510QuantifierE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %matcher = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %matcher, align 8
   %isnull = icmp eq ptr %0, null

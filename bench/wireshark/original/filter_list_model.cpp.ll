@@ -585,7 +585,7 @@ define void @_ZN15FilterListModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.FilterListModel, ptr %7, i32 0, i32 1
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds %class.FilterListModel, ptr %7, i32 0, i32 2
@@ -1259,7 +1259,7 @@ define void @_ZN15FilterListModelC2ENS_14FilterListTypeEP7QObject(ptr noundef no
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %6, align 8
   call void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.FilterListModel, ptr %9, i32 0, i32 1
   %12 = load i32, ptr %5, align 4
   store i32 %12, ptr %11, align 8

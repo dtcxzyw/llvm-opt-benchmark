@@ -1982,7 +1982,7 @@ _ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 
 if.then.i753:                                     ; preds = %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit.thread, %_ZN2tl8expectedISt5tupleIJiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEN11struct_pack4errcEED2Ev.exit
   %168 = load i32, ptr %result61, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessIN11struct_pack4errcEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i749, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessIN11struct_pack4errcEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i749, align 8
   %m_val.i.i754 = getelementptr inbounds i8, ptr %ref.tmp.i749, i64 8
   store i32 %168, ptr %m_val.i.i754, align 8
   invoke void @_ZN2tl6detail15throw_exceptionINS_19bad_expected_accessIN11struct_pack4errcEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(12) %ref.tmp.i749) #21
@@ -2821,7 +2821,7 @@ declare noundef i32 @fclose(ptr nocapture noundef) local_unnamed_addr #12
 define linkonce_odr dso_local void @_ZN2tl6detail15throw_exceptionINS_19bad_expected_accessIN11struct_pack4errcEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(12) %e) local_unnamed_addr #13 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #20
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessIN11struct_pack4errcEEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN2tl19bad_expected_accessIN11struct_pack4errcEEE, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_val.i = getelementptr inbounds i8, ptr %exception, i64 8
   %m_val2.i = getelementptr inbounds i8, ptr %e, i64 8
   %0 = load i32, ptr %m_val2.i, align 8

@@ -29,7 +29,7 @@ entry:
   store i32 -1, ptr %m_userIndex.i, align 8
   %m_userIndex2.i = getelementptr inbounds i8, ptr %this, i64 28
   store i32 -1, ptr %m_userIndex2.i, align 4
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btConvexShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btConvexShape, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

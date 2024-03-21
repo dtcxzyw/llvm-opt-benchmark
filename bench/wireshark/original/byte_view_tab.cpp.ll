@@ -451,9 +451,9 @@ define void @_ZN11ByteViewTabC2EP7QWidgetP12epan_dissect(ptr noundef nonnull ali
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %5, align 8
   call void @_ZN10QTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV11ByteViewTab, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV11ByteViewTab, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV11ByteViewTab, i32 0, inrange i32 1, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV11ByteViewTab, i32 0, i32 1, i32 2), ptr %15, align 8
   %16 = getelementptr inbounds %class.ByteViewTab, ptr %13, i32 0, i32 1
   store ptr null, ptr %16, align 8
   %17 = getelementptr inbounds %class.ByteViewTab, ptr %13, i32 0, i32 2

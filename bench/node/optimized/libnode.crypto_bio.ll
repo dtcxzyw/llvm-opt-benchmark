@@ -271,7 +271,7 @@ entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #18
   %0 = getelementptr inbounds i8, ptr %call, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto7NodeBIOE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto7NodeBIOE, i64 0, i32 0, i64 2), ptr %call, align 8
   %env_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr null, ptr %env_.i, align 8
   %initial_.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -1860,7 +1860,7 @@ if.end18:                                         ; preds = %if.end.i, %land.rhs
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6crypto7NodeBIOD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto7NodeBIOE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto7NodeBIOE, i64 0, i32 0, i64 2), ptr %this, align 8
   %read_head_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %read_head_, align 8
   %cmp = icmp eq ptr %0, null
@@ -1910,7 +1910,7 @@ cleanup:                                          ; preds = %entry, %do.end
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node6crypto7NodeBIOD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto7NodeBIOE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node6crypto7NodeBIOE, i64 0, i32 0, i64 2), ptr %this, align 8
   %read_head_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %read_head_.i, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -1966,7 +1966,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #18
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40

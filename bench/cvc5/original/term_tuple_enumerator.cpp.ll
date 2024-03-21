@@ -5995,7 +5995,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24TermTupleEnumeratorBasicE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24TermTupleEnumeratorBasicE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_termDbList = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorBasic", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb1EEESaIS5_EESt4lessIS2_ESaISt4pairIKS2_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_termDbList) #3
   %d_qs = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorBasic", ptr %this1, i32 0, i32 2
@@ -6133,7 +6133,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers21TermTupleEnumeratorRDE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers21TermTupleEnumeratorRDE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_rd = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorRD", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %rd.addr, align 8
   store ptr %1, ptr %d_rd, align 8
@@ -6264,7 +6264,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN4cvc58internal12NodeTemplateILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23TermTupleEnumeratorPoolE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23TermTupleEnumeratorPoolE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_pool = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorPool", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_pool, ptr noundef nonnull align 8 dereferenceable(8) %pool)
           to label %invoke.cont3 unwind label %lpad2
@@ -6308,7 +6308,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_disabledCombinations = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorBase", ptr %this1, i32 0, i32 8
   call void @_ZN4cvc58internal6theory11quantifiers9IndexTrieD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_disabledCombinations) #3
   %d_termIndex = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorBase", ptr %this1, i32 0, i32 6
@@ -6340,7 +6340,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24TermTupleEnumeratorBasicE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers24TermTupleEnumeratorBasicE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_termDbList = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorBasic", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN4cvc58internal8TypeNodeESt6vectorINS1_12NodeTemplateILb1EEESaIS5_EESt4lessIS2_ESaISt4pairIKS2_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_termDbList) #3
   call void @_ZN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this1) #3
@@ -7786,7 +7786,7 @@ entry:
   store ptr %env, ptr %env.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23TermTupleEnumeratorBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_quantifier = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorBase", ptr %this1, i32 0, i32 1
   invoke void @_ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %d_quantifier, ptr noundef nonnull align 8 dereferenceable(8) %quantifier)
           to label %invoke.cont unwind label %lpad
@@ -7912,7 +7912,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers28TermTupleEnumeratorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -7959,7 +7959,7 @@ entry:
   %frombool = zext i1 %ignoreFullySpecified to i8
   store i8 %frombool, ptr %ignoreFullySpecified.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9IndexTrieE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9IndexTrieE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_ignoreFullySpecified = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::IndexTrie", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %ignoreFullySpecified.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -8265,7 +8265,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9IndexTrieE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers9IndexTrieE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_root = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::IndexTrie", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %d_root, align 8
   invoke void @_ZN4cvc58internal6theory11quantifiers9IndexTrie7freeRecEPNS2_13IndexTrieNodeE(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %0)
@@ -9210,7 +9210,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23TermTupleEnumeratorPoolE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers23TermTupleEnumeratorPoolE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_poolList = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorPool", ptr %this1, i32 0, i32 2
   call void @_ZNSt3mapImSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS4_EESt4lessImESaISt4pairIKmS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_poolList) #3
   %d_pool = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermTupleEnumeratorPool", ptr %this1, i32 0, i32 1

@@ -178,7 +178,7 @@ define void @_ZN3vcg9Trackball17setDefaultMappingEv(ptr noundef nonnull align 8 
   %10 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr null, ptr %10, align 8
   %11 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg12InactiveModeE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg12InactiveModeE, i64 0, i32 0, i64 2), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 336
   store ptr %11, ptr %12, align 8
   tail call void @_ZN3vcg9Trackball10ClearModesEv(ptr noundef nonnull align 8 dereferenceable(597) %0)
@@ -187,7 +187,7 @@ define void @_ZN3vcg9Trackball17setDefaultMappingEv(ptr noundef nonnull align 8 
   %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %2)
   store ptr null, ptr %14, align 8
   %15 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg10SphereModeE, i64 0, inrange i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg10SphereModeE, i64 0, i32 0, i64 2), ptr %15, align 8
   store i32 1, ptr %3, align 4
   %16 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %3)
   store ptr %15, ptr %16, align 8
@@ -195,17 +195,17 @@ define void @_ZN3vcg9Trackball17setDefaultMappingEv(ptr noundef nonnull align 8 
   %17 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %4)
   store ptr %15, ptr %17, align 8
   %18 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg7PanModeE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg7PanModeE, i64 0, i32 0, i64 2), ptr %18, align 8
   store i32 33, ptr %5, align 4
   %19 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %5)
   store ptr %18, ptr %19, align 8
   %20 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg7PanModeE, i64 0, inrange i32 0, i64 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg7PanModeE, i64 0, i32 0, i64 2), ptr %20, align 8
   store i32 2, ptr %6, align 4
   %21 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %6)
   store ptr %20, ptr %21, align 8
   %22 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg9ScaleModeE, i64 0, inrange i32 0, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg9ScaleModeE, i64 0, i32 0, i64 2), ptr %22, align 8
   store i32 17, ptr %7, align 4
   %23 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %7)
   store ptr %22, ptr %23, align 8
@@ -213,7 +213,7 @@ define void @_ZN3vcg9Trackball17setDefaultMappingEv(ptr noundef nonnull align 8 
   %24 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %8)
   store ptr %22, ptr %24, align 8
   %25 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg5ZModeE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg5ZModeE, i64 0, i32 0, i64 2), ptr %25, align 8
   store i32 65, ptr %9, align 4
   %26 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIiPN3vcg9TrackModeESt4lessIiESaISt4pairIKiS2_EEEixEOi(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(4) %9)
   store ptr %25, ptr %26, align 8
@@ -2999,7 +2999,7 @@ _ZN3vcg9Trackball16SetCurrentActionEv.exit:       ; preds = %23
   %.sroa.3.0..sroa_idx.i28 = phi ptr [ %.sroa.3.0..sroa_idx.i24, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.3.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
   %.sroa.2.0..sroa_idx.i26 = phi ptr [ %.sroa.2.0..sroa_idx.i23, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %.sroa.2.0..sroa_idx.i, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
   %40 = phi ptr [ %27, %_ZN3vcg9Trackball16SetCurrentActionEv.exit.thread ], [ %33, %_ZN3vcg9Trackball16SetCurrentActionEv.exit ]
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg9ScaleModeE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg9ScaleModeE, i64 0, i32 0, i64 2), ptr %6, align 8
   call void @_ZN3vcg9ScaleMode5ApplyEPNS_9TrackballEf(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull %0, float noundef %1)
   br label %45
 

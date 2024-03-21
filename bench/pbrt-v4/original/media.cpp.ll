@@ -10889,7 +10889,7 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7nanovdb14GridHandleBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mBuffer = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %this1, i32 0, i32 1
   call void @_ZN4pbrt13NanoVDBBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer) #4
   %0 = load ptr, ptr %other.addr, align 8
@@ -11211,7 +11211,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEE5resetEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -12017,7 +12017,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7nanovdb14GridHandleBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mBuffer = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %this1, i32 0, i32 1
   call void @_ZN4pbrt13NanoVDBBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer) #4
   ret void
@@ -21841,7 +21841,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb14GridHandleBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb14GridHandleBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -50601,7 +50601,7 @@ entry:
   store ptr %buffer, ptr %buffer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7nanovdb14GridHandleBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mBuffer = getelementptr inbounds %"class.nanovdb::GridHandle", ptr %this1, i32 0, i32 1
   call void @_ZN4pbrt13NanoVDBBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mBuffer) #4
   %0 = load ptr, ptr %buffer.addr, align 8

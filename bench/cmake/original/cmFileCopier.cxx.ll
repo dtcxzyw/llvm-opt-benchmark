@@ -592,7 +592,7 @@ define dso_local void @_ZN12cmFileCopierC2ER17cmExecutionStatusPKc(ptr noundef n
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12cmFileCopier, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12cmFileCopier, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %struct.cmFileCopier, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -674,7 +674,7 @@ define dso_local void @_ZN12cmFileCopierD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12cmFileCopier, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12cmFileCopier, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 21
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %struct.cmFileCopier, ptr %3, i32 0, i32 20

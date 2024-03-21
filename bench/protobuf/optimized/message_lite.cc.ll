@@ -1085,7 +1085,7 @@ define noundef zeroext i1 @_ZN6google8protobuf11MessageLite13MergeFromImplEPNS0_
 entry:
   %zcis = alloca %"class.google::protobuf::ZeroCopyCodedInputStream", align 8
   %ctx = alloca %"class.google::protobuf::internal::ParseContext", align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i64 0, inrange i32 0, i64 2), ptr %zcis, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf24ZeroCopyCodedInputStreamE, i64 0, i32 0, i64 2), ptr %zcis, align 8
   %cis_.i = getelementptr inbounds i8, ptr %zcis, i64 8
   store ptr %input, ptr %cis_.i, align 8
   %recursion_budget_.i = getelementptr inbounds i8, ptr %input, i64 52

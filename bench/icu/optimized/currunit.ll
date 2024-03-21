@@ -503,7 +503,7 @@ entry:
   %simpleIsoCode = alloca [4 x i8], align 1
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   tail call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load i32, ptr %ec, align 4
   %cmp.i = icmp slt i32 %0, 1
   br i1 %cmp.i, label %invoke.cont2, label %do.body.critedge
@@ -628,7 +628,7 @@ entry:
   %isoCodeBuffer = alloca [4 x i8], align 1
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   tail call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cmp.not = icmp eq i32 %_isoCode.coerce1, 3
   br i1 %cmp.not, label %lor.lhs.false, label %if.then
 
@@ -721,7 +721,7 @@ declare void @u_charsToUChars_75(ptr noundef, ptr noundef, i32 noundef) local_un
 define void @_ZN6icu_7512CurrencyUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(28) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 8 dereferenceable(19) %other)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, i32 0, i64 2), ptr %this, align 8
   %isoCode = getelementptr inbounds i8, ptr %this, i64 20
   %isoCode2 = getelementptr inbounds i8, ptr %other, i64 20
   %call = invoke ptr @u_strcpy_75(ptr noundef nonnull %isoCode, ptr noundef nonnull %isoCode2)
@@ -745,7 +745,7 @@ declare ptr @u_strcpy_75(ptr noundef, ptr noundef) local_unnamed_addr #5
 define void @_ZN6icu_7512CurrencyUnitC2ERKNS_11MeasureUnitER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(19) %other, ptr nocapture noundef nonnull writeonly align 4 dereferenceable(4) %ec) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7511MeasureUnitC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(19) %this, ptr noundef nonnull align 8 dereferenceable(19) %other)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = invoke noundef ptr @_ZNK6icu_7511MeasureUnit7getTypeEv(ptr noundef nonnull align 8 dereferenceable(19) %this)
           to label %invoke.cont unwind label %lpad
 
@@ -797,7 +797,7 @@ entry:
   %simpleIsoCode = alloca [4 x i8], align 1
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   tail call void @_ZN6icu_7511MeasureUnitC2Ev(ptr noundef nonnull align 8 dereferenceable(19) %this)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7512CurrencyUnitE, i64 0, i32 0, i64 2), ptr %this, align 8
   %isoCode = getelementptr inbounds i8, ptr %this, i64 20
   %call = invoke ptr @u_strcpy_75(ptr noundef nonnull %isoCode, ptr noundef nonnull @_ZN6icu_75L16kDefaultCurrencyE)
           to label %invoke.cont unwind label %lpad

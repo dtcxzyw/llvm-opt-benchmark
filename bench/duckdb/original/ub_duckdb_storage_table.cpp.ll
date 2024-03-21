@@ -2591,7 +2591,7 @@ entry:
   store i64 %start, ptr %start2.i, align 8, !tbaa !56
   %type3.i = getelementptr inbounds %"class.duckdb::ChunkInfo", ptr %this, i64 0, i32 2
   store i8 0, ptr %type3.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6duckdb17ChunkConstantInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6duckdb17ChunkConstantInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %insert_id = getelementptr inbounds %"class.duckdb::ChunkConstantInfo", ptr %this, i64 0, i32 1
   store i64 0, ptr %insert_id, align 8, !tbaa !24
   %delete_id = getelementptr inbounds %"class.duckdb::ChunkConstantInfo", ptr %this, i64 0, i32 2
@@ -2811,7 +2811,7 @@ entry:
   store i64 %start, ptr %start2.i, align 8, !tbaa !56
   %type3.i = getelementptr inbounds %"class.duckdb::ChunkInfo", ptr %this, i64 0, i32 2
   store i8 1, ptr %type3.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6duckdb15ChunkVectorInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6duckdb15ChunkVectorInfoE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %insert_id = getelementptr inbounds %"class.duckdb::ChunkVectorInfo", ptr %this, i64 0, i32 3
   store i64 0, ptr %insert_id, align 8, !tbaa !61
   %same_inserted_id = getelementptr inbounds %"class.duckdb::ChunkVectorInfo", ptr %this, i64 0, i32 4
@@ -4015,7 +4015,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc:                  ; preds = %invoke.cont12
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !89
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i54, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !89
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i54, align 8, !tbaa !10, !noalias !89
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i54, align 8, !tbaa !10, !noalias !89
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1658", ptr %call5.i.i.i17.i.i.i.i.i.i54, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !94, !noalias !89
   %call.i15.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znam(i64 noundef 256) #41
@@ -4255,7 +4255,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !97
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !97
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !10, !noalias !97
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !10, !noalias !97
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1658", ptr %call5.i.i.i17.i.i.i.i.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !94, !noalias !97
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
@@ -4533,7 +4533,7 @@ declare void @_ZN6duckdb12ValidityMask4ReadERNS_10ReadStreamEm(ptr noundef nonnu
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6duckdb21ColumnCheckpointStateC2ERNS_8RowGroupERNS_10ColumnDataERNS_19PartialBlockManagerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(217) %row_group, ptr noundef nonnull align 8 dereferenceable(224) %column_data, ptr noundef nonnull align 8 dereferenceable(176) %partial_block_manager) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21ColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21ColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %row_group2 = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 1
   store ptr %row_group, ptr %row_group2, align 8, !tbaa !23
   %column_data3 = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 2
@@ -4543,7 +4543,7 @@ entry:
   store i8 1, ptr %finished_loading.i.i, align 8, !tbaa !106
   %nodes.i.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 3, i32 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %nodes.i.i, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, inrange i32 0, i64 2), ptr %new_tree, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, i32 0, i64 2), ptr %new_tree, align 8, !tbaa !10
   %data_pointers = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 4
   %partial_block_manager4 = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data_pointers, i8 0, i64 32, i1 false)
@@ -4554,7 +4554,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb21ColumnCheckpointStateD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21ColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21ColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %global_stats = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 5
   %0 = load ptr, ptr %global_stats, align 8, !tbaa !23
   %cmp.not.i = icmp eq ptr %0, null
@@ -4611,7 +4611,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont.i
 
 _ZNSt6vectorIN6duckdb11DataPointerESaIS1_EED2Ev.exit: ; preds = %if.then.i.i.i, %invoke.cont.i
   %new_tree = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, inrange i32 0, i64 2), ptr %new_tree, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, i32 0, i64 2), ptr %new_tree, align 8, !tbaa !10
   %nodes.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 3, i32 0, i32 2
   %6 = load ptr, ptr %nodes.i, align 8, !tbaa !112
   %_M_finish.i.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 3, i32 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -4674,7 +4674,7 @@ if.end:                                           ; preds = %_ZNKSt14default_del
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %nodes = getelementptr inbounds %"class.duckdb::SegmentTree", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %nodes, align 8, !tbaa !112
   %_M_finish.i = getelementptr inbounds %"class.duckdb::SegmentTree", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -4743,7 +4743,7 @@ define void @_ZN6duckdb25PartialBlockForCheckpointC2ERNS_10ColumnDataERNS_13Colu
 _ZNKSt6vectorIN6duckdb25PartialBlockForCheckpoint20PartialColumnSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i:
   %block = getelementptr inbounds %"class.duckdb::ColumnSegment", ptr %segment, i64 0, i32 7
   tail call void @_ZN6duckdb12PartialBlockC2ENS_17PartialBlockStateERNS_12BlockManagerERKSt10shared_ptrINS_11BlockHandleEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull byval(%"struct.duckdb::PartialBlockState") align 8 %state, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, ptr noundef nonnull align 8 dereferenceable(16) %block)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25PartialBlockForCheckpointE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25PartialBlockForCheckpointE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %segments = getelementptr inbounds %"struct.duckdb::PartialBlockForCheckpoint", ptr %this, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %segments, i8 0, i64 24, i1 false)
   %call5.i.i.i.i.i.i4 = invoke noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #41
@@ -4860,7 +4860,7 @@ _ZNSt6vectorIN6duckdb25PartialBlockForCheckpoint20PartialColumnSegmentESaIS2_EE1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb25PartialBlockForCheckpointD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25PartialBlockForCheckpointE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25PartialBlockForCheckpointE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %segments = getelementptr inbounds %"struct.duckdb::PartialBlockForCheckpoint", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %segments, align 8, !tbaa !118
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -4871,7 +4871,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN6duckdb25PartialBlockForCheckpoint20PartialColumnSegmentESaIS2_EED2Ev.exit
 
 _ZNSt6vectorIN6duckdb25PartialBlockForCheckpoint20PartialColumnSegmentESaIS2_EED2Ev.exit: ; preds = %if.then.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb12PartialBlockE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb12PartialBlockE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %_M_refcount.i.i = getelementptr inbounds %"struct.duckdb::PartialBlock", ptr %this, i64 0, i32 4, i32 0, i32 1
   %1 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !45
   %cmp.not.i.i.i = icmp eq ptr %1, null
@@ -11248,7 +11248,7 @@ if.end:                                           ; preds = %invoke.cont9, %_ZNS
 define void @_ZN6duckdb10ColumnDataC2ERNS_12BlockManagerERNS_13DataTableInfoEmmNS_11LogicalTypeENS_12optional_ptrIS0_EE(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, ptr noundef nonnull align 8 dereferenceable(184) %info, i64 noundef %column_index, i64 noundef %start_row, ptr noundef nonnull %type_p, i64 %parent.coerce) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %agg.tmp.i = alloca %"struct.duckdb::LogicalType", align 8
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb10ColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb10ColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %start = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 1
   store i64 %start_row, ptr %start, align 8, !tbaa !602
   %count = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 2
@@ -11268,7 +11268,7 @@ invoke.cont:
   store i8 1, ptr %finished_loading.i.i, align 8, !tbaa !106
   %nodes.i.i = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 8, i32 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %nodes.i.i, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, inrange i32 0, i64 2), ptr %data, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, i32 0, i64 2), ptr %data, align 8, !tbaa !10
   %update_lock = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 9
   %updates = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 10
   %stats = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 12
@@ -19818,7 +19818,7 @@ entry:
   %deserializer = alloca %"class.duckdb::BinaryDeserializer", align 8
   tail call void @_ZN6duckdb10ColumnData12CreateColumnERNS_12BlockManagerERNS_13DataTableInfoEmmRKNS_11LogicalTypeENS_12optional_ptrIS0_EE(ptr sret(%"class.std::shared_ptr.585") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, ptr noundef nonnull align 8 dereferenceable(184) %info, i64 noundef %column_index, i64 noundef %start_row, ptr noundef nonnull align 8 dereferenceable(24) %type, i64 %parent.coerce)
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %deserializer) #40
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, inrange i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
   %deserialize_enum_from_string.i.i = getelementptr inbounds %"class.duckdb::Deserializer", ptr %deserializer, i64 0, i32 1
   store i8 0, ptr %deserialize_enum_from_string.i.i, align 8, !tbaa !792
   %data.i.i = getelementptr inbounds %"class.duckdb::Deserializer", ptr %deserializer, i64 0, i32 2
@@ -19826,7 +19826,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb18BinaryDeserializerE, i64 0, inrange i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb18BinaryDeserializerE, i64 0, i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
   %stream2.i = getelementptr inbounds %"class.duckdb::BinaryDeserializer", ptr %deserializer, i64 0, i32 1
   store ptr %source, ptr %stream2.i, align 8, !tbaa !23
   %nesting_level.i = getelementptr inbounds %"class.duckdb::BinaryDeserializer", ptr %deserializer, i64 0, i32 2
@@ -19852,7 +19852,7 @@ invoke.cont4:                                     ; preds = %invoke.cont3
           to label %invoke.cont5 unwind label %lpad2
 
 invoke.cont5:                                     ; preds = %invoke.cont4
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, inrange i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
   call void @_ZN6duckdb19DeserializationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data.i.i) #40
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %deserializer) #40
   ret void
@@ -19865,7 +19865,7 @@ lpad:                                             ; preds = %entry
 lpad2:                                            ; preds = %invoke.cont4, %invoke.cont3, %invoke.cont
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, inrange i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
   call void @_ZN6duckdb19DeserializationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data.i.i) #40
   br label %ehcleanup
 
@@ -19902,7 +19902,7 @@ if.then.i:                                        ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !831
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i27.i.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !831
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16StructColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i27.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !831
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb16StructColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i27.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !831
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1687", ptr %call5.i.i.i27.i.i.i.i.i.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i.i), !noalias !831
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %type)
@@ -19940,7 +19940,7 @@ if.then3.i:                                       ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i38.i, align 8, !tbaa !46, !noalias !836
   %_M_weak_count.i.i.i.i.i.i.i39.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i27.i.i.i.i.i37.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i39.i, align 4, !tbaa !49, !noalias !836
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb14ListColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i27.i.i.i.i.i37.i, align 8, !tbaa !10, !noalias !836
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb14ListColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i27.i.i.i.i.i37.i, align 8, !tbaa !10, !noalias !836
   %_M_impl.i.i.i.i.i.i.i40.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1695", ptr %call5.i.i.i27.i.i.i.i.i37.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i36.i), !noalias !836
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i.i.i.i.i.i36.i, ptr noundef nonnull align 8 dereferenceable(24) %type)
@@ -19972,7 +19972,7 @@ if.then8.i:                                       ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i73.i, align 8, !tbaa !46, !noalias !841
   %_M_weak_count.i.i.i.i.i.i.i74.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i27.i.i.i.i.i72.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i74.i, align 4, !tbaa !49, !noalias !841
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15ArrayColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i27.i.i.i.i.i72.i, align 8, !tbaa !10, !noalias !841
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb15ArrayColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i27.i.i.i.i.i72.i, align 8, !tbaa !10, !noalias !841
   %_M_impl.i.i.i.i.i.i.i75.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1703", ptr %call5.i.i.i27.i.i.i.i.i72.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i71.i), !noalias !841
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i.i.i.i.i.i71.i, ptr noundef nonnull align 8 dereferenceable(24) %type)
@@ -20011,7 +20011,7 @@ if.then13.i:                                      ; preds = %if.else10.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i105.i, align 8, !tbaa !46, !noalias !846
   %_M_weak_count.i.i.i.i.i.i.i106.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i25.i.i.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i106.i, align 4, !tbaa !49, !noalias !846
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18ValidityColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i25.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !846
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18ValidityColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i25.i.i.i.i.i.i, align 8, !tbaa !10, !noalias !846
   %_M_impl.i.i.i.i.i.i.i107.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1709", ptr %call5.i.i.i25.i.i.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb18ValidityColumnDataC1ERNS_12BlockManagerERNS_13DataTableInfoEmmRNS_10ColumnDataE(ptr noundef nonnull align 8 dereferenceable(224) %_M_impl.i.i.i.i.i.i.i107.i, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, ptr noundef nonnull align 8 dereferenceable(184) %info, i64 noundef %column_index, i64 noundef %start_row, ptr noundef nonnull align 8 dereferenceable(224) %8)
           to label %_ZN6duckdbL20CreateColumnInternalISt10shared_ptrINS_10ColumnDataEENS_17SharedConstructorEEET_RNS_12BlockManagerERNS_13DataTableInfoEmmRKNS_11LogicalTypeENS_12optional_ptrIS2_EE.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18ValidityColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit31.i.i.i.i.i.i, !noalias !846
@@ -20027,7 +20027,7 @@ if.end18.i:                                       ; preds = %if.else10.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i133.i, align 8, !tbaa !46, !noalias !851
   %_M_weak_count.i.i.i.i.i.i.i134.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i27.i.i.i.i.i132.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i134.i, align 4, !tbaa !49, !noalias !851
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18StandardColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i27.i.i.i.i.i132.i, align 8, !tbaa !10, !noalias !851
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18StandardColumnDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i27.i.i.i.i.i132.i, align 8, !tbaa !10, !noalias !851
   %_M_impl.i.i.i.i.i.i.i135.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1717", ptr %call5.i.i.i27.i.i.i.i.i132.i, i64 0, i32 1
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %agg.tmp.i.i.i.i.i.i.i.i131.i), !noalias !851
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i.i.i.i.i.i.i.i131.i, ptr noundef nonnull align 8 dereferenceable(24) %type)
@@ -20066,7 +20066,7 @@ _ZN6duckdbL20CreateColumnInternalISt10shared_ptrINS_10ColumnDataEENS_17SharedCon
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb12DeserializerD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %data = getelementptr inbounds %"class.duckdb::Deserializer", ptr %this, i64 0, i32 2
   tail call void @_ZN6duckdb19DeserializationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data) #40
   ret void
@@ -42469,7 +42469,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #40
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb15ArrayColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb15ArrayColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %child_column = getelementptr inbounds %"class.duckdb::ArrayColumnData", ptr %this, i64 0, i32 1
   store ptr null, ptr %child_column, align 8, !tbaa !911
   %validity = getelementptr inbounds %"class.duckdb::ArrayColumnData", ptr %this, i64 0, i32 2
@@ -42560,7 +42560,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb9ArrayType12G
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb10ColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb10ColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %stats = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 12
   %0 = load ptr, ptr %stats, align 8, !tbaa !23
   %cmp.not.i = icmp eq ptr %0, null
@@ -42586,7 +42586,7 @@ _ZNKSt14default_deleteIN6duckdb13UpdateSegmentEEclEPS1_.exit.i: ; preds = %_ZNSt
 _ZNSt10unique_ptrIN6duckdb13UpdateSegmentESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb13UpdateSegmentEEclEPS1_.exit.i, %_ZNSt10unique_ptrIN6duckdb17SegmentStatisticsESt14default_deleteIS1_EED2Ev.exit
   store ptr null, ptr %updates, align 8, !tbaa !23
   %data = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, inrange i32 0, i64 2), ptr %data, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, i32 0, i64 2), ptr %data, align 8, !tbaa !10
   %nodes.i = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 8, i32 0, i32 2
   %2 = load ptr, ptr %nodes.i, align 8, !tbaa !112
   %_M_finish.i.i = getelementptr inbounds %"class.duckdb::ColumnData", ptr %this, i64 0, i32 8, i32 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -44518,7 +44518,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #40
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb14ListColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb14ListColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %child_column = getelementptr inbounds %"class.duckdb::ListColumnData", ptr %this, i64 0, i32 1
   store ptr null, ptr %child_column, align 8, !tbaa !911
   %validity = getelementptr inbounds %"class.duckdb::ListColumnData", ptr %this, i64 0, i32 2
@@ -45914,7 +45914,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc:                  ; preds = %if.then.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !1128
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i300, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !1128
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i300, align 8, !tbaa !10, !noalias !1128
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i300, align 8, !tbaa !10, !noalias !1128
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1658", ptr %call5.i.i.i17.i.i.i.i.i.i300, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !94, !noalias !1128
   %add.i.i.i.i.i.i.i.i.i.i.i = add i64 %19, 63
@@ -52146,7 +52146,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !1210
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !1210
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !10, !noalias !1210
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !10, !noalias !1210
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i, i64 noundef %count)
           to label %_ZSt11make_sharedIN6duckdb13SelectionDataEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !1210
@@ -55838,7 +55838,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %if.then4
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !1332
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i16, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !1332
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17RowVersionManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i16, align 8, !tbaa !10, !noalias !1332
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17RowVersionManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i16, align 8, !tbaa !10, !noalias !1332
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1799", ptr %call5.i.i.i17.i.i.i.i16, i64 0, i32 1
   %7 = load i64, ptr %this, align 8, !tbaa !18, !noalias !1332
   invoke void @_ZN6duckdb17RowVersionManagerC1Em(ptr noundef nonnull align 8 dereferenceable(560) %_M_impl.i.i.i.i.i.i, i64 noundef %7)
@@ -61078,7 +61078,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !1382
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !1382
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17RowVersionManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !10, !noalias !1382
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb17RowVersionManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !10, !noalias !1382
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1799", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb17RowVersionManagerC1Em(ptr noundef nonnull align 8 dereferenceable(560) %_M_impl.i.i.i.i.i.i, i64 noundef %start)
           to label %_ZSt11make_sharedIN6duckdb17RowVersionManagerEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb17RowVersionManagerESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !1382
@@ -64134,7 +64134,7 @@ _ZNSt6vectorIN6duckdb16MetaBlockPointerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9
 
 invoke.cont23:                                    ; preds = %_ZNSt6vectorIN6duckdb16MetaBlockPointerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %if.then.i
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %serializer) #40
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN6duckdb16BinarySerializerE, i64 0, inrange i32 0, i64 2), ptr %serializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN6duckdb16BinarySerializerE, i64 0, i32 0, i64 2), ptr %serializer, align 8, !tbaa !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %debug_stack.i, i8 0, i64 24, i1 false)
   store ptr %call19, ptr %stream2.i, align 8, !tbaa !23
   store i8 0, ptr %serialize_default_values.i.i, align 1, !tbaa !1462
@@ -64158,7 +64158,7 @@ invoke.cont32:                                    ; preds = %invoke.cont28
           to label %invoke.cont33 unwind label %lpad26
 
 invoke.cont33:                                    ; preds = %invoke.cont32
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN6duckdb16BinarySerializerE, i64 0, inrange i32 0, i64 2), ptr %serializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN6duckdb16BinarySerializerE, i64 0, i32 0, i64 2), ptr %serializer, align 8, !tbaa !10
   %18 = load ptr, ptr %debug_stack.i, align 8, !tbaa !1465
   %19 = load ptr, ptr %_M_finish.i.i74, align 8, !tbaa !1467
   invoke void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN6duckdb16BinarySerializer10DebugStateEEEvT_S6_(ptr noundef %18, ptr noundef %19)
@@ -64340,7 +64340,7 @@ declare { i64, i32 } @_ZN6duckdb14MetadataWriter19GetMetaBlockPointerEv(ptr noun
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16BinarySerializerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN6duckdb16BinarySerializerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN6duckdb16BinarySerializerE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %debug_stack = getelementptr inbounds %"class.duckdb::BinarySerializer", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %debug_stack, align 8, !tbaa !1465
   %_M_finish.i = getelementptr inbounds %"class.duckdb::BinarySerializer", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -65446,7 +65446,7 @@ entry:
   store i8 1, ptr %finished_loading.i, align 8, !tbaa !106
   %nodes.i = getelementptr inbounds %"class.duckdb::SegmentTree.1012", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %nodes.i, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb19RowGroupSegmentTreeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb19RowGroupSegmentTreeE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %collection2 = getelementptr inbounds %"class.duckdb::RowGroupSegmentTree", ptr %this, i64 0, i32 1
   store ptr %collection, ptr %collection2, align 8, !tbaa !23
   %current_row_group = getelementptr inbounds %"class.duckdb::RowGroupSegmentTree", ptr %this, i64 0, i32 2
@@ -65457,7 +65457,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb19RowGroupSegmentTreeD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb19RowGroupSegmentTreeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb19RowGroupSegmentTreeE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %reader = getelementptr inbounds %"class.duckdb::RowGroupSegmentTree", ptr %this, i64 0, i32 4
   %0 = load ptr, ptr %reader, align 8, !tbaa !23
   %cmp.not.i = icmp eq ptr %0, null
@@ -65472,7 +65472,7 @@ _ZNKSt14default_deleteIN6duckdb14MetadataReaderEEclEPS1_.exit.i: ; preds = %entr
 
 _ZNSt10unique_ptrIN6duckdb14MetadataReaderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN6duckdb14MetadataReaderEEclEPS1_.exit.i, %entry
   store ptr null, ptr %reader, align 8, !tbaa !23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_8RowGroupELb1EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_8RowGroupELb1EEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %nodes.i = getelementptr inbounds %"class.duckdb::SegmentTree.1012", ptr %this, i64 0, i32 2
   %2 = load ptr, ptr %nodes.i, align 8, !tbaa !1502
   %_M_finish.i.i = getelementptr inbounds %"class.duckdb::SegmentTree.1012", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -65606,12 +65606,12 @@ if.end:                                           ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 440, ptr nonnull %deserializer) #40
   %reader2 = getelementptr inbounds %"class.duckdb::RowGroupSegmentTree", ptr %this, i64 0, i32 4
   %call3 = tail call noundef nonnull align 8 dereferenceable(112) ptr @_ZNK6duckdb10unique_ptrINS_14MetadataReaderESt14default_deleteIS1_ELb1EEdeEv(ptr noundef nonnull align 8 dereferenceable(8) %reader2)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, inrange i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
   %deserialize_enum_from_string.i.i = getelementptr inbounds %"class.duckdb::Deserializer", ptr %deserializer, i64 0, i32 1
   store i8 0, ptr %deserialize_enum_from_string.i.i, align 8, !tbaa !792
   %data.i.i = getelementptr inbounds %"class.duckdb::Deserializer", ptr %deserializer, i64 0, i32 2
   call void @_ZN6duckdb19DeserializationDataC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data.i.i)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb18BinaryDeserializerE, i64 0, inrange i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb18BinaryDeserializerE, i64 0, i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
   %stream2.i = getelementptr inbounds %"class.duckdb::BinaryDeserializer", ptr %deserializer, i64 0, i32 1
   store ptr %call3, ptr %stream2.i, align 8, !tbaa !23
   %nesting_level.i = getelementptr inbounds %"class.duckdb::BinaryDeserializer", ptr %deserializer, i64 0, i32 2
@@ -65676,7 +65676,7 @@ if.then.i.i.i3.i:                                 ; preds = %_ZNSt6vectorIN6duck
 
 _ZN6duckdb15RowGroupPointerD2Ev.exit:             ; preds = %if.then.i.i.i3.i, %_ZNSt6vectorIN6duckdb16MetaBlockPointerESaIS1_EED2Ev.exit.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %row_group_pointer) #40
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, inrange i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
   call void @_ZN6duckdb19DeserializationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data.i.i) #40
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %deserializer) #40
   br label %return
@@ -65708,7 +65708,7 @@ ehcleanup:                                        ; preds = %lpad6.body, %lpad4
 
 ehcleanup10:                                      ; preds = %ehcleanup, %lpad
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %9, %lpad ]
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, inrange i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6duckdb12DeserializerE, i64 0, i32 0, i64 2), ptr %deserializer, align 8, !tbaa !10
   call void @_ZN6duckdb19DeserializationDataD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %data.i.i) #40
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %deserializer) #40
   resume { ptr, i32 } %.pn.pn
@@ -65822,7 +65822,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !1534
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i5, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !1534
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19RowGroupSegmentTreeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i5, align 8, !tbaa !10, !noalias !1534
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19RowGroupSegmentTreeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i5, align 8, !tbaa !10, !noalias !1534
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1810", ptr %call5.i.i.i17.i.i.i.i5, i64 0, i32 1
   invoke void @_ZN6duckdb19RowGroupSegmentTreeC1ERNS_18RowGroupCollectionE(ptr noundef nonnull align 8 dereferenceable(112) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(144) %this)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb19RowGroupSegmentTreeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !1534
@@ -74117,7 +74117,7 @@ if.end34:                                         ; preds = %for.end.2, %for.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false), !noalias !1758
   %checkpoint_state2.i.i.i = getelementptr inbounds %"class.duckdb::BaseCheckpointTask", ptr %call.i, i64 0, i32 1
   store ptr %checkpoint_state, ptr %checkpoint_state2.i.i.i, align 8, !tbaa !23, !noalias !1758
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb10VacuumTaskE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !10, !noalias !1758
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb10VacuumTaskE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !10, !noalias !1758
   %vacuum_state2.i.i = getelementptr inbounds %"class.duckdb::VacuumTask", ptr %call.i, i64 0, i32 1
   store ptr %state, ptr %vacuum_state2.i.i, align 8, !tbaa !23, !noalias !1758
   %segment_idx3.i.i = getelementptr inbounds %"class.duckdb::VacuumTask", ptr %call.i, i64 0, i32 2
@@ -74259,7 +74259,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !noalias !1777
   %checkpoint_state2.i.i.i = getelementptr inbounds %"class.duckdb::BaseCheckpointTask", ptr %call.i, i64 0, i32 1
   store ptr %checkpoint_state, ptr %checkpoint_state2.i.i.i, align 8, !tbaa !23, !noalias !1777
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CheckpointTaskE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !10, !noalias !1777
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CheckpointTaskE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !10, !noalias !1777
   %index2.i.i = getelementptr inbounds %"class.duckdb::CheckpointTask", ptr %call.i, i64 0, i32 1
   store i64 %segment_idx, ptr %index2.i.i, align 8, !tbaa !1780, !noalias !1777
   store ptr %call.i, ptr %agg.tmp, align 8, !tbaa !1773
@@ -74435,7 +74435,7 @@ call.i.i.noexc:                                   ; preds = %invoke.cont22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, i8 0, i64 16, i1 false), !noalias !1785
   %checkpoint_state2.i.i.i.i = getelementptr inbounds %"class.duckdb::BaseCheckpointTask", ptr %call.i.i158, i64 0, i32 1
   store ptr %checkpoint_state, ptr %checkpoint_state2.i.i.i.i, align 8, !tbaa !23, !noalias !1785
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CheckpointTaskE, i64 0, inrange i32 0, i64 2), ptr %call.i.i158, align 8, !tbaa !10, !noalias !1785
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CheckpointTaskE, i64 0, i32 0, i64 2), ptr %call.i.i158, align 8, !tbaa !10, !noalias !1785
   %index2.i.i.i = getelementptr inbounds %"class.duckdb::CheckpointTask", ptr %call.i.i158, i64 0, i32 1
   store i64 %segment_idx.0444, ptr %index2.i.i.i, align 8, !tbaa !1780, !noalias !1785
   store ptr %call.i.i158, ptr %agg.tmp.i, align 8, !tbaa !1773
@@ -76359,7 +76359,7 @@ call5.i.i.i25.i.i.i.i.noexc:                      ; preds = %invoke.cont4
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !1806
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i25.i.i.i.i123, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !1806
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18RowGroupCollectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i25.i.i.i.i123, align 8, !tbaa !10, !noalias !1806
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18RowGroupCollectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i25.i.i.i.i123, align 8, !tbaa !10, !noalias !1806
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1863", ptr %call5.i.i.i25.i.i.i.i123, i64 0, i32 1
   invoke void @_ZSt10_ConstructIN6duckdb18RowGroupCollectionEJRSt10shared_ptrINS0_13DataTableInfoEERNS0_12BlockManagerENS0_6vectorINS0_11LogicalTypeELb1EEERmmEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %info, ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(24) %new_types, ptr noundef nonnull align 8 dereferenceable(8) %row_start, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp5)
           to label %invoke.cont8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18RowGroupCollectionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit31.i.i.i.i, !noalias !1806
@@ -77228,7 +77228,7 @@ call5.i.i.i25.i.i.i.i.noexc:                      ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !1822
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i25.i.i.i.i63, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !1822
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18RowGroupCollectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i25.i.i.i.i63, align 8, !tbaa !10, !noalias !1822
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18RowGroupCollectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i25.i.i.i.i63, align 8, !tbaa !10, !noalias !1822
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1863", ptr %call5.i.i.i25.i.i.i.i63, i64 0, i32 1
   invoke void @_ZSt10_ConstructIN6duckdb18RowGroupCollectionEJRSt10shared_ptrINS0_13DataTableInfoEERNS0_12BlockManagerENS0_6vectorINS0_11LogicalTypeELb1EEERmmEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %info, ptr noundef nonnull align 8 dereferenceable(120) %9, ptr noundef nonnull align 8 dereferenceable(24) %new_types, ptr noundef nonnull align 8 dereferenceable(8) %row_start, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp8)
           to label %invoke.cont11 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18RowGroupCollectionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit31.i.i.i.i, !noalias !1822
@@ -77629,7 +77629,7 @@ call5.i.i.i25.i.i.i.i.noexc:                      ; preds = %_ZN6duckdb11Logical
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !46, !noalias !1827
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i25.i.i.i.i133, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !49, !noalias !1827
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18RowGroupCollectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i25.i.i.i.i133, align 8, !tbaa !10, !noalias !1827
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb18RowGroupCollectionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i25.i.i.i.i133, align 8, !tbaa !10, !noalias !1827
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.1863", ptr %call5.i.i.i25.i.i.i.i133, i64 0, i32 1
   invoke void @_ZSt10_ConstructIN6duckdb18RowGroupCollectionEJRSt10shared_ptrINS0_13DataTableInfoEERNS0_12BlockManagerENS0_6vectorINS0_11LogicalTypeELb1EEERmmEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %info, ptr noundef nonnull align 8 dereferenceable(120) %15, ptr noundef nonnull align 8 dereferenceable(24) %new_types, ptr noundef nonnull align 8 dereferenceable(8) %row_start, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
           to label %invoke.cont6 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb18RowGroupCollectionESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit31.i.i.i.i, !noalias !1827
@@ -81383,7 +81383,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #40
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb18StandardColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb18StandardColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity = getelementptr inbounds %"class.duckdb::StandardColumnData", ptr %this, i64 0, i32 1
   invoke void @_ZN6duckdb18ValidityColumnDataC1ERNS_12BlockManagerERNS_13DataTableInfoEmmRNS_10ColumnDataE(ptr noundef nonnull align 8 dereferenceable(224) %validity, ptr noundef nonnull align 8 dereferenceable(120) %block_manager, ptr noundef nonnull align 8 dereferenceable(184) %info, i64 noundef 0, i64 noundef %start_row, ptr noundef nonnull align 8 dereferenceable(224) %this)
           to label %invoke.cont5 unwind label %lpad4
@@ -82308,12 +82308,12 @@ _ZNSt10unique_ptrIN6duckdb29StandardColumnCheckpointStateESt14default_deleteIS1_
   store i8 1, ptr %finished_loading.i.i.i.i.i, align 1, !tbaa !106, !noalias !1896
   %nodes.i.i.i.i.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %call.i, i64 0, i32 3, i32 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %nodes.i.i.i.i.i, i8 0, i64 64, i1 false), !noalias !1896
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, inrange i32 0, i64 2), ptr %new_tree.i.i.i, align 8, !tbaa !10, !noalias !1896
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, i32 0, i64 2), ptr %new_tree.i.i.i, align 8, !tbaa !10, !noalias !1896
   %data_pointers.i.i.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %call.i, i64 0, i32 4
   %partial_block_manager4.i.i.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %call.i, i64 0, i32 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data_pointers.i.i.i, i8 0, i64 32, i1 false), !noalias !1896
   store ptr %partial_block_manager, ptr %partial_block_manager4.i.i.i, align 8, !tbaa !23, !noalias !1896
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb29StandardColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !10, !noalias !1896
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb29StandardColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !10, !noalias !1896
   %validity_state.i.i = getelementptr inbounds %"struct.duckdb::StandardColumnCheckpointState", ptr %call.i, i64 0, i32 1
   store ptr null, ptr %validity_state.i.i, align 8, !tbaa !1115, !noalias !1896
   store ptr %call.i, ptr %agg.result, align 8, !tbaa !1115
@@ -82655,7 +82655,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #40
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb16StructColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb16StructColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %sub_columns = getelementptr inbounds %"class.duckdb::StructColumnData", ptr %this, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %sub_columns, i8 0, i64 24, i1 false)
   %validity = getelementptr inbounds %"class.duckdb::StructColumnData", ptr %this, i64 0, i32 2
@@ -82967,7 +82967,7 @@ declare void @_ZN6duckdb21InvalidInputExceptionC1ERKNSt7__cxx1112basic_stringIcS
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !27
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2
@@ -86014,7 +86014,7 @@ entry:
 
 invoke.cont3:                                     ; preds = %entry
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp) #40
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb18ValidityColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb18ValidityColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   ret void
 
 lpad:                                             ; preds = %entry
@@ -86070,7 +86070,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb15ArrayColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb15ArrayColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb15ArrayColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity = getelementptr inbounds %"class.duckdb::ArrayColumnData", ptr %this, i64 0, i32 2
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %validity) #40
   %child_column = getelementptr inbounds %"class.duckdb::ArrayColumnData", ptr %this, i64 0, i32 1
@@ -86094,7 +86094,7 @@ _ZNSt10unique_ptrIN6duckdb10ColumnDataESt14default_deleteIS1_EED2Ev.exit: ; pred
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb15ArrayColumnDataD0Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb15ArrayColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb15ArrayColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity.i = getelementptr inbounds %"class.duckdb::ArrayColumnData", ptr %this, i64 0, i32 2
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %validity.i) #40
   %child_column.i = getelementptr inbounds %"class.duckdb::ArrayColumnData", ptr %this, i64 0, i32 1
@@ -86119,7 +86119,7 @@ _ZN6duckdb15ArrayColumnDataD2Ev.exit:             ; preds = %_ZNKSt14default_del
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ListColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb14ListColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb14ListColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity = getelementptr inbounds %"class.duckdb::ListColumnData", ptr %this, i64 0, i32 2
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %validity) #40
   %child_column = getelementptr inbounds %"class.duckdb::ListColumnData", ptr %this, i64 0, i32 1
@@ -86143,7 +86143,7 @@ _ZNSt10unique_ptrIN6duckdb10ColumnDataESt14default_deleteIS1_EED2Ev.exit: ; pred
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ListColumnDataD0Ev(ptr noundef nonnull align 8 dereferenceable(456) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb14ListColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb14ListColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity.i = getelementptr inbounds %"class.duckdb::ListColumnData", ptr %this, i64 0, i32 2
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %validity.i) #40
   %child_column.i = getelementptr inbounds %"class.duckdb::ListColumnData", ptr %this, i64 0, i32 1
@@ -86168,7 +86168,7 @@ _ZN6duckdb14ListColumnDataD2Ev.exit:              ; preds = %_ZNKSt14default_del
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb18StandardColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb18StandardColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb18StandardColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity = getelementptr inbounds %"class.duckdb::StandardColumnData", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %validity) #40
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #40
@@ -86178,7 +86178,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb18StandardColumnDataD0Ev(ptr noundef nonnull align 8 dereferenceable(448) %this) unnamed_addr #13 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb18StandardColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb18StandardColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity.i = getelementptr inbounds %"class.duckdb::StandardColumnData", ptr %this, i64 0, i32 1
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %validity.i) #40
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %this) #40
@@ -86189,7 +86189,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16StructColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb16StructColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb16StructColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity = getelementptr inbounds %"class.duckdb::StructColumnData", ptr %this, i64 0, i32 2
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %validity) #40
   %sub_columns = getelementptr inbounds %"class.duckdb::StructColumnData", ptr %this, i64 0, i32 1
@@ -86239,7 +86239,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_10ColumnDataESt14default_deleteIS2_ELb1EEE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16StructColumnDataD0Ev(ptr noundef nonnull align 8 dereferenceable(472) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb16StructColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN6duckdb16StructColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity.i = getelementptr inbounds %"class.duckdb::StructColumnData", ptr %this, i64 0, i32 2
   tail call void @_ZN6duckdb10ColumnDataD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %validity.i) #40
   %sub_columns.i = getelementptr inbounds %"class.duckdb::StructColumnData", ptr %this, i64 0, i32 1
@@ -86397,7 +86397,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb17ColumnSegmentTreeD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %nodes.i = getelementptr inbounds %"class.duckdb::SegmentTree", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %nodes.i, align 8, !tbaa !112
   %_M_finish.i.i = getelementptr inbounds %"class.duckdb::SegmentTree", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -86451,7 +86451,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %nodes.i = getelementptr inbounds %"class.duckdb::SegmentTree", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %nodes.i, align 8, !tbaa !112
   %_M_finish.i.i = getelementptr inbounds %"class.duckdb::SegmentTree", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -86498,7 +86498,7 @@ _ZN6duckdb11SegmentTreeINS_13ColumnSegmentELb0EED2Ev.exit: ; preds = %if.then.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb12PartialBlockD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb12PartialBlockE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb12PartialBlockE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %_M_refcount.i = getelementptr inbounds %"struct.duckdb::PartialBlock", ptr %this, i64 0, i32 4, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !45
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -105844,7 +105844,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8, !tbaa !46
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i10.i9, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4, !tbaa !49
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb4TaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i10.i9, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6duckdb4TaskESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i10.i9, align 8, !tbaa !10
   %_M_impl.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i10.i9, i64 0, i32 1
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8, !tbaa !2332
   %2 = load ptr, ptr %_M_refcount, align 8, !tbaa !45
@@ -112017,12 +112017,12 @@ entry:
   store i8 1, ptr %finished_loading.i.i.i, align 8, !tbaa !106
   %nodes.i.i.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 3, i32 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %nodes.i.i.i, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, inrange i32 0, i64 2), ptr %new_tree.i, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, i32 0, i64 2), ptr %new_tree.i, align 8, !tbaa !10
   %data_pointers.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 4
   %partial_block_manager4.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data_pointers.i, i8 0, i64 32, i1 false)
   store ptr %partial_block_manager, ptr %partial_block_manager4.i, align 8, !tbaa !23
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb26ArrayColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb26ArrayColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity_state = getelementptr inbounds %"struct.duckdb::ArrayColumnCheckpointState", ptr %this, i64 0, i32 1
   %child_state = getelementptr inbounds %"struct.duckdb::ArrayColumnCheckpointState", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %validity_state, i8 0, i64 16, i1 false)
@@ -112129,7 +112129,7 @@ declare void @_ZN6duckdb10ArrayStats11CreateEmptyENS_11LogicalTypeE(ptr sret(%"c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb26ArrayColumnCheckpointStateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb26ArrayColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb26ArrayColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %child_state = getelementptr inbounds %"struct.duckdb::ArrayColumnCheckpointState", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %child_state, align 8, !tbaa !23
   %cmp.not.i = icmp eq ptr %0, null
@@ -112165,7 +112165,7 @@ _ZNSt10unique_ptrIN6duckdb21ColumnCheckpointStateESt14default_deleteIS1_EED2Ev.e
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb26ArrayColumnCheckpointStateD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb26ArrayColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb26ArrayColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %child_state.i = getelementptr inbounds %"struct.duckdb::ArrayColumnCheckpointState", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %child_state.i, align 8, !tbaa !23
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -112328,12 +112328,12 @@ entry:
   store i8 1, ptr %finished_loading.i.i.i, align 8, !tbaa !106
   %nodes.i.i.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 3, i32 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %nodes.i.i.i, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, inrange i32 0, i64 2), ptr %new_tree.i, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, i32 0, i64 2), ptr %new_tree.i, align 8, !tbaa !10
   %data_pointers.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 4
   %partial_block_manager4.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data_pointers.i, i8 0, i64 32, i1 false)
   store ptr %partial_block_manager, ptr %partial_block_manager4.i, align 8, !tbaa !23
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25ListColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25ListColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity_state = getelementptr inbounds %"struct.duckdb::ListColumnCheckpointState", ptr %this, i64 0, i32 1
   %child_state = getelementptr inbounds %"struct.duckdb::ListColumnCheckpointState", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %validity_state, i8 0, i64 16, i1 false)
@@ -112440,7 +112440,7 @@ declare void @_ZN6duckdb9ListStats11CreateEmptyENS_11LogicalTypeE(ptr sret(%"cla
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb25ListColumnCheckpointStateD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25ListColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25ListColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %child_state = getelementptr inbounds %"struct.duckdb::ListColumnCheckpointState", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %child_state, align 8, !tbaa !23
   %cmp.not.i = icmp eq ptr %0, null
@@ -112476,7 +112476,7 @@ _ZNSt10unique_ptrIN6duckdb21ColumnCheckpointStateESt14default_deleteIS1_EED2Ev.e
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb25ListColumnCheckpointStateD0Ev(ptr noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25ListColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb25ListColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %child_state.i = getelementptr inbounds %"struct.duckdb::ListColumnCheckpointState", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %child_state.i, align 8, !tbaa !23
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -114160,7 +114160,7 @@ declare { i64, i32 } @_ZN6duckdb16MetaBlockPointer11DeserializeERNS_12Deserializ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb11SegmentTreeINS_8RowGroupELb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_8RowGroupELb1EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_8RowGroupELb1EEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %nodes = getelementptr inbounds %"class.duckdb::SegmentTree.1012", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %nodes, align 8, !tbaa !1502
   %_M_finish.i = getelementptr inbounds %"class.duckdb::SegmentTree.1012", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -114206,7 +114206,7 @@ _ZNSt6vectorIN6duckdb11SegmentNodeINS0_8RowGroupEEESaIS3_EED2Ev.exit: ; preds = 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb11SegmentTreeINS_8RowGroupELb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_8RowGroupELb1EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb11SegmentTreeINS_8RowGroupELb1EEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %nodes.i = getelementptr inbounds %"class.duckdb::SegmentTree.1012", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %nodes.i, align 8, !tbaa !1502
   %_M_finish.i.i = getelementptr inbounds %"class.duckdb::SegmentTree.1012", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -116758,7 +116758,7 @@ call.i.i.noexc467:                                ; preds = %for.body164
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, i8 0, i64 16, i1 false), !noalias !2547
   %checkpoint_state2.i.i.i.i = getelementptr inbounds %"class.duckdb::BaseCheckpointTask", ptr %call.i.i468, i64 0, i32 1
   store ptr %178, ptr %checkpoint_state2.i.i.i.i, align 8, !tbaa !23, !noalias !2547
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CheckpointTaskE, i64 0, inrange i32 0, i64 2), ptr %call.i.i468, align 8, !tbaa !10, !noalias !2547
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14CheckpointTaskE, i64 0, i32 0, i64 2), ptr %call.i.i468, align 8, !tbaa !10, !noalias !2547
   %index2.i.i.i = getelementptr inbounds %"class.duckdb::CheckpointTask", ptr %call.i.i468, i64 0, i32 1
   store i64 %add167, ptr %index2.i.i.i, align 8, !tbaa !1780, !noalias !2547
   store ptr %call.i.i468, ptr %agg.tmp.i, align 8, !tbaa !1773
@@ -119114,7 +119114,7 @@ _ZNSt12_Vector_baseIN6duckdb15ColumnScanStateESaIS1_EE13_M_deallocateEPS1_m.exit
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb29StandardColumnCheckpointStateD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb29StandardColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb29StandardColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity_state = getelementptr inbounds %"struct.duckdb::StandardColumnCheckpointState", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %validity_state, align 8, !tbaa !23
   %cmp.not.i = icmp eq ptr %0, null
@@ -119136,7 +119136,7 @@ _ZNSt10unique_ptrIN6duckdb21ColumnCheckpointStateESt14default_deleteIS1_EED2Ev.e
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb29StandardColumnCheckpointStateD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb29StandardColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb29StandardColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity_state.i = getelementptr inbounds %"struct.duckdb::StandardColumnCheckpointState", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %validity_state.i, align 8, !tbaa !23
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -119213,12 +119213,12 @@ entry:
   store i8 1, ptr %finished_loading.i.i.i, align 8, !tbaa !106
   %nodes.i.i.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 3, i32 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %nodes.i.i.i, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, inrange i32 0, i64 2), ptr %new_tree.i, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17ColumnSegmentTreeE, i64 0, i32 0, i64 2), ptr %new_tree.i, align 8, !tbaa !10
   %data_pointers.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 4
   %partial_block_manager4.i = getelementptr inbounds %"struct.duckdb::ColumnCheckpointState", ptr %this, i64 0, i32 6
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %data_pointers.i, i8 0, i64 32, i1 false)
   store ptr %partial_block_manager, ptr %partial_block_manager4.i, align 8, !tbaa !23
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb27StructColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb27StructColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %validity_state = getelementptr inbounds %"struct.duckdb::StructColumnCheckpointState", ptr %this, i64 0, i32 1
   %child_states = getelementptr inbounds %"struct.duckdb::StructColumnCheckpointState", ptr %this, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %validity_state, i8 0, i64 32, i1 false)
@@ -119313,7 +119313,7 @@ declare void @_ZN6duckdb11StructStats11CreateEmptyENS_11LogicalTypeE(ptr sret(%"
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb27StructColumnCheckpointStateD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb27StructColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb27StructColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %child_states = getelementptr inbounds %"struct.duckdb::StructColumnCheckpointState", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %child_states, align 8, !tbaa !1420
   %_M_finish.i = getelementptr inbounds %"struct.duckdb::StructColumnCheckpointState", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -119375,7 +119375,7 @@ _ZNSt10unique_ptrIN6duckdb21ColumnCheckpointStateESt14default_deleteIS1_EED2Ev.e
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb27StructColumnCheckpointStateD0Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb27StructColumnCheckpointStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb27StructColumnCheckpointStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !10
   %child_states.i = getelementptr inbounds %"struct.duckdb::StructColumnCheckpointState", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %child_states.i, align 8, !tbaa !1420
   %_M_finish.i.i = getelementptr inbounds %"struct.duckdb::StructColumnCheckpointState", ptr %this, i64 0, i32 2, i32 0, i32 0, i32 0, i32 0, i32 1

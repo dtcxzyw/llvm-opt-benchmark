@@ -3425,7 +3425,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTVN5boost2io13too_many_argsE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5boost2io13too_many_argsE, ptr @_ZN5boost2io13too_many_argsD2Ev, ptr @_ZN5boost2io13too_many_argsD0Ev, ptr @_ZNK5boost2io13too_many_args4whatEv] }, comdat, align 8
 @.str.69 = private unnamed_addr constant [81 x i8] c"boost::too_many_args: format-string referred to fewer arguments than were passed\00", align 1
 @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTIN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, ptr @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev, ptr @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev], [5 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, ptr @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev, ptr @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev] }, comdat, align 8
-@_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTISo, ptr @_ZNSoD1Ev, ptr @_ZNSoD0Ev], [5 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTISo, ptr @_ZTv0_n24_NSoD1Ev, ptr @_ZTv0_n24_NSoD0Ev] }, comdat, align 8
 @_ZTISo = external constant ptr
 @_ZTSN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr constant [62 x i8] c"N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE\00", comdat, align 1
@@ -3456,7 +3456,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt11_Mutex_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTISt23_Sp_counted_ptr_inplaceI10CmdProfileSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI10CmdProfileSaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTV10CmdProfile = linkonce_odr unnamed_addr constant { [12 x ptr], [20 x ptr], [12 x ptr] } { [12 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 192 to ptr), ptr null, ptr @_ZTI10CmdProfile, ptr @_ZN3nix12MultiCommand11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix12MultiCommand11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix15NixMultiCommand6toJSONB5cxx11Ev, ptr @_ZN3nix15NixMultiCommand3runEv, ptr @_ZN10CmdProfileD1Ev, ptr @_ZN10CmdProfileD0Ev, ptr @_ZN10CmdProfile11descriptionB5cxx11Ev, ptr @_ZN10CmdProfile3docB5cxx11Ev], [20 x ptr] [ptr inttoptr (i64 -192 to ptr), ptr null, ptr null, ptr inttoptr (i64 -192 to ptr), ptr inttoptr (i64 -192 to ptr), ptr null, ptr inttoptr (i64 -192 to ptr), ptr null, ptr inttoptr (i64 -192 to ptr), ptr inttoptr (i64 -192 to ptr), ptr @_ZTI10CmdProfile, ptr @_ZTv0_n24_N10CmdProfile11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N10CmdProfile3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZTv0_n56_N3nix12MultiCommand11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZTv0_n64_N3nix12MultiCommand11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZTv0_n88_N3nix15NixMultiCommand6toJSONB5cxx11Ev], [12 x ptr] [ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTI10CmdProfile, ptr @_ZTv0_n32_N10CmdProfileD1Ev, ptr @_ZTv0_n32_N10CmdProfileD0Ev, ptr @_ZTv0_n40_N3nix15NixMultiCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv] }, comdat, align 8
-@_ZTT10CmdProfile = linkonce_odr unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix12MultiCommandE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix12MultiCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile400_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile400_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT10CmdProfile = linkonce_odr unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i32 0, i32 0, i32 4), ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix12MultiCommandE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix12MultiCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile400_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile400_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @.str.74 = private unnamed_addr constant [8 x i8] c"install\00", align 1
 @.str.75 = private unnamed_addr constant [7 x i8] c"remove\00", align 1
 @.str.76 = private unnamed_addr constant [8 x i8] c"upgrade\00", align 1
@@ -3478,7 +3478,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTSSt23_Sp_counted_ptr_inplaceI17CmdProfileInstallSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [83 x i8] c"St23_Sp_counted_ptr_inplaceI17CmdProfileInstallSaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceI17CmdProfileInstallSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI17CmdProfileInstallSaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTV17CmdProfileInstall = linkonce_odr unnamed_addr constant { [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] } { [17 x ptr] [ptr inttoptr (i64 744 to ptr), ptr inttoptr (i64 744 to ptr), ptr inttoptr (i64 768 to ptr), ptr inttoptr (i64 536 to ptr), ptr null, ptr @_ZTI17CmdProfileInstall, ptr @_ZN17CmdProfileInstallD1Ev, ptr @_ZN17CmdProfileInstallD0Ev, ptr @_ZN3nix22RawInstallablesCommand25getFlakeRefsForCompletionEv, ptr @_ZN3nix17SourceExprCommand24getDefaultFlakeAttrPathsB5cxx11Ev, ptr @_ZN3nix17SourceExprCommand31getDefaultFlakeAttrPathPrefixesB5cxx11Ev, ptr @_ZN3nix19InstallablesCommand3runENS_3refINS_5StoreEEEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE, ptr @_ZN3nix22RawInstallablesCommand3runENS_3refINS_5StoreEEE, ptr @_ZN3nix22RawInstallablesCommand24applyDefaultInstallablesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr @_ZN17CmdProfileInstall3runEN3nix3refINS0_5StoreEEEOSt6vectorINS1_INS0_11InstallableEEESaIS6_EE, ptr @_ZN17CmdProfileInstall11descriptionB5cxx11Ev, ptr @_ZN17CmdProfileInstall3docB5cxx11Ev], [14 x ptr] [ptr inttoptr (i64 272 to ptr), ptr inttoptr (i64 272 to ptr), ptr inttoptr (i64 272 to ptr), ptr inttoptr (i64 272 to ptr), ptr inttoptr (i64 272 to ptr), ptr inttoptr (i64 -472 to ptr), ptr inttoptr (i64 64 to ptr), ptr inttoptr (i64 -472 to ptr), ptr @_ZTI17CmdProfileInstall, ptr @_ZThn472_N17CmdProfileInstallD1Ev, ptr @_ZThn472_N17CmdProfileInstallD0Ev, ptr null, ptr null, ptr null], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -536 to ptr), ptr null, ptr inttoptr (i64 -536 to ptr), ptr inttoptr (i64 -536 to ptr), ptr @_ZTI17CmdProfileInstall, ptr @_ZTv0_n24_N17CmdProfileInstall11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N17CmdProfileInstall3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [17 x ptr] [ptr inttoptr (i64 -744 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -744 to ptr), ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -744 to ptr), ptr @_ZTI17CmdProfileInstall, ptr @_ZTv0_n32_N17CmdProfileInstallD1Ev, ptr @_ZTv0_n32_N17CmdProfileInstallD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZTv0_n80_N3nix22RawInstallablesCommand3runENS_3refINS_5StoreEEE], [3 x ptr] [ptr inttoptr (i64 -232 to ptr), ptr inttoptr (i64 -768 to ptr), ptr @_ZTI17CmdProfileInstall] }, comdat, align 8
-@_ZTT17CmdProfileInstall = linkonce_odr unnamed_addr constant [49 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 4, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 1, i32 9), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall768_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall768_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT17CmdProfileInstall = linkonce_odr unnamed_addr constant [49 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, i32 0, i32 6), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix15MixFlakeOptionsE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [11 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix17SourceExprCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix22RawInstallablesCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 4, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i32 0, inrange i32 1, i32 9), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall768_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall768_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @.str.82 = private unnamed_addr constant [9 x i8] c"priority\00", align 1
 @.str.83 = private unnamed_addr constant [40 x i8] c"The priority of the package to install.\00", align 1
 @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE = linkonce_odr unnamed_addr constant { [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] } { [15 x ptr] [ptr inttoptr (i64 744 to ptr), ptr inttoptr (i64 744 to ptr), ptr inttoptr (i64 768 to ptr), ptr inttoptr (i64 536 to ptr), ptr null, ptr @_ZTIN3nix19InstallablesCommandE, ptr @_ZN3nix19InstallablesCommandD1Ev, ptr @_ZN3nix19InstallablesCommandD0Ev, ptr @_ZN3nix22RawInstallablesCommand25getFlakeRefsForCompletionEv, ptr @_ZN3nix17SourceExprCommand24getDefaultFlakeAttrPathsB5cxx11Ev, ptr @_ZN3nix17SourceExprCommand31getDefaultFlakeAttrPathPrefixesB5cxx11Ev, ptr @_ZN3nix19InstallablesCommand3runENS_3refINS_5StoreEEEOSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISA_EE, ptr @_ZN3nix22RawInstallablesCommand3runENS_3refINS_5StoreEEE, ptr @_ZN3nix22RawInstallablesCommand24applyDefaultInstallablesERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EE, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -536 to ptr), ptr @_ZTIN3nix19InstallablesCommandE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [17 x ptr] [ptr inttoptr (i64 -744 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -744 to ptr), ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -744 to ptr), ptr @_ZTIN3nix19InstallablesCommandE, ptr @_ZTv0_n32_N3nix19InstallablesCommandD1Ev, ptr @_ZTv0_n32_N3nix19InstallablesCommandD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZTv0_n80_N3nix22RawInstallablesCommand3runENS_3refINS_5StoreEEE], [3 x ptr] [ptr inttoptr (i64 -232 to ptr), ptr inttoptr (i64 -768 to ptr), ptr @_ZTIN3nix19InstallablesCommandE] }, comdat, align 8
@@ -3778,7 +3778,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTSSt23_Sp_counted_ptr_inplaceI16CmdProfileRemoveSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [82 x i8] c"St23_Sp_counted_ptr_inplaceI16CmdProfileRemoveSaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceI16CmdProfileRemoveSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI16CmdProfileRemoveSaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTV16CmdProfileRemove = linkonce_odr unnamed_addr constant { [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] } { [19 x ptr] [ptr inttoptr (i64 472 to ptr), ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr null, ptr inttoptr (i64 264 to ptr), ptr null, ptr @_ZTI16CmdProfileRemove, ptr @_ZN16CmdProfileRemoveD1Ev, ptr @_ZN16CmdProfileRemoveD0Ev, ptr null, ptr null, ptr null, ptr @_ZN16CmdProfileRemove11descriptionB5cxx11Ev, ptr @_ZN16CmdProfileRemove3docB5cxx11Ev, ptr @_ZN16CmdProfileRemove3runEN3nix3refINS0_5StoreEEE], [3 x ptr] [ptr inttoptr (i64 216 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTI16CmdProfileRemove], [9 x ptr] [ptr inttoptr (i64 -80 to ptr), ptr inttoptr (i64 160 to ptr), ptr inttoptr (i64 160 to ptr), ptr inttoptr (i64 392 to ptr), ptr inttoptr (i64 184 to ptr), ptr inttoptr (i64 -80 to ptr), ptr @_ZTI16CmdProfileRemove, ptr @_ZTv0_n56_N16CmdProfileRemoveD1Ev, ptr @_ZTv0_n56_N16CmdProfileRemoveD0Ev], [17 x ptr] [ptr inttoptr (i64 -240 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -240 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -240 to ptr), ptr @_ZTI16CmdProfileRemove, ptr @_ZTv0_n32_N16CmdProfileRemoveD1Ev, ptr @_ZTv0_n32_N16CmdProfileRemoveD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZTv0_n80_N16CmdProfileRemove3runEN3nix3refINS0_5StoreEEE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -264 to ptr), ptr null, ptr inttoptr (i64 -264 to ptr), ptr inttoptr (i64 -264 to ptr), ptr @_ZTI16CmdProfileRemove, ptr @_ZTv0_n24_N16CmdProfileRemove11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N16CmdProfileRemove3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [3 x ptr] [ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -472 to ptr), ptr @_ZTI16CmdProfileRemove] }, comdat, align 8
-@_ZTT16CmdProfileRemove = linkonce_odr unnamed_addr constant [32 x ptr] [ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 0, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove48_25MixProfileElementMatchers, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove48_25MixProfileElementMatchers, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 4, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 5, i32 3), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove472_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove472_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT16CmdProfileRemove = linkonce_odr unnamed_addr constant [32 x ptr] [ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, i32 0, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove48_25MixProfileElementMatchers, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove48_25MixProfileElementMatchers, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 4, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 5, i32 3), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC16CmdProfileRemove80_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove472_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove472_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @_ZTC16CmdProfileRemove0_N3nix17MixDefaultProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr null, ptr inttoptr (i64 264 to ptr), ptr null, ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix17MixDefaultProfileD1Ev, ptr @_ZN3nix17MixDefaultProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -240 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -240 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD1Ev, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -264 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
 @_ZTC16CmdProfileRemove0_N3nix10MixProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr inttoptr (i64 240 to ptr), ptr null, ptr inttoptr (i64 264 to ptr), ptr null, ptr @_ZTIN3nix10MixProfileE, ptr @_ZN3nix10MixProfileD1Ev, ptr @_ZN3nix10MixProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -240 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -240 to ptr), ptr @_ZTIN3nix10MixProfileE, ptr @_ZTv0_n32_N3nix10MixProfileD1Ev, ptr @_ZTv0_n32_N3nix10MixProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -264 to ptr), ptr @_ZTIN3nix10MixProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
 @_ZTC16CmdProfileRemove48_25MixProfileElementMatchers = linkonce_odr unnamed_addr constant { [3 x ptr], [20 x ptr] } { [3 x ptr] [ptr inttoptr (i64 216 to ptr), ptr null, ptr @_ZTI25MixProfileElementMatchers], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -216 to ptr), ptr @_ZTI25MixProfileElementMatchers, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
@@ -4026,7 +4026,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTSSt23_Sp_counted_ptr_inplaceI17CmdProfileUpgradeSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [83 x i8] c"St23_Sp_counted_ptr_inplaceI17CmdProfileUpgradeSaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceI17CmdProfileUpgradeSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI17CmdProfileUpgradeSaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTV17CmdProfileUpgrade = linkonce_odr unnamed_addr constant { [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] } { [19 x ptr] [ptr inttoptr (i64 752 to ptr), ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr null, ptr inttoptr (i64 520 to ptr), ptr null, ptr @_ZTI17CmdProfileUpgrade, ptr @_ZN17CmdProfileUpgradeD1Ev, ptr @_ZN17CmdProfileUpgradeD0Ev, ptr null, ptr null, ptr null, ptr @_ZN17CmdProfileUpgrade11descriptionB5cxx11Ev, ptr @_ZN17CmdProfileUpgrade3docB5cxx11Ev, ptr @_ZN17CmdProfileUpgrade3runEN3nix3refINS0_5StoreEEE], [3 x ptr] [ptr inttoptr (i64 472 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTI17CmdProfileUpgrade], [15 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -80 to ptr), ptr inttoptr (i64 648 to ptr), ptr inttoptr (i64 648 to ptr), ptr inttoptr (i64 672 to ptr), ptr inttoptr (i64 440 to ptr), ptr inttoptr (i64 -80 to ptr), ptr @_ZTI17CmdProfileUpgrade, ptr @_ZTv0_n56_N17CmdProfileUpgradeD1Ev, ptr @_ZTv0_n56_N17CmdProfileUpgradeD0Ev, ptr @_ZN3nix15MixFlakeOptions25getFlakeRefsForCompletionEv, ptr @_ZN3nix17SourceExprCommand24getDefaultFlakeAttrPathsB5cxx11Ev, ptr @_ZN3nix17SourceExprCommand31getDefaultFlakeAttrPathPrefixesB5cxx11Ev], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -520 to ptr), ptr null, ptr inttoptr (i64 -520 to ptr), ptr inttoptr (i64 -520 to ptr), ptr @_ZTI17CmdProfileUpgrade, ptr @_ZTv0_n24_N17CmdProfileUpgrade11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N17CmdProfileUpgrade3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [17 x ptr] [ptr inttoptr (i64 -728 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -728 to ptr), ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -728 to ptr), ptr @_ZTI17CmdProfileUpgrade, ptr @_ZTv0_n32_N17CmdProfileUpgradeD1Ev, ptr @_ZTv0_n32_N17CmdProfileUpgradeD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZTv0_n80_N17CmdProfileUpgrade3runEN3nix3refINS0_5StoreEEE], [3 x ptr] [ptr inttoptr (i64 -232 to ptr), ptr inttoptr (i64 -752 to ptr), ptr @_ZTI17CmdProfileUpgrade] }, comdat, align 8
-@_ZTT17CmdProfileUpgrade = linkonce_odr unnamed_addr constant [42 x ptr] [ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 0, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade48_25MixProfileElementMatchers, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade48_25MixProfileElementMatchers, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 3, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 4, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 4, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 5, i32 3), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade752_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade752_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT17CmdProfileUpgrade = linkonce_odr unnamed_addr constant [42 x ptr] [ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, i32 0, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade48_25MixProfileElementMatchers, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade48_25MixProfileElementMatchers, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 3, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 4, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 4, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 5, i32 3), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix15MixFlakeOptionsE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileUpgrade80_N3nix17SourceExprCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade752_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade752_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @_ZTC17CmdProfileUpgrade0_N3nix17MixDefaultProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr null, ptr inttoptr (i64 520 to ptr), ptr null, ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix17MixDefaultProfileD1Ev, ptr @_ZN3nix17MixDefaultProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -728 to ptr), ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -728 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD1Ev, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -520 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
 @_ZTC17CmdProfileUpgrade0_N3nix10MixProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr inttoptr (i64 728 to ptr), ptr null, ptr inttoptr (i64 520 to ptr), ptr null, ptr @_ZTIN3nix10MixProfileE, ptr @_ZN3nix10MixProfileD1Ev, ptr @_ZN3nix10MixProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -728 to ptr), ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -728 to ptr), ptr @_ZTIN3nix10MixProfileE, ptr @_ZTv0_n32_N3nix10MixProfileD1Ev, ptr @_ZTv0_n32_N3nix10MixProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -520 to ptr), ptr @_ZTIN3nix10MixProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
 @_ZTC17CmdProfileUpgrade48_25MixProfileElementMatchers = linkonce_odr unnamed_addr constant { [3 x ptr], [20 x ptr] } { [3 x ptr] [ptr inttoptr (i64 472 to ptr), ptr null, ptr @_ZTI25MixProfileElementMatchers], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -472 to ptr), ptr @_ZTI25MixProfileElementMatchers, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
@@ -4056,7 +4056,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTSSt23_Sp_counted_ptr_inplaceI14CmdProfileListSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [80 x i8] c"St23_Sp_counted_ptr_inplaceI14CmdProfileListSaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceI14CmdProfileListSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI14CmdProfileListSaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTV14CmdProfileList = linkonce_odr unnamed_addr constant { [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] } { [19 x ptr] [ptr inttoptr (i64 456 to ptr), ptr inttoptr (i64 64 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr null, ptr inttoptr (i64 248 to ptr), ptr null, ptr @_ZTI14CmdProfileList, ptr @_ZN14CmdProfileListD1Ev, ptr @_ZN14CmdProfileListD0Ev, ptr null, ptr null, ptr null, ptr @_ZN14CmdProfileList11descriptionB5cxx11Ev, ptr @_ZN14CmdProfileList3docB5cxx11Ev, ptr @_ZN14CmdProfileList3runEN3nix3refINS0_5StoreEEE], [3 x ptr] [ptr inttoptr (i64 200 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTI14CmdProfileList], [9 x ptr] [ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 160 to ptr), ptr inttoptr (i64 160 to ptr), ptr inttoptr (i64 392 to ptr), ptr inttoptr (i64 184 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTI14CmdProfileList, ptr @_ZTv0_n56_N14CmdProfileListD1Ev, ptr @_ZTv0_n56_N14CmdProfileListD0Ev], [17 x ptr] [ptr inttoptr (i64 -224 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -224 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -224 to ptr), ptr @_ZTI14CmdProfileList, ptr @_ZTv0_n32_N14CmdProfileListD1Ev, ptr @_ZTv0_n32_N14CmdProfileListD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZTv0_n80_N14CmdProfileList3runEN3nix3refINS0_5StoreEEE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -248 to ptr), ptr null, ptr inttoptr (i64 -248 to ptr), ptr inttoptr (i64 -248 to ptr), ptr @_ZTI14CmdProfileList, ptr @_ZTv0_n24_N14CmdProfileList11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N14CmdProfileList3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [3 x ptr] [ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -456 to ptr), ptr @_ZTI14CmdProfileList] }, comdat, align 8
-@_ZTT14CmdProfileList = linkonce_odr unnamed_addr constant [32 x ptr] [ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 0, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList48_N3nix7MixJSONE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList48_N3nix7MixJSONE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 4, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 5, i32 3), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList456_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList456_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT14CmdProfileList = linkonce_odr unnamed_addr constant [32 x ptr] [ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, i32 0, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList48_N3nix7MixJSONE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList48_N3nix7MixJSONE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 3, i32 10), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 4, i32 11), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 5, i32 3), ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC14CmdProfileList64_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList456_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList456_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @_ZTC14CmdProfileList0_N3nix17MixDefaultProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr null, ptr inttoptr (i64 248 to ptr), ptr null, ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix17MixDefaultProfileD1Ev, ptr @_ZN3nix17MixDefaultProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -224 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -224 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD1Ev, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -248 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
 @_ZTC14CmdProfileList0_N3nix10MixProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 224 to ptr), ptr null, ptr inttoptr (i64 248 to ptr), ptr null, ptr @_ZTIN3nix10MixProfileE, ptr @_ZN3nix10MixProfileD1Ev, ptr @_ZN3nix10MixProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -224 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -224 to ptr), ptr @_ZTIN3nix10MixProfileE, ptr @_ZTv0_n32_N3nix10MixProfileD1Ev, ptr @_ZTv0_n32_N3nix10MixProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -248 to ptr), ptr @_ZTIN3nix10MixProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
 @_ZTC14CmdProfileList48_N3nix7MixJSONE = linkonce_odr unnamed_addr constant { [3 x ptr], [20 x ptr] } { [3 x ptr] [ptr inttoptr (i64 200 to ptr), ptr null, ptr @_ZTIN3nix7MixJSONE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -200 to ptr), ptr @_ZTIN3nix7MixJSONE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
@@ -4089,7 +4089,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTSSt23_Sp_counted_ptr_inplaceI22CmdProfileDiffClosuresSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [88 x i8] c"St23_Sp_counted_ptr_inplaceI22CmdProfileDiffClosuresSaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceI22CmdProfileDiffClosuresSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI22CmdProfileDiffClosuresSaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTV22CmdProfileDiffClosures = linkonce_odr unnamed_addr constant { [17 x ptr], [17 x ptr], [20 x ptr] } { [17 x ptr] [ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr null, ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTI22CmdProfileDiffClosures, ptr @_ZN22CmdProfileDiffClosuresD1Ev, ptr @_ZN22CmdProfileDiffClosuresD0Ev, ptr null, ptr null, ptr null, ptr @_ZN22CmdProfileDiffClosures11descriptionB5cxx11Ev, ptr @_ZN22CmdProfileDiffClosures3docB5cxx11Ev, ptr @_ZN22CmdProfileDiffClosures3runEN3nix3refINS0_5StoreEEE], [17 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTI22CmdProfileDiffClosures, ptr @_ZTv0_n32_N22CmdProfileDiffClosuresD1Ev, ptr @_ZTv0_n32_N22CmdProfileDiffClosuresD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZTv0_n80_N22CmdProfileDiffClosures3runEN3nix3refINS0_5StoreEEE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -72 to ptr), ptr null, ptr inttoptr (i64 -72 to ptr), ptr inttoptr (i64 -72 to ptr), ptr @_ZTI22CmdProfileDiffClosures, ptr @_ZTv0_n24_N22CmdProfileDiffClosures11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N22CmdProfileDiffClosures3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
-@_ZTT22CmdProfileDiffClosures = linkonce_odr unnamed_addr constant [17 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT22CmdProfileDiffClosures = linkonce_odr unnamed_addr constant [17 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i32 0, i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @_ZTC22CmdProfileDiffClosures0_N3nix17MixDefaultProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr null, ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix17MixDefaultProfileD1Ev, ptr @_ZN3nix17MixDefaultProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD1Ev, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -72 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
 @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr null, ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTIN3nix10MixProfileE, ptr @_ZN3nix10MixProfileD1Ev, ptr @_ZN3nix10MixProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN3nix10MixProfileE, ptr @_ZTv0_n32_N3nix10MixProfileD1Ev, ptr @_ZTv0_n32_N3nix10MixProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -72 to ptr), ptr @_ZTIN3nix10MixProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
 @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE = linkonce_odr unnamed_addr constant { [17 x ptr], [20 x ptr] } { [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTIN3nix12StoreCommandE, ptr @_ZN3nix12StoreCommandD1Ev, ptr @_ZN3nix12StoreCommandD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN3nix12StoreCommandE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
@@ -4106,7 +4106,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTSSt23_Sp_counted_ptr_inplaceI17CmdProfileHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [83 x i8] c"St23_Sp_counted_ptr_inplaceI17CmdProfileHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceI17CmdProfileHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI17CmdProfileHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTV17CmdProfileHistory = linkonce_odr unnamed_addr constant { [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] } { [11 x ptr] [ptr inttoptr (i64 208 to ptr), ptr inttoptr (i64 208 to ptr), ptr inttoptr (i64 440 to ptr), ptr inttoptr (i64 232 to ptr), ptr null, ptr @_ZTI17CmdProfileHistory, ptr @_ZN17CmdProfileHistoryD1Ev, ptr @_ZN17CmdProfileHistoryD0Ev, ptr @_ZN17CmdProfileHistory11descriptionB5cxx11Ev, ptr @_ZN17CmdProfileHistory3docB5cxx11Ev, ptr @_ZN17CmdProfileHistory3runEN3nix3refINS0_5StoreEEE], [14 x ptr] [ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 -160 to ptr), ptr inttoptr (i64 72 to ptr), ptr inttoptr (i64 -160 to ptr), ptr @_ZTI17CmdProfileHistory, ptr @_ZThn160_N17CmdProfileHistoryD1Ev, ptr @_ZThn160_N17CmdProfileHistoryD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr inttoptr (i64 -208 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -208 to ptr), ptr @_ZTI17CmdProfileHistory, ptr @_ZTv0_n32_N17CmdProfileHistoryD1Ev, ptr @_ZTv0_n32_N17CmdProfileHistoryD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZTv0_n80_N17CmdProfileHistory3runEN3nix3refINS0_5StoreEEE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -232 to ptr), ptr null, ptr inttoptr (i64 -232 to ptr), ptr inttoptr (i64 -232 to ptr), ptr @_ZTI17CmdProfileHistory, ptr @_ZTv0_n24_N17CmdProfileHistory11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N17CmdProfileHistory3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [3 x ptr] [ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -440 to ptr), ptr @_ZTI17CmdProfileHistory] }, comdat, align 8
-@_ZTT17CmdProfileHistory = linkonce_odr unnamed_addr constant [29 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 3, i32 11), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 4, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 1, i32 9), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory440_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory440_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT17CmdProfileHistory = linkonce_odr unnamed_addr constant [29 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, i32 0, i32 6), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 3, i32 11), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 4, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i32 0, inrange i32 1, i32 9), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix7CommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory440_N3nix9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory440_N3nix9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @_ZTC17CmdProfileHistory0_N3nix11EvalCommandE = linkonce_odr unnamed_addr constant { [8 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] } { [8 x ptr] [ptr inttoptr (i64 208 to ptr), ptr inttoptr (i64 208 to ptr), ptr inttoptr (i64 440 to ptr), ptr inttoptr (i64 232 to ptr), ptr null, ptr @_ZTIN3nix11EvalCommandE, ptr @_ZN3nix11EvalCommandD1Ev, ptr @_ZN3nix11EvalCommandD0Ev], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -208 to ptr), ptr @_ZTIN3nix11EvalCommandE, ptr @_ZTv0_n32_N3nix11EvalCommandD1Ev, ptr @_ZTv0_n32_N3nix11EvalCommandD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -232 to ptr), ptr @_ZTIN3nix11EvalCommandE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [3 x ptr] [ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -440 to ptr), ptr @_ZTIN3nix11EvalCommandE] }, comdat, align 8
 @_ZTC17CmdProfileHistory0_N3nix11MixEvalArgsE = linkonce_odr unnamed_addr constant { [4 x ptr], [20 x ptr], [3 x ptr] } { [4 x ptr] [ptr inttoptr (i64 440 to ptr), ptr inttoptr (i64 232 to ptr), ptr null, ptr @_ZTIN3nix11MixEvalArgsE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -232 to ptr), ptr @_ZTIN3nix11MixEvalArgsE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [3 x ptr] [ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -440 to ptr), ptr @_ZTIN3nix11MixEvalArgsE] }, comdat, align 8
 @_ZTC17CmdProfileHistory160_N3nix17MixDefaultProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 48 to ptr), ptr null, ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix17MixDefaultProfileD1Ev, ptr @_ZN3nix17MixDefaultProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD1Ev, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -72 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
@@ -4134,7 +4134,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTSSt23_Sp_counted_ptr_inplaceI18CmdProfileRollbackSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [84 x i8] c"St23_Sp_counted_ptr_inplaceI18CmdProfileRollbackSaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceI18CmdProfileRollbackSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI18CmdProfileRollbackSaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTV18CmdProfileRollback = linkonce_odr unnamed_addr constant { [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] } { [17 x ptr] [ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 80 to ptr), ptr null, ptr inttoptr (i64 104 to ptr), ptr null, ptr @_ZTI18CmdProfileRollback, ptr @_ZN18CmdProfileRollbackD1Ev, ptr @_ZN18CmdProfileRollbackD0Ev, ptr null, ptr null, ptr null, ptr @_ZN18CmdProfileRollback11descriptionB5cxx11Ev, ptr @_ZN18CmdProfileRollback3docB5cxx11Ev, ptr @_ZN18CmdProfileRollback3runEN3nix3refINS0_5StoreEEE], [3 x ptr] [ptr inttoptr (i64 56 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTI18CmdProfileRollback], [17 x ptr] [ptr inttoptr (i64 -80 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -80 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -80 to ptr), ptr @_ZTI18CmdProfileRollback, ptr @_ZTv0_n32_N18CmdProfileRollbackD1Ev, ptr @_ZTv0_n32_N18CmdProfileRollbackD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZTv0_n80_N18CmdProfileRollback3runEN3nix3refINS0_5StoreEEE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -104 to ptr), ptr null, ptr inttoptr (i64 -104 to ptr), ptr inttoptr (i64 -104 to ptr), ptr @_ZTI18CmdProfileRollback, ptr @_ZTv0_n24_N18CmdProfileRollback11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N18CmdProfileRollback3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
-@_ZTT18CmdProfileRollback = linkonce_odr unnamed_addr constant [20 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback48_N3nix9MixDryRunE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback48_N3nix9MixDryRunE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, inrange i32 3, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT18CmdProfileRollback = linkonce_odr unnamed_addr constant [20 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback48_N3nix9MixDryRunE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback48_N3nix9MixDryRunE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, inrange i32 3, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @.str.462 = private unnamed_addr constant [3 x i8] c"to\00", align 1
 @.str.463 = private unnamed_addr constant [37 x i8] c"The profile version to roll back to.\00", align 1
 @_ZTC18CmdProfileRollback0_N3nix17MixDefaultProfileE = linkonce_odr unnamed_addr constant { [14 x ptr], [17 x ptr], [20 x ptr] } { [14 x ptr] [ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 80 to ptr), ptr null, ptr inttoptr (i64 104 to ptr), ptr null, ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix17MixDefaultProfileD1Ev, ptr @_ZN3nix17MixDefaultProfileD0Ev, ptr null, ptr null, ptr null], [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -80 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -80 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD1Ev, ptr @_ZTv0_n32_N3nix17MixDefaultProfileD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -104 to ptr), ptr @_ZTIN3nix17MixDefaultProfileE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
@@ -4158,7 +4158,7 @@ $_ZTIZN10CmdProfileC1EvEUlvE6_ = comdat any
 @_ZTSSt23_Sp_counted_ptr_inplaceI21CmdProfileWipeHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant [87 x i8] c"St23_Sp_counted_ptr_inplaceI21CmdProfileWipeHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE\00", comdat, align 1
 @_ZTISt23_Sp_counted_ptr_inplaceI21CmdProfileWipeHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI21CmdProfileWipeHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTV21CmdProfileWipeHistory = linkonce_odr unnamed_addr constant { [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] } { [17 x ptr] [ptr inttoptr (i64 104 to ptr), ptr inttoptr (i64 104 to ptr), ptr inttoptr (i64 104 to ptr), ptr inttoptr (i64 104 to ptr), ptr inttoptr (i64 104 to ptr), ptr null, ptr inttoptr (i64 128 to ptr), ptr null, ptr @_ZTI21CmdProfileWipeHistory, ptr @_ZN21CmdProfileWipeHistoryD1Ev, ptr @_ZN21CmdProfileWipeHistoryD0Ev, ptr null, ptr null, ptr null, ptr @_ZN21CmdProfileWipeHistory11descriptionB5cxx11Ev, ptr @_ZN21CmdProfileWipeHistory3docB5cxx11Ev, ptr @_ZN21CmdProfileWipeHistory3runEN3nix3refINS0_5StoreEEE], [3 x ptr] [ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTI21CmdProfileWipeHistory], [17 x ptr] [ptr inttoptr (i64 -104 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -104 to ptr), ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -104 to ptr), ptr @_ZTI21CmdProfileWipeHistory, ptr @_ZTv0_n32_N21CmdProfileWipeHistoryD1Ev, ptr @_ZTv0_n32_N21CmdProfileWipeHistoryD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZTv0_n80_N21CmdProfileWipeHistory3runEN3nix3refINS0_5StoreEEE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -128 to ptr), ptr null, ptr inttoptr (i64 -128 to ptr), ptr inttoptr (i64 -128 to ptr), ptr @_ZTI21CmdProfileWipeHistory, ptr @_ZTv0_n24_N21CmdProfileWipeHistory11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N21CmdProfileWipeHistory3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
-@_ZTT21CmdProfileWipeHistory = linkonce_odr unnamed_addr constant [20 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory48_N3nix9MixDryRunE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory48_N3nix9MixDryRunE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, inrange i32 3, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT21CmdProfileWipeHistory = linkonce_odr unnamed_addr constant [20 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix17MixDefaultProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix10MixProfileE, i32 0, inrange i32 0, i32 9), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix10MixProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix10MixProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix17MixDefaultProfileE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory0_N3nix17MixDefaultProfileE, i32 0, inrange i32 2, i32 11), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory48_N3nix9MixDryRunE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory48_N3nix9MixDryRunE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, inrange i32 2, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, inrange i32 3, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @.str.468 = private unnamed_addr constant [11 x i8] c"older-than\00", align 1
 @.str.469 = private unnamed_addr constant [118 x i8] c"Delete versions older than the specified age. *age* must be in the format *N*`d`, where *N* denotes a number of days.\00", align 1
 @.str.470 = private unnamed_addr constant [4 x i8] c"age\00", align 1
@@ -5586,7 +5586,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEEC2ERK
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 192
@@ -5749,7 +5749,7 @@ define linkonce_odr void @_ZNK5boost12basic_formatIcSt11char_traitsIcESaIcEE3str
 21:                                               ; preds = %17
   %22 = sext i32 %13 to i64
   %23 = sext i32 %15 to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i64 0, i32 0, i64 2), ptr %4, align 8
   %24 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %22, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %4, i64 16
@@ -6120,7 +6120,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEED2Ev(
 
 _ZN5boost8optionalISt6localeED2Ev.exit:           ; preds = %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %7, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %7)
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %8
 
@@ -6487,7 +6487,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; pr
 
 154:                                              ; preds = %151
   %155 = zext nneg i32 %.076.ph.lcssa193 to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %8, align 8
   %156 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %155, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %8, i64 16
@@ -6684,7 +6684,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
           to label %2 unwind label %4
 
@@ -6818,7 +6818,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %2
 
@@ -7482,7 +7482,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit: ; preds = %
   br i1 %.not37, label %29, label %23
 
 23:                                               ; preds = %21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %18, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %5, i64 16
@@ -7960,7 +7960,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost2io6detail22parse_printf_direct
   br i1 %.not.i, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %12, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %4, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %12, i64 16
@@ -8030,7 +8030,7 @@ _ZNKSt5ctypeIcE5widenEc.exit:                     ; preds = %30, %33
   %45 = ptrtoint ptr %40 to i64
   %46 = sub i64 %4, %13
   %47 = add i64 %46, %45
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %11, align 8
   %48 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %11, i64 16
@@ -8156,7 +8156,7 @@ _ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   %104 = ptrtoint ptr %.sroa.0.0.lcssa.i to i64
   %105 = sub i64 %4, %13
   %106 = add i64 %105, %104
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %10, align 8
   %107 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %106, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %10, i64 16
@@ -8363,7 +8363,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit: ; preds = %159, %
   %199 = ptrtoint ptr %.lcssa to i64
   %200 = sub i64 %4, %13
   %201 = add i64 %200, %199
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %9, align 8
   %202 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %201, ptr %202, align 8
   %203 = getelementptr inbounds i8, ptr %9, i64 16
@@ -8502,7 +8502,7 @@ _ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   %268 = ptrtoint ptr %263 to i64
   %269 = sub i64 %4, %13
   %270 = add i64 %269, %268
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %8, align 8
   %271 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %270, ptr %271, align 8
   %272 = getelementptr inbounds i8, ptr %8, i64 16
@@ -8744,7 +8744,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250: ; preds = %325
   %374 = ptrtoint ptr %371 to i64
   %375 = sub i64 %4, %13
   %376 = add i64 %375, %374
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %7, align 8
   %377 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %376, ptr %377, align 8
   %378 = getelementptr inbounds i8, ptr %7, i64 16
@@ -10743,7 +10743,7 @@ define linkonce_odr void @_ZN5boost2io6detail21maybe_throw_exceptionEhmm(i8 noun
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -10829,9 +10829,9 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -10840,9 +10840,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 }
 
@@ -10851,7 +10851,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -10889,14 +10889,14 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -10922,9 +10922,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io17bad_format_strin
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_2io17bad_format_stringEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_2io17bad_format_stringEE7deleterD2Ev.exit7
@@ -10966,7 +10966,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -11003,7 +11003,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -11038,7 +11038,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -11079,7 +11079,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io17bad_format_string4whatEv(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -11114,7 +11114,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -11174,14 +11174,14 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -11200,9 +11200,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -12655,7 +12655,7 @@ define linkonce_odr void @_ZN5boost2io6detail10distributeIcSt11char_traitsIcESaI
 18:                                               ; preds = %14
   %19 = sext i32 %5 to i64
   %20 = sext i32 %7 to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %19, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 16
@@ -13431,9 +13431,9 @@ _ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev.exit168: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -13442,16 +13442,16 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -13487,14 +13487,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -13520,9 +13520,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE5
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_2io13too_many_argsEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_2io13too_many_argsEE7deleterD2Ev.exit7
@@ -13564,7 +13564,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -13601,7 +13601,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -13636,7 +13636,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -13677,7 +13677,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io13too_many_args4whatEv(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -13712,7 +13712,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -13756,14 +13756,14 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsD0Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -13782,9 +13782,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -13834,18 +13834,18 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %18, align 4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i64 0, i32 0, i64 2), ptr %6, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %1, ptr %19, align 8
   store ptr %6, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %3, align 8
   invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), ptr noundef %1)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %3, align 8
   ret void
 
 21:                                               ; preds = %16
@@ -14693,9 +14693,9 @@ define linkonce_odr void @_ZN5boost2io12too_few_argsD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -14704,16 +14704,16 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEEC2ERKS2_(p
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -14749,14 +14749,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io12too_few_argsEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -14782,9 +14782,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io12too_few_argsEE5c
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_2io12too_few_argsEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_2io12too_few_argsEE7deleterD2Ev.exit7
@@ -14826,7 +14826,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io12too_few_argsEE7rethrowE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -14863,7 +14863,7 @@ _ZN5boost10wrapexceptINS_2io12too_few_argsEED2Ev.exit: ; preds = %1, %.noexc.i.i
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -14898,7 +14898,7 @@ _ZN5boost10wrapexceptINS_2io12too_few_argsEED2Ev.exit: ; preds = %1, %.noexc.i.i
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -14939,7 +14939,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io12too_few_args4whatEv(ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -14974,7 +14974,7 @@ _ZN5boost10wrapexceptINS_2io12too_few_argsEED2Ev.exit: ; preds = %1, %.noexc.i.i
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io12too_few_argsEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -15018,14 +15018,14 @@ define linkonce_odr void @_ZN5boost2io12too_few_argsD0Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io12too_few_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -15044,9 +15044,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io12too_few_argsEEC2ERKS3_(p
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io12too_few_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -16213,7 +16213,7 @@ define linkonce_odr void @_ZN3nix8make_refI10CmdProfileJEEENS_3refIT_EEDpOT0_(pt
   store i32 1, ptr %4, align 8, !noalias !49
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !49
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10CmdProfileSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !49
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI10CmdProfileSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !49
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZN10CmdProfileC1Ev(ptr noundef nonnull align 8 dereferenceable(192) %6)
           to label %8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI10CmdProfileSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit7.i.i.i.i, !noalias !49
@@ -16552,8 +16552,8 @@ define linkonce_odr void @_ZN10CmdProfileC1Ev(ptr noundef nonnull align 8 derefe
   %34 = getelementptr inbounds i8, ptr %0, i64 384
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %34, i8 0, i64 16, i1 false)
   %35 = getelementptr inbounds i8, ptr %0, i64 400
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile400_N3nix7CommandE, i64 0, inrange i32 0, i64 7), ptr %35, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile400_N3nix7CommandE, i64 0, inrange i32 1, i64 11), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile400_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC10CmdProfile400_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %13, align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #30
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull @.str.74, ptr noundef nonnull align 1 dereferenceable(1) %10)
@@ -16752,9 +16752,9 @@ define linkonce_odr void @_ZN10CmdProfileC1Ev(ptr noundef nonnull align 8 derefe
           to label %100 unwind label %127
 
 100:                                              ; preds = %99
-  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i64 0, inrange i32 0, i64 4), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i64 0, inrange i32 1, i64 11), ptr %13, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i64 0, inrange i32 2, i64 7), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i64 0, i32 0, i64 4), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i64 0, i32 1, i64 11), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTC10CmdProfile0_N3nix15NixMultiCommandE, i64 0, i32 2, i64 7), ptr %35, align 8
   %101 = load ptr, ptr %91, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St8functionIFN3nix3refINS9_7CommandEEEvEEESt10_Select1stISF_ESt4lessIS5_ESaISF_EE8_M_eraseEPSt13_Rb_tree_nodeISF_E(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %101)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFN3nix3refINS7_7CommandEEEvEESt4lessIS5_ESaISt4pairIKS5_SC_EEED2Ev.exit unwind label %102
@@ -16809,9 +16809,9 @@ _ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFN3n
   br i1 %121, label %122, label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFN3nix3refINS7_7CommandEEEvEESt4lessIS5_ESaISt4pairIKS5_SC_EEED2Ev.exit
 
 122:                                              ; preds = %_ZNSt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt8functionIFN3nix3refINS8_7CommandEEEvEEED2Ev.exit
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i64 0, inrange i32 0, i64 4), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i64 0, inrange i32 1, i64 11), ptr %13, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i64 0, inrange i32 2, i64 7), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i64 0, i32 0, i64 4), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i64 0, i32 1, i64 11), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr], [12 x ptr] }, ptr @_ZTV10CmdProfile, i64 0, i32 2, i64 7), ptr %35, align 8
   ret void
 
 .body:                                            ; preds = %42, %56, %70, %84, %77, %63, %49
@@ -16912,7 +16912,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -17608,7 +17608,7 @@ define linkonce_odr void @_ZN3nix8make_refI17CmdProfileInstallJEEENS_3refIT_EEDp
   store i32 1, ptr %4, align 8, !noalias !62
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !62
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17CmdProfileInstallSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !62
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17CmdProfileInstallSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !62
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZN17CmdProfileInstallC1Ev(ptr noundef nonnull align 8 dereferenceable(536) %6)
           to label %8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI17CmdProfileInstallSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit7.i.i.i.i, !noalias !62
@@ -17941,8 +17941,8 @@ define linkonce_odr void @_ZN17CmdProfileInstallC1Ev(ptr noundef nonnull align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 728
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds i8, ptr %0, i64 744
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix7CommandE, i64 0, inrange i32 0, i64 7), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix7CommandE, i64 0, inrange i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %8, align 8
   invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull getelementptr inbounds ([49 x ptr], ptr @_ZTT17CmdProfileInstall, i64 0, i64 42))
           to label %31 unwind label %77
 
@@ -17956,20 +17956,20 @@ define linkonce_odr void @_ZN17CmdProfileInstallC1Ev(ptr noundef nonnull align 8
           to label %34 unwind label %81
 
 34:                                               ; preds = %33
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, inrange i32 0, i64 6), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, inrange i32 1, i64 11), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, inrange i32 2, i64 10), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, inrange i32 3, i64 3), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, i32 0, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, i32 2, i64 10), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTC17CmdProfileInstall0_N3nix19InstallablesCommandE, i64 0, i32 3, i64 3), ptr %32, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 472
   invoke void @_ZN3nix17MixDefaultProfileC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef nonnull getelementptr inbounds ([49 x ptr], ptr @_ZTT17CmdProfileInstall, i64 0, i64 29))
           to label %36 unwind label %83
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, inrange i32 0, i64 6), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, inrange i32 2, i64 11), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, inrange i32 3, i64 10), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, inrange i32 4, i64 3), ptr %32, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, inrange i32 1, i64 9), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 0, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 2, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 3, i64 10), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 4, i64 3), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [14 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileInstall, i64 0, i32 1, i64 9), ptr %35, align 8
   %37 = getelementptr inbounds i8, ptr %0, i64 520
   %38 = getelementptr inbounds i8, ptr %0, i64 528
   store i8 0, ptr %38, align 8
@@ -18824,11 +18824,11 @@ define linkonce_odr void @_ZN3nix12StoreCommandD0Ev(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17CmdProfileInstallD1Ev(ptr noundef nonnull align 8 dereferenceable(536) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 472
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i64 0, inrange i32 0, i64 9), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i64 0, i32 0, i64 9), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 744
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i64 0, inrange i32 1, i64 10), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i64 0, i32 1, i64 10), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 536
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i64 0, inrange i32 2, i64 11), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall472_N3nix10MixProfileE, i64 0, i32 2, i64 11), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 480
   %6 = getelementptr inbounds i8, ptr %0, i64 512
   %7 = load i8, ptr %6, align 8
@@ -18860,8 +18860,8 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZN17CmdProfileInstallD2Ev.exit:                  ; preds = %1, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i
   tail call void @_ZN3nix22RawInstallablesCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0, ptr noundef nonnull getelementptr inbounds ([49 x ptr], ptr @_ZTT17CmdProfileInstall, i64 0, i64 2)) #30
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileInstall744_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 760
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i.i = icmp eq ptr %17, null
@@ -19578,7 +19578,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE5clearEv.exit.i: ; preds = %_ZN3ni
 
 307:                                              ; preds = %.lr.ph.i
   %308 = call ptr @__cxa_allocate_exception(i64 16) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %308, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %308, align 8
   %309 = getelementptr inbounds i8, ptr %308, i64 8
   store ptr @.str.225, ptr %309, align 8
   invoke void @__cxa_throw(ptr nonnull %308, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #31
@@ -20846,7 +20846,7 @@ _ZN15ProfileManifestD2Ev.exit:                    ; preds = %_ZNSt3mapIPN3nix11I
           to label %737 unwind label %745
 
 737:                                              ; preds = %732
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i64 0, inrange i32 0, i64 2), ptr %730, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i64 0, i32 0, i64 2), ptr %730, align 8
   invoke void @__cxa_throw(ptr nonnull %730, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #31
           to label %760 unwind label %745
 
@@ -21407,7 +21407,7 @@ declare i32 @isalpha(i32 noundef) local_unnamed_addr #16
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix10UsageErrorCI2NS_9BaseErrorEIJcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 1 dereferenceable(1) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::basic_format", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4)
@@ -21459,13 +21459,13 @@ _ZN3nix5ErrorCI2NS_9BaseErrorEIJcEEERKNSt7__cxx1112basic_stringIcSt11char_traits
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 368
   store i8 0, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix10UsageErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix10UsageErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10UsageErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -21567,7 +21567,7 @@ _ZN5boost10conversion6detail19try_lexical_convertIlNS_14iterator_rangeIPKcEEEEbR
 
 26:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIlNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.i.i, %20, %_ZN5boost10conversion6detail19try_lexical_convertIlNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %2, align 8
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @_ZTIN5boost14iterator_rangeIPKcEE, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 16
@@ -21617,7 +21617,7 @@ _ZN5boost12lexical_castIlEET_PKcm.exit:           ; preds = %20, %_ZN5boost10con
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix10UsageErrorCI2NS_9BaseErrorEIJSt17basic_string_viewIcSt11char_traitsIcEEEEERKNSt7__cxx1112basic_stringIcS3_SaIcEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::basic_format", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4)
@@ -21669,13 +21669,13 @@ _ZN3nix5ErrorCI2NS_9BaseErrorEIJSt17basic_string_viewIcSt11char_traitsIcEEEEERKN
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 368
   store i8 0, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix10UsageErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix10UsageErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10UsageErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -21732,7 +21732,7 @@ define linkonce_odr noundef ptr @_ZNK3nix9BaseError4whatEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix5ErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -21771,7 +21771,7 @@ _ZN3nix9BaseErrorD2Ev.exit:                       ; preds = %1, %_ZNSt22_Optiona
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix5ErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -21811,7 +21811,7 @@ _ZN3nix5ErrorD2Ev.exit:                           ; preds = %1, %_ZNSt22_Optiona
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -21850,7 +21850,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -22077,7 +22077,7 @@ _ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EEC2
           to label %48 unwind label %64
 
 48:                                               ; preds = %43
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 192
@@ -23153,9 +23153,9 @@ define linkonce_odr void @_ZN5boost16bad_lexical_castD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -23164,16 +23164,16 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEEC2ERKS1_(
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -23209,14 +23209,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_16bad_lexical_castEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -23242,9 +23242,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_16bad_lexical_castEE5
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_16bad_lexical_castEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_16bad_lexical_castEE7deleterD2Ev.exit7
@@ -23286,7 +23286,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_16bad_lexical_castEE7rethrow
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -23323,7 +23323,7 @@ _ZN5boost10wrapexceptINS_16bad_lexical_castEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_16bad_lexical_castEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -23358,7 +23358,7 @@ _ZN5boost10wrapexceptINS_16bad_lexical_castEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_16bad_lexical_castEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -23399,7 +23399,7 @@ define linkonce_odr noundef ptr @_ZNK5boost16bad_lexical_cast4whatEv(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_16bad_lexical_castEED1Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -23434,7 +23434,7 @@ _ZN5boost10wrapexceptINS_16bad_lexical_castEED2Ev.exit: ; preds = %1, %.noexc.i.
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_16bad_lexical_castEED0Ev(ptr noundef %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -23481,14 +23481,14 @@ declare void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8))
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -23507,9 +23507,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEEC2ERKS2_(
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -24782,7 +24782,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit122.invoke: ; pr
           to label %127 unwind label %129
 
 127:                                              ; preds = %126
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i64 0, inrange i32 0, i64 2), ptr %125, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i64 0, i32 0, i64 2), ptr %125, align 8
   invoke void @__cxa_throw(ptr nonnull %125, ptr nonnull @_ZTIN3nix5ErrorE, ptr nonnull @_ZN3nix5ErrorD2Ev) #31
           to label %740 unwind label %129
 
@@ -28744,7 +28744,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit50: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i49, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i48
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %15) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %18, align 8
   %199 = getelementptr inbounds i8, ptr %18, i64 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   %200 = getelementptr inbounds i8, ptr %18, i64 24
@@ -28924,7 +28924,7 @@ _ZN3nix15FixedOutputInfoD2Ev.exit:                ; preds = %_ZN3nix28ContentAdd
   %273 = getelementptr inbounds i8, ptr %20, i64 184
   store i64 %272, ptr %273, align 8
   %274 = load ptr, ptr %199, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix12StringSourceE, i64 0, i32 0, i64 2), ptr %23, align 8
   %275 = getelementptr inbounds i8, ptr %23, i64 8
   store i64 %272, ptr %275, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %23, i64 16
@@ -28973,10 +28973,10 @@ _ZN3nix13ValidPathInfoD2Ev.exit:                  ; preds = %287, %_ZNKSt7__cxx1
   store ptr %285, ptr %282, align 8
   store i64 0, ptr %294, align 8
   store i8 0, ptr %285, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, i32 0, i64 2), ptr %20, align 8
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %282) #30
   call void @_ZN3nix20UnkeyedValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %20) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %18, align 8
   %296 = load ptr, ptr %199, align 8
   %297 = icmp eq ptr %296, %200
   br i1 %297, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
@@ -31318,7 +31318,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
 
 67:                                               ; preds = %62
   %68 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   %70 = getelementptr inbounds i8, ptr %7, i64 8
   %71 = load i32, ptr %70, align 8
@@ -31326,7 +31326,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   %72 = getelementptr inbounds i8, ptr %68, i64 16
   %73 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %73) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %68, align 8
   %74 = getelementptr inbounds i8, ptr %68, i64 32
   %75 = getelementptr inbounds i8, ptr %7, i64 32
   %76 = load i64, ptr %75, align 8
@@ -31338,7 +31338,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %62
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %77 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %77) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #30
@@ -31452,7 +31452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
 116:                                              ; preds = %67
   %117 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %73) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #30
   br label %118
@@ -31594,7 +31594,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 165:                                              ; preds = %161
   %166 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %166, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 8
   %168 = getelementptr inbounds i8, ptr %17, i64 8
   %169 = load i32, ptr %168, align 8
@@ -31602,7 +31602,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %170 = getelementptr inbounds i8, ptr %166, i64 16
   %171 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef nonnull align 8 dereferenceable(16) %171) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %166, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %166, align 8
   %172 = getelementptr inbounds i8, ptr %166, i64 32
   %173 = getelementptr inbounds i8, ptr %17, i64 32
   %174 = load i64, ptr %173, align 8
@@ -31614,7 +31614,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %161
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
   %175 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %175) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #30
@@ -31710,7 +31710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 206:                                              ; preds = %165
   %207 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %171) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #30
   br label %208
@@ -32365,7 +32365,7 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -32374,7 +32374,7 @@ define linkonce_odr void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -35489,7 +35489,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %101 unwind label %109
 
 101:                                              ; preds = %99
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %102 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #30
@@ -35518,7 +35518,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 109:                                              ; preds = %99
   %110 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %111 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %111) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #30
@@ -35585,7 +35585,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %129 unwind label %137
 
 129:                                              ; preds = %127
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %130 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %130) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #30
@@ -35614,7 +35614,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 137:                                              ; preds = %127
   %138 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %139 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %139) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #30
@@ -35770,7 +35770,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
           to label %194 unwind label %204
 
 194:                                              ; preds = %192
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %195 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %195) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #30
@@ -35804,7 +35804,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
 204:                                              ; preds = %192
   %205 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %206 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %206) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #30
@@ -35925,7 +35925,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
           to label %241 unwind label %249
 
 241:                                              ; preds = %239
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %242 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %242) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #30
@@ -35954,7 +35954,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
 249:                                              ; preds = %239
   %250 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %251 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %251) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #30
@@ -36005,7 +36005,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
           to label %263 unwind label %271
 
 263:                                              ; preds = %261
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %264 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %264) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #30
@@ -36034,7 +36034,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
 271:                                              ; preds = %261
   %272 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %273 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %273) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #30
@@ -36156,7 +36156,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 320:                                              ; preds = %315
   %321 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %321, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %321, align 8
   %322 = getelementptr inbounds i8, ptr %321, i64 8
   %323 = getelementptr inbounds i8, ptr %45, i64 8
   %324 = load i32, ptr %323, align 8
@@ -36164,7 +36164,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %325 = getelementptr inbounds i8, ptr %321, i64 16
   %326 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %326) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %321, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %321, align 8
   %327 = getelementptr inbounds i8, ptr %321, i64 32
   %328 = getelementptr inbounds i8, ptr %45, i64 32
   %329 = load i64, ptr %328, align 8
@@ -36176,7 +36176,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %315
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   %330 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %330) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #30
@@ -36267,7 +36267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 359:                                              ; preds = %320
   %360 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %326) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #30
   br label %361
@@ -36342,7 +36342,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 
 381:                                              ; preds = %376
   %382 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %382, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %382, align 8
   %383 = getelementptr inbounds i8, ptr %382, i64 8
   %384 = getelementptr inbounds i8, ptr %52, i64 8
   %385 = load i32, ptr %384, align 8
@@ -36350,7 +36350,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %386 = getelementptr inbounds i8, ptr %382, i64 16
   %387 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %386, ptr noundef nonnull align 8 dereferenceable(16) %387) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %382, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %382, align 8
   %388 = getelementptr inbounds i8, ptr %382, i64 32
   %389 = getelementptr inbounds i8, ptr %52, i64 32
   %390 = load i64, ptr %389, align 8
@@ -36362,7 +36362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit142: ; preds = %376
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %391 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %391) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #30
@@ -36453,7 +36453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 420:                                              ; preds = %381
   %421 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %387) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #30
   br label %422
@@ -36524,7 +36524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 
 442:                                              ; preds = %437
   %443 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %443, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %443, align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 8
   %445 = getelementptr inbounds i8, ptr %59, i64 8
   %446 = load i32, ptr %445, align 8
@@ -36532,7 +36532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   %447 = getelementptr inbounds i8, ptr %443, i64 16
   %448 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %447, ptr noundef nonnull align 8 dereferenceable(16) %448) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %443, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %443, align 8
   %449 = getelementptr inbounds i8, ptr %443, i64 32
   %450 = getelementptr inbounds i8, ptr %59, i64 32
   %451 = load i64, ptr %450, align 8
@@ -36544,7 +36544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit157: ; preds = %437
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   %452 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %452) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #30
@@ -36635,7 +36635,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167: ; preds = %_Z
 481:                                              ; preds = %442
   %482 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %448) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #30
   br label %483
@@ -36723,7 +36723,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 509:                                              ; preds = %504
   %510 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %510, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %510, align 8
   %511 = getelementptr inbounds i8, ptr %510, i64 8
   %512 = getelementptr inbounds i8, ptr %66, i64 8
   %513 = load i32, ptr %512, align 8
@@ -36731,7 +36731,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %514 = getelementptr inbounds i8, ptr %510, i64 16
   %515 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %514, ptr noundef nonnull align 8 dereferenceable(16) %515) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %510, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %510, align 8
   %516 = getelementptr inbounds i8, ptr %510, i64 32
   %517 = getelementptr inbounds i8, ptr %66, i64 32
   %518 = load i64, ptr %517, align 8
@@ -36743,7 +36743,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit173: ; preds = %504
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   %519 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %519) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #30
@@ -36834,7 +36834,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183: ; preds = %_Z
 548:                                              ; preds = %509
   %549 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %515) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #30
   br label %550
@@ -37269,7 +37269,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #30
   %76 = load i64, ptr %2, align 8
   %77 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %78 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 16
@@ -37284,7 +37284,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br label %112
 
 81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %76, ptr %82, align 8
   %83 = load ptr, ptr %7, align 8
@@ -38298,7 +38298,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -38582,7 +38582,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %103 unwind label %111
 
 103:                                              ; preds = %101
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %104 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #30
@@ -38611,7 +38611,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 111:                                              ; preds = %101
   %112 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %113 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %113) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #30
@@ -38681,7 +38681,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %135 unwind label %143
 
 135:                                              ; preds = %133
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %136 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %136) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #30
@@ -38710,7 +38710,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 143:                                              ; preds = %133
   %144 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %145 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %145) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #30
@@ -38865,7 +38865,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
           to label %200 unwind label %210
 
 200:                                              ; preds = %198
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %201 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %201) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #30
@@ -38899,7 +38899,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
 210:                                              ; preds = %198
   %211 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %212 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %212) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #30
@@ -39020,7 +39020,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
           to label %247 unwind label %255
 
 247:                                              ; preds = %245
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %248 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %248) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #30
@@ -39049,7 +39049,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
 255:                                              ; preds = %245
   %256 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %257 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %257) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #30
@@ -39100,7 +39100,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
           to label %269 unwind label %277
 
 269:                                              ; preds = %267
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %270 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %270) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #30
@@ -39129,7 +39129,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
 277:                                              ; preds = %267
   %278 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %279 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %279) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #30
@@ -39247,7 +39247,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 325:                                              ; preds = %320
   %326 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %326, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %326, align 8
   %327 = getelementptr inbounds i8, ptr %326, i64 8
   %328 = getelementptr inbounds i8, ptr %45, i64 8
   %329 = load i32, ptr %328, align 8
@@ -39255,7 +39255,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %330 = getelementptr inbounds i8, ptr %326, i64 16
   %331 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %330, ptr noundef nonnull align 8 dereferenceable(16) %331) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %326, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %326, align 8
   %332 = getelementptr inbounds i8, ptr %326, i64 32
   %333 = getelementptr inbounds i8, ptr %45, i64 32
   %334 = load i64, ptr %333, align 8
@@ -39267,7 +39267,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %320
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   %335 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %335) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #30
@@ -39358,7 +39358,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 364:                                              ; preds = %325
   %365 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %331) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #30
   br label %366
@@ -39433,7 +39433,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 
 386:                                              ; preds = %381
   %387 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %387, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %387, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 8
   %389 = getelementptr inbounds i8, ptr %52, i64 8
   %390 = load i32, ptr %389, align 8
@@ -39441,7 +39441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %391 = getelementptr inbounds i8, ptr %387, i64 16
   %392 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %391, ptr noundef nonnull align 8 dereferenceable(16) %392) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %387, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %387, align 8
   %393 = getelementptr inbounds i8, ptr %387, i64 32
   %394 = getelementptr inbounds i8, ptr %52, i64 32
   %395 = load i64, ptr %394, align 8
@@ -39453,7 +39453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit142: ; preds = %381
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %396 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %396) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #30
@@ -39544,7 +39544,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 425:                                              ; preds = %386
   %426 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %392) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #30
   br label %427
@@ -39618,7 +39618,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 
 451:                                              ; preds = %446
   %452 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %452, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %452, align 8
   %453 = getelementptr inbounds i8, ptr %452, i64 8
   %454 = getelementptr inbounds i8, ptr %59, i64 8
   %455 = load i32, ptr %454, align 8
@@ -39626,7 +39626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   %456 = getelementptr inbounds i8, ptr %452, i64 16
   %457 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %456, ptr noundef nonnull align 8 dereferenceable(16) %457) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %452, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %452, align 8
   %458 = getelementptr inbounds i8, ptr %452, i64 32
   %459 = getelementptr inbounds i8, ptr %59, i64 32
   %460 = load i64, ptr %459, align 8
@@ -39638,7 +39638,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit159: ; preds = %446
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   %461 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %461) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #30
@@ -39729,7 +39729,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169: ; preds = %_Z
 490:                                              ; preds = %451
   %491 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %457) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #30
   br label %492
@@ -39813,7 +39813,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 517:                                              ; preds = %512
   %518 = call ptr @__cxa_allocate_exception(i64 40) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %518, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %518, align 8
   %519 = getelementptr inbounds i8, ptr %518, i64 8
   %520 = getelementptr inbounds i8, ptr %66, i64 8
   %521 = load i32, ptr %520, align 8
@@ -39821,7 +39821,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %522 = getelementptr inbounds i8, ptr %518, i64 16
   %523 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %522, ptr noundef nonnull align 8 dereferenceable(16) %523) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %518, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %518, align 8
   %524 = getelementptr inbounds i8, ptr %518, i64 32
   %525 = getelementptr inbounds i8, ptr %66, i64 32
   %526 = load i64, ptr %525, align 8
@@ -39833,7 +39833,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit175: ; preds = %512
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   %527 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %527) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #30
@@ -39924,7 +39924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185: ; preds = %_Z
 556:                                              ; preds = %517
   %557 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %523) #30
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #30
   br label %558
@@ -41473,7 +41473,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #30
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -41488,7 +41488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -41597,7 +41597,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -42524,7 +42524,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #30
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -42539,7 +42539,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -42608,7 +42608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -42617,7 +42617,7 @@ define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -42851,7 +42851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #30
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #30
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -42866,7 +42866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -42952,7 +42952,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail10type_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -43013,7 +43013,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail10type_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -44258,7 +44258,7 @@ _ZNKSt4lessIvEclIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_EEDTlt
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -44266,13 +44266,13 @@ define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -45771,7 +45771,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -45779,7 +45779,7 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
@@ -45789,7 +45789,7 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #30
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #30
@@ -48295,7 +48295,7 @@ define linkonce_odr void @_ZN8nlohmann6detail9from_jsonINS_10basic_jsonISt3mapSt
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.boost::basic_format", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -50664,9 +50664,9 @@ define linkonce_odr void @_ZN3nix8make_refINS_13ExtraPathInfoEJEEENS_3refIT_EEDp
   store i32 1, ptr %5, align 8, !noalias !340
   %6 = getelementptr inbounds i8, ptr %4, i64 12
   store i32 1, ptr %6, align 4, !noalias !340
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix13ExtraPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !noalias !340
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix13ExtraPathInfoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %4, align 8, !noalias !340
   %7 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix13ExtraPathInfoE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !noalias !340
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix13ExtraPathInfoE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !340
   store ptr %4, ptr %3, align 8, !alias.scope !340
   store ptr %7, ptr %2, align 8, !alias.scope !340
   store ptr %7, ptr %0, align 8
@@ -57472,9 +57472,9 @@ define linkonce_odr void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112
   store i32 1, ptr %16, align 8, !noalias !368
   %17 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 1, ptr %17, align 4, !noalias !368
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %14, align 8, !noalias !368
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %14, align 8, !noalias !368
   %18 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %18, align 8, !noalias !368
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %18, align 8, !noalias !368
   %19 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %0, ptr %19, align 8, !noalias !368
   store ptr %18, ptr %10, align 8
@@ -57844,7 +57844,7 @@ _ZN3nix15StoreReferencesD2Ev.exit:                ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix13ValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 368
@@ -57870,7 +57870,7 @@ _ZN3nix9StorePathD2Ev.exit:                       ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10StringSinkD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3nix10StringSinkE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -62203,7 +62203,7 @@ _ZN8nlohmann6detail9dtoa_impl12grisu2_roundEPcimmmm.exit: ; preds = %.critedge2.
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix20UnkeyedValidPathInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(352) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix20UnkeyedValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
@@ -62267,7 +62267,7 @@ _ZNSt8optionalIN3nix9StorePathEED2Ev.exit:        ; preds = %_ZNSt3setIN3nix9Sto
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix13ValidPathInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix13ValidPathInfoE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 352
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 368
@@ -62436,7 +62436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZN
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix25BuildEnvFileConflictErrorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(444) %0, ptr noundef nonnull align 8 dereferenceable(444) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   invoke void @_ZN3nix9ErrorInfoC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(328) %3, ptr noundef nonnull align 8 dereferenceable(328) %4)
@@ -62482,7 +62482,7 @@ common.resume:                                    ; preds = %30, %16
   br label %common.resume
 
 _ZN3nix5ErrorC2ERKS0_.exit:                       ; preds = %5, %.noexc.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix25BuildEnvFileConflictErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix25BuildEnvFileConflictErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 376
   %18 = getelementptr inbounds i8, ptr %1, i64 376
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %18)
@@ -62520,7 +62520,7 @@ _ZN3nix5ErrorC2ERKS0_.exit:                       ; preds = %5, %.noexc.i.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix25BuildEnvFileConflictErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(444) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix25BuildEnvFileConflictErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix25BuildEnvFileConflictErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 408
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 424
@@ -62559,7 +62559,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1:
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit3: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 336
   %17 = getelementptr inbounds i8, ptr %0, i64 368
   %18 = load i8, ptr %17, align 8
@@ -63197,7 +63197,7 @@ _ZNSt8_Rb_treeIN3nix10SuggestionES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE13_M_cl
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorC2IJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_S7_S7_iiiEEERKS7_DpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 4 dereferenceable(4) %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %8) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"class.boost::basic_format", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 16
@@ -64340,7 +64340,7 @@ define linkonce_odr void @_ZN3nix8make_refI16CmdProfileRemoveJEEENS_3refIT_EEDpO
   store i32 1, ptr %4, align 8, !noalias !411
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !411
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16CmdProfileRemoveSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !411
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16CmdProfileRemoveSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !411
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(488) %6, i8 0, i64 488, i1 false), !noalias !411
   invoke void @_ZN16CmdProfileRemoveC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6)
@@ -64668,8 +64668,8 @@ define linkonce_odr void @_ZN16CmdProfileRemoveC1Ev(ptr noundef nonnull align 8 
   %23 = getelementptr inbounds i8, ptr %0, i64 456
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix7CommandE, i64 0, inrange i32 0, i64 7), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix7CommandE, i64 0, inrange i32 1, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %2, align 8
   invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull getelementptr inbounds ([32 x ptr], ptr @_ZTT16CmdProfileRemove, i64 0, i64 25))
           to label %25 unwind label %33
 
@@ -64693,12 +64693,12 @@ define linkonce_odr void @_ZN16CmdProfileRemoveC1Ev(ptr noundef nonnull align 8 
           to label %32 unwind label %41
 
 32:                                               ; preds = %30
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, inrange i32 0, i64 11), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, inrange i32 2, i64 7), ptr %28, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, inrange i32 3, i64 10), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, inrange i32 4, i64 11), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, inrange i32 5, i64 3), ptr %26, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, inrange i32 1, i64 3), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 0, i64 11), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 2, i64 7), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 3, i64 10), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 4, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 5, i64 3), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV16CmdProfileRemove, i64 0, i32 1, i64 3), ptr %31, align 8
   ret void
 
 33:                                               ; preds = %1
@@ -64817,9 +64817,9 @@ define linkonce_odr void @_ZN16CmdProfileRemoveD1Ev(ptr noundef nonnull align 8 
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN3nix11EvalCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %2, ptr noundef nonnull getelementptr inbounds ([32 x ptr], ptr @_ZTT16CmdProfileRemove, i64 0, i64 17)) #30
   %3 = getelementptr inbounds i8, ptr %0, i64 240
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 264
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC16CmdProfileRemove240_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 256
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %6, null
@@ -67762,7 +67762,7 @@ _ZN5boost10conversion6detail19try_lexical_convertImNS_14iterator_rangeIPKcEEEEbR
 
 23:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertImNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.i.i, %20, %_ZN5boost10conversion6detail19try_lexical_convertImNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %3, align 8
   %24 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr @_ZTIN5boost14iterator_rangeIPKcEE, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %3, i64 16
@@ -67817,7 +67817,7 @@ _ZSteqIcSt11char_traitsIcEEbSt17basic_string_viewIT_T0_ENSt15__type_identityIS5_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3nix5ErrorCI2NS_9BaseErrorEIJmEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpRKT_(ptr noundef nonnull align 8 dereferenceable(376) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.boost::basic_format", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %5, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %4)
@@ -67869,7 +67869,7 @@ _ZN3nix9BaseErrorC2IJmEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEED
   store i64 0, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 368
   store i8 0, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix5ErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
@@ -69983,7 +69983,7 @@ define linkonce_odr void @_ZSt19__throw_regex_errorNSt15regex_constants10error_t
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt11regex_errorC2ENSt15regex_constants10error_typeEPKc(ptr noundef nonnull align 8 dereferenceable(20) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #4 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt11regex_error, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 %1, ptr %4, align 8
   ret void
@@ -71837,7 +71837,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cx
   store i32 1, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 12
   store i32 1, ptr %10, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt8__detail4_NFAINSt7__cxx1112regex_traitsIcEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 16
   %12 = load i32, ptr %4, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
@@ -96494,7 +96494,7 @@ define linkonce_odr void @_ZN3nix8make_refI17CmdProfileUpgradeJEEENS_3refIT_EEDp
   store i32 1, ptr %4, align 8, !noalias !681
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !681
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17CmdProfileUpgradeSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !681
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17CmdProfileUpgradeSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !681
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(768) %6, i8 0, i64 768, i1 false), !noalias !681
   invoke void @_ZN17CmdProfileUpgradeC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6)
@@ -96822,8 +96822,8 @@ define linkonce_odr void @_ZN17CmdProfileUpgradeC1Ev(ptr noundef nonnull align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 712
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 728
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix7CommandE, i64 0, inrange i32 0, i64 7), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix7CommandE, i64 0, inrange i32 1, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %2, align 8
   invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull getelementptr inbounds ([42 x ptr], ptr @_ZTT17CmdProfileUpgrade, i64 0, i64 35))
           to label %25 unwind label %33
 
@@ -96847,12 +96847,12 @@ define linkonce_odr void @_ZN17CmdProfileUpgradeC1Ev(ptr noundef nonnull align 8
           to label %32 unwind label %41
 
 32:                                               ; preds = %30
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, inrange i32 0, i64 11), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, inrange i32 2, i64 10), ptr %28, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, inrange i32 3, i64 11), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, inrange i32 4, i64 10), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, inrange i32 5, i64 3), ptr %26, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, inrange i32 1, i64 3), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 0, i64 11), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 2, i64 10), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 3, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 4, i64 10), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 5, i64 3), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [15 x ptr], [20 x ptr], [17 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileUpgrade, i64 0, i32 1, i64 3), ptr %31, align 8
   ret void
 
 33:                                               ; preds = %1
@@ -96905,9 +96905,9 @@ define linkonce_odr void @_ZN17CmdProfileUpgradeD1Ev(ptr noundef nonnull align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZN3nix17SourceExprCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(440) %2, ptr noundef nonnull getelementptr inbounds ([42 x ptr], ptr @_ZTT17CmdProfileUpgrade, i64 0, i64 17)) #30
   %3 = getelementptr inbounds i8, ptr %0, i64 728
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 520
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileUpgrade728_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 744
   %6 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %6, null
@@ -99220,7 +99220,7 @@ _ZNSt3setIN3nix9StorePathESt4lessIS1_ESaIS1_EE5clearEv.exit.i: ; preds = %_ZNSt3
 
 850:                                              ; preds = %.lr.ph.i
   %851 = call ptr @__cxa_allocate_exception(i64 16) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %851, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %851, align 8
   %852 = getelementptr inbounds i8, ptr %851, i64 8
   store ptr @.str.225, ptr %852, align 8
   invoke void @__cxa_throw(ptr nonnull %851, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #31
@@ -100422,7 +100422,7 @@ define linkonce_odr void @_ZN3nix8make_refINS_16InstallableFlakeEJP17CmdProfileU
   store i32 1, ptr %12, align 8, !noalias !700
   %13 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 1, ptr %13, align 4, !noalias !700
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix16InstallableFlakeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %11, align 8, !noalias !700
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3nix16InstallableFlakeESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %11, align 8, !noalias !700
   %14 = getelementptr inbounds i8, ptr %11, i64 16
   invoke void @_ZSt10_ConstructIN3nix16InstallableFlakeEJP17CmdProfileUpgradeNS0_3refINS0_9EvalStateEEENS0_8FlakeRefERA1_KcRNS0_19ExtendedOutputsSpecENSt7__cxx114listINSD_12basic_stringIcSt11char_traitsIcESaIcEEESaISJ_EEESL_RNS0_5flake9LockFlagsEEEvPT_DpOT0_(ptr noundef nonnull %14, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(136) %3, ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(200) %8)
           to label %16 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3nix16InstallableFlakeESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit15.i.i.i.i, !noalias !700
@@ -102482,7 +102482,7 @@ define linkonce_odr void @_ZN3nix8make_refI14CmdProfileListJEEENS_3refIT_EEDpOT0
   store i32 1, ptr %4, align 8, !noalias !707
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !707
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14CmdProfileListSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !707
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI14CmdProfileListSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !707
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(472) %6, i8 0, i64 472, i1 false), !noalias !707
   invoke void @_ZN14CmdProfileListC1Ev(ptr noundef nonnull align 8 dereferenceable(57) %6)
@@ -102810,8 +102810,8 @@ define linkonce_odr void @_ZN14CmdProfileListC1Ev(ptr noundef nonnull align 8 de
   %23 = getelementptr inbounds i8, ptr %0, i64 440
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix7CommandE, i64 0, inrange i32 0, i64 7), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix7CommandE, i64 0, inrange i32 1, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %2, align 8
   invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull getelementptr inbounds ([32 x ptr], ptr @_ZTT14CmdProfileList, i64 0, i64 25))
           to label %25 unwind label %33
 
@@ -102835,12 +102835,12 @@ define linkonce_odr void @_ZN14CmdProfileListC1Ev(ptr noundef nonnull align 8 de
           to label %32 unwind label %41
 
 32:                                               ; preds = %30
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, inrange i32 0, i64 11), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, inrange i32 2, i64 7), ptr %28, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, inrange i32 3, i64 10), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, inrange i32 4, i64 11), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, inrange i32 5, i64 3), ptr %26, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, inrange i32 1, i64 3), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 0, i64 11), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 2, i64 7), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 3, i64 10), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 4, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 5, i64 3), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr], [3 x ptr], [9 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV14CmdProfileList, i64 0, i32 1, i64 3), ptr %31, align 8
   ret void
 
 33:                                               ; preds = %1
@@ -102994,11 +102994,11 @@ define linkonce_odr void @_ZN3nix7MixJSONC2Ev(ptr noundef nonnull align 8 derefe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN14CmdProfileListD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i64 0, inrange i32 0, i64 9), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i64 0, i32 0, i64 9), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 224
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i64 0, inrange i32 1, i64 10), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i64 0, i32 1, i64 10), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 248
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i64 0, inrange i32 2, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList0_N3nix10MixProfileE, i64 0, i32 2, i64 11), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8
@@ -103031,8 +103031,8 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 _ZN14CmdProfileListD2Ev.exit:                     ; preds = %1, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN3nix11EvalCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %15, ptr noundef nonnull getelementptr inbounds ([32 x ptr], ptr @_ZTT14CmdProfileList, i64 0, i64 17)) #30
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC14CmdProfileList224_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %3, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 240
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i.i = icmp eq ptr %17, null
@@ -104664,7 +104664,7 @@ define linkonce_odr void @_ZN3nix8make_refI22CmdProfileDiffClosuresJEEENS_3refIT
   store i32 1, ptr %4, align 8, !noalias !728
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !728
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22CmdProfileDiffClosuresSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !728
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI22CmdProfileDiffClosuresSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !728
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(280) %6, i8 0, i64 280, i1 false), !noalias !728
   invoke void @_ZN22CmdProfileDiffClosuresC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6)
@@ -104992,8 +104992,8 @@ define linkonce_odr void @_ZN22CmdProfileDiffClosuresC1Ev(ptr noundef nonnull al
   %23 = getelementptr inbounds i8, ptr %0, i64 264
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix7CommandE, i64 0, inrange i32 0, i64 7), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix7CommandE, i64 0, inrange i32 1, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %2, align 8
   invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull getelementptr inbounds ([17 x ptr], ptr @_ZTT22CmdProfileDiffClosures, i64 0, i64 12))
           to label %25 unwind label %27
 
@@ -105002,9 +105002,9 @@ define linkonce_odr void @_ZN22CmdProfileDiffClosuresC1Ev(ptr noundef nonnull al
           to label %26 unwind label %29
 
 26:                                               ; preds = %25
-  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i64 0, inrange i32 0, i64 9), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i64 0, inrange i32 1, i64 10), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i64 0, inrange i32 2, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i64 0, i32 0, i64 9), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i64 0, i32 1, i64 10), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV22CmdProfileDiffClosures, i64 0, i32 2, i64 11), ptr %2, align 8
   ret void
 
 27:                                               ; preds = %1
@@ -105026,11 +105026,11 @@ define linkonce_odr void @_ZN22CmdProfileDiffClosuresC1Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN22CmdProfileDiffClosuresD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i64 0, inrange i32 0, i64 9), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i64 0, i32 0, i64 9), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i64 0, inrange i32 1, i64 10), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i64 0, i32 1, i64 10), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i64 0, inrange i32 2, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures0_N3nix10MixProfileE, i64 0, i32 2, i64 11), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8
@@ -105061,8 +105061,8 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %_ZN22CmdProfileDiffClosuresD2Ev.exit
 
 _ZN22CmdProfileDiffClosuresD2Ev.exit:             ; preds = %1, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC22CmdProfileDiffClosures48_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %3, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 64
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %16, null
@@ -106198,7 +106198,7 @@ define linkonce_odr void @_ZN3nix8make_refI17CmdProfileHistoryJEEENS_3refIT_EEDp
   store i32 1, ptr %4, align 8, !noalias !744
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !744
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17CmdProfileHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !744
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI17CmdProfileHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !744
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(456) %6, i8 0, i64 456, i1 false), !noalias !744
   invoke void @_ZN17CmdProfileHistoryC1Ev(ptr noundef nonnull align 8 dereferenceable(208) %6)
@@ -106526,8 +106526,8 @@ define linkonce_odr void @_ZN17CmdProfileHistoryC1Ev(ptr noundef nonnull align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 424
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, i8 0, i64 16, i1 false)
   %24 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix7CommandE, i64 0, inrange i32 0, i64 7), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix7CommandE, i64 0, inrange i32 1, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %2, align 8
   invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr noundef nonnull getelementptr inbounds ([29 x ptr], ptr @_ZTT17CmdProfileHistory, i64 0, i64 22))
           to label %25 unwind label %31
 
@@ -106546,11 +106546,11 @@ define linkonce_odr void @_ZN17CmdProfileHistoryC1Ev(ptr noundef nonnull align 8
           to label %30 unwind label %37
 
 30:                                               ; preds = %28
-  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, inrange i32 0, i64 6), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, inrange i32 2, i64 10), ptr %24, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, inrange i32 3, i64 11), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, inrange i32 4, i64 3), ptr %26, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, inrange i32 1, i64 9), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 0, i64 6), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 2, i64 10), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 3, i64 11), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 4, i64 3), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr], [14 x ptr], [17 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTV17CmdProfileHistory, i64 0, i32 1, i64 9), ptr %29, align 8
   ret void
 
 31:                                               ; preds = %1
@@ -106588,11 +106588,11 @@ define linkonce_odr void @_ZN17CmdProfileHistoryC1Ev(ptr noundef nonnull align 8
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN17CmdProfileHistoryD1Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 160
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i64 0, inrange i32 0, i64 9), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i64 0, i32 0, i64 9), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 208
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i64 0, inrange i32 1, i64 10), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i64 0, i32 1, i64 10), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 232
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i64 0, inrange i32 2, i64 11), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory160_N3nix10MixProfileE, i64 0, i32 2, i64 11), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 168
   %6 = getelementptr inbounds i8, ptr %0, i64 200
   %7 = load i8, ptr %6, align 8
@@ -106624,8 +106624,8 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 
 _ZN17CmdProfileHistoryD2Ev.exit:                  ; preds = %1, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i
   tail call void @_ZN3nix11EvalCommandD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0, ptr noundef nonnull getelementptr inbounds ([29 x ptr], ptr @_ZTT17CmdProfileHistory, i64 0, i64 1)) #30
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC17CmdProfileHistory208_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %0, i64 224
   %17 = load ptr, ptr %16, align 8
   %.not.i.i.i.i = icmp eq ptr %17, null
@@ -110416,7 +110416,7 @@ define linkonce_odr void @_ZN3nix8make_refI18CmdProfileRollbackJEEENS_3refIT_EED
   store i32 1, ptr %4, align 8, !noalias !767
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !767
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18CmdProfileRollbackSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !767
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI18CmdProfileRollbackSaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !767
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZN18CmdProfileRollbackC1Ev(ptr noundef nonnull align 8 dereferenceable(80) %6)
           to label %8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI18CmdProfileRollbackSaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit7.i.i.i.i, !noalias !767
@@ -110749,8 +110749,8 @@ define linkonce_odr void @_ZN18CmdProfileRollbackC1Ev(ptr noundef nonnull align 
   %29 = getelementptr inbounds i8, ptr %0, i64 296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix7CommandE, i64 0, inrange i32 0, i64 7), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix7CommandE, i64 0, inrange i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %8, align 8
   invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull getelementptr inbounds ([20 x ptr], ptr @_ZTT18CmdProfileRollback, i64 0, i64 15))
           to label %31 unwind label %75
 
@@ -110764,10 +110764,10 @@ define linkonce_odr void @_ZN18CmdProfileRollbackC1Ev(ptr noundef nonnull align 
           to label %34 unwind label %79
 
 34:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, inrange i32 0, i64 9), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, inrange i32 2, i64 10), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, inrange i32 3, i64 11), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, inrange i32 1, i64 3), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, i32 0, i64 9), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, i32 2, i64 10), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, i32 3, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV18CmdProfileRollback, i64 0, i32 1, i64 3), ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 64
   %36 = getelementptr inbounds i8, ptr %0, i64 72
   store i8 0, ptr %36, align 8
@@ -111079,11 +111079,11 @@ define linkonce_odr void @_ZN3nix9MixDryRunC2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN18CmdProfileRollbackD1Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i64 0, inrange i32 0, i64 9), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i64 0, i32 0, i64 9), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i64 0, inrange i32 1, i64 10), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i64 0, i32 1, i64 10), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i64 0, inrange i32 2, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback0_N3nix10MixProfileE, i64 0, i32 2, i64 11), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   %6 = load i8, ptr %5, align 8
@@ -111114,8 +111114,8 @@ _ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   br label %_ZN18CmdProfileRollbackD2Ev.exit
 
 _ZN18CmdProfileRollbackD2Ev.exit:                 ; preds = %1, %_ZNSt22_Optional_payload_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10_M_destroyEv.exit.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC18CmdProfileRollback80_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %3, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 96
   %16 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %16, null
@@ -111956,7 +111956,7 @@ define linkonce_odr void @_ZN3nix8make_refI21CmdProfileWipeHistoryJEEENS_3refIT_
   store i32 1, ptr %4, align 8, !noalias !779
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !779
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI21CmdProfileWipeHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !779
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI21CmdProfileWipeHistorySaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !779
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   invoke void @_ZN21CmdProfileWipeHistoryC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %6)
           to label %8 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI21CmdProfileWipeHistorySaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit7.i.i.i.i, !noalias !779
@@ -112289,8 +112289,8 @@ define linkonce_odr void @_ZN21CmdProfileWipeHistoryC1Ev(ptr noundef nonnull ali
   %29 = getelementptr inbounds i8, ptr %0, i64 320
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, i8 0, i64 16, i1 false)
   %30 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix7CommandE, i64 0, inrange i32 0, i64 7), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix7CommandE, i64 0, inrange i32 1, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix7CommandE, i64 0, i32 0, i64 7), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix7CommandE, i64 0, i32 1, i64 11), ptr %8, align 8
   invoke void @_ZN3nix12StoreCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull getelementptr inbounds ([20 x ptr], ptr @_ZTT21CmdProfileWipeHistory, i64 0, i64 15))
           to label %31 unwind label %75
 
@@ -112304,10 +112304,10 @@ define linkonce_odr void @_ZN21CmdProfileWipeHistoryC1Ev(ptr noundef nonnull ali
           to label %34 unwind label %79
 
 34:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, inrange i32 0, i64 9), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, inrange i32 2, i64 10), ptr %30, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, inrange i32 3, i64 11), ptr %8, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, inrange i32 1, i64 3), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, i32 0, i64 9), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, i32 2, i64 10), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, i32 3, i64 11), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [3 x ptr], [17 x ptr], [20 x ptr] }, ptr @_ZTV21CmdProfileWipeHistory, i64 0, i32 1, i64 3), ptr %33, align 8
   %35 = getelementptr inbounds i8, ptr %0, i64 64
   %36 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %36, align 8
@@ -112515,9 +112515,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 define linkonce_odr void @_ZN21CmdProfileWipeHistoryD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN21CmdProfileWipeHistoryD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull @_ZTT21CmdProfileWipeHistory) #30
   %2 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i = icmp eq ptr %5, null
@@ -112600,9 +112600,9 @@ _ZN3nix12StoreCommandD2Ev.exit:                   ; preds = %1, %22, %35, %_ZNSt
 define linkonce_odr void @_ZN21CmdProfileWipeHistoryD0Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN21CmdProfileWipeHistoryD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull @_ZTT21CmdProfileWipeHistory) #30
   %2 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %.not.i.i.i.i.i = icmp eq ptr %5, null
@@ -112761,9 +112761,9 @@ define linkonce_odr void @_ZTv0_n32_N21CmdProfileWipeHistoryD1Ev(ptr noundef %0)
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
   tail call void @_ZN21CmdProfileWipeHistoryD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull @_ZTT21CmdProfileWipeHistory) #30
   %6 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, inrange i32 0, i64 10), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, i32 0, i64 10), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, inrange i32 1, i64 11), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTC21CmdProfileWipeHistory104_N3nix12StoreCommandE, i64 0, i32 1, i64 11), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 120
   %9 = load ptr, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %9, null

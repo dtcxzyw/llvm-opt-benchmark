@@ -155,7 +155,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @.str.12 = private unnamed_addr constant [21 x i8] c"Server shutting down\00", align 1
 @.str.13 = private unnamed_addr constant [77 x i8] c"The server has experienced an internal error.  You will now be disconnected.\00", align 1
 @_ZTV17GUIFileSelectMenu = dso_local unnamed_addr constant { [45 x ptr], [5 x ptr] } { [45 x ptr] [ptr inttoptr (i64 480 to ptr), ptr null, ptr @_ZTI17GUIFileSelectMenu, ptr @_ZN17GUIFileSelectMenuD1Ev, ptr @_ZN17GUIFileSelectMenuD0Ev, ptr @_ZN17GUIFileSelectMenu7OnEventERKN3irr6SEventE, ptr @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv, ptr @_ZN3irr3gui11IGUIElement19getElementFromPointERKNS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE, ptr @_ZN3irr3gui11IGUIElement8addChildEPS1_, ptr @_ZN3irr3gui11IGUIElement11removeChildEPS1_, ptr @_ZN3irr3gui11IGUIElement17removeAllChildrenEv, ptr @_ZN3irr3gui11IGUIElement6removeEv, ptr @_ZN12GUIModalMenu4drawEv, ptr @_ZN3irr3gui11IGUIElement12OnPostRenderEj, ptr @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement9isVisibleEv, ptr @_ZNK3irr3gui11IGUIElement14isTrulyVisibleEv, ptr @_ZN3irr3gui11IGUIElement10setVisibleEb, ptr @_ZNK3irr3gui11IGUIElement12isSubElementEv, ptr @_ZN3irr3gui11IGUIElement13setSubElementEb, ptr @_ZNK3irr3gui11IGUIElement9isEnabledEv, ptr @_ZN3irr3gui11IGUIElement10setEnabledEb, ptr @_ZN3irr3gui11IGUIElement7setTextEPKw, ptr @_ZNK3irr3gui11IGUIElement7getTextEv, ptr @_ZN3irr3gui11IGUIElement14setToolTipTextEPKw, ptr @_ZNK3irr3gui11IGUIElement14getToolTipTextEv, ptr @_ZNK3irr3gui11IGUIElement5getIDEv, ptr @_ZN3irr3gui11IGUIElement5setIDEi, ptr @_ZN3irr3gui11IGUIElement12bringToFrontEPS1_, ptr @_ZN3irr3gui11IGUIElement10sendToBackEPS1_, ptr @_ZNK3irr3gui11IGUIElement11getChildrenB5cxx11Ev, ptr @_ZNK3irr3gui11IGUIElement16getElementFromIdEib, ptr @_ZNK3irr3gui11IGUIElement7hasTypeENS0_17EGUI_ELEMENT_TYPEE, ptr @_ZNK3irr3gui11IGUIElement11getTypeNameEv, ptr @_ZNK3irr3gui11IGUIElement7getNameEv, ptr @_ZN3irr3gui11IGUIElement7setNameEPKc, ptr @_ZN3irr3gui11IGUIElement7setNameERKNS_4core6stringIcEE, ptr @_ZN3irr3gui11IGUIElement10acceptsIMEEv, ptr @_ZN17GUIFileSelectMenu13regenerateGuiEN3irr4core8vector2dIjEE, ptr @_ZN17GUIFileSelectMenu8drawMenuEv, ptr @_ZN12GUIModalMenu15preprocessEventERKN3irr6SEventE, ptr @_ZN12GUIModalMenu10pausesGameEv, ptr @_ZN17GUIFileSelectMenu12getLabelByIDB5cxx11Ei, ptr @_ZN17GUIFileSelectMenu11getNameByIDB5cxx11Ei], [5 x ptr] [ptr inttoptr (i64 -480 to ptr), ptr inttoptr (i64 -480 to ptr), ptr @_ZTI17GUIFileSelectMenu, ptr @_ZTv0_n24_N17GUIFileSelectMenuD1Ev, ptr @_ZTv0_n24_N17GUIFileSelectMenuD0Ev] }, align 8
-@_ZTT17GUIFileSelectMenu = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC17GUIFileSelectMenu0_12GUIModalMenu, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC17GUIFileSelectMenu0_N3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC17GUIFileSelectMenu0_N3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC17GUIFileSelectMenu0_12GUIModalMenu, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTT17GUIFileSelectMenu = dso_local unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC17GUIFileSelectMenu0_12GUIModalMenu, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC17GUIFileSelectMenu0_N3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTC17GUIFileSelectMenu0_N3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTC17GUIFileSelectMenu0_12GUIModalMenu, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i32 0, inrange i32 1, i32 3)], align 8
 @.str.14 = private unnamed_addr constant [2 x i8] c"C\00", align 1
 @.str.15 = private unnamed_addr constant [10 x i8] c"_accepted\00", align 1
 @.str.16 = private unnamed_addr constant [10 x i8] c"_canceled\00", align 1
@@ -202,7 +202,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @.str.41 = private unnamed_addr constant [5 x i8] c"root\00", align 1
 @.str.42 = private unnamed_addr constant [9 x i8] c"profiler\00", align 1
 @_ZTVN3irr3gui11IGUIElementE = linkonce_odr dso_local unnamed_addr constant { [39 x ptr], [5 x ptr] } { [39 x ptr] [ptr inttoptr (i64 312 to ptr), ptr null, ptr @_ZTIN3irr3gui11IGUIElementE, ptr @_ZN3irr3gui11IGUIElementD1Ev, ptr @_ZN3irr3gui11IGUIElementD0Ev, ptr @_ZN3irr3gui11IGUIElement7OnEventERKNS_6SEventE, ptr @_ZN3irr3gui11IGUIElement22updateAbsolutePositionEv, ptr @_ZN3irr3gui11IGUIElement19getElementFromPointERKNS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement13isPointInsideERKNS_4core8vector2dIiEE, ptr @_ZN3irr3gui11IGUIElement8addChildEPS1_, ptr @_ZN3irr3gui11IGUIElement11removeChildEPS1_, ptr @_ZN3irr3gui11IGUIElement17removeAllChildrenEv, ptr @_ZN3irr3gui11IGUIElement6removeEv, ptr @_ZN3irr3gui11IGUIElement4drawEv, ptr @_ZN3irr3gui11IGUIElement12OnPostRenderEj, ptr @_ZN3irr3gui11IGUIElement4moveENS_4core8vector2dIiEE, ptr @_ZNK3irr3gui11IGUIElement9isVisibleEv, ptr @_ZNK3irr3gui11IGUIElement14isTrulyVisibleEv, ptr @_ZN3irr3gui11IGUIElement10setVisibleEb, ptr @_ZNK3irr3gui11IGUIElement12isSubElementEv, ptr @_ZN3irr3gui11IGUIElement13setSubElementEb, ptr @_ZNK3irr3gui11IGUIElement9isEnabledEv, ptr @_ZN3irr3gui11IGUIElement10setEnabledEb, ptr @_ZN3irr3gui11IGUIElement7setTextEPKw, ptr @_ZNK3irr3gui11IGUIElement7getTextEv, ptr @_ZN3irr3gui11IGUIElement14setToolTipTextEPKw, ptr @_ZNK3irr3gui11IGUIElement14getToolTipTextEv, ptr @_ZNK3irr3gui11IGUIElement5getIDEv, ptr @_ZN3irr3gui11IGUIElement5setIDEi, ptr @_ZN3irr3gui11IGUIElement12bringToFrontEPS1_, ptr @_ZN3irr3gui11IGUIElement10sendToBackEPS1_, ptr @_ZNK3irr3gui11IGUIElement11getChildrenB5cxx11Ev, ptr @_ZNK3irr3gui11IGUIElement16getElementFromIdEib, ptr @_ZNK3irr3gui11IGUIElement7hasTypeENS0_17EGUI_ELEMENT_TYPEE, ptr @_ZNK3irr3gui11IGUIElement11getTypeNameEv, ptr @_ZNK3irr3gui11IGUIElement7getNameEv, ptr @_ZN3irr3gui11IGUIElement7setNameEPKc, ptr @_ZN3irr3gui11IGUIElement7setNameERKNS_4core6stringIcEE, ptr @_ZN3irr3gui11IGUIElement10acceptsIMEEv], [5 x ptr] [ptr inttoptr (i64 -312 to ptr), ptr inttoptr (i64 -312 to ptr), ptr @_ZTIN3irr3gui11IGUIElementE, ptr @_ZTv0_n24_N3irr3gui11IGUIElementD1Ev, ptr @_ZTv0_n24_N3irr3gui11IGUIElementD0Ev] }, comdat, align 8
-@_ZTTN3irr3gui11IGUIElementE = linkonce_odr dso_local unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN3irr3gui11IGUIElementE = linkonce_odr dso_local unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @.str.44 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 @.str.45 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_guiPathSelectMenu.cpp, ptr null }]
@@ -539,14 +539,14 @@ declare void @_ZN12GUIModalMenuD2Ev(ptr noundef nonnull align 8 dereferenceable(
 define dso_local void @_ZN17GUIFileSelectMenuC1EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESF_b(ptr noundef nonnull align 8 dereferenceable(473) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %5, ptr nocapture noundef nonnull readonly align 8 dereferenceable(32) %6, i1 noundef zeroext %7) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca i64, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 480
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %10, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %10, align 8, !tbaa !12
   %11 = getelementptr inbounds i8, ptr %0, i64 488
   store ptr null, ptr %11, align 8, !tbaa !49
   %12 = getelementptr inbounds i8, ptr %0, i64 496
   store i32 1, ptr %12, align 8, !tbaa !51
   tail call void @_ZN12GUIModalMenuC2EPN3irr3gui15IGUIEnvironmentEPNS1_11IGUIElementEiP12IMenuManagerb(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTT17GUIFileSelectMenu, i64 0, i64 1), ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 1, i64 3), ptr %10, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 1, i64 3), ptr %10, align 8, !tbaa !12
   %13 = getelementptr inbounds i8, ptr %0, i64 384
   %14 = load ptr, ptr %5, align 8, !tbaa !4
   %15 = getelementptr inbounds i8, ptr %5, i64 8
@@ -696,9 +696,9 @@ declare ptr @setlocale(i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17GUIFileSelectMenuD1Ev(ptr noundef nonnull align 8 dereferenceable(473) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 480
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !12
   %3 = tail call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.14) #21
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -746,9 +746,9 @@ define dso_local void @_ZTv0_n24_N17GUIFileSelectMenuD1Ev(ptr noundef %0) unname
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 480
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !12
   %7 = tail call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.14) #21
   %8 = getelementptr inbounds i8, ptr %5, i64 440
   %9 = load ptr, ptr %8, align 8, !tbaa !4
@@ -792,9 +792,9 @@ define dso_local void @_ZTv0_n24_N17GUIFileSelectMenuD1Ev(ptr noundef %0) unname
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17GUIFileSelectMenuD0Ev(ptr noundef nonnull align 8 dereferenceable(473) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 480
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !12
   %3 = tail call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.14) #21
   %4 = getelementptr inbounds i8, ptr %0, i64 440
   %5 = load ptr, ptr %4, align 8, !tbaa !4
@@ -846,9 +846,9 @@ define dso_local void @_ZTv0_n24_N17GUIFileSelectMenuD0Ev(ptr noundef %0) unname
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %5, i64 480
-  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [45 x ptr], [5 x ptr] }, ptr @_ZTV17GUIFileSelectMenu, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !12
   %7 = tail call ptr @setlocale(i32 noundef 1, ptr noundef nonnull @.str.14) #21
   %8 = getelementptr inbounds i8, ptr %5, i64 440
   %9 = load ptr, ptr %8, align 8, !tbaa !4

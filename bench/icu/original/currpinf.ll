@@ -178,7 +178,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fPluralCountToCurrencyUnitPattern, align 8
   %fPluralRules = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 2
@@ -222,7 +222,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -343,7 +343,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fPluralCountToCurrencyUnitPattern, align 8
   %fPluralRules = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 2
@@ -390,7 +390,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %info.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fPluralCountToCurrencyUnitPattern, align 8
   %fPluralRules = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 2
@@ -432,7 +432,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1025,7 +1025,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518CurrencyPluralInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fPluralCountToCurrencyUnitPattern = getelementptr inbounds %"class.icu_75::CurrencyPluralInfo", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fPluralCountToCurrencyUnitPattern, align 8
   invoke void @_ZN6icu_7518CurrencyPluralInfo10deleteHashEPNS_9HashtableE(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef %0)

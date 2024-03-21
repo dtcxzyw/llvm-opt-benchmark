@@ -210,9 +210,9 @@ define void @_ZN17PathSelectionEditC2E7QStringS0_bP7QWidget(ptr noundef nonnull 
   %27 = getelementptr inbounds %class.QFlags, ptr %11, i32 0, i32 0
   %28 = load i32, ptr %27, align 4
   call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef %26, i32 %28)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV17PathSelectionEdit, i32 0, inrange i32 0, i32 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV17PathSelectionEdit, i32 0, i32 0, i32 2), ptr %25, align 8
   %29 = getelementptr inbounds i8, ptr %25, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV17PathSelectionEdit, i32 0, inrange i32 1, i32 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV17PathSelectionEdit, i32 0, i32 1, i32 2), ptr %29, align 8
   %30 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %30) #7
   %31 = getelementptr inbounds %class.PathSelectionEdit, ptr %25, i32 0, i32 2

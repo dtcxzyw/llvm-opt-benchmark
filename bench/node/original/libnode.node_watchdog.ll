@@ -1169,7 +1169,7 @@ entry:
   store ptr %received_signal, ptr %received_signal.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node18SigintWatchdogBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %isolate_ = getelementptr inbounds %"class.node::SigintWatchdog", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %isolate.addr, align 8
   store ptr %0, ptr %isolate_, align 8
@@ -1192,7 +1192,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18SigintWatchdogBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18SigintWatchdogBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1419,7 +1419,7 @@ entry:
   %lock = alloca %"class.node::MutexBase<node::LibuvMutexTraits>::ScopedLock", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node14SigintWatchdogE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN4node20SigintWatchdogHelper22GetInstanceActionMutexEv()
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEE10ScopedLockC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(8) %lock, ptr noundef nonnull align 8 dereferenceable(40) %call)
   %call2 = call noundef ptr @_ZN4node20SigintWatchdogHelper11GetInstanceEv()
@@ -2633,9 +2633,9 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %env, ptr %env.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 88
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %object, i64 8, i1 false)
   %handle_ = getelementptr inbounds %"class.node::TraceSigintWatchdog", ptr %this3, i32 0, i32 4
@@ -2646,9 +2646,9 @@ entry:
   call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this3, ptr noundef %0, ptr %1, ptr noundef %handle_, i32 noundef 44)
   %2 = getelementptr inbounds i8, ptr %this3, i64 88
   call void @_ZN4node18SigintWatchdogBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this3, i64 88
-  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, inrange i32 1, i32 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr], [5 x ptr] }, ptr @_ZTVN4node19TraceSigintWatchdogE, i32 0, i32 1, i32 2), ptr %add.ptr7, align 8
   %interrupting = getelementptr inbounds %"class.node::TraceSigintWatchdog", ptr %this3, i32 0, i32 2
   store i8 0, ptr %interrupting, align 8
   %signal_flag_ = getelementptr inbounds %"class.node::TraceSigintWatchdog", ptr %this3, i32 0, i32 5
@@ -4517,7 +4517,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %handle_wrap_queue_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this1, i32 0, i32 2
   call void @_ZN4node8ListNodeINS_10HandleWrapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %handle_wrap_queue_) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
@@ -4767,7 +4767,7 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -4840,7 +4840,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

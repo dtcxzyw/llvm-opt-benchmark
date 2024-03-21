@@ -227,14 +227,14 @@ $_ZTV20btAxisSweep3InternalIjE = comdat any
 define dso_local void @_ZN12btAxisSweep3C2ERK9btVector3S2_tP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMax, i16 noundef zeroext %maxHandles, ptr noundef %pairCache, i1 noundef zeroext %disableRaycastAccelerator) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN20btAxisSweep3InternalItEC2ERK9btVector3S3_tttP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMax, i16 noundef zeroext -2, i16 noundef zeroext -1, i16 noundef zeroext %maxHandles, ptr noundef %pairCache, i1 noundef zeroext %disableRaycastAccelerator)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12btAxisSweep3, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV12btAxisSweep3, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalItEC2ERK9btVector3S3_tttP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMax, i16 noundef zeroext %handleMask, i16 noundef zeroext %handleSentinel, i16 noundef zeroext %userMaxHandles, ptr noundef %pairCache, i1 noundef zeroext %disableRaycastAccelerator) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_bpHandleMask = getelementptr inbounds i8, ptr %this, i64 8
   store i16 %handleMask, ptr %m_bpHandleMask, align 8
   %m_handleSentinel = getelementptr inbounds i8, ptr %this, i64 10
@@ -270,7 +270,7 @@ if.then14:                                        ; preds = %if.end
   %call16 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 40, i32 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call16, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i64 0, inrange i32 0, i64 2), ptr %call16, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i64 0, i32 0, i64 2), ptr %call16, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %call16, i64 32
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_size.i.i.i = getelementptr inbounds i8, ptr %call16, i64 12
@@ -422,14 +422,14 @@ for.end117:                                       ; preds = %for.body87
 define dso_local void @_ZN17bt32BitAxisSweep3C2ERK9btVector3S2_jP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMax, i32 noundef %maxHandles, ptr noundef %pairCache, i1 noundef zeroext %disableRaycastAccelerator) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN20btAxisSweep3InternalIjEC2ERK9btVector3S3_jjjP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMax, i32 noundef -2, i32 noundef 2147483647, i32 noundef %maxHandles, ptr noundef %pairCache, i1 noundef zeroext %disableRaycastAccelerator)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV17bt32BitAxisSweep3, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV17bt32BitAxisSweep3, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalIjEC2ERK9btVector3S3_jjjP22btOverlappingPairCacheb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %worldAabbMax, i32 noundef %handleMask, i32 noundef %handleSentinel, i32 noundef %userMaxHandles, ptr noundef %pairCache, i1 noundef zeroext %disableRaycastAccelerator) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_bpHandleMask = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %handleMask, ptr %m_bpHandleMask, align 8
   %m_handleSentinel = getelementptr inbounds i8, ptr %this, i64 12
@@ -465,7 +465,7 @@ if.then12:                                        ; preds = %if.end
   %call14 = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 40, i32 noundef 16)
   %0 = getelementptr inbounds i8, ptr %call14, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i64 0, inrange i32 0, i64 2), ptr %call14, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i64 0, i32 0, i64 2), ptr %call14, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %call14, i64 32
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_size.i.i.i = getelementptr inbounds i8, ptr %call14, i64 12
@@ -1981,7 +1981,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalItED2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalItE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_raycastAccelerator = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %m_raycastAccelerator, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -2097,7 +2097,7 @@ _ZN20btAxisSweep3InternalItEdlEPv.exit:           ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btNullPairCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -2135,7 +2135,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairED2Ev.exit: ; preds = %entry, %if.th
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15btNullPairCacheD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTV15btNullPairCache, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_data.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_data.i.i.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -2300,7 +2300,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20btAxisSweep3InternalIjED2Ev(ptr noundef nonnull align 8 dereferenceable(176) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV20btAxisSweep3InternalIjE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_raycastAccelerator = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %m_raycastAccelerator, align 8
   %tobool.not = icmp eq ptr %0, null

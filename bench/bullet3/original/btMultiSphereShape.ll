@@ -210,7 +210,7 @@ entry:
   store i32 %numSpheres, ptr %numSpheres.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN32btConvexInternalAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV18btMultiSphereShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV18btMultiSphereShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_localPositionArray = getelementptr inbounds %class.btMultiSphereShape, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayI9btVector3EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_localPositionArray)
           to label %invoke.cont unwind label %lpad
@@ -1861,7 +1861,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV18btMultiSphereShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV18btMultiSphereShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_radiArray = getelementptr inbounds %class.btMultiSphereShape, ptr %this1, i32 0, i32 3
   call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_radiArray) #10
   %m_localPositionArray = getelementptr inbounds %class.btMultiSphereShape, ptr %this1, i32 0, i32 2

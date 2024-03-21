@@ -1932,7 +1932,7 @@ $_ZTVN10ClipperLib16clipperExceptionE = comdat any
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN10ClipperLib11ClipperBaseE = hidden constant [28 x i8] c"N10ClipperLib11ClipperBaseE\00", align 1
 @_ZTIN10ClipperLib11ClipperBaseE = hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN10ClipperLib11ClipperBaseE }, align 8
-@_ZTTN10ClipperLib7ClipperE = hidden unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, inrange i32 1, i32 6)], align 8
+@_ZTTN10ClipperLib7ClipperE = hidden unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, inrange i32 1, i32 6)], align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN10ClipperLib7ClipperE = hidden constant [23 x i8] c"N10ClipperLib7ClipperE\00", align 1
 @_ZTIN10ClipperLib7ClipperE = hidden constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN10ClipperLib7ClipperE, i32 0, i32 1, ptr @_ZTIN10ClipperLib11ClipperBaseE, i64 -6141 }, align 8
@@ -2181,7 +2181,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Contour = getelementptr inbounds %"class.ClipperLib::PolyNode", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN10ClipperLib8IntPointESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Contour) #13
   %Childs = getelementptr inbounds %"class.ClipperLib::PolyNode", ptr %this1, i32 0, i32 2
@@ -5650,7 +5650,7 @@ entry:
   %ref.tmp = alloca %"class.__gnu_cxx::__normal_iterator", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10ClipperLib11ClipperBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10ClipperLib11ClipperBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_CurrentLM = getelementptr inbounds %"class.ClipperLib::ClipperBase", ptr %this1, i32 0, i32 1
   call void @_ZN9__gnu_cxx17__normal_iteratorIPN10ClipperLib12LocalMinimumESt6vectorIS2_SaIS2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_CurrentLM) #13
   %m_MinimaList = getelementptr inbounds %"class.ClipperLib::ClipperBase", ptr %this1, i32 0, i32 2
@@ -5854,7 +5854,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10ClipperLib11ClipperBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN10ClipperLib11ClipperBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
   %0 = load ptr, ptr %vfn, align 8
@@ -6045,7 +6045,7 @@ entry:
   store ptr %description, ptr %description.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_descr = getelementptr inbounds %"class.ClipperLib::clipperException", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %description.addr, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
@@ -6083,7 +6083,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN10ClipperLib16clipperExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_descr = getelementptr inbounds %"class.ClipperLib::clipperException", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_descr) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
@@ -9980,9 +9980,9 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 136
   call void @_ZN10ClipperLib11ClipperBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, inrange i32 0, i32 3), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, i32 0, i32 3), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 136
-  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, inrange i32 1, i32 6), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [11 x ptr] }, ptr @_ZTVN10ClipperLib7ClipperE, i32 0, i32 1, i32 6), ptr %add.ptr, align 8
   %m_Joins = getelementptr inbounds %"class.ClipperLib::Clipper", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN10ClipperLib4JoinESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_Joins) #13
   %m_GhostJoins = getelementptr inbounds %"class.ClipperLib::Clipper", ptr %this1, i32 0, i32 2
@@ -23667,7 +23667,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN10ClipperLib8PolyNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Childs = getelementptr inbounds %"class.ClipperLib::PolyNode", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIPN10ClipperLib8PolyNodeESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %Childs) #13
   %Contour = getelementptr inbounds %"class.ClipperLib::PolyNode", ptr %this1, i32 0, i32 1
@@ -29644,7 +29644,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

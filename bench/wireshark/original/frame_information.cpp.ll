@@ -83,9 +83,9 @@ define void @_ZN16FrameInformationC2EP11CaptureFileP11_frame_dataP7QObject(ptr n
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZN14IDataPrintableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #10
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 0, i32 2), ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, inrange i32 1, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 1, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %class.FrameInformation, ptr %11, i32 0, i32 2
   %16 = load ptr, ptr %7, align 8
   store ptr %16, ptr %15, align 8
@@ -137,7 +137,7 @@ define linkonce_odr void @_ZN14IDataPrintableC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14IDataPrintable, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV14IDataPrintable, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -284,9 +284,9 @@ define void @_ZN16FrameInformationD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16FrameInformation, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.FrameInformation, ptr %3, i32 0, i32 4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null

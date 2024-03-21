@@ -625,7 +625,7 @@ declare void @_Z12wide_to_utf8B5cxx11St17basic_string_viewIwSt11char_traitsIwEE(
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN17MenuTextureSourceD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17MenuTextureSource, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17MenuTextureSource, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !22
   %4 = load ptr, ptr %3, align 8, !tbaa !20
@@ -2084,7 +2084,7 @@ define dso_local void @_ZN9GUIEngineC2EP18JoystickControllerPN3irr3gui11IGUIElem
   %27 = alloca i8, align 1
   %28 = alloca ptr, align 8
   store ptr %1, ptr %11, align 8, !tbaa !15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9GUIEngine, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9GUIEngine, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %29 = getelementptr inbounds i8, ptr %0, i64 8
   %30 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %30, ptr %29, align 8, !tbaa !58
@@ -2187,7 +2187,7 @@ define dso_local void @_ZN9GUIEngineC2EP18JoystickControllerPN3irr3gui11IGUIElem
   %83 = getelementptr inbounds i8, ptr %71, i64 16
   store i64 0, ptr %83, align 8, !tbaa !11, !noalias !150
   store i8 0, ptr %82, align 1, !tbaa !53, !noalias !150
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17TextDestGuiEngine, i64 0, inrange i32 0, i64 2), ptr %71, align 8, !tbaa !20, !noalias !150
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17TextDestGuiEngine, i64 0, i32 0, i64 2), ptr %71, align 8, !tbaa !20, !noalias !150
   %84 = getelementptr inbounds i8, ptr %71, i64 40
   store ptr %0, ptr %84, align 8, !tbaa !12, !noalias !150
   store ptr %71, ptr %54, align 8, !tbaa !153
@@ -2220,7 +2220,7 @@ define dso_local void @_ZN9GUIEngineC2EP18JoystickControllerPN3irr3gui11IGUIElem
           to label %100 unwind label %172
 
 100:                                              ; preds = %98
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17MenuTextureSource, i64 0, inrange i32 0, i64 2), ptr %99, align 8, !tbaa !20, !noalias !154
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17MenuTextureSource, i64 0, i32 0, i64 2), ptr %99, align 8, !tbaa !20, !noalias !154
   %101 = getelementptr inbounds i8, ptr %99, i64 8
   store ptr %97, ptr %101, align 8, !tbaa !22, !noalias !154
   %102 = getelementptr inbounds i8, ptr %99, i64 16
@@ -2312,7 +2312,7 @@ define dso_local void @_ZN9GUIEngineC2EP18JoystickControllerPN3irr3gui11IGUIElem
   store float 1.000000e+00, ptr %144, align 8, !tbaa !94, !noalias !160
   %145 = getelementptr inbounds i8, ptr %137, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %145, i8 0, i64 16, i1 false), !noalias !160
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16MenuMusicFetcher, i64 0, inrange i32 0, i64 2), ptr %137, align 8, !tbaa !20, !noalias !160
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16MenuMusicFetcher, i64 0, i32 0, i64 2), ptr %137, align 8, !tbaa !20, !noalias !160
   store ptr null, ptr %15, align 8, !tbaa !15
   store ptr %137, ptr %14, align 8, !tbaa !166
   invoke void @_Z24createOpenALSoundManagerPN5sound21SoundManagerSingletonESt10unique_ptrI25SoundFallbackPathProviderSt14default_deleteIS3_EE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.45") align 8 %13, ptr noundef %136, ptr noundef nonnull %14)
@@ -2483,7 +2483,7 @@ define dso_local void @_ZN9GUIEngineC2EP18JoystickControllerPN3irr3gui11IGUIElem
   store i32 1, ptr %227, align 8, !tbaa !174, !noalias !168
   %228 = getelementptr inbounds i8, ptr %218, i64 72
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %228, i8 0, i64 24, i1 false), !noalias !168
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV17DummySoundManager, i64 0, inrange i32 0, i64 2), ptr %218, align 8, !tbaa !20, !noalias !168
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV17DummySoundManager, i64 0, i32 0, i64 2), ptr %218, align 8, !tbaa !20, !noalias !168
   store ptr %218, ptr %52, align 8, !tbaa !15
   br label %233
 
@@ -3387,7 +3387,7 @@ define linkonce_odr dso_local void @_ZNSt10unique_ptrI16MenuMusicFetcherSt14defa
   br i1 %3, label %33, label %4
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SoundFallbackPathProvider, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SoundFallbackPathProvider, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !20
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = getelementptr inbounds i8, ptr %2, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !327
@@ -3497,7 +3497,7 @@ define linkonce_odr dso_local void @_ZSt11make_uniqueI18FormspecFormSourceJRA1_K
   %23 = getelementptr inbounds i8, ptr %22, i64 %20
   store i8 0, ptr %23, align 1, !tbaa !53
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #27
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !20
   %24 = getelementptr inbounds i8, ptr %6, i64 8
   %25 = getelementptr inbounds i8, ptr %6, i64 24
   store ptr %25, ptr %24, align 8, !tbaa !58
@@ -6888,7 +6888,7 @@ define dso_local void @_ZN9GUIEngine9cloudInitEv(ptr nocapture noundef nonnull a
   %6 = getelementptr inbounds i8, ptr %0, i64 144
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30FogShaderConstantSetterFactory, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV30FogShaderConstantSetterFactory, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !20
   %9 = load ptr, ptr %7, align 8, !tbaa !20
   %10 = getelementptr inbounds i8, ptr %9, i64 64
   %11 = load ptr, ptr %10, align 8
@@ -7673,7 +7673,7 @@ declare void @_ZN15RenderingEngine23autosaveScreensizeAndCoEN3irr4core11dimensio
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZN9GUIEngineD2Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9GUIEngine, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV9GUIEngine, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %2, label %3
 
 2:                                                ; preds = %1
@@ -9026,7 +9026,7 @@ declare void @_ZN14EnrichedStringC1ERKNSt7__cxx1112basic_stringIwSt11char_traits
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17TextDestGuiEngineD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9051,7 +9051,7 @@ define linkonce_odr dso_local void @_ZN17TextDestGuiEngineD0Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25SoundFallbackPathProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SoundFallbackPathProvider, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SoundFallbackPathProvider, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !327
@@ -9105,7 +9105,7 @@ define linkonce_odr dso_local void @_ZN25SoundFallbackPathProviderD2Ev(ptr nound
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16MenuMusicFetcherD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SoundFallbackPathProvider, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SoundFallbackPathProvider, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !327
@@ -9595,7 +9595,7 @@ declare ptr @wmemcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TextDestD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8TextDest, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9668,7 +9668,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !454
   %4 = icmp eq ptr %3, null
@@ -9714,7 +9714,7 @@ define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17DummySoundManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #14 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !454
   %4 = icmp eq ptr %3, null
@@ -9841,7 +9841,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_cr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18FormspecFormSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -9865,7 +9865,7 @@ define linkonce_odr dso_local void @_ZN18FormspecFormSourceD2Ev(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18FormspecFormSourceD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18FormspecFormSource, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 24

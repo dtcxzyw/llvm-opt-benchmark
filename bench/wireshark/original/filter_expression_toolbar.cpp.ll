@@ -767,9 +767,9 @@ define void @_ZN23FilterExpressionToolBarC2EP7QWidget(ptr noundef nonnull align 
   %22 = load ptr, ptr %3, align 8
   %23 = load ptr, ptr %4, align 8
   call void @_ZN15DragDropToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(52) %22, ptr noundef %23)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23FilterExpressionToolBar, i32 0, inrange i32 0, i32 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23FilterExpressionToolBar, i32 0, i32 0, i32 2), ptr %22, align 8
   %24 = getelementptr inbounds i8, ptr %22, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23FilterExpressionToolBar, i32 0, inrange i32 1, i32 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV23FilterExpressionToolBar, i32 0, i32 1, i32 2), ptr %24, align 8
   invoke void @_ZN23FilterExpressionToolBar16updateStyleSheetEv(ptr noundef nonnull align 8 dereferenceable(52) %22)
           to label %25 unwind label %55
 

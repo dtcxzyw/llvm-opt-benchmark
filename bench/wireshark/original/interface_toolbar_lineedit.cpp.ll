@@ -230,9 +230,9 @@ define void @_ZN24InterfaceToolbarLineEditC2EP7QWidget7QStringb(ptr noundef nonn
   %31 = load ptr, ptr %5, align 8
   %32 = load ptr, ptr %6, align 8
   call void @_ZN9QLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef %32)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV24InterfaceToolbarLineEdit, i32 0, inrange i32 0, i32 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV24InterfaceToolbarLineEdit, i32 0, i32 0, i32 2), ptr %31, align 8
   %33 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV24InterfaceToolbarLineEdit, i32 0, inrange i32 1, i32 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV24InterfaceToolbarLineEdit, i32 0, i32 1, i32 2), ptr %33, align 8
   %34 = getelementptr inbounds %class.InterfaceToolbarLineEdit, ptr %31, i32 0, i32 2
   call void @_ZN6QFlagsIN18QRegularExpression13PatternOptionEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %9, i32 noundef 64) #8
   %35 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0

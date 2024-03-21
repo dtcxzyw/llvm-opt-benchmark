@@ -2210,7 +2210,7 @@ define dso_local void @_ZN19cmCPackIFWGeneratorC2Ev(ptr noundef nonnull align 8 
           to label %7 unwind label %32
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackIFWGenerator, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackIFWGenerator, i32 0, i32 0, i32 2), ptr %5, align 8
   %8 = getelementptr inbounds %class.cmCPackIFWGenerator, ptr %5, i32 0, i32 2
   invoke void @_ZN19cmCPackIFWInstallerC1Ev(ptr noundef nonnull align 8 dereferenceable(1112) %8)
           to label %9 unwind label %32
@@ -2461,7 +2461,7 @@ define dso_local void @_ZN19cmCPackIFWGeneratorD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackIFWGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV19cmCPackIFWGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCPackIFWGenerator, ptr %3, i32 0, i32 21
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.cmCPackIFWGenerator, ptr %3, i32 0, i32 20

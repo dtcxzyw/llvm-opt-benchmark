@@ -128,7 +128,7 @@ declare i64 @strlen(ptr nocapture noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr nocapture noundef readonly %filename, ptr nocapture noundef readonly %headerString) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mOwnsBuffer = getelementptr inbounds i8, ptr %this, i64 15
   store i8 1, ptr %mOwnsBuffer, align 1
   %mFileBuffer = getelementptr inbounds i8, ptr %this, i64 16
@@ -676,7 +676,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 define dso_local void @_ZN6bParse5bFileC2EPciPKc(ptr noundef nonnull align 8 dereferenceable(540) %this, ptr noundef %memoryBuffer, i32 noundef %len, ptr nocapture noundef readonly %headerString) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont9:
   %header.i = alloca [13 x i8], align 1
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mOwnsBuffer = getelementptr inbounds i8, ptr %this, i64 15
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %mOwnsBuffer, i8 0, i64 17, i1 false)
@@ -877,7 +877,7 @@ _ZN6bParse5bFile11parseHeaderEv.exit:             ; preds = %for.end, %if.end.i,
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN6bParse5bFileD2Ev(ptr noundef nonnull align 8 dereferenceable(540) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6bParse5bFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mOwnsBuffer = getelementptr inbounds i8, ptr %this, i64 15
   %0 = load i8, ptr %mOwnsBuffer, align 1
   %1 = and i8 %0, 1

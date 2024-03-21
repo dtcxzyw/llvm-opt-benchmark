@@ -67,7 +67,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 define void @_ZN6duckdb25QueryResultChunkScanStateC2ERNS_11QueryResultE(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(280) %result) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6duckdb14ChunkScanStateC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6duckdb25QueryResultChunkScanStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6duckdb25QueryResultChunkScanStateE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %result2 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %result, ptr %result2, align 8, !tbaa !6
   ret void
@@ -1006,7 +1006,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !49
   %1 = getelementptr inbounds i8, ptr %this, i64 64

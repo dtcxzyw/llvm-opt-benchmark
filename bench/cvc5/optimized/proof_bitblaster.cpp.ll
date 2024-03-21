@@ -156,7 +156,7 @@ entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp = alloca %"class.std::allocator.68", align 1
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv7BBProofE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv7BBProofE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_bb = getelementptr inbounds i8, ptr %this, i64 16
   %call = tail call noalias noundef nonnull dereferenceable(6112) ptr @_Znwm(i64 noundef 6112) #15
   invoke void @_ZN4cvc58internal6theory2bv14NodeBitblasterC1ERNS0_3EnvEPNS1_11TheoryStateE(ptr noundef nonnull align 8 dereferenceable(6112) %call, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef %state)
@@ -169,7 +169,7 @@ invoke.cont3:                                     ; preds = %entry
           to label %invoke.cont8 unwind label %ehcleanup30.thread
 
 invoke.cont8:                                     ; preds = %invoke.cont3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal21TheoryLeafTermContextE, i64 0, inrange i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal21TheoryLeafTermContextE, i64 0, i32 0, i64 2), ptr %call6, align 8
   %d_theoryId.i = getelementptr inbounds i8, ptr %call6, i64 8
   store i32 4, ptr %d_theoryId.i, align 8
   store ptr %call6, ptr %d_tcontext, align 8
@@ -304,7 +304,7 @@ ehcleanup29._ZNKSt14default_deleteIN4cvc58internal11TermContextEEclEPS2_.exit.i_
   br label %_ZNKSt14default_deleteIN4cvc58internal11TermContextEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4cvc58internal11TermContextEEclEPS2_.exit.i: ; preds = %ehcleanup29._ZNKSt14default_deleteIN4cvc58internal11TermContextEEclEPS2_.exit.i_crit_edge, %ehcleanup29.thread
-  %vtable.i.i12 = phi ptr [ getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal21TheoryLeafTermContextE, i64 0, inrange i32 0, i64 2), %ehcleanup29.thread ], [ %vtable.i.i12.pre, %ehcleanup29._ZNKSt14default_deleteIN4cvc58internal11TermContextEEclEPS2_.exit.i_crit_edge ]
+  %vtable.i.i12 = phi ptr [ getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal21TheoryLeafTermContextE, i64 0, i32 0, i64 2), %ehcleanup29.thread ], [ %vtable.i.i12.pre, %ehcleanup29._ZNKSt14default_deleteIN4cvc58internal11TermContextEEclEPS2_.exit.i_crit_edge ]
   %.pn5.pn19 = phi { ptr, i32 } [ %5, %ehcleanup29.thread ], [ %.pn5.pn.ph, %ehcleanup29._ZNKSt14default_deleteIN4cvc58internal11TermContextEEclEPS2_.exit.i_crit_edge ]
   %12 = phi ptr [ %call6, %ehcleanup29.thread ], [ %.pr, %ehcleanup29._ZNKSt14default_deleteIN4cvc58internal11TermContextEEclEPS2_.exit.i_crit_edge ]
   %vfn.i.i13 = getelementptr inbounds i8, ptr %vtable.i.i12, i64 8
@@ -366,7 +366,7 @@ declare void @_ZN4cvc58internal6theory2bv22BitblastProofGeneratorC1ERNS0_3EnvEPN
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc58internal6theory2bv7BBProofD2Ev(ptr noundef nonnull align 8 dereferenceable(105) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv7BBProofE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv7BBProofE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_bbMap = getelementptr inbounds i8, ptr %this, i64 48
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8

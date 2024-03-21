@@ -124,7 +124,7 @@ entry:
   store i32 %transliteratorCount, ptr %transliteratorCount.addr, align 4
   store ptr %adoptedFilter, ptr %adoptedFilter.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr %transliterators.addr, align 8
   %1 = load i32, ptr %transliteratorCount.addr, align 4
   call void @_ZN6icu_7522CompoundTransliterator7joinIDsEPKPNS_14TransliteratorEi(ptr sret(%"class.icu_75::UnicodeString") align 8 %ref.tmp, ptr noundef nonnull align 8 dereferenceable(104) %this1, ptr noundef %0, i32 noundef %1)
@@ -134,7 +134,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %count = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 2
@@ -429,7 +429,7 @@ entry:
   %1 = load ptr, ptr %id.addr, align 8
   %2 = load ptr, ptr %adoptedFilter.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
@@ -614,7 +614,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %id.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef null)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
@@ -668,7 +668,7 @@ entry:
   %1 = load ptr, ptr %newID.addr, align 8
   %2 = load ptr, ptr %adoptedFilter.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
@@ -928,7 +928,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
@@ -976,7 +976,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -1006,7 +1006,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #6
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %numAnonymousRBTs = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 3
@@ -1217,7 +1217,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %t.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(84) %0)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trans = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %trans, align 8
   %count = getelementptr inbounds %"class.icu_75::CompoundTransliterator", ptr %this1, i32 0, i32 2
@@ -1490,7 +1490,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7522CompoundTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN6icu_7522CompoundTransliterator19freeTransliteratorsEv(ptr noundef nonnull align 8 dereferenceable(104) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -2642,7 +2642,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2652,7 +2652,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

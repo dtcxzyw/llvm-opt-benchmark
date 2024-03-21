@@ -112,7 +112,7 @@ entry:
   br i1 %cmp.not, label %if.end208, label %if.then
 
 if.then:                                          ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %descriptor, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %descriptor, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %descriptor, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %descriptor)
@@ -857,7 +857,7 @@ if.then19:                                        ; preds = %lor.lhs.false7, %lo
   br label %if.end135
 
 if.else:                                          ; preds = %lor.lhs.false7
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %sbuf, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %sbuf, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %sbuf, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp20 = icmp sgt i64 %7, 0
@@ -897,7 +897,7 @@ if.then34:                                        ; preds = %lor.lhs.false26, %l
   br i1 %new.isnull36.not, label %cleanup, label %invoke.cont40
 
 invoke.cont40:                                    ; preds = %if.then34
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %fUnion2.i105 = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store i16 2, ptr %fUnion2.i105, align 8
   invoke void @_ZN6icu_756NFRuleC1EPKNS_21RuleBasedNumberFormatERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(112) %call35, ptr noundef %rbnf, ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1694,7 +1694,7 @@ if.end25:                                         ; preds = %_ZNK6icu_7513Unicod
 
 if.end28:                                         ; preds = %land.lhs.true12, %if.end25
   %subEnd.067 = phi i32 [ %subEnd.0, %if.end25 ], [ %call2.i39, %land.lhs.true12 ]
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %subToken, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %subToken, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %subToken, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %reass.sub = sub i32 %subEnd.067, %result.1.i
@@ -2200,14 +2200,14 @@ if.then60:                                        ; preds = %lor.lhs.false, %lan
   br label %if.end62
 
 if.end62:                                         ; preds = %sw.epilog, %if.then60, %lor.lhs.false, %_ZNK6icu_7513UnicodeString6charAtEi.exit
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ruleTextCopy, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ruleTextCopy, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %ruleTextCopy, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call.i7475 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %ruleTextCopy, ptr noundef nonnull align 8 dereferenceable(64) %fRuleText, i8 noundef signext 0)
           to label %invoke.cont67 unwind label %lpad64
 
 invoke.cont67:                                    ; preds = %if.end62
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %temp, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %temp, align 8
   %fUnion2.i76 = getelementptr inbounds i8, ptr %temp, i64 8
   store i16 2, ptr %fUnion2.i76, align 8
   %sub2 = getelementptr inbounds i8, ptr %this, i64 88
@@ -2818,7 +2818,7 @@ entry:
   %temp = alloca %"class.icu_75::UnicodeString", align 8
   %workText2 = alloca %"class.icu_75::UnicodeString", align 8
   %pp2 = alloca %"class.icu_75::ParsePosition", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, inrange i32 0, i64 2), ptr %pp, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %pp, align 8
   %index.i = getelementptr inbounds i8, ptr %pp, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds i8, ptr %pp, i64 12
@@ -2873,7 +2873,7 @@ cond.false12:                                     ; preds = %cond.end
 
 invoke.cont18:                                    ; preds = %cond.true8, %cond.false12
   %cond17 = phi i32 [ %6, %cond.true8 ], [ %cond.i51, %cond.false12 ]
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %prefix, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %prefix, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %prefix, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fRuleText19 = getelementptr inbounds i8, ptr %this, i64 16
@@ -3004,7 +3004,7 @@ invoke.cont51.invoke:                             ; preds = %if.then47, %if.then
 if.end54:                                         ; preds = %if.end
   %spec.select = call i64 @llvm.smax.i64(i64 %30, i64 0)
   %conv = sitofp i64 %spec.select to double
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %temp, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %temp, align 8
   %fUnion2.i78 = getelementptr inbounds i8, ptr %temp, i64 8
   store i16 2, ptr %fUnion2.i78, align 8
   %sub66 = sub nsw i32 %cond17, %cond
@@ -3051,7 +3051,7 @@ invoke.cont70:                                    ; preds = %invoke.cont67
   br i1 %or.cond43, label %invoke.cont84, label %if.else137
 
 invoke.cont84:                                    ; preds = %invoke.cont70
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %workText2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %workText2, align 8
   store i16 2, ptr %fUnion2.i91, align 8
   %38 = load i16, ptr %fUnion.i.i66, align 8
   %39 = load i32, ptr %fLength.i69, align 4
@@ -3074,7 +3074,7 @@ invoke.cont84:                                    ; preds = %invoke.cont70
           to label %invoke.cont95 unwind label %lpad81
 
 invoke.cont95:                                    ; preds = %.noexc104
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, inrange i32 0, i64 2), ptr %pp2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %pp2, align 8
   store i32 0, ptr %index.i108, align 8
   store i32 -1, ptr %errorIndex.i109, align 4
   %44 = load i16, ptr %fUnion.i.i110, align 8
@@ -3327,7 +3327,7 @@ if.then:                                          ; preds = %entry
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %if.then
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, inrange i32 0, i64 2), ptr %tempPP, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %tempPP, align 8
   %index.i = getelementptr inbounds i8, ptr %tempPP, i64 8
   store i32 0, ptr %index.i, align 8
   %errorIndex.i = getelementptr inbounds i8, ptr %tempPP, i64 12
@@ -3352,7 +3352,7 @@ invoke.cont8.lr.ph:                               ; preds = %while.cond.preheade
 
 invoke.cont8:                                     ; preds = %invoke.cont8.lr.ph, %cleanup
   %dPos.050 = phi i32 [ %call7, %invoke.cont8.lr.ph ], [ %call47, %cleanup ]
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %subText, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %subText, align 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7513UnicodeString7unBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %subText)
           to label %.noexc unwind label %lpad9
@@ -3459,7 +3459,7 @@ if.else52:                                        ; preds = %entry
   br i1 %cmp53, label %return, label %if.else55
 
 if.else55:                                        ; preds = %if.else52
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, inrange i32 0, i64 2), ptr %tempPP56, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513ParsePositionE, i64 0, i32 0, i64 2), ptr %tempPP56, align 8
   %index.i36 = getelementptr inbounds i8, ptr %tempPP56, i64 8
   store i32 0, ptr %index.i36, align 8
   %errorIndex.i37 = getelementptr inbounds i8, ptr %tempPP56, i64 12
@@ -3923,7 +3923,7 @@ entry:
 
 if.then:                                          ; preds = %entry
   call void @_ZN6icu_7511FormattableC1Ev(ptr noundef nonnull align 8 dereferenceable(112) %result)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, inrange i32 0, i64 2), ptr %position, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513FieldPositionE, i64 0, i32 0, i64 2), ptr %position, align 8
   %fField.i = getelementptr inbounds i8, ptr %position, i64 8
   store i32 0, ptr %fField.i, align 8
   %fBeginIndex.i = getelementptr inbounds i8, ptr %position, i64 12
@@ -4323,7 +4323,7 @@ define noundef i32 @_ZNK6icu_756NFRule15findTextLenientERKNS_13UnicodeStringES3_
 entry:
   %temp = alloca %"class.icu_75::UnicodeString", align 8
   %status = alloca i32, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %temp, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %temp, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %temp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store i32 0, ptr %status, align 4

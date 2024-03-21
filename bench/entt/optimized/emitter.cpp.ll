@@ -623,7 +623,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %emitter) #23
   %0 = getelementptr inbounds i8, ptr %emitter, i64 56
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %handlers.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %handlers.i.i.i, i8 0, i64 48, i1 false)
   store float 8.750000e-01, ptr %0, align 8, !tbaa !17
@@ -648,7 +648,7 @@ common.resume:                                    ; preds = %ehcleanup297, %if.t
   resume { ptr, i32 } %common.resume.op
 
 _ZN12test_emitterC2Ev.exit:                       ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
   %_M_invoker.i = getelementptr inbounds i8, ptr %agg.tmp, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp, i8 0, i64 16, i1 false)
@@ -1062,7 +1062,7 @@ cleanup.cont101:                                  ; preds = %invoke.cont30
   %threshold.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 56
   %55 = load float, ptr %0, align 8, !tbaa !17
   store float %55, ptr %threshold.i.i.i.i.i, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %other, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %other, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_103) #23
   %it.sroa.5.038.i.i.i.i484 = load i64, ptr %add.ptr.i.i.i.i.i.i, align 8, !tbaa !53
   %cmp.i.i.not39.i.i.i.i485 = icmp eq i64 %it.sroa.5.038.i.i.i.i484, -1
@@ -1431,7 +1431,7 @@ _ZN7testing15AssertionResultD2Ev.exit752:         ; preds = %invoke.cont220
 for.body.i.i.i.i.i.i.i.i.preheader:               ; preds = %_ZN7testing7MessageD2Ev.exit515, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i521
   store ptr null, ptr %message_.i503787, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_103) #23
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %other, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %other, align 8, !tbaa !4
   br label %for.body.i.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i.i:                         ; preds = %for.body.i.i.i.i.i.i.i.i.preheader, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i
@@ -1481,7 +1481,7 @@ _ZN4entt7emitterI12test_emitterSaIvEED2Ev.exit:   ; preds = %if.then.i.i.i.i3.i.
   br label %cleanup296
 
 cleanup296:                                       ; preds = %_ZN4entt7emitterI12test_emitterSaIvEED2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit404, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %100 = load ptr, ptr %packed.i.i, align 8, !tbaa !58
   %101 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !59
   %cmp.not3.i.i.i.i.i.i.i.i757 = icmp eq ptr %100, %101
@@ -1746,7 +1746,7 @@ _ZNK4entt9dense_mapIjSt8functionIFvPvEENS_8identityESt8equal_toIjESaISt4pairIKjS
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt7emitterI12test_emitterSaIvEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
   %handlers = getelementptr inbounds i8, ptr %this, i64 8
   %packed.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %packed.i.i, align 8, !tbaa !58
@@ -1841,7 +1841,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %emitter) #23
   %0 = getelementptr inbounds i8, ptr %emitter, i64 56
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %handlers.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %handlers.i.i.i, i8 0, i64 48, i1 false)
   store float 8.750000e-01, ptr %0, align 8, !tbaa !17
@@ -1866,11 +1866,11 @@ common.resume:                                    ; preds = %ehcleanup218, %if.t
   resume { ptr, i32 } %common.resume.op
 
 _ZN12test_emitterC2Ev.exit:                       ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %other) #23
   %3 = getelementptr inbounds i8, ptr %other, i64 56
   store i64 0, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %other, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %other, align 8, !tbaa !4
   %handlers.i.i.i261 = getelementptr inbounds i8, ptr %other, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %handlers.i.i.i261, i8 0, i64 48, i1 false)
   store float 8.750000e-01, ptr %3, align 8, !tbaa !17
@@ -1891,7 +1891,7 @@ if.then.i.i.i.i.i.i.i.i.i.i.i266:                 ; preds = %lpad.i.i.i.i.i.i.i2
   br label %ehcleanup218
 
 invoke.cont:                                      ; preds = %_ZN12test_emitterC2Ev.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %other, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %other, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value) #23
   store i32 0, ptr %value, align 4, !tbaa !54
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -2901,7 +2901,7 @@ _ZN7testing15AssertionResultD2Ev.exit504:         ; preds = %_ZNKSt14default_del
 
 cleanup213:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit504, %_ZN7testing15AssertionResultD2Ev.exit451, %_ZN7testing15AssertionResultD2Ev.exit404, %_ZN7testing15AssertionResultD2Ev.exit363, %_ZN7testing15AssertionResultD2Ev.exit323, %_ZN7testing15AssertionResultD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value) #23
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %other, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %other, align 8, !tbaa !4
   %packed.i.i.i = getelementptr inbounds i8, ptr %other, i64 32
   %137 = load ptr, ptr %packed.i.i.i, align 8, !tbaa !58
   %_M_finish.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 40
@@ -2957,7 +2957,7 @@ if.then.i.i.i.i3.i.i.i:                           ; preds = %_ZN4entt8internal23
 
 _ZN4entt7emitterI12test_emitterSaIvEED2Ev.exit:   ; preds = %if.then.i.i.i.i3.i.i.i, %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %other) #23
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %144 = load ptr, ptr %packed.i.i, align 8, !tbaa !58
   %145 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !59
   %cmp.not3.i.i.i.i.i.i.i.i509 = icmp eq ptr %144, %145
@@ -3210,7 +3210,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %emitter) #23
   %0 = getelementptr inbounds i8, ptr %emitter, i64 56
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %handlers.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %handlers.i.i.i, i8 0, i64 48, i1 false)
   store float 8.750000e-01, ptr %0, align 8, !tbaa !17
@@ -3235,7 +3235,7 @@ common.resume:                                    ; preds = %ehcleanup777, %if.t
   resume { ptr, i32 } %common.resume.op
 
 _ZN12test_emitterC2Ev.exit:                       ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #23
   %packed.i.i = getelementptr inbounds i8, ptr %emitter, i64 32
   %3 = load ptr, ptr %packed.i.i, align 8, !tbaa !37
@@ -6683,7 +6683,7 @@ cleanup770:                                       ; preds = %_ZN7testing7Message
   br label %cleanup776
 
 cleanup776:                                       ; preds = %cleanup770, %_ZN7testing7MessageD2Ev.exit1893, %_ZN7testing7MessageD2Ev.exit1869, %_ZN7testing7MessageD2Ev.exit1842, %_ZN7testing7MessageD2Ev.exit1818, %_ZN7testing7MessageD2Ev.exit1794, %_ZN7testing7MessageD2Ev.exit1770, %_ZN7testing7MessageD2Ev.exit1715, %_ZN7testing15AssertionResultD2Ev.exit1652, %_ZN7testing15AssertionResultD2Ev.exit1579, %_ZN7testing15AssertionResultD2Ev.exit1506, %_ZN7testing15AssertionResultD2Ev.exit1441, %_ZN7testing15AssertionResultD2Ev.exit1368, %_ZN7testing15AssertionResultD2Ev.exit1295, %_ZN7testing15AssertionResultD2Ev.exit1222, %_ZN7testing15AssertionResultD2Ev.exit1171, %_ZN7testing15AssertionResultD2Ev.exit1099, %_ZN7testing15AssertionResultD2Ev.exit1027, %_ZN7testing15AssertionResultD2Ev.exit983, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %415 = load ptr, ptr %packed.i.i, align 8, !tbaa !58
   %416 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !59
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %415, %416
@@ -7129,7 +7129,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %emitter) #23
   %0 = getelementptr inbounds i8, ptr %emitter, i64 56
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %handlers.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %handlers.i.i.i, i8 0, i64 48, i1 false)
   store float 8.750000e-01, ptr %0, align 8, !tbaa !17
@@ -7154,7 +7154,7 @@ common.resume:                                    ; preds = %ehcleanup118, %if.t
   resume { ptr, i32 } %common.resume.op
 
 _ZN12test_emitterC2Ev.exit:                       ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_) #23
   %packed.i.i = getelementptr inbounds i8, ptr %emitter, i64 32
   %3 = load ptr, ptr %packed.i.i, align 8, !tbaa !37
@@ -7735,7 +7735,7 @@ _ZN7testing15AssertionResultD2Ev.exit266:         ; preds = %_ZNKSt14default_del
   br label %cleanup117
 
 cleanup117:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit266, %_ZN7testing15AssertionResultD2Ev.exit208, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %81 = load ptr, ptr %packed.i.i, align 8, !tbaa !58
   %82 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !59
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %81, %82
@@ -7911,7 +7911,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %emitter) #23
   %0 = getelementptr inbounds i8, ptr %emitter, i64 56
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %handlers.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %handlers.i.i.i, i8 0, i64 48, i1 false)
   store float 8.750000e-01, ptr %0, align 8, !tbaa !17
@@ -7936,7 +7936,7 @@ common.resume:                                    ; preds = %ehcleanup131, %if.t
   resume { ptr, i32 } %common.resume.op
 
 _ZN12test_emitterC2Ev.exit:                       ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %value) #23
   store i32 0, ptr %value, align 4, !tbaa !54
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -8652,7 +8652,7 @@ _ZN7testing15AssertionResultD2Ev.exit300:         ; preds = %_ZNKSt14default_del
 
 cleanup130:                                       ; preds = %_ZN7testing15AssertionResultD2Ev.exit300, %_ZN7testing15AssertionResultD2Ev.exit253, %_ZN7testing15AssertionResultD2Ev.exit213, %_ZN7testing15AssertionResultD2Ev.exit
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %value) #23
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %92 = load ptr, ptr %packed.i.i, align 8, !tbaa !58
   %93 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !59
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %92, %93
@@ -8746,7 +8746,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %emitter) #23
   %0 = getelementptr inbounds i8, ptr %emitter, i64 56
   store i64 0, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %handlers.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %handlers.i.i.i, i8 0, i64 48, i1 false)
   store float 8.750000e-01, ptr %0, align 8, !tbaa !17
@@ -8771,7 +8771,7 @@ common.resume:                                    ; preds = %_ZNSt14_Function_ba
   resume { ptr, i32 } %common.resume.op
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %func) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %func, i8 0, i64 32, i1 false)
   %_M_manager.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 16
@@ -9546,7 +9546,7 @@ terminate.lpad.i379:                              ; preds = %if.then.i377
 
 _ZNSt14_Function_baseD2Ev.exit380:                ; preds = %if.then.i377, %cleanup143
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %func) #23
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %100 = load ptr, ptr %packed.i.i, align 8, !tbaa !58
   %101 = load ptr, ptr %_M_finish.i.i.i.i, align 8, !tbaa !59
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %100, %101
@@ -9640,7 +9640,7 @@ entry:
   %ref.tmp115 = alloca %"class.testing::internal::AssertHelper", align 8
   %ref.tmp116 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %emitter) #23
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %handlers.i.i = getelementptr inbounds i8, ptr %emitter, i64 8
   %threshold.i.i.i.i.i.i = getelementptr inbounds i8, ptr %emitter, i64 56
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %handlers.i.i, i8 0, i64 48, i1 false)
@@ -9666,7 +9666,7 @@ common.resume:                                    ; preds = %ehcleanup142, %if.t
   resume { ptr, i32 } %common.resume.op
 
 _ZN12test_emitterCI2N4entt7emitterIS_SaIvEEEERKS2_.exit: ; preds = %entry
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar) #23
   invoke void @_ZN7testing16AssertionSuccessEv(ptr nonnull sret(%"class.testing::AssertionResult") align 8 %gtest_ar)
           to label %invoke.cont unwind label %lpad
@@ -9889,7 +9889,7 @@ cleanup.cont97:                                   ; preds = %if.then.i, %invoke.
   store ptr %32, ptr %_M_end_of_storage.i.i.i.i.i.i9.i.i.i.i.i, align 8, !tbaa !60
   %threshold.i.i.i.i.i = getelementptr inbounds i8, ptr %other, i64 56
   store float %33, ptr %threshold.i.i.i.i.i, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, inrange i32 0, i64 2), ptr %other, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12test_emitter, i64 0, i32 0, i64 2), ptr %other, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %gtest_ar_99) #23
   %cmp.i.i.i.i281 = icmp ne ptr %30, %31
   %frombool103 = zext i1 %cmp.i.i.i.i281 to i8
@@ -10033,7 +10033,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 cleanup137:                                       ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i311, %cleanup131, %cleanup.cont97
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %gtest_ar_99) #23
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %other, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %other, align 8, !tbaa !4
   %cmp.not3.i.i.i.i.i.i.i.i = icmp eq ptr %30, %31
   br i1 %cmp.not3.i.i.i.i.i.i.i.i, label %invoke.cont.i.i.i.i.i, label %for.body.i.i.i.i.i.i.i.i
 
@@ -10088,7 +10088,7 @@ _ZN4entt7emitterI12test_emitterSaIvEED2Ev.exit:   ; preds = %if.then.i.i.i.i3.i.
   br label %cleanup141
 
 cleanup141:                                       ; preds = %_ZN4entt7emitterI12test_emitterSaIvEED2Ev.exit, %_ZN7testing15AssertionResultD2Ev.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %emitter, align 8, !tbaa !4
   %packed.i.i.i317 = getelementptr inbounds i8, ptr %emitter, i64 32
   %57 = load ptr, ptr %packed.i.i.i317, align 8, !tbaa !58
   %_M_finish.i.i.i.i.i318 = getelementptr inbounds i8, ptr %emitter, i64 40
@@ -10262,7 +10262,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17Emitter_Move_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17Emitter_Move_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10277,7 +10277,7 @@ declare void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(1
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12test_emitterD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
   %handlers.i = getelementptr inbounds i8, ptr %this, i64 8
   %packed.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %packed.i.i.i, align 8, !tbaa !58
@@ -10340,7 +10340,7 @@ _ZN4entt7emitterI12test_emitterSaIvEED2Ev.exit:   ; preds = %if.then.i.i.i.i3.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4entt7emitterI12test_emitterSaIvEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4entt7emitterI12test_emitterSaIvEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !4
   %handlers.i = getelementptr inbounds i8, ptr %this, i64 8
   %packed.i.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %packed.i.i.i, align 8, !tbaa !58
@@ -10724,7 +10724,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17Emitter_Swap_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17Emitter_Swap_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10749,7 +10749,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18Emitter_Clear_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18Emitter_Clear_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10774,7 +10774,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Emitter_ClearFromCallback_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30Emitter_ClearFromCallback_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10799,7 +10799,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15Emitter_On_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15Emitter_On_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10824,7 +10824,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Emitter_OnAndErase_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23Emitter_OnAndErase_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -10855,7 +10855,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Emitter_CustomAllocator_Test, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28Emitter_CustomAllocator_Test, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !4
   ret ptr %call
 
 lpad:                                             ; preds = %entry
@@ -12103,7 +12103,7 @@ invoke.cont1:                                     ; preds = %if.else.i.i, %if.th
   %10 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %10, ptr %add.ptr, align 8, !tbaa !4
   %_M_stringbuf.i.i = getelementptr inbounds i8, ptr %ss, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_string.i.i.i = getelementptr inbounds i8, ptr %ss, i64 96
   %11 = load ptr, ptr %_M_string.i.i.i, align 8, !tbaa !48
   %12 = getelementptr inbounds i8, ptr %ss, i64 112
@@ -12122,7 +12122,7 @@ if.then.i.i.i.i.i:                                ; preds = %invoke.cont1
   br label %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
 
 _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = %if.then.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %_M_stringbuf.i.i, align 8, !tbaa !4
   %_M_buf_locale.i.i.i.i = getelementptr inbounds i8, ptr %ss, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i.i.i) #23
   %14 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -14015,7 +14015,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont6.i
           to label %invoke.cont13.i unwind label %lpad4.i
 
 invoke.cont13.i:                                  ; preds = %invoke.cont8.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI17Emitter_Move_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI17Emitter_Move_TestEE, i64 0, i32 0, i64 2), ptr %call11.i, align 8, !tbaa !4
   %call15.i = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i, ptr noundef %call.i, ptr noundef %call7.i, ptr noundef %call9.i, ptr noundef nonnull %call11.i)
           to label %invoke.cont14.i unwind label %lpad4.i
 
@@ -14177,7 +14177,7 @@ invoke.cont8.i21:                                 ; preds = %invoke.cont6.i19
           to label %invoke.cont10.i unwind label %lpad4.i14
 
 invoke.cont10.i:                                  ; preds = %invoke.cont8.i21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI17Emitter_Swap_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i22, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI17Emitter_Swap_TestEE, i64 0, i32 0, i64 2), ptr %call11.i22, align 8, !tbaa !4
   %call15.i23 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i3, ptr noundef %call.i13, ptr noundef %call7.i18, ptr noundef %call9.i20, ptr noundef nonnull %call11.i22)
           to label %invoke.cont14.i24 unwind label %lpad4.i14
 
@@ -14335,7 +14335,7 @@ invoke.cont8.i66:                                 ; preds = %invoke.cont6.i64
           to label %invoke.cont10.i68 unwind label %lpad4.i50
 
 invoke.cont10.i68:                                ; preds = %invoke.cont8.i66
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI18Emitter_Clear_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i67, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI18Emitter_Clear_TestEE, i64 0, i32 0, i64 2), ptr %call11.i67, align 8, !tbaa !4
   %call15.i69 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i38, ptr noundef %call.i49, ptr noundef %call7.i63, ptr noundef %call9.i65, ptr noundef nonnull %call11.i67)
           to label %invoke.cont14.i70 unwind label %lpad4.i50
 
@@ -14493,7 +14493,7 @@ invoke.cont8.i116:                                ; preds = %invoke.cont6.i114
           to label %invoke.cont10.i118 unwind label %lpad4.i100
 
 invoke.cont10.i118:                               ; preds = %invoke.cont8.i116
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Emitter_ClearFromCallback_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i117, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30Emitter_ClearFromCallback_TestEE, i64 0, i32 0, i64 2), ptr %call11.i117, align 8, !tbaa !4
   %call15.i119 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.20, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i88, ptr noundef %call.i99, ptr noundef %call7.i113, ptr noundef %call9.i115, ptr noundef nonnull %call11.i117)
           to label %invoke.cont14.i120 unwind label %lpad4.i100
 
@@ -14651,7 +14651,7 @@ invoke.cont8.i166:                                ; preds = %invoke.cont6.i164
           to label %invoke.cont10.i168 unwind label %lpad4.i150
 
 invoke.cont10.i168:                               ; preds = %invoke.cont8.i166
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI15Emitter_On_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i167, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI15Emitter_On_TestEE, i64 0, i32 0, i64 2), ptr %call11.i167, align 8, !tbaa !4
   %call15.i169 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i138, ptr noundef %call.i149, ptr noundef %call7.i163, ptr noundef %call9.i165, ptr noundef nonnull %call11.i167)
           to label %invoke.cont14.i170 unwind label %lpad4.i150
 
@@ -14809,7 +14809,7 @@ invoke.cont8.i216:                                ; preds = %invoke.cont6.i214
           to label %invoke.cont10.i218 unwind label %lpad4.i200
 
 invoke.cont10.i218:                               ; preds = %invoke.cont8.i216
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Emitter_OnAndErase_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i217, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23Emitter_OnAndErase_TestEE, i64 0, i32 0, i64 2), ptr %call11.i217, align 8, !tbaa !4
   %call15.i219 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.24, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i188, ptr noundef %call.i199, ptr noundef %call7.i213, ptr noundef %call9.i215, ptr noundef nonnull %call11.i217)
           to label %invoke.cont14.i220 unwind label %lpad4.i200
 
@@ -14967,7 +14967,7 @@ invoke.cont8.i266:                                ; preds = %invoke.cont6.i264
           to label %invoke.cont10.i268 unwind label %lpad4.i250
 
 invoke.cont10.i268:                               ; preds = %invoke.cont8.i266
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Emitter_CustomAllocator_TestEE, i64 0, inrange i32 0, i64 2), ptr %call11.i267, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28Emitter_CustomAllocator_TestEE, i64 0, i32 0, i64 2), ptr %call11.i267, align 8, !tbaa !4
   %call15.i269 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef null, ptr noundef nonnull %agg.tmp.i238, ptr noundef %call.i249, ptr noundef %call7.i263, ptr noundef %call9.i265, ptr noundef nonnull %call11.i267)
           to label %invoke.cont14.i270 unwind label %lpad4.i250
 

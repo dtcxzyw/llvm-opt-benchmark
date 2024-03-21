@@ -990,7 +990,7 @@ define dso_local void @_ZN13StatementExprC2EP5BlockRK18FunctionInvocation(ptr no
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 4, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.StatementExpr, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   invoke void @_ZN17ExpressionFuncallC1ERK18FunctionInvocation(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(56) %12)
@@ -1039,7 +1039,7 @@ define dso_local void @_ZN13StatementExprC2ERKS_(ptr noundef nonnull align 8 der
   %11 = getelementptr inbounds %class.Statement, ptr %10, i32 0, i32 4
   %12 = load ptr, ptr %11, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %7, i32 noundef %9, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, i32 0, i32 2), ptr %7, align 8
   %13 = getelementptr inbounds %class.StatementExpr, ptr %7, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   %15 = invoke noundef ptr @_ZNK13StatementExpr10get_invokeEv(ptr noundef nonnull align 8 dereferenceable(64) %14)
@@ -1095,7 +1095,7 @@ define dso_local void @_ZN13StatementExprD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV13StatementExpr, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.StatementExpr, ptr %3, i32 0, i32 1
   call void @_ZN17ExpressionFuncallD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN9StatementD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3

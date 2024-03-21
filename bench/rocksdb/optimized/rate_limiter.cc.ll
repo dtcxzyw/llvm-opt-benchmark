@@ -125,7 +125,7 @@ entry:
   %frombool = zext i1 %auto_tuned to i8
   %mode_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %mode, ptr %mode_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i8, ptr @_ZN7rocksdb23kDefaultToAdaptiveMutexE, align 1
   %1 = and i8 %0, 1
@@ -440,7 +440,7 @@ declare void @_ZN7rocksdb4port5MutexD1Ev(ptr noundef nonnull align 8 dereference
 define void @_ZN7rocksdb18GenericRateLimiterD2Ev(ptr noundef nonnull align 8 dereferenceable(608) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %queue = alloca %"class.std::deque", align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7rocksdb18GenericRateLimiterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %request_mutex_ = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %request_mutex_)
           to label %invoke.cont unwind label %terminate.lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp

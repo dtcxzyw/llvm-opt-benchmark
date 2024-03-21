@@ -14230,7 +14230,7 @@ define hidden void @_ZN5ceres8internal14DoglegStrategyC2ERKNS0_19TrustRegionStra
   store ptr %1, ptr %4, align 8
   %18 = load ptr, ptr %3, align 8
   call void @_ZN5ceres8internal19TrustRegionStrategyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #13
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5ceres8internal14DoglegStrategyE, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5ceres8internal14DoglegStrategyE, i32 0, i32 0, i32 2), ptr %18, align 8
   %19 = getelementptr inbounds %"class.ceres::internal::DoglegStrategy", ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %4, align 8
   %21 = getelementptr inbounds %"struct.ceres::internal::TrustRegionStrategy::Options", ptr %20, i32 0, i32 2
@@ -14630,7 +14630,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal19TrustRegionStrategyC2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5ceres8internal19TrustRegionStrategyE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5ceres8internal19TrustRegionStrategyE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20850,7 +20850,7 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20864,7 +20864,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

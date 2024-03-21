@@ -1664,7 +1664,7 @@ entry:
   store i64 %file_number, ptr %file_number.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb12TableBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %num_hash_func_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 1
   store i32 2, ptr %num_hash_func_, align 8
   %file_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this2, i32 0, i32 3
@@ -1899,7 +1899,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb12TableBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb12TableBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6317,7 +6317,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN7rocksdb18CuckooTableBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %smallest_user_key_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this1, i32 0, i32 29
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %smallest_user_key_) #3
   %largest_user_key_ = getelementptr inbounds %"class.rocksdb::CuckooTableBuilder", ptr %this1, i32 0, i32 28

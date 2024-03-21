@@ -1089,7 +1089,7 @@ define hidden void @_ZN5ceres8internal33GradientCheckingIterationCallbackC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres17IterationCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal33GradientCheckingIterationCallbackE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal33GradientCheckingIterationCallbackE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 1
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 2
@@ -1104,7 +1104,7 @@ define linkonce_odr hidden void @_ZN5ceres17IterationCallbackC2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres17IterationCallbackE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres17IterationCallbackE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2677,7 +2677,7 @@ define internal void @_ZN5ceres8internal12_GLOBAL__N_128GradientCheckingCostFunc
   store ptr %6, ptr %14, align 8
   %21 = load ptr, ptr %8, align 8
   call void @_ZN5ceres12CostFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %21)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal12_GLOBAL__N_128GradientCheckingCostFunctionE, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal12_GLOBAL__N_128GradientCheckingCostFunctionE, i32 0, i32 0, i32 2), ptr %21, align 8
   %22 = getelementptr inbounds %"class.ceres::internal::(anonymous namespace)::GradientCheckingCostFunction", ptr %21, i32 0, i32 1
   %23 = load ptr, ptr %9, align 8
   store ptr %23, ptr %22, align 8
@@ -2961,7 +2961,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal33GradientCheckingIterationCa
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal33GradientCheckingIterationCallbackE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal33GradientCheckingIterationCallbackE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.ceres::internal::GradientCheckingIterationCallback", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #14
   call void @_ZN5ceres17IterationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #14

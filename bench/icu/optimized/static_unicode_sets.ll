@@ -162,7 +162,7 @@ cleanup.action42.i:                               ; preds = %lpad30.i, %lpad27.i
   br label %eh.resume.i
 
 invoke.cont48.i:                                  ; preds = %cleanup.done35.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113ParseDataSinkE, i64 0, inrange i32 0, i64 2), ptr %sink.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113ParseDataSinkE, i64 0, i32 0, i64 2), ptr %sink.i, align 8
   invoke void @ures_getAllItemsWithFallback_75(ptr noundef %call44.i, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %sink.i, ptr noundef nonnull align 4 dereferenceable(4) %localStatus)
           to label %invoke.cont52.i unwind label %lpad49.i
 

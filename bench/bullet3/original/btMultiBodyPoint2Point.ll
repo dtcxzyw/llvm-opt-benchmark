@@ -239,7 +239,7 @@ entry:
   %0 = load ptr, ptr %body.addr, align 8
   %1 = load i32, ptr %link.addr, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef null, i32 noundef %1, i32 noundef -1, i32 noundef 3, i1 noundef zeroext false, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rigidBodyA = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_rigidBodyA, align 8
   %m_rigidBodyB = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 2
@@ -405,7 +405,7 @@ entry:
   %2 = load i32, ptr %linkA.addr, align 4
   %3 = load i32, ptr %linkB.addr, align 4
   call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 3, i1 noundef zeroext false, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rigidBodyA = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_rigidBodyA, align 8
   %m_rigidBodyB = getelementptr inbounds %class.btMultiBodyPoint2Point, ptr %this1, i32 0, i32 2

@@ -2684,7 +2684,7 @@ entry:
   store ptr %ioptions, ptr %ioptions.addr, align 8
   store ptr %icmp, ptr %icmp.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ioptions_ = getelementptr inbounds %"class.rocksdb::CompactionPicker", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %ioptions.addr, align 8
   store ptr %0, ptr %ioptions_, align 8
@@ -2726,7 +2726,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16CompactionPickerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %compactions_in_progress_ = getelementptr inbounds %"class.rocksdb::CompactionPicker", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_setIPN7rocksdb10CompactionESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %compactions_in_progress_) #3
   %level0_compactions_in_progress_ = getelementptr inbounds %"class.rocksdb::CompactionPicker", ptr %this1, i32 0, i32 2

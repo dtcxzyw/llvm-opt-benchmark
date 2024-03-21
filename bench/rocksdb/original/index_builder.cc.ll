@@ -1272,7 +1272,7 @@ entry:
   %2 = load i8, ptr %persist_user_defined_timestamps.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN7rocksdb12IndexBuilderC2EPKNS_21InternalKeyComparatorEmb(ptr noundef nonnull align 8 dereferenceable(40) %this3, ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %index_block_builder_ = getelementptr inbounds %"class.rocksdb::ShortenedIndexBuilder", ptr %this3, i32 0, i32 1
   %3 = load i32, ptr %index_block_restart_interval.addr, align 4
   %4 = load i8, ptr %use_value_delta_encoding.addr, align 1
@@ -1403,7 +1403,7 @@ entry:
   %2 = load i8, ptr %persist_user_defined_timestamps.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN7rocksdb12IndexBuilderC2EPKNS_21InternalKeyComparatorEmb(ptr noundef nonnull align 8 dereferenceable(40) %this2, ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %primary_index_builder_ = getelementptr inbounds %"class.rocksdb::HashIndexBuilder", ptr %this2, i32 0, i32 1
   %3 = load ptr, ptr %comparator.addr, align 8
   %4 = load i32, ptr %index_block_restart_interval.addr, align 4
@@ -1829,7 +1829,7 @@ entry:
   %2 = load i8, ptr %persist_user_defined_timestamps.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN7rocksdb12IndexBuilderC2EPKNS_21InternalKeyComparatorEmb(ptr noundef nonnull align 8 dereferenceable(40) %this2, ptr noundef %0, i64 noundef %1, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb23PartitionedIndexBuilderE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb23PartitionedIndexBuilderE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %top_level_index_size_ = getelementptr inbounds %"class.rocksdb::PartitionedIndexBuilder", ptr %this2, i32 0, i32 1
   store i64 0, ptr %top_level_index_size_, align 8
   %partition_cnt_ = getelementptr inbounds %"class.rocksdb::PartitionedIndexBuilder", ptr %this2, i32 0, i32 2
@@ -1951,7 +1951,7 @@ entry:
   %frombool = zext i1 %persist_user_defined_timestamps to i8
   store i8 %frombool, ptr %persist_user_defined_timestamps.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb12IndexBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb12IndexBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %comparator_ = getelementptr inbounds %"class.rocksdb::IndexBuilder", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %comparator.addr, align 8
   store ptr %0, ptr %comparator_, align 8
@@ -2076,7 +2076,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb23PartitionedIndexBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb23PartitionedIndexBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sub_index_builder_ = getelementptr inbounds %"class.rocksdb::PartitionedIndexBuilder", ptr %this1, i32 0, i32 6
   %0 = load ptr, ptr %sub_index_builder_, align 8
   %isnull = icmp eq ptr %0, null
@@ -3340,7 +3340,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb21ShortenedIndexBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %current_block_first_internal_key_ = getelementptr inbounds %"class.rocksdb::ShortenedIndexBuilder", ptr %this1, i32 0, i32 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %current_block_first_internal_key_) #3
   %index_block_builder_without_seq_ = getelementptr inbounds %"class.rocksdb::ShortenedIndexBuilder", ptr %this1, i32 0, i32 2
@@ -3905,7 +3905,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb16HashIndexBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pending_entry_prefix_ = getelementptr inbounds %"class.rocksdb::HashIndexBuilder", ptr %this1, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %pending_entry_prefix_) #3
   %prefix_meta_block_ = getelementptr inbounds %"class.rocksdb::HashIndexBuilder", ptr %this1, i32 0, i32 4

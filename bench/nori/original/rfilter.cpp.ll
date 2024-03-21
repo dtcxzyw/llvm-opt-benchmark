@@ -523,7 +523,7 @@ define linkonce_odr hidden void @_ZN4nori14GaussianFilterC2ERKNS_12PropertyListE
   store ptr %1, ptr %4, align 8
   %13 = load ptr, ptr %3, align 8
   call void @_ZN4nori20ReconstructionFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %13) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori14GaussianFilterE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori14GaussianFilterE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -732,7 +732,7 @@ define linkonce_odr hidden void @_ZN4nori23MitchellNetravaliFilterC2ERKNS_12Prop
   store ptr %1, ptr %4, align 8
   %16 = load ptr, ptr %3, align 8
   call void @_ZN4nori20ReconstructionFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %16) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori23MitchellNetravaliFilterE, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori23MitchellNetravaliFilterE, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -963,7 +963,7 @@ define linkonce_odr hidden void @_ZN4nori10TentFilterC2ERKNS_12PropertyListE(ptr
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4nori20ReconstructionFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori10TentFilterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori10TentFilterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nori::ReconstructionFilter", ptr %5, i32 0, i32 1
   store float 1.000000e+00, ptr %6, align 8
   ret void
@@ -1071,7 +1071,7 @@ define linkonce_odr hidden void @_ZN4nori9BoxFilterC2ERKNS_12PropertyListE(ptr n
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4nori20ReconstructionFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori9BoxFilterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori9BoxFilterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nori::ReconstructionFilter", ptr %5, i32 0, i32 1
   store float 5.000000e-01, ptr %6, align 8
   ret void
@@ -1145,7 +1145,7 @@ define linkonce_odr hidden void @_ZN4nori20ReconstructionFilterC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori20ReconstructionFilterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori20ReconstructionFilterE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1312,7 +1312,7 @@ define linkonce_odr hidden void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

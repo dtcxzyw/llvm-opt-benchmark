@@ -703,7 +703,7 @@ declare void @_ZN5faiss14FaissExceptionC1ERKNSt7__cxx1112basic_stringIcSt11char_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #5
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #5
@@ -6754,7 +6754,7 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   store ptr %4, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   store i64 %10, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE1EEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
   br label %56
 
 13:                                               ; preds = %5
@@ -6764,7 +6764,7 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   store ptr %4, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %14, i64 16
   store i64 %15, ptr %17, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEEE, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE2EEEEE, i64 0, i32 0, i64 2), ptr %14, align 8
   br label %56
 
 18:                                               ; preds = %5
@@ -6774,7 +6774,7 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   store ptr %4, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %19, i64 16
   store i64 %20, ptr %22, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEEE, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE3EEEEE, i64 0, i32 0, i64 2), ptr %19, align 8
   br label %56
 
 23:                                               ; preds = %5
@@ -6784,7 +6784,7 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   store ptr %4, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 16
   store i64 %25, ptr %27, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEEE, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE20EEEEE, i64 0, i32 0, i64 2), ptr %24, align 8
   br label %56
 
 28:                                               ; preds = %5
@@ -6794,7 +6794,7 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   store ptr %4, ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %29, i64 16
   store i64 %30, ptr %32, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEEE, i64 0, inrange i32 0, i64 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE21EEEEE, i64 0, i32 0, i64 2), ptr %29, align 8
   br label %56
 
 33:                                               ; preds = %5
@@ -6804,7 +6804,7 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   store ptr %4, ptr %36, align 8
   %37 = getelementptr inbounds i8, ptr %34, i64 16
   store i64 %35, ptr %37, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEEE, i64 0, inrange i32 0, i64 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE22EEEEE, i64 0, i32 0, i64 2), ptr %34, align 8
   br label %56
 
 38:                                               ; preds = %5
@@ -6814,7 +6814,7 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   store ptr %4, ptr %41, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 16
   store i64 %40, ptr %42, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEEE, i64 0, inrange i32 0, i64 2), ptr %39, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE4EEEEE, i64 0, i32 0, i64 2), ptr %39, align 8
   br label %56
 
 43:                                               ; preds = %5
@@ -6824,7 +6824,7 @@ define noalias noundef nonnull ptr @_ZN5faiss27get_extra_distance_computerEmNS_1
   store ptr %4, ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %44, i64 16
   store i64 %45, ptr %47, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEEE, i64 0, inrange i32 0, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS_14VectorDistanceILNS_10MetricTypeE23EEEEE, i64 0, i32 0, i64 2), ptr %44, align 8
   br label %56
 
 48:                                               ; preds = %5

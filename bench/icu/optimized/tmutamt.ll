@@ -41,7 +41,7 @@ define void @_ZN6icu_7514TimeUnitAmountC2ERKNS_11FormattableENS_8TimeUnit15UTime
 entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeUnit14createInstanceENS0_15UTimeUnitFieldsER10UErrorCode(i32 noundef %timeUnitField, ptr noundef nonnull align 4 dereferenceable(4) %status)
   tail call void @_ZN6icu_757MeasureC2ERKNS_11FormattableEPNS_11MeasureUnitER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(112) %number, ptr noundef %call, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitAmountE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitAmountE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -63,7 +63,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont2:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenceable(112) %ref.tmp) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitAmountE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitAmountE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %invoke.cont, %entry
@@ -84,7 +84,7 @@ declare void @_ZN6icu_7511FormattableD1Ev(ptr noundef nonnull align 8 dereferenc
 define void @_ZN6icu_7514TimeUnitAmountC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %other) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_757MeasureC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %other)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitAmountE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitAmountE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

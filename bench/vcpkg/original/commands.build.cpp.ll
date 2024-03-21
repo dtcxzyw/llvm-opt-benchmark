@@ -7281,7 +7281,7 @@ $_ZTVN3fmt3v106detail6bufferIcEE = comdat any
 @.str.288 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 @_ZN5vcpkg24msgUnknownBooleanSettingE = external global %"struct.vcpkg::msg::MessageT.675", align 8
 @_ZTVN12_GLOBAL__N_121NullBuildLogsRecorderE = internal unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_121NullBuildLogsRecorderE, ptr @_ZNK12_GLOBAL__N_121NullBuildLogsRecorder19record_build_resultERKN5vcpkg10VcpkgPathsERKNS1_11PackageSpecENS1_11BuildResultE] }, align 8
-@_ZN12_GLOBAL__N_133null_build_logs_recorder_instanceE = internal constant { ptr } { ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121NullBuildLogsRecorderE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN12_GLOBAL__N_133null_build_logs_recorder_instanceE = internal constant { ptr } { ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121NullBuildLogsRecorderE, i32 0, i32 0, i32 2) }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN12_GLOBAL__N_121NullBuildLogsRecorderE = internal constant [40 x i8] c"N12_GLOBAL__N_121NullBuildLogsRecorderE\00", align 1
 @_ZTSN5vcpkg18IBuildLogsRecorderE = linkonce_odr dso_local constant [29 x i8] c"N5vcpkg18IBuildLogsRecorderE\00", comdat, align 1
@@ -8484,7 +8484,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg21PathsPortFileProviderD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #8
   %5 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 2
@@ -54877,7 +54877,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg8FileSinkC2ERKNS_10FilesystemENS_10
   store i32 %4, ptr %9, align 4
   %16 = load ptr, ptr %7, align 8
   call void @_ZN5vcpkg11MessageSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %16, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %10, ptr align 8 %6, i64 16, i1 false)
   %18 = getelementptr inbounds { ptr, i64 }, ptr %10, i32 0, i32 0
@@ -54931,7 +54931,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg13CombiningSinkC2ERNS_11MessageSink
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg11MessageSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg13CombiningSinkE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg13CombiningSinkE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.vcpkg::CombiningSink", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -54948,7 +54948,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg8FileSinkD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %3, i32 0, i32 2
   call void @_ZN5vcpkg16WriteFilePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #8
   %5 = getelementptr inbounds %"struct.vcpkg::FileSink", ptr %3, i32 0, i32 1
@@ -63139,7 +63139,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg11MessageSinkC2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg11MessageSinkE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg11MessageSinkE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -86525,7 +86525,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v106detail15iterator_bufferISt20back
   %6 = load ptr, ptr %4, align 8
   %7 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %6) #8
   call void @_ZN3fmt3v106detail6bufferIcEC2Em(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef %7) #8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %8 = getelementptr inbounds %"class.fmt::v10::detail::iterator_buffer", ptr %5, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   store ptr %9, ptr %8, align 8
@@ -86551,7 +86551,7 @@ define linkonce_odr dso_local void @_ZN3fmt3v106detail6bufferIcEC2Em(ptr noundef
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.fmt::v10::detail::buffer", ptr %5, i32 0, i32 2
   %7 = load i64, ptr %4, align 8
   store i64 %7, ptr %6, align 8

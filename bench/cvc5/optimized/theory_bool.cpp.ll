@@ -141,11 +141,11 @@ invoke.cont:                                      ; preds = %.noexc
 invoke.cont7:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp2) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #13
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4cvc58internal6theory8booleans10TheoryBoolE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTVN4cvc58internal6theory8booleans10TheoryBoolE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_rewriter = getelementptr inbounds i8, ptr %this, i64 408
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory8booleans18TheoryBoolRewriterE, i64 0, inrange i32 0, i64 2), ptr %d_rewriter, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4cvc58internal6theory8booleans18TheoryBoolRewriterE, i64 0, i32 0, i64 2), ptr %d_rewriter, align 8
   %d_checker = getelementptr inbounds i8, ptr %this, i64 416
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory8booleans20BoolProofRuleCheckerE, i64 0, inrange i32 0, i64 2), ptr %d_checker, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory8booleans20BoolProofRuleCheckerE, i64 0, i32 0, i64 2), ptr %d_checker, align 8
   ret void
 
 lpad:                                             ; preds = %call.i.noexc, %entry

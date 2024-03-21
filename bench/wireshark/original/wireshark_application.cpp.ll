@@ -312,7 +312,7 @@ define void @_ZN20WiresharkApplicationC2ERiPPc(ptr noundef nonnull align 8 deref
   %16 = load ptr, ptr %8, align 8
   %17 = load ptr, ptr %9, align 8
   call void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenceable(216) %15, ptr noundef nonnull align 4 dereferenceable(4) %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i32 0, i32 0, i32 2), ptr %15, align 8
   store ptr %15, ptr @wsApp, align 8
   br label %18
 
@@ -493,7 +493,7 @@ define void @_ZN20WiresharkApplicationD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i32 0, i32 0, i32 2), ptr %3, align 8
   store ptr null, ptr @wsApp, align 8
   call void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %3) #11
   ret void

@@ -3355,9 +3355,9 @@ define void @_ZN15LBMStreamDialogC2EP7QWidgetP13_capture_file(ptr noundef nonnul
   %12 = getelementptr inbounds %class.QFlags.9, ptr %7, i32 0, i32 0
   %13 = load i32, ptr %12, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef %11, i32 %13)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 0, i32 2), ptr %10, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, inrange i32 1, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 1, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %class.LBMStreamDialog, ptr %10, i32 0, i32 1
   %16 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 72) #16
           to label %17 unwind label %30
@@ -4276,9 +4276,9 @@ define void @_ZN15LBMStreamDialogD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV15LBMStreamDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.LBMStreamDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

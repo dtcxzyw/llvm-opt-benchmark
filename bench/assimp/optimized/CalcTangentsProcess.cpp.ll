@@ -61,7 +61,7 @@ $_Z13SuperFastHashPKcjj = comdat any
 define hidden void @_ZN6Assimp19CalcTangentsProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #16
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp19CalcTangentsProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp19CalcTangentsProcessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %configMaxAngle = getelementptr inbounds i8, ptr %this, i64 24
   store float 0x3FE921FB60000000, ptr %configMaxAngle, align 8
   %configSourceUV = getelementptr inbounds i8, ptr %this, i64 28

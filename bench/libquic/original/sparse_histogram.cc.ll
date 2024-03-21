@@ -962,7 +962,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %logged_samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %logged_samples_) #9
   %samples_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this1, i32 0, i32 3
@@ -2295,7 +2295,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
   call void @_ZN4base13HistogramBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this1, i32 0, i32 1
   invoke void @_ZN4base4LockC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont unwind label %lpad
@@ -2469,7 +2469,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
   call void @_ZN4base13HistogramBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN4base15SparseHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lock_ = getelementptr inbounds %"class.base::SparseHistogram", ptr %this1, i32 0, i32 1
   invoke void @_ZN4base4LockC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %lock_)
           to label %invoke.cont unwind label %lpad

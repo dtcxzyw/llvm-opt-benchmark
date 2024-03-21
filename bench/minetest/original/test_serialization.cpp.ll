@@ -276,7 +276,7 @@ define linkonce_odr dso_local void @_ZN17TestSerializationC2Ev(ptr noundef nonnu
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %4, align 8, !tbaa !9
   store i8 0, ptr %3, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17TestSerialization, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17TestSerialization, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !13
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   %6 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %6, ptr %5, align 8, !tbaa !4
@@ -349,7 +349,7 @@ define linkonce_odr dso_local void @_ZN17TestSerializationC2Ev(ptr noundef nonnu
   br label %37
 
 37:                                               ; preds = %36, %33
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !13
   %38 = load ptr, ptr %2, align 8, !tbaa !21
   %39 = icmp eq ptr %38, %3
   br i1 %39, label %40, label %43
@@ -370,7 +370,7 @@ define linkonce_odr dso_local void @_ZN17TestSerializationC2Ev(ptr noundef nonnu
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17TestSerializationD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17TestSerialization, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV17TestSerialization, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8, !tbaa !21
   %4 = getelementptr inbounds i8, ptr %0, i64 128
@@ -425,7 +425,7 @@ define linkonce_odr dso_local void @_ZN17TestSerializationD2Ev(ptr noundef nonnu
   br label %31
 
 31:                                               ; preds = %30, %26
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !13
   %32 = getelementptr inbounds i8, ptr %0, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !21
   %34 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1456,7 +1456,7 @@ define dso_local void @_ZN17TestSerialization16buildTestStringsEv(ptr noundef no
   %304 = getelementptr inbounds i8, ptr %8, i64 %303
   store ptr %301, ptr %304, align 8, !tbaa !13
   %305 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %305, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %305, align 8, !tbaa !13
   %306 = getelementptr inbounds i8, ptr %8, i64 80
   %307 = load ptr, ptr %306, align 8, !tbaa !21
   %308 = getelementptr inbounds i8, ptr %8, i64 96
@@ -1475,7 +1475,7 @@ define dso_local void @_ZN17TestSerialization16buildTestStringsEv(ptr noundef no
   br label %315
 
 315:                                              ; preds = %314, %310
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %305, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %305, align 8, !tbaa !13
   %316 = getelementptr inbounds i8, ptr %8, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %316) #25
   %317 = getelementptr inbounds i8, ptr %8, i64 112
@@ -1489,7 +1489,7 @@ define dso_local void @_ZN17TestSerialization16buildTestStringsEv(ptr noundef no
   %322 = getelementptr inbounds i8, ptr %7, i64 %321
   store ptr %319, ptr %322, align 8, !tbaa !13
   %323 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 0, inrange i32 0, i64 2), ptr %323, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 0, i32 0, i64 2), ptr %323, align 8, !tbaa !13
   %324 = getelementptr inbounds i8, ptr %7, i64 80
   %325 = load ptr, ptr %324, align 8, !tbaa !22
   %326 = getelementptr inbounds i8, ptr %7, i64 96
@@ -1508,7 +1508,7 @@ define dso_local void @_ZN17TestSerialization16buildTestStringsEv(ptr noundef no
   br label %333
 
 333:                                              ; preds = %332, %328
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 0, inrange i32 0, i64 2), ptr %323, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 0, i32 0, i64 2), ptr %323, align 8, !tbaa !13
   %334 = getelementptr inbounds i8, ptr %7, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %334) #25
   %335 = getelementptr inbounds i8, ptr %7, i64 112
@@ -1519,7 +1519,7 @@ define dso_local void @_ZN17TestSerialization16buildTestStringsEv(ptr noundef no
   %337 = getelementptr inbounds i8, ptr %6, i64 %336
   store ptr %301, ptr %337, align 8, !tbaa !13
   %338 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %338, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %338, align 8, !tbaa !13
   %339 = getelementptr inbounds i8, ptr %6, i64 80
   %340 = load ptr, ptr %339, align 8, !tbaa !21
   %341 = getelementptr inbounds i8, ptr %6, i64 96
@@ -1538,7 +1538,7 @@ define dso_local void @_ZN17TestSerialization16buildTestStringsEv(ptr noundef no
   br label %348
 
 348:                                              ; preds = %347, %343
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %338, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %338, align 8, !tbaa !13
   %349 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %349) #25
   %350 = getelementptr inbounds i8, ptr %6, i64 112
@@ -2613,7 +2613,7 @@ define dso_local void @_ZN17TestSerialization21testDeSerializeStringEv(ptr nocap
   %178 = getelementptr inbounds i8, ptr %3, i64 %177
   store ptr %175, ptr %178, align 8, !tbaa !13
   %179 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %179, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %179, align 8, !tbaa !13
   %180 = getelementptr inbounds i8, ptr %3, i64 88
   %181 = load ptr, ptr %180, align 8, !tbaa !21
   %182 = getelementptr inbounds i8, ptr %3, i64 104
@@ -2632,7 +2632,7 @@ define dso_local void @_ZN17TestSerialization21testDeSerializeStringEv(ptr nocap
   br label %189
 
 189:                                              ; preds = %188, %184
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %179, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %179, align 8, !tbaa !13
   %190 = getelementptr inbounds i8, ptr %3, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %190) #25
   %191 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -3810,7 +3810,7 @@ define dso_local void @_ZN17TestSerialization25testDeSerializeLongStringEv(ptr n
   %183 = getelementptr inbounds i8, ptr %3, i64 %182
   store ptr %180, ptr %183, align 8, !tbaa !13
   %184 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %184, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %184, align 8, !tbaa !13
   %185 = getelementptr inbounds i8, ptr %3, i64 88
   %186 = load ptr, ptr %185, align 8, !tbaa !21
   %187 = getelementptr inbounds i8, ptr %3, i64 104
@@ -3829,7 +3829,7 @@ define dso_local void @_ZN17TestSerialization25testDeSerializeLongStringEv(ptr n
   br label %194
 
 194:                                              ; preds = %193, %189
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %184, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %184, align 8, !tbaa !13
   %195 = getelementptr inbounds i8, ptr %3, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %195) #25
   %196 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -10758,7 +10758,7 @@ define dso_local void @_ZN17TestSerialization23testSerializeJsonStringEv(ptr noc
   %3080 = load i64, ptr %3079, align 8
   %3081 = getelementptr inbounds i8, ptr %13, i64 %3080
   store ptr %3078, ptr %3081, align 8, !tbaa !13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %191, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %191, align 8, !tbaa !13
   %3082 = load ptr, ptr %192, align 8, !tbaa !21
   %3083 = getelementptr inbounds i8, ptr %13, i64 104
   %3084 = icmp eq ptr %3082, %3083
@@ -10775,7 +10775,7 @@ define dso_local void @_ZN17TestSerialization23testSerializeJsonStringEv(ptr noc
   br label %3089
 
 3089:                                             ; preds = %3088, %3085
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %191, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %191, align 8, !tbaa !13
   %3090 = getelementptr inbounds i8, ptr %13, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %3090) #25
   %3091 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -12607,7 +12607,7 @@ define dso_local void @_ZN17TestSerialization14testStreamReadEv(ptr nocapture no
   %743 = load i64, ptr %742, align 8
   %744 = getelementptr inbounds i8, ptr %23, i64 %743
   store ptr %741, ptr %744, align 8, !tbaa !13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %649, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %649, align 8, !tbaa !13
   %745 = getelementptr inbounds i8, ptr %23, i64 88
   %746 = load ptr, ptr %745, align 8, !tbaa !21
   %747 = getelementptr inbounds i8, ptr %23, i64 104
@@ -12626,7 +12626,7 @@ define dso_local void @_ZN17TestSerialization14testStreamReadEv(ptr nocapture no
   br label %754
 
 754:                                              ; preds = %753, %749
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %649, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %649, align 8, !tbaa !13
   %755 = getelementptr inbounds i8, ptr %23, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %755) #25
   %756 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -13504,7 +13504,7 @@ define dso_local void @_ZN17TestSerialization15testStreamWriteEv(ptr nocapture n
   %368 = getelementptr inbounds i8, ptr %21, i64 %367
   store ptr %365, ptr %368, align 8, !tbaa !13
   %369 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %369, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %369, align 8, !tbaa !13
   %370 = getelementptr inbounds i8, ptr %21, i64 80
   %371 = load ptr, ptr %370, align 8, !tbaa !21
   %372 = getelementptr inbounds i8, ptr %21, i64 96
@@ -13523,7 +13523,7 @@ define dso_local void @_ZN17TestSerialization15testStreamWriteEv(ptr nocapture n
   br label %379
 
 379:                                              ; preds = %378, %374
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %369, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %369, align 8, !tbaa !13
   %380 = getelementptr inbounds i8, ptr %21, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %380) #25
   %381 = getelementptr inbounds i8, ptr %21, i64 112

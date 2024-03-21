@@ -3087,7 +3087,7 @@ entry:
   %0 = load ptr, ptr %bundle.addr, align 8
   %1 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN17ContainerResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(72) %this1, ptr noundef %0, ptr noundef null, i8 noundef signext 2, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18PseudoListResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18PseudoListResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3111,7 +3111,7 @@ entry:
   %1 = load i32, ptr %length.addr, align 4
   %2 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN18StringBaseResourceC2EaPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(120) %this1, i8 noundef signext 0, ptr noundef %0, i32 noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fSame = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fSame, align 8
   %fSuffixOffset = getelementptr inbounds %class.StringResource, ptr %this1, i32 0, i32 2
@@ -4360,7 +4360,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10PathFilterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fRoot = getelementptr inbounds %class.SimpleRuleBasedPathFilter, ptr %this1, i32 0, i32 1
   call void @_ZN25SimpleRuleBasedPathFilter4TreeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fRoot) #3
   ret void
@@ -4417,7 +4417,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fRoot = getelementptr inbounds %class.SimpleRuleBasedPathFilter, ptr %this1, i32 0, i32 1
   call void @_ZN25SimpleRuleBasedPathFilter4TreeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %fRoot) #3
   call void @_ZN10PathFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -4734,7 +4734,7 @@ entry:
   %3 = load ptr, ptr %comment.addr, align 8
   %4 = load ptr, ptr %errorCode.addr, align 8
   call void @_ZN9SResourceC2EP7SRBRootPKcaPK7UStringR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(56) %this1, ptr noundef %0, ptr noundef %1, i8 noundef signext %2, ptr noundef %3, ptr noundef nonnull align 4 dereferenceable(4) %4)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17ContainerResource, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fCount = getelementptr inbounds %class.ContainerResource, ptr %this1, i32 0, i32 1
   store i32 0, ptr %fCount, align 8
   %fFirst = getelementptr inbounds %class.ContainerResource, ptr %this1, i32 0, i32 2
@@ -4768,7 +4768,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10PathFilter, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10PathFilter, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

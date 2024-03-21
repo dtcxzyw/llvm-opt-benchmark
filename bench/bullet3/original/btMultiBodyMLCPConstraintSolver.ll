@@ -6905,7 +6905,7 @@ entry:
   store ptr %solver, ptr %solver.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN27btMultiBodyConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(788) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV31btMultiBodyMLCPConstraintSolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV31btMultiBodyMLCPConstraintSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_A = getelementptr inbounds %class.btMultiBodyMLCPConstraintSolver, ptr %this1, i32 0, i32 2
   invoke void @_ZN9btMatrixXIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_A)
           to label %invoke.cont unwind label %lpad
@@ -7269,7 +7269,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN35btSequentialImpulseConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV27btMultiBodyConstraintSolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV27btMultiBodyConstraintSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_multiBodyNonContactConstraints = getelementptr inbounds %class.btMultiBodyConstraintSolver, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayI27btMultiBodySolverConstraintEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_multiBodyNonContactConstraints)
           to label %invoke.cont unwind label %lpad
@@ -7522,7 +7522,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV27btMultiBodyConstraintSolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV27btMultiBodyConstraintSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_data = getelementptr inbounds %class.btMultiBodyConstraintSolver, ptr %this1, i32 0, i32 6
   call void @_ZN23btMultiBodyJacobianDataD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %m_data) #11
   %m_multiBodySpinningFrictionContactConstraints = getelementptr inbounds %class.btMultiBodyConstraintSolver, ptr %this1, i32 0, i32 5
@@ -7545,7 +7545,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV31btMultiBodyMLCPConstraintSolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV31btMultiBodyMLCPConstraintSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_scratchOfs = getelementptr inbounds %class.btMultiBodyMLCPConstraintSolver, ptr %this1, i32 0, i32 23
   call void @_ZN20btAlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_scratchOfs) #11
   %m_scratchJInvM3 = getelementptr inbounds %class.btMultiBodyMLCPConstraintSolver, ptr %this1, i32 0, i32 22
@@ -7672,7 +7672,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

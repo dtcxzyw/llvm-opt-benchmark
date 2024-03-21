@@ -10029,7 +10029,7 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -15472,7 +15472,7 @@ define linkonce_odr dso_local void @_ZN4utf818invalid_code_pointC2Ej(ptr noundef
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4utf89exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.utf8::invalid_code_point", ptr %5, i32 0, i32 1
   %7 = load i32, ptr %4, align 4
   store i32 %7, ptr %6, align 8
@@ -15494,7 +15494,7 @@ define linkonce_odr dso_local void @_ZN4utf89exceptionC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf89exceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf89exceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15520,7 +15520,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2B8ne190000Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -16827,7 +16827,7 @@ define linkonce_odr dso_local void @_ZN4utf813invalid_utf16C2Et(ptr noundef nonn
   store i16 %1, ptr %4, align 2
   %5 = load ptr, ptr %3, align 8
   call void @_ZN4utf89exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.utf8::invalid_utf16", ptr %5, i32 0, i32 1
   %7 = load i16, ptr %4, align 2
   store i16 %7, ptr %6, align 8
@@ -17402,7 +17402,7 @@ define linkonce_odr hidden void @_ZNSt3__111__end_stateIcEC2B8ne190000Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt3__16__nodeIcEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__end_stateIcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__end_stateIcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17464,7 +17464,7 @@ define linkonce_odr hidden void @_ZNSt3__113__empty_stateIcEC2B8ne190000EPNS_6__
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__113__empty_stateIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -18087,7 +18087,7 @@ define linkonce_odr hidden void @_ZNSt3__16__nodeIcEC2B8ne190000Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__16__nodeIcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__16__nodeIcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18325,7 +18325,7 @@ define linkonce_odr hidden void @_ZNSt3__120__shared_ptr_pointerIPNS_13__empty_s
   store ptr %1, ptr %6, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt3__119__shared_weak_countC2B8ne190000El(ptr noundef nonnull align 8 dereferenceable(24) %10, i64 noundef 0) #17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVNSt3__120__shared_ptr_pointerIPNS_13__empty_stateIcEENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVNSt3__120__shared_ptr_pointerIPNS_13__empty_stateIcEENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EENS_9allocatorIS2_EEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.std::__1::__shared_ptr_pointer", ptr %10, i32 0, i32 1
   invoke void @_ZNSt3__117__compressed_pairIPNS_13__empty_stateIcEENS_10shared_ptrIS2_E27__shared_ptr_default_deleteIS2_S2_EEEC2B8ne190000IRS3_S7_EEOT_OT0_(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %3)
           to label %12 unwind label %14
@@ -18440,7 +18440,7 @@ define linkonce_odr hidden void @_ZNSt3__119__shared_weak_countC2B8ne190000El(pt
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZNSt3__114__shared_countC2B8ne190000El(ptr noundef nonnull align 8 dereferenceable(16) %5, i64 noundef %6) #17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVNSt3__119__shared_weak_countE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVNSt3__119__shared_weak_countE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.std::__1::__shared_weak_count", ptr %5, i32 0, i32 1
   %8 = load i64, ptr %4, align 8
   store i64 %8, ptr %7, align 8
@@ -18568,7 +18568,7 @@ define linkonce_odr hidden void @_ZNSt3__114__shared_countC2B8ne190000El(ptr nou
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt3__114__shared_countE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt3__114__shared_countE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::__1::__shared_count", ptr %5, i32 0, i32 1
   %7 = load i64, ptr %4, align 8
   store i64 %7, ptr %6, align 8
@@ -18929,7 +18929,7 @@ define linkonce_odr hidden void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt3__115__has_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -18977,7 +18977,7 @@ define linkonce_odr hidden void @_ZNSt3__115__has_one_stateIcEC2B8ne190000EPNS_6
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt3__16__nodeIcEC2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__has_one_stateIcEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__has_one_stateIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::__1::__has_one_state", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -18989,7 +18989,7 @@ define linkonce_odr dso_local void @_ZNSt3__116__owns_one_stateIcED2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__owns_one_stateIcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3__115__has_one_stateIcE5firstB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
           to label %5 unwind label %13
 
@@ -20658,7 +20658,7 @@ define linkonce_odr hidden void @_ZNSt3__120__l_anchor_multilineIcEC2B8ne190000E
   %8 = load ptr, ptr %4, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__l_anchor_multilineIcEE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__l_anchor_multilineIcEE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %"class.std::__1::__l_anchor_multiline", ptr %8, i32 0, i32 1
   %11 = load i8, ptr %5, align 1
   %12 = trunc i8 %11 to i1
@@ -20882,7 +20882,7 @@ define linkonce_odr hidden void @_ZNSt3__120__r_anchor_multilineIcEC2B8ne190000E
   %8 = load ptr, ptr %4, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__r_anchor_multilineIcEE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__r_anchor_multilineIcEE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %"class.std::__1::__r_anchor_multiline", ptr %8, i32 0, i32 1
   %11 = load i8, ptr %5, align 1
   %12 = trunc i8 %11 to i1
@@ -21041,7 +21041,7 @@ define linkonce_odr hidden void @_ZNSt3__115__word_boundaryIcNS_12regex_traitsIc
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %8, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %"class.std::__1::__word_boundary", ptr %10, i32 0, i32 1
   %13 = load ptr, ptr %6, align 8
   call void @_ZNSt3__112regex_traitsIcEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13) #17
@@ -21076,7 +21076,7 @@ define linkonce_odr dso_local void @_ZNSt3__115__word_boundaryIcNS_12regex_trait
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__115__word_boundaryIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__1::__word_boundary", ptr %3, i32 0, i32 1
   call void @_ZNSt3__112regex_traitsIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @_ZNSt3__116__owns_one_stateIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -21408,7 +21408,7 @@ define linkonce_odr hidden void @_ZNSt3__111__lookaheadIcNS_12regex_traitsIcEEEC
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %9, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %"class.std::__1::__lookahead", ptr %12, i32 0, i32 1
   %15 = load ptr, ptr %7, align 8
   call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(64) %14, ptr noundef nonnull align 8 dereferenceable(64) %15) #17
@@ -21455,7 +21455,7 @@ define linkonce_odr dso_local void @_ZNSt3__111__lookaheadIcNS_12regex_traitsIcE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__lookaheadIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__1::__lookahead", ptr %3, i32 0, i32 1
   call void @_ZNSt3__111basic_regexIcNS_12regex_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #17
   call void @_ZNSt3__116__owns_one_stateIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -29331,7 +29331,7 @@ define linkonce_odr hidden void @_ZNSt3__123__match_any_but_newlineIcEC2B8ne1900
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__123__match_any_but_newlineIcEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__123__match_any_but_newlineIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -30336,7 +30336,7 @@ define linkonce_odr hidden void @_ZNSt3__118__match_char_icaseIcNS_12regex_trait
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %"class.std::__1::__match_char_icase", ptr %11, i32 0, i32 1
   %14 = load ptr, ptr %6, align 8
   call void @_ZNSt3__112regex_traitsIcEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14) #17
@@ -30384,7 +30384,7 @@ define linkonce_odr hidden void @_ZNSt3__120__match_char_collateIcNS_12regex_tra
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %"class.std::__1::__match_char_collate", ptr %11, i32 0, i32 1
   %14 = load ptr, ptr %6, align 8
   call void @_ZNSt3__112regex_traitsIcEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %14) #17
@@ -30428,7 +30428,7 @@ define linkonce_odr hidden void @_ZNSt3__112__match_charIcEC2B8ne190000EcPNS_6__
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__112__match_charIcEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__112__match_charIcEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.std::__1::__match_char", ptr %7, i32 0, i32 1
   %10 = load i8, ptr %5, align 1
   store i8 %10, ptr %9, align 8
@@ -30454,7 +30454,7 @@ define linkonce_odr dso_local void @_ZNSt3__118__match_char_icaseIcNS_12regex_tr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__match_char_icaseIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__1::__match_char_icase", ptr %3, i32 0, i32 1
   call void @_ZNSt3__112regex_traitsIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @_ZNSt3__116__owns_one_stateIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -30559,7 +30559,7 @@ define linkonce_odr dso_local void @_ZNSt3__120__match_char_collateIcNS_12regex_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__match_char_collateIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__1::__match_char_collate", ptr %3, i32 0, i32 1
   call void @_ZNSt3__112regex_traitsIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @_ZNSt3__116__owns_one_stateIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -30727,7 +30727,7 @@ define linkonce_odr hidden void @_ZNSt3__116__back_ref_icaseIcNS_12regex_traitsI
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %8, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.std::__1::__back_ref_icase", ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt3__112regex_traitsIcEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12) #17
@@ -30750,7 +30750,7 @@ define linkonce_odr hidden void @_ZNSt3__118__back_ref_collateIcNS_12regex_trait
   %9 = load ptr, ptr %5, align 8
   %10 = load ptr, ptr %8, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.std::__1::__back_ref_collate", ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt3__112regex_traitsIcEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12) #17
@@ -30771,7 +30771,7 @@ define linkonce_odr hidden void @_ZNSt3__110__back_refIcEC2B8ne190000EjPNS_6__no
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__110__back_refIcEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__110__back_refIcEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.std::__1::__back_ref", ptr %7, i32 0, i32 1
   %10 = load i32, ptr %5, align 4
   store i32 %10, ptr %9, align 8
@@ -30783,7 +30783,7 @@ define linkonce_odr dso_local void @_ZNSt3__116__back_ref_icaseIcNS_12regex_trai
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__116__back_ref_icaseIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__1::__back_ref_icase", ptr %3, i32 0, i32 1
   call void @_ZNSt3__112regex_traitsIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @_ZNSt3__116__owns_one_stateIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -30941,7 +30941,7 @@ define linkonce_odr dso_local void @_ZNSt3__118__back_ref_collateIcNS_12regex_tr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__118__back_ref_collateIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__1::__back_ref_collate", ptr %3, i32 0, i32 1
   call void @_ZNSt3__112regex_traitsIcED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   call void @_ZNSt3__116__owns_one_stateIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #17
@@ -31474,7 +31474,7 @@ define linkonce_odr hidden void @_ZNSt3__120__bracket_expressionIcNS_12regex_tra
   %20 = load ptr, ptr %7, align 8
   %21 = load ptr, ptr %9, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef %21)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__bracket_expressionIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__bracket_expressionIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %20, align 8
   %22 = getelementptr inbounds %"class.std::__1::__bracket_expression", ptr %20, i32 0, i32 1
   %23 = load ptr, ptr %8, align 8
   call void @_ZNSt3__112regex_traitsIcEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(24) %23) #17
@@ -31734,7 +31734,7 @@ define linkonce_odr dso_local void @_ZNSt3__120__bracket_expressionIcNS_12regex_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__bracket_expressionIcNS_12regex_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__120__bracket_expressionIcNS_12regex_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__1::__bracket_expression", ptr %3, i32 0, i32 6
   call void @_ZNSt3__16vectorINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS4_IS6_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #17
   %5 = getelementptr inbounds %"class.std::__1::__bracket_expression", ptr %3, i32 0, i32 5
@@ -41434,7 +41434,7 @@ define linkonce_odr hidden void @_ZNSt3__128__begin_marked_subexpressionIcEC2B8n
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__128__begin_marked_subexpressionIcEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__128__begin_marked_subexpressionIcEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.std::__1::__begin_marked_subexpression", ptr %7, i32 0, i32 1
   %10 = load i32, ptr %5, align 4
   store i32 %10, ptr %9, align 8
@@ -41500,7 +41500,7 @@ define linkonce_odr hidden void @_ZNSt3__126__end_marked_subexpressionIcEC2B8ne1
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__126__end_marked_subexpressionIcEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__126__end_marked_subexpressionIcEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.std::__1::__end_marked_subexpression", ptr %7, i32 0, i32 1
   %10 = load i32, ptr %5, align 4
   store i32 %10, ptr %9, align 8
@@ -41961,7 +41961,7 @@ define linkonce_odr hidden void @_ZNSt3__16__loopIcEC2B8ne190000EjPNS_6__nodeIcE
   %21 = load ptr, ptr %12, align 8
   %22 = load ptr, ptr %13, align 8
   call void @_ZNSt3__117__owns_two_statesIcEC2B8ne190000EPNS_6__nodeIcEEPNS_16__owns_one_stateIcEE(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef %21, ptr noundef %22)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__16__loopIcEE, i32 0, inrange i32 0, i32 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__16__loopIcEE, i32 0, i32 0, i32 2), ptr %20, align 8
   %23 = getelementptr inbounds %"class.std::__1::__loop", ptr %20, i32 0, i32 1
   %24 = load i64, ptr %17, align 8
   store i64 %24, ptr %23, align 8
@@ -42028,7 +42028,7 @@ define linkonce_odr hidden void @_ZNSt3__117__repeat_one_loopIcEC2B8ne190000EPNS
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt3__115__has_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__repeat_one_loopIcEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__repeat_one_loopIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -42107,7 +42107,7 @@ define linkonce_odr hidden void @_ZNSt3__117__owns_two_statesIcEC2B8ne190000EPNS
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.std::__1::__owns_two_states", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %9, align 8
@@ -42375,7 +42375,7 @@ define linkonce_odr hidden void @_ZNSt3__117__owns_two_statesIcED2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__117__owns_two_statesIcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__1::__owns_two_states", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -42699,7 +42699,7 @@ define linkonce_odr hidden void @_ZNSt3__111__alternateIcEC2B8ne190000EPNS_16__o
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZNSt3__117__owns_two_statesIcEC2B8ne190000EPNS_6__nodeIcEEPNS_16__owns_one_stateIcEE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__alternateIcEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__alternateIcEE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -42712,7 +42712,7 @@ define linkonce_odr hidden void @_ZNSt3__121__empty_non_own_stateIcEC2B8ne190000
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt3__115__has_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__121__empty_non_own_stateIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -43769,7 +43769,7 @@ define linkonce_odr hidden void @_ZNSt3__111__match_anyIcEC2B8ne190000EPNS_6__no
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt3__116__owns_one_stateIcEC2B8ne190000EPNS_6__nodeIcEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__match_anyIcEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt3__111__match_anyIcEE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -51278,7 +51278,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIcLm500ENSt3_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #17
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm500ENSt3__19allocatorIcEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [500 x i8], ptr %6, i64 0, i64 0
   call void @_ZN3fmt2v96detail6bufferIcE3setEPcm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 500) #17
@@ -51837,7 +51837,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
@@ -52466,7 +52466,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v912format_errorC2EPKc(ptr noundef n
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3fmt2v912format_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -57400,7 +57400,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIiLm500ENSt3_
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #17
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIiLm500ENSt3__19allocatorIiEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.193", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [500 x i32], ptr %6, i64 0, i64 0
   call void @_ZN3fmt2v96detail6bufferIiE3setEPim(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 500) #17
@@ -57518,7 +57518,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIiEC2EPimm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIiEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.194", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
@@ -72599,7 +72599,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #17
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.224", ptr %5, i32 0, i32 1
   %7 = getelementptr inbounds [32 x i32], ptr %6, i64 0, i64 0
   call void @_ZN3fmt2v96detail6bufferIjE3setEPjm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef %7, i64 noundef 32) #17
@@ -72624,7 +72624,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr nound
   store i64 %2, ptr %7, align 8
   store i64 %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIjEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.fmt::v9::detail::buffer.225", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   store ptr %11, ptr %10, align 8
@@ -73483,7 +73483,7 @@ define linkonce_odr dso_local void @_ZN3fmt2v919basic_memory_bufferIjLm32ENSt3__
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN3fmt2v96detail6bufferIjEC2EPjmm(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef null, i64 noundef 0, i64 noundef 0) #17
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIjLm32ENSt3__19allocatorIjEEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer.224", ptr %5, i32 0, i32 2
   call void @_ZNSt3__19allocatorIjEC2B8ne190000Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #17
   %7 = load ptr, ptr %4, align 8

@@ -404,7 +404,7 @@ entry:
   store ptr %out, ptr %out.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal5proof16LfscPrintChannelC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelOutE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelOutE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_out = getelementptr inbounds %"class.cvc5::internal::proof::LfscPrintChannelOut", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %out.addr, align 8
   store ptr %0, ptr %d_out, align 8
@@ -417,7 +417,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal5proof16LfscPrintChannelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal5proof16LfscPrintChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1416,7 +1416,7 @@ entry:
   store ptr %lbind, ptr %lbind.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal5proof16LfscPrintChannelC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelPreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelPreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_lbind = getelementptr inbounds %"class.cvc5::internal::proof::LfscPrintChannelPre", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %lbind.addr, align 8
   store ptr %0, ptr %d_lbind, align 8
@@ -1694,7 +1694,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelPreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal5proof19LfscPrintChannelPreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_dprs = getelementptr inbounds %"class.cvc5::internal::proof::LfscPrintChannelPre", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_setIN4cvc58internal8rewriter12DslProofRuleESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_dprs) #3
   call void @_ZN4cvc58internal5proof16LfscPrintChannelD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

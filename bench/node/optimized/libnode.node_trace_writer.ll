@@ -82,7 +82,7 @@ $_ZZN4node21ConditionVariableBaseINS_16LibuvMutexTraitsEEC1EvE4args = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing15NodeTraceWriterC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(1409) %this, ptr noundef nonnull align 8 dereferenceable(32) %log_file_pattern) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %tracing_loop_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %tracing_loop_, align 8
   %stream_mutex_ = getelementptr inbounds i8, ptr %this, i64 272
@@ -265,7 +265,7 @@ if.end4:                                          ; preds = %if.end4.critedge, %
 define dso_local void @_ZN4node7tracing15NodeTraceWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(1409) %this) unnamed_addr #0 align 2 {
 entry:
   %req = alloca %struct.uv_fs_s, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceWriterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %stream_mutex_.i = getelementptr inbounds i8, ptr %this, i64 272
   tail call void @uv_mutex_lock(ptr noundef nonnull %stream_mutex_.i) #12
   %total_traces_.i = getelementptr inbounds i8, ptr %this, i64 984

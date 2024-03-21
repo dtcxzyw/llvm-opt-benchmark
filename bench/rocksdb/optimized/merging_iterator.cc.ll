@@ -7950,7 +7950,7 @@ invoke.cont9:
   %frombool1 = zext i1 %prefix_seek_mode to i8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb15MergingIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb15MergingIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %is_arena_mode_ = getelementptr inbounds i8, ptr %this, i64 40
   store i8 %frombool, ptr %is_arena_mode_, align 8
   %prefix_seek_mode_ = getelementptr inbounds i8, ptr %this, i64 41
@@ -8150,7 +8150,7 @@ invoke.cont:                                      ; preds = %entry
 
 invoke.cont3:                                     ; preds = %invoke.cont
   %frombool1.i = zext i1 %prefix_seek_mode to i8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb15MergingIteratorE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb15MergingIteratorE, i64 0, i32 0, i64 2), ptr %call, align 8
   %is_arena_mode_.i = getelementptr inbounds i8, ptr %call, i64 40
   store i8 1, ptr %is_arena_mode_.i, align 8
   %prefix_seek_mode_.i = getelementptr inbounds i8, ptr %call, i64 41
@@ -9585,7 +9585,7 @@ _ZNSt8_Rb_treeImmSt9_IdentityImESt4lessImESaImEED2Ev.exit: ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb15MergingIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb15MergingIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTVN7rocksdb15MergingIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %range_tombstone_iters_ = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %range_tombstone_iters_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 112

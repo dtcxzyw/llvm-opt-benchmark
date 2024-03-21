@@ -351,7 +351,7 @@ define dso_local void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoderC2Ev(pt
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %5, i32 0, i32 2
   call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef null) #3
   %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %5, i32 0, i32 6
@@ -566,7 +566,7 @@ define dso_local void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoderC2EPKii
   store i32 %5, ptr %13, align 4
   store ptr %6, ptr %14, align 8
   %17 = load ptr, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, i32 0, i32 2), ptr %17, align 8
   %18 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %17, i32 0, i32 2
   call void @_ZN5boost10scoped_ptrIKN4i18n12phonenumbers19MappingFileProviderEEC2EPS4_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef null) #3
   %19 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %17, i32 0, i32 6
@@ -653,7 +653,7 @@ define dso_local void @_ZN4i18n12phonenumbers26PhoneNumberOfflineGeocoderD2Ev(pt
   %5 = alloca %"struct.std::_Rb_tree_iterator", align 8
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers26PhoneNumberOfflineGeocoderE, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %"class.i18n::phonenumbers::PhoneNumberOfflineGeocoder", ptr %6, i32 0, i32 6
   invoke void @_ZN4absl7debian29MutexLockC2EPNS0_5MutexE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %7)
           to label %8 unwind label %19
@@ -1474,7 +1474,7 @@ define linkonce_odr dso_local void @_ZN6icu_7013UnicodeStringC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6icu_7011ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7013UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7013UnicodeStringE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.icu_70::UnicodeString", ptr %3, i32 0, i32 1
   %5 = getelementptr inbounds %struct.anon, ptr %4, i32 0, i32 0
   store i16 2, ptr %5, align 8
@@ -2632,7 +2632,7 @@ define linkonce_odr dso_local void @_ZN6icu_7011ReplaceableC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6icu_707UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7011ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7011ReplaceableE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2641,7 +2641,7 @@ define linkonce_odr dso_local void @_ZN6icu_707UObjectC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_707UObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_707UObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4015,7 +4015,7 @@ define linkonce_odr dso_local void @_ZN6icu_7014StringByteSinkINSt7__cxx1112basi
   store i32 %2, ptr %6, align 4
   %9 = load ptr, ptr %4, align 8
   call void @_ZN6icu_708ByteSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7014StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7014StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.icu_70::StringByteSink", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %10, align 8
@@ -4111,7 +4111,7 @@ define linkonce_odr dso_local void @_ZN6icu_708ByteSinkC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_708ByteSinkE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_708ByteSinkE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

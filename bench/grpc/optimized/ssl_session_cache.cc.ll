@@ -82,7 +82,7 @@ define void @_ZN3tsi18SslSessionLRUCacheC2Em(ptr noundef nonnull align 8 derefer
 entry:
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi18SslSessionLRUCacheE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi18SslSessionLRUCacheE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lock_ = getelementptr inbounds i8, ptr %this, i64 16
   store i64 0, ptr %lock_, align 8
   %capacity_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -147,7 +147,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3tsi18SslSessionLRUCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi18SslSessionLRUCacheE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3tsi18SslSessionLRUCacheE, i64 0, i32 0, i64 2), ptr %this, align 8
   %use_order_list_head_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %use_order_list_head_, align 8
   %tobool.not3 = icmp eq ptr %0, null

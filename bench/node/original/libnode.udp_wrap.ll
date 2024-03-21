@@ -1167,9 +1167,9 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node7ReqWrapI13uv_udp_send_sEC2EPNS_11EnvironmentEN2v85LocalINS5_6ObjectEEENS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(408) %this3, ptr noundef %0, ptr %1, i32 noundef 42)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node8SendWrapE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node8SendWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node8SendWrapE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node8SendWrapE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %have_callback_ = getelementptr inbounds %"class.node::SendWrap", ptr %this3, i32 0, i32 2
   %2 = load i8, ptr %have_callback.addr, align 1
   %tobool = trunc i8 %2 to i1
@@ -1208,9 +1208,9 @@ entry:
   %3 = getelementptr inbounds i8, ptr %this3, i64 56
   %4 = load ptr, ptr %env.addr, align 8
   call void @_ZN4node11ReqWrapBaseC2EPNS_11EnvironmentE(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_udp_send_sEE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_udp_send_sEE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_udp_send_sEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [6 x ptr] }, ptr @_ZTVN4node7ReqWrapI13uv_udp_send_sEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %original_callback_ = getelementptr inbounds %"class.node::ReqWrap", ptr %this3, i32 0, i32 2
   store ptr null, ptr %original_callback_, align 8
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
@@ -1224,7 +1224,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4node11UDPListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4node11UDPListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %wrap_ = getelementptr inbounds %"class.node::UDPListener", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %wrap_, align 8
   %cmp = icmp ne ptr %0, null
@@ -1326,7 +1326,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11UDPWrapBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11UDPWrapBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   call void @_ZN4node11UDPWrapBase12set_listenerEPNS_11UDPListenerE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef null)
   ret void
 }
@@ -2095,11 +2095,11 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %env, ptr %env.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 88
-  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this3, i64 104
-  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, inrange i32 2, i32 2), ptr %add.ptr4, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, i32 2, i32 2), ptr %add.ptr4, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %object, i64 8, i1 false)
   %handle_ = getelementptr inbounds %"class.node::UDPWrap", ptr %this3, i32 0, i32 3
@@ -2112,11 +2112,11 @@ entry:
   call void @_ZN4node11UDPWrapBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #3
   %3 = getelementptr inbounds i8, ptr %this3, i64 104
   call void @_ZN4node11UDPListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr8 = getelementptr inbounds i8, ptr %this3, i64 88
-  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, inrange i32 1, i32 2), ptr %add.ptr8, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, i32 1, i32 2), ptr %add.ptr8, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %this3, i64 104
-  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, inrange i32 2, i32 2), ptr %add.ptr9, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr], [10 x ptr], [9 x ptr] }, ptr @_ZTVN4node7UDPWrapE, i32 0, i32 2, i32 2), ptr %add.ptr9, align 8
   %current_send_req_wrap_ = getelementptr inbounds %"class.node::UDPWrap", ptr %this3, i32 0, i32 5
   store ptr %current_send_req_wrap_, ptr %this.addr.i21, align 8
   %this1.i22 = load ptr, ptr %this.addr.i21, align 8
@@ -2180,7 +2180,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11UDPWrapBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11UDPWrapBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %listener_ = getelementptr inbounds %"class.node::UDPWrapBase", ptr %this1, i32 0, i32 1
   store ptr null, ptr %listener_, align 8
   ret void
@@ -2192,7 +2192,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4node11UDPListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4node11UDPListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %wrap_ = getelementptr inbounds %"class.node::UDPListener", ptr %this1, i32 0, i32 1
   store ptr null, ptr %wrap_, align 8
   ret void
@@ -25937,7 +25937,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %handle_wrap_queue_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this1, i32 0, i32 2
   call void @_ZN4node8ListNodeINS_10HandleWrapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %handle_wrap_queue_) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3
@@ -26118,7 +26118,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %env, ptr %env.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %req_wrap_queue_ = getelementptr inbounds %"class.node::ReqWrapBase", ptr %this1, i32 0, i32 1
   call void @_ZN4node8ListNodeINS_11ReqWrapBaseEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %req_wrap_queue_)
   br label %do.body
@@ -26289,7 +26289,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node11ReqWrapBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %req_wrap_queue_ = getelementptr inbounds %"class.node::ReqWrapBase", ptr %this1, i32 0, i32 1
   call void @_ZN4node8ListNodeINS_11ReqWrapBaseEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %req_wrap_queue_) #3
   ret void
@@ -27601,7 +27601,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   call void @_ZNSt19_Sp_counted_deleterIPN2v812BackingStoreESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #3
@@ -27614,7 +27614,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2

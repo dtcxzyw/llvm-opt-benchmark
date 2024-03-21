@@ -122,7 +122,7 @@ define hidden void @_ZN5ceres8internal11ContextImplC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5ceres7ContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5ceres8internal11ContextImplE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5ceres8internal11ContextImplE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.ceres::internal::ContextImpl", ptr %5, i32 0, i32 1
   invoke void @_ZN5ceres8internal10ThreadPoolC1Ev(ptr noundef nonnull align 8 dereferenceable(240) %6)
           to label %7 unwind label %25

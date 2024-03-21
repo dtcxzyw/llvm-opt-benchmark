@@ -2730,7 +2730,7 @@ define linkonce_odr dso_local void @_ZNSt10filesystem7__cxx114path8_CodecvtIwEC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EEC2Em(ptr noundef nonnull align 8 dereferenceable(36) %3, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt10filesystem7__cxx114path8_CodecvtIwEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVNSt10filesystem7__cxx114path8_CodecvtIwEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2869,7 +2869,7 @@ define linkonce_odr dso_local void @_ZNSt12codecvt_utf8IwLm1114111ELSt12codecvt_
   %9 = load i64, ptr %8, align 8
   %10 = load i64, ptr %4, align 8
   call void @_ZNSt19__codecvt_utf8_baseIwEC2EmSt12codecvt_modem(ptr noundef nonnull align 8 dereferenceable(36) %7, i64 noundef %9, i32 noundef 0, i64 noundef %10)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -2942,7 +2942,7 @@ define linkonce_odr dso_local void @_ZNSt19__codecvt_utf8_baseIwEC2EmSt12codecvt
   %9 = load ptr, ptr %5, align 8
   %10 = load i64, ptr %8, align 8
   call void @_ZNSt7codecvtIwc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %10)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt19__codecvt_utf8_baseIwE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt19__codecvt_utf8_baseIwE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"class.std::__codecvt_utf8_base", ptr %9, i32 0, i32 1
   %12 = load i64, ptr %6, align 8
   store i64 %12, ptr %11, align 8

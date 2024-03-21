@@ -356,7 +356,7 @@ declare void @llvm.trap() #4
 define hidden void @_ZN3ue221makeSmallWriteBuilderEmRKNS_13ReportManagerERKNS_14CompileContextE(ptr noalias nocapture writeonly sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %num_patterns, ptr noundef nonnull align 8 dereferenceable(505) %rm, ptr noundef nonnull align 8 dereferenceable(320) %cc) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #26, !noalias !5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SmallWriteBuildImplE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SmallWriteBuildImplE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
   %rm.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %rm, ptr %rm.i.i, align 8, !noalias !5
   %cc.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -557,7 +557,7 @@ _ZNSt12_Vector_baseISt10unique_ptrIN3ue27raw_dfaESt14default_deleteIS2_EESaIS5_E
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_119SmallWriteBuildImplD2Ev(ptr noundef nonnull align 8 dereferenceable(201) %this) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SmallWriteBuildImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_119SmallWriteBuildImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lit_trie_nocase = getelementptr inbounds i8, ptr %this, i64 120
   %m_header.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 128
   %0 = load ptr, ptr %m_header.i.i.i.i.i, align 8, !noalias !18
@@ -4246,7 +4246,7 @@ invoke.cont8.i.i.i:                               ; preds = %call.i.i.i.i.noexc
   store i32 1, ptr %use_count_.i.i.i.i.i12.i.i.i, align 8
   %weak_count_.i.i.i.i.i13.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i13.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.i.i, align 8
   %ptr.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i.i.i, i64 16
   store ptr %call.i.i.i.i28, ptr %ptr.i.i.i.i.i.i.i, align 8
   store ptr %call.i.i.i.i.i.i, ptr %pn.i.i10.i.i.i, align 8
@@ -6104,7 +6104,7 @@ invoke.cont1:                                     ; preds = %invoke.cont11.i, %i
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i64 0, inrange i32 0, i64 2), ptr %call.i39, align 8, !noalias !223
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue27raw_dfaE, i64 0, i32 0, i64 2), ptr %call.i39, align 8, !noalias !223
   %kind.i.i = getelementptr inbounds i8, ptr %call.i39, i64 8
   store i32 3, ptr %kind.i.i, align 8, !noalias !223
   %states.i.i = getelementptr inbounds i8, ptr %call.i39, i64 16
@@ -7567,7 +7567,7 @@ invoke.cont8:                                     ; preds = %entry
   store i32 1, ptr %use_count_.i.i.i.i.i, align 8
   %weak_count_.i.i.i.i.i7 = getelementptr inbounds i8, ptr %call.i.i.i, i64 12
   store i32 1, ptr %weak_count_.i.i.i.i.i7, align 4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPhNS_21checked_array_deleterIhEEEE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   %ptr.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store ptr %call.i, ptr %ptr.i.i.i.i, align 8
   store ptr %call.i.i.i, ptr %pn.i.i5, align 8
@@ -12401,7 +12401,7 @@ _ZNSt10unique_ptrI16SmallWriteEngineN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5rese
 
 if.then:                                          ; preds = %_ZNSt10unique_ptrI16SmallWriteEngineN3ue212bytecode_ptrIS0_E7deleterIS0_EEE5resetEPS0_.exit
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
           to label %unreachable unwind label %lpad
 

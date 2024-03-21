@@ -158,7 +158,7 @@ define dso_local void @_ZN15Sample_SoloMeshC2Ev(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 1
   store i8 1, ptr %6, align 8
   %7 = getelementptr inbounds %class.Sample_SoloMesh, ptr %5, i32 0, i32 3
@@ -244,7 +244,7 @@ define dso_local void @_ZN15Sample_SoloMeshD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_SoloMesh, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN15Sample_SoloMesh7cleanupEv(ptr noundef nonnull align 8 dereferenceable(356) %3)
           to label %4 unwind label %5
 

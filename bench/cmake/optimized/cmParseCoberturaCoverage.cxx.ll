@@ -142,7 +142,7 @@ define dso_local noundef zeroext i1 @_ZN24cmParseCoberturaCoverage15ReadCoverage
           to label %9 unwind label %18
 
 9:                                                ; preds = %2
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i64 0, i32 0, i64 2), ptr %3, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 88
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %10) #17
   %11 = getelementptr inbounds i8, ptr %3, i64 48
@@ -187,7 +187,7 @@ _ZN24cmParseCoberturaCoverage9XMLParserD2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7
 define linkonce_odr dso_local void @_ZN24cmParseCoberturaCoverage9XMLParserC2EP7cmCTestR31cmCTestCoverageHandlerContainer(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(129) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [2 x %"class.std::__cxx11::basic_string"], align 8
   tail call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 41
@@ -271,7 +271,7 @@ declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24cmParseCoberturaCoverage9XMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 48
@@ -318,7 +318,7 @@ declare void @_ZN11cmXMLParserD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN24cmParseCoberturaCoverage9XMLParserD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN24cmParseCoberturaCoverage9XMLParserE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
   %3 = getelementptr inbounds i8, ptr %0, i64 48

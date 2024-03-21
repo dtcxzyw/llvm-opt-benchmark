@@ -350,7 +350,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV23btPolyhedralConvexShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV23btPolyhedralConvexShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_polyhedron = getelementptr inbounds %class.btPolyhedralConvexShape, ptr %this1, i32 0, i32 1
   store ptr null, ptr %m_polyhedron, align 8
   ret void
@@ -364,7 +364,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV23btPolyhedralConvexShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV23btPolyhedralConvexShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_polyhedron = getelementptr inbounds %class.btPolyhedralConvexShape, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m_polyhedron, align 8
   %tobool = icmp ne ptr %0, null
@@ -542,7 +542,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18btConvexPolyhedron, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV18btConvexPolyhedron, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_vertices = getelementptr inbounds %class.btConvexPolyhedron, ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %.addr, align 8
   %m_vertices2 = getelementptr inbounds %class.btConvexPolyhedron, ptr %1, i32 0, i32 1
@@ -3047,7 +3047,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV34btPolyhedralConvexAabbCachingShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV34btPolyhedralConvexAabbCachingShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_localAabbMin = getelementptr inbounds %class.btPolyhedralConvexAabbCachingShape, ptr %this1, i32 0, i32 1
   store float 1.000000e+00, ptr %ref.tmp, align 4
   store float 1.000000e+00, ptr %ref.tmp2, align 4

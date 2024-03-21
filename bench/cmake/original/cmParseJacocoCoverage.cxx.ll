@@ -859,7 +859,7 @@ define linkonce_odr dso_local void @_ZN21cmParseJacocoCoverage9XMLParserC2EP7cmC
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN21cmParseJacocoCoverage9XMLParserE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN21cmParseJacocoCoverage9XMLParserE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.cmParseJacocoCoverage::XMLParser", ptr %7, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #3
   %9 = getelementptr inbounds %"class.cmParseJacocoCoverage::XMLParser", ptr %7, i32 0, i32 2
@@ -882,7 +882,7 @@ define linkonce_odr dso_local void @_ZN21cmParseJacocoCoverage9XMLParserD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN21cmParseJacocoCoverage9XMLParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN21cmParseJacocoCoverage9XMLParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmParseJacocoCoverage::XMLParser", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %"class.cmParseJacocoCoverage::XMLParser", ptr %3, i32 0, i32 2

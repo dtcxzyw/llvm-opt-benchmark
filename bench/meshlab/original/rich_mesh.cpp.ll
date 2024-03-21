@@ -287,7 +287,7 @@ define void @_ZN8RichMeshC2ERK7QStringjPK12MeshDocumentS2_S2_bS2_(ptr noundef no
 
 29:                                               ; preds = %8
   call void @_ZN8IntValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichMesh, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichMesh, i32 0, i32 0, i32 2), ptr %21, align 8
   %30 = getelementptr inbounds %class.RichMesh, ptr %21, i32 0, i32 1
   %31 = load ptr, ptr %12, align 8
   store ptr %31, ptr %30, align 8
@@ -394,7 +394,7 @@ define linkonce_odr void @_ZN8RichMeshC2ERKS_(ptr noundef nonnull align 8 derefe
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichMesh, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichMesh, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.RichMesh, ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %class.RichMesh, ptr %8, i32 0, i32 1

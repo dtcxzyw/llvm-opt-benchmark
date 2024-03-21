@@ -1026,9 +1026,9 @@ define void @_ZN20WlanStatisticsDialogC2ER7QWidgetR11CaptureFilePKc(ptr noundef 
   %35 = load ptr, ptr %6, align 8
   %36 = load ptr, ptr %7, align 8
   call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %34, ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(48) %36, i32 noundef 232)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV20WlanStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV20WlanStatisticsDialog, i32 0, i32 0, i32 2), ptr %34, align 8
   %37 = getelementptr inbounds i8, ptr %34, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV20WlanStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %37, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV20WlanStatisticsDialog, i32 0, i32 1, i32 2), ptr %37, align 8
   %38 = getelementptr inbounds %class.WlanStatisticsDialog, ptr %34, i32 0, i32 1
   store i32 0, ptr %38, align 8
   %39 = getelementptr inbounds %class.WlanStatisticsDialog, ptr %34, i32 0, i32 2
@@ -1966,7 +1966,7 @@ define linkonce_odr void @_ZN18PercentBarDelegateC2EP7QWidget(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18PercentBarDelegate, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV18PercentBarDelegate, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2074,9 +2074,9 @@ define void @_ZN20WlanStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV20WlanStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV20WlanStatisticsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV20WlanStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV20WlanStatisticsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.WlanStatisticsDialog, ptr %3, i32 0, i32 3
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -2817,7 +2817,7 @@ define linkonce_odr void @_ZN25WlanNetworkTreeWidgetItemC2EP11QTreeWidgetPK9_wla
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %5, align 8
   call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %14, ptr noundef %15, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25WlanNetworkTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25WlanNetworkTreeWidgetItem, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.WlanNetworkTreeWidgetItem, ptr %14, i32 0, i32 4
   call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #3
   %17 = getelementptr inbounds %class.WlanNetworkTreeWidgetItem, ptr %14, i32 0, i32 5
@@ -6591,7 +6591,7 @@ define linkonce_odr void @_ZN25WlanNetworkTreeWidgetItemD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25WlanNetworkTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25WlanNetworkTreeWidgetItem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.WlanNetworkTreeWidgetItem, ptr %3, i32 0, i32 14
   call void @_ZN5QListIP15QTreeWidgetItemED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.WlanNetworkTreeWidgetItem, ptr %3, i32 0, i32 4
@@ -7119,7 +7119,7 @@ define linkonce_odr void @_ZN25WlanStationTreeWidgetItemC2EPK8_address(ptr nound
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %8, i32 noundef 1001)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25WlanStationTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25WlanStationTreeWidgetItem, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %class.WlanStationTreeWidgetItem, ptr %8, i32 0, i32 3
   store i32 0, ptr %9, align 8
   %10 = getelementptr inbounds %class.WlanStationTreeWidgetItem, ptr %8, i32 0, i32 4

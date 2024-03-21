@@ -86,7 +86,7 @@ define void @_ZN4LIEF5MachO11UUIDCommandC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -154,7 +154,7 @@ define void @_ZN4LIEF5MachO11UUIDCommandC2ERKS1_(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF5MachO11LoadCommandC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.LIEF::MachO::UUIDCommand", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.LIEF::MachO::UUIDCommand", ptr %8, i32 0, i32 1
@@ -206,7 +206,7 @@ define void @_ZN4LIEF5MachO11UUIDCommandC2ERKNS0_7details12uuid_commandE(ptr nou
   %13 = getelementptr inbounds %"struct.LIEF::MachO::details::uuid_command", ptr %12, i32 0, i32 1
   %14 = load i32, ptr %13, align 4
   call void @_ZN4LIEF5MachO11LoadCommandC2ENS0_18LOAD_COMMAND_TYPESEj(ptr noundef nonnull align 8 dereferenceable(56) %7, i64 noundef %11, i32 noundef %14)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4LIEF5MachO11UUIDCommandE, i32 0, i32 0, i32 2), ptr %7, align 8
   %15 = load ptr, ptr %4, align 8
   %16 = getelementptr inbounds %"struct.LIEF::MachO::details::uuid_command", ptr %15, i32 0, i32 2
   %17 = call noundef ptr @_ZSt5beginIKhLm16EEPT_RAT0__S1_(ptr noundef nonnull align 1 dereferenceable(16) %16) #8

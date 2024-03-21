@@ -193,7 +193,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz14SubchannelNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz14SubchannelNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %connectivity_state_ = getelementptr inbounds i8, ptr %this, i64 64
   store i32 0, ptr %connectivity_state_, align 8
   %socket_mu_ = getelementptr inbounds i8, ptr %this, i64 72
@@ -270,7 +270,7 @@ declare void @_ZN9grpc_core8channelz8BaseNodeD2Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core8channelz14SubchannelNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz14SubchannelNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz14SubchannelNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %trace_ = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @_ZN9grpc_core8channelz12ChannelTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %trace_) #16
   %target_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -753,7 +753,7 @@ invoke.cont74:                                    ; preds = %_ZN9grpc_core12expe
 
 if.then.i.i:                                      ; preds = %invoke.cont74
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.11, ptr %_M_reason.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #19

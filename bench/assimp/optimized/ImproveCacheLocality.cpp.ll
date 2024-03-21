@@ -78,7 +78,7 @@ $_ZN6Assimp6Logger13formatMessageIJERKfEENSt7__cxx1112basic_stringIcSt11char_tra
 define hidden void @_ZN6Assimp27ImproveCacheLocalityProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6Assimp11BaseProcessC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) #13
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp27ImproveCacheLocalityProcessE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6Assimp27ImproveCacheLocalityProcessE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mConfigCacheDepth = getelementptr inbounds i8, ptr %this, i64 24
   store i32 12, ptr %mConfigCacheDepth, align 8
   ret void

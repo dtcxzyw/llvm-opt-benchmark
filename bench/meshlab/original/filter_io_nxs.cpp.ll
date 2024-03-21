@@ -9730,15 +9730,15 @@ define void @_ZN17FilterIONXSPluginC1Ev(ptr noundef nonnull align 8 dereferencea
   call void @_ZN8IOPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef getelementptr inbounds ([11 x ptr], ptr @_ZTT17FilterIONXSPlugin, i64 0, i64 1))
   %21 = getelementptr inbounds i8, ptr %15, i64 32
   call void @_ZN12FilterPluginC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %21, ptr noundef getelementptr inbounds ([11 x ptr], ptr @_ZTT17FilterIONXSPlugin, i64 0, i64 4))
-  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, inrange i32 0, i32 4), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, i32 0, i32 4), ptr %15, align 8
   %22 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, inrange i32 1, i32 4), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, i32 1, i32 4), ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %15, i64 96
-  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, inrange i32 3, i32 6), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, i32 3, i32 6), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %15, i64 120
-  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, inrange i32 4, i32 3), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, i32 4, i32 3), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %15, i64 32
-  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, inrange i32 2, i32 4), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr], [24 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV17FilterIONXSPlugin, i32 0, i32 2, i32 4), ptr %25, align 8
   %26 = getelementptr inbounds [2 x i32], ptr %6, i64 0, i64 0
   store i32 0, ptr %26, align 4
   %27 = getelementptr inbounds i32, ptr %26, i64 1
@@ -9925,7 +9925,7 @@ define linkonce_odr void @_ZN13MeshLabPluginC2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 1
   store i8 1, ptr %4, align 8
   %5 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
@@ -9949,7 +9949,7 @@ define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MeshLabPlugin, ptr %3, i32 0, i32 2
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   ret void
@@ -19348,7 +19348,7 @@ define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull alig
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #3
@@ -19389,7 +19389,7 @@ define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 2
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 1
@@ -19666,7 +19666,7 @@ define linkonce_odr void @_ZN9VcgLoaderI6CMeshOEC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10MeshLoaderC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9VcgLoaderI6CMeshOE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9VcgLoaderI6CMeshOE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.VcgLoader, ptr %3, i32 0, i32 2
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds %class.VcgLoader, ptr %3, i32 0, i32 3
@@ -19900,9 +19900,9 @@ define linkonce_odr void @_ZN11KDTreeCloudC2E7QStringf(ptr noundef nonnull align
           to label %14 unwind label %20
 
 14:                                               ; preds = %11
-  store ptr getelementptr inbounds ({ [42 x ptr], [10 x ptr] }, ptr @_ZTV11KDTreeCloud, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [42 x ptr], [10 x ptr] }, ptr @_ZTV11KDTreeCloud, i32 0, i32 0, i32 2), ptr %10, align 8
   %15 = getelementptr inbounds i8, ptr %10, i64 176
-  store ptr getelementptr inbounds ({ [42 x ptr], [10 x ptr] }, ptr @_ZTV11KDTreeCloud, i32 0, inrange i32 1, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [42 x ptr], [10 x ptr] }, ptr @_ZTV11KDTreeCloud, i32 0, i32 1, i32 2), ptr %15, align 8
   ret void
 
 16:                                               ; preds = %3
@@ -19957,9 +19957,9 @@ define linkonce_odr void @_ZN10KDTreeSoupC2E7QStringf(ptr noundef nonnull align 
           to label %14 unwind label %23
 
 14:                                               ; preds = %11
-  store ptr getelementptr inbounds ({ [42 x ptr], [10 x ptr] }, ptr @_ZTV10KDTreeSoup, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [42 x ptr], [10 x ptr] }, ptr @_ZTV10KDTreeSoup, i32 0, i32 0, i32 2), ptr %10, align 8
   %15 = getelementptr inbounds i8, ptr %10, i64 176
-  store ptr getelementptr inbounds ({ [42 x ptr], [10 x ptr] }, ptr @_ZTV10KDTreeSoup, i32 0, inrange i32 1, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [42 x ptr], [10 x ptr] }, ptr @_ZTV10KDTreeSoup, i32 0, i32 1, i32 2), ptr %15, align 8
   %16 = getelementptr inbounds %class.KDTreeSoup, ptr %10, i32 0, i32 3
   store double 0.000000e+00, ptr %16, align 8
   %17 = getelementptr inbounds %class.KDTreeSoup, ptr %10, i32 0, i32 4
@@ -20120,7 +20120,7 @@ define linkonce_odr void @_ZN11MLExceptionC2ERKS_(ptr noundef nonnull align 8 de
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.MLException, ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 1
@@ -20140,7 +20140,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20576,7 +20576,7 @@ define linkonce_odr void @_ZN10MeshLoaderC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10MeshLoader, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10MeshLoader, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MeshLoader, ptr %3, i32 0, i32 1
   call void @_ZN3vcg6Point3IdEC2Eddd(ptr noundef nonnull align 8 dereferenceable(24) %4, double noundef 0.000000e+00, double noundef 0.000000e+00, double noundef 0.000000e+00)
   %5 = getelementptr inbounds %class.MeshLoader, ptr %3, i32 0, i32 2
@@ -20906,7 +20906,7 @@ define linkonce_odr void @_ZN10MeshLoaderD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10MeshLoader, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV10MeshLoader, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MeshLoader, ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorI11LoadTextureSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.MeshLoader, ptr %3, i32 0, i32 2
@@ -21856,7 +21856,7 @@ define linkonce_odr void @_ZN6QImageC2EOS_(ptr noundef nonnull align 8 dereferen
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.QImage, ptr %5, i32 0, i32 1
   store ptr null, ptr %6, align 8
   %7 = getelementptr inbounds %class.QImage, ptr %5, i32 0, i32 1
@@ -22419,7 +22419,7 @@ define linkonce_odr void @_ZN10VirtualBinI5SplatEC2E7QString(ptr noundef nonnull
 
 9:                                                ; preds = %2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV10VirtualBinI5SplatE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV10VirtualBinI5SplatE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %class.VirtualBin, ptr %8, i32 0, i32 1
   store i64 32768, ptr %10, align 8
   %11 = getelementptr inbounds %class.VirtualBin, ptr %8, i32 0, i32 2
@@ -22470,7 +22470,7 @@ define linkonce_odr void @_ZN10VirtualBinI5SplatED2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV10VirtualBinI5SplatE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV10VirtualBinI5SplatE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN13VirtualMemory5flushEv(ptr noundef nonnull align 8 dereferenceable(136) %3)
           to label %4 unwind label %6
 
@@ -22831,7 +22831,7 @@ define linkonce_odr void @_ZN10VirtualBinI8TriangleEC2E7QString(ptr noundef nonn
 
 9:                                                ; preds = %2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV10VirtualBinI8TriangleE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV10VirtualBinI8TriangleE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %class.VirtualBin.206, ptr %8, i32 0, i32 1
   store i64 32768, ptr %10, align 8
   %11 = getelementptr inbounds %class.VirtualBin.206, ptr %8, i32 0, i32 2
@@ -22863,7 +22863,7 @@ define linkonce_odr void @_ZN10VirtualBinI8TriangleED2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV10VirtualBinI8TriangleE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV10VirtualBinI8TriangleE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN13VirtualMemory5flushEv(ptr noundef nonnull align 8 dereferenceable(136) %3)
           to label %4 unwind label %6
 
@@ -23076,7 +23076,7 @@ define linkonce_odr void @_ZN13VirtualChunksD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV13VirtualChunks, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [36 x ptr] }, ptr @_ZTV13VirtualChunks, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN13VirtualMemory5flushEv(ptr noundef nonnull align 8 dereferenceable(136) %3)
           to label %4 unwind label %6
 
@@ -25302,7 +25302,7 @@ define linkonce_odr void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 der
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -25513,7 +25513,7 @@ define linkonce_odr void @_ZN2nx9TraversalD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2nx9TraversalE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN2nx9TraversalE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nx::Traversal", ptr %3, i32 0, i32 6
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
   %5 = getelementptr inbounds %"class.nx::Traversal", ptr %3, i32 0, i32 5

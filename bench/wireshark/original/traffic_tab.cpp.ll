@@ -1790,9 +1790,9 @@ define void @_ZN10TrafficTabC2EP7QWidget(ptr noundef nonnull align 8 dereference
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN19DetachableTabWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 1, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 1
   call void @_ZN5QListIiEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #9
   %12 = getelementptr inbounds %class.TrafficTab, ptr %8, i32 0, i32 2
@@ -1895,9 +1895,9 @@ define linkonce_odr void @_ZN19DetachableTabWidgetD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV19DetachableTabWidget, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.DetachableTabWidget, ptr %3, i32 0, i32 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #9
   call void @_ZN10QTabWidgetD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #9
@@ -1909,9 +1909,9 @@ define void @_ZN10TrafficTabD2Ev(ptr noundef nonnull align 8 dereferenceable(122
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr] }, ptr @_ZTV10TrafficTab, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.TrafficTab, ptr %3, i32 0, i32 2
   call void @_ZN4QMapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #9
   %6 = getelementptr inbounds %class.TrafficTab, ptr %3, i32 0, i32 1

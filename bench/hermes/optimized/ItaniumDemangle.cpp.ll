@@ -1391,7 +1391,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9DotS
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store i32 16843009, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9DotSuffixE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9DotSuffixE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Prefix.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %call2, ptr %Prefix.i.i.i, align 8
   %Suffix.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -3109,7 +3109,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11Spe
   %add.ptr13.i.i.i127 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -48
   %K.i.i.i.i128 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i128, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i127, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i127, align 8
   %Special.i.i.i132 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -32
   store ptr @.str.20, ptr %Special.i.i.i132, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i.i133 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i126, i64 -24
@@ -3220,7 +3220,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_11Spe
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Special.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr @.str.21, ptr %Special.i.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -3715,7 +3715,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %args, ptr %Special.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -3923,7 +3923,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr @.str.243, ptr %Name.i.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -3971,7 +3971,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i142 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -32
   %K.i.i.i.i143 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i143, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i142, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i142, align 8
   %Name.i.i.i147 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -16
   store ptr @.str.77, ptr %Name.i.i.i147, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i148 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i141, i64 -8
@@ -4019,7 +4019,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i163 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -32
   %K.i.i.i.i166 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i166, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i163, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i163, align 8
   %Name.i.i.i170 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -16
   store ptr @.str.244, ptr %Name.i.i.i170, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i171 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i162, i64 -8
@@ -4067,7 +4067,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i187 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -32
   %K.i.i.i.i190 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i190, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i187, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i187, align 8
   %Name.i.i.i194 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -16
   store ptr @.str.80, ptr %Name.i.i.i194, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i195 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i186, i64 -8
@@ -4115,7 +4115,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i211 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -32
   %K.i.i.i.i214 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i214, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i211, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i211, align 8
   %Name.i.i.i218 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -16
   store ptr @.str.81, ptr %Name.i.i.i218, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i219 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i210, i64 -8
@@ -4163,7 +4163,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i234 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -32
   %K.i.i.i.i237 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i237, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i234, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i234, align 8
   %Name.i.i.i241 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -16
   store ptr @.str.82, ptr %Name.i.i.i241, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i242 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i233, i64 -8
@@ -4211,7 +4211,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i257 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -32
   %K.i.i.i.i260 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i260, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i257, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i257, align 8
   %Name.i.i.i264 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -16
   store ptr @.str.83, ptr %Name.i.i.i264, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i265 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i256, i64 -8
@@ -4259,7 +4259,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i280 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -32
   %K.i.i.i.i283 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i283, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i280, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i280, align 8
   %Name.i.i.i287 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -16
   store ptr @.str.84, ptr %Name.i.i.i287, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i288 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -8
@@ -4307,7 +4307,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i303 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -32
   %K.i.i.i.i306 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i306, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i303, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i303, align 8
   %Name.i.i.i310 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -16
   store ptr @.str.245, ptr %Name.i.i.i310, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i311 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i302, i64 -8
@@ -4355,7 +4355,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i326 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -32
   %K.i.i.i.i329 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i329, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i326, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i326, align 8
   %Name.i.i.i333 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -16
   store ptr @.str.246, ptr %Name.i.i.i333, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i334 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i325, i64 -8
@@ -4403,7 +4403,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i349 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -32
   %K.i.i.i.i352 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i352, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i349, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i349, align 8
   %Name.i.i.i356 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -16
   store ptr @.str.247, ptr %Name.i.i.i356, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i357 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i348, i64 -8
@@ -4451,7 +4451,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i373 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -32
   %K.i.i.i.i376 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i376, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i373, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i373, align 8
   %Name.i.i.i380 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -16
   store ptr @.str.248, ptr %Name.i.i.i380, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i381 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i372, i64 -8
@@ -4499,7 +4499,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i397 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -32
   %K.i.i.i.i400 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i400, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i397, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i397, align 8
   %Name.i.i.i404 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -16
   store ptr @.str.249, ptr %Name.i.i.i404, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i405 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i396, i64 -8
@@ -4547,7 +4547,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i420 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -32
   %K.i.i.i.i421 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i421, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i420, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i420, align 8
   %Name.i.i.i425 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -16
   store ptr @.str.250, ptr %Name.i.i.i425, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i426 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i419, i64 -8
@@ -4595,7 +4595,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i441 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -32
   %K.i.i.i.i444 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i444, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i441, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i441, align 8
   %Name.i.i.i448 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -16
   store ptr @.str.91, ptr %Name.i.i.i448, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i449 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i440, i64 -8
@@ -4643,7 +4643,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i464 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -32
   %K.i.i.i.i467 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i467, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i464, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i464, align 8
   %Name.i.i.i471 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -16
   store ptr @.str.92, ptr %Name.i.i.i471, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i472 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i463, i64 -8
@@ -4691,7 +4691,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i487 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -32
   %K.i.i.i.i490 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i490, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i487, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i487, align 8
   %Name.i.i.i494 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -16
   store ptr @.str.251, ptr %Name.i.i.i494, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i495 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i486, i64 -8
@@ -4739,7 +4739,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i511 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -32
   %K.i.i.i.i512 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i512, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i511, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i511, align 8
   %Name.i.i.i516 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -16
   store ptr @.str.252, ptr %Name.i.i.i516, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i517 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i510, i64 -8
@@ -4787,7 +4787,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i532 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -32
   %K.i.i.i.i535 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i535, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i532, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i532, align 8
   %Name.i.i.i539 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -16
   store ptr @.str.253, ptr %Name.i.i.i539, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i540 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i531, i64 -8
@@ -4835,7 +4835,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i556 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -32
   %K.i.i.i.i559 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i559, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i556, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i556, align 8
   %Name.i.i.i563 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -16
   store ptr @.str.254, ptr %Name.i.i.i563, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i564 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i555, i64 -8
@@ -4883,7 +4883,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i579 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -32
   %K.i.i.i.i582 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i582, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i579, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i579, align 8
   %Name.i.i.i586 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -16
   store ptr @.str.131, ptr %Name.i.i.i586, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i587 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i578, i64 -8
@@ -5601,7 +5601,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i592 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i591, i64 -32
   %K.i.i.i.i593 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i591, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i593, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i592, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i592, align 8
   %Name.i.i.i597 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i591, i64 -16
   store ptr @.str, ptr %Name.i.i.i597, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i591, i64 -8
@@ -5754,7 +5754,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Nes
   %add.ptr13.i.i.i.i531 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i530, i64 -32
   %K.i.i.i.i.i532 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i530, i64 -24
   store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i532, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i531, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i531, align 8
   %Qual.i.i.i.i536 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i530, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Qual.i.i.i.i536, align 8
   %Name.i.i.i.i537 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i530, i64 -8
@@ -5874,7 +5874,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr13.i.i.i468 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i467, i64 -32
   %K.i.i.i.i469 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i467, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i469, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i468, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i468, align 8
   %Name.i.i.i473 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i467, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Name.i.i.i473, align 8
   %TemplateArgs.i.i.i474 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i467, i64 -8
@@ -6005,7 +6005,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Nes
   %add.ptr13.i.i.i.i386 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i385, i64 -32
   %K.i.i.i.i.i387 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i385, i64 -24
   store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i387, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i386, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i386, align 8
   %Qual.i.i.i.i391 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i385, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Qual.i.i.i.i391, align 8
   %Name.i.i.i.i392 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i385, i64 -8
@@ -6137,7 +6137,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Nes
   %add.ptr13.i.i.i.i307 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i306, i64 -32
   %K.i.i.i.i.i308 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i306, i64 -24
   store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i308, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i307, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i307, align 8
   %Qual.i.i.i.i312 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i306, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Qual.i.i.i.i312, align 8
   %Name.i.i.i.i313 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i306, i64 -8
@@ -6275,7 +6275,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_27Exp
   %add.ptr13.i.i.i.i232 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i231, i64 -16
   %K.i.i.i.i.i233 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i231, i64 -8
   store <4 x i8> <i8 35, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i233, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle27ExpandedSpecialSubstitutionE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i232, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle27ExpandedSpecialSubstitutionE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i232, align 8
   %SSK.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i231, i64 -4
   store i32 %81, ptr %SSK.i.i.i.i, align 4
   %.pre993 = load ptr, ptr %this, align 16
@@ -6441,7 +6441,7 @@ if.then3.i159:                                    ; preds = %if.then3.i159.sink.
   %add.ptr13.i.i.i77.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -32
   %K.i.i.i.i78.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -24
   store <4 x i8> <i8 37, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i78.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12CtorDtorNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i77.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12CtorDtorNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i77.i, align 8
   %Basename.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -16
   store ptr %SoFar.i.8, ptr %Basename.i.i.i.i, align 8
   %IsDtor.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i76.i, i64 -8
@@ -6485,7 +6485,7 @@ if.end4.i176:                                     ; preds = %if.then3.i159, %_ZN
   %add.ptr13.i.i.i.i169 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i168, i64 -32
   %K.i.i.i.i.i170 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i168, i64 -24
   store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i170, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i169, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i169, align 8
   %Qual.i.i.i.i174 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i168, i64 -16
   store ptr %SoFar.i.8, ptr %Qual.i.i.i.i174, align 8
   %Name.i.i.i.i175 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i168, i64 -8
@@ -6614,7 +6614,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Nes
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -32
   %K.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -24
   store <4 x i8> <i8 23, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10NestedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i, align 8
   %Qual.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -16
   store ptr %SoFar.i.1.ph, ptr %Qual.i.i.i.i, align 8
   %Name.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -8
@@ -6815,7 +6815,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_9Loca
   %add.ptr13.i.i.i1088 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1087, i64 -32
   %K.i.i.i.i1089 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1087, i64 -24
   store <4 x i8> <i8 24, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i1089, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9LocalNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i1088, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9LocalNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i1088, align 8
   %Encoding.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1087, i64 -16
   store ptr %call2.i35, ptr %Encoding.i.i.i, align 8
   %Entity.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i1087, i64 -8
@@ -6933,7 +6933,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE17parseUnscoped
   %add.ptr13.i.i.i692 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i691, i64 -32
   %K.i.i.i.i693 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i691, i64 -24
   store <4 x i8> <i8 34, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i693, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16StdQualifiedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i692, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16StdQualifiedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i692, align 8
   %Child.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i691, i64 -16
   store ptr %call4.i, ptr %Child.i.i.i, align 8
   br label %if.end38
@@ -7070,7 +7070,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %retval.0.i66896, ptr %Name.i.i.i, align 8
   %TemplateArgs.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -7268,7 +7268,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Tem
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 28, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20TemplateArgumentPackE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20TemplateArgumentPackE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Elements.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %19, ptr %Elements.i.i.i, align 8
   %Elements_.sroa.2.0.Elements.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -7365,7 +7365,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12EnableIfA
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 9, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12EnableIfAttrE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12EnableIfAttrE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Conditions.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %Conditions.i.i, align 8
   %Conditions_.sroa.2.0.Conditions.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -7422,7 +7422,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle16FunctionE
   %11 = load i8, ptr %args9, align 1
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
   store <4 x i8> <i8 18, i8 0, i8 1, i8 0>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FunctionEncodingE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FunctionEncodingE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Ret.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr %7, ptr %Ret.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
@@ -7482,7 +7482,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.11, ptr %Special.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -7534,7 +7534,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.12, ptr %Special.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -7586,7 +7586,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.13, ptr %Special.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -7638,7 +7638,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.14, ptr %Special.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -7882,7 +7882,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.15, ptr %Special.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -7935,7 +7935,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle21CtorVtabl
   %8 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 21, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle21CtorVtableSpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle21CtorVtableSpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %FirstType.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %FirstType.i.i, align 8
   %SecondType.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -7985,7 +7985,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.17, ptr %Special.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -8037,7 +8037,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.18, ptr %Special.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -8089,7 +8089,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11SpecialNa
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 20, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11SpecialNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Special.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.19, ptr %Special.i.i, align 8
   %Special_.sroa.2.0.Special.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -8559,7 +8559,7 @@ if.end35:                                         ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
   store <4 x i8> <i8 36, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19SpecialSubstitutionE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19SpecialSubstitutionE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %SSK.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -4
   store i32 %.sink, ptr %SSK.i.i.i, align 4
   %call36 = tail call fastcc noundef ptr @_ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE12parseAbiTagsEPNS0_4NodeE(ptr noundef nonnull align 16 dereferenceable(4864) %this, ptr noundef nonnull %add.ptr13.i.i.i)
@@ -9208,7 +9208,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12Tem
   %add.ptr13.i.i.i115 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -24
   store <4 x i8> <i8 30, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12TemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i115, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12TemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i115, align 8
   %Params.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -16
   store ptr %52, ptr %Params.i.i.i, align 8
   %Params_.sroa.2.0.Params.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i114, i64 -8
@@ -9263,7 +9263,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20NameWithT
   %8 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Name.i.i, align 8
   %TemplateArgs.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -9398,7 +9398,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr @.str.25, ptr %Name.i.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -9451,7 +9451,7 @@ if.end19:                                         ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr13.i.i.i28 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -48
   %K.i.i.i.i29 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -40
   store <4 x i8> <i8 31, i8 2, i8 2, i8 2>, ptr %K.i.i.i.i29, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle24ForwardTemplateReferenceE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i28, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle24ForwardTemplateReferenceE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i28, align 8
   %Index.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -32
   store i64 %Index.2, ptr %Index.i.i.i, align 8
   %Ref.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i27, i64 -24
@@ -9633,7 +9633,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Enc
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -56
   store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Prefix.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   store ptr @.str.26, ptr %Prefix.i.i.i, align 8
   %Prefix_.sroa.2.0.Prefix.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
@@ -9768,7 +9768,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Abi
   store i8 %17, ptr %ArrayCache.i.i.i.i, align 2
   %FunctionCache.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -37
   store i8 %18, ptr %FunctionCache.i.i.i.i, align 1
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10AbiTagAttrE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10AbiTagAttrE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Base.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %N.addr.011, ptr %Base.i.i.i, align 8
   %Tag.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -9891,7 +9891,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15Unn
   %add.ptr13.i.i.i183 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i182, i64 -32
   %K.i.i.i.i187 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i182, i64 -24
   store <4 x i8> <i8 39, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i187, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15UnnamedTypeNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i183, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15UnnamedTypeNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i183, align 8
   %Count.i.i.i191 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i182, i64 -16
   store ptr %retval.sroa.0.0.i215, ptr %Count.i.i.i191, align 8
   %Count_.sroa.2.0.Count.sroa_idx.i.i.i192 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i182, i64 -8
@@ -10115,7 +10115,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15Clo
   %add.ptr13.i.i.i60 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -48
   %K.i.i.i.i64 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -40
   store <4 x i8> <i8 40, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i64, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15ClosureTypeNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i60, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15ClosureTypeNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i60, align 8
   %Params.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -32
   store ptr %Params.i.sroa.0.0, ptr %Params.i.i.i, align 8
   %Params_.sroa.2.0.Params.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i59, i64 -24
@@ -10293,7 +10293,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_21Str
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 41, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle21StructuredBindingNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle21StructuredBindingNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Bindings.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %57, ptr %Bindings.i.i.i, align 8
   %Bindings_.sroa.2.0.Bindings.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -10544,7 +10544,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -12202,7 +12202,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
   store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Prefix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr %args, ptr %Prefix.i.i, align 8
   %Prefix_.sroa.2.0.Prefix.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
@@ -12457,7 +12457,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16Flo
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -32
   %K.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -24
   store <4 x i8> <i8 62, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIfEE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIfEE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i, align 8
   %Contents.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -16
   store ptr %incdec.ptr83, ptr %Contents.i.i.i.i, align 8
   %Contents_.sroa.2.0.Contents.sroa_idx.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -8
@@ -12541,7 +12541,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16Flo
   %add.ptr13.i.i.i.i89 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -32
   %K.i.i.i.i.i90 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -24
   store <4 x i8> <i8 63, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i90, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIdEE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i89, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIdEE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i89, align 8
   %Contents.i.i.i.i94 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -16
   store ptr %incdec.ptr87, ptr %Contents.i.i.i.i94, align 8
   %Contents_.sroa.2.0.Contents.sroa_idx.i.i.i.i95 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i88, i64 -8
@@ -12625,7 +12625,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_16Flo
   %add.ptr13.i.i.i.i134 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -32
   %K.i.i.i.i.i135 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -24
   store <4 x i8> <i8 64, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i135, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIeEE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i134, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle16FloatLiteralImplIeEE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i134, align 8
   %Contents.i.i.i.i139 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -16
   store ptr %incdec.ptr91, ptr %Contents.i.i.i.i139, align 8
   %Contents_.sroa.2.0.Contents.sroa_idx.i.i.i.i140 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i133, i64 -8
@@ -13044,7 +13044,7 @@ return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i126 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 54, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i126, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13FunctionParamE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13FunctionParamE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Number.i.i.i130 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %retval.sroa.0.0.i93.sink, ptr %Number.i.i.i130, align 8
   %Number_.sroa.2.0.Number.sroa_idx.i.i.i131 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -13322,7 +13322,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Fold
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -56
   store <4 x i8> <i8 57, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8FoldExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8FoldExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Pack.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   store ptr %Pack.0, ptr %Pack.i.i.i, align 8
   %Init.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
@@ -13391,7 +13391,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Bin
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store <4 x i8> <i8 42, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BinaryExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BinaryExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %LHS.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %call, ptr %LHS.i.i.i, align 8
   %InfixOperator.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -13453,7 +13453,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Pre
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store <4 x i8> <i8 53, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10PrefixExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10PrefixExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Prefix.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %Kind.coerce0, ptr %Prefix.i.i.i, align 8
   %Prefix_.sroa.2.0.Prefix.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -13510,7 +13510,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 48, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %CastKind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.34, ptr %CastKind.i.i, align 8
   %CastKind_.sroa.2.0.CastKind.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -13567,7 +13567,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CallExprEJ
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 50, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CallExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CallExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Callee.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Callee.i.i, align 8
   %Args.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -13830,7 +13830,7 @@ return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i54 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store <4 x i8> <i8 55, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i54, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle14ConversionExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle14ConversionExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Type.i.i.i58 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %call2, ptr %Type.i.i.i58, align 8
   %Expressions.i.i.i59 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -13890,7 +13890,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10DeleteExp
   %11 = and i8 %10, 1
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 52, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10DeleteExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10DeleteExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Op.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Op.i.i, align 8
   %IsGlobal.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -13943,7 +13943,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 48, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %CastKind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.37, ptr %CastKind.i.i, align 8
   %CastKind_.sroa.2.0.CastKind.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -14034,7 +14034,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %call2, ptr %Name.i.i.i, align 8
   %TemplateArgs.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -14117,7 +14117,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr13.i.i.i251 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -32
   %K.i.i.i.i252 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i252, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i251, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i251, align 8
   %Name.i.i.i256 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -16
   store ptr %call.i13, ptr %Name.i.i.i256, align 8
   %TemplateArgs.i.i.i257 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i250, i64 -8
@@ -14163,7 +14163,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Qua
   %add.ptr13.i.i.i24 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -32
   %K.i.i.i.i25 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -24
   store <4 x i8> <i8 22, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i25, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i24, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i24, align 8
   %Qualifier.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -16
   store ptr %SoFar.1, ptr %Qualifier.i.i.i, align 8
   %Name.i.i.i29 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i23, i64 -8
@@ -14215,7 +14215,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Qua
   %add.ptr13.i.i.i44 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -32
   %K.i.i.i.i45 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -24
   store <4 x i8> <i8 22, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i45, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i44, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i44, align 8
   %Qualifier.i.i.i49 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -16
   store ptr %SoFar.1, ptr %Qualifier.i.i.i49, align 8
   %Name.i.i.i50 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i43, i64 -8
@@ -14295,7 +14295,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19Glo
   %add.ptr13.i.i.i106 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -32
   %K.i.i.i.i107 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -24
   store <4 x i8> <i8 33, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i107, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19GlobalQualifiedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i106, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19GlobalQualifiedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i106, align 8
   %Child.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i105, i64 -16
   store ptr %call35, ptr %Child.i.i.i, align 8
   br label %return
@@ -14378,7 +14378,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr13.i.i.i280 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -32
   %K.i.i.i.i281 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i281, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i280, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i280, align 8
   %Name.i.i.i285 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -16
   store ptr %call.i126346, ptr %Name.i.i.i285, align 8
   %TemplateArgs.i.i.i286 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i279, i64 -8
@@ -14428,7 +14428,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Qua
   %add.ptr13.i.i.i149 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -32
   %K.i.i.i.i150 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -24
   store <4 x i8> <i8 22, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i150, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i149, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i149, align 8
   %Qualifier.i.i.i154 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -16
   store ptr %SoFar.3345, ptr %Qualifier.i.i.i154, align 8
   %Name.i.i.i155 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -8
@@ -14475,7 +14475,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_19Glo
   %add.ptr13.i.i.i171 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -32
   %K.i.i.i.i172 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -24
   store <4 x i8> <i8 33, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i172, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19GlobalQualifiedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i171, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19GlobalQualifiedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i171, align 8
   %Child.i.i.i176 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i170, i64 -16
   br label %do.cond.sink.split
 
@@ -14567,7 +14567,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr13.i.i.i207 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -32
   %K.i.i.i.i208 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i208, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i207, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i207, align 8
   %Name.i.i.i212 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -16
   store ptr %call69, ptr %Name.i.i.i212, align 8
   %TemplateArgs.i.i.i213 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i206, i64 -8
@@ -14619,7 +14619,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Qua
   %add.ptr13.i.i.i229 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -32
   %K.i.i.i.i230 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -24
   store <4 x i8> <i8 22, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i230, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i229, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13QualifiedNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i229, align 8
   %Qualifier.i.i.i234 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -16
   store ptr %SoFar.5, ptr %Qualifier.i.i.i234, align 8
   %Name.i.i.i235 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i228, i64 -8
@@ -14676,7 +14676,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 46, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10MemberExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10MemberExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %LHS.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %LHS.i.i, align 8
   %Kind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -14731,7 +14731,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10MemberExp
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 46, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10MemberExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10MemberExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %LHS.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %LHS.i.i, align 8
   %Kind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -14786,7 +14786,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle18ArraySubs
   %8 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 43, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle18ArraySubscriptExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle18ArraySubscriptExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Op1.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Op1.i.i, align 8
   %Op2.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -14873,7 +14873,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Bra
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store <4 x i8> <i8 65, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BracedExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BracedExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Elem.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %call4, ptr %Elem.i.i.i, align 8
   %Init.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -14933,7 +14933,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Bra
   %add.ptr13.i.i.i19 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -48
   %K.i.i.i.i20 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -40
   store <4 x i8> <i8 65, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i20, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BracedExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i19, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10BracedExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i19, align 8
   %Elem.i.i.i24 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -32
   store ptr %call15, ptr %Elem.i.i.i24, align 8
   %Init.i.i.i25 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i18, i64 -24
@@ -14998,7 +14998,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15Bra
   %add.ptr13.i.i.i42 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i41, i64 -48
   %K.i.i.i.i43 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i41, i64 -40
   store <4 x i8> <i8 66, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i43, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15BracedRangeExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i42, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15BracedRangeExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i42, align 8
   %First.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i41, i64 -32
   store ptr %call29, ptr %First.i.i.i, align 8
   %Last.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i41, i64 -24
@@ -15060,7 +15060,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListE
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 56, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12InitListExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12InitListExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr null, ptr %Ty.i.i, align 8
   %Inits.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -15114,7 +15114,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PostfixEx
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args1, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 44, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11PostfixExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11PostfixExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Child.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Child.i.i, align 8
   %Operator.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -15427,7 +15427,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewE
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -56
   store <4 x i8> <i8 51, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle7NewExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle7NewExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %ExprList.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   store ptr %17, ptr %ExprList.i.i.i, align 8
   %ExprList_.sroa.2.0.ExprList.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
@@ -15490,7 +15490,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_7NewE
   %add.ptr13.i.i.i144 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -64
   %K.i.i.i.i151 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -56
   store <4 x i8> <i8 51, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i151, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle7NewExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i144, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle7NewExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i144, align 8
   %ExprList.i.i.i155 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -48
   store ptr %17, ptr %ExprList.i.i.i155, align 8
   %ExprList_.sroa.2.0.ExprList.sroa_idx.i.i.i156 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i143, i64 -40
@@ -15557,7 +15557,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
   store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Prefix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr @.str.58, ptr %Prefix.i.i, align 8
   %Prefix_.sroa.2.0.Prefix.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
@@ -15615,7 +15615,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15Condition
   %9 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 45, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15ConditionalExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15ConditionalExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Cond.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Cond.i.i, align 8
   %Then.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -15668,7 +15668,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 48, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %CastKind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.67, ptr %CastKind.i.i, align 8
   %CastKind_.sroa.2.0.CastKind.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -15723,7 +15723,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8CastExprEJ
   %8 = load ptr, ptr %args3, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 48, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8CastExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %CastKind.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr @.str.72, ptr %CastKind.i.i, align 8
   %CastKind_.sroa.2.0.CastKind.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -15777,7 +15777,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22Parameter
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 29, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Child.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Child.i.i, align 8
   ret ptr %add.ptr13.i.i
@@ -15827,7 +15827,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
   store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Prefix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr %args, ptr %Prefix.i.i, align 8
   %Prefix_.sroa.2.0.Prefix.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
@@ -15883,7 +15883,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19SizeofPar
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 49, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19SizeofParamPackExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19SizeofParamPackExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Pack.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Pack.i.i, align 8
   ret ptr %add.ptr13.i.i
@@ -15931,7 +15931,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Enclosing
   %7 = load ptr, ptr %args1, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -56
   store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Prefix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -48
   store ptr @.str.74, ptr %Prefix.i.i, align 8
   %Prefix_.sroa.2.0.Prefix.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
@@ -15989,7 +15989,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13NodeArray
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 0, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13NodeArrayNodeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13NodeArrayNodeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Array.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %agg.tmp.sroa.0.0.copyload.i, ptr %Array.i.i, align 8
   %Array_.sroa.2.0.Array.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -16042,7 +16042,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle12InitListE
   %agg.tmp.sroa.2.0.copyload.i = load i64, ptr %agg.tmp.sroa.2.0..sroa_idx.i, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 56, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12InitListExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12InitListExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Ty.i.i, align 8
   %Inits.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -16095,7 +16095,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -16145,7 +16145,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ThrowExprE
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 58, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9ThrowExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9ThrowExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Op.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Op.i.i, align 8
   ret ptr %add.ptr13.i.i
@@ -16249,7 +16249,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_14Int
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store <4 x i8> <i8 61, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle14IntegerLiteralE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle14IntegerLiteralE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Type.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %Lit.coerce0, ptr %Type.i.i.i, align 8
   %Type_.sroa.2.0.Type.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -16309,7 +16309,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8BoolExprEJ
   %frombool.i.i = zext i1 %tobool.i to i8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
   store <4 x i8> <i8 59, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8BoolExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8BoolExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Value.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -4
   store i8 %frombool.i.i, ptr %Value.i.i, align 4
   ret ptr %add.ptr13.i.i
@@ -16360,7 +16360,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15IntegerCa
   %Integer.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   %8 = load <2 x ptr>, ptr %args1, align 8
   store <4 x i8> <i8 60, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15IntegerCastExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15IntegerCastExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   store ptr %7, ptr %Ty.i.i, align 8
   store <2 x ptr> %8, ptr %Integer.i.i, align 8
   ret ptr %add.ptr13.i.i
@@ -18011,7 +18011,7 @@ _ZN12OutputStreampLEc.exit:                       ; preds = %entry, %if.then.i._
   %K.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   %RHSComponentCache.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 9
   store <4 x i8> <i8 29, i8 1, i8 1, i8 1>, ptr %K.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %Child.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   store ptr %7, ptr %Child.i, align 8
   %8 = load ptr, ptr %this, align 8
@@ -19540,7 +19540,7 @@ if.end13:                                         ; preds = %if.end11.i, %_ZN12_
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -64
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -56
   store <4 x i8> <i8 47, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13EnclosingExprE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Prefix.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   store ptr @.str.26, ptr %Prefix.i.i.i, align 8
   %Prefix_.sroa.2.0.Prefix.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
@@ -19703,7 +19703,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr13.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -32
   %K.i.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i52, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i51, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i51, align 8
   %Name.i.i.i56 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -16
   store ptr %call.i, ptr %Name.i.i.i56, align 8
   %TemplateArgs.i.i.i57 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -8
@@ -19792,7 +19792,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr13.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -32
   %K.i.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i.i, align 8
   %Name.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -16
   store ptr %call.i93, ptr %Name.i.i.i.i, align 8
   %TemplateArgs.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i.i, i64 -8
@@ -19844,7 +19844,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Dtor
   %add.ptr13.i.i.i80 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -32
   %K.i.i.i.i81 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -24
   store <4 x i8> <i8 38, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i81, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8DtorNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i80, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8DtorNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i80, align 8
   %Base.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i79, i64 -16
   store ptr %storemerge.i132, ptr %Base.i.i.i, align 8
   br label %return
@@ -19919,7 +19919,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Nam
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 32, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20NameWithTemplateArgsE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %call10, ptr %Name.i.i.i, align 8
   %TemplateArgs.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -20051,7 +20051,7 @@ return.sink.split:                                ; preds = %_ZN12_GLOBAL__N_120
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i13 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i13, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i17 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %this.val.sink, ptr %Name.i.i.i17, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i18 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -20106,7 +20106,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   %7 = load <2 x ptr>, ptr %args, align 8
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   store <2 x ptr> %7, ptr %Name.i.i, align 8
   ret ptr %add.ptr13.i.i
 }
@@ -20311,7 +20311,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr @.str.146, ptr %Name.i.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -20528,7 +20528,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i94 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i93, i64 -32
   %K.i.i.i.i97 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i93, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i97, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i94, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i94, align 8
   %Name.i.i.i101 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i93, i64 -16
   store ptr @.str.160, ptr %Name.i.i.i101, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i102 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i93, i64 -8
@@ -20576,7 +20576,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i117 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i116, i64 -32
   %K.i.i.i.i120 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i116, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i120, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i117, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i117, align 8
   %Name.i.i.i124 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i116, i64 -16
   store ptr @.str.161, ptr %Name.i.i.i124, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i125 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i116, i64 -8
@@ -20634,7 +20634,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i149 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -32
   %K.i.i.i.i152 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i152, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i149, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i149, align 8
   %Name.i.i.i156 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -16
   store ptr @.str.162, ptr %Name.i.i.i156, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i157 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i148, i64 -8
@@ -20916,7 +20916,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i221 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i220, i64 -32
   %K.i.i.i.i224 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i220, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i224, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i221, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i221, align 8
   %Name.i.i.i228 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i220, i64 -16
   store ptr @.str.183, ptr %Name.i.i.i228, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i229 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i220, i64 -8
@@ -21012,7 +21012,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i261 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i260, i64 -32
   %K.i.i.i.i264 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i260, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i264, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i261, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i261, align 8
   %Name.i.i.i268 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i260, i64 -16
   store ptr @.str.188, ptr %Name.i.i.i268, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i269 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i260, i64 -8
@@ -21150,7 +21150,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -21201,7 +21201,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -21251,7 +21251,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle22Conversio
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 4, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ConversionOperatorTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ConversionOperatorTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Ty.i.i, align 8
   ret ptr %add.ptr13.i.i
@@ -21300,7 +21300,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -21349,7 +21349,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr13.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr @.str.154, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -21399,7 +21399,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle15LiteralOp
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 19, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15LiteralOperatorE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15LiteralOperatorE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %OpName.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %OpName.i.i, align 8
   ret ptr %add.ptr13.i.i
@@ -21448,7 +21448,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -21499,7 +21499,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -21550,7 +21550,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -23469,7 +23469,7 @@ _ZN12OutputStream4growEm.exit.i:                  ; preds = %if.then.i._ZN12Outp
   %5 = load ptr, ptr %Pack, align 8
   %K.i.i = getelementptr inbounds i8, ptr %PPE, i64 8
   store <4 x i8> <i8 29, i8 1, i8 1, i8 1>, ptr %K.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 0, inrange i32 0, i64 2), ptr %PPE, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ParameterPackExpansionE, i64 0, i32 0, i64 2), ptr %PPE, align 8
   %Child.i = getelementptr inbounds i8, ptr %PPE, i64 16
   store ptr %5, ptr %Child.i, align 8
   call void @_ZNK4llvh16itanium_demangle22ParameterPackExpansion9printLeftER12OutputStream(ptr noundef nonnull align 8 dereferenceable(24) %PPE, ptr noundef nonnull align 8 dereferenceable(32) %S)
@@ -24865,7 +24865,7 @@ entry:
   %RHSComponentCache.i = getelementptr inbounds i8, ptr %this, i64 9
   %ArrayCache.i = getelementptr inbounds i8, ptr %this, i64 10
   %FunctionCache.i = getelementptr inbounds i8, ptr %this, i64 11
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ParameterPackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ParameterPackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %Data = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %Data_.coerce0, ptr %Data, align 8
   %Data_.sroa.2.0.Data.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
@@ -26616,7 +26616,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Name
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Name.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr @.str.266, ptr %Name.i.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -26687,7 +26687,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12Noe
   %add.ptr13.i.i.i34 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -32
   %K.i.i.i.i35 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -24
   store <4 x i8> <i8 16, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i35, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12NoexceptSpecE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i34, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12NoexceptSpecE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i34, align 8
   %E.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i33, i64 -16
   store ptr %call8, ptr %E.i.i.i, align 8
   br label %if.end34
@@ -26840,7 +26840,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_20Dyn
   %add.ptr13.i.i.i92 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -32
   %K.i.i.i.i93 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -24
   store <4 x i8> <i8 17, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i93, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20DynamicExceptionSpecE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i92, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20DynamicExceptionSpecE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i92, align 8
   %Types.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -16
   store ptr %38, ptr %Types.i.i.i, align 8
   %Types_.sroa.2.0.Types.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i91, i64 -8
@@ -27069,7 +27069,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_12Fun
   %add.ptr13.i.i.i242 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -64
   %K.i.i.i.i246 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -56
   store <4 x i8> <i8 15, i8 0, i8 1, i8 0>, ptr %K.i.i.i.i246, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12FunctionTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i242, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle12FunctionTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i242, align 8
   %Ret.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -48
   store ptr %call41, ptr %Ret.i.i.i, align 8
   %Params.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i241, i64 -40
@@ -27259,7 +27259,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_13Obj
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store <4 x i8> <i8 10, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ObjCProtoNameE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ObjCProtoNameE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Ty.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %call14, ptr %Ty.i.i.i, align 8
   %Protocol.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -27312,7 +27312,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_17Ven
   %add.ptr13.i.i.i69 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -48
   %K.i.i.i.i73 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -40
   store <4 x i8> <i8 2, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i73, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle17VendorExtQualTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i69, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle17VendorExtQualTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i69, align 8
   %Ty.i.i.i77 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -32
   store ptr %call20, ptr %Ty.i.i.i77, align 8
   %Ext.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i68, i64 -24
@@ -27426,7 +27426,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_8Qual
   store i8 %38, ptr %ArrayCache.i.i.i.i98, align 2
   %FunctionCache.i.i.i.i99 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i94, i64 -21
   store i8 %39, ptr %FunctionCache.i.i.i.i99, align 1
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8QualTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i95, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8QualTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i95, align 8
   %Quals.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i94, i64 -20
   store i32 %CVR.2.i, ptr %Quals.i.i.i, align 4
   %Child.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i94, i64 -16
@@ -27481,7 +27481,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle8NameTypeEJ
   %add.ptr.i1.i = getelementptr inbounds i8, ptr %args, i64 %call.i.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   store <4 x i8> <i8 7, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle8NameTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Name.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %args, ptr %Name.i.i, align 8
   %Name_.sroa.2.0.Name.sroa_idx.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -27601,7 +27601,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_15Pix
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
   store <4 x i8> <i8 26, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15PixelVectorTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle15PixelVectorTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Dimension.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -16
   store ptr %add.ptr.i5, ptr %Dimension.i.i.i, align 8
   %Dimension_.sroa.2.0.Dimension.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -8
@@ -27684,7 +27684,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Vec
   %add.ptr13.i.i.i51 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -48
   %K.i.i.i.i52 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -40
   store <4 x i8> <i8 25, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i52, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i51, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i51, align 8
   %BaseType.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -32
   store ptr %call30, ptr %BaseType.i.i.i, align 8
   %Dimension.i.i.i56 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i50, i64 -24
@@ -27739,7 +27739,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_10Vec
   %add.ptr13.i.i.i72 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -48
   %K.i.i.i.i77 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -40
   store <4 x i8> <i8 25, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i77, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i72, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i72, align 8
   %BaseType.i.i.i81 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -32
   store ptr %call37, ptr %BaseType.i.i.i81, align 8
   %Dimension.i.i.i82 = getelementptr inbounds i8, ptr %add.ptr12.i.i.i71, i64 -24
@@ -27836,7 +27836,7 @@ _ZN4llvh16itanium_demangle2DbIN12_GLOBAL__N_116DefaultAllocatorEE4makeINS0_22Ela
   %add.ptr13.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -48
   %K.i.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -40
   store <4 x i8> <i8 6, i8 1, i8 1, i8 1>, ptr %K.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ElaboratedTypeSpefTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle22ElaboratedTypeSpefTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i.i, align 8
   %Kind.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -32
   store ptr %ElabSpef.sroa.0.0, ptr %Kind.i.i.i, align 8
   %Kind_.sroa.2.0.Kind.sroa_idx.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i.i, i64 -24
@@ -27900,7 +27900,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle11PointerTy
   store i8 1, ptr %ArrayCache.i.i.i, align 2
   %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
   store i8 1, ptr %FunctionCache.i.i.i, align 1
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11PointerTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle11PointerTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Pointee.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Pointee.i.i, align 8
   ret ptr %add.ptr13.i.i
@@ -27957,7 +27957,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle13Reference
   store i8 1, ptr %ArrayCache.i.i.i, align 2
   %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
   store i8 1, ptr %FunctionCache.i.i.i, align 1
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ReferenceTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle13ReferenceTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Pointee.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %Pointee.i.i, align 8
   %RK.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8
@@ -28009,7 +28009,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQu
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 5, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20PostfixQualifiedTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20PostfixQualifiedTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Ty.i.i, align 8
   %Postfix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -28061,7 +28061,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle20PostfixQu
   %7 = load ptr, ptr %args, align 8
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 5, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20PostfixQualifiedTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle20PostfixQualifiedTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %Ty.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %Ty.i.i, align 8
   %Postfix.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -29242,7 +29242,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle10VectorTyp
   %SecondChar.0.i.i = select i1 %cmp.i1.i, ptr inttoptr (i64 1 to ptr), ptr %agg.tmp4.sroa.2.0.copyload.i
   %K.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -40
   store <4 x i8> <i8 25, i8 1, i8 1, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle10VectorTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %BaseType.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -32
   store ptr %7, ptr %BaseType.i.i, align 8
   %Dimension.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
@@ -29604,7 +29604,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle9ArrayTypeE
   %Dimension.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -24
   %8 = load <2 x ptr>, ptr %args1, align 8
   store <4 x i8> <i8 14, i8 0, i8 0, i8 1>, ptr %K.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9ArrayTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle9ArrayTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   store ptr %7, ptr %Base.i.i, align 8
   store <2 x ptr> %8, ptr %Dimension.i.i, align 8
   ret ptr %add.ptr13.i.i
@@ -29897,7 +29897,7 @@ _ZN12_GLOBAL__N_116DefaultAllocator8makeNodeIN4llvh16itanium_demangle19PointerTo
   store i8 1, ptr %ArrayCache.i.i.i, align 2
   %FunctionCache.i.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -21
   store i8 1, ptr %FunctionCache.i.i.i, align 1
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19PointerToMemberTypeE, i64 0, inrange i32 0, i64 2), ptr %add.ptr13.i.i, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4llvh16itanium_demangle19PointerToMemberTypeE, i64 0, i32 0, i64 2), ptr %add.ptr13.i.i, align 8
   %ClassType.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -16
   store ptr %7, ptr %ClassType.i.i, align 8
   %MemberType.i.i = getelementptr inbounds i8, ptr %add.ptr12.i.i, i64 -8

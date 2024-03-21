@@ -3971,7 +3971,7 @@ define dso_local void @_ZN11FactPointToC2EPK8Variable(ptr noundef nonnull align 
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %7, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.FactPointTo, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   store ptr %9, ptr %8, align 8
@@ -4065,7 +4065,7 @@ define dso_local void @_ZN11FactPointToC2EPK8VariableRKSt6vectorIS2_SaIS2_EE(ptr
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.FactPointTo, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %10, align 8
@@ -4107,7 +4107,7 @@ define dso_local void @_ZN11FactPointToC2EPK8VariableS2_(ptr noundef nonnull ali
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %9, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.FactPointTo, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %10, align 8
@@ -4144,7 +4144,7 @@ define dso_local void @_ZN11FactPointToD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FactPointTo, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIPK8VariableSaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #3

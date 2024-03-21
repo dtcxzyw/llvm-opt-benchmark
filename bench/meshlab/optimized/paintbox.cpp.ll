@@ -250,9 +250,9 @@ define void @_ZN8PaintboxC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonn
   %9 = alloca %"class.QMetaObject::Connection", align 8
   %10 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i32 %2)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV8Paintbox, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV8Paintbox, i64 0, i32 0, i64 2), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV8Paintbox, i64 0, inrange i32 1, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV8Paintbox, i64 0, i32 1, i64 2), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 800
   store ptr @_ZN9QHashData11shared_nullE, ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 836
@@ -485,7 +485,7 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %44, %_ZN9QtPrivate8
 
 105:                                              ; preds = %103
   %106 = getelementptr inbounds i8, ptr %104, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %104, align 8
   store <4 x i32> <i32 0, i32 0, i32 20, i32 7405568>, ptr %106, align 8
   %107 = getelementptr inbounds i8, ptr %104, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %107, align 4
@@ -2180,7 +2180,7 @@ _ZN7QStringD2Ev.exit233:                          ; preds = %599, %_ZN9QtPrivate
 
 617:                                              ; preds = %615
   %618 = getelementptr inbounds i8, ptr %616, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %616, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %616, align 8
   store <4 x i32> <i32 0, i32 20, i32 40, i32 65536>, ptr %618, align 8
   %619 = getelementptr inbounds i8, ptr %616, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %619, align 4
@@ -2497,7 +2497,7 @@ _ZN7QStringD2Ev.exit268:                          ; preds = %695, %_ZN9QtPrivate
 
 713:                                              ; preds = %711
   %714 = getelementptr inbounds i8, ptr %712, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %712, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %712, align 8
   store <4 x i32> <i32 0, i32 20, i32 50, i32 7405568>, ptr %714, align 8
   %715 = getelementptr inbounds i8, ptr %712, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %715, align 4
@@ -2881,9 +2881,9 @@ _ZN7QStringD2Ev.exit318:                          ; preds = %800, %_ZN9QtPrivate
           to label %819 unwind label %2384
 
 819:                                              ; preds = %817
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i64 0, inrange i32 0, i64 2), ptr %816, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i64 0, i32 0, i64 2), ptr %816, align 8
   %820 = getelementptr inbounds i8, ptr %816, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i64 0, inrange i32 1, i64 2), ptr %820, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i64 0, i32 1, i64 2), ptr %820, align 8
   %821 = getelementptr inbounds i8, ptr %0, i64 200
   store ptr %816, ptr %821, align 8
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %98, ptr noundef nonnull @.str.41, i32 noundef 16)
@@ -2997,9 +2997,9 @@ _ZN7QStringD2Ev.exit325:                          ; preds = %822, %_ZN9QtPrivate
           to label %853 unwind label %2392
 
 853:                                              ; preds = %851
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i64 0, inrange i32 0, i64 2), ptr %850, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i64 0, i32 0, i64 2), ptr %850, align 8
   %854 = getelementptr inbounds i8, ptr %850, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i64 0, inrange i32 1, i64 2), ptr %854, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i64 0, i32 1, i64 2), ptr %854, align 8
   %855 = getelementptr inbounds i8, ptr %0, i64 208
   store ptr %850, ptr %855, align 8
   invoke void @_ZN7QString15fromUtf8_helperEPKci(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %103, ptr noundef nonnull @.str.42, i32 noundef 16)
@@ -3223,9 +3223,9 @@ _ZN7QStringD2Ev.exit347:                          ; preds = %913, %_ZN9QtPrivate
           to label %.noexc unwind label %2408
 
 .noexc:                                           ; preds = %919
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV9CloneView, i64 0, inrange i32 0, i64 2), ptr %918, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV9CloneView, i64 0, i32 0, i64 2), ptr %918, align 8
   %921 = getelementptr inbounds i8, ptr %918, i64 16
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV9CloneView, i64 0, inrange i32 1, i64 2), ptr %921, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV9CloneView, i64 0, i32 1, i64 2), ptr %921, align 8
   %922 = getelementptr inbounds i8, ptr %918, i64 48
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %922, i8 0, i64 32, i1 false)
   invoke void @_ZN13QGraphicsView11setDragModeENS_8DragModeE(ptr noundef nonnull align 8 dereferenceable(48) %918, i32 noundef 0)

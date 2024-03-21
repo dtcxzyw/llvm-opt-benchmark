@@ -1728,7 +1728,7 @@ define internal void @_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256Algorit
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg4Hash6HasherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha256AlgorithmEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 1
   call void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha256AlgorithmC2Ev(ptr noundef nonnull align 4 dereferenceable(32) %4) #16
   %5 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher", ptr %3, i32 0, i32 2
@@ -1769,7 +1769,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Hash6HasherC2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash6HasherE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash6HasherE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3554,7 +3554,7 @@ define internal void @_ZN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512Algorit
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg4Hash6HasherC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg4Hash12_GLOBAL__N_19ShaHasherINS1_15Sha512AlgorithmEEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 1
   call void @_ZN5vcpkg4Hash12_GLOBAL__N_115Sha512AlgorithmC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %6) #16
   %7 = getelementptr inbounds %"struct.vcpkg::Hash::(anonymous namespace)::ShaHasher.26", ptr %5, i32 0, i32 2

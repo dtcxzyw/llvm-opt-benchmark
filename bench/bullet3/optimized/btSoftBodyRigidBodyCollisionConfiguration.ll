@@ -90,14 +90,14 @@ $_ZTIN35btSoftBodyConcaveCollisionAlgorithm17SwappedCreateFuncE = comdat any
 define dso_local void @_ZN41btSoftBodyRigidBodyCollisionConfigurationC2ERK34btDefaultCollisionConstructionInfo(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull align 8 dereferenceable(32) %constructionInfo) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN31btDefaultCollisionConfigurationC2ERK34btDefaultCollisionConstructionInfo(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef nonnull align 8 dereferenceable(32) %constructionInfo)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41btSoftBodyRigidBodyCollisionConfiguration, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41btSoftBodyRigidBodyCollisionConfiguration, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
           to label %invoke.cont2 unwind label %lpad
 
 invoke.cont2:                                     ; preds = %entry
   %m_swapped.i.i = getelementptr inbounds i8, ptr %call, i64 8
   store i8 0, ptr %m_swapped.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN28btSoftSoftCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN28btSoftSoftCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_softSoftCreateFunc = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %call, ptr %m_softSoftCreateFunc, align 8
   %call4 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
@@ -106,7 +106,7 @@ invoke.cont2:                                     ; preds = %entry
 invoke.cont3:                                     ; preds = %invoke.cont2
   %m_swapped.i.i6 = getelementptr inbounds i8, ptr %call4, i64 8
   store i8 0, ptr %m_swapped.i.i6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN29btSoftRigidCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN29btSoftRigidCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call4, align 8
   %m_softRigidConvexCreateFunc = getelementptr inbounds i8, ptr %this, i64 184
   store ptr %call4, ptr %m_softRigidConvexCreateFunc, align 8
   %call7 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
@@ -114,7 +114,7 @@ invoke.cont3:                                     ; preds = %invoke.cont2
 
 invoke.cont6:                                     ; preds = %invoke.cont3
   %m_swapped.i.i7 = getelementptr inbounds i8, ptr %call7, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN29btSoftRigidCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN29btSoftRigidCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call7, align 8
   %m_swappedSoftRigidConvexCreateFunc = getelementptr inbounds i8, ptr %this, i64 192
   store ptr %call7, ptr %m_swappedSoftRigidConvexCreateFunc, align 8
   store i8 1, ptr %m_swapped.i.i7, align 8
@@ -124,7 +124,7 @@ invoke.cont6:                                     ; preds = %invoke.cont3
 invoke.cont10:                                    ; preds = %invoke.cont6
   %m_swapped.i.i8 = getelementptr inbounds i8, ptr %call11, i64 8
   store i8 0, ptr %m_swapped.i.i8, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN35btSoftBodyConcaveCollisionAlgorithm10CreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN35btSoftBodyConcaveCollisionAlgorithm10CreateFuncE, i64 0, i32 0, i64 2), ptr %call11, align 8
   %m_softRigidConcaveCreateFunc = getelementptr inbounds i8, ptr %this, i64 200
   store ptr %call11, ptr %m_softRigidConcaveCreateFunc, align 8
   %call14 = invoke noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 16, i32 noundef 16)
@@ -132,7 +132,7 @@ invoke.cont10:                                    ; preds = %invoke.cont6
 
 invoke.cont13:                                    ; preds = %invoke.cont10
   %m_swapped.i.i9 = getelementptr inbounds i8, ptr %call14, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN35btSoftBodyConcaveCollisionAlgorithm17SwappedCreateFuncE, i64 0, inrange i32 0, i64 2), ptr %call14, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN35btSoftBodyConcaveCollisionAlgorithm17SwappedCreateFuncE, i64 0, i32 0, i64 2), ptr %call14, align 8
   %m_swappedSoftRigidConcaveCreateFunc = getelementptr inbounds i8, ptr %this, i64 208
   store ptr %call14, ptr %m_swappedSoftRigidConcaveCreateFunc, align 8
   store i8 1, ptr %m_swapped.i.i9, align 8
@@ -248,7 +248,7 @@ declare void @_ZN31btDefaultCollisionConfigurationD2Ev(ptr noundef nonnull align
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN41btSoftBodyRigidBodyCollisionConfigurationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41btSoftBodyRigidBodyCollisionConfiguration, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41btSoftBodyRigidBodyCollisionConfiguration, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_softSoftCreateFunc = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %m_softSoftCreateFunc, align 8
   %vtable = load ptr, ptr %0, align 8

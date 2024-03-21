@@ -2660,7 +2660,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusExplainE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers12SygusExplainE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_tdb = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::SygusExplain", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %tdb.addr, align 8
   store ptr %1, ptr %d_tdb, align 8

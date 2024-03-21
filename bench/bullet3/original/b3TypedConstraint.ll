@@ -55,7 +55,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   %1 = load i32, ptr %type.addr, align 4
   call void @_ZN13b3TypedObjectC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 16
   %m_userConstraintType = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 2
   store i32 -1, ptr %m_userConstraintType, align 4
   %2 = getelementptr inbounds %class.b3TypedConstraint, ptr %this1, i32 0, i32 3
@@ -544,7 +544,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV17b3TypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 16
   ret void
 }
 

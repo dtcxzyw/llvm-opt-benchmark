@@ -226,7 +226,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btQuantizedBvhC2Ev(ptr noundef nonnull align 8 dereferenceable(244) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14btOptimizedBvh, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14btOptimizedBvh, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -499,7 +499,7 @@ entry:
   store ptr %tree, ptr %tree.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN31btInternalTriangleIndexCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E29QuantizedNodeTriangleCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E29QuantizedNodeTriangleCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_triangleNodes = getelementptr inbounds %struct.QuantizedNodeTriangleCallback, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %triangleNodes.addr, align 8
   store ptr %0, ptr %m_triangleNodes, align 8
@@ -636,7 +636,7 @@ entry:
   store ptr %triangleNodes, ptr %triangleNodes.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN31btInternalTriangleIndexCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E20NodeTriangleCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E20NodeTriangleCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_triangleNodes = getelementptr inbounds %struct.NodeTriangleCallback, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %triangleNodes.addr, align 8
   store ptr %0, ptr %m_triangleNodes, align 8
@@ -2096,7 +2096,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31btInternalTriangleIndexCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31btInternalTriangleIndexCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

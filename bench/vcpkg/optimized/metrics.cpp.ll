@@ -1402,7 +1402,7 @@ define dso_local void @_ZNK5vcpkg17MetricsUserConfig9to_stringERNSt7__cxx1112bas
   store i64 %23, ptr %24, align 8, !alias.scope !34
   %25 = getelementptr inbounds i8, ptr %3, i64 24
   store i64 %23, ptr %25, align 8, !alias.scope !34
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !34
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !34
   %26 = getelementptr inbounds i8, ptr %3, i64 32
   store ptr %1, ptr %26, align 8, !alias.scope !34
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr nonnull @.str.64, i64 61, i64 56797, ptr nonnull %4, ptr null)

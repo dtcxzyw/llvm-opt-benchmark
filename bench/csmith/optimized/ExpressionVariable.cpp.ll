@@ -290,7 +290,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
           to label %100 unwind label %.loopexit
 
 100:                                              ; preds = %99
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, i32 0, i64 2), ptr %10, align 8
   store ptr %.097, ptr %23, align 8
   store ptr %1, ptr %24, align 8
   %101 = invoke noundef zeroext i1 @_ZNK18ExpressionVariable11visit_factsERSt6vectorIPK4FactSaIS3_EER9CGContext(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(24) %22, ptr noundef nonnull align 8 dereferenceable(216) %0)
@@ -325,7 +325,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIP
           to label %_ZN18ExpressionVariableC2ERK8Variable.exit unwind label %127
 
 _ZN18ExpressionVariableC2ERK8Variable.exit:       ; preds = %115
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, inrange i32 0, i64 2), ptr %114, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, i32 0, i64 2), ptr %114, align 8
   %116 = getelementptr inbounds i8, ptr %114, i64 24
   store ptr %.097, ptr %116, align 8
   %117 = getelementptr inbounds i8, ptr %114, i64 32
@@ -342,7 +342,7 @@ _ZN18ExpressionVariableC2ERK8Variable.exit:       ; preds = %115
           to label %_ZN18ExpressionVariableC2ERK8VariablePK4Type.exit70 unwind label %129
 
 _ZN18ExpressionVariableC2ERK8VariablePK4Type.exit70: ; preds = %121
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, inrange i32 0, i64 2), ptr %120, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, i32 0, i64 2), ptr %120, align 8
   %122 = getelementptr inbounds i8, ptr %120, i64 24
   store ptr %.097, ptr %122, align 8
   %123 = getelementptr inbounds i8, ptr %120, i64 32
@@ -759,7 +759,7 @@ declare void @_ZN6EffectD1Ev(ptr noundef nonnull align 8 dereferenceable(74)) un
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18ExpressionVariableC2ERK8Variable(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(200) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -774,7 +774,7 @@ declare void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18ExpressionVariableC2ERK8VariablePK4Type(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(200) %1, ptr noundef %2) unnamed_addr #3 align 2 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
@@ -785,7 +785,7 @@ define dso_local void @_ZN18ExpressionVariableC2ERK8VariablePK4Type(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN18ExpressionVariableC2ERKS_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %1) unnamed_addr #3 align 2 {
   tail call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8
@@ -804,7 +804,7 @@ define dso_local noundef nonnull ptr @_ZNK18ExpressionVariable5cloneEv(ptr nocap
           to label %3 unwind label %7
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV18ExpressionVariable, i64 0, i32 0, i64 2), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 24
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   %6 = load <2 x ptr>, ptr %5, align 8

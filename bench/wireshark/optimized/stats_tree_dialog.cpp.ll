@@ -106,9 +106,9 @@ define void @_ZN15StatsTreeDialogC2ER7QWidgetR11CaptureFilePKc(ptr noundef nonnu
   %20 = alloca %class.QString, align 8
   %21 = alloca %class.QString, align 16
   tail call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %22 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i64 0, inrange i32 1, i64 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i64 0, i32 1, i64 2), ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 232
   %24 = getelementptr inbounds i8, ptr %0, i64 240
   %25 = getelementptr inbounds i8, ptr %0, i64 32
@@ -441,9 +441,9 @@ declare void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15StatsTreeDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 232
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -542,7 +542,7 @@ define void @_ZN15StatsTreeDialog9setupNodeEP10_stat_node(ptr noundef %0) #0 ali
           to label %.noexc unwind label %62
 
 .noexc:                                           ; preds = %18
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19StatsTreeWidgetItem, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19StatsTreeWidgetItem, i64 0, i32 0, i64 2), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 32
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32

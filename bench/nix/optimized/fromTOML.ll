@@ -2407,7 +2407,7 @@ $_ZTSN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEE5No_OpE = comda
 @_ZTVN5boost2io13too_many_argsE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN5boost2io13too_many_argsE, ptr @_ZN5boost2io13too_many_argsD2Ev, ptr @_ZN5boost2io13too_many_argsD0Ev, ptr @_ZNK5boost2io13too_many_args4whatEv] }, comdat, align 8
 @.str.327 = private unnamed_addr constant [81 x i8] c"boost::too_many_args: format-string referred to fewer arguments than were passed\00", align 1
 @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTIN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, ptr @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev, ptr @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev], [5 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, ptr @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev, ptr @_ZTv0_n24_N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED0Ev] }, comdat, align 8
-@_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE0_So = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTISo, ptr @_ZNSoD1Ev, ptr @_ZNSoD0Ev], [5 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTISo, ptr @_ZTv0_n24_NSoD1Ev, ptr @_ZTv0_n24_NSoD0Ev] }, comdat, align 8
 @_ZTISo = external constant ptr
 @_ZTSN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE = linkonce_odr constant [62 x i8] c"N5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE\00", comdat, align 1
@@ -3301,7 +3301,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %27, %27, %_ZNSt6vec
   %63 = load ptr, ptr %62, align 16
   store ptr %63, ptr %61, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %4, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, i32 0, i64 2), ptr %6, align 8
   %64 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
           to label %.noexc25 unwind label %118
 
@@ -3310,7 +3310,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %27, %27, %_ZNSt6vec
   store i32 1, ptr %65, align 8, !noalias !7
   %66 = getelementptr inbounds i8, ptr %64, i64 12
   store i32 1, ptr %66, align 4, !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIcSaIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %64, align 8, !noalias !7
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIcSaIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %64, align 8, !noalias !7
   %67 = getelementptr inbounds i8, ptr %64, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %67, ptr noundef nonnull align 1 dereferenceable(1) %8) #28, !noalias !7
   %68 = load <2 x ptr>, ptr %8, align 16, !noalias !7
@@ -4264,7 +4264,7 @@ _ZN4toml3getISt6vectorINS_11basic_valueINS_16discard_commentsESt13unordered_mapS
 
 103:                                              ; preds = %99
   %104 = call ptr @__cxa_allocate_exception(i64 8) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %104, align 8
   invoke void @__cxa_throw(ptr nonnull %104, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #29
           to label %105 unwind label %.loopexit.split-lp90.i.i.i
 
@@ -6527,7 +6527,7 @@ _ZNSt12_Vector_baseISt4pairIN4toml15source_locationENSt7__cxx1112basic_stringIcS
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4toml10type_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6562,7 +6562,7 @@ common.resume:                                    ; preds = %15, %.body.i
   br label %common.resume
 
 _ZN4toml9exceptionC2ERKNS_15source_locationE.exit: ; preds = %.noexc.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml10type_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml10type_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %14 unwind label %15
@@ -6579,7 +6579,7 @@ _ZN4toml9exceptionC2ERKNS_15source_locationE.exit: ; preds = %.noexc.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4toml10type_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml10type_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml10type_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -6599,7 +6599,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #28
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 72
@@ -8363,7 +8363,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4toml9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -8408,7 +8408,7 @@ _ZN4toml15source_locationD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4toml9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 72
@@ -17927,7 +17927,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   %31 = phi ptr [ null, %_ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i ], [ %26, %.noexc5.i ]
   %32 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %31, ptr %32, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, i32 0, i64 2), ptr %5, align 8
   %33 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #30
           to label %.noexc unwind label %74
 
@@ -17936,7 +17936,7 @@ _ZNSt12_Vector_baseIcSaIcEE11_M_allocateEm.exit.thread.i.i: ; preds = %_ZNSt6vec
   store i32 1, ptr %34, align 8, !noalias !122
   %35 = getelementptr inbounds i8, ptr %33, i64 12
   store i32 1, ptr %35, align 4, !noalias !122
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIcSaIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %33, align 8, !noalias !122
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIcSaIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %33, align 8, !noalias !122
   %36 = getelementptr inbounds i8, ptr %33, i64 16
   call void @_ZNSaIcEC2ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %36, ptr noundef nonnull align 1 dereferenceable(1) %7) #28, !noalias !122
   %37 = load <2 x ptr>, ptr %7, align 16, !noalias !122
@@ -20909,7 +20909,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS2_IJNS0_8in_rang
   %3 = alloca %"struct.toml::result", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -21069,7 +21069,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 64:                                               ; preds = %61
   call void @llvm.experimental.noalias.scope.decl(metadata !134)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !134
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !134
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = getelementptr inbounds i8, ptr %5, i64 16
   %67 = load <2 x ptr>, ptr %6, align 8, !noalias !134
@@ -21114,7 +21114,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load <2 x ptr>, ptr %65, align 8
   store ptr null, ptr %66, align 8
@@ -22361,7 +22361,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS1_IJNS0_8in_rangeILc97ELc122
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -25567,7 +25567,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc97ELc122EEENS2
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -25644,7 +25644,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc48ELc57EEENS0_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -25739,7 +25739,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc97ELc122EE6invokeERNS0_8loc
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -25783,7 +25783,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !222)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !222
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !222
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !222
@@ -25828,7 +25828,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -26062,7 +26062,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc65ELc90EE6invokeERNS0_8loca
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -26106,7 +26106,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !225)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !225
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !225
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !225
@@ -26151,7 +26151,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -26385,7 +26385,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc48ELc57EE6invokeERNS0_8loca
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -26429,7 +26429,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !228)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !228
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !228
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !228
@@ -26474,7 +26474,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -26690,7 +26690,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc45EEENS2_ILc9
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -26784,7 +26784,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc45EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -26828,7 +26828,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !231)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !231
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !231
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !231
@@ -26873,7 +26873,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -27106,7 +27106,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc95EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -27150,7 +27150,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !234)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !234
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !234
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !234
@@ -27195,7 +27195,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -28278,7 +28278,7 @@ define linkonce_odr void @_ZN4toml6detail15parse_toml_fileINS_11basic_valueINS_1
   store float 1.000000e+00, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %5, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %64, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %65 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %54, ptr %65, align 8
   %66 = getelementptr inbounds i8, ptr %6, i64 16
@@ -28553,7 +28553,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 
 163:                                              ; preds = %2
   %164 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %8, align 8
   %165 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %54, ptr %165, align 8
   %166 = getelementptr inbounds i8, ptr %8, i64 16
@@ -29195,7 +29195,7 @@ _ZN4toml7failureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1
           to label %434 unwind label %427
 
 434:                                              ; preds = %431
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %27, align 8
   %435 = getelementptr inbounds i8, ptr %430, i64 32
   %436 = load ptr, ptr %435, align 8
   store ptr %436, ptr %357, align 8
@@ -29246,7 +29246,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i170: ; preds = %445, %442, %
   %454 = load ptr, ptr %430, align 8
   %455 = getelementptr inbounds i8, ptr %430, i64 8
   %456 = load ptr, ptr %455, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %29, align 8
   %457 = load ptr, ptr %435, align 8
   store ptr %457, ptr %361, align 8
   %458 = load ptr, ptr %437, align 8
@@ -29750,7 +29750,7 @@ _ZN4toml7failureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit2
           to label %628 unwind label %621
 
 628:                                              ; preds = %625
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %36, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %36, align 8
   %629 = getelementptr inbounds i8, ptr %624, i64 32
   %630 = load ptr, ptr %629, align 8
   store ptr %630, ptr %384, align 8
@@ -29801,7 +29801,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i244: ; preds = %639, %636, %
   %648 = load ptr, ptr %624, align 8
   %649 = getelementptr inbounds i8, ptr %624, i64 8
   %650 = load ptr, ptr %649, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %651 = load ptr, ptr %629, align 8
   store ptr %651, ptr %388, align 8
   %652 = load ptr, ptr %631, align 8
@@ -30551,7 +30551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit341: ; preds = %_Z
   br label %.body345
 
 ._crit_edge442:                                   ; preds = %.backedge, %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_valueINS6_16discard_commentsES_St6vectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEEaSERKSJ_.exit
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %896 = getelementptr inbounds i8, ptr %50, i64 8
   %897 = load ptr, ptr %165, align 8
   store ptr %897, ptr %896, align 8
@@ -31226,7 +31226,7 @@ _ZNK4toml6detail8location6beforeEv.exit:          ; preds = %.lr.ph.i.i.i.i.i, %
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4toml12syntax_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -31261,7 +31261,7 @@ common.resume:                                    ; preds = %15, %.body.i
   br label %common.resume
 
 _ZN4toml9exceptionC2ERKNS_15source_locationE.exit: ; preds = %.noexc.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml12syntax_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml12syntax_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %14 unwind label %15
@@ -31278,7 +31278,7 @@ _ZN4toml9exceptionC2ERKNS_15source_locationE.exit: ; preds = %.noexc.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4toml12syntax_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml12syntax_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml12syntax_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -31298,7 +31298,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #28
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 72
@@ -31451,9 +31451,9 @@ define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unorde
   store i32 1, ptr %8, align 8, !noalias !274
   %9 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4, !noalias !274
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !noalias !274
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !274
   %10 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %10, align 8, !noalias !274
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %10, align 8, !noalias !274
   %11 = getelementptr inbounds i8, ptr %7, i64 24
   %12 = getelementptr inbounds i8, ptr %2, i64 8
   %13 = getelementptr inbounds i8, ptr %2, i64 16
@@ -31631,7 +31631,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -31854,7 +31854,7 @@ define linkonce_odr void @_ZN4toml6detail8locationC2ENSt7__cxx1112basic_stringIc
 .noexc:
   %3 = alloca %"class.__gnu_cxx::__normal_iterator.225", align 8
   %4 = alloca %"class.__gnu_cxx::__normal_iterator.225", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = load ptr, ptr %2, align 8
   store ptr %5, ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
@@ -31866,7 +31866,7 @@ define linkonce_odr void @_ZN4toml6detail8locationC2ENSt7__cxx1112basic_stringIc
   store i32 1, ptr %10, align 8, !noalias !278
   %11 = getelementptr inbounds i8, ptr %9, i64 12
   store i32 1, ptr %11, align 4, !noalias !278
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIcSaIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %9, align 8, !noalias !278
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIcSaIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %9, align 8, !noalias !278
   %12 = getelementptr inbounds i8, ptr %9, i64 16
   invoke void @_ZSt10_ConstructISt6vectorIcSaIcEEJN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char_traitsIcES1_EEEESC_EEvPT_DpOT0_(ptr noundef nonnull %12, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZNSt10shared_ptrISt6vectorIcSaIcEEED2Ev.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceISt6vectorIcSaIcEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !278
@@ -31937,7 +31937,7 @@ define linkonce_odr void @_ZN4toml6detail5maybeINS0_6repeatINS0_6eitherIJNS0_9ch
 8:                                                ; preds = %2
   store i8 %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -31990,7 +31990,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEEC2ERKS4_.exit: ; preds = %_ZNSt10
   resume { ptr, i32 } %eh.lpad-body
 
 30:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -32037,7 +32037,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %43, %40, %30
   %52 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %.sroa.0.0.copyload.i.i, ptr %52, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !281)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !281
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !281
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = getelementptr inbounds i8, ptr %4, i64 16
   %55 = load <2 x ptr>, ptr %31, align 8, !noalias !281
@@ -32082,7 +32082,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load <2 x ptr>, ptr %53, align 8
   store ptr null, ptr %54, align 8
@@ -32299,7 +32299,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc10EEENS0_8seq
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -32444,7 +32444,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -33169,7 +33169,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %231 = load ptr, ptr %229, align 8
   %232 = getelementptr inbounds i8, ptr %229, i64 8
   %233 = load ptr, ptr %232, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %16, align 8
   %234 = getelementptr inbounds i8, ptr %229, i64 32
   %235 = load ptr, ptr %234, align 8
   store ptr %235, ptr %63, align 8
@@ -34865,7 +34865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
 
 .noexc:                                           ; preds = %235
   %236 = getelementptr inbounds i8, ptr %50, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %236, align 8, !alias.scope !297
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %236, align 8, !alias.scope !297
   %237 = getelementptr inbounds i8, ptr %50, i64 32
   %238 = getelementptr inbounds i8, ptr %234, i64 8
   %239 = load ptr, ptr %238, align 8, !noalias !297
@@ -34919,7 +34919,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %249, %246, 
   store ptr %260, ptr %258, align 16, !alias.scope !300
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %50, i8 0, i64 24, i1 false), !noalias !300
   %261 = getelementptr inbounds i8, ptr %49, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %261, align 8, !alias.scope !300
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %261, align 8, !alias.scope !300
   %262 = getelementptr inbounds i8, ptr %49, i64 32
   %263 = getelementptr inbounds i8, ptr %49, i64 40
   %264 = load <2 x ptr>, ptr %237, align 16, !noalias !300
@@ -34971,7 +34971,7 @@ _ZN4toml2okISt4pairISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store ptr %283, ptr %282, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %284 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %284, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %284, align 8
   %285 = getelementptr inbounds i8, ptr %0, i64 40
   %286 = load <2 x ptr>, ptr %262, align 16
   store ptr null, ptr %263, align 8
@@ -36743,7 +36743,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           to label %463 unwind label %567
 
 463:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %73, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %73, align 8
   %464 = getelementptr inbounds i8, ptr %73, i64 8
   %465 = load ptr, ptr %166, align 8
   store ptr %465, ptr %464, align 8
@@ -37576,7 +37576,7 @@ _ZNK4toml11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorE8locatio
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_valueINS6_16discard_commentsES_St6vectorEESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_SA_EEE2atERSG_.exit730: ; preds = %._crit_edge1134
   %727 = getelementptr inbounds i8, ptr %725, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %96, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %96, align 8
   %728 = getelementptr inbounds i8, ptr %96, i64 8
   %729 = load ptr, ptr %166, align 8
   store ptr %729, ptr %728, align 8
@@ -38144,7 +38144,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml11basic_val
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %162, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %163, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %164, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %120, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %120, align 8
   %916 = load ptr, ptr %166, align 8
   store ptr %916, ptr %165, align 8
   %917 = load ptr, ptr %168, align 8
@@ -39954,7 +39954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %_Z
 
 .noexc:                                           ; preds = %235
   %236 = getelementptr inbounds i8, ptr %50, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %236, align 8, !alias.scope !414
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %236, align 8, !alias.scope !414
   %237 = getelementptr inbounds i8, ptr %50, i64 32
   %238 = getelementptr inbounds i8, ptr %234, i64 8
   %239 = load ptr, ptr %238, align 8, !noalias !414
@@ -40008,7 +40008,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %249, %246, 
   store ptr %260, ptr %258, align 16, !alias.scope !417
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %50, i8 0, i64 24, i1 false), !noalias !417
   %261 = getelementptr inbounds i8, ptr %49, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %261, align 8, !alias.scope !417
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %261, align 8, !alias.scope !417
   %262 = getelementptr inbounds i8, ptr %49, i64 32
   %263 = getelementptr inbounds i8, ptr %49, i64 40
   %264 = load <2 x ptr>, ptr %237, align 16, !noalias !417
@@ -40060,7 +40060,7 @@ _ZN4toml2okISt4pairISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store ptr %283, ptr %282, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   %284 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %284, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %284, align 8
   %285 = getelementptr inbounds i8, ptr %0, i64 40
   %286 = load <2 x ptr>, ptr %262, align 16
   store ptr null, ptr %263, align 8
@@ -40869,7 +40869,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_8sequenceIJNS0_5maybeINS1_I
   %3 = alloca %"struct.toml::result", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -41029,7 +41029,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 64:                                               ; preds = %61
   call void @llvm.experimental.noalias.scope.decl(metadata !423)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !423
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !423
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = getelementptr inbounds i8, ptr %5, i64 16
   %67 = load <2 x ptr>, ptr %6, align 8, !noalias !423
@@ -41074,7 +41074,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load <2 x ptr>, ptr %65, align 8
   store ptr null, ptr %66, align 8
@@ -41388,7 +41388,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !427)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !427
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !427
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !427
@@ -41434,7 +41434,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -41634,7 +41634,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -41872,7 +41872,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -42116,7 +42116,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !430)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !430
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !430
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !430
@@ -42162,7 +42162,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -42362,7 +42362,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -42588,7 +42588,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_9characterILc3
   %3 = alloca %"struct.toml::result", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -42748,7 +42748,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 64:                                               ; preds = %61
   call void @llvm.experimental.noalias.scope.decl(metadata !433)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !433
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !433
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = getelementptr inbounds i8, ptr %5, i64 16
   %67 = load <2 x ptr>, ptr %6, align 8, !noalias !433
@@ -42793,7 +42793,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load <2 x ptr>, ptr %65, align 8
   store ptr null, ptr %66, align 8
@@ -43030,7 +43030,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc32EEENS2_ILc9
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -43124,7 +43124,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc32EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -43168,7 +43168,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !437)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !437
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !437
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !437
@@ -43213,7 +43213,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -43446,7 +43446,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc9EE6invokeERNS0_8locationE
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -43490,7 +43490,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !440)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !440
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !440
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !440
@@ -43535,7 +43535,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -43772,7 +43772,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc10EE6invokeERNS0_8location
   %18 = add i64 %17, 1
   store i64 %18, ptr %16, align 8
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %19 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %4, i64 16
@@ -43816,7 +43816,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %36 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %36, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !443)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !443
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !443
   %37 = getelementptr inbounds i8, ptr %3, i64 8
   %38 = getelementptr inbounds i8, ptr %3, i64 16
   %39 = load <2 x ptr>, ptr %19, align 8, !noalias !443
@@ -43861,7 +43861,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %55, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %55, align 8
   %56 = getelementptr inbounds i8, ptr %0, i64 16
   %57 = load <2 x ptr>, ptr %37, align 8
   store ptr null, ptr %38, align 8
@@ -44145,7 +44145,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -44329,7 +44329,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc13EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -44373,7 +44373,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !446)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !446
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !446
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !446
@@ -44418,7 +44418,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -44711,7 +44711,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !449)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !449
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !449
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !449
@@ -44757,7 +44757,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -44906,7 +44906,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc35EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -44950,7 +44950,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !452)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !452
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !452
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !452
@@ -44995,7 +44995,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -45288,7 +45288,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !455)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !455
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !455
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !455
@@ -45334,7 +45334,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -45459,7 +45459,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS2_IJNS0_9charact
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -45524,7 +45524,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !458)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !458
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !458
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !458
@@ -45569,7 +45569,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -45813,7 +45813,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS1_IJNS0_9characterILc9EEENS0
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -45890,7 +45890,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc9EEENS0_8in_r
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -45967,7 +45967,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_8in_rangeIL
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -46062,7 +46062,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc32ELc126EE6invokeERNS0_8loc
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -46106,7 +46106,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !462)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !462
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !462
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !462
@@ -46151,7 +46151,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -46435,7 +46435,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -46602,7 +46602,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS1_IJNS2_IJNS0
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -46697,7 +46697,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILcn62ELcn33EE6invokeERNS0_8lo
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -46741,7 +46741,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !465)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !465
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !465
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !465
@@ -46786,7 +46786,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -47079,7 +47079,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !468)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !468
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !468
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !468
@@ -47125,7 +47125,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -47274,7 +47274,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILcn128ELcn65EE6invokeERNS0_8l
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -47318,7 +47318,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !471)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !471
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !471
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !471
@@ -47363,7 +47363,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -47647,7 +47647,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -47814,7 +47814,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_9characterI
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -47959,7 +47959,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -48126,7 +48126,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_8in_rangeIL
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -48220,7 +48220,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILcn32EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -48264,7 +48264,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !474)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !474
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !474
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !474
@@ -48309,7 +48309,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -48602,7 +48602,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !477)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !477
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !477
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !477
@@ -48648,7 +48648,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -48798,7 +48798,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILcn96ELcn65EE6invokeERNS0_8lo
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -48842,7 +48842,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !480)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !480
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !480
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !480
@@ -48887,7 +48887,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -49171,7 +49171,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -49338,7 +49338,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_9characterI
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -49433,7 +49433,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILcn31ELcn20EE6invokeERNS0_8lo
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -49477,7 +49477,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !483)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !483
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !483
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !483
@@ -49522,7 +49522,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -49806,7 +49806,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -49990,7 +49990,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILcn19EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -50034,7 +50034,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !486)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !486
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !486
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !486
@@ -50079,7 +50079,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -50372,7 +50372,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !489)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !489
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !489
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !489
@@ -50418,7 +50418,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -50567,7 +50567,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILcn128ELcn97EE6invokeERNS0_8l
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -50611,7 +50611,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !492)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !492
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !492
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !492
@@ -50656,7 +50656,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -50940,7 +50940,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -51125,7 +51125,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILcn18ELcn17EE6invokeERNS0_8lo
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -51169,7 +51169,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !495)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !495
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !495
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !495
@@ -51214,7 +51214,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -51498,7 +51498,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -51665,7 +51665,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_9characterI
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -51813,7 +51813,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -52048,7 +52048,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -52215,7 +52215,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_8in_rangeIL
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -52309,7 +52309,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILcn16EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -52353,7 +52353,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !498)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !498
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !498
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !498
@@ -52398,7 +52398,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -52691,7 +52691,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !501)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !501
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !501
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !501
@@ -52737,7 +52737,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -52887,7 +52887,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILcn112ELcn65EE6invokeERNS0_8l
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -52931,7 +52931,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !504)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !504
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !504
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !504
@@ -52976,7 +52976,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -53260,7 +53260,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -53445,7 +53445,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILcn15ELcn13EE6invokeERNS0_8lo
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -53489,7 +53489,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !507)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !507
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !507
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !507
@@ -53534,7 +53534,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -53818,7 +53818,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -54002,7 +54002,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILcn12EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -54046,7 +54046,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !510)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !510
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !510
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !510
@@ -54091,7 +54091,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -54384,7 +54384,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !513)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !513
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !513
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !513
@@ -54430,7 +54430,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -54579,7 +54579,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILcn128ELcn113EE6invokeERNS0_8
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -54623,7 +54623,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !516)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !516
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !516
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !516
@@ -54668,7 +54668,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -54879,7 +54879,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_8sequenceIJNS0_5maybeINS1_I
   %3 = alloca %"struct.toml::result", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -55039,7 +55039,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 64:                                               ; preds = %61
   call void @llvm.experimental.noalias.scope.decl(metadata !519)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !519
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !519
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = getelementptr inbounds i8, ptr %5, i64 16
   %67 = load <2 x ptr>, ptr %6, align 8, !noalias !519
@@ -55084,7 +55084,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load <2 x ptr>, ptr %65, align 8
   store ptr null, ptr %66, align 8
@@ -57828,7 +57828,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit415: ; preds = %_Z
   store ptr %912, ptr %910, align 16, !alias.scope !529
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %905, i8 0, i64 24, i1 false), !noalias !529
   %913 = getelementptr inbounds i8, ptr %48, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %913, align 8, !alias.scope !529
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %913, align 8, !alias.scope !529
   %914 = getelementptr inbounds i8, ptr %48, i64 32
   %915 = getelementptr inbounds i8, ptr %905, i64 32
   %916 = getelementptr inbounds i8, ptr %48, i64 40
@@ -57894,7 +57894,7 @@ _ZSt9make_pairISt4pairISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   store ptr %941, ptr %940, align 16, !alias.scope !532
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %48, i8 0, i64 24, i1 false), !noalias !532
   %942 = getelementptr inbounds i8, ptr %47, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %942, align 8, !alias.scope !532
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %942, align 8, !alias.scope !532
   %943 = getelementptr inbounds i8, ptr %47, i64 32
   %944 = getelementptr inbounds i8, ptr %47, i64 40
   %945 = load <2 x ptr>, ptr %914, align 16, !noalias !532
@@ -57952,7 +57952,7 @@ _ZN4toml2okISt4pairIS1_ISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store ptr %964, ptr %963, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %47, i8 0, i64 24, i1 false)
   %965 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %965, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %965, align 8
   %966 = getelementptr inbounds i8, ptr %0, i64 40
   %967 = load <2 x ptr>, ptr %943, align 16
   store ptr null, ptr %944, align 8
@@ -58368,7 +58368,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -58606,7 +58606,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -58775,7 +58775,7 @@ define linkonce_odr void @_ZN4toml6detail5maybeINS0_8sequenceIJNS0_9characterILc
 8:                                                ; preds = %2
   store i8 %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -58828,7 +58828,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEEC2ERKS4_.exit: ; preds = %_ZNSt10
   resume { ptr, i32 } %eh.lpad-body
 
 30:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -58875,7 +58875,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %43, %40, %30
   %52 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %.sroa.0.0.copyload.i.i, ptr %52, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !535)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !535
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !535
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = getelementptr inbounds i8, ptr %4, i64 16
   %55 = load <2 x ptr>, ptr %31, align 8, !noalias !535
@@ -58920,7 +58920,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load <2 x ptr>, ptr %53, align 8
   store ptr null, ptr %54, align 8
@@ -59196,7 +59196,7 @@ _ZN4toml6detail6regionD2Ev.exit.thread:           ; preds = %2
           to label %59 unwind label %121
 
 59:                                               ; preds = %57
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %60 = getelementptr inbounds i8, ptr %4, i64 8
   %61 = getelementptr inbounds i8, ptr %58, i64 8
   %62 = load ptr, ptr %61, align 8
@@ -59680,7 +59680,7 @@ _ZN4toml6resultISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_6
 
 .noexc136:                                        ; preds = %._crit_edge
   %206 = getelementptr inbounds i8, ptr %31, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %206, align 8, !alias.scope !542
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %206, align 8, !alias.scope !542
   %207 = getelementptr inbounds i8, ptr %31, i64 32
   %208 = load ptr, ptr %60, align 8, !noalias !542
   store ptr %208, ptr %207, align 16, !alias.scope !542
@@ -59730,7 +59730,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %217, %214, 
   store ptr %226, ptr %224, align 16, !alias.scope !545
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %31, i8 0, i64 24, i1 false), !noalias !545
   %227 = getelementptr inbounds i8, ptr %30, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %227, align 8, !alias.scope !545
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %227, align 8, !alias.scope !545
   %228 = getelementptr inbounds i8, ptr %30, i64 32
   %229 = getelementptr inbounds i8, ptr %30, i64 40
   %230 = load <2 x ptr>, ptr %207, align 16, !noalias !545
@@ -59782,7 +59782,7 @@ _ZN4toml2okISt4pairISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store ptr %249, ptr %248, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %30, i8 0, i64 24, i1 false)
   %250 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %250, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %250, align 8
   %251 = getelementptr inbounds i8, ptr %0, i64 40
   %252 = load <2 x ptr>, ptr %228, align 16
   store ptr null, ptr %229, align 8
@@ -60139,7 +60139,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   store ptr %392, ptr %390, align 16, !alias.scope !548
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %35, i8 0, i64 24, i1 false), !noalias !548
   %393 = getelementptr inbounds i8, ptr %34, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %393, align 8, !alias.scope !548
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %393, align 8, !alias.scope !548
   %394 = getelementptr inbounds i8, ptr %34, i64 32
   %395 = getelementptr inbounds i8, ptr %386, i64 40
   %396 = load ptr, ptr %395, align 8, !noalias !548
@@ -60192,7 +60192,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i160: ; preds = %406, %40
   store ptr %416, ptr %415, align 16, !alias.scope !551
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %34, i8 0, i64 24, i1 false), !noalias !551
   %417 = getelementptr inbounds i8, ptr %33, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %417, align 8, !alias.scope !551
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %417, align 8, !alias.scope !551
   %418 = getelementptr inbounds i8, ptr %33, i64 32
   %419 = getelementptr inbounds i8, ptr %33, i64 40
   %420 = load <2 x ptr>, ptr %394, align 16, !noalias !551
@@ -60244,7 +60244,7 @@ _ZN4toml2okISt4pairISt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   store ptr %439, ptr %438, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %33, i8 0, i64 24, i1 false)
   %440 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %440, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %440, align 8
   %441 = getelementptr inbounds i8, ptr %0, i64 40
   %442 = load <2 x ptr>, ptr %418, align 16
   store ptr null, ptr %419, align 8
@@ -60980,7 +60980,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -62858,7 +62858,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -63056,7 +63056,7 @@ define linkonce_odr void @_ZN4toml6detail16parse_simple_keyB5cxx11ERNS0_8locatio
 
 .noexc:                                           ; preds = %28
   %30 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %30, align 8, !alias.scope !563
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %30, align 8, !alias.scope !563
   %31 = getelementptr inbounds i8, ptr %5, i64 40
   %32 = getelementptr inbounds i8, ptr %27, i64 48
   %33 = load ptr, ptr %32, align 8, !noalias !563
@@ -63136,7 +63136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i: ; preds
   store i64 0, ptr %62, align 8, !noalias !566
   store i8 0, ptr %53, align 8, !noalias !566
   %64 = getelementptr inbounds i8, ptr %4, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %64, align 8, !alias.scope !566
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %64, align 8, !alias.scope !566
   %65 = getelementptr inbounds i8, ptr %4, i64 40
   %66 = getelementptr inbounds i8, ptr %4, i64 48
   %67 = load <2 x ptr>, ptr %31, align 8, !noalias !566
@@ -63211,7 +63211,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i36: ; pre
   store i64 0, ptr %63, align 8
   store i8 0, ptr %51, align 8
   %94 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %94, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %94, align 8
   %95 = getelementptr inbounds i8, ptr %0, i64 48
   %96 = load <2 x ptr>, ptr %65, align 8
   store ptr null, ptr %66, align 8
@@ -63322,7 +63322,7 @@ _ZN4toml6resultISt4pairINS_6stringENS_6detail6regionEENSt7__cxx1112basic_stringI
 
 .noexc43:                                         ; preds = %130
   %132 = getelementptr inbounds i8, ptr %8, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %132, align 8, !alias.scope !569
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %132, align 8, !alias.scope !569
   %133 = getelementptr inbounds i8, ptr %8, i64 40
   %134 = getelementptr inbounds i8, ptr %129, i64 48
   %135 = load ptr, ptr %134, align 8, !noalias !569
@@ -63402,7 +63402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i50: ; pre
   store i64 0, ptr %164, align 8, !noalias !572
   store i8 0, ptr %155, align 8, !noalias !572
   %166 = getelementptr inbounds i8, ptr %7, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %166, align 8, !alias.scope !572
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %166, align 8, !alias.scope !572
   %167 = getelementptr inbounds i8, ptr %7, i64 40
   %168 = getelementptr inbounds i8, ptr %7, i64 48
   %169 = load <2 x ptr>, ptr %133, align 8, !noalias !572
@@ -63477,7 +63477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i56: ; pre
   store i64 0, ptr %165, align 8
   store i8 0, ptr %153, align 8
   %196 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %196, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %196, align 8
   %197 = getelementptr inbounds i8, ptr %0, i64 48
   %198 = load <2 x ptr>, ptr %167, align 8
   store ptr null, ptr %168, align 8
@@ -63577,7 +63577,7 @@ _ZN4toml6resultISt4pairINS_6stringENS_6detail6regionEENSt7__cxx1112basic_stringI
           to label %230 unwind label %362
 
 230:                                              ; preds = %228
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %10, align 8
   %231 = getelementptr inbounds i8, ptr %10, i64 8
   %232 = getelementptr inbounds i8, ptr %229, i64 8
   %233 = load ptr, ptr %232, align 8
@@ -63667,7 +63667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i71: ; pre
   store i64 0, ptr %264, align 8, !noalias !578
   store i8 0, ptr %255, align 8, !noalias !578
   %266 = getelementptr inbounds i8, ptr %11, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %266, align 8, !alias.scope !578
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %266, align 8, !alias.scope !578
   %267 = getelementptr inbounds i8, ptr %11, i64 40
   %268 = getelementptr inbounds i8, ptr %12, i64 40
   %269 = getelementptr inbounds i8, ptr %11, i64 48
@@ -63746,7 +63746,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i.i77: ; pre
   store i64 0, ptr %265, align 8
   store i8 0, ptr %253, align 8
   %300 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %300, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %300, align 8
   %301 = getelementptr inbounds i8, ptr %0, i64 48
   %302 = load <2 x ptr>, ptr %267, align 8
   store ptr null, ptr %269, align 8
@@ -64356,7 +64356,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(32) ptr @_ZNKR4toml6
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4toml14internal_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(80) %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %4, ptr noundef nonnull align 8 dereferenceable(12) %2, i64 12, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -64391,7 +64391,7 @@ common.resume:                                    ; preds = %15, %.body.i
   br label %common.resume
 
 _ZN4toml9exceptionC2ERKNS_15source_locationE.exit: ; preds = %.noexc.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml14internal_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml14internal_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 88
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %14 unwind label %15
@@ -64408,7 +64408,7 @@ _ZN4toml9exceptionC2ERKNS_15source_locationE.exit: ; preds = %.noexc.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4toml14internal_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml14internal_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml14internal_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 104
@@ -64428,7 +64428,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   tail call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #28
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4toml9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 72
@@ -64838,7 +64838,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_6repeatINS1_IJNS1_IJNS0_8i
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -64992,7 +64992,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !585)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !585
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !585
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !585
@@ -65038,7 +65038,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -65170,7 +65170,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_9characterI
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -65315,7 +65315,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -65499,7 +65499,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc34EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -65543,7 +65543,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !588)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !588
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !588
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !588
@@ -65588,7 +65588,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -65875,7 +65875,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -66035,7 +66035,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_7excludeINS2_I
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -66100,7 +66100,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !591)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !591
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !591
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !591
@@ -66145,7 +66145,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -66466,7 +66466,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !595)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !595
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !595
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !595
@@ -66512,7 +66512,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -66644,7 +66644,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_7excludeINS1_IJNS0_8in_ran
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -66848,7 +66848,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit28: ; preds = %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit.i26, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit12.i20
   store ptr %41, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = load ptr, ptr %7, align 8
   store ptr %66, ptr %65, align 8
@@ -66894,7 +66894,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %76, %73, %_ZN4t
   %83 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %41, ptr %83, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !598)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !598
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !598
   %84 = getelementptr inbounds i8, ptr %4, i64 8
   %85 = getelementptr inbounds i8, ptr %4, i64 16
   %86 = load <2 x ptr>, ptr %65, align 8, !noalias !598
@@ -66939,7 +66939,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %102 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %102, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %0, i64 16
   %104 = load <2 x ptr>, ptr %84, align 8
   store ptr null, ptr %85, align 8
@@ -67159,7 +67159,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc0ELc8EEENS2_IL
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -67253,7 +67253,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc0ELc8EE6invokeERNS0_8locati
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -67297,7 +67297,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !601)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !601
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !601
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !601
@@ -67342,7 +67342,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -67558,7 +67558,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc10ELc31EEENS0_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -67659,7 +67659,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc10ELc31EE6invokeERNS0_8loca
   %21 = add i64 %20, %17
   store i64 %21, ptr %19, align 8
   store ptr %18, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %4, i64 16
@@ -67703,7 +67703,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %39 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %18, ptr %39, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !604)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !604
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !604
   %40 = getelementptr inbounds i8, ptr %3, i64 8
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load <2 x ptr>, ptr %22, align 8, !noalias !604
@@ -67748,7 +67748,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %58, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 16
   %60 = load <2 x ptr>, ptr %40, align 8
   store ptr null, ptr %41, align 8
@@ -67964,7 +67964,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc34EEENS2_ILc9
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -68041,7 +68041,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc92EEENS2_ILc1
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -68135,7 +68135,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc92EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -68179,7 +68179,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !607)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !607
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !607
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !607
@@ -68224,7 +68224,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -68457,7 +68457,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc127EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -68501,7 +68501,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !610)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !610
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !610
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !610
@@ -68546,7 +68546,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -68830,7 +68830,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -69074,7 +69074,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !613)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !613
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !613
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !613
@@ -69120,7 +69120,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -69252,7 +69252,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc34EEENS2_ILc9
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -69329,7 +69329,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc92EEENS2_ILc9
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -69406,7 +69406,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc98EEENS2_ILc1
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -69500,7 +69500,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc98EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -69544,7 +69544,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !616)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !616
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !616
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !616
@@ -69589,7 +69589,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -69805,7 +69805,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc102EEENS2_ILc
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -69899,7 +69899,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc102EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -69943,7 +69943,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !619)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !619
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !619
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !619
@@ -69988,7 +69988,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -70204,7 +70204,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc110EEENS2_ILc
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -70298,7 +70298,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc110EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -70342,7 +70342,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !622)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !622
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !622
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !622
@@ -70387,7 +70387,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -70603,7 +70603,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc114EEENS2_ILc
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -70697,7 +70697,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc114EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -70741,7 +70741,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !625)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !625
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !625
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !625
@@ -70786,7 +70786,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -71002,7 +71002,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc116EEENS0_8se
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -71096,7 +71096,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc116EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -71140,7 +71140,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !628)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !628
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !628
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !628
@@ -71185,7 +71185,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -71401,7 +71401,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_9characterI
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -71546,7 +71546,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -71730,7 +71730,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc117EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -71774,7 +71774,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !631)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !631
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !631
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !631
@@ -71819,7 +71819,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -72112,7 +72112,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !634)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !634
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !634
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !634
@@ -72158,7 +72158,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -72283,7 +72283,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_8in_rangeILc48
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -72431,7 +72431,7 @@ _ZN4toml7successINS_6detail6regionEED2Ev.exit.loopexit: ; preds = %_ZSt5countIN9
 
 63:                                               ; preds = %.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !638)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !638
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !638
   %64 = getelementptr inbounds i8, ptr %5, i64 8
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   %66 = load <2 x ptr>, ptr %6, align 8, !noalias !638
@@ -72476,7 +72476,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %82, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load <2 x ptr>, ptr %64, align 8
   store ptr null, ptr %65, align 8
@@ -72699,7 +72699,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc48ELc57EEENS2_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -72776,7 +72776,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc65ELc70EEENS2_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -72871,7 +72871,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc65ELc70EE6invokeERNS0_8loca
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -72915,7 +72915,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !641)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !641
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !641
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !641
@@ -72960,7 +72960,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -73194,7 +73194,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc97ELc102EE6invokeERNS0_8loc
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -73238,7 +73238,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !644)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !644
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !644
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !644
@@ -73283,7 +73283,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -73567,7 +73567,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -73751,7 +73751,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc85EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -73795,7 +73795,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !647)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !647
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !647
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !647
@@ -73840,7 +73840,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -74133,7 +74133,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !650)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !650
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !650
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !650
@@ -74179,7 +74179,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -74304,7 +74304,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_8in_rangeILc48
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -74452,7 +74452,7 @@ _ZN4toml7successINS_6detail6regionEED2Ev.exit.loopexit: ; preds = %_ZSt5countIN9
 
 63:                                               ; preds = %.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !654)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !654
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !654
   %64 = getelementptr inbounds i8, ptr %5, i64 8
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   %66 = load <2 x ptr>, ptr %6, align 8, !noalias !654
@@ -74497,7 +74497,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %82, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load <2 x ptr>, ptr %64, align 8
   store ptr null, ptr %65, align 8
@@ -74788,7 +74788,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -74972,7 +74972,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc39EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -75016,7 +75016,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !657)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !657
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !657
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !657
@@ -75061,7 +75061,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -75348,7 +75348,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -75508,7 +75508,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_7excludeINS0_6eitherIJNS0_8
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -75573,7 +75573,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !660)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !660
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !660
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !660
@@ -75618,7 +75618,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -75939,7 +75939,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !664)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !664
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !664
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !664
@@ -75985,7 +75985,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -76244,7 +76244,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit28: ; preds = %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit.i26, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit12.i20
   store ptr %41, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = load ptr, ptr %7, align 8
   store ptr %66, ptr %65, align 8
@@ -76290,7 +76290,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %76, %73, %_ZN4t
   %83 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %41, ptr %83, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !667)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !667
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !667
   %84 = getelementptr inbounds i8, ptr %4, i64 8
   %85 = getelementptr inbounds i8, ptr %4, i64 16
   %86 = load <2 x ptr>, ptr %65, align 8, !noalias !667
@@ -76335,7 +76335,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %102 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %102, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %0, i64 16
   %104 = load <2 x ptr>, ptr %84, align 8
   store ptr null, ptr %85, align 8
@@ -76555,7 +76555,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc0ELc8EEENS2_IL
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -76632,7 +76632,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc10ELc31EEENS0_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -76709,7 +76709,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc127EEENS2_ILc
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -76781,7 +76781,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_8sequenceIJNS2_IJNS0_5maybe
   %3 = alloca %"struct.toml::result", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -76941,7 +76941,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 64:                                               ; preds = %61
   call void @llvm.experimental.noalias.scope.decl(metadata !670)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !670
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !670
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = getelementptr inbounds i8, ptr %5, i64 16
   %67 = load <2 x ptr>, ptr %6, align 8, !noalias !670
@@ -76986,7 +76986,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load <2 x ptr>, ptr %65, align 8
   store ptr null, ptr %66, align 8
@@ -77291,7 +77291,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -77526,7 +77526,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -77770,7 +77770,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !674)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !674
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !674
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !674
@@ -77816,7 +77816,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -78019,7 +78019,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -78203,7 +78203,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc46EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -78247,7 +78247,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !677)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !677
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !677
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !677
@@ -78292,7 +78292,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -78585,7 +78585,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !680)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !680
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !680
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !680
@@ -78631,7 +78631,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -78810,7 +78810,7 @@ define linkonce_odr void @_ZN4toml6detail18parse_basic_stringB5cxx11ERNS0_8locat
   br i1 %.not, label %457, label %54
 
 54:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, i32 0, i64 2), ptr %5, align 8
   %55 = getelementptr inbounds i8, ptr %5, i64 8
   %56 = getelementptr inbounds i8, ptr %1, i64 8
   %57 = load ptr, ptr %56, align 8
@@ -79551,7 +79551,7 @@ _ZN4toml6resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ED2Ev.exi
   br i1 %.not.i151, label %_ZN4toml6resultINS_6detail6regionENS1_6none_tEEaSEOS4_.exit, label %297
 
 297:                                              ; preds = %294
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %164, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %164, align 8
   %298 = load <2 x ptr>, ptr %171, align 8
   store ptr null, ptr %172, align 8
   store <2 x ptr> %298, ptr %170, align 8
@@ -79689,7 +79689,7 @@ _ZN4toml6stringC2EOS0_.exit.i.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 0, ptr %340, align 8, !noalias !690
   store i8 0, ptr %331, align 8, !noalias !690
   %342 = getelementptr inbounds i8, ptr %31, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %342, align 8, !alias.scope !690
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %342, align 8, !alias.scope !690
   %343 = getelementptr inbounds i8, ptr %31, i64 48
   %344 = getelementptr inbounds i8, ptr %32, i64 48
   %345 = getelementptr inbounds i8, ptr %32, i64 56
@@ -81164,7 +81164,7 @@ _ZN4toml6stringC2EOS0_.exit.i.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 0, ptr %194, align 8, !noalias !705
   store i8 0, ptr %185, align 8, !noalias !705
   %196 = getelementptr inbounds i8, ptr %29, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %196, align 8, !alias.scope !705
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %196, align 8, !alias.scope !705
   %197 = getelementptr inbounds i8, ptr %29, i64 48
   %198 = getelementptr inbounds i8, ptr %30, i64 48
   %199 = getelementptr inbounds i8, ptr %30, i64 56
@@ -82000,7 +82000,7 @@ _ZN4toml15source_locationC2EOS0_.exit:            ; preds = %26, %_ZNKSt7__cxx11
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN4toml6detail8locationC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
@@ -82225,7 +82225,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_7excludeINS0_6eitherIJNS0_8
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -82290,7 +82290,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !711)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !711
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !711
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !711
@@ -82335,7 +82335,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -84930,7 +84930,7 @@ _ZN4toml6stringC2EOS0_.exit.i.i:                  ; preds = %_ZNKSt7__cxx1112bas
   store i64 0, ptr %17, align 8
   store i8 0, ptr %9, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 56
   %22 = getelementptr inbounds i8, ptr %1, i64 48
   %23 = load ptr, ptr %22, align 8
@@ -86495,7 +86495,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_8in_rangeILc0E
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -86560,7 +86560,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !745)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !745
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !745
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !745
@@ -86605,7 +86605,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -86849,7 +86849,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc0ELc127EEENS0_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -86949,7 +86949,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc0ELc127EE6invokeERNS0_8loca
   %21 = add i64 %20, %17
   store i64 %21, ptr %19, align 8
   store ptr %18, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %22 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %4, i64 16
@@ -86993,7 +86993,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %39 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %18, ptr %39, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !749)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !749
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !749
   %40 = getelementptr inbounds i8, ptr %3, i64 8
   %41 = getelementptr inbounds i8, ptr %3, i64 16
   %42 = load <2 x ptr>, ptr %22, align 8, !noalias !749
@@ -87038,7 +87038,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %58 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %58, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %0, i64 16
   %60 = load <2 x ptr>, ptr %40, align 8
   store ptr null, ptr %41, align 8
@@ -87280,7 +87280,7 @@ _ZN4toml6stringC2EOS0_.exit:                      ; preds = %11, %_ZNKSt7__cxx11
   store i64 0, ptr %17, align 8
   store i8 0, ptr %9, align 8
   %20 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 48
   %22 = getelementptr inbounds i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8
@@ -87384,7 +87384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %8,
   store i64 0, ptr %14, align 8
   store i8 0, ptr %6, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 40
   %19 = getelementptr inbounds i8, ptr %2, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -87551,7 +87551,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -87735,7 +87735,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc61EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -87779,7 +87779,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !752)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !752
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !752
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !752
@@ -87824,7 +87824,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -88199,7 +88199,7 @@ define linkonce_odr void @_ZN4toml6detail18parse_value_helperINS_11basic_valueIN
   %15 = and i8 %14, 1
   store i8 %15, ptr %6, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %6, i64 16
   %18 = getelementptr inbounds i8, ptr %1, i64 24
   %19 = getelementptr inbounds i8, ptr %6, i64 24
@@ -88586,7 +88586,7 @@ define linkonce_odr void @_ZN4toml6detail13parse_booleanB5cxx11ERNS0_8locationE(
           to label %33 unwind label %189
 
 33:                                               ; preds = %31
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %34 = getelementptr inbounds i8, ptr %4, i64 8
   %35 = getelementptr inbounds i8, ptr %32, i64 8
   %36 = load ptr, ptr %35, align 8
@@ -88680,7 +88680,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   call void @llvm.experimental.noalias.scope.decl(metadata !761)
   store i8 1, ptr %7, align 8, !alias.scope !761
   %66 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8, !alias.scope !761
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %66, align 8, !alias.scope !761
   %67 = getelementptr inbounds i8, ptr %7, i64 16
   %68 = load ptr, ptr %34, align 8, !noalias !761
   store ptr %68, ptr %67, align 8, !alias.scope !761
@@ -88725,7 +88725,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %77, %74, %6
   %85 = and i8 %84, 1
   store i8 %85, ptr %6, align 8, !alias.scope !764
   %86 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %86, align 8, !alias.scope !764
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %86, align 8, !alias.scope !764
   %87 = getelementptr inbounds i8, ptr %6, i64 16
   %88 = getelementptr inbounds i8, ptr %6, i64 24
   %89 = load <2 x ptr>, ptr %67, align 8, !noalias !764
@@ -88774,7 +88774,7 @@ _ZN4toml2okISt4pairIbNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %107 = and i8 %106, 1
   store i8 %107, ptr %105, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %108, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %108, align 8
   %109 = getelementptr inbounds i8, ptr %0, i64 24
   %110 = load <2 x ptr>, ptr %87, align 8
   store ptr null, ptr %88, align 8
@@ -89017,7 +89017,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   call void @llvm.experimental.noalias.scope.decl(metadata !770)
   store i8 0, ptr %10, align 8, !alias.scope !770
   %204 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %204, align 8, !alias.scope !770
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %204, align 8, !alias.scope !770
   %205 = getelementptr inbounds i8, ptr %10, i64 16
   %206 = load ptr, ptr %34, align 8, !noalias !770
   store ptr %206, ptr %205, align 8, !alias.scope !770
@@ -89062,7 +89062,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i87: ; preds = %215, %212
   %223 = and i8 %222, 1
   store i8 %223, ptr %9, align 8, !alias.scope !773
   %224 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %224, align 8, !alias.scope !773
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %224, align 8, !alias.scope !773
   %225 = getelementptr inbounds i8, ptr %9, i64 16
   %226 = getelementptr inbounds i8, ptr %9, i64 24
   %227 = load <2 x ptr>, ptr %205, align 8, !noalias !773
@@ -89111,7 +89111,7 @@ _ZN4toml2okISt4pairIbNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %245 = and i8 %244, 1
   store i8 %245, ptr %243, align 8
   %246 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %246, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %246, align 8
   %247 = getelementptr inbounds i8, ptr %0, i64 24
   %248 = load <2 x ptr>, ptr %225, align 8
   store ptr null, ptr %226, align 8
@@ -89946,7 +89946,7 @@ define linkonce_odr void @_ZN4toml6detail18parse_value_helperINS_11basic_valueIN
   %14 = load i64, ptr %11, align 8
   store i64 %14, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   %17 = getelementptr inbounds i8, ptr %1, i64 24
   %18 = getelementptr inbounds i8, ptr %6, i64 24
@@ -90351,7 +90351,7 @@ define linkonce_odr void @_ZN4toml6detail13parse_integerB5cxx11ERNS0_8locationE(
 
 .lr.ph.i.i.i.preheader:                           ; preds = %47
   store ptr %42, ptr %38, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %50 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %40, ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %5, i64 16
@@ -90401,7 +90401,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   call void @llvm.experimental.noalias.scope.decl(metadata !782)
   store i32 0, ptr %4, align 8, !alias.scope !782
   %68 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %68, align 8, !alias.scope !782
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %68, align 8, !alias.scope !782
   %69 = getelementptr inbounds i8, ptr %4, i64 16
   %70 = getelementptr inbounds i8, ptr %4, i64 24
   %71 = load <2 x ptr>, ptr %50, align 8, !noalias !782
@@ -90448,7 +90448,7 @@ _ZSt9make_pairIiN4toml6detail6regionEESt4pairINSt25__strip_reference_wrapperINSt
   %87 = load i32, ptr %4, align 8, !noalias !785
   store i32 %87, ptr %3, align 8, !alias.scope !785
   %88 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %88, align 8, !alias.scope !785
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %88, align 8, !alias.scope !785
   %89 = getelementptr inbounds i8, ptr %3, i64 16
   %90 = getelementptr inbounds i8, ptr %3, i64 24
   %91 = load <2 x ptr>, ptr %69, align 8, !noalias !785
@@ -90493,7 +90493,7 @@ _ZN4toml2okISt4pairIiNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %106 = sext i32 %105 to i64
   store i64 %106, ptr %104, align 8
   %107 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %107, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %0, i64 24
   %109 = load <2 x ptr>, ptr %89, align 8
   store ptr null, ptr %90, align 8
@@ -91268,7 +91268,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   %394 = load i64, ptr %27, align 8, !noalias !792
   store i64 %394, ptr %29, align 8, !alias.scope !792
   %395 = getelementptr inbounds i8, ptr %29, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %395, align 8, !alias.scope !792
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %395, align 8, !alias.scope !792
   %396 = getelementptr inbounds i8, ptr %29, i64 16
   %397 = getelementptr inbounds i8, ptr %392, i64 8
   %398 = load ptr, ptr %397, align 8, !noalias !792
@@ -91316,7 +91316,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %408, %405, 
   %417 = load i64, ptr %29, align 8, !noalias !795
   store i64 %417, ptr %28, align 8, !alias.scope !795
   %418 = getelementptr inbounds i8, ptr %28, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %418, align 8, !alias.scope !795
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %418, align 8, !alias.scope !795
   %419 = getelementptr inbounds i8, ptr %28, i64 16
   %420 = getelementptr inbounds i8, ptr %28, i64 24
   %421 = load <2 x ptr>, ptr %396, align 8, !noalias !795
@@ -91364,7 +91364,7 @@ _ZN4toml2okISt4pairIlNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %438 = load i64, ptr %28, align 8
   store i64 %438, ptr %437, align 8
   %439 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %439, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %439, align 8
   %440 = getelementptr inbounds i8, ptr %0, i64 24
   %441 = load <2 x ptr>, ptr %419, align 8
   store ptr null, ptr %420, align 8
@@ -92016,7 +92016,7 @@ define linkonce_odr void @_ZN4toml6detail18parse_value_helperINS_11basic_valueIN
   %14 = load double, ptr %11, align 8
   store double %14, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   %17 = getelementptr inbounds i8, ptr %1, i64 24
   %18 = getelementptr inbounds i8, ptr %6, i64 24
@@ -92456,7 +92456,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   call void @llvm.experimental.noalias.scope.decl(metadata !807)
   store double 0x7FF0000000000000, ptr %6, align 8, !alias.scope !807
   %49 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %49, align 8, !alias.scope !807
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %49, align 8, !alias.scope !807
   %50 = getelementptr inbounds i8, ptr %6, i64 16
   %51 = getelementptr inbounds i8, ptr %47, i64 8
   %52 = load ptr, ptr %51, align 8, !noalias !807
@@ -92504,7 +92504,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %62, %59, %4
   %71 = load double, ptr %6, align 8, !noalias !810
   store double %71, ptr %5, align 8, !alias.scope !810
   %72 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %72, align 8, !alias.scope !810
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %72, align 8, !alias.scope !810
   %73 = getelementptr inbounds i8, ptr %5, i64 16
   %74 = getelementptr inbounds i8, ptr %5, i64 24
   %75 = load <2 x ptr>, ptr %50, align 8, !noalias !810
@@ -92552,7 +92552,7 @@ _ZN4toml2okISt4pairIdNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %92 = load double, ptr %5, align 8
   store double %92, ptr %91, align 8
   %93 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %93, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %93, align 8
   %94 = getelementptr inbounds i8, ptr %0, i64 24
   %95 = load <2 x ptr>, ptr %73, align 8
   store ptr null, ptr %74, align 8
@@ -92788,7 +92788,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   call void @llvm.experimental.noalias.scope.decl(metadata !813)
   store double 0xFFF0000000000000, ptr %8, align 8, !alias.scope !813
   %193 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %193, align 8, !alias.scope !813
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %193, align 8, !alias.scope !813
   %194 = getelementptr inbounds i8, ptr %8, i64 16
   %195 = getelementptr inbounds i8, ptr %191, i64 8
   %196 = load ptr, ptr %195, align 8, !noalias !813
@@ -92836,7 +92836,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i59: ; preds = %206, %203
   %215 = load double, ptr %8, align 8, !noalias !816
   store double %215, ptr %7, align 8, !alias.scope !816
   %216 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %216, align 8, !alias.scope !816
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %216, align 8, !alias.scope !816
   %217 = getelementptr inbounds i8, ptr %7, i64 16
   %218 = getelementptr inbounds i8, ptr %7, i64 24
   %219 = load <2 x ptr>, ptr %194, align 8, !noalias !816
@@ -92884,7 +92884,7 @@ _ZN4toml2okISt4pairIdNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %236 = load double, ptr %7, align 8
   store double %236, ptr %235, align 8
   %237 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %237, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %237, align 8
   %238 = getelementptr inbounds i8, ptr %0, i64 24
   %239 = load <2 x ptr>, ptr %217, align 8
   store ptr null, ptr %218, align 8
@@ -93128,7 +93128,7 @@ _ZSteqIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_.exi
   call void @llvm.experimental.noalias.scope.decl(metadata !819)
   store double 0x7FF8000000000000, ptr %10, align 8, !alias.scope !819
   %337 = getelementptr inbounds i8, ptr %10, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %337, align 8, !alias.scope !819
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %337, align 8, !alias.scope !819
   %338 = getelementptr inbounds i8, ptr %10, i64 16
   %339 = getelementptr inbounds i8, ptr %335, i64 8
   %340 = load ptr, ptr %339, align 8, !noalias !819
@@ -93176,7 +93176,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i109: ; preds = %350, %34
   %359 = load double, ptr %10, align 8, !noalias !822
   store double %359, ptr %9, align 8, !alias.scope !822
   %360 = getelementptr inbounds i8, ptr %9, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %360, align 8, !alias.scope !822
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %360, align 8, !alias.scope !822
   %361 = getelementptr inbounds i8, ptr %9, i64 16
   %362 = getelementptr inbounds i8, ptr %9, i64 24
   %363 = load <2 x ptr>, ptr %338, align 8, !noalias !822
@@ -93224,7 +93224,7 @@ _ZN4toml2okISt4pairIdNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %380 = load double, ptr %9, align 8
   store double %380, ptr %379, align 8
   %381 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %381, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %381, align 8
   %382 = getelementptr inbounds i8, ptr %0, i64 24
   %383 = load <2 x ptr>, ptr %361, align 8
   store ptr null, ptr %362, align 8
@@ -93970,7 +93970,7 @@ _ZN4toml6stringC2EOS0_.exit.i:                    ; preds = %_ZNKSt7__cxx1112bas
   store i64 0, ptr %28, align 8
   store i8 0, ptr %19, align 1
   %30 = getelementptr inbounds i8, ptr %6, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %6, i64 48
   %32 = getelementptr inbounds i8, ptr %1, i64 56
   %33 = getelementptr inbounds i8, ptr %1, i64 64
@@ -94664,7 +94664,7 @@ define linkonce_odr void @_ZN4toml6detail18parse_value_helperINS_11basic_valueIN
   call void @_ZNK4toml6detail6region8commentsB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(72) %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %11, i64 16, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 24
   %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = getelementptr inbounds i8, ptr %6, i64 32
@@ -95759,7 +95759,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit171: ; preds = %_Z
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %46, i64 14
   store i16 %.sroa.0212.0.insert.insert, ptr %.sroa.3.0..sroa_idx, align 2
   %247 = getelementptr inbounds i8, ptr %46, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %247, align 8, !alias.scope !849
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %247, align 8, !alias.scope !849
   %248 = getelementptr inbounds i8, ptr %46, i64 24
   %249 = getelementptr inbounds i8, ptr %245, i64 8
   %250 = load ptr, ptr %249, align 8, !noalias !849
@@ -95806,7 +95806,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %260, %257, 
   call void @llvm.experimental.noalias.scope.decl(metadata !852)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false)
   %269 = getelementptr inbounds i8, ptr %45, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %269, align 8, !alias.scope !852
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %269, align 8, !alias.scope !852
   %270 = getelementptr inbounds i8, ptr %45, i64 24
   %271 = getelementptr inbounds i8, ptr %45, i64 32
   %272 = load <2 x ptr>, ptr %248, align 8, !noalias !852
@@ -95853,7 +95853,7 @@ _ZN4toml2okISt4pairINS_15offset_datetimeENS_6detail6regionEEEENS_7successINSt9re
   %288 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %288, ptr noundef nonnull align 8 dereferenceable(16) %45, i64 16, i1 false)
   %289 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %289, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %289, align 8
   %290 = getelementptr inbounds i8, ptr %0, i64 32
   %291 = load <2 x ptr>, ptr %270, align 8
   store ptr null, ptr %271, align 8
@@ -96579,7 +96579,7 @@ define linkonce_odr void @_ZN4toml6detail18parse_value_helperINS_11basic_valueIN
   call void @_ZNK4toml6detail6region8commentsB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(72) %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %6, ptr noundef nonnull align 8 dereferenceable(14) %11, i64 14, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 24
   %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = getelementptr inbounds i8, ptr %6, i64 32
@@ -97461,7 +97461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140: ; preds = %_Z
   %.sroa.3.0..sroa_idx = getelementptr inbounds i8, ptr %37, i64 12
   store i16 %.sroa.222.0.copyload, ptr %.sroa.3.0..sroa_idx, align 4
   %179 = getelementptr inbounds i8, ptr %37, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %179, align 8, !alias.scope !864
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %179, align 8, !alias.scope !864
   %180 = getelementptr inbounds i8, ptr %37, i64 24
   %181 = getelementptr inbounds i8, ptr %177, i64 8
   %182 = load ptr, ptr %181, align 8, !noalias !864
@@ -97508,7 +97508,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %192, %189, 
   call void @llvm.experimental.noalias.scope.decl(metadata !867)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %36, ptr noundef nonnull align 8 dereferenceable(14) %37, i64 14, i1 false)
   %201 = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %201, align 8, !alias.scope !867
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %201, align 8, !alias.scope !867
   %202 = getelementptr inbounds i8, ptr %36, i64 24
   %203 = getelementptr inbounds i8, ptr %36, i64 32
   %204 = load <2 x ptr>, ptr %180, align 8, !noalias !867
@@ -97555,7 +97555,7 @@ _ZN4toml2okISt4pairINS_14local_datetimeENS_6detail6regionEEEENS_7successINSt9rem
   %220 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %220, ptr noundef nonnull align 8 dereferenceable(14) %36, i64 14, i1 false)
   %221 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %221, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %221, align 8
   %222 = getelementptr inbounds i8, ptr %0, i64 32
   %223 = load <2 x ptr>, ptr %202, align 8
   store ptr null, ptr %203, align 8
@@ -98288,7 +98288,7 @@ define linkonce_odr void @_ZN4toml6detail18parse_value_helperINS_11basic_valueIN
   %14 = load i32, ptr %11, align 8
   store i32 %14, ptr %6, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %15, align 8
   %16 = getelementptr inbounds i8, ptr %6, i64 16
   %17 = getelementptr inbounds i8, ptr %1, i64 24
   %18 = getelementptr inbounds i8, ptr %6, i64 24
@@ -99551,7 +99551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit235: ; preds = %_Z
   %.sroa.0.0.insert.insert = or disjoint i32 %310, %sext166
   store i32 %.sroa.0.0.insert.insert, ptr %56, align 8, !alias.scope !888
   %311 = getelementptr inbounds i8, ptr %56, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %311, align 8, !alias.scope !888
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %311, align 8, !alias.scope !888
   %312 = getelementptr inbounds i8, ptr %56, i64 16
   %313 = getelementptr inbounds i8, ptr %307, i64 8
   %314 = load ptr, ptr %313, align 8, !noalias !888
@@ -99599,7 +99599,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %324, %321, 
   %333 = load i32, ptr %56, align 8, !noalias !891
   store i32 %333, ptr %55, align 8, !alias.scope !891
   %334 = getelementptr inbounds i8, ptr %55, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %334, align 8, !alias.scope !891
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %334, align 8, !alias.scope !891
   %335 = getelementptr inbounds i8, ptr %55, i64 16
   %336 = getelementptr inbounds i8, ptr %55, i64 24
   %337 = load <2 x ptr>, ptr %312, align 8, !noalias !891
@@ -99647,7 +99647,7 @@ _ZN4toml2okISt4pairINS_10local_dateENS_6detail6regionEEEENS_7successINSt9remove_
   %354 = load i32, ptr %55, align 8
   store i32 %354, ptr %353, align 8
   %355 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %355, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %355, align 8
   %356 = getelementptr inbounds i8, ptr %0, i64 24
   %357 = load <2 x ptr>, ptr %335, align 8
   store ptr null, ptr %336, align 8
@@ -100380,7 +100380,7 @@ define linkonce_odr void @_ZN4toml6detail18parse_value_helperINS_11basic_valueIN
   call void @_ZNK4toml6detail6region8commentsB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::vector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(72) %13)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %6, ptr noundef nonnull align 8 dereferenceable(10) %11, i64 10, i1 false)
   %14 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %6, i64 24
   %16 = getelementptr inbounds i8, ptr %1, i64 32
   %17 = getelementptr inbounds i8, ptr %6, i64 32
@@ -102272,7 +102272,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %_Z
   %.sroa.12.0..sroa_idx = getelementptr inbounds i8, ptr %84, i64 8
   store i16 %.sroa.12.1, ptr %.sroa.12.0..sroa_idx, align 8
   %501 = getelementptr inbounds i8, ptr %84, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %501, align 8, !alias.scope !924
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %501, align 8, !alias.scope !924
   %502 = getelementptr inbounds i8, ptr %84, i64 24
   %503 = getelementptr inbounds i8, ptr %499, i64 8
   %504 = load ptr, ptr %503, align 8, !noalias !924
@@ -102319,7 +102319,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %514, %511, 
   call void @llvm.experimental.noalias.scope.decl(metadata !927)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %83, ptr noundef nonnull align 8 dereferenceable(10) %84, i64 10, i1 false)
   %523 = getelementptr inbounds i8, ptr %83, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %523, align 8, !alias.scope !927
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %523, align 8, !alias.scope !927
   %524 = getelementptr inbounds i8, ptr %83, i64 24
   %525 = getelementptr inbounds i8, ptr %83, i64 32
   %526 = load <2 x ptr>, ptr %502, align 8, !noalias !927
@@ -102366,7 +102366,7 @@ _ZN4toml2okISt4pairINS_10local_timeENS_6detail6regionEEEENS_7successINSt9remove_
   %542 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %542, ptr noundef nonnull align 8 dereferenceable(10) %83, i64 10, i1 false)
   %543 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %543, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %543, align 8
   %544 = getelementptr inbounds i8, ptr %0, i64 32
   %545 = load <2 x ptr>, ptr %524, align 8
   store ptr null, ptr %525, align 8
@@ -103110,7 +103110,7 @@ define linkonce_odr void @_ZN4toml6detail18parse_value_helperINS_11basic_valueIN
   store ptr %17, ptr %15, align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 32
   %20 = getelementptr inbounds i8, ptr %1, i64 40
   %21 = getelementptr inbounds i8, ptr %1, i64 48
@@ -103554,7 +103554,7 @@ _ZN4toml7failureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit1
 .lr.ph.i.i.i168:                                  ; preds = %103
   %106 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i165, i64 1
   store ptr %106, ptr %47, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8
   %107 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %99, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %9, i64 16
@@ -103603,7 +103603,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %117, %114, %.lr
 
 .noexc:                                           ; preds = %123
   %126 = getelementptr inbounds i8, ptr %8, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %126, align 8, !alias.scope !936
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %126, align 8, !alias.scope !936
   %127 = getelementptr inbounds i8, ptr %8, i64 32
   %128 = getelementptr inbounds i8, ptr %8, i64 40
   %129 = load <2 x ptr>, ptr %107, align 8, !noalias !936
@@ -103655,7 +103655,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %149, ptr %147, align 16, !alias.scope !939
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !939
   %150 = getelementptr inbounds i8, ptr %7, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %150, align 8, !alias.scope !939
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %150, align 8, !alias.scope !939
   %151 = getelementptr inbounds i8, ptr %7, i64 32
   %152 = getelementptr inbounds i8, ptr %7, i64 40
   %153 = load <2 x ptr>, ptr %127, align 16, !noalias !939
@@ -103703,7 +103703,7 @@ _ZN4toml2okISt4pairISt6vectorINS_11basic_valueINS_16discard_commentsESt13unorder
   store ptr %169, ptr %168, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %170 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %170, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %170, align 8
   %171 = getelementptr inbounds i8, ptr %0, i64 40
   %172 = load <2 x ptr>, ptr %151, align 16
   store ptr null, ptr %152, align 8
@@ -104106,7 +104106,7 @@ _ZN4toml6resultINS_11basic_valueINS_16discard_commentsESt13unordered_mapSt6vecto
 .lr.ph.i.i.i188:                                  ; preds = %300
   %303 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i185, i64 1
   store ptr %303, ptr %47, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %26, align 8
   %304 = getelementptr inbounds i8, ptr %26, i64 8
   store ptr %296, ptr %304, align 8
   %305 = getelementptr inbounds i8, ptr %26, i64 16
@@ -104155,7 +104155,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i196: ; preds = %314, %311, %
 
 .noexc203:                                        ; preds = %320
   %323 = getelementptr inbounds i8, ptr %25, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %323, align 8, !alias.scope !942
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %323, align 8, !alias.scope !942
   %324 = getelementptr inbounds i8, ptr %25, i64 32
   %325 = getelementptr inbounds i8, ptr %25, i64 40
   %326 = load <2 x ptr>, ptr %304, align 8, !noalias !942
@@ -104207,7 +104207,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %346, ptr %344, align 16, !alias.scope !945
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %25, i8 0, i64 24, i1 false), !noalias !945
   %347 = getelementptr inbounds i8, ptr %24, i64 24
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %347, align 8, !alias.scope !945
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %347, align 8, !alias.scope !945
   %348 = getelementptr inbounds i8, ptr %24, i64 32
   %349 = getelementptr inbounds i8, ptr %24, i64 40
   %350 = load <2 x ptr>, ptr %324, align 16, !noalias !945
@@ -104255,7 +104255,7 @@ _ZN4toml2okISt4pairISt6vectorINS_11basic_valueINS_16discard_commentsESt13unorder
   store ptr %366, ptr %365, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %24, i8 0, i64 24, i1 false)
   %367 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %367, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %367, align 8
   %368 = getelementptr inbounds i8, ptr %0, i64 40
   %369 = load <2 x ptr>, ptr %348, align 16
   store ptr null, ptr %349, align 8
@@ -105436,7 +105436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit259: ; preds = %_Z
 .lr.ph.i.i.i263:                                  ; preds = %201
   %204 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i260, i64 1
   store ptr %204, ptr %75, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %17, align 8
   %205 = getelementptr inbounds i8, ptr %17, i64 8
   store ptr %197, ptr %205, align 8
   %206 = getelementptr inbounds i8, ptr %17, i64 16
@@ -105502,7 +105502,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %215, %212, %.lr
 .noexc:                                           ; preds = %221
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !955
   %232 = getelementptr inbounds i8, ptr %16, i64 56
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %232, align 8, !alias.scope !955
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %232, align 8, !alias.scope !955
   %233 = getelementptr inbounds i8, ptr %16, i64 64
   %234 = load <2 x ptr>, ptr %205, align 8, !noalias !955
   store ptr null, ptr %206, align 8, !noalias !955
@@ -105762,7 +105762,7 @@ _ZN4toml7failureINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit2
   %354 = load ptr, ptr %352, align 8
   %355 = getelementptr inbounds i8, ptr %352, i64 8
   %356 = load ptr, ptr %355, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %21, align 8
   %357 = getelementptr inbounds i8, ptr %352, i64 32
   %358 = load ptr, ptr %357, align 8
   store ptr %358, ptr %293, align 8
@@ -106107,7 +106107,7 @@ _ZN4toml6detail6regionD2Ev.exit305:               ; preds = %_ZNSt7__cxx1112basi
 .lr.ph.i.i.i309:                                  ; preds = %471
   %473 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i306, i64 1
   store ptr %473, ptr %75, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %37, align 8
   store ptr %437, ptr %299, align 8
   %474 = load ptr, ptr %301, align 8
   store ptr %474, ptr %300, align 8
@@ -106159,7 +106159,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i317: ; preds = %481, %478, %
 
 .noexc324:                                        ; preds = %485
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !958
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %312, align 8, !alias.scope !958
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %312, align 8, !alias.scope !958
   %488 = load <2 x ptr>, ptr %299, align 8, !noalias !958
   store ptr null, ptr %300, align 8, !noalias !958
   store <2 x ptr> %488, ptr %313, align 8, !alias.scope !958
@@ -107202,7 +107202,7 @@ define linkonce_odr void @_ZN4toml6detail17guess_number_typeB5cxx11ERKNS0_8locat
   %155 = alloca %"struct.toml::source_location", align 8
   %156 = alloca %"class.std::allocator.206", align 1
   %157 = alloca %"class.std::vector", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, i32 0, i64 2), ptr %3, align 8
   %158 = getelementptr inbounds i8, ptr %3, i64 8
   %159 = getelementptr inbounds i8, ptr %1, i64 8
   %160 = load ptr, ptr %159, align 8
@@ -111031,7 +111031,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -111266,7 +111266,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -111539,7 +111539,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -111861,7 +111861,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -112028,7 +112028,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_5maybeINS1_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -112105,7 +112105,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS2_IJNS0_9char
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -112340,7 +112340,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -112507,7 +112507,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc84EEENS2_ILc1
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -112661,7 +112661,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !968)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !968
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !968
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !968
@@ -112707,7 +112707,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -112856,7 +112856,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc84EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -112900,7 +112900,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !971)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !971
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !971
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !971
@@ -112945,7 +112945,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -113161,7 +113161,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc116EEENS2_ILc
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -113306,7 +113306,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -113550,7 +113550,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !974)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !974
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !974
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !974
@@ -113596,7 +113596,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -113728,7 +113728,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc90EEENS2_ILc1
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -113822,7 +113822,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc90EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -113866,7 +113866,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !977)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !977
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !977
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !977
@@ -113911,7 +113911,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -114127,7 +114127,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc122EEENS0_8se
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -114221,7 +114221,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc122EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -114265,7 +114265,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !980)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !980
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !980
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !980
@@ -114310,7 +114310,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -114594,7 +114594,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -114761,7 +114761,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc43EEENS2_ILc4
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -114915,7 +114915,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !983)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !983
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !983
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !983
@@ -114961,7 +114961,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -115110,7 +115110,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc43EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -115154,7 +115154,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !986)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !986
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !986
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !986
@@ -115199,7 +115199,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -115483,7 +115483,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -115643,7 +115643,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_8in_rangeILc48ELc57EEENS0_7
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -115789,7 +115789,7 @@ _ZN4toml7successINS_6detail6regionEED2Ev.exit.loopexit: ; preds = %_ZSt5countIN9
 
 63:                                               ; preds = %.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !990)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !990
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !990
   %64 = getelementptr inbounds i8, ptr %5, i64 8
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   %66 = load <2 x ptr>, ptr %6, align 8, !noalias !990
@@ -115834,7 +115834,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %82, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load <2 x ptr>, ptr %64, align 8
   store ptr null, ptr %65, align 8
@@ -116128,7 +116128,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -116312,7 +116312,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc58EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -116356,7 +116356,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !993)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !993
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !993
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !993
@@ -116401,7 +116401,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -116694,7 +116694,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !996)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !996
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !996
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !996
@@ -116740,7 +116740,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -116943,7 +116943,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -117187,7 +117187,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !999)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !999
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !999
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !999
@@ -117233,7 +117233,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -117358,7 +117358,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_8in_rangeILc48ELc57EEENS0_7
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -117506,7 +117506,7 @@ _ZN4toml7successINS_6detail6regionEED2Ev.exit.loopexit: ; preds = %_ZSt5countIN9
 
 63:                                               ; preds = %.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !1003)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1003
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1003
   %64 = getelementptr inbounds i8, ptr %5, i64 8
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   %66 = load <2 x ptr>, ptr %6, align 8, !noalias !1003
@@ -117551,7 +117551,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %82, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load <2 x ptr>, ptr %64, align 8
   store ptr null, ptr %65, align 8
@@ -117845,7 +117845,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -118083,7 +118083,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -118321,7 +118321,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -118559,7 +118559,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -118797,7 +118797,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -119035,7 +119035,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -119273,7 +119273,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -119517,7 +119517,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1006)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1006
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1006
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1006
@@ -119563,7 +119563,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -119697,7 +119697,7 @@ define linkonce_odr void @_ZN4toml6detail5maybeINS0_8sequenceIJNS0_9characterILc
 8:                                                ; preds = %2
   store i8 %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -119750,7 +119750,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEEC2ERKS4_.exit: ; preds = %_ZNSt10
   resume { ptr, i32 } %eh.lpad-body
 
 30:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -119797,7 +119797,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %43, %40, %30
   %52 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %.sroa.0.0.copyload.i.i, ptr %52, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1009)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !1009
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !1009
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = getelementptr inbounds i8, ptr %4, i64 16
   %55 = load <2 x ptr>, ptr %31, align 8, !noalias !1009
@@ -119842,7 +119842,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load <2 x ptr>, ptr %53, align 8
   store ptr null, ptr %54, align 8
@@ -120127,7 +120127,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -120371,7 +120371,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1012)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1012
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1012
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1012
@@ -120417,7 +120417,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -120544,7 +120544,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_8in_rangeILc48ELc57EEENS0_8
   %3 = alloca %"struct.toml::result", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -120704,7 +120704,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 64:                                               ; preds = %61
   call void @llvm.experimental.noalias.scope.decl(metadata !1015)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1015
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1015
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = getelementptr inbounds i8, ptr %5, i64 16
   %67 = load <2 x ptr>, ptr %6, align 8, !noalias !1015
@@ -120749,7 +120749,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load <2 x ptr>, ptr %65, align 8
   store ptr null, ptr %66, align 8
@@ -121054,7 +121054,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -121223,7 +121223,7 @@ define linkonce_odr void @_ZN4toml6detail5maybeINS0_6eitherIJNS0_9characterILc43
 8:                                                ; preds = %2
   store i8 %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -121276,7 +121276,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEEC2ERKS4_.exit: ; preds = %_ZNSt10
   resume { ptr, i32 } %eh.lpad-body
 
 30:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -121323,7 +121323,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %43, %40, %30
   %52 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %.sroa.0.0.copyload.i.i, ptr %52, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1019)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !1019
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !1019
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = getelementptr inbounds i8, ptr %4, i64 16
   %55 = load <2 x ptr>, ptr %31, align 8, !noalias !1019
@@ -121368,7 +121368,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load <2 x ptr>, ptr %53, align 8
   store ptr null, ptr %54, align 8
@@ -121662,7 +121662,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1022)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1022
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1022
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1022
@@ -121708,7 +121708,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -121840,7 +121840,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_9characterI
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -121985,7 +121985,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -122169,7 +122169,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc105EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -122213,7 +122213,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1025)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1025
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1025
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1025
@@ -122258,7 +122258,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -122545,7 +122545,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -122789,7 +122789,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1028)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1028
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1028
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1028
@@ -122835,7 +122835,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -123035,7 +123035,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -123273,7 +123273,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -123457,7 +123457,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc97EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -123501,7 +123501,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1031)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1031
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1031
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1031
@@ -123546,7 +123546,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -123839,7 +123839,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1034)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1034
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1034
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1034
@@ -123885,7 +123885,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -124085,7 +124085,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -124320,7 +124320,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -124564,7 +124564,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1037)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1037
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1037
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1037
@@ -124610,7 +124610,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -124819,7 +124819,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1040)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1040
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1040
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1040
@@ -124865,7 +124865,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -124997,7 +124997,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_8in_rangeIL
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -125142,7 +125142,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -125327,7 +125327,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc49ELc57EE6invokeERNS0_8loca
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -125371,7 +125371,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1043)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1043
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1043
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !1043
@@ -125416,7 +125416,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -125709,7 +125709,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1046)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1046
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1046
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1046
@@ -125755,7 +125755,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -125882,7 +125882,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_8in_rangeILc48
   %3 = alloca %"struct.toml::result", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -126042,7 +126042,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 64:                                               ; preds = %61
   call void @llvm.experimental.noalias.scope.decl(metadata !1049)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1049
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1049
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = getelementptr inbounds i8, ptr %5, i64 16
   %67 = load <2 x ptr>, ptr %6, align 8, !noalias !1049
@@ -126087,7 +126087,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %82, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %83, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %83, align 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   %85 = load <2 x ptr>, ptr %65, align 8
   store ptr null, ptr %66, align 8
@@ -126324,7 +126324,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc48ELc57EEENS0_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -126469,7 +126469,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -126713,7 +126713,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1053)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1053
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1053
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1053
@@ -126759,7 +126759,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -126891,7 +126891,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS1_IJNS0_9char
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -127036,7 +127036,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -127203,7 +127203,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc101EEENS2_ILc
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -127351,7 +127351,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -127535,7 +127535,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc101EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -127579,7 +127579,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1056)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1056
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1056
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1056
@@ -127624,7 +127624,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -127857,7 +127857,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc69EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -127901,7 +127901,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1059)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1059
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1059
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1059
@@ -127946,7 +127946,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -128239,7 +128239,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1062)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1062
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1062
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1062
@@ -128285,7 +128285,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -128485,7 +128485,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -128729,7 +128729,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1065)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1065
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1065
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1065
@@ -128775,7 +128775,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -128900,7 +128900,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_8in_rangeILc48
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -128965,7 +128965,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !1068)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1068
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1068
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !1068
@@ -129010,7 +129010,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -129322,7 +129322,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -129557,7 +129557,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -129801,7 +129801,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1072)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1072
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1072
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1072
@@ -129847,7 +129847,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -129981,7 +129981,7 @@ define linkonce_odr void @_ZN4toml6detail5maybeINS0_8sequenceIJNS0_6eitherIJNS0_
 8:                                                ; preds = %2
   store i8 %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -130034,7 +130034,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEEC2ERKS4_.exit: ; preds = %_ZNSt10
   resume { ptr, i32 } %eh.lpad-body
 
 30:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -130081,7 +130081,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %43, %40, %30
   %52 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %.sroa.0.0.copyload.i.i, ptr %52, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1075)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !1075
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !1075
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = getelementptr inbounds i8, ptr %4, i64 16
   %55 = load <2 x ptr>, ptr %31, align 8, !noalias !1075
@@ -130126,7 +130126,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load <2 x ptr>, ptr %53, align 8
   store ptr null, ptr %54, align 8
@@ -130411,7 +130411,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -130578,7 +130578,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS2_IJNS0_9char
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -130723,7 +130723,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -130967,7 +130967,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1078)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1078
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1078
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1078
@@ -131013,7 +131013,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -131162,7 +131162,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc48EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -131206,7 +131206,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1081)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1081
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1081
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1081
@@ -131251,7 +131251,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -131544,7 +131544,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1084)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1084
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1084
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1084
@@ -131590,7 +131590,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -131790,7 +131790,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -131975,7 +131975,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc48ELc49EE6invokeERNS0_8loca
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -132019,7 +132019,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1087)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1087
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1087
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !1087
@@ -132064,7 +132064,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -132357,7 +132357,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1090)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1090
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1090
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1090
@@ -132403,7 +132403,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -132528,7 +132528,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_8in_rangeILc48
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -132593,7 +132593,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !1093)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1093
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1093
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !1093
@@ -132638,7 +132638,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -132882,7 +132882,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc48ELc49EEENS0_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -133027,7 +133027,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -133271,7 +133271,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1097)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1097
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1097
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1097
@@ -133317,7 +133317,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -133517,7 +133517,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -133684,7 +133684,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS2_IJNS0_9char
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -133829,7 +133829,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -134073,7 +134073,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1100)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1100
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1100
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1100
@@ -134119,7 +134119,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -134328,7 +134328,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1103)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1103
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1103
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1103
@@ -134374,7 +134374,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -134523,7 +134523,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc111EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -134567,7 +134567,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1106)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1106
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1106
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1106
@@ -134612,7 +134612,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -134896,7 +134896,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -135081,7 +135081,7 @@ define linkonce_odr void @_ZN4toml6detail8in_rangeILc48ELc55EE6invokeERNS0_8loca
 .lr.ph.i.i.i:                                     ; preds = %12
   %16 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %16, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %4, i64 16
@@ -135125,7 +135125,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %34 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %16, ptr %34, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1109)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1109
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1109
   %35 = getelementptr inbounds i8, ptr %3, i64 8
   %36 = getelementptr inbounds i8, ptr %3, i64 16
   %37 = load <2 x ptr>, ptr %17, align 8, !noalias !1109
@@ -135170,7 +135170,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %0, i64 16
   %55 = load <2 x ptr>, ptr %35, align 8
   store ptr null, ptr %36, align 8
@@ -135463,7 +135463,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1112)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1112
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1112
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1112
@@ -135509,7 +135509,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -135634,7 +135634,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_8in_rangeILc48
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -135699,7 +135699,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !1115)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1115
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1115
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !1115
@@ -135744,7 +135744,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -135988,7 +135988,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc48ELc55EEENS0_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -136133,7 +136133,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -136377,7 +136377,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1119)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1119
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1119
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1119
@@ -136423,7 +136423,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -136623,7 +136623,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -136858,7 +136858,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -137102,7 +137102,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1122)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1122
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1122
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1122
@@ -137148,7 +137148,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -137357,7 +137357,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1125)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1125
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1125
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1125
@@ -137403,7 +137403,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -137552,7 +137552,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc120EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -137596,7 +137596,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1128)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1128
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1128
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1128
@@ -137641,7 +137641,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -137925,7 +137925,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -138169,7 +138169,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1131)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1131
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1131
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1131
@@ -138215,7 +138215,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -138340,7 +138340,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS2_IJNS0_8in_rang
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -138405,7 +138405,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !1134)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1134
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1134
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !1134
@@ -138450,7 +138450,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -138694,7 +138694,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS1_IJNS0_8in_rangeILc48ELc57E
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -138839,7 +138839,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -139083,7 +139083,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1138)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1138
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1138
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1138
@@ -139129,7 +139129,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -139277,7 +139277,7 @@ define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unorde
   %5 = alloca %"class.std::vector", align 8
   %6 = load i8, ptr %1, align 1
   %7 = and i8 %6, 1
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 8
   %9 = getelementptr inbounds i8, ptr %1, i64 16
   %10 = getelementptr inbounds i8, ptr %4, i64 16
@@ -139344,9 +139344,9 @@ _ZN4toml6detail6regionC2EOS1_.exit:               ; preds = %19, %_ZNKSt7__cxx11
   store i32 1, ptr %38, align 8, !noalias !1141
   %39 = getelementptr inbounds i8, ptr %37, i64 12
   store i32 1, ptr %39, align 4, !noalias !1141
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %37, align 8, !noalias !1141
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %37, align 8, !noalias !1141
   %40 = getelementptr inbounds i8, ptr %37, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %40, align 8, !noalias !1141
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %40, align 8, !noalias !1141
   %41 = getelementptr inbounds i8, ptr %37, i64 24
   %42 = load <2 x ptr>, ptr %8, align 8, !noalias !1141
   store ptr null, ptr %10, align 8, !noalias !1141
@@ -139635,7 +139635,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS0_9characterI
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -140027,7 +140027,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -140265,7 +140265,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -140503,7 +140503,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -140747,7 +140747,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1154)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1154
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1154
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1154
@@ -140793,7 +140793,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -140993,7 +140993,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -141231,7 +141231,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -141469,7 +141469,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -141653,7 +141653,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc108EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -141697,7 +141697,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1157)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1157
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1157
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1157
@@ -141742,7 +141742,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -142029,7 +142029,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -142213,7 +142213,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc115EE6invokeERNS0_8locatio
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -142257,7 +142257,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1160)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1160
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1160
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1160
@@ -142302,7 +142302,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -142637,7 +142637,7 @@ define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unorde
   %4 = alloca %"struct.toml::detail::region", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = load i64, ptr %1, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = getelementptr inbounds i8, ptr %4, i64 16
@@ -142704,9 +142704,9 @@ _ZN4toml6detail6regionC2EOS1_.exit:               ; preds = %18, %_ZNKSt7__cxx11
   store i32 1, ptr %37, align 8, !noalias !1163
   %38 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 1, ptr %38, align 4, !noalias !1163
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %36, align 8, !noalias !1163
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %36, align 8, !noalias !1163
   %39 = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %39, align 8, !noalias !1163
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %39, align 8, !noalias !1163
   %40 = getelementptr inbounds i8, ptr %36, i64 24
   %41 = load <2 x ptr>, ptr %7, align 8, !noalias !1163
   store ptr null, ptr %9, align 8, !noalias !1163
@@ -143204,7 +143204,7 @@ _ZNK4toml6detail6region3strB5cxx11Ev.exit:        ; preds = %34
   call void @llvm.experimental.noalias.scope.decl(metadata !1174)
   store i64 %.0.lcssa, ptr %15, align 8, !alias.scope !1174
   %83 = getelementptr inbounds i8, ptr %15, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %83, align 8, !alias.scope !1174
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %83, align 8, !alias.scope !1174
   %84 = getelementptr inbounds i8, ptr %15, i64 16
   %85 = getelementptr inbounds i8, ptr %81, i64 8
   %86 = load ptr, ptr %85, align 8, !noalias !1174
@@ -143252,7 +143252,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %96, %93, %8
   %105 = load i64, ptr %15, align 8, !noalias !1177
   store i64 %105, ptr %14, align 8, !alias.scope !1177
   %106 = getelementptr inbounds i8, ptr %14, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %106, align 8, !alias.scope !1177
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %106, align 8, !alias.scope !1177
   %107 = getelementptr inbounds i8, ptr %14, i64 16
   %108 = getelementptr inbounds i8, ptr %14, i64 24
   %109 = load <2 x ptr>, ptr %84, align 8, !noalias !1177
@@ -143300,7 +143300,7 @@ _ZN4toml2okISt4pairIlNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %126 = load i64, ptr %14, align 8
   store i64 %126, ptr %125, align 8
   %127 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %127, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %127, align 8
   %128 = getelementptr inbounds i8, ptr %0, i64 24
   %129 = load <2 x ptr>, ptr %107, align 8
   store ptr null, ptr %108, align 8
@@ -144172,7 +144172,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   %118 = load i64, ptr %6, align 8, !noalias !1186
   store i64 %118, ptr %8, align 8, !alias.scope !1186
   %119 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %119, align 8, !alias.scope !1186
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %119, align 8, !alias.scope !1186
   %120 = getelementptr inbounds i8, ptr %8, i64 16
   %121 = getelementptr inbounds i8, ptr %116, i64 8
   %122 = load ptr, ptr %121, align 8, !noalias !1186
@@ -144220,7 +144220,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %132, %129, 
   %141 = load i64, ptr %8, align 8, !noalias !1189
   store i64 %141, ptr %7, align 8, !alias.scope !1189
   %142 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %142, align 8, !alias.scope !1189
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %142, align 8, !alias.scope !1189
   %143 = getelementptr inbounds i8, ptr %7, i64 16
   %144 = getelementptr inbounds i8, ptr %7, i64 24
   %145 = load <2 x ptr>, ptr %120, align 8, !noalias !1189
@@ -144268,7 +144268,7 @@ _ZN4toml2okISt4pairIlNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %162 = load i64, ptr %7, align 8
   store i64 %162, ptr %161, align 8
   %163 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %163, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %0, i64 24
   %165 = load <2 x ptr>, ptr %143, align 8
   store ptr null, ptr %144, align 8
@@ -145158,7 +145158,7 @@ _ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPcNSt7__cxx1112basic_stringIcSt11c
   %118 = load i64, ptr %6, align 8, !noalias !1198
   store i64 %118, ptr %8, align 8, !alias.scope !1198
   %119 = getelementptr inbounds i8, ptr %8, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %119, align 8, !alias.scope !1198
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %119, align 8, !alias.scope !1198
   %120 = getelementptr inbounds i8, ptr %8, i64 16
   %121 = getelementptr inbounds i8, ptr %116, i64 8
   %122 = load ptr, ptr %121, align 8, !noalias !1198
@@ -145206,7 +145206,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %132, %129, 
   %141 = load i64, ptr %8, align 8, !noalias !1201
   store i64 %141, ptr %7, align 8, !alias.scope !1201
   %142 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %142, align 8, !alias.scope !1201
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %142, align 8, !alias.scope !1201
   %143 = getelementptr inbounds i8, ptr %7, i64 16
   %144 = getelementptr inbounds i8, ptr %7, i64 24
   %145 = load <2 x ptr>, ptr %120, align 8, !noalias !1201
@@ -145254,7 +145254,7 @@ _ZN4toml2okISt4pairIlNS_6detail6regionEEEENS_7successINSt9remove_cvINSt16remove_
   %162 = load i64, ptr %7, align 8
   store i64 %162, ptr %161, align 8
   %163 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %163, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %163, align 8
   %164 = getelementptr inbounds i8, ptr %0, i64 24
   %165 = load <2 x ptr>, ptr %143, align 8
   store ptr null, ptr %144, align 8
@@ -146449,7 +146449,7 @@ define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unorde
   %4 = alloca %"struct.toml::detail::region", align 8
   %5 = alloca %"class.std::vector", align 8
   %6 = load double, ptr %1, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   %8 = getelementptr inbounds i8, ptr %1, i64 16
   %9 = getelementptr inbounds i8, ptr %4, i64 16
@@ -146516,9 +146516,9 @@ _ZN4toml6detail6regionC2EOS1_.exit:               ; preds = %18, %_ZNKSt7__cxx11
   store i32 1, ptr %37, align 8, !noalias !1207
   %38 = getelementptr inbounds i8, ptr %36, i64 12
   store i32 1, ptr %38, align 4, !noalias !1207
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %36, align 8, !noalias !1207
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %36, align 8, !noalias !1207
   %39 = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %39, align 8, !noalias !1207
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %39, align 8, !noalias !1207
   %40 = getelementptr inbounds i8, ptr %36, i64 24
   %41 = load <2 x ptr>, ptr %7, align 8, !noalias !1207
   store ptr null, ptr %9, align 8, !noalias !1207
@@ -146800,7 +146800,7 @@ define linkonce_odr void @_ZN4toml2okISt4pairIdNS_6detail6regionEEEENS_7successI
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = getelementptr inbounds i8, ptr %1, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 24
@@ -146854,7 +146854,7 @@ define linkonce_odr void @_ZSt9make_pairIdRKN4toml6detail6regionEESt4pairINSt25_
   %4 = load double, ptr %1, align 8
   store double %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -146908,7 +146908,7 @@ define linkonce_odr void @_ZN4toml6resultISt4pairIdNS_6detail6regionEENSt7__cxx1
   %4 = load double, ptr %1, align 8
   store double %4, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = load ptr, ptr %7, align 8
@@ -147064,7 +147064,7 @@ define linkonce_odr void @_ZSt9make_pairIRdRKN4toml6detail6regionEESt4pairINSt25
   %4 = load double, ptr %1, align 8
   store double %4, ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -147279,7 +147279,7 @@ _ZN4toml6stringC2EOS0_.exit:                      ; preds = %14, %_ZNKSt7__cxx11
   store ptr %12, ptr %9, align 8
   store i64 0, ptr %21, align 8
   store i8 0, ptr %12, align 1
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %23 = getelementptr inbounds i8, ptr %5, i64 8
   %24 = getelementptr inbounds i8, ptr %1, i64 48
   %25 = getelementptr inbounds i8, ptr %5, i64 16
@@ -147506,9 +147506,9 @@ define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unorde
   store i32 1, ptr %7, align 8, !noalias !1215
   %8 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !1215
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !noalias !1215
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !1215
   %9 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8, !noalias !1215
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8, !noalias !1215
   %10 = getelementptr inbounds i8, ptr %6, i64 24
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = getelementptr inbounds i8, ptr %2, i64 16
@@ -147666,7 +147666,7 @@ define linkonce_odr void @_ZN4toml6detail21parse_ml_basic_stringB5cxx11ERNS0_8lo
   br i1 %.not, label %533, label %65
 
 65:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail8locationE, i64 0, i32 0, i64 2), ptr %5, align 8
   %66 = getelementptr inbounds i8, ptr %5, i64 8
   %67 = getelementptr inbounds i8, ptr %1, i64 8
   %68 = load ptr, ptr %67, align 8
@@ -148417,7 +148417,7 @@ _ZN4toml6resultINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ED2Ev.exi
   br i1 %.not.i179, label %_ZN4toml6resultINS_6detail6regionENS1_6none_tEEaSEOS4_.exit, label %309
 
 309:                                              ; preds = %306
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %175, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %175, align 8
   %310 = load <2 x ptr>, ptr %182, align 8
   store ptr null, ptr %183, align 8
   store <2 x ptr> %310, ptr %181, align 8
@@ -148695,7 +148695,7 @@ _ZN4toml6stringC2EOS0_.exit.i.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 0, ptr %400, align 8, !noalias !1223
   store i8 0, ptr %391, align 8, !noalias !1223
   %402 = getelementptr inbounds i8, ptr %42, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %402, align 8, !alias.scope !1223
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %402, align 8, !alias.scope !1223
   %403 = getelementptr inbounds i8, ptr %42, i64 48
   %404 = getelementptr inbounds i8, ptr %43, i64 48
   %405 = getelementptr inbounds i8, ptr %43, i64 56
@@ -150165,7 +150165,7 @@ _ZN4toml6stringC2EOS0_.exit.i.i.i:                ; preds = %_ZNKSt7__cxx1112bas
   store i64 0, ptr %248, align 8, !noalias !1238
   store i8 0, ptr %239, align 8, !noalias !1238
   %250 = getelementptr inbounds i8, ptr %40, i64 40
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %250, align 8, !alias.scope !1238
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %250, align 8, !alias.scope !1238
   %251 = getelementptr inbounds i8, ptr %40, i64 48
   %252 = getelementptr inbounds i8, ptr %41, i64 48
   %253 = getelementptr inbounds i8, ptr %41, i64 56
@@ -151157,7 +151157,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -151317,7 +151317,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_9characterILc34EEENS0_7exac
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -151465,7 +151465,7 @@ _ZN4toml7successINS_6detail6regionEED2Ev.exit.loopexit: ; preds = %_ZSt5countIN9
 
 63:                                               ; preds = %.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !1245)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1245
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1245
   %64 = getelementptr inbounds i8, ptr %5, i64 8
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   %66 = load <2 x ptr>, ptr %6, align 8, !noalias !1245
@@ -151510,7 +151510,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %82, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load <2 x ptr>, ptr %64, align 8
   store ptr null, ptr %65, align 8
@@ -151726,7 +151726,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_7excludeINS2_I
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -151791,7 +151791,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !1248)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1248
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1248
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !1248
@@ -151836,7 +151836,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -152148,7 +152148,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -152383,7 +152383,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -152621,7 +152621,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -152781,7 +152781,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS2_IJNS0_7exclude
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -152846,7 +152846,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !1252)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1252
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1252
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !1252
@@ -152891,7 +152891,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -153212,7 +153212,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1256)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1256
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1256
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1256
@@ -153258,7 +153258,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -153390,7 +153390,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS1_IJNS0_7excludeINS1_IJNS0_8
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -153467,7 +153467,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_7excludeINS1_IJNS0_8in_ran
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -153544,7 +153544,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS1_IJNS0_9characterILc10EEENS
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -153748,7 +153748,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit28: ; preds = %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit.i26, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit12.i20
   store ptr %41, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = load ptr, ptr %7, align 8
   store ptr %66, ptr %65, align 8
@@ -153794,7 +153794,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %76, %73, %_ZN4t
   %83 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %41, ptr %83, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1259)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !1259
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !1259
   %84 = getelementptr inbounds i8, ptr %4, i64 8
   %85 = getelementptr inbounds i8, ptr %4, i64 16
   %86 = load <2 x ptr>, ptr %65, align 8, !noalias !1259
@@ -153839,7 +153839,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %102 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %102, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %0, i64 16
   %104 = load <2 x ptr>, ptr %84, align 8
   store ptr null, ptr %85, align 8
@@ -154059,7 +154059,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc0ELc8EEENS2_IL
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -154136,7 +154136,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc10ELc31EEENS0_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -154213,7 +154213,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc92EEENS2_ILc1
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -154290,7 +154290,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc127EEENS0_6re
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -154367,7 +154367,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_7excludeINS1_IJNS0_8in_ran
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -154515,7 +154515,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -154753,7 +154753,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -154997,7 +154997,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1262)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1262
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1262
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1262
@@ -155043,7 +155043,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -155168,7 +155168,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS1_INS2_IJNS0_9ch
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -155233,7 +155233,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !1265)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1265
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1265
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !1265
@@ -155278,7 +155278,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -155522,7 +155522,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_6repeatINS1_IJNS0_9charact
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -155670,7 +155670,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -155839,7 +155839,7 @@ define linkonce_odr void @_ZN4toml6detail5maybeINS0_9characterILc34EEEE6invokeER
 8:                                                ; preds = %2
   store i8 %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -155892,7 +155892,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEEC2ERKS4_.exit: ; preds = %_ZNSt10
   resume { ptr, i32 } %eh.lpad-body
 
 30:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -155939,7 +155939,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %43, %40, %30
   %52 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %.sroa.0.0.copyload.i.i, ptr %52, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1269)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !1269
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !1269
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = getelementptr inbounds i8, ptr %4, i64 16
   %55 = load <2 x ptr>, ptr %31, align 8, !noalias !1269
@@ -155984,7 +155984,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load <2 x ptr>, ptr %53, align 8
   store ptr null, ptr %54, align 8
@@ -156278,7 +156278,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1272)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1272
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1272
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1272
@@ -156324,7 +156324,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -156524,7 +156524,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -156684,7 +156684,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_9characterILc39EEENS0_7exac
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -156832,7 +156832,7 @@ _ZN4toml7successINS_6detail6regionEED2Ev.exit.loopexit: ; preds = %_ZSt5countIN9
 
 63:                                               ; preds = %.thread
   call void @llvm.experimental.noalias.scope.decl(metadata !1276)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1276
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1276
   %64 = getelementptr inbounds i8, ptr %5, i64 8
   %65 = getelementptr inbounds i8, ptr %5, i64 16
   %66 = load <2 x ptr>, ptr %6, align 8, !noalias !1276
@@ -156877,7 +156877,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %82, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %82, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 16
   %84 = load <2 x ptr>, ptr %64, align 8
   store ptr null, ptr %65, align 8
@@ -157093,7 +157093,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS0_7excludeINS2_I
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -157158,7 +157158,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !1279)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1279
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1279
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !1279
@@ -157203,7 +157203,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -157515,7 +157515,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -157753,7 +157753,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -157997,7 +157997,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1283)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1283
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1283
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1283
@@ -158043,7 +158043,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -158175,7 +158175,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_7excludeINS1_IJNS0_8in_ran
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -158379,7 +158379,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_
 
 _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEE.exit28: ; preds = %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit.i26, %_ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIcEEEEcENSt15iterator_traitsIT_E15difference_typeES9_S9_RKT0_.exit12.i20
   store ptr %41, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %65 = getelementptr inbounds i8, ptr %5, i64 8
   %66 = load ptr, ptr %7, align 8
   store ptr %66, ptr %65, align 8
@@ -158425,7 +158425,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %76, %73, %_ZN4t
   %83 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %41, ptr %83, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1286)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !1286
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !1286
   %84 = getelementptr inbounds i8, ptr %4, i64 8
   %85 = getelementptr inbounds i8, ptr %4, i64 16
   %86 = load <2 x ptr>, ptr %65, align 8, !noalias !1286
@@ -158470,7 +158470,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %101, ptr noundef nonnull align 8 dereferenceable(16) %82, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %102 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %102, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %102, align 8
   %103 = getelementptr inbounds i8, ptr %0, i64 16
   %104 = load <2 x ptr>, ptr %84, align 8
   store ptr null, ptr %85, align 8
@@ -158690,7 +158690,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc0ELc8EEENS2_IL
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -158767,7 +158767,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8in_rangeILc10ELc31EEENS0_
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -158844,7 +158844,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_9characterILc127EEENS0_6re
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -158992,7 +158992,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -159161,7 +159161,7 @@ define linkonce_odr void @_ZN4toml6detail5maybeINS0_9characterILc39EEEE6invokeER
 8:                                                ; preds = %2
   store i8 %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -159214,7 +159214,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEEC2ERKS4_.exit: ; preds = %_ZNSt10
   resume { ptr, i32 } %eh.lpad-body
 
 30:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -159261,7 +159261,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %43, %40, %30
   %52 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %.sroa.0.0.copyload.i.i, ptr %52, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1289)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !1289
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !1289
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = getelementptr inbounds i8, ptr %4, i64 16
   %55 = load <2 x ptr>, ptr %31, align 8, !noalias !1289
@@ -159306,7 +159306,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load <2 x ptr>, ptr %53, align 8
   store ptr null, ptr %54, align 8
@@ -159600,7 +159600,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1292)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1292
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1292
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1292
@@ -159646,7 +159646,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -159770,7 +159770,7 @@ _ZN4toml7successINS_6detail6regionEED2Ev.exit:    ; preds = %_ZNSt16_Sp_counted_
 define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEC2INS_15offset_datetimeETnNSt9enable_ifIXsr6detail18is_exact_toml_typeIT_S4_EE5valueEDnE4typeELDn0EEESt4pairIS8_NS_6detail6regionEES3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.toml::detail::region", align 8
   %5 = alloca %"class.std::vector", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -159837,9 +159837,9 @@ _ZN4toml6detail6regionC2EOS1_.exit:               ; preds = %17, %_ZNKSt7__cxx11
   store i32 1, ptr %36, align 8, !noalias !1295
   %37 = getelementptr inbounds i8, ptr %35, i64 12
   store i32 1, ptr %37, align 4, !noalias !1295
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %35, align 8, !noalias !1295
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %35, align 8, !noalias !1295
   %38 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !noalias !1295
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %38, align 8, !noalias !1295
   %39 = getelementptr inbounds i8, ptr %35, i64 24
   %40 = load <2 x ptr>, ptr %6, align 8, !noalias !1295
   store ptr null, ptr %8, align 8, !noalias !1295
@@ -160594,7 +160594,7 @@ _ZN4toml7successISt4pairINS_15offset_datetimeENS_6detail6regionEEED2Ev.exit: ; p
 define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEC2INS_14local_datetimeETnNSt9enable_ifIXsr6detail18is_exact_toml_typeIT_S4_EE5valueEDnE4typeELDn0EEESt4pairIS8_NS_6detail6regionEES3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.toml::detail::region", align 8
   %5 = alloca %"class.std::vector", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -160661,9 +160661,9 @@ _ZN4toml6detail6regionC2EOS1_.exit:               ; preds = %17, %_ZNKSt7__cxx11
   store i32 1, ptr %36, align 8, !noalias !1298
   %37 = getelementptr inbounds i8, ptr %35, i64 12
   store i32 1, ptr %37, align 4, !noalias !1298
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %35, align 8, !noalias !1298
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %35, align 8, !noalias !1298
   %38 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !noalias !1298
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %38, align 8, !noalias !1298
   %39 = getelementptr inbounds i8, ptr %35, i64 24
   %40 = load <2 x ptr>, ptr %6, align 8, !noalias !1298
   store ptr null, ptr %8, align 8, !noalias !1298
@@ -161501,7 +161501,7 @@ _ZN4toml7successISt4pairINS_14local_datetimeENS_6detail6regionEEED2Ev.exit: ; pr
 define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEC2INS_10local_dateETnNSt9enable_ifIXsr6detail18is_exact_toml_typeIT_S4_EE5valueEDnE4typeELDn0EEESt4pairIS8_NS_6detail6regionEES3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.toml::detail::region", align 8
   %5 = alloca %"class.std::vector", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -161568,9 +161568,9 @@ _ZN4toml6detail6regionC2EOS1_.exit:               ; preds = %17, %_ZNKSt7__cxx11
   store i32 1, ptr %36, align 8, !noalias !1301
   %37 = getelementptr inbounds i8, ptr %35, i64 12
   store i32 1, ptr %37, align 4, !noalias !1301
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %35, align 8, !noalias !1301
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %35, align 8, !noalias !1301
   %38 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !noalias !1301
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %38, align 8, !noalias !1301
   %39 = getelementptr inbounds i8, ptr %35, i64 24
   %40 = load <2 x ptr>, ptr %6, align 8, !noalias !1301
   store ptr null, ptr %8, align 8, !noalias !1301
@@ -161978,7 +161978,7 @@ _ZN4toml7successISt4pairINS_10local_dateENS_6detail6regionEEED2Ev.exit: ; preds 
 define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEC2INS_10local_timeETnNSt9enable_ifIXsr6detail18is_exact_toml_typeIT_S4_EE5valueEDnE4typeELDn0EEESt4pairIS8_NS_6detail6regionEES3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISK_EE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.toml::detail::region", align 8
   %5 = alloca %"class.std::vector", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 24
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -162045,9 +162045,9 @@ _ZN4toml6detail6regionC2EOS1_.exit:               ; preds = %17, %_ZNKSt7__cxx11
   store i32 1, ptr %36, align 8, !noalias !1304
   %37 = getelementptr inbounds i8, ptr %35, i64 12
   store i32 1, ptr %37, align 4, !noalias !1304
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %35, align 8, !noalias !1304
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %35, align 8, !noalias !1304
   %38 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !noalias !1304
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %38, align 8, !noalias !1304
   %39 = getelementptr inbounds i8, ptr %35, i64 24
   %40 = load <2 x ptr>, ptr %6, align 8, !noalias !1304
   store ptr null, ptr %8, align 8, !noalias !1304
@@ -162543,7 +162543,7 @@ _ZN4toml7successISt4pairINS_10local_timeENS_6detail6regionEEED2Ev.exit: ; preds 
 define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEC2IS3_IS4_SaIS4_EETnNSt9enable_ifIXsr6detail18is_exact_toml_typeIT_S4_EE5valueEDnE4typeELDn0EEESt4pairIS9_NS_6detail6regionEES3_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISL_EE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.toml::detail::region", align 8
   %5 = alloca %"class.std::vector", align 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -162927,7 +162927,7 @@ define linkonce_odr void @_ZN4toml6detail6repeatINS0_6eitherIJNS2_IJNS0_9charact
   %3 = alloca %"struct.toml::detail::region", align 8
   %4 = alloca %"struct.toml::result", align 8
   %5 = alloca %"struct.toml::success", align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8
@@ -162992,7 +162992,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationE.exit:   ; preds = %_ZNSt10shared_ptrIK
 
 31:                                               ; preds = %28
   call void @llvm.experimental.noalias.scope.decl(metadata !1307)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !1307
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !1307
   %32 = getelementptr inbounds i8, ptr %5, i64 8
   %33 = getelementptr inbounds i8, ptr %5, i64 16
   %34 = load <2 x ptr>, ptr %6, align 8, !noalias !1307
@@ -163037,7 +163037,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %50, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %50, align 8
   %51 = getelementptr inbounds i8, ptr %0, i64 16
   %52 = load <2 x ptr>, ptr %32, align 8
   store ptr null, ptr %33, align 8
@@ -163436,7 +163436,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -163690,7 +163690,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS1_IJNS0_9characterILc32EEENS
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -163767,7 +163767,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS1_IJNS0_9characterILc10EEENS
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -164088,7 +164088,7 @@ define linkonce_odr void @_ZN4toml6detail5maybeINS0_6repeatINS0_6eitherIJNS3_IJN
 8:                                                ; preds = %2
   store i8 %7, ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   %11 = getelementptr inbounds i8, ptr %3, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -164141,7 +164141,7 @@ _ZN4toml6resultINS_6detail6regionENS1_6none_tEEC2ERKS4_.exit: ; preds = %_ZNSt10
   resume { ptr, i32 } %eh.lpad-body
 
 30:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %31 = getelementptr inbounds i8, ptr %5, i64 8
   %32 = getelementptr inbounds i8, ptr %1, i64 8
   %33 = load ptr, ptr %32, align 8
@@ -164188,7 +164188,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i: ; preds = %43, %40, %30
   %52 = getelementptr inbounds i8, ptr %5, i64 64
   store ptr %.sroa.0.0.copyload.i.i, ptr %52, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1312)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !1312
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !1312
   %53 = getelementptr inbounds i8, ptr %4, i64 8
   %54 = getelementptr inbounds i8, ptr %4, i64 16
   %55 = load <2 x ptr>, ptr %31, align 8, !noalias !1312
@@ -164233,7 +164233,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %70, ptr noundef nonnull align 8 dereferenceable(16) %50, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %71 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %71, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %71, align 8
   %72 = getelementptr inbounds i8, ptr %0, i64 16
   %73 = load <2 x ptr>, ptr %53, align 8
   store ptr null, ptr %54, align 8
@@ -164527,7 +164527,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1315)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1315
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1315
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1315
@@ -164573,7 +164573,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -164722,7 +164722,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc44EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -164766,7 +164766,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1318)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1318
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1318
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1318
@@ -164811,7 +164811,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -165068,7 +165068,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4toml1
   store ptr %17, ptr %1, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %29 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 64
   %31 = getelementptr inbounds i8, ptr %1, i64 64
   %32 = load ptr, ptr %31, align 8
@@ -165123,7 +165123,7 @@ _ZN4toml6detail6regionC2EOS1_.exit:               ; preds = %42, %_ZNKSt7__cxx11
 define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unordered_mapSt6vectorEC2IS2_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES4_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_S4_EEETnNSt9enable_ifIXsr6detail18is_exact_toml_typeIT_S4_EE5valueEDnE4typeELDn0EEESG_ISM_NS_6detail6regionEES3_ISB_SaISB_EE(ptr noundef nonnull align 8 dereferenceable(65) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.toml::detail::region", align 8
   %5 = alloca %"class.std::vector", align 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %4, i64 8
   %7 = getelementptr inbounds i8, ptr %1, i64 64
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -165690,7 +165690,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -166560,7 +166560,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -166795,7 +166795,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -167117,7 +167117,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -167355,7 +167355,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -167593,7 +167593,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -167760,7 +167760,7 @@ define linkonce_odr void @_ZN4toml6detail6eitherIJNS0_8sequenceIJNS1_IJNS0_6repe
 6:                                                ; preds = %2
   store i8 %5, ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
   %9 = getelementptr inbounds i8, ptr %3, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -167908,7 +167908,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -168152,7 +168152,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1322)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1322
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1322
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1322
@@ -168198,7 +168198,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -168347,7 +168347,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc91EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -168391,7 +168391,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1325)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1325
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1325
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1325
@@ -168436,7 +168436,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -168729,7 +168729,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1328)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1328
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1328
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1328
@@ -168775,7 +168775,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -168924,7 +168924,7 @@ define linkonce_odr void @_ZN4toml6detail9characterILc93EE6invokeERNS0_8location
 .lr.ph.i.i.i:                                     ; preds = %12
   %15 = getelementptr inbounds i8, ptr %.sroa.0.0.copyload.i, i64 1
   store ptr %15, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %16 = getelementptr inbounds i8, ptr %4, i64 8
   store ptr %7, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %4, i64 16
@@ -168968,7 +168968,7 @@ _ZN4toml6detail6regionC2ERKNS0_8locationEN9__gnu_cxx17__normal_iteratorIPKcSt6ve
   %33 = getelementptr inbounds i8, ptr %4, i64 64
   store ptr %15, ptr %33, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1331)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1331
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1331
   %34 = getelementptr inbounds i8, ptr %3, i64 8
   %35 = getelementptr inbounds i8, ptr %3, i64 16
   %36 = load <2 x ptr>, ptr %16, align 8, !noalias !1331
@@ -169013,7 +169013,7 @@ _ZN4toml2okINS_6detail6regionEEENS_7successINSt9remove_cvINSt16remove_referenceI
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %51, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %52 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %0, i64 16
   %54 = load <2 x ptr>, ptr %34, align 8
   store ptr null, ptr %35, align 8
@@ -169306,7 +169306,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
   call void @llvm.experimental.noalias.scope.decl(metadata !1334)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !1334
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !1334
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !noalias !1334
@@ -169352,7 +169352,7 @@ _ZNSt10shared_ptrIKSt6vectorIcSaIcEEEC2ERKS4_.exit.i.i.i: ; preds = %54, %51, %3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %62, i64 16, i1 false)
   store i8 1, ptr %0, align 8
   %63 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %0, i64 16
   %65 = load <2 x ptr>, ptr %42, align 8
   store ptr null, ptr %45, align 8
@@ -170197,9 +170197,9 @@ define linkonce_odr void @_ZN4toml11basic_valueINS_16discard_commentsESt13unorde
   store i32 1, ptr %7, align 8, !noalias !1354
   %8 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !1354
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !noalias !1354
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !1354
   %9 = getelementptr inbounds i8, ptr %6, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8, !noalias !1354
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %9, align 8, !noalias !1354
   %10 = getelementptr inbounds i8, ptr %6, i64 24
   %11 = getelementptr inbounds i8, ptr %2, i64 8
   %12 = getelementptr inbounds i8, ptr %2, i64 16
@@ -171518,9 +171518,9 @@ define linkonce_odr void @_ZN4toml6detail13change_regionINS_11basic_valueINS_16d
   store i32 1, ptr %4, align 8, !noalias !1370
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !noalias !1370
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !noalias !1370
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail6regionESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !noalias !1370
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !noalias !1370
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !1370
   %7 = getelementptr inbounds i8, ptr %3, i64 24
   %8 = getelementptr inbounds i8, ptr %1, i64 8
   %9 = getelementptr inbounds i8, ptr %1, i64 16
@@ -173295,9 +173295,9 @@ define linkonce_odr noundef ptr @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_
   store i32 1, ptr %17, align 8, !noalias !1381
   %18 = getelementptr inbounds i8, ptr %10, i64 12
   store i32 1, ptr %18, align 4, !noalias !1381
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail11region_baseESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %10, align 8, !noalias !1381
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4toml6detail11region_baseESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %10, align 8, !noalias !1381
   %19 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail11region_baseE, i64 0, inrange i32 0, i64 2), ptr %19, align 8, !noalias !1381
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail11region_baseE, i64 0, i32 0, i64 2), ptr %19, align 8, !noalias !1381
   store ptr %10, ptr %16, align 8, !alias.scope !1381
   store ptr %19, ptr %15, align 8, !alias.scope !1381
   ret ptr %5
@@ -173622,7 +173622,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
           to label %36 unwind label %32
 
 36:                                               ; preds = %34
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %4, align 8
   %37 = getelementptr inbounds i8, ptr %4, i64 8
   %38 = getelementptr inbounds i8, ptr %35, i64 8
   %39 = getelementptr inbounds i8, ptr %4, i64 16
@@ -173860,7 +173860,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -174098,7 +174098,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -174336,7 +174336,7 @@ _ZN4toml6detail8location5resetEN9__gnu_cxx17__normal_iteratorIPKcSt6vectorIcSaIc
   %40 = getelementptr inbounds i8, ptr %2, i64 64
   %41 = load i64, ptr %39, align 8
   store i64 %41, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4toml6detail6regionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %42 = getelementptr inbounds i8, ptr %6, i64 8
   %43 = getelementptr inbounds i8, ptr %2, i64 8
   %44 = getelementptr inbounds i8, ptr %6, i64 16
@@ -174515,7 +174515,7 @@ define linkonce_odr void @_ZN3nix16EvalErrorBuilderINS_9EvalErrorEEC2IJA23_cPKcE
           to label %8 unwind label %34
 
 8:                                                ; preds = %4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %5)
@@ -174568,7 +174568,7 @@ define linkonce_odr void @_ZN3nix16EvalErrorBuilderINS_9EvalErrorEEC2IJA23_cPKcE
   store i64 0, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 368
   store i8 0, ptr %26, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9EvalErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9EvalErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %27 = getelementptr inbounds i8, ptr %0, i64 376
   store ptr %1, ptr %27, align 8
   %28 = load ptr, ptr %6, align 8
@@ -174605,7 +174605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9EvalErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -174644,7 +174644,7 @@ _ZN3nix5ErrorD2Ev.exit:                           ; preds = %1, %_ZNSt22_Optiona
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9EvalErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(384) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -174701,7 +174701,7 @@ define linkonce_odr noundef ptr @_ZNK3nix9BaseError4whatEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -174740,7 +174740,7 @@ _ZNSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit: ;
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix9BaseErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(376) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3nix9BaseErrorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 336
   %3 = getelementptr inbounds i8, ptr %0, i64 368
   %4 = load i8, ptr %3, align 8
@@ -174807,7 +174807,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEEC2ERK
           to label %13 unwind label %21
 
 13:                                               ; preds = %2
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %12, align 8
   %14 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 192
@@ -174968,7 +174968,7 @@ define linkonce_odr void @_ZN5boost12basic_formatIcSt11char_traitsIcESaIcEED2Ev(
 
 _ZN5boost8optionalISt6localeED2Ev.exit:           ; preds = %1, %5
   %7 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %7, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %7)
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %8
 
@@ -175335,7 +175335,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit.thread: ; pr
 
 154:                                              ; preds = %151
   %155 = zext nneg i32 %.076.ph.lcssa193 to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %8, align 8
   %156 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %155, ptr %156, align 8
   %157 = getelementptr inbounds i8, ptr %8, i64 16
@@ -175532,7 +175532,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
           to label %2 unwind label %4
 
@@ -175666,7 +175666,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEE7deallocEv(ptr noundef nonnull align 8 dereferenceable(81) %0)
           to label %_ZN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEED2Ev.exit unwind label %2
 
@@ -176327,7 +176327,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEcm.exit: ; preds = %
   br i1 %.not37, label %29, label %23
 
 23:                                               ; preds = %21
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %5, align 8
   %24 = getelementptr inbounds i8, ptr %5, i64 8
   store i64 %18, ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %5, i64 16
@@ -176805,7 +176805,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost2io6detail22parse_printf_direct
   br i1 %.not.i, label %_ZN5boost2io6detail21maybe_throw_exceptionEhmm.exit, label %20
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %12, align 8
   %21 = getelementptr inbounds i8, ptr %12, i64 8
   store i64 %4, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %12, i64 16
@@ -176875,7 +176875,7 @@ _ZNKSt5ctypeIcE5widenEc.exit:                     ; preds = %30, %33
   %45 = ptrtoint ptr %40 to i64
   %46 = sub i64 %4, %13
   %47 = add i64 %46, %45
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %11, align 8
   %48 = getelementptr inbounds i8, ptr %11, i64 8
   store i64 %47, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %11, i64 16
@@ -177001,7 +177001,7 @@ _ZN5boost2io6detail7str2intIiN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   %104 = ptrtoint ptr %.sroa.0.0.lcssa.i to i64
   %105 = sub i64 %4, %13
   %106 = add i64 %105, %104
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %10, align 8
   %107 = getelementptr inbounds i8, ptr %10, i64 8
   store i64 %106, ptr %107, align 8
   %108 = getelementptr inbounds i8, ptr %10, i64 16
@@ -177208,7 +177208,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit: ; preds = %159, %
   %199 = ptrtoint ptr %.lcssa to i64
   %200 = sub i64 %4, %13
   %201 = add i64 %200, %199
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %9, align 8
   %202 = getelementptr inbounds i8, ptr %9, i64 8
   store i64 %201, ptr %202, align 8
   %203 = getelementptr inbounds i8, ptr %9, i64 16
@@ -177347,7 +177347,7 @@ _ZN5boost2io6detail7str2intIlN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basi
   %268 = ptrtoint ptr %263 to i64
   %269 = sub i64 %4, %13
   %270 = add i64 %269, %268
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %8, align 8
   %271 = getelementptr inbounds i8, ptr %8, i64 8
   store i64 %270, ptr %271, align 8
   %272 = getelementptr inbounds i8, ptr %8, i64 16
@@ -177589,7 +177589,7 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit250: ; preds = %325
   %374 = ptrtoint ptr %371 to i64
   %375 = sub i64 %4, %13
   %376 = add i64 %375, %374
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %7, align 8
   %377 = getelementptr inbounds i8, ptr %7, i64 8
   store i64 %376, ptr %377, align 8
   %378 = getelementptr inbounds i8, ptr %7, i64 16
@@ -179102,7 +179102,7 @@ define linkonce_odr void @_ZN5boost2io6detail21maybe_throw_exceptionEhmm(i8 noun
   br i1 %.not, label %12, label %6
 
 6:                                                ; preds = %3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %4, i64 8
   store i64 %1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %4, i64 16
@@ -179186,9 +179186,9 @@ _ZN5boost2io6detail11wrap_narrowIcSt5ctypeIcEEEcRKT0_T_c.exit: ; preds = %18, %2
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -179197,16 +179197,16 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -179242,14 +179242,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -179275,9 +179275,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io17bad_format_strin
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_2io17bad_format_stringEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_2io17bad_format_stringEE7deleterD2Ev.exit7
@@ -179319,7 +179319,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io17bad_format_stringEE7ret
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -179356,7 +179356,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -179391,7 +179391,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -179432,7 +179432,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io17bad_format_string4whatEv(ptr nou
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -179467,7 +179467,7 @@ _ZN5boost10wrapexceptINS_2io17bad_format_stringEED2Ev.exit: ; preds = %1, %.noex
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io17bad_format_stringEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -179522,14 +179522,14 @@ define linkonce_odr void @_ZN5boost2io17bad_format_stringD0Ev(ptr noundef nonnul
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io17bad_format_stringE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -179548,9 +179548,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io17bad_format_stringEEC2ERK
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io17bad_format_stringEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -180785,7 +180785,7 @@ _ZNSt6vectorIN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEEESaIS7_EEC2
           to label %48 unwind label %64
 
 48:                                               ; preds = %43
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost2io18basic_altstringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %47, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 184
   store ptr null, ptr %49, align 8
   %50 = getelementptr inbounds i8, ptr %0, i64 192
@@ -181226,7 +181226,7 @@ define linkonce_odr void @_ZN5boost2io6detail10distributeIcSt11char_traitsIcESaI
 18:                                               ; preds = %14
   %19 = sext i32 %5 to i64
   %20 = sext i32 %7 to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   store i64 %19, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %3, i64 16
@@ -182002,9 +182002,9 @@ _ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEED1Ev.exit168: ; pr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -182013,16 +182013,16 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS2_(
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -182058,14 +182058,14 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %1, %.noexc.i.i, %10
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #30
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -182091,9 +182091,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE5
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_2io13too_many_argsEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_2io13too_many_argsEE7deleterD2Ev.exit7
@@ -182135,7 +182135,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_2io13too_many_argsEE7rethrow
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -182172,7 +182172,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -182207,7 +182207,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -182248,7 +182248,7 @@ define linkonce_odr noundef ptr @_ZNK5boost2io13too_many_args4whatEv(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED1Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -182283,7 +182283,7 @@ _ZN5boost10wrapexceptINS_2io13too_many_argsEED2Ev.exit: ; preds = %1, %.noexc.i.
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_2io13too_many_argsEED0Ev(ptr noundef %0) unnamed_addr #21 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -182327,14 +182327,14 @@ define linkonce_odr void @_ZN5boost2io13too_many_argsD0Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost2io13too_many_argsE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -182353,9 +182353,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_2io13too_many_argsEEC2ERKS3_(
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_2io13too_many_argsEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -182405,18 +182405,18 @@ define linkonce_odr void @_ZN5boost2io22basic_oaltstringstreamIcSt11char_traitsI
   store i32 1, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %18, align 4
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail18sp_counted_impl_pdIPNS_2io18basic_altstringbufIcSt11char_traitsIcESaIcEEENS2_22basic_oaltstringstreamIcS5_S6_E5No_OpEEE, i64 0, i32 0, i64 2), ptr %6, align 8
   %19 = getelementptr inbounds i8, ptr %6, i64 16
   store ptr %1, ptr %19, align 8
   store ptr %6, ptr %5, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %3, align 8
   invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), ptr noundef %1)
           to label %20 unwind label %21
 
 20:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 1, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN5boost2io22basic_oaltstringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %3, align 8
   ret void
 
 21:                                               ; preds = %16

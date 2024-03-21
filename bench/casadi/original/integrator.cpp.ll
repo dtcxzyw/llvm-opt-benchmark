@@ -10024,7 +10024,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -10056,7 +10056,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -11113,9 +11113,9 @@ define void @_ZN6casadi10IntegratorC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   call void @_ZN6casadi14OracleFunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1520) %13, ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
   %16 = getelementptr inbounds i8, ptr %13, i64 1520
   call void @_ZN6casadi15PluginInterfaceINS_10IntegratorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, i32 0, i32 2), ptr %13, align 8
   %17 = getelementptr inbounds i8, ptr %13, i64 1520
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, inrange i32 1, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, i32 1, i32 2), ptr %17, align 8
   %18 = getelementptr inbounds %"class.casadi::Integrator", ptr %13, i32 0, i32 2
   invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %18, i64 noundef 0)
           to label %19 unwind label %37
@@ -11222,7 +11222,7 @@ define linkonce_odr hidden void @_ZN6casadi15PluginInterfaceINS_10IntegratorEEC2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN6casadi15PluginInterfaceINS_10IntegratorEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN6casadi15PluginInterfaceINS_10IntegratorEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -11341,9 +11341,9 @@ define void @_ZN6casadi10IntegratorD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1520
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"class.casadi::Integrator", ptr %3, i32 0, i32 32
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN6casadi11GenericTypeESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %5) #3
   %6 = getelementptr inbounds %"class.casadi::Integrator", ptr %3, i32 0, i32 31
@@ -36955,9 +36955,9 @@ define void @_ZN6casadi19FixedStepIntegratorC2ERKNSt7__cxx1112basic_stringIcSt11
   %14 = load double, ptr %9, align 8
   %15 = load ptr, ptr %10, align 8
   call void @_ZN6casadi10IntegratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(1905) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, i32 0, i32 2), ptr %11, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %"class.casadi::FixedStepIntegrator", ptr %11, i32 0, i32 2
   call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
   %18 = getelementptr inbounds %"class.casadi::FixedStepIntegrator", ptr %11, i32 0, i32 1
@@ -36979,9 +36979,9 @@ define void @_ZN6casadi19FixedStepIntegratorD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, i32 1, i32 2), ptr %4, align 8
   invoke void @_ZN6casadi13ProtoFunction9clear_memEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %5 unwind label %7
 
@@ -40904,9 +40904,9 @@ define void @_ZN6casadi27ImplicitFixedStepIntegratorC2ERKNSt7__cxx1112basic_stri
   %14 = load double, ptr %9, align 8
   %15 = load ptr, ptr %10, align 8
   call void @_ZN6casadi19FixedStepIntegratorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionEdRKSt6vectorIdSaIdEE(ptr noundef nonnull align 8 dereferenceable(1976) %11, ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(8) %13, double noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %15)
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i32 0, i32 0, i32 2), ptr %11, align 8
   %16 = getelementptr inbounds i8, ptr %11, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i32 0, i32 1, i32 2), ptr %16, align 8
   ret void
 }
 
@@ -43360,9 +43360,9 @@ define void @_ZN6casadi10IntegratorC2ERNS_19DeserializingStreamE(ptr noundef non
   call void @_ZN6casadi14OracleFunctionC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1520) %73, ptr noundef nonnull align 8 dereferenceable(41) %74)
   %75 = getelementptr inbounds i8, ptr %73, i64 1520
   call void @_ZN6casadi15PluginInterfaceINS_10IntegratorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %75) #3
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, inrange i32 0, i32 2), ptr %73, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, i32 0, i32 2), ptr %73, align 8
   %76 = getelementptr inbounds i8, ptr %73, i64 1520
-  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, inrange i32 1, i32 2), ptr %76, align 8
+  store ptr getelementptr inbounds ({ [123 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10IntegratorE, i32 0, i32 1, i32 2), ptr %76, align 8
   %77 = getelementptr inbounds %"class.casadi::Integrator", ptr %73, i32 0, i32 2
   invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %77, i64 noundef 0)
           to label %78 unwind label %219
@@ -46905,9 +46905,9 @@ define void @_ZN6casadi19FixedStepIntegratorC2ERNS_19DeserializingStreamE(ptr no
   %21 = load ptr, ptr %3, align 8
   %22 = load ptr, ptr %4, align 8
   call void @_ZN6casadi10IntegratorC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1905) %21, ptr noundef nonnull align 8 dereferenceable(41) %22)
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, i32 0, i32 2), ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, inrange i32 1, i32 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi19FixedStepIntegratorE, i32 0, i32 1, i32 2), ptr %23, align 8
   %24 = getelementptr inbounds %"class.casadi::FixedStepIntegrator", ptr %21, i32 0, i32 2
   call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %24) #3
   %25 = load ptr, ptr %4, align 8
@@ -47523,9 +47523,9 @@ define void @_ZN6casadi27ImplicitFixedStepIntegratorC2ERNS_19DeserializingStream
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN6casadi19FixedStepIntegratorC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1976) %9, ptr noundef nonnull align 8 dereferenceable(41) %10)
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 1520
-  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i32 0, inrange i32 1, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [124 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi27ImplicitFixedStepIntegratorE, i32 0, i32 1, i32 2), ptr %11, align 8
   %12 = load ptr, ptr %4, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #3
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef @.str.233, ptr noundef nonnull align 1 dereferenceable(1) %6)
@@ -48392,7 +48392,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

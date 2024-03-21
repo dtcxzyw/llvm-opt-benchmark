@@ -247,7 +247,7 @@ define dso_local void @_ZN12RandomNumberC2Em(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RandomNumber, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RandomNumber, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.RandomNumber, ptr %10, i32 0, i32 2
   call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #3
   %12 = getelementptr inbounds %class.RandomNumber, ptr %10, i32 0, i32 3
@@ -392,7 +392,7 @@ define dso_local void @_ZN12RandomNumberD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RandomNumber, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12RandomNumber, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.RandomNumber, ptr %3, i32 0, i32 2
   call void @_ZNSt3mapI16RNDNUM_GENERATORP18AbsRndNumGeneratorSt4lessIS0_ESaISt4pairIKS0_S2_EEE5clearEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %class.RandomNumber, ptr %3, i32 0, i32 2

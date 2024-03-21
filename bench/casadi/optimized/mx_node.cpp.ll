@@ -2508,7 +2508,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6casadi6MXNodeC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds i8, ptr %0, i64 56
@@ -2575,7 +2575,7 @@ define void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(6
   %3 = alloca %"class.std::stack", align 8
   %4 = alloca %"class.casadi::MX", align 8
   %5 = alloca %"class.casadi::MX", align 8
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3257,7 +3257,7 @@ define linkonce_odr hidden void @_ZN6casadi6fmtstrERKNSt7__cxx1112basic_stringIc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %4 unwind label %5
@@ -3274,7 +3274,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #31
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #31
@@ -9134,7 +9134,7 @@ define void @_ZNK6casadi6MXNode13get_transposeEv(ptr dead_on_unwind noalias writ
   br label %29
 
 24:                                               ; preds = %22
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi14DenseTransposeE, i64 0, inrange i32 0, i64 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi14DenseTransposeE, i64 0, i32 0, i64 2), ptr %20, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %20)
           to label %25 unwind label %27
 
@@ -9907,7 +9907,7 @@ define void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull 
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %0, i64 56
@@ -12205,7 +12205,7 @@ _ZNK6casadi13GenericMatrixINS_2MXEE8is_denseEv.exit228: ; preds = %.noexc226
           to label %308 unwind label %309
 
 308:                                              ; preds = %307
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi19DenseMultiplicationE, i64 0, inrange i32 0, i64 2), ptr %306, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi19DenseMultiplicationE, i64 0, i32 0, i64 2), ptr %306, align 8
   br label %.invoke
 
 309:                                              ; preds = %307
@@ -13012,7 +13012,7 @@ define void @_ZNK6casadi6MXNode14get_solve_triuERKNS_2MXEb(ptr dead_on_unwind no
           to label %17 unwind label %.body
 
 17:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TriuSolveILb1EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TriuSolveILb1EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %11)
           to label %32 unwind label %.body
 
@@ -13061,7 +13061,7 @@ define void @_ZNK6casadi6MXNode14get_solve_triuERKNS_2MXEb(ptr dead_on_unwind no
           to label %27 unwind label %.body26
 
 27:                                               ; preds = %26
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TriuSolveILb0EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TriuSolveILb0EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %11)
           to label %32 unwind label %.body26
 
@@ -13138,7 +13138,7 @@ define void @_ZNK6casadi6MXNode14get_solve_trilERKNS_2MXEb(ptr dead_on_unwind no
           to label %17 unwind label %.body
 
 17:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TrilSolveILb1EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TrilSolveILb1EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %11)
           to label %32 unwind label %.body
 
@@ -13187,7 +13187,7 @@ define void @_ZNK6casadi6MXNode14get_solve_trilERKNS_2MXEb(ptr dead_on_unwind no
           to label %27 unwind label %.body26
 
 27:                                               ; preds = %26
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TrilSolveILb0EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi9TrilSolveILb0EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %11)
           to label %32 unwind label %.body26
 
@@ -13264,7 +13264,7 @@ define void @_ZNK6casadi6MXNode20get_solve_triu_unityERKNS_2MXEb(ptr dead_on_unw
           to label %.noexc24 unwind label %24
 
 .noexc24:                                         ; preds = %16
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %11, i64 64
   invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 0)
           to label %20 unwind label %18
@@ -13276,7 +13276,7 @@ define void @_ZNK6casadi6MXNode20get_solve_triu_unityERKNS_2MXEb(ptr dead_on_unw
   br label %.body
 
 20:                                               ; preds = %.noexc24
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TriuSolveUnityILb1EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TriuSolveUnityILb1EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %11)
           to label %40 unwind label %24
 
@@ -13330,7 +13330,7 @@ define void @_ZNK6casadi6MXNode20get_solve_triu_unityERKNS_2MXEb(ptr dead_on_unw
           to label %.noexc31 unwind label %38
 
 .noexc31:                                         ; preds = %30
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   %31 = getelementptr inbounds i8, ptr %11, i64 64
   invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0)
           to label %34 unwind label %32
@@ -13342,7 +13342,7 @@ define void @_ZNK6casadi6MXNode20get_solve_triu_unityERKNS_2MXEb(ptr dead_on_unw
   br label %.body28
 
 34:                                               ; preds = %.noexc31
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TriuSolveUnityILb0EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TriuSolveUnityILb0EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %11)
           to label %40 unwind label %38
 
@@ -13424,7 +13424,7 @@ define void @_ZNK6casadi6MXNode20get_solve_tril_unityERKNS_2MXEb(ptr dead_on_unw
           to label %.noexc24 unwind label %24
 
 .noexc24:                                         ; preds = %16
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   %17 = getelementptr inbounds i8, ptr %11, i64 64
   invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %17, i64 noundef 0)
           to label %20 unwind label %18
@@ -13436,7 +13436,7 @@ define void @_ZNK6casadi6MXNode20get_solve_tril_unityERKNS_2MXEb(ptr dead_on_unw
   br label %.body
 
 20:                                               ; preds = %.noexc24
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TrilSolveUnityILb1EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TrilSolveUnityILb1EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %11)
           to label %40 unwind label %24
 
@@ -13490,7 +13490,7 @@ define void @_ZNK6casadi6MXNode20get_solve_tril_unityERKNS_2MXEb(ptr dead_on_unw
           to label %.noexc31 unwind label %38
 
 .noexc31:                                         ; preds = %30
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   %31 = getelementptr inbounds i8, ptr %11, i64 64
   invoke void @_ZN6casadi8SparsityC1Ex(ptr noundef nonnull align 8 dereferenceable(8) %31, i64 noundef 0)
           to label %34 unwind label %32
@@ -13502,7 +13502,7 @@ define void @_ZNK6casadi6MXNode20get_solve_tril_unityERKNS_2MXEb(ptr dead_on_unw
   br label %.body28
 
 34:                                               ; preds = %.noexc31
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TrilSolveUnityILb0EEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi14TrilSolveUnityILb0EEE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %11)
           to label %40 unwind label %38
 
@@ -13584,7 +13584,7 @@ define void @_ZNK6casadi6MXNode9get_solveERKNS_2MXEbRKNS_6LinsolE(ptr dead_on_un
           to label %.noexc26 unwind label %24
 
 .noexc26:                                         ; preds = %17
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i64 0, i32 0, i64 2), ptr %12, align 8
   %18 = getelementptr inbounds i8, ptr %12, i64 64
   invoke void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN6casadi10LinsolCallILb1EEC2ERKNS_2MXES4_RKNS_6LinsolE.exit unwind label %19
@@ -13649,7 +13649,7 @@ _ZN6casadi10LinsolCallILb1EEC2ERKNS_2MXES4_RKNS_6LinsolE.exit: ; preds = %.noexc
           to label %.noexc33 unwind label %37
 
 .noexc33:                                         ; preds = %30
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i64 0, i32 0, i64 2), ptr %12, align 8
   %31 = getelementptr inbounds i8, ptr %12, i64 64
   invoke void @_ZN6casadi12SharedObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %_ZN6casadi10LinsolCallILb0EEC2ERKNS_2MXES4_RKNS_6LinsolE.exit unwind label %32
@@ -14048,7 +14048,7 @@ common.resume:                                    ; preds = %21, %13
 
 _ZN6casadi11SetNonzerosILb0EE6createERKNS_2MXES4_RKNS_5SliceES7_.exit: ; preds = %11
   %15 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i64 0, inrange i32 0, i64 2), ptr %12, align 8, !noalias !128
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i64 0, i32 0, i64 2), ptr %12, align 8, !noalias !128
   %16 = getelementptr inbounds i8, ptr %12, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !128
   %17 = getelementptr inbounds i8, ptr %12, i64 88
@@ -14148,7 +14148,7 @@ common.resume:                                    ; preds = %.body, %13
 
 _ZN6casadi11SetNonzerosILb1EE6createERKNS_2MXES4_RKNS_5SliceES7_.exit: ; preds = %11
   %15 = getelementptr inbounds i8, ptr %6, i64 24
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i64 0, inrange i32 0, i64 2), ptr %12, align 8, !noalias !131
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i64 0, i32 0, i64 2), ptr %12, align 8, !noalias !131
   %16 = getelementptr inbounds i8, ptr %12, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !noalias !131
   %17 = getelementptr inbounds i8, ptr %12, i64 88
@@ -14162,7 +14162,7 @@ _ZN6casadi11SetNonzerosILb1EE6createERKNS_2MXES4_RKNS_5SliceES7_.exit: ; preds =
           to label %.noexc unwind label %43
 
 .noexc:                                           ; preds = %18
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i64 0, i32 0, i64 2), ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %19, i64 64
   %21 = getelementptr inbounds i8, ptr %3, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -14247,7 +14247,7 @@ define void @_ZNK6casadi6MXNode12get_nzassignERKNS_2MXES3_(ptr dead_on_unwind no
           to label %7 unwind label %8, !noalias !134
 
 7:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb0EEE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !noalias !134
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb0EEE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !134
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %6)
           to label %_ZN6casadi16SetNonzerosParamILb0EE6createERKNS_2MXES4_S4_.exit unwind label %10
 
@@ -14446,7 +14446,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb0EE6createERKNS_2MXES4_
           to label %57 unwind label %59
 
 57:                                               ; preds = %55
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb0EEE, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb0EEE, i64 0, i32 0, i64 2), ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %56, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   tail call void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %56)
@@ -14640,7 +14640,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb0EE6createERKNS_2MXES4_
           to label %57 unwind label %59
 
 57:                                               ; preds = %55
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb0EEE, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb0EEE, i64 0, i32 0, i64 2), ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %56, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   tail call void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %56)
@@ -14983,7 +14983,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb0EE6createERKNS_2MXES4_
           to label %107 unwind label %108
 
 107:                                              ; preds = %105
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb0EEE, i64 0, inrange i32 0, i64 2), ptr %106, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb0EEE, i64 0, i32 0, i64 2), ptr %106, align 8
   tail call void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %106)
   ret void
 
@@ -15029,7 +15029,7 @@ define void @_ZNK6casadi6MXNode9get_nzaddERKNS_2MXES3_(ptr dead_on_unwind noalia
           to label %16 unwind label %17, !noalias !149
 
 16:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb1EEE, i64 0, inrange i32 0, i64 2), ptr %15, align 8, !noalias !149
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb1EEE, i64 0, i32 0, i64 2), ptr %15, align 8, !noalias !149
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %15)
           to label %_ZN6casadi16SetNonzerosParamILb1EE6createERKNS_2MXES4_S4_.exit unwind label %19
 
@@ -15256,7 +15256,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb1EE6createERKNS_2MXES4_
           to label %57 unwind label %59
 
 57:                                               ; preds = %55
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb1EEE, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb1EEE, i64 0, i32 0, i64 2), ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %56, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   tail call void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %56)
@@ -15474,7 +15474,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb1EE6createERKNS_2MXES4_
           to label %57 unwind label %59
 
 57:                                               ; preds = %55
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb1EEE, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb1EEE, i64 0, i32 0, i64 2), ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %56, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %58, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   tail call void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %56)
@@ -15841,7 +15841,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb1EE6createERKNS_2MXES4_
           to label %107 unwind label %108
 
 107:                                              ; preds = %105
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb1EEE, i64 0, inrange i32 0, i64 2), ptr %106, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb1EEE, i64 0, i32 0, i64 2), ptr %106, align 8
   tail call void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %106)
   ret void
 
@@ -15901,7 +15901,7 @@ define void @_ZNK6casadi6MXNode11get_projectERKNS_8SparsityE(ptr dead_on_unwind 
   br label %25
 
 20:                                               ; preds = %18
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7DensifyE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7DensifyE, i64 0, i32 0, i64 2), ptr %17, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %17)
           to label %21 unwind label %23
 
@@ -15945,7 +15945,7 @@ define void @_ZNK6casadi6MXNode11get_projectERKNS_8SparsityE(ptr dead_on_unwind 
   br label %37
 
 32:                                               ; preds = %30
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8SparsifyE, i64 0, inrange i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8SparsifyE, i64 0, i32 0, i64 2), ptr %28, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %28)
           to label %33 unwind label %35
 
@@ -18097,7 +18097,7 @@ declare void @_ZNK6casadi2MXngEv(ptr dead_on_unwind writable sret(%"class.casadi
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6casadi8BinaryMXILb1ELb0EEC2ENS_9OperationERKNS_2MXES5_(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -18118,7 +18118,7 @@ common.resume:                                    ; preds = %33, %7
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
@@ -18188,7 +18188,7 @@ _ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE.exit: ; preds = %31
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6casadi8BinaryMXILb0ELb1EEC2ENS_9OperationERKNS_2MXES5_(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -18209,7 +18209,7 @@ common.resume:                                    ; preds = %33, %7
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
@@ -18279,7 +18279,7 @@ _ZN6casadi6MXNode12set_sparsityERKNS_8SparsityE.exit: ; preds = %31
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6casadi8BinaryMXILb0ELb0EEC2ENS_9OperationERKNS_2MXES5_(ptr noundef nonnull align 8 dereferenceable(68) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -18300,7 +18300,7 @@ common.resume:                                    ; preds = %33, %7
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 %1, ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 40
@@ -20193,7 +20193,7 @@ define void @_ZNK6casadi6MXNode12get_norm_froEv(ptr dead_on_unwind noalias writa
   br label %12
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5NormFE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5NormFE, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %4)
           to label %8 unwind label %10
 
@@ -20240,7 +20240,7 @@ define void @_ZNK6casadi6MXNode10get_norm_2Ev(ptr dead_on_unwind noalias writabl
   br label %12
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm2E, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm2E, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %4)
           to label %8 unwind label %10
 
@@ -20287,7 +20287,7 @@ define void @_ZNK6casadi6MXNode12get_norm_infEv(ptr dead_on_unwind noalias writa
   br label %12
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7NormInfE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7NormInfE, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %4)
           to label %8 unwind label %10
 
@@ -20334,7 +20334,7 @@ define void @_ZNK6casadi6MXNode10get_norm_1Ev(ptr dead_on_unwind noalias writabl
   br label %12
 
 7:                                                ; preds = %5
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm1E, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm1E, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %4)
           to label %8 unwind label %10
 
@@ -22503,7 +22503,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi5Input11deserializeERNS_19Dese
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5InputE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5InputE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22520,7 +22520,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi6Output11deserializeERNS_19Des
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6OutputE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6OutputE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22571,7 +22571,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi4Find11deserializeERNS_19Deser
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4FindE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4FindE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22688,7 +22688,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi11Determinant11deserializeERNS
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi11DeterminantE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi11DeterminantE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22705,7 +22705,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi7Inverse11deserializeERNS_19De
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7InverseE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7InverseE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22722,7 +22722,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi3Dot11deserializeERNS_19Deseri
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi3DotE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi3DotE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22739,7 +22739,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi5Bilin11deserializeERNS_19Dese
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5BilinE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5BilinE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22756,7 +22756,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi5Rank111deserializeERNS_19Dese
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Rank1E, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Rank1E, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22773,7 +22773,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi7Horzcat11deserializeERNS_19De
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7HorzcatE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7HorzcatE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22790,7 +22790,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi7Vertcat11deserializeERNS_19De
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7VertcatE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7VertcatE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22807,7 +22807,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi7Diagcat11deserializeERNS_19De
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7DiagcatE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7DiagcatE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22824,7 +22824,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi9Horzsplit11deserializeERNS_19
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9HorzsplitE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9HorzsplitE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22841,7 +22841,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi9Vertsplit11deserializeERNS_19
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9VertsplitE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9VertsplitE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22858,7 +22858,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi9Diagsplit11deserializeERNS_19
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9DiagsplitE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9DiagsplitE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22875,7 +22875,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi7Reshape11deserializeERNS_19De
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7ReshapeE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7ReshapeE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -22892,7 +22892,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi12SparsityCast11deserializeERN
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi12SparsityCastE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi12SparsityCastE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -23213,7 +23213,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZN6casadi22SetNonzerosParamVectorILb1EEC2ERNS_19DeserializingStreamE.exit unwind label %26
 
 _ZN6casadi22SetNonzerosParamVectorILb1EEC2ERNS_19DeserializingStreamE.exit: ; preds = %24
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb1EEE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb1EEE, i64 0, i32 0, i64 2), ptr %25, align 8
   br label %74
 
 26:                                               ; preds = %24
@@ -23250,7 +23250,7 @@ _ZN6casadi22SetNonzerosParamVectorILb1EEC2ERNS_19DeserializingStreamE.exit: ; pr
           to label %_ZN6casadi21SetNonzerosParamParamILb1EEC2ERNS_19DeserializingStreamE.exit unwind label %38
 
 _ZN6casadi21SetNonzerosParamParamILb1EEC2ERNS_19DeserializingStreamE.exit: ; preds = %36
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb1EEE, i64 0, inrange i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb1EEE, i64 0, i32 0, i64 2), ptr %37, align 8
   br label %74
 
 38:                                               ; preds = %36
@@ -23707,7 +23707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
           to label %_ZN6casadi22SetNonzerosParamVectorILb0EEC2ERNS_19DeserializingStreamE.exit unwind label %26
 
 _ZN6casadi22SetNonzerosParamVectorILb0EEC2ERNS_19DeserializingStreamE.exit: ; preds = %24
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb0EEE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi22SetNonzerosParamVectorILb0EEE, i64 0, i32 0, i64 2), ptr %25, align 8
   br label %74
 
 26:                                               ; preds = %24
@@ -23744,7 +23744,7 @@ _ZN6casadi22SetNonzerosParamVectorILb0EEC2ERNS_19DeserializingStreamE.exit: ; pr
           to label %_ZN6casadi21SetNonzerosParamParamILb0EEC2ERNS_19DeserializingStreamE.exit unwind label %38
 
 _ZN6casadi21SetNonzerosParamParamILb0EEC2ERNS_19DeserializingStreamE.exit: ; preds = %36
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb0EEE, i64 0, inrange i32 0, i64 2), ptr %37, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamParamILb0EEE, i64 0, i32 0, i64 2), ptr %37, align 8
   br label %74
 
 38:                                               ; preds = %36
@@ -23935,7 +23935,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi5Norm111deserializeERNS_19Dese
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm1E, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm1E, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -23952,7 +23952,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi5Norm211deserializeERNS_19Dese
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm2E, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5Norm2E, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -23969,7 +23969,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi7NormInf11deserializeERNS_19De
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7NormInfE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi7NormInfE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -23986,7 +23986,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi5NormF11deserializeERNS_19Dese
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5NormFE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi5NormFE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -24003,7 +24003,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi4MMin11deserializeERNS_19Deser
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4MMinE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4MMinE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -24020,7 +24020,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi4MMax11deserializeERNS_19Deser
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4MMaxE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi4MMaxE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -24087,7 +24087,7 @@ define linkonce_odr hidden noundef ptr @_ZN6casadi9LogSumExp11deserializeERNS_19
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9LogSumExpE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi9LogSumExpE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -24548,7 +24548,7 @@ declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #31
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #31
@@ -26538,7 +26538,7 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb1ELb1EEC2ERNS_19DeserializingStr
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #31
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc unwind label %12
@@ -26593,7 +26593,7 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb1ELb0EEC2ERNS_19DeserializingStr
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb1ELb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #31
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc unwind label %12
@@ -26648,7 +26648,7 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb0ELb1EEC2ERNS_19DeserializingStr
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #31
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc unwind label %12
@@ -26703,7 +26703,7 @@ define linkonce_odr void @_ZN6casadi8BinaryMXILb0ELb0EEC2ERNS_19DeserializingStr
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi8BinaryMXILb0ELb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #31
   %6 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %4)
           to label %.noexc unwind label %12
@@ -50881,7 +50881,7 @@ define linkonce_odr void @_ZN6casadi5SolveILb1EEC2ERKNS_2MXES4_(ptr noundef nonn
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::vector.5", align 8
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %0, i64 56
@@ -50902,7 +50902,7 @@ common.resume:                                    ; preds = %104, %19
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %3
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %.noexc unwind label %45
 
@@ -54790,7 +54790,7 @@ define linkonce_odr void @_ZN6casadi5SolveILb0EEC2ERKNS_2MXES4_(ptr noundef nonn
   %15 = alloca %"class.std::__cxx11::basic_string", align 8
   %16 = alloca %"class.std::vector.5", align 8
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %18 = getelementptr inbounds i8, ptr %0, i64 56
@@ -54811,7 +54811,7 @@ common.resume:                                    ; preds = %104, %19
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %3
   %21 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %21, align 8
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi5SolveILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %.noexc unwind label %45
 
@@ -58862,7 +58862,7 @@ define linkonce_odr hidden void @_ZNK6casadi9TrilSolveILb0EE5solveERKNS_2MXES4_b
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi14TriuSolveUnityILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -58871,7 +58871,7 @@ define linkonce_odr hidden void @_ZN6casadi14TriuSolveUnityILb1EED2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi14TriuSolveUnityILb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -59449,7 +59449,7 @@ _ZN6casadi8SparsityaSEOS0_.exit:                  ; preds = %19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10SolveUnityILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -59470,7 +59470,7 @@ declare void @_ZN6casadi8Sparsity4diagExx(ptr dead_on_unwind writable sret(%"cla
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi14TriuSolveUnityILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -59479,7 +59479,7 @@ define linkonce_odr hidden void @_ZN6casadi14TriuSolveUnityILb0EED2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi14TriuSolveUnityILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -60056,7 +60056,7 @@ _ZN6casadi8SparsityaSEOS0_.exit:                  ; preds = %19
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10SolveUnityILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -60071,7 +60071,7 @@ define linkonce_odr hidden void @_ZN6casadi10SolveUnityILb0EED0Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi14TrilSolveUnityILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -60080,7 +60080,7 @@ define linkonce_odr hidden void @_ZN6casadi14TrilSolveUnityILb1EED2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi14TrilSolveUnityILb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -60525,7 +60525,7 @@ define linkonce_odr hidden void @_ZNK6casadi14TrilSolveUnityILb1EE5solveERKNS_2M
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi14TrilSolveUnityILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -60534,7 +60534,7 @@ define linkonce_odr hidden void @_ZN6casadi14TrilSolveUnityILb0EED2Ev(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi14TrilSolveUnityILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10SolveUnityILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -60978,7 +60978,7 @@ define linkonce_odr hidden void @_ZNK6casadi14TrilSolveUnityILb0EE5solveERKNS_2M
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10LinsolCallILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -60987,7 +60987,7 @@ define linkonce_odr hidden void @_ZN6casadi10LinsolCallILb1EED2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10LinsolCallILb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -61816,7 +61816,7 @@ declare void @_ZNK6casadi6Linsol5solveERKNS_2MXES3_b(ptr dead_on_unwind writable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10LinsolCallILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -61825,7 +61825,7 @@ define linkonce_odr hidden void @_ZN6casadi10LinsolCallILb0EED2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi10LinsolCallILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @_ZN6casadi12SharedObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #31
   tail call void @_ZN6casadi6MXNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) #31
@@ -62639,7 +62639,7 @@ define linkonce_odr void @_ZN6casadi11SetNonzerosILb0EE6createERKNS_2MXES4_RKNS_
           to label %22 unwind label %24
 
 22:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb0EEE, i64 0, inrange i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb0EEE, i64 0, i32 0, i64 2), ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   tail call void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %21)
@@ -62664,7 +62664,7 @@ declare void @_ZN6casadi9to_slice2ERKSt6vectorIxSaIxEE(ptr dead_on_unwind writab
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6casadi17SetNonzerosVectorILb0EEC2ERKNS_2MXES4_RKSt6vectorIxSaIxEE(ptr noundef nonnull align 8 dereferenceable(88) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi11SetNonzerosILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   %6 = getelementptr inbounds i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8
@@ -62829,7 +62829,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %68, %.body, %52
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6casadi11SetNonzerosILb0EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -62850,7 +62850,7 @@ common.resume:                                    ; preds = %31, %6
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %10 unwind label %31
 
@@ -69674,7 +69674,7 @@ common.resume:                                    ; preds = %37, %28
 _ZN6casadi11SetNonzerosILb0EE6createERKNS_2MXES4_RKNS_5SliceES7_.exit: ; preds = %.loopexit
   %30 = getelementptr inbounds i8, ptr %0, i64 88
   %31 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i64 0, inrange i32 0, i64 2), ptr %27, align 8, !noalias !692
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i64 0, i32 0, i64 2), ptr %27, align 8, !noalias !692
   %32 = getelementptr inbounds i8, ptr %27, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false), !noalias !692
   %33 = getelementptr inbounds i8, ptr %27, i64 88
@@ -70443,7 +70443,7 @@ declare void @_ZNK6casadi5Slice3allERKS0_x(ptr dead_on_unwind writable sret(%"cl
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi17SetNonzerosVectorILb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -70460,7 +70460,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi17SetNonzerosVectorILb0EED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -72047,7 +72047,7 @@ define linkonce_odr void @_ZN6casadi11SetNonzerosILb1EE6createERKNS_2MXES4_RKNS_
           to label %22 unwind label %24
 
 22:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb1EEE, i64 0, inrange i32 0, i64 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb1EEE, i64 0, i32 0, i64 2), ptr %21, align 8
   %23 = getelementptr inbounds i8, ptr %21, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   tail call void @_ZN6casadi2MX6createEPNS_6MXNodeE(ptr dead_on_unwind writable sret(%"class.casadi::MX") align 8 %0, ptr noundef nonnull %21)
@@ -72066,7 +72066,7 @@ define linkonce_odr void @_ZN6casadi11SetNonzerosILb1EE6createERKNS_2MXES4_RKNS_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6casadi11SetNonzerosILb1EEC2ERKNS_2MXES4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
@@ -72087,7 +72087,7 @@ common.resume:                                    ; preds = %31, %6
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi11SetNonzerosILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %10 unwind label %31
 
@@ -77834,7 +77834,7 @@ common.resume:                                    ; preds = %37, %28
 _ZN6casadi11SetNonzerosILb1EE6createERKNS_2MXES4_RKNS_5SliceES7_.exit: ; preds = %.loopexit
   %30 = getelementptr inbounds i8, ptr %0, i64 88
   %31 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i64 0, inrange i32 0, i64 2), ptr %27, align 8, !noalias !734
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i64 0, i32 0, i64 2), ptr %27, align 8, !noalias !734
   %32 = getelementptr inbounds i8, ptr %27, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr noundef nonnull align 8 dereferenceable(24) %31, i64 24, i1 false), !noalias !734
   %33 = getelementptr inbounds i8, ptr %27, i64 88
@@ -78616,7 +78616,7 @@ _ZN6casadi17GenericExpressionINS_6SXElemEEpLERKS1_.exit: ; preds = %.lr.ph
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi17SetNonzerosVectorILb1EED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -78633,7 +78633,7 @@ _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6casadi17SetNonzerosVectorILb1EED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -80108,7 +80108,7 @@ _ZN6casadi17GenericExpressionINS_6SXElemEEpLERKS1_.exit: ; preds = %32
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb0EEC2ERKNS_2MXES4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -80129,7 +80129,7 @@ common.resume:                                    ; preds = %35, %7
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %11 unwind label %35
 
@@ -84735,7 +84735,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb0EEC2ERKNS_2MXES4_S4_S4
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca [4 x %"class.casadi::MX"], align 8
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 56
@@ -84756,7 +84756,7 @@ common.resume:                                    ; preds = %.loopexit, %10
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %14 unwind label %50
 
@@ -86567,7 +86567,7 @@ _ZNK6casadi6MXNode3depEx.exit:                    ; preds = %1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb1EEC2ERKNS_2MXES4_S4_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(8) %3) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 56
@@ -86588,7 +86588,7 @@ common.resume:                                    ; preds = %35, %7
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %4
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %9, align 8
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %11 unwind label %35
 
@@ -91000,7 +91000,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosParamILb1EEC2ERKNS_2MXES4_S4_S4
   %6 = alloca %"class.std::vector", align 8
   %7 = alloca [4 x %"class.casadi::MX"], align 8
   tail call void @_ZN6casadi20SharedObjectInternalC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi6MXNodeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %0, i64 56
@@ -91021,7 +91021,7 @@ common.resume:                                    ; preds = %.loopexit, %10
 _ZN6casadi6MXNodeC2Ev.exit:                       ; preds = %5
   %12 = getelementptr inbounds i8, ptr %0, i64 24
   store i64 0, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosParamILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6casadi2MX8sparsityEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
           to label %14 unwind label %50
 
@@ -95375,7 +95375,7 @@ define linkonce_odr void @_ZN6casadi10LinsolCallILb1EEC2ERNS_19DeserializingStre
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi6LinsolC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %6 unwind label %11
@@ -95441,7 +95441,7 @@ define linkonce_odr void @_ZN6casadi10LinsolCallILb0EEC2ERNS_19DeserializingStre
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [112 x ptr] }, ptr @_ZTVN6casadi10LinsolCallILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi6LinsolC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5)
           to label %6 unwind label %11
@@ -95754,7 +95754,7 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosVectorILb1EEC2ERNS_19Deserializ
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
@@ -95816,7 +95816,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosSliceILb1EEC2ERNS_19Deserializi
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %6 unwind label %11
@@ -95883,7 +95883,7 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosSlice2ILb1EEC2ERNS_19Deserializ
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %8 unwind label %19
@@ -96529,7 +96529,7 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosParamSliceILb1EEC2ERNS_19Deseri
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %6 unwind label %11
@@ -96594,7 +96594,7 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosSliceParamILb1EEC2ERNS_19Deseri
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb1EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %6 unwind label %11
@@ -96659,7 +96659,7 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosVectorILb0EEC2ERNS_19Deserializ
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosVectorILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #31
@@ -96721,7 +96721,7 @@ define linkonce_odr void @_ZN6casadi16SetNonzerosSliceILb0EEC2ERNS_19Deserializi
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi16SetNonzerosSliceILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %6 unwind label %11
@@ -96788,7 +96788,7 @@ define linkonce_odr void @_ZN6casadi17SetNonzerosSlice2ILb0EEC2ERNS_19Deserializ
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [109 x ptr] }, ptr @_ZTVN6casadi17SetNonzerosSlice2ILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %7)
           to label %8 unwind label %19
@@ -96899,7 +96899,7 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosParamSliceILb0EEC2ERNS_19Deseri
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosParamSliceILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %6 unwind label %11
@@ -96964,7 +96964,7 @@ define linkonce_odr void @_ZN6casadi21SetNonzerosSliceParamILb0EEC2ERNS_19Deseri
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN6casadi6MXNodeC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(41) %1)
-  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb0EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [108 x ptr] }, ptr @_ZTVN6casadi21SetNonzerosSliceParamILb0EEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   invoke void @_ZN6casadi5SliceC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
           to label %6 unwind label %11

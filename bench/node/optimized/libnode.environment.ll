@@ -649,7 +649,7 @@ if.end.i.i.i.i:                                   ; preds = %_ZNSt10_HashtableIP
 _ZNSt13unordered_mapIPvmSt4hashIS0_ESt8equal_toIS0_ESaISt4pairIKS0_mEEED2Ev.exit: ; preds = %_ZNSt10_HashtableIPvSt4pairIKS0_mESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0_ESt4hashIS0_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i
   %mutex_ = getelementptr inbounds i8, ptr %this, i64 32
   tail call void @uv_mutex_destroy(ptr noundef nonnull %mutex_) #12
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %allocator_.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load ptr, ptr %allocator_.i, align 8
   %cmp.not.i.i = icmp eq ptr %6, null
@@ -1572,7 +1572,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %allocator_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %call.i.i.i = tail call noundef ptr @_ZN2v811ArrayBuffer9Allocator19NewDefaultAllocatorEv() #12, !noalias !11
   store ptr %call.i.i.i, ptr %allocator_.i.i.i, align 8, !noalias !11
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node29DebuggingArrayBufferAllocatorE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !11
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node29DebuggingArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !11
   %mutex_.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
   %call.i.i.i.i = tail call noundef i32 @uv_mutex_init(ptr noundef nonnull %mutex_.i.i) #12, !noalias !11
   %cmp.not.i.i.i = icmp eq i32 %call.i.i.i.i, 0
@@ -1600,7 +1600,7 @@ _ZNSt10unique_ptrIN4node29DebuggingArrayBufferAllocatorESt14default_deleteIS1_EE
 _ZNSt10unique_ptrIN4node24NodeArrayBufferAllocatorESt14default_deleteIS1_EED2Ev.exit: ; preds = %lor.lhs.false
   %call.i1 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22, !noalias !14
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %call.i1, i8 0, i64 16, i1 false), !noalias !14
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, inrange i32 0, i64 2), ptr %call.i1, align 8, !noalias !14
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %call.i1, align 8, !noalias !14
   %zero_fill_field_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 8
   store i32 1, ptr %zero_fill_field_.i.i, align 8, !noalias !14
   %total_mem_usage_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
@@ -2622,7 +2622,7 @@ _ZNSt10unique_ptrIN4node25InspectorParentHandleImplESt14default_deleteIS1_EED2Ev
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %add.ptr.i8)
   call void @_ZN4node9inspector5Agent15GetParentHandleEmRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr nonnull sret(%"class.std::unique_ptr.418") align 8 %ref.tmp20, ptr noundef nonnull align 8 dereferenceable(186) %6, i64 noundef %thread_id.coerce, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp23, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp25) #12
   %call.i9 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22, !noalias !18
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 0, inrange i32 0, i64 2), ptr %call.i9, align 8, !noalias !18
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 0, i32 0, i64 2), ptr %call.i9, align 8, !noalias !18
   %impl2.i.i = getelementptr inbounds i8, ptr %call.i9, i64 8
   %7 = load i64, ptr %ref.tmp20, align 8, !noalias !18
   store i64 %7, ptr %impl2.i.i, align 8, !noalias !18
@@ -3799,7 +3799,7 @@ _ZNSt8functionIFvPN4node11EnvironmentEiEED2Ev.exit: ; preds = %"_ZZN4node21SetPr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node24NodeArrayBufferAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %allocator_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %allocator_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -3820,7 +3820,7 @@ _ZNSt10unique_ptrIN2v811ArrayBuffer9AllocatorESt14default_deleteIS2_EED2Ev.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node24NodeArrayBufferAllocatorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN4node24NodeArrayBufferAllocatorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %allocator_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %allocator_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -4409,7 +4409,7 @@ declare i32 @uv_mutex_init(ptr noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node25InspectorParentHandleImplD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -4428,7 +4428,7 @@ _ZNSt10unique_ptrIN4node9inspector21ParentInspectorHandleESt14default_deleteIS2_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node25InspectorParentHandleImplD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node25InspectorParentHandleImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

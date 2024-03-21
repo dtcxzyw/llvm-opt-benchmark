@@ -3714,7 +3714,7 @@ entry:
   %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp2, i32 0, i32 1
   %7 = load ptr, ptr %6, align 8
   call void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) %this1, i64 %1, ptr %3, i64 %5, ptr %7, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal26unsupported_implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4357,7 +4357,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal49detect_best_supported_implementation_on_first_useE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8internal49detect_best_supported_implementation_on_first_useE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 terminate.lpad:                                   ; preds = %entry
@@ -4625,7 +4625,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8simdjson8internal25dom_parser_implementationC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #7
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8fallback25dom_parser_implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8fallback25dom_parser_implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %open_containers = getelementptr inbounds %"class.simdjson::fallback::dom_parser_implementation", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIA_N8simdjson8fallback14open_containerESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %open_containers) #7
   %is_array = getelementptr inbounds %"class.simdjson::fallback::dom_parser_implementation", ptr %this1, i32 0, i32 2
@@ -6099,7 +6099,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8simdjson8internal25dom_parser_implementationC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #7
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson7haswell25dom_parser_implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson7haswell25dom_parser_implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %open_containers = getelementptr inbounds %"class.simdjson::haswell::dom_parser_implementation", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIA_N8simdjson7haswell14open_containerESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %open_containers) #7
   %is_array = getelementptr inbounds %"class.simdjson::haswell::dom_parser_implementation", ptr %this1, i32 0, i32 2
@@ -6966,7 +6966,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8simdjson8internal25dom_parser_implementationC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #7
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson7icelake25dom_parser_implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson7icelake25dom_parser_implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %open_containers = getelementptr inbounds %"class.simdjson::icelake::dom_parser_implementation", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIA_N8simdjson7icelake14open_containerESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %open_containers) #7
   %is_array = getelementptr inbounds %"class.simdjson::icelake::dom_parser_implementation", ptr %this1, i32 0, i32 2
@@ -7843,7 +7843,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8simdjson8internal25dom_parser_implementationC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #7
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8westmere25dom_parser_implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8westmere25dom_parser_implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %open_containers = getelementptr inbounds %"class.simdjson::westmere::dom_parser_implementation", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIA_N8simdjson8westmere14open_containerESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %open_containers) #7
   %is_array = getelementptr inbounds %"class.simdjson::westmere::dom_parser_implementation", ptr %this1, i32 0, i32 2
@@ -9513,7 +9513,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %required_instruction_sets, ptr %required_instruction_sets.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_name = getelementptr inbounds %"class.simdjson::implementation", ptr %this1, i32 0, i32 1
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #7
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ISt17basic_string_viewIcS2_EvEERKT_RKS3_(ptr noundef nonnull align 8 dereferenceable(32) %_name, ptr noundef nonnull align 8 dereferenceable(16) %name, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
@@ -9672,7 +9672,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson14implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_description = getelementptr inbounds %"class.simdjson::implementation", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_description) #7
   %_name = getelementptr inbounds %"class.simdjson::implementation", ptr %this1, i32 0, i32 1
@@ -9898,7 +9898,7 @@ entry:
   %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp2, i32 0, i32 1
   %7 = load ptr, ptr %6, align 8
   call void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) %this1, i64 %1, ptr %3, i64 %5, ptr %7, i32 noundef 123764)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson7icelake14implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson7icelake14implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9921,7 +9921,7 @@ entry:
   %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp2, i32 0, i32 1
   %7 = load ptr, ptr %6, align 8
   call void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) %this1, i64 %1, ptr %3, i64 %5, ptr %7, i32 noundef 116)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson7haswell14implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson7haswell14implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9944,7 +9944,7 @@ entry:
   %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp2, i32 0, i32 1
   %7 = load ptr, ptr %6, align 8
   call void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) %this1, i64 %1, ptr %3, i64 %5, ptr %7, i32 noundef 24)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8westmere14implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8westmere14implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9967,7 +9967,7 @@ entry:
   %6 = getelementptr inbounds { i64, ptr }, ptr %agg.tmp2, i32 0, i32 1
   %7 = load ptr, ptr %6, align 8
   call void @_ZN8simdjson14implementationC2ESt17basic_string_viewIcSt11char_traitsIcEES4_j(ptr noundef nonnull align 8 dereferenceable(76) %this1, i64 %1, ptr %3, i64 %5, ptr %7, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8fallback14implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN8simdjson8fallback14implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -10351,7 +10351,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %n_structural_indexes = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %this1, i32 0, i32 1
   store i32 0, ptr %n_structural_indexes, align 8
   %structural_indexes = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %this1, i32 0, i32 2
@@ -10407,7 +10407,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN8simdjson8internal25dom_parser_implementationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %structural_indexes = getelementptr inbounds %"class.simdjson::internal::dom_parser_implementation", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIA_jSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %structural_indexes) #7
   ret void

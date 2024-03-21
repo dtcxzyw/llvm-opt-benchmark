@@ -462,11 +462,11 @@ _ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit:   ; preds = %sw.bb, %init.check.
   br i1 %tobool1.i.not, label %invoke.cont7, label %invoke.cont
 
 invoke.cont:                                      ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow21SystemDebugMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow21SystemDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr %call3, align 8
   br label %return
 
 invoke.cont7:                                     ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow16SystemMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow16SystemMemoryPoolE, i64 0, i32 0, i64 2), ptr %call3, align 8
   br label %return
 
 sw.bb11:                                          ; preds = %entry
@@ -505,11 +505,11 @@ _ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14: ; preds = %sw.bb11, %init.chec
   br i1 %tobool1.i6.not, label %invoke.cont27, label %invoke.cont18
 
 invoke.cont18:                                    ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr %call23, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr %call23, align 8
   br label %return
 
 invoke.cont27:                                    ; preds = %_ZN5arrow12_GLOBAL__N_114IsDebugEnabledEv.exit14
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr %call23, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 0, i32 0, i64 2), ptr %call23, align 8
   br label %return
 
 sw.default:                                       ; preds = %entry
@@ -854,7 +854,7 @@ return:                                           ; preds = %invoke.cont, %_ZN5a
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5arrow17LoggingMemoryPoolC2EPNS_10MemoryPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pool) unnamed_addr #8 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow17LoggingMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow17LoggingMemoryPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
   %pool_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %pool, ptr %pool_, align 8
   ret void
@@ -1136,7 +1136,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5arrow15ProxyMemoryPoolC2EPNS_10MemoryPoolE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %pool) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow15ProxyMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow15ProxyMemoryPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %impl_, align 8
   %call = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
@@ -1159,7 +1159,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5arrow15ProxyMemoryPoolD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow15ProxyMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow15ProxyMemoryPoolE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %impl_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -7226,7 +7226,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10PoolBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow10PoolBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %pool_ = getelementptr inbounds i8, ptr %this, i64 80
   store ptr %pool, ptr %pool_, align 8
   %alignment_ = getelementptr inbounds i8, ptr %this, i64 88
@@ -7327,7 +7327,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit: ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15ResizableBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow15ResizableBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -7768,7 +7768,7 @@ if.end8.sink.split.i.i.i.i24:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow13MemoryManagerEED2Ev.exit: ; preds = %_ZNSt10shared_ptrIN5arrow6BufferEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i11, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i21, %if.end8.sink.split.i.i.i.i24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow13MutableBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow13MutableBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %is_mutable_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %is_mutable_, align 8
   ret void
@@ -7800,7 +7800,7 @@ define linkonce_odr void @_ZN5arrow6BufferC2EPKhlSt10shared_ptrINS_13MemoryManag
 entry:
   %agg.tmp = alloca %"class.std::shared_ptr.61", align 8
   %device_type_override.sroa.0.0.extract.trunc = trunc i16 %device_type_override.coerce to i8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %is_mutable_ = getelementptr inbounds i8, ptr %this, i64 8
   store i8 0, ptr %is_mutable_, align 8
   %data_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -8111,7 +8111,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow6BufferD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow6BufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -8873,13 +8873,13 @@ entry:
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #26
   store i8 0, ptr @_ZN5arrowL12global_stateE, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 1, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow16SystemMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow16SystemMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 1, i32 0, i32 0, i32 0), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 2, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow21SystemDebugMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow21SystemDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 2, i32 0, i32 0, i32 0), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 3, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow18JemallocMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 3, i32 0, i32 0, i32 0), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 4, i32 0, i32 1, i32 0, i32 0, i32 0), i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 4, i32 0, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5arrow23JemallocDebugMemoryPoolE, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"struct.arrow::GlobalState", ptr @_ZN5arrowL12global_stateE, i64 0, i32 4, i32 0, i32 0, i32 0), align 8
   %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5arrow11GlobalStateD2Ev, ptr nonnull @_ZN5arrowL12global_stateE, ptr nonnull @__dso_handle) #26
   ret void
 }

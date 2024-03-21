@@ -45,9 +45,9 @@ define void @_ZN9DragLabelC2E7QStringP7QWidget(ptr noundef nonnull align 8 deref
   %12 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %13 = load i32, ptr %12, align 4
   call void @_ZN6QLabelC2ERK7QStringP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef %11, i32 %13)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i32 0, i32 0, i32 2), ptr %10, align 8
   %14 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i32 0, inrange i32 1, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV9DragLabel, i32 0, i32 1, i32 2), ptr %14, align 8
   invoke void @_ZN7QWidget21setAutoFillBackgroundEb(ptr noundef nonnull align 8 dereferenceable(40) %10, i1 noundef zeroext true)
           to label %15 unwind label %21
 

@@ -5724,9 +5724,9 @@ define void @_ZN22edit_mutualcorrsDialogC2EP7QWidgetP21EditMutualCorrsPlugin(ptr
   %16 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %17 = load i32, ptr %16, align 4
   call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef %15, i32 %17)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 0, i32 2), ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, inrange i32 1, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 1, i32 2), ptr %18, align 8
   %19 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %14, i32 0, i32 1
   %20 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 304) #16
           to label %21 unwind label %60
@@ -9753,9 +9753,9 @@ define void @_ZN22edit_mutualcorrsDialogD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV22edit_mutualcorrsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.edit_mutualcorrsDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

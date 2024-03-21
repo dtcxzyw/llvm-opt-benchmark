@@ -903,7 +903,7 @@ define dso_local void @_ZN9cmCTestHGC2EP7cmCTestRSo(ptr noundef nonnull align 8 
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN15cmCTestGlobalVCC2EP7cmCTestRSo(ptr noundef nonnull align 8 dereferenceable(784) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV9cmCTestHG, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV9cmCTestHG, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
   %13 = getelementptr inbounds %class.cmCTestGlobalVC, ptr %9, i32 0, i32 4
   %14 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN9cmCTestVC8RevisionaSERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 8 dereferenceable(256) %12)
@@ -1388,7 +1388,7 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG14IdentifyParserC2EPS_PKcRNSt7_
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %11, i8 noundef signext 10, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG14IdentifyParserE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG14IdentifyParserE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %8, align 8
   store ptr %13, ptr %12, align 8
@@ -1455,7 +1455,7 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools12OutputLoggerC2ERSoPKc(p
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %9, i8 noundef signext 10, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputLoggerE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputLoggerE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %9, ptr noundef %10, ptr noundef %11)
@@ -1498,7 +1498,7 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG14IdentifyParserD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG14IdentifyParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG14IdentifyParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCTestHG::IdentifyParser", ptr %3, i32 0, i32 2
   call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %4) #3
   call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %3) #3
@@ -2772,9 +2772,9 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG9LogParserC2EPS_PKc(ptr noundef
           to label %15 unwind label %30
 
 15:                                               ; preds = %3
-  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 0, i32 2), ptr %9, align 8
   %16 = getelementptr inbounds i8, ptr %9, i64 64
-  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %"class.cmCTestHG::LogParser", ptr %9, i32 0, i32 2
   %18 = load ptr, ptr %5, align 8
   store ptr %18, ptr %17, align 8
@@ -2867,9 +2867,9 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG9LogParserD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [16 x ptr] }, ptr @_ZTVN9cmCTestHG9LogParserE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 64
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds ptr, ptr %6, i64 6
@@ -3111,7 +3111,7 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG12StatusParserC2EPS_PKc(ptr nou
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %9, i8 noundef signext 10, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG12StatusParserE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG12StatusParserE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %10, align 8
@@ -3171,7 +3171,7 @@ define linkonce_odr dso_local void @_ZN9cmCTestHG12StatusParserD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG12StatusParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9cmCTestHG12StatusParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCTestHG::StatusParser", ptr %3, i32 0, i32 2
   call void @_ZN5cmsys17RegularExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(556) %4) #3
   call void @_ZN14cmProcessTools10LineParserD2Ev(ptr noundef nonnull align 8 dereferenceable(59) %3) #3
@@ -3241,7 +3241,7 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools10LineParserD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN14cmProcessTools12OutputParserD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3

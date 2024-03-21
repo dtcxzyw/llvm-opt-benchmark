@@ -581,7 +581,7 @@ define dso_local void @_ZN15ExpressionCommaC2ERK10ExpressionS2_(ptr noundef nonn
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.ExpressionComma, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -598,7 +598,7 @@ define dso_local void @_ZN15ExpressionCommaD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV15ExpressionComma, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ExpressionComma, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

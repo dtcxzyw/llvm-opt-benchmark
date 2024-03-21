@@ -32,7 +32,7 @@ entry:
 define void @_ZN6icu_756UStackC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_757UVectorC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -42,7 +42,7 @@ declare void @_ZN6icu_757UVectorC2ER10UErrorCode(ptr noundef nonnull align 8 der
 define void @_ZN6icu_756UStackC2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %initialCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_757UVectorC2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %initialCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -52,7 +52,7 @@ declare void @_ZN6icu_757UVectorC2EiR10UErrorCode(ptr noundef nonnull align 8 de
 define void @_ZN6icu_756UStackC2EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -62,7 +62,7 @@ declare void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr nound
 define void @_ZN6icu_756UStackC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, i32 noundef %initialCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, i32 noundef %initialCapacity, ptr noundef nonnull align 4 dereferenceable(4) %status)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

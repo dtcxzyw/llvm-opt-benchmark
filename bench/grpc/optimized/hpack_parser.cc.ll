@@ -3563,7 +3563,7 @@ land.lhs.true8:                                   ; preds = %_ZN9grpc_core20Glob
 if.then10:                                        ; preds = %land.lhs.true8
   %type_.i.i = getelementptr inbounds i8, ptr %metadata_sizes_annotation, i64 8
   store i32 0, ptr %type_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11HPackParser23MetadataSizesAnnotationE, i64 0, inrange i32 0, i64 2), ptr %metadata_sizes_annotation, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core11HPackParser23MetadataSizesAnnotationE, i64 0, i32 0, i64 2), ptr %metadata_sizes_annotation, align 8
   %metadata_buffer_.i = getelementptr inbounds i8, ptr %metadata_sizes_annotation, i64 16
   store ptr %25, ptr %metadata_buffer_.i, align 8
   %soft_limit_.i = getelementptr inbounds i8, ptr %metadata_sizes_annotation, i64 24
@@ -3618,7 +3618,7 @@ if.then25:                                        ; preds = %land.lhs.true21, %_
   %call.i1.i.i = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !37
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !40
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !40
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !40
   %status.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 10, ptr %status.i.i.i.i, align 1, !noalias !40
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -3890,7 +3890,7 @@ entry:
   %call.i1.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !50
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !53
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !53
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !53
   %status.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 5, ptr %status.i.i.i.i, align 1, !noalias !53
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -4131,7 +4131,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, inrange i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -6568,7 +6568,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core16HpackParseResult21HpackParseResultStateD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
   %1 = and i8 %0, 1
@@ -6603,7 +6603,7 @@ _ZNSt8optionalIN4absl12lts_202308026StatusEED2Ev.exit: ; preds = %entry, %if.the
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core16HpackParseResult21HpackParseResultStateD0Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8
   %1 = and i8 %0, 1
@@ -6844,7 +6844,7 @@ if.then58:                                        ; preds = %sw.bb55
   %call.i1.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !178
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !181
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !181
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !181
   %status.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 18, ptr %status.i.i.i.i, align 1, !noalias !181
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -7186,7 +7186,7 @@ if.then11:                                        ; preds = %_ZNK9grpc_core11HPa
   %call.i1.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !184
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !187
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !187
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !187
   %status.i.i.i.i1 = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 6, ptr %status.i.i.i.i1, align 1, !noalias !187
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -7912,7 +7912,7 @@ if.then11:                                        ; preds = %_ZNK9grpc_core11HPa
 
 if.then.i.i1:                                     ; preds = %if.then11
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.59, ptr %_M_reason.i.i.i.i, align 8
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #24
@@ -8290,7 +8290,7 @@ lpad:                                             ; preds = %if.then.i.i29, %do.
 if.then.i.i29:                                    ; preds = %cond.end
   %cmp.i.not.i.i.i30 = icmp eq i8 %8, -1
   %exception.i.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i.i, align 8
   %_M_reason.i.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i.i, i64 8
   %.str.10..str.11 = select i1 %cmp.i.not.i.i.i30, ptr @.str.10, ptr @.str.11
   store ptr %.str.10..str.11, ptr %_M_reason.i.i.i.i.i, align 8
@@ -9331,7 +9331,7 @@ if.then3:                                         ; preds = %if.end
   %call.i1.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !220
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !223
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !223
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !223
   %status.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 16, ptr %status.i.i.i.i, align 1, !noalias !223
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -9428,7 +9428,7 @@ if.then10:                                        ; preds = %if.end4
   %call.i1.i.i14 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !226
   %refs_.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call.i1.i.i14, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i15, align 8, !noalias !229
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i14, align 8, !noalias !229
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i14, align 8, !noalias !229
   %status.i.i.i.i16 = getelementptr inbounds i8, ptr %call.i1.i.i14, i64 16
   store i8 13, ptr %status.i.i.i.i16, align 1, !noalias !229
   %key.i.i.i.i17 = getelementptr inbounds i8, ptr %call.i1.i.i14, i64 40
@@ -9764,7 +9764,7 @@ entry:
   %call.i1.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !232
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !235
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !235
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !235
   %status.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 12, ptr %status.i.i.i.i, align 1, !noalias !235
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -9866,7 +9866,7 @@ entry:
   %call.i1.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !238
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !241
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !241
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !241
   %status.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 11, ptr %status.i.i.i.i, align 1, !noalias !241
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -9966,7 +9966,7 @@ entry:
   %call.i1.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !244
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !247
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !247
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !247
   %status.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 17, ptr %status.i.i.i.i, align 1, !noalias !247
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -10341,7 +10341,7 @@ if.then14:                                        ; preds = %if.end9
   %call.i1.i.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !253
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !256
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !256
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !256
   %status.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 4, ptr %status.i.i.i.i, align 1, !noalias !256
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -10612,7 +10612,7 @@ _ZN9grpc_core16HpackParseResultC2ENS_16HpackParseStatusE.exit: ; preds = %entry,
   %call.i1.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !259
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !259
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !259
   %status.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
   store i8 %status, ptr %status.i.i.i, align 1, !noalias !259
   %key.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 40
@@ -10669,7 +10669,7 @@ _ZN9grpc_core16HpackParseResultC2ENS_16HpackParseStatusE.exit:
   %call.i1.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !262
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !262
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !262
   %status.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
   store i8 7, ptr %status.i.i.i, align 1, !noalias !262
   %key.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 40
@@ -10791,7 +10791,7 @@ _ZN9grpc_core16HpackParseResultC2ENS_16HpackParseStatusE.exit:
   %call.i1.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !265
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !265
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !265
   %status.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
   store i8 3, ptr %status.i.i.i, align 1, !noalias !265
   %key.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 40
@@ -11080,7 +11080,7 @@ if.then3:                                         ; preds = %_ZN9grpc_core10HPac
   %call.i1.i.i = call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28, !noalias !277
   %refs_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i.i, align 8, !noalias !280
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !280
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i.i, align 8, !noalias !280
   %status.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 16
   store i8 14, ptr %status.i.i.i.i, align 1, !noalias !280
   %key.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i.i, i64 40
@@ -18074,7 +18074,7 @@ _ZN9grpc_core16HpackParseResultC2ENS_16HpackParseStatusE.exit:
   %call.i1.i = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #28
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !701
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !701
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core16HpackParseResult21HpackParseResultStateE, i64 0, i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !701
   %status.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 16
   store i8 8, ptr %status.i.i.i, align 1, !noalias !701
   %key.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 40

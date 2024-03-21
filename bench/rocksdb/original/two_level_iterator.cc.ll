@@ -466,7 +466,7 @@ entry:
   store ptr %first_level_iter, ptr %first_level_iter.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb20InternalIteratorBaseINS_10IndexValueEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %state_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::TwoLevelIndexIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %state.addr, align 8
   store ptr %0, ptr %state_, align 8
@@ -632,7 +632,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN7rocksdb9CleanableC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb20InternalIteratorBaseINS_10IndexValueEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb20InternalIteratorBaseINS_10IndexValueEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -726,7 +726,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_121TwoLevelIndexIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %first_level_iter_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::TwoLevelIndexIterator", ptr %this1, i32 0, i32 2
   invoke void @_ZN7rocksdb19IteratorWrapperBaseINS_10IndexValueEE10DeleteIterEb(ptr noundef nonnull align 8 dereferenceable(33) %first_level_iter_, i1 noundef zeroext false)
           to label %invoke.cont unwind label %terminate.lpad

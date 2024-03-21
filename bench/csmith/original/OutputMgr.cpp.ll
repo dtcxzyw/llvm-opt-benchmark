@@ -481,7 +481,7 @@ define dso_local void @_ZN9OutputMgrC2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV9OutputMgr, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV9OutputMgr, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

@@ -440,7 +440,7 @@ define void @_ZN4LIEF8FunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(1
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6SymbolC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::Function", ptr %3, i32 0, i32 1
   call void @_ZNSt3setIN4LIEF8Function5FLAGSESt4lessIS2_ESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #11
   ret void
@@ -469,7 +469,7 @@ define void @_ZN4LIEF8FunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceab
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6SymbolC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.LIEF::Function", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.LIEF::Function", ptr %10, i32 0, i32 1
@@ -555,7 +555,7 @@ define void @_ZN4LIEF8FunctionD2Ev(ptr noundef nonnull align 8 dereferenceable(1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::Function", ptr %3, i32 0, i32 1
   call void @_ZNSt3setIN4LIEF8Function5FLAGSESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #11
   call void @_ZN4LIEF6SymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #11
@@ -608,7 +608,7 @@ define void @_ZN4LIEF8FunctionC2Em(ptr noundef nonnull align 8 dereferenceable(1
 12:                                               ; preds = %10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #11
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds %"class.LIEF::Function", ptr %9, i32 0, i32 1
   call void @_ZNSt3setIN4LIEF8Function5FLAGSESt4lessIS2_ESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %13) #11
   ret void
@@ -734,7 +734,7 @@ define void @_ZN4LIEF8FunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #11
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, i32 0, i32 2), ptr %8, align 8
   %11 = getelementptr inbounds %"class.LIEF::Function", ptr %8, i32 0, i32 1
   call void @_ZNSt3setIN4LIEF8Function5FLAGSESt4lessIS2_ESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %11) #11
   ret void
@@ -781,7 +781,7 @@ define void @_ZN4LIEF8FunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 13:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #11
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, i32 0, i32 2), ptr %10, align 8
   %14 = getelementptr inbounds %"class.LIEF::Function", ptr %10, i32 0, i32 1
   call void @_ZNSt3setIN4LIEF8Function5FLAGSESt4lessIS2_ESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %14) #11
   ret void
@@ -828,7 +828,7 @@ define void @_ZN4LIEF8FunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 
 17:                                               ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #11
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF8FunctionE, i32 0, i32 0, i32 2), ptr %14, align 8
   %18 = getelementptr inbounds %"class.LIEF::Function", ptr %14, i32 0, i32 1
   %19 = load ptr, ptr %8, align 8
   %20 = invoke ptr @_ZSt5beginISt6vectorIN4LIEF8Function5FLAGSESaIS3_EEEDTcldtfp_5beginEERKT_(ptr noundef nonnull align 8 dereferenceable(24) %19)

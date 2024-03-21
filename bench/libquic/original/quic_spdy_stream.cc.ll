@@ -397,7 +397,7 @@ entry:
   %0 = load i32, ptr %id.addr, align 4
   %1 = load ptr, ptr %spdy_session.addr, align 8
   call void @_ZN3net18ReliableQuicStreamC2EjPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(377) %this1, i32 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %spdy_session.addr, align 8
   store ptr %2, ptr %spdy_session_, align 8
@@ -629,7 +629,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTVN3net14QuicSpdyStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %spdy_session_ = getelementptr inbounds %"class.net::QuicSpdyStream", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %spdy_session_, align 8
   %cmp = icmp ne ptr %0, null

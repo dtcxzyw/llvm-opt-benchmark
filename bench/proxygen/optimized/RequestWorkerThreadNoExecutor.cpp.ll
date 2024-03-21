@@ -46,7 +46,7 @@ define void @_ZN8proxygen29RequestWorkerThreadNoExecutorC2ERNS0_14FinishCallback
 entry:
   %call = tail call noundef ptr @_ZN5folly16EventBaseManager3getEv()
   tail call void @_ZN8proxygen12WorkerThreadC2EPN5folly16EventBaseManagerERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(32) %evbName)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen29RequestWorkerThreadNoExecutorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen29RequestWorkerThreadNoExecutorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %nextRequestId_ = getelementptr inbounds i8, ptr %this, i64 80
   %conv = zext i8 %threadId to i64
   %shl = shl nuw i64 %conv, 56
@@ -67,7 +67,7 @@ declare void @_ZN8proxygen12WorkerThreadC2EPN5folly16EventBaseManagerERKNSt7__cx
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen29RequestWorkerThreadNoExecutorD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen29RequestWorkerThreadNoExecutorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen29RequestWorkerThreadNoExecutorE, i64 0, i32 0, i64 2), ptr %this, align 8
   invoke void @_ZN8proxygen12WorkerThread14resetEventBaseEv(ptr noundef nonnull align 8 dereferenceable(80) %this)
           to label %invoke.cont unwind label %terminate.lpad
 

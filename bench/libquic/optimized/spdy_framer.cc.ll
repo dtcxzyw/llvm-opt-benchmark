@@ -345,7 +345,7 @@ define dso_local void @_ZN3net10SpdyFramerC2ENS_16SpdyMajorVersionEPFSt10unique_
 entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %ref.tmp7 = alloca %"class.std::unique_ptr.42", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %send_frame_size_limit_ = getelementptr inbounds i8, ptr %this, i64 48
   store i64 16384, ptr %send_frame_size_limit_, align 8
   %recv_frame_size_limit_ = getelementptr inbounds i8, ptr %this, i64 56
@@ -737,7 +737,7 @@ return:                                           ; preds = %if.end, %if.then
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net10SpdyFramerD2Ev(ptr noundef nonnull align 8 dereferenceable(259) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net10SpdyFramerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %header_compressor_ = getelementptr inbounds i8, ptr %this, i64 144
   %0 = load ptr, ptr %header_compressor_, align 8
   %tobool.not = icmp eq ptr %0, null
@@ -11178,7 +11178,7 @@ invoke.cont36:                                    ; preds = %if.end35
 define dso_local void @_ZN3net10SpdyFramer14SerializeFrameERKNS_11SpdyFrameIRE(ptr noalias nocapture writeonly sret(%"class.net::SpdySerializedFrame") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(259) %this, ptr noundef nonnull align 8 dereferenceable(8) %frame) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %visitor = alloca %"class.net::(anonymous namespace)::FrameSerializationVisitor", align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, inrange i32 0, i64 2), ptr %visitor, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, i32 0, i64 2), ptr %visitor, align 8
   %framer_.i = getelementptr inbounds i8, ptr %visitor, i64 8
   store ptr %this, ptr %framer_.i, align 8
   %frame_.i = getelementptr inbounds i8, ptr %visitor, i64 16
@@ -11209,7 +11209,7 @@ _ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev.exit: ; preds = %entry
 lpad:                                             ; preds = %entry
   %5 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, inrange i32 0, i64 2), ptr %visitor, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, i32 0, i64 2), ptr %visitor, align 8
   %6 = load i8, ptr %owns_buffer_.i.i, align 8
   %7 = and i8 %6, 1
   %tobool.not.i.i7 = icmp eq i8 %7, 0
@@ -11231,7 +11231,7 @@ _ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev.exit12: ; preds = %lpad, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %owns_buffer_.i, align 8
   %1 = and i8 %0, 1
@@ -12398,7 +12398,7 @@ _ZN3net19SpdySerializedFrameD2Ev.exit:            ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3net12_GLOBAL__N_125FrameSerializationVisitorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125FrameSerializationVisitorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %owns_buffer_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load i8, ptr %owns_buffer_.i.i, align 8
   %1 = and i8 %0, 1

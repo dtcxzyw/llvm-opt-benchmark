@@ -40,9 +40,9 @@ $_ZTS17b2ContactListener = comdat any
 $_ZTI17b2ContactListener = comdat any
 
 @_ZTV15b2ContactFilter = external unnamed_addr constant { [5 x ptr] }, align 8
-@b2_defaultFilter = hidden global %class.b2ContactFilter { ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15b2ContactFilter, i32 0, inrange i32 0, i32 2) }, align 8
+@b2_defaultFilter = hidden global %class.b2ContactFilter { ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15b2ContactFilter, i32 0, i32 0, i32 2) }, align 8
 @_ZTV17b2ContactListener = linkonce_odr unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTI17b2ContactListener, ptr @_ZN17b2ContactListenerD2Ev, ptr @_ZN17b2ContactListenerD0Ev, ptr @_ZN17b2ContactListener12BeginContactEP9b2Contact, ptr @_ZN17b2ContactListener10EndContactEP9b2Contact, ptr @_ZN17b2ContactListener8PreSolveEP9b2ContactPK10b2Manifold, ptr @_ZN17b2ContactListener9PostSolveEP9b2ContactPK16b2ContactImpulse] }, comdat, align 8
-@b2_defaultListener = hidden global %class.b2ContactListener { ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17b2ContactListener, i32 0, inrange i32 0, i32 2) }, align 8
+@b2_defaultListener = hidden global %class.b2ContactListener { ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17b2ContactListener, i32 0, i32 0, i32 2) }, align 8
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTS17b2ContactListener = linkonce_odr constant [20 x i8] c"17b2ContactListener\00", comdat, align 1
 @_ZTI17b2ContactListener = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTS17b2ContactListener }, comdat, align 8

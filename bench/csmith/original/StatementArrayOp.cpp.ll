@@ -2382,7 +2382,7 @@ define dso_local void @_ZN16StatementArrayOpC2EP5BlockPK13ArrayVariableRKSt6vect
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %9, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 9, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, i32 0, i32 2), ptr %17, align 8
   %19 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 1
   %20 = load ptr, ptr %10, align 8
   store ptr %20, ptr %19, align 8
@@ -2631,7 +2631,7 @@ define dso_local void @_ZN16StatementArrayOpC2EP5BlockPK13ArrayVariableRKSt6vect
   %17 = load ptr, ptr %8, align 8
   %18 = load ptr, ptr %9, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef 9, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, i32 0, i32 2), ptr %17, align 8
   %19 = getelementptr inbounds %class.StatementArrayOp, ptr %17, i32 0, i32 1
   %20 = load ptr, ptr %10, align 8
   store ptr %20, ptr %19, align 8
@@ -2709,7 +2709,7 @@ define dso_local void @_ZN16StatementArrayOpD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16StatementArrayOp, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.StatementArrayOp, ptr %3, i32 0, i32 6
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

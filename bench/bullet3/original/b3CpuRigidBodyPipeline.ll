@@ -369,7 +369,7 @@ entry:
   store ptr %broadphaseDbvt, ptr %broadphaseDbvt.addr, align 8
   store ptr %config, ptr %config.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 160) #11
   invoke void @_ZN34b3CpuRigidBodyPipelineInternalDataC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %call)
           to label %invoke.cont unwind label %lpad
@@ -500,7 +500,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22b3CpuRigidBodyPipeline, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_data = getelementptr inbounds %class.b3CpuRigidBodyPipeline, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %m_data, align 8
   %isnull = icmp eq ptr %0, null

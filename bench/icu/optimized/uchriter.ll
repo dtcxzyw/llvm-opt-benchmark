@@ -39,7 +39,7 @@ entry:
 define void @_ZN6icu_7522UCharCharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7517CharacterIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %text = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %text, align 8
   ret void
@@ -65,7 +65,7 @@ cond.false:                                       ; preds = %cond.true
 invoke.cont:                                      ; preds = %cond.false, %entry, %cond.true
   %cond8 = phi i32 [ %call5, %cond.false ], [ 0, %entry ], [ %length, %cond.true ]
   tail call void @_ZN6icu_7517CharacterIteratorC2Ei(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %cond8)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = load ptr, ptr %textPtr, align 8
   %text = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %1, ptr %text, align 8
@@ -99,7 +99,7 @@ cond.false:                                       ; preds = %cond.true
 invoke.cont:                                      ; preds = %cond.false, %entry, %cond.true
   %cond8 = phi i32 [ %call5, %cond.false ], [ 0, %entry ], [ %length, %cond.true ]
   tail call void @_ZN6icu_7517CharacterIteratorC2Eii(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %cond8, i32 noundef %position)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = load ptr, ptr %textPtr, align 8
   %text = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %1, ptr %text, align 8
@@ -126,7 +126,7 @@ cond.false:                                       ; preds = %cond.true
 invoke.cont:                                      ; preds = %cond.false, %entry, %cond.true
   %cond8 = phi i32 [ %call5, %cond.false ], [ 0, %entry ], [ %length, %cond.true ]
   tail call void @_ZN6icu_7517CharacterIteratorC2Eiiii(ptr noundef nonnull align 8 dereferenceable(24) %this, i32 noundef %cond8, i32 noundef %textBegin, i32 noundef %textEnd, i32 noundef %position)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = load ptr, ptr %textPtr, align 8
   %text = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %1, ptr %text, align 8
@@ -139,7 +139,7 @@ declare void @_ZN6icu_7517CharacterIteratorC2Eiiii(ptr noundef nonnull align 8 d
 define void @_ZN6icu_7522UCharCharacterIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN6icu_7517CharacterIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull align 8 dereferenceable(24) %that)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN6icu_7522UCharCharacterIteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %text = getelementptr inbounds i8, ptr %this, i64 24
   %text2 = getelementptr inbounds i8, ptr %that, i64 24
   %0 = load ptr, ptr %text2, align 8

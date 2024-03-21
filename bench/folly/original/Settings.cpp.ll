@@ -1673,7 +1673,7 @@ entry:
   %state.i.i.i41 = alloca i32, align 4
   %state.i.i.i = alloca i32, align 4
   %ctx.i.i = alloca %"struct.folly::SharedMutexImpl<false>::WaitForever", align 1
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly8settings6detail12SnapshotBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !57
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly8settings6detail12SnapshotBaseE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !57
   %0 = load atomic i8, ptr @_ZGVZN5folly8settings6detail19getSavedValuesMutexEvE17gSavedValuesMutex acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %_ZN5folly8settings6detail19getSavedValuesMutexEv.exit, !prof !16
@@ -6555,7 +6555,7 @@ entry:
   %lg = alloca %"class.folly::SharedMutexImpl<false>::WriteHolder", align 8
   %ref.tmp = alloca %"class.std::tuple.76", align 8
   %ref.tmp5 = alloca %"class.std::tuple.67", align 1
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly8settings6detail12SnapshotBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !57
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5folly8settings6detail12SnapshotBaseE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !57
   %snapshotValues_ = getelementptr inbounds %"class.folly::settings::detail::SnapshotBase", ptr %this, i64 0, i32 2
   %_M_single_bucket.i.i = getelementptr inbounds %"class.folly::settings::detail::SnapshotBase", ptr %this, i64 0, i32 2, i32 0, i32 5
   store ptr %_M_single_bucket.i.i, ptr %snapshotValues_, align 8, !tbaa !116

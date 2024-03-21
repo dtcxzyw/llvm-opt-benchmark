@@ -795,7 +795,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17HpackDebugVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17HpackDebugVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -831,7 +831,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %session.addr, align 8
   call void @_ZN3net18ReliableQuicStreamC2EjPNS_11QuicSessionE(ptr noundef nonnull align 8 dereferenceable(377) %this1, i32 noundef 3, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net17QuicHeadersStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net17QuicHeadersStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %spdy_session_ = getelementptr inbounds %"class.net::QuicHeadersStream", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %session.addr, align 8
   store ptr %1, ptr %spdy_session_, align 8
@@ -1028,9 +1028,9 @@ entry:
   call void @_ZN3net26SpdyFramerVisitorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN3net31SpdyFramerDebugVisitorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #14
-  store ptr getelementptr inbounds ({ [34 x ptr], [6 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr], [6 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [34 x ptr], [6 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr], [6 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %stream_ = getelementptr inbounds %"class.net::QuicHeadersStream::SpdyFramerVisitor", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %stream.addr, align 8
   store ptr %1, ptr %stream_, align 8
@@ -1169,7 +1169,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net17QuicHeadersStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3net17QuicHeadersStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeadersStream", ptr %this1, i32 0, i32 12
   call void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_) #14
   %spdy_framer_visitor_ = getelementptr inbounds %"class.net::QuicHeadersStream", ptr %this1, i32 0, i32 11
@@ -1352,7 +1352,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net13SpdyHeadersIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net13SpdyHeadersIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %has_priority_ = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %this1, i32 0, i32 1
   store i8 0, ptr %has_priority_, align 8
   %weight_ = getelementptr inbounds %"class.net::SpdyHeadersIR", ptr %this1, i32 0, i32 3
@@ -1748,7 +1748,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN3net15SpdyHeaderBlockD1Ev(ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net17SpdyPushPromiseIRE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net17SpdyPushPromiseIRE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %promised_stream_id_ = getelementptr inbounds %"class.net::SpdyPushPromiseIR", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %promised_stream_id.addr, align 4
   store i32 %1, ptr %promised_stream_id_, align 8
@@ -2170,7 +2170,7 @@ entry:
   store i32 %extra_bytes, ptr %extra_bytes.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net24QuicAckListenerInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_119ForceHolAckListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_119ForceHolAckListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stream_ack_listener_ = getelementptr inbounds %"class.net::(anonymous namespace)::ForceHolAckListener", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %stream_ack_listener.addr, align 8
   invoke void @_ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %stream_ack_listener_, ptr noundef %0)
@@ -3655,7 +3655,7 @@ entry:
   store ptr %visitor, ptr %visitor.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net16HpackHeaderTable21DebugVisitorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %clock_ = getelementptr inbounds %"class.net::(anonymous namespace)::HeaderTableDebugVisitor", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %clock.addr, align 8
   store ptr %0, ptr %clock_, align 8
@@ -4151,7 +4151,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN3net26SpdyFramerVisitorInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTVN3net26SpdyFramerVisitorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4161,7 +4161,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net31SpdyFramerDebugVisitorInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net31SpdyFramerDebugVisitorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4179,9 +4179,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr], [6 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr], [6 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [34 x ptr], [6 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr], [6 x ptr] }, ptr @_ZTVN3net17QuicHeadersStream17SpdyFramerVisitorE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %header_list_ = getelementptr inbounds %"class.net::QuicHeadersStream::SpdyFramerVisitor", ptr %this1, i32 0, i32 3
   call void @_ZN3net14QuicHeaderListD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %header_list_) #14
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
@@ -5857,7 +5857,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN4base10RefCountedIN3net24QuicAckListenerInterfaceEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net24QuicAckListenerInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net24QuicAckListenerInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5994,7 +5994,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_119ForceHolAckListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_119ForceHolAckListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stream_ack_listener_ = getelementptr inbounds %"class.net::(anonymous namespace)::ForceHolAckListener", ptr %this1, i32 0, i32 2
   call void @_ZN13scoped_refptrIN3net24QuicAckListenerInterfaceEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %stream_ack_listener_) #14
   call void @_ZN3net24QuicAckListenerInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #14
@@ -6406,7 +6406,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net16HpackHeaderTable21DebugVisitorInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net16HpackHeaderTable21DebugVisitorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6416,7 +6416,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_123HeaderTableDebugVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %headers_stream_hpack_visitor_ = getelementptr inbounds %"class.net::(anonymous namespace)::HeaderTableDebugVisitor", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN3net17QuicHeadersStream17HpackDebugVisitorESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %headers_stream_hpack_visitor_) #14
   call void @_ZN3net16HpackHeaderTable21DebugVisitorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14

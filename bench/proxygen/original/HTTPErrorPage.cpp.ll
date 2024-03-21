@@ -110,7 +110,7 @@ entry:
   store ptr %contentType, ptr %contentType.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen13HTTPErrorPageC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %content_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %content_, ptr noundef nonnull align 8 dereferenceable(8) %content) #8
   %contentType_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this1, i32 0, i32 2
@@ -146,7 +146,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPErrorPageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen13HTTPErrorPageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -293,7 +293,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen19HTTPStaticErrorPageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %contentType_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %contentType_) #8
   %content_ = getelementptr inbounds %"class.proxygen::HTTPStaticErrorPage", ptr %this1, i32 0, i32 1

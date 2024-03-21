@@ -485,7 +485,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   %bytesRead_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %bytesRead_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox13LocalReadFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox13LocalReadFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %path_ = getelementptr inbounds i8, ptr %this, i64 16
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i)
@@ -561,7 +561,7 @@ define void @_ZN8facebook5velox13LocalReadFileC2Ei(ptr noundef nonnull align 8 d
 entry:
   %bytesRead_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %bytesRead_.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox13LocalReadFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox13LocalReadFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %path_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %path_) #11
   %fd_ = getelementptr inbounds i8, ptr %this, i64 48
@@ -1280,7 +1280,7 @@ entry:
   store i64 %path.coerce0, ptr %path, align 8
   %0 = getelementptr inbounds i8, ptr %path, i64 8
   store ptr %path.coerce1, ptr %0, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox14LocalWriteFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN8facebook5velox14LocalWriteFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %closed_ = getelementptr inbounds i8, ptr %this, i64 24
   store i8 0, ptr %closed_, align 8
   call void @_ZNSt10filesystem7__cxx114pathC2ISt17basic_string_viewIcSt11char_traitsIcEES1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(16) %path, i8 noundef zeroext 2)
@@ -1778,7 +1778,7 @@ lpad.i.i.i:                                       ; preds = %call.i1.i.i.noexc
 
 _ZN5folly10SemiFutureImEC2ImvEEOT_.exit:          ; preds = %call.i1.i.i.noexc
   %2 = getelementptr inbounds i8, ptr %call.i1.i.i2, i64 136
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreImEE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i.i2, align 16
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreImEE, i64 0, i32 0, i64 2), ptr %call.i1.i.i2, align 16
   store i32 0, ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %call.i1.i.i2, i64 144
   store i64 %call, ptr %3, align 8
@@ -1853,7 +1853,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox16InMemoryReadFileD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox16InMemoryReadFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox16InMemoryReadFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ownedFile_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ownedFile_) #11
   ret void
@@ -1862,7 +1862,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8facebook5velox16InMemoryReadFileD0Ev(ptr noundef nonnull align 8 dereferenceable(65) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox16InMemoryReadFileE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8facebook5velox16InMemoryReadFileE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ownedFile_.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ownedFile_.i) #11
   tail call void @_ZdlPv(ptr noundef nonnull %this) #28
@@ -2042,10 +2042,10 @@ entry:
   %agg.tmp = alloca %"class.folly::Try", align 8
   %agg.tmp1 = alloca %"class.folly::exception_wrapper", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i64 0, inrange i32 0, i64 2), ptr %agg.tmp.i.i.i, align 8, !noalias !10
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i64 0, i32 0, i64 2), ptr %agg.tmp.i.i.i, align 8, !noalias !10
   %call.i.i.i.i = tail call ptr @__cxa_allocate_exception(i64 noundef 8) #11, !noalias !13
   %call1.i.i.i.i = tail call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i.i, ptr noundef nonnull @_ZTISt9exception, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkISt9exceptionEEvPv) #11, !noalias !13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !13
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !noalias !13
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp1, ptr noundef nonnull %call.i.i.i.i) #11
   call void @_ZNSt9exceptionD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %agg.tmp.i.i.i), !noalias !10
@@ -2071,7 +2071,7 @@ lpad.i.i:                                         ; preds = %call.i.i.noexc
 
 _ZN5folly3TryImED2Ev.exit:                        ; preds = %call.i.i.noexc
   %3 = getelementptr inbounds i8, ptr %call.i.i1, i64 136
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreImEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i1, align 16, !noalias !19
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5folly7futures6detail4CoreImEE, i64 0, i32 0, i64 2), ptr %call.i.i1, align 16, !noalias !19
   store i32 1, ptr %3, align 8, !noalias !19
   %4 = getelementptr inbounds i8, ptr %call.i.i1, i64 144
   store i64 %1, ptr %4, align 8, !alias.scope !22, !noalias !19

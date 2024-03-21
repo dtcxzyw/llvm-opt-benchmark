@@ -535,7 +535,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -875,7 +875,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN22btGenericPoolAllocatorC2Emm(ptr noundef nonnull align 8 dereferenceable(160) %this1, i64 noundef 8, i64 noundef 32768)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22GIM_STANDARD_ALLOCATOR, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -965,7 +965,7 @@ entry:
   store i64 %pool_element_size, ptr %pool_element_size.addr, align 8
   store i64 %pool_element_count, ptr %pool_element_count.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22btGenericPoolAllocator, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pool_count = getelementptr inbounds %class.btGenericPoolAllocator, ptr %this1, i32 0, i32 4
   store i64 0, ptr %m_pool_count, align 8
   %0 = load i64, ptr %pool_element_size.addr, align 8

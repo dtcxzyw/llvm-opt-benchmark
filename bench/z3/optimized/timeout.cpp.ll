@@ -166,7 +166,7 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #13
   store i32 0, ptr getelementptr inbounds (%"class.(anonymous namespace)::g_timeout_eh", ptr @_ZL2eh, i64 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112g_timeout_ehE, i64 0, inrange i32 0, i64 2), ptr @_ZL2eh, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112g_timeout_ehE, i64 0, i32 0, i64 2), ptr @_ZL2eh, align 8
   ret void
 }
 

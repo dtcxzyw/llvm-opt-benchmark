@@ -60,7 +60,7 @@ define dso_local void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Filter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Filter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.Filter, ptr %3, i32 0, i32 1
   call void @_ZNSt6bitsetILm2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
   %5 = getelementptr inbounds %class.Filter, ptr %3, i32 0, i32 1
@@ -92,7 +92,7 @@ define dso_local void @_ZN6FilterD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Filter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Filter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.Filter, ptr %3, i32 0, i32 1
   %5 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt6bitsetILm2EE5resetEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
   ret void

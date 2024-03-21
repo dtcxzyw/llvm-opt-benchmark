@@ -160,7 +160,7 @@ define void @_ZN5draco24KeyframeAnimationEncoderC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco27PointCloudSequentialEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco24KeyframeAnimationEncoderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco24KeyframeAnimationEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -170,7 +170,7 @@ define linkonce_odr void @_ZN5draco27PointCloudSequentialEncoderC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco17PointCloudEncoderC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %3)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco27PointCloudSequentialEncoderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco27PointCloudSequentialEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -283,7 +283,7 @@ define linkonce_odr void @_ZN5draco17PointCloudEncoderD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco17PointCloudEncoderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN5draco17PointCloudEncoderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %"class.draco::PointCloudEncoder", ptr %3, i32 0, i32 3

@@ -198,7 +198,7 @@ define hidden void @_ZN7nanogui5ThemeC2EP10NVGcontext(ptr noundef nonnull align 
   %157 = alloca %"struct.nanogui::Array", align 4
   %158 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 0, ptr %158, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui5ThemeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7nanogui5ThemeE, i64 0, i32 0, i64 2), ptr %0, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %156)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %157)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %156, i8 0, i64 16, i1 false)

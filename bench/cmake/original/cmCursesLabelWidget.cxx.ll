@@ -39,7 +39,7 @@ define dso_local void @_ZN19cmCursesLabelWidgetC2EiiiiRKNSt7__cxx1112basic_strin
   %18 = load i32, ptr %10, align 4
   %19 = load i32, ptr %11, align 4
   call void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %15, i32 noundef %16, i32 noundef %17, i32 noundef %18, i32 noundef %19)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19cmCursesLabelWidget, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV19cmCursesLabelWidget, i32 0, i32 0, i32 2), ptr %15, align 8
   %20 = getelementptr inbounds %class.cmCursesWidget, ptr %15, i32 0, i32 4
   %21 = load ptr, ptr %20, align 8
   %22 = invoke i32 @field_opts_off(ptr noundef %21, i32 noundef 8)

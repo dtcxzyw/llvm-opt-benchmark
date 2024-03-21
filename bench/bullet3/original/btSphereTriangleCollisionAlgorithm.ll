@@ -142,7 +142,7 @@ entry:
   %1 = load ptr, ptr %body0Wrap.addr, align 8
   %2 = load ptr, ptr %body1Wrap.addr, align 8
   call void @_ZN30btActivatingCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV34btSphereTriangleCollisionAlgorithm, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV34btSphereTriangleCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ownManifold = getelementptr inbounds %class.btSphereTriangleCollisionAlgorithm, ptr %this1, i32 0, i32 1
   store i8 0, ptr %m_ownManifold, align 8
   %m_manifoldPtr = getelementptr inbounds %class.btSphereTriangleCollisionAlgorithm, ptr %this1, i32 0, i32 3
@@ -229,7 +229,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV34btSphereTriangleCollisionAlgorithm, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV34btSphereTriangleCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ownManifold = getelementptr inbounds %class.btSphereTriangleCollisionAlgorithm, ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %m_ownManifold, align 8
   %tobool = trunc i8 %0 to i1

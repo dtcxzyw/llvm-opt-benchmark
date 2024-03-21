@@ -696,7 +696,7 @@ define linkonce_odr void @_ZN3vcg15CoordinateFrameD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg15CoordinateFrameE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg15CoordinateFrameE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %3, i32 0, i32 7
   call void @_ZN5QFontD1Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #7
   ret void
@@ -2621,7 +2621,7 @@ define void @_ZN3vcg15CoordinateFrameC2Ef(ptr noundef nonnull align 8 dereferenc
   store ptr %0, ptr %3, align 8
   store float %1, ptr %4, align 4
   %8 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg15CoordinateFrameE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg15CoordinateFrameE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 1
   call void @_ZN3vcg6Color4IhEC2ENS1_13ColorConstantE(ptr noundef nonnull align 1 dereferenceable(4) %9, i32 noundef -1)
   %10 = getelementptr inbounds %"class.vcg::CoordinateFrame", ptr %8, i32 0, i32 2
@@ -6393,7 +6393,7 @@ define void @_ZN3vcg22MovableCoordinateFrameC2Ef(ptr noundef nonnull align 8 der
   %8 = load ptr, ptr %3, align 8
   %9 = load float, ptr %4, align 4
   call void @_ZN3vcg15CoordinateFrameC2Ef(ptr noundef nonnull align 8 dereferenceable(51) %8, float noundef %9)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg22MovableCoordinateFrameE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN3vcg22MovableCoordinateFrameE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %"class.vcg::MovableCoordinateFrame", ptr %8, i32 0, i32 1
   invoke void @_ZN3vcg6Point3IfEC2Efff(ptr noundef nonnull align 4 dereferenceable(12) %10, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00)
           to label %11 unwind label %15

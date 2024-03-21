@@ -484,7 +484,7 @@ if.else:                                          ; preds = %entry
   store ptr %call3.i, ptr %norms.i, align 8
   %errorCode.i.i = getelementptr inbounds i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %errorCode, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, i32 0, i64 2), ptr %errorCode, align 8
   %location.i = getelementptr inbounds i8, ptr %errorCode, i64 16
   store ptr @.str.1, ptr %location.i, align 8
   %4 = load ptr, ptr %normTrie, align 8
@@ -910,7 +910,7 @@ if.end22:                                         ; preds = %if.end11
   store i8 1, ptr %combinesBack, align 1
   %errorCode.i.i = getelementptr inbounds i8, ptr %errorCode, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %errorCode, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, i32 0, i64 2), ptr %errorCode, align 8
   %location.i = getelementptr inbounds i8, ptr %errorCode, i64 16
   store ptr @.str.5, ptr %location.i, align 8
   %14 = load ptr, ptr %norms, align 8

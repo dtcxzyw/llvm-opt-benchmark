@@ -182,9 +182,9 @@ define void @_ZN14AccordionFrameC2EP7QWidget(ptr noundef nonnull align 8 derefer
   %16 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %17 = load i32, ptr %16, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %14, ptr noundef %15, i32 %17)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i32 0, i32 0, i32 2), ptr %14, align 8
   %18 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i32 0, inrange i32 1, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV14AccordionFrame, i32 0, i32 1, i32 2), ptr %18, align 8
   %19 = getelementptr inbounds %class.AccordionFrame, ptr %14, i32 0, i32 1
   store i32 0, ptr %19, align 8
   invoke void @_ZN14AccordionFrame16updateStyleSheetEv(ptr noundef nonnull align 8 dereferenceable(56) %14)

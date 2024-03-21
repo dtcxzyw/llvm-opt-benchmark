@@ -112,7 +112,7 @@ define dso_local void @_Z14createPipelineRKNSt7__cxx1112basic_stringIcSt11char_t
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %9, i64 %14
   store ptr %12, ptr %15, align 8, !tbaa !14
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i64 0, inrange i32 0, i64 5), ptr %9, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV14RenderPipeline, i64 0, i32 0, i64 5), ptr %9, align 8, !tbaa !14
   %16 = getelementptr inbounds i8, ptr %9, i64 8
   %17 = getelementptr inbounds i8, ptr %9, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
@@ -122,7 +122,7 @@ define dso_local void @_Z14createPipelineRKNSt7__cxx1112basic_stringIcSt11char_t
   %21 = load i64, ptr %20, align 8
   %22 = getelementptr inbounds i8, ptr %17, i64 %21
   store ptr %19, ptr %22, align 8, !tbaa !14
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13DynamicSource, i64 0, inrange i32 0, i64 5), ptr %17, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13DynamicSource, i64 0, i32 0, i64 5), ptr %17, align 8, !tbaa !14
   %23 = getelementptr inbounds i8, ptr %9, i64 64
   store ptr null, ptr %23, align 8, !tbaa !16
   %24 = getelementptr inbounds i8, ptr %9, i64 72
@@ -133,7 +133,7 @@ define dso_local void @_Z14createPipelineRKNSt7__cxx1112basic_stringIcSt11char_t
   %29 = getelementptr inbounds i8, ptr %24, i64 %28
   store ptr %26, ptr %29, align 8, !tbaa !14
   store i8 1, ptr %10, align 8, !tbaa !19
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DynamicTarget, i64 0, inrange i32 0, i64 5), ptr %24, align 8, !tbaa !14
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DynamicTarget, i64 0, i32 0, i64 5), ptr %24, align 8, !tbaa !14
   %30 = getelementptr inbounds i8, ptr %9, i64 88
   store ptr null, ptr %30, align 8, !tbaa !22
   %31 = getelementptr inbounds i8, ptr %9, i64 96
@@ -278,7 +278,7 @@ define linkonce_odr dso_local noundef ptr @_ZN14RenderPipeline7addStepI19RenderS
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !41)
   %3 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #17, !noalias !41
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19RenderShadowMapStep, i64 0, inrange i32 0, i64 5), ptr %3, align 8, !tbaa !14, !noalias !41
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19RenderShadowMapStep, i64 0, i32 0, i64 5), ptr %3, align 8, !tbaa !14, !noalias !41
   store ptr %3, ptr %2, align 8, !tbaa !44, !alias.scope !41
   %4 = invoke noundef ptr @_ZN14RenderPipeline3ownI19RenderShadowMapStepEEPT_OSt10unique_ptrIS2_St14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(8) %2)
           to label %5 unwind label %53

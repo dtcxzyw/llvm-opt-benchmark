@@ -120,7 +120,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %hdr.addr, align 8
   call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(49) %0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_215Pxr24CompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_215Pxr24CompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_maxScanLineSize = getelementptr inbounds %"class.Imf_3_2::Pxr24Compressor", ptr %this1, i32 0, i32 1
   %1 = load i64, ptr %maxScanLineSize.addr, align 8
   %conv = trunc i64 %1 to i32
@@ -293,7 +293,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_215Pxr24CompressorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_215Pxr24CompressorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_tmpBuffer = getelementptr inbounds %"class.Imf_3_2::Pxr24Compressor", ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %_tmpBuffer, align 8
   %isnull = icmp eq ptr %0, null

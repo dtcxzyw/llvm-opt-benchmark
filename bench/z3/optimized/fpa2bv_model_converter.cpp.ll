@@ -86,7 +86,7 @@ entry:
   store ptr null, ptr %m_env.i.i, align 8
   %m_completion.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i8 1, ptr %m_completion.i.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22fpa2bv_model_converter, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22fpa2bv_model_converter, i64 0, i32 0, i64 2), ptr %call, align 8
   %m2.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %0, ptr %m2.i, align 8
   %m_bv2fp.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -668,7 +668,7 @@ entry:
   store ptr null, ptr %m_env.i.i, align 8
   %m_completion.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store i8 1, ptr %m_completion.i.i, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22fpa2bv_model_converter, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22fpa2bv_model_converter, i64 0, i32 0, i64 2), ptr %call, align 8
   %m2.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr %m, ptr %m2.i, align 8
   %call.i = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 216)
@@ -681,7 +681,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN22fpa2bv_model_converterD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22fpa2bv_model_converter, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22fpa2bv_model_converter, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_bv2fp = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_bv2fp, align 8
   %cmp.i = icmp eq ptr %0, null
@@ -708,7 +708,7 @@ terminate.lpad:                                   ; preds = %if.end.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN22fpa2bv_model_converterD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22fpa2bv_model_converter, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22fpa2bv_model_converter, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_bv2fp.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_bv2fp.i, align 8
   %cmp.i.i = icmp eq ptr %0, null

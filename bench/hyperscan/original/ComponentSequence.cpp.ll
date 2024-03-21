@@ -1053,7 +1053,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue217ComponentSequenceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue217ComponentSequenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %children = getelementptr inbounds %"class.ue2::ComponentSequence", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children) #13
   %alternation = getelementptr inbounds %"class.ue2::ComponentSequence", ptr %this1, i32 0, i32 2
@@ -1098,7 +1098,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue217ComponentSequenceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue217ComponentSequenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %capture_name = getelementptr inbounds %"class.ue2::ComponentSequence", ptr %this1, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %capture_name) #13
   %alternation = getelementptr inbounds %"class.ue2::ComponentSequence", ptr %this1, i32 0, i32 2
@@ -1203,7 +1203,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN3ue29ComponentC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue217ComponentSequenceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue217ComponentSequenceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %children = getelementptr inbounds %"class.ue2::ComponentSequence", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN3ue29ComponentESt14default_deleteIS2_EESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children) #13
   %alternation = getelementptr inbounds %"class.ue2::ComponentSequence", ptr %this1, i32 0, i32 2
@@ -1325,7 +1325,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pos_begin = getelementptr inbounds %"class.ue2::Component", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %other.addr, align 8
   %pos_begin2 = getelementptr inbounds %"class.ue2::Component", ptr %0, i32 0, i32 1

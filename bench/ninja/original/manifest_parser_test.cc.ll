@@ -3936,7 +3936,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI21Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21ParserTest_Empty_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21ParserTest_Empty_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4508,7 +4508,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI21Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21ParserTest_Rules_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21ParserTest_Rules_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5206,7 +5206,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_RuleAttributes_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_RuleAttributes_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5441,7 +5441,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI38Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38ParserTest_IgnoreIndentedComments_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38ParserTest_IgnoreIndentedComments_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6187,7 +6187,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI40Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40ParserTest_IgnoreIndentedBlankLines_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40ParserTest_IgnoreIndentedBlankLines_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6575,7 +6575,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_ResponseFiles_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_ResponseFiles_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7464,7 +7464,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI25Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_InNewline_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_InNewline_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8163,7 +8163,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI25Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_Variables_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_Variables_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8867,7 +8867,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_VariableScope_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_VariableScope_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9400,7 +9400,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_Continuation_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_Continuation_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9987,7 +9987,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI25Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_Backslash_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_Backslash_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10501,7 +10501,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI23Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Comment_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Comment_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10867,7 +10867,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI23Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Dollars_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Dollars_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -11345,7 +11345,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_EscapeSpaces_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_EscapeSpaces_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -12139,7 +12139,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32ParserTest_CanonicalizeFile_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32ParserTest_CanonicalizeFile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -12775,7 +12775,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_PathVariables_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_PathVariables_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -13212,7 +13212,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33ParserTest_CanonicalizePaths_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33ParserTest_CanonicalizePaths_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -13848,7 +13848,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI53Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI53ParserTest_DuplicateEdgeWithMultipleOutputsError_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI53ParserTest_DuplicateEdgeWithMultipleOutputsError_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -14317,7 +14317,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI43Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43ParserTest_DuplicateEdgeInIncludedFile_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43ParserTest_DuplicateEdgeInIncludedFile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -14763,7 +14763,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41ParserTest_PhonySelfReferenceIgnored_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41ParserTest_PhonySelfReferenceIgnored_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15135,7 +15135,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI38Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38ParserTest_PhonySelfReferenceKept_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38ParserTest_PhonySelfReferenceKept_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15799,7 +15799,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_ReservedWords_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_ReservedWords_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -16034,7 +16034,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI22Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22ParserTest_Errors_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22ParserTest_Errors_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -25405,7 +25405,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_MissingInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28ParserTest_MissingInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -25786,7 +25786,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI31Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_MultipleOutputs_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_MultipleOutputs_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -26162,7 +26162,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI39Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39ParserTest_MultipleOutputsWithDeps_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39ParserTest_MultipleOutputsWithDeps_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -26538,7 +26538,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI24Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24ParserTest_SubNinja_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24ParserTest_SubNinja_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -27618,7 +27618,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI31Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_MissingSubNinja_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_MissingSubNinja_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -27979,7 +27979,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI49Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49ParserTest_DuplicateRuleInDifferentSubninjas_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49ParserTest_DuplicateRuleInDifferentSubninjas_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -28315,7 +28315,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI60Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -28711,7 +28711,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI23Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Include_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23ParserTest_Include_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29303,7 +29303,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_BrokenInclude_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29ParserTest_BrokenInclude_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29744,7 +29744,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI24Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24ParserTest_Implicit_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24ParserTest_Implicit_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30127,7 +30127,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI25Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_OrderOnly_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25ParserTest_OrderOnly_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30496,7 +30496,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI27Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27ParserTest_Validations_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27ParserTest_Validations_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30933,7 +30933,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_ImplicitOutput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_ImplicitOutput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -31384,7 +31384,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_ImplicitOutputEmpty_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_ImplicitOutputEmpty_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -31818,7 +31818,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI39Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39ParserTest_ImplicitOutputDupeError_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39ParserTest_ImplicitOutputDupeError_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -32182,7 +32182,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI40Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40ParserTest_ImplicitOutputDupesError_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40ParserTest_ImplicitOutputDupesError_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -32546,7 +32546,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32ParserTest_NoExplicitOutput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32ParserTest_NoExplicitOutput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -32821,7 +32821,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_DefaultDefault_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_DefaultDefault_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -33276,7 +33276,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DefaultDefaultCycle_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DefaultDefaultCycle_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -33702,7 +33702,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33ParserTest_DefaultStatements_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33ParserTest_DefaultStatements_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -34393,7 +34393,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI20Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20ParserTest_UTF8_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20ParserTest_UTF8_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -34628,7 +34628,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI20Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20ParserTest_CRLF_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20ParserTest_CRLF_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -35180,7 +35180,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI34Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34ParserTest_DyndepNotSpecified_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34ParserTest_DyndepNotSpecified_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -35534,7 +35534,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_DyndepNotInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30ParserTest_DyndepNotInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -35931,7 +35931,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DyndepExplicitInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DyndepExplicitInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -36484,7 +36484,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DyndepImplicitInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35ParserTest_DyndepImplicitInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -37006,7 +37006,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI36Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36ParserTest_DyndepOrderOnlyInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36ParserTest_DyndepOrderOnlyInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -37528,7 +37528,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI31Pars
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_DyndepRuleInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31ParserTest_DyndepRuleInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -38928,7 +38928,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -39008,7 +39008,7 @@ define linkonce_odr dso_local void @_ZN21ParserTest_Empty_TestC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21ParserTest_Empty_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21ParserTest_Empty_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -39020,7 +39020,7 @@ define linkonce_odr dso_local void @_ZN10ParserTestC2Ev(ptr noundef nonnull alig
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %struct.ParserTest, ptr %5, i32 0, i32 1
   invoke void @_ZN5StateC1Ev(ptr noundef nonnull align 8 dereferenceable(264) %6)
           to label %7 unwind label %10
@@ -39072,7 +39072,7 @@ define linkonce_odr dso_local void @_ZN17VirtualFileSystemC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
@@ -39096,7 +39096,7 @@ define linkonce_odr dso_local void @_ZN10ParserTestD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10ParserTest, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.ParserTest, ptr %3, i32 0, i32 2
   call void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(204) %4) #3
   %5 = getelementptr inbounds %struct.ParserTest, ptr %3, i32 0, i32 1
@@ -39119,7 +39119,7 @@ define linkonce_odr dso_local void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10FileReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -39157,7 +39157,7 @@ define linkonce_odr dso_local void @_ZN10FileReaderC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -39385,7 +39385,7 @@ define linkonce_odr dso_local void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
@@ -40412,7 +40412,7 @@ define linkonce_odr dso_local void @_ZN21ParserTest_Rules_TestC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21ParserTest_Rules_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21ParserTest_Rules_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -40719,7 +40719,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_RuleAttributes_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_RuleAttributes_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_RuleAttributes_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -40779,7 +40779,7 @@ define linkonce_odr dso_local void @_ZN38ParserTest_IgnoreIndentedComments_TestC
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38ParserTest_IgnoreIndentedComments_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38ParserTest_IgnoreIndentedComments_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -40842,7 +40842,7 @@ define linkonce_odr dso_local void @_ZN40ParserTest_IgnoreIndentedBlankLines_Tes
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40ParserTest_IgnoreIndentedBlankLines_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40ParserTest_IgnoreIndentedBlankLines_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -40902,7 +40902,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_ResponseFiles_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_ResponseFiles_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_ResponseFiles_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -40962,7 +40962,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_InNewline_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_InNewline_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_InNewline_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41022,7 +41022,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_Variables_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_Variables_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_Variables_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41082,7 +41082,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_VariableScope_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_VariableScope_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_VariableScope_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41142,7 +41142,7 @@ define linkonce_odr dso_local void @_ZN28ParserTest_Continuation_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28ParserTest_Continuation_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28ParserTest_Continuation_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41202,7 +41202,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_Backslash_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_Backslash_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_Backslash_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41262,7 +41262,7 @@ define linkonce_odr dso_local void @_ZN23ParserTest_Comment_TestC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23ParserTest_Comment_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23ParserTest_Comment_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41322,7 +41322,7 @@ define linkonce_odr dso_local void @_ZN23ParserTest_Dollars_TestC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23ParserTest_Dollars_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23ParserTest_Dollars_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41382,7 +41382,7 @@ define linkonce_odr dso_local void @_ZN28ParserTest_EscapeSpaces_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28ParserTest_EscapeSpaces_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28ParserTest_EscapeSpaces_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41442,7 +41442,7 @@ define linkonce_odr dso_local void @_ZN32ParserTest_CanonicalizeFile_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32ParserTest_CanonicalizeFile_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32ParserTest_CanonicalizeFile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41502,7 +41502,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_PathVariables_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_PathVariables_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_PathVariables_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41562,7 +41562,7 @@ define linkonce_odr dso_local void @_ZN33ParserTest_CanonicalizePaths_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33ParserTest_CanonicalizePaths_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33ParserTest_CanonicalizePaths_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41622,7 +41622,7 @@ define linkonce_odr dso_local void @_ZN53ParserTest_DuplicateEdgeWithMultipleOut
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV53ParserTest_DuplicateEdgeWithMultipleOutputsError_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV53ParserTest_DuplicateEdgeWithMultipleOutputsError_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41682,7 +41682,7 @@ define linkonce_odr dso_local void @_ZN43ParserTest_DuplicateEdgeInIncludedFile_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV43ParserTest_DuplicateEdgeInIncludedFile_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV43ParserTest_DuplicateEdgeInIncludedFile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41742,7 +41742,7 @@ define linkonce_odr dso_local void @_ZN41ParserTest_PhonySelfReferenceIgnored_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41ParserTest_PhonySelfReferenceIgnored_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV41ParserTest_PhonySelfReferenceIgnored_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41802,7 +41802,7 @@ define linkonce_odr dso_local void @_ZN38ParserTest_PhonySelfReferenceKept_TestC
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38ParserTest_PhonySelfReferenceKept_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV38ParserTest_PhonySelfReferenceKept_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41862,7 +41862,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_ReservedWords_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_ReservedWords_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_ReservedWords_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41922,7 +41922,7 @@ define linkonce_odr dso_local void @_ZN22ParserTest_Errors_TestC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22ParserTest_Errors_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22ParserTest_Errors_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41931,7 +41931,7 @@ define linkonce_odr dso_local void @_ZN10BindingEnvD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
@@ -43509,7 +43509,7 @@ define linkonce_odr dso_local void @_ZN28ParserTest_MissingInput_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28ParserTest_MissingInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28ParserTest_MissingInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -43569,7 +43569,7 @@ define linkonce_odr dso_local void @_ZN31ParserTest_MultipleOutputs_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31ParserTest_MultipleOutputs_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31ParserTest_MultipleOutputs_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -43629,7 +43629,7 @@ define linkonce_odr dso_local void @_ZN39ParserTest_MultipleOutputsWithDeps_Test
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39ParserTest_MultipleOutputsWithDeps_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39ParserTest_MultipleOutputsWithDeps_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -43689,7 +43689,7 @@ define linkonce_odr dso_local void @_ZN24ParserTest_SubNinja_TestC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24ParserTest_SubNinja_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24ParserTest_SubNinja_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -43749,7 +43749,7 @@ define linkonce_odr dso_local void @_ZN31ParserTest_MissingSubNinja_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31ParserTest_MissingSubNinja_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31ParserTest_MissingSubNinja_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -43809,7 +43809,7 @@ define linkonce_odr dso_local void @_ZN49ParserTest_DuplicateRuleInDifferentSubn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV49ParserTest_DuplicateRuleInDifferentSubninjas_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV49ParserTest_DuplicateRuleInDifferentSubninjas_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -43869,7 +43869,7 @@ define linkonce_odr dso_local void @_ZN60ParserTest_DuplicateRuleInDifferentSubn
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV60ParserTest_DuplicateRuleInDifferentSubninjasWithInclude_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -43929,7 +43929,7 @@ define linkonce_odr dso_local void @_ZN23ParserTest_Include_TestC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23ParserTest_Include_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23ParserTest_Include_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -43989,7 +43989,7 @@ define linkonce_odr dso_local void @_ZN29ParserTest_BrokenInclude_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_BrokenInclude_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29ParserTest_BrokenInclude_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44049,7 +44049,7 @@ define linkonce_odr dso_local void @_ZN24ParserTest_Implicit_TestC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24ParserTest_Implicit_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24ParserTest_Implicit_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44109,7 +44109,7 @@ define linkonce_odr dso_local void @_ZN25ParserTest_OrderOnly_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_OrderOnly_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25ParserTest_OrderOnly_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44169,7 +44169,7 @@ define linkonce_odr dso_local void @_ZN27ParserTest_Validations_TestC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27ParserTest_Validations_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27ParserTest_Validations_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44229,7 +44229,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_ImplicitOutput_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_ImplicitOutput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_ImplicitOutput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44289,7 +44289,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_ImplicitOutputEmpty_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_ImplicitOutputEmpty_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_ImplicitOutputEmpty_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44349,7 +44349,7 @@ define linkonce_odr dso_local void @_ZN39ParserTest_ImplicitOutputDupeError_Test
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39ParserTest_ImplicitOutputDupeError_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV39ParserTest_ImplicitOutputDupeError_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44409,7 +44409,7 @@ define linkonce_odr dso_local void @_ZN40ParserTest_ImplicitOutputDupesError_Tes
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40ParserTest_ImplicitOutputDupesError_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV40ParserTest_ImplicitOutputDupesError_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44469,7 +44469,7 @@ define linkonce_odr dso_local void @_ZN32ParserTest_NoExplicitOutput_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32ParserTest_NoExplicitOutput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32ParserTest_NoExplicitOutput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44529,7 +44529,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_DefaultDefault_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_DefaultDefault_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_DefaultDefault_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44589,7 +44589,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_DefaultDefaultCycle_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_DefaultDefaultCycle_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_DefaultDefaultCycle_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44649,7 +44649,7 @@ define linkonce_odr dso_local void @_ZN33ParserTest_DefaultStatements_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33ParserTest_DefaultStatements_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33ParserTest_DefaultStatements_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44709,7 +44709,7 @@ define linkonce_odr dso_local void @_ZN20ParserTest_UTF8_TestC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20ParserTest_UTF8_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20ParserTest_UTF8_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44769,7 +44769,7 @@ define linkonce_odr dso_local void @_ZN20ParserTest_CRLF_TestC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20ParserTest_CRLF_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20ParserTest_CRLF_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44829,7 +44829,7 @@ define linkonce_odr dso_local void @_ZN34ParserTest_DyndepNotSpecified_TestC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34ParserTest_DyndepNotSpecified_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34ParserTest_DyndepNotSpecified_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44889,7 +44889,7 @@ define linkonce_odr dso_local void @_ZN30ParserTest_DyndepNotInput_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_DyndepNotInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30ParserTest_DyndepNotInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44949,7 +44949,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_DyndepExplicitInput_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_DyndepExplicitInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_DyndepExplicitInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -45009,7 +45009,7 @@ define linkonce_odr dso_local void @_ZN35ParserTest_DyndepImplicitInput_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_DyndepImplicitInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35ParserTest_DyndepImplicitInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -45069,7 +45069,7 @@ define linkonce_odr dso_local void @_ZN36ParserTest_DyndepOrderOnlyInput_TestC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36ParserTest_DyndepOrderOnlyInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36ParserTest_DyndepOrderOnlyInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -45129,7 +45129,7 @@ define linkonce_odr dso_local void @_ZN31ParserTest_DyndepRuleInput_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10ParserTestC2Ev(ptr noundef nonnull align 8 dereferenceable(488) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31ParserTest_DyndepRuleInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31ParserTest_DyndepRuleInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

@@ -53,7 +53,7 @@ $_ZTI24btScaledTriangleCallback = comdat any
 define dso_local void @_ZN28btScaledBvhTriangleMeshShapeC2EP22btBvhTriangleMeshShapeRK9btVector3(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %childShape, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %localScaling) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV28btScaledBvhTriangleMeshShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV28btScaledBvhTriangleMeshShape, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %m_localScaling, ptr noundef nonnull align 4 dereferenceable(16) %localScaling, i64 16, i1 false)
   %m_bvhTriMeshShape = getelementptr inbounds i8, ptr %this, i64 56
@@ -103,7 +103,7 @@ entry:
   %scaledAabbMin = alloca %class.btVector3, align 8
   %scaledAabbMax = alloca %class.btVector3, align 8
   %m_localScaling = getelementptr inbounds i8, ptr %this, i64 36
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btScaledTriangleCallback, i64 0, inrange i32 0, i64 2), ptr %scaledCallback, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV24btScaledTriangleCallback, i64 0, i32 0, i64 2), ptr %scaledCallback, align 8
   %m_originalCallback.i = getelementptr inbounds i8, ptr %scaledCallback, i64 8
   store ptr %callback, ptr %m_originalCallback.i, align 8
   %m_localScaling.i = getelementptr inbounds i8, ptr %scaledCallback, i64 16

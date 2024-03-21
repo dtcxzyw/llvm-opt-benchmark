@@ -2288,7 +2288,7 @@ define internal void @_ZN12_GLOBAL__N_128NodeStoringImplicitDepLoaderC2EP5StateP
   %16 = load ptr, ptr %10, align 8
   %17 = load ptr, ptr %11, align 8
   call void @_ZN17ImplicitDepLoaderC2EP5StateP7DepsLogP13DiskInterfacePK20DepfileParserOptions(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128NodeStoringImplicitDepLoaderE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128NodeStoringImplicitDepLoaderE, i32 0, i32 0, i32 2), ptr %13, align 8
   %18 = getelementptr inbounds %"struct.(anonymous namespace)::NodeStoringImplicitDepLoader", ptr %13, i32 0, i32 1
   %19 = load ptr, ptr %12, align 8
   store ptr %19, ptr %18, align 8
@@ -3612,7 +3612,7 @@ define linkonce_odr dso_local void @_ZN17ImplicitDepLoaderC2EP5StateP7DepsLogP13
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %11 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV17ImplicitDepLoader, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV17ImplicitDepLoader, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %struct.ImplicitDepLoader, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %7, align 8
   store ptr %13, ptr %12, align 8

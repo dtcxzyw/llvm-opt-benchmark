@@ -1037,9 +1037,9 @@ define dso_local void @_ZN6ClientC2EPKcRKNSt7__cxx1112basic_stringIcSt11char_tra
   %22 = alloca %"class.std::__cxx11::basic_string", align 8
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   %24 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !27
-  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, inrange i32 1, i64 2), ptr %23, align 8, !tbaa !27
-  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, inrange i32 2, i64 2), ptr %24, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, i32 1, i64 2), ptr %23, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, i32 2, i64 2), ptr %24, align 8, !tbaa !27
   %25 = getelementptr inbounds i8, ptr %0, i64 25
   store i8 0, ptr %25, align 1, !tbaa !40
   %26 = getelementptr inbounds i8, ptr %0, i64 28
@@ -3839,7 +3839,7 @@ declare void @_ZN23ModStorageDatabaseFiles13getModEntriesERKNSt7__cxx1112basic_s
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23ModStorageDatabaseFilesD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23ModStorageDatabaseFiles, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV23ModStorageDatabaseFiles, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = getelementptr inbounds i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8, !tbaa !230
@@ -3966,7 +3966,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !27
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -4024,7 +4024,7 @@ define linkonce_odr dso_local void @_ZN13BaseExceptionC2ERKNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -7564,11 +7564,11 @@ define dso_local void @_ZN6ClientD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca %"struct.std::_Deque_iterator.46", align 16
   %3 = alloca %"struct.std::_Deque_iterator.46", align 16
   %4 = alloca %struct.MeshUpdateResult, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, inrange i32 1, i64 2), ptr %5, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, i32 1, i64 2), ptr %5, align 8, !tbaa !27
   %6 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, inrange i32 2, i64 2), ptr %6, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [23 x ptr], [7 x ptr], [16 x ptr] }, ptr @_ZTV6Client, i64 0, i32 2, i64 2), ptr %6, align 8, !tbaa !27
   %7 = getelementptr inbounds i8, ptr %0, i64 1712
   store i8 1, ptr %7, align 8, !tbaa !337
   %8 = getelementptr inbounds i8, ptr %0, i64 584
@@ -17546,7 +17546,7 @@ define dso_local void @_ZN6Client13request_mediaERKSt6vectorINSt7__cxx1112basic_
   %149 = getelementptr inbounds i8, ptr %4, i64 %148
   store ptr %146, ptr %149, align 8, !tbaa !27
   %150 = getelementptr inbounds i8, ptr %4, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %150, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %150, align 8, !tbaa !27
   %151 = getelementptr inbounds i8, ptr %4, i64 80
   %152 = load ptr, ptr %151, align 8, !tbaa !11
   %153 = getelementptr inbounds i8, ptr %4, i64 96
@@ -17565,7 +17565,7 @@ define dso_local void @_ZN6Client13request_mediaERKSt6vectorINSt7__cxx1112basic_
   br label %160
 
 160:                                              ; preds = %159, %155
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %150, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %150, align 8, !tbaa !27
   %161 = getelementptr inbounds i8, ptr %4, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %161) #37
   %162 = getelementptr inbounds i8, ptr %4, i64 112
@@ -18412,7 +18412,7 @@ define dso_local void @_ZN6Client8interactE14InteractActionRK12PointedThing(ptr 
   %139 = getelementptr inbounds i8, ptr %5, i64 %138
   store ptr %136, ptr %139, align 8, !tbaa !27
   %140 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %140, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %140, align 8, !tbaa !27
   %141 = getelementptr inbounds i8, ptr %5, i64 80
   %142 = load ptr, ptr %141, align 8, !tbaa !11
   %143 = getelementptr inbounds i8, ptr %5, i64 96
@@ -18431,7 +18431,7 @@ define dso_local void @_ZN6Client8interactE14InteractActionRK12PointedThing(ptr 
   br label %150
 
 150:                                              ; preds = %149, %145
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %140, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %140, align 8, !tbaa !27
   %151 = getelementptr inbounds i8, ptr %5, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %151) #37
   %152 = getelementptr inbounds i8, ptr %5, i64 112
@@ -19659,7 +19659,7 @@ define dso_local void @_ZN6Client19sendInventoryActionEP15InventoryAction(ptr no
   %85 = getelementptr inbounds i8, ptr %3, i64 %84
   store ptr %82, ptr %85, align 8, !tbaa !27
   %86 = getelementptr inbounds i8, ptr %3, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %86, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %86, align 8, !tbaa !27
   %87 = getelementptr inbounds i8, ptr %3, i64 80
   %88 = load ptr, ptr %87, align 8, !tbaa !11
   %89 = getelementptr inbounds i8, ptr %3, i64 96
@@ -19678,7 +19678,7 @@ define dso_local void @_ZN6Client19sendInventoryActionEP15InventoryAction(ptr no
   br label %96
 
 96:                                               ; preds = %95, %91
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %86, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %86, align 8, !tbaa !27
   %97 = getelementptr inbounds i8, ptr %3, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %97) #37
   %98 = getelementptr inbounds i8, ptr %3, i64 112
@@ -22144,7 +22144,7 @@ define dso_local void @_ZN6Client25showUpdateProgressTextureEPvjj(ptr nocapture 
   %96 = getelementptr inbounds i8, ptr %6, i64 %95
   store ptr %93, ptr %96, align 8, !tbaa !27
   %97 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 0, inrange i32 0, i64 2), ptr %97, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIwSt11char_traitsIwESaIwEEE, i64 0, i32 0, i64 2), ptr %97, align 8, !tbaa !27
   %98 = getelementptr inbounds i8, ptr %6, i64 80
   %99 = load ptr, ptr %98, align 8, !tbaa !495
   %100 = getelementptr inbounds i8, ptr %6, i64 96
@@ -22163,7 +22163,7 @@ define dso_local void @_ZN6Client25showUpdateProgressTextureEPvjj(ptr nocapture 
   br label %107
 
 107:                                              ; preds = %106, %102
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 0, inrange i32 0, i64 2), ptr %97, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIwSt11char_traitsIwEE, i64 0, i32 0, i64 2), ptr %97, align 8, !tbaa !27
   %108 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %108) #37
   %109 = getelementptr inbounds i8, ptr %6, i64 112
@@ -26185,7 +26185,7 @@ define dso_local void @_ZN6Client14makeScreenshotEv(ptr noundef nonnull align 8 
   %1097 = getelementptr inbounds i8, ptr %34, i64 %1096
   store ptr %1094, ptr %1097, align 8, !tbaa !27
   %1098 = getelementptr inbounds i8, ptr %34, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %1098, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %1098, align 8, !tbaa !27
   %1099 = getelementptr inbounds i8, ptr %34, i64 80
   %1100 = load ptr, ptr %1099, align 8, !tbaa !11
   %1101 = getelementptr inbounds i8, ptr %34, i64 96
@@ -26204,7 +26204,7 @@ define dso_local void @_ZN6Client14makeScreenshotEv(ptr noundef nonnull align 8 
   br label %1108
 
 1108:                                             ; preds = %1107, %1103
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %1098, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %1098, align 8, !tbaa !27
   %1109 = getelementptr inbounds i8, ptr %34, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1109) #37
   %1110 = getelementptr inbounds i8, ptr %34, i64 112
@@ -28297,7 +28297,7 @@ declare void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !27
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !27
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24

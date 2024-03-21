@@ -409,7 +409,7 @@ entry:
   %agg.tmp3 = alloca %"class.folly::Function.1", align 16
   %agg.tmp6 = alloca %"class.folly::Function.1", align 16
   %ref.tmp = alloca %"class.std::thread", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly14AsyncLogWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !25
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly14AsyncLogWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !25
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   %ioThreadCounter.i.i = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %ioThreadCounter.i.i, align 8, !tbaa !38
@@ -497,7 +497,7 @@ invoke.cont13:                                    ; preds = %_ZN5folly8FunctionI
 
 call.i.noexc:                                     ; preds = %invoke.cont13
   %4 = ptrtoint ptr %this to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly14AsyncLogWriterC1EvE3$_3EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i48, align 8, !tbaa !25
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly14AsyncLogWriterC1EvE3$_3EEEEEE", i64 0, i32 0, i64 2), ptr %call.i48, align 8, !tbaa !25
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i48, i64 8
   store i64 %4, ptr %_M_func.i.i, align 8, !tbaa !39
   store ptr %call.i48, ptr %agg.tmp.i, align 8, !tbaa !39
@@ -1291,7 +1291,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 define void @_ZN5folly14AsyncLogWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %data = alloca %"class.folly::LockedPtr", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly14AsyncLogWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !25
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly14AsyncLogWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %data) #21
   %data_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !96)
@@ -2263,7 +2263,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 
 call.i.noexc:                                     ; preds = %invoke.cont9
   %4 = ptrtoint ptr %this to i64
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly14AsyncLogWriter13restartThreadEvE3$_0EEEEEE", i64 0, inrange i32 0, i64 2), ptr %call.i33, align 8, !tbaa !25
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN5folly14AsyncLogWriter13restartThreadEvE3$_0EEEEEE", i64 0, i32 0, i64 2), ptr %call.i33, align 8, !tbaa !25
   %_M_func.i.i = getelementptr inbounds i8, ptr %call.i33, i64 8
   store i64 %4, ptr %_M_func.i.i, align 8, !tbaa !39
   store ptr %call.i33, ptr %agg.tmp.i, align 8, !tbaa !39

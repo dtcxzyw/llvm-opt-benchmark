@@ -10670,7 +10670,7 @@ invoke.cont15:                                    ; preds = %invoke.cont17, %inv
   store i64 %5, ptr %v_.sroa.2.0.v.sroa_idx.i.i, align 8
   %props.i.i.i = getelementptr inbounds i8, ptr %__begin1.sroa.0.0274, i64 40
   store ptr %props.i.i.i, ptr %eprops.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_111AliasInEdgeE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_111AliasInEdgeE, i64 0, i32 0, i64 2), ptr %ref.tmp13, align 8
   invoke fastcc void @_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EE6insertEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %preds_a, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -10744,7 +10744,7 @@ invoke.cont49:                                    ; preds = %invoke.cont51, %inv
   store i64 %13, ptr %v_.sroa.2.0.v.sroa_idx.i.i223, align 8
   %props.i.i.i226 = getelementptr inbounds i8, ptr %__begin131.sroa.0.0277, i64 40
   store ptr %props.i.i.i226, ptr %eprops.i.i224, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_111AliasInEdgeE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp47, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_111AliasInEdgeE, i64 0, i32 0, i64 2), ptr %ref.tmp47, align 8
   invoke fastcc void @_ZNSt3setIN3ue212_GLOBAL__N_111AliasInEdgeESt4lessIS2_ESaIS2_EE6insertEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %preds_b, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -11014,7 +11014,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_111AliasInEdgeES2_St9_IdentityIS2_ESt4lessIS2_E
   %v.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.376", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
   %v2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::EdgeAndVertex", ptr %__x, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v2.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_111AliasInEdgeE, i64 0, inrange i32 0, i64 2), ptr %_M_storage.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_111AliasInEdgeE, i64 0, i32 0, i64 2), ptr %_M_storage.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %4, ptr noundef nonnull %call5.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #21
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i64, ptr %_M_node_count.i.i, align 8
@@ -14323,7 +14323,7 @@ do.end159:                                        ; preds = %for.body121, %if.en
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !391
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !391
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !noalias !391
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !noalias !391
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
   invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3ue211CastleProtoEJRS4_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a.i.i.i.i.i, ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %_ZSt11make_sharedIN3ue211CastleProtoEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !391
@@ -17400,7 +17400,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i10.i9, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i10.i9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN3ue28NGHolderESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i10.i9, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i10.i9, i64 0, i32 1
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -18536,7 +18536,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i, align 8
   %_M_impl.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i, i64 0, i32 1
   invoke void @_ZNSt16allocator_traitsISaIvEE9constructIN3ue211CastleProtoEJRS4_EEEvRS0_PT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %__a.i.i.i.i, ptr noundef nonnull %_M_impl.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %__args)
           to label %_ZNSt10shared_ptrIN3ue211CastleProtoEEC2ISaIvEJRS1_EEESt20_Sp_alloc_shared_tagIT_EDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN3ue211CastleProtoESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i
@@ -27567,7 +27567,7 @@ invoke.cont15:                                    ; preds = %invoke.cont17, %inv
   store i64 %5, ptr %v_.sroa.2.0.v.sroa_idx.i.i, align 8
   %props.i.i.i = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node", ptr %__begin1.sroa.0.0127, i64 0, i32 5
   store ptr %props.i.i.i, ptr %eprops.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_112AliasOutEdgeE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_112AliasOutEdgeE, i64 0, i32 0, i64 2), ptr %ref.tmp13, align 8
   invoke fastcc void @_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EE6insertEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %succs_a, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp13)
           to label %invoke.cont17 unwind label %lpad16
 
@@ -27641,7 +27641,7 @@ invoke.cont49:                                    ; preds = %invoke.cont51, %inv
   store i64 %13, ptr %v_.sroa.2.0.v.sroa_idx.i.i114, align 8
   %props.i.i.i117 = getelementptr inbounds %"struct.ue2::ue2_graph<ue2::RoseGraph, ue2::RoseVertexProps, ue2::RoseEdgeProps>::edge_node", ptr %__begin131.sroa.0.0130, i64 0, i32 5
   store ptr %props.i.i.i117, ptr %eprops.i.i115, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_112AliasOutEdgeE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp47, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_112AliasOutEdgeE, i64 0, i32 0, i64 2), ptr %ref.tmp47, align 8
   invoke fastcc void @_ZNSt3setIN3ue212_GLOBAL__N_112AliasOutEdgeESt4lessIS2_ESaIS2_EE6insertEOS2_(ptr noundef nonnull align 8 dereferenceable(48) %succs_b, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp47)
           to label %invoke.cont51 unwind label %lpad50
 
@@ -27850,7 +27850,7 @@ _ZNSt8_Rb_treeIN3ue212_GLOBAL__N_112AliasOutEdgeES2_St9_IdentityIS2_ESt4lessIS2_
   %v.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.std::_Rb_tree_node.734", ptr %call5.i.i.i.i.i.i.i, i64 0, i32 1, i32 0, i64 8
   %v2.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"struct.ue2::(anonymous namespace)::EdgeAndVertex", ptr %__x, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %v.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %v2.i.i.i.i.i.i.i.i.i, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_112AliasOutEdgeE, i64 0, inrange i32 0, i64 2), ptr %_M_storage.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_112AliasOutEdgeE, i64 0, i32 0, i64 2), ptr %_M_storage.i.i.i.i.i.i, align 8
   tail call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %4, ptr noundef nonnull %call5.i.i.i.i.i.i.i, ptr noundef nonnull %retval.sroa.4.0.i.ph.i, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i.i) #21
   %_M_node_count.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %5 = load i64, ptr %_M_node_count.i.i, align 8

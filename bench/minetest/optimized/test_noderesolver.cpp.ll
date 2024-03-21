@@ -191,7 +191,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1583,7 +1583,7 @@ define dso_local void @_ZN16TestNodeResolver17testNodeResolvingEP14NodeDefManage
   %34 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 184, ptr nonnull %8) #21
   call void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobar, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobar, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !4
   %35 = getelementptr inbounds i8, ptr %8, i64 88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %35, i8 0, i64 96, i1 false)
   %36 = getelementptr inbounds i8, ptr %8, i64 8
@@ -3659,7 +3659,7 @@ define dso_local void @_ZN16TestNodeResolver17testNodeResolvingEP14NodeDefManage
   br label %1042
 
 1026:                                             ; preds = %974
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobar, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobar, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !4
   %1027 = icmp eq ptr %977, null
   br i1 %1027, label %1031, label %1028
 
@@ -3734,7 +3734,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6FoobarD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobar, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobar, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = icmp eq ptr %3, null
@@ -3797,7 +3797,7 @@ define dso_local void @_ZN16TestNodeResolver30testPendingResolveCancellationEP14
   %16 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #21
   call void @_ZN12NodeResolverC2Ev(ptr noundef nonnull align 8 dereferenceable(73) %7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobaz, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobaz, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !4
   %17 = getelementptr inbounds i8, ptr %7, i64 74
   store i16 1234, ptr %17, align 2, !tbaa !84
   %18 = getelementptr inbounds i8, ptr %7, i64 76
@@ -3886,7 +3886,7 @@ define dso_local void @_ZN16TestNodeResolver30testPendingResolveCancellationEP14
           to label %55 unwind label %106
 
 55:                                               ; preds = %54
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobaz, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobaz, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !4
   %56 = getelementptr inbounds i8, ptr %8, i64 74
   store i16 1234, ptr %56, align 2, !tbaa !84
   %57 = getelementptr inbounds i8, ptr %8, i64 76
@@ -4242,7 +4242,7 @@ define linkonce_odr dso_local noundef ptr @_ZN16TestNodeResolver7getNameEv(ptr n
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6FoobarD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobar, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6Foobar, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8, !tbaa !79
   %4 = icmp eq ptr %3, null
@@ -6048,14 +6048,14 @@ define internal void @_GLOBAL__sub_I_test_noderesolver.cpp() #16 section ".text.
   store ptr getelementptr inbounds (%class.TestNodeResolver, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestNodeResolver, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !19
   store i64 0, ptr getelementptr inbounds (%class.TestNodeResolver, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestNodeResolver, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !20
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16TestNodeResolver, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16TestNodeResolver, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%class.TestNodeResolver, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestNodeResolver, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

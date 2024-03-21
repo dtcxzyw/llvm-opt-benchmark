@@ -931,9 +931,9 @@ define void @_ZN22LteRlcStatisticsDialogC2ER7QWidgetR11CaptureFilePKc(ptr nounde
   %53 = load ptr, ptr %6, align 8
   %54 = load ptr, ptr %7, align 8
   call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %52, ptr noundef nonnull align 8 dereferenceable(40) %53, ptr noundef nonnull align 8 dereferenceable(48) %54, i32 noundef 229)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i32 0, i32 0, i32 2), ptr %52, align 8
   %55 = getelementptr inbounds i8, ptr %52, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %55, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i32 0, i32 1, i32 2), ptr %55, align 8
   %56 = getelementptr inbounds %class.LteRlcStatisticsDialog, ptr %52, i32 0, i32 6
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %56) #3
   %57 = getelementptr inbounds %class.LteRlcStatisticsDialog, ptr %52, i32 0, i32 7
@@ -2363,9 +2363,9 @@ define void @_ZN22LteRlcStatisticsDialogD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV22LteRlcStatisticsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.LteRlcStatisticsDialog, ptr %3, i32 0, i32 6
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   call void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(224) %3) #3
@@ -2709,7 +2709,7 @@ define linkonce_odr void @_ZN19RlcUeTreeWidgetItemC2EP11QTreeWidgetPK17rlc_3gpp_
   %13 = load ptr, ptr %4, align 8
   %14 = load ptr, ptr %5, align 8
   call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %13, ptr noundef %14, i32 noundef 1000)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19RlcUeTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19RlcUeTreeWidgetItem, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.RlcUeTreeWidgetItem, ptr %13, i32 0, i32 2
   store i32 0, ptr %15, align 8
   %16 = load ptr, ptr %6, align 8
@@ -7463,7 +7463,7 @@ define linkonce_odr void @_ZN24RlcChannelTreeWidgetItemC2EP15QTreeWidgetItemhjjj
   %36 = load ptr, ptr %8, align 8
   %37 = load ptr, ptr %9, align 8
   call void @_ZN15QTreeWidgetItemC2EPS_i(ptr noundef nonnull align 8 dereferenceable(92) %36, ptr noundef %37, i32 noundef 1001)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24RlcChannelTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %36, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV24RlcChannelTreeWidgetItem, i32 0, i32 0, i32 2), ptr %36, align 8
   %38 = getelementptr inbounds %class.RlcChannelTreeWidgetItem, ptr %36, i32 0, i32 1
   %39 = load i8, ptr %10, align 1
   store i8 %39, ptr %38, align 4

@@ -250,7 +250,7 @@ entry:
   store i32 %rgbaChannels, ptr %rgbaChannels.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
   invoke void @_ZN7Imf_3_214AcesOutputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -437,7 +437,7 @@ entry:
   store i32 %rgbaChannels, ptr %rgbaChannels.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
   invoke void @_ZN7Imf_3_214AcesOutputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -567,7 +567,7 @@ entry:
   store i32 %compression, ptr %compression.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
   invoke void @_ZN7Imf_3_214AcesOutputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -752,7 +752,7 @@ entry:
   store i32 %compression, ptr %compression.addr, align 4
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 8) #11
   invoke void @_ZN7Imf_3_214AcesOutputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %call)
@@ -862,7 +862,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_214AcesOutputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesOutputFile", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_data, align 8
   %isnull = icmp eq ptr %0, null
@@ -2080,7 +2080,7 @@ entry:
   store ptr %name, ptr %name.addr, align 8
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #11
   invoke void @_ZN7Imf_3_213AcesInputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(108) %call)
@@ -2147,7 +2147,7 @@ entry:
   store ptr %is, ptr %is.addr, align 8
   store i32 %numThreads, ptr %numThreads.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
   %call = call noalias noundef nonnull ptr @_Znwm(i64 noundef 112) #11
   invoke void @_ZN7Imf_3_213AcesInputFile4DataC1Ev(ptr noundef nonnull align 8 dereferenceable(108) %call)
@@ -2207,7 +2207,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213AcesInputFileE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_data = getelementptr inbounds %"class.Imf_3_2::AcesInputFile", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_data, align 8
   %isnull = icmp eq ptr %0, null

@@ -1777,7 +1777,7 @@ define void @_ZN15AuthorListModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %17 = load ptr, ptr %3, align 8
   %18 = load ptr, ptr %4, align 8
   call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %17, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV15AuthorListModel, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV15AuthorListModel, i32 0, i32 0, i32 2), ptr %17, align 8
   invoke void @_ZN5QFileC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
           to label %19 unwind label %47
 
@@ -2274,7 +2274,7 @@ define void @_ZN15PluginListModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %15 = load ptr, ptr %3, align 8
   %16 = load ptr, ptr %4, align 8
   call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV15PluginListModel, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV15PluginListModel, i32 0, i32 0, i32 2), ptr %15, align 8
   %17 = getelementptr inbounds %class.PluginListModel, ptr %15, i32 0, i32 1
   call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #16
   call void @_ZN5QListIS_I7QStringEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
@@ -3560,7 +3560,7 @@ define void @_ZN17ShortcutListModelC2EP7QObject(ptr noundef nonnull align 8 dere
   %36 = load ptr, ptr %3, align 8
   %37 = load ptr, ptr %4, align 8
   call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef %37)
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV17ShortcutListModel, i32 0, inrange i32 0, i32 2), ptr %36, align 8
+  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV17ShortcutListModel, i32 0, i32 0, i32 2), ptr %36, align 8
   call void @_ZN4QMapI7QStringSt4pairIS0_S0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
   %38 = load ptr, ptr @mainApp, align 8
   %39 = invoke noundef ptr @_ZN15MainApplication10mainWindowEv(ptr noundef nonnull align 8 dereferenceable(216) %38)
@@ -4743,7 +4743,7 @@ define void @_ZN15FolderListModelC2EP7QObject(ptr noundef nonnull align 8 derefe
   %67 = load ptr, ptr %3, align 8
   %68 = load ptr, ptr %4, align 8
   call void @_ZN20AStringListListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef %68)
-  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV15FolderListModel, i32 0, inrange i32 0, i32 2), ptr %67, align 8
+  store ptr getelementptr inbounds ({ [53 x ptr] }, ptr @_ZTV15FolderListModel, i32 0, i32 0, i32 2), ptr %67, align 8
   call void @llvm.memset.p0.i64(ptr align 8 %5, i8 0, i64 24, i1 false)
   call void @_ZN5QListI7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #16
   invoke void @_ZN15FolderListModel2trEPKcS1_i(ptr dead_on_unwind writable sret(%class.QString) align 8 %6, ptr noundef @.str.13, ptr noundef null, i32 noundef -1)
@@ -6105,9 +6105,9 @@ define void @_ZN11AboutDialogC2EP7QWidget(ptr noundef nonnull align 8 dereferenc
   %78 = getelementptr inbounds %class.QFlags.26, ptr %5, i32 0, i32 0
   %79 = load i32, ptr %78, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %76, ptr noundef %77, i32 %79)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV11AboutDialog, i32 0, inrange i32 0, i32 2), ptr %76, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV11AboutDialog, i32 0, i32 0, i32 2), ptr %76, align 8
   %80 = getelementptr inbounds i8, ptr %76, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV11AboutDialog, i32 0, inrange i32 1, i32 2), ptr %80, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV11AboutDialog, i32 0, i32 1, i32 2), ptr %80, align 8
   %81 = getelementptr inbounds %class.AboutDialog, ptr %76, i32 0, i32 1
   %82 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 288) #18
           to label %83 unwind label %169
@@ -11485,9 +11485,9 @@ define void @_ZN11AboutDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(96
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV11AboutDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV11AboutDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV11AboutDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV11AboutDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.AboutDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -17433,7 +17433,7 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.35, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %15, align 4
@@ -18443,7 +18443,7 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
   ret void

@@ -881,7 +881,7 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !52
   %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 2
   %bucket_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wheel_, i8 0, i64 16, i1 false)
@@ -932,7 +932,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat($_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackD5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !52
   %wheel_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000>>>::Callback", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %wheel_.i, align 8, !tbaa !78
   %cmp.i.not = icmp eq ptr %0, null
@@ -1325,8 +1325,8 @@ invoke.cont5:
   store i32 0, ptr %guardCount_.i.i, align 8, !tbaa !58
   %destroyPending_.i = getelementptr inbounds i8, ptr %this, i64 212
   store i8 0, ptr %destroyPending_.i, align 4, !tbaa !57
-  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
-  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !52
   %interval_ = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2
   store i64 %intervalDuration.coerce, ptr %interval_, align 8, !tbaa !12
   %divIntervalForSteadyClock_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase", ptr %this, i64 0, i32 2, i32 1
@@ -2993,9 +2993,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16712) %this) unnamed_addr #0 comdat($_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !52
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 200
-  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !52
   %call = invoke noundef i64 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE9cancelAllEv(ptr noundef nonnull align 8 dereferenceable(16712) %this)
           to label %if.then.i unwind label %terminate.lpad
 
@@ -3567,7 +3567,7 @@ define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioI
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !52
   %wheel_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 2
   %bucket_ = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %wheel_, i8 0, i64 16, i1 false)
@@ -3597,7 +3597,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat($_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackD5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !52
   %wheel_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase<std::chrono::duration<long, std::ratio<1, 1000000>>>::Callback", ptr %this, i64 0, i32 2
   %0 = load ptr, ptr %wheel_.i, align 8, !tbaa !127
   %cmp.i.not = icmp eq ptr %0, null
@@ -3944,8 +3944,8 @@ invoke.cont5:
   store i32 0, ptr %guardCount_.i.i, align 8, !tbaa !58
   %destroyPending_.i = getelementptr inbounds i8, ptr %this, i64 212
   store i8 0, ptr %destroyPending_.i, align 4, !tbaa !57
-  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
-  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !52
   %interval_ = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2
   store i64 %intervalDuration.coerce, ptr %interval_, align 8, !tbaa !59
   %divIntervalForSteadyClock_.i = getelementptr inbounds %"class.folly::HHWheelTimerBase.9", ptr %this, i64 0, i32 2, i32 1
@@ -5524,9 +5524,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define weak_odr void @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16712) %this) unnamed_addr #0 comdat($_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEED5Ev) align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !52
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 200
-  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !52
+  store ptr getelementptr inbounds ({ [5 x ptr], [6 x ptr] }, ptr @_ZTVN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEEE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !52
   %call = invoke noundef i64 @_ZN5folly16HHWheelTimerBaseINSt6chrono8durationIlSt5ratioILl1ELl1000000EEEEE9cancelAllEv(ptr noundef nonnull align 8 dereferenceable(16712) %this)
           to label %if.then.i unwind label %terminate.lpad
 

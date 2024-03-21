@@ -893,7 +893,7 @@ entry:
   store ptr %base, ptr %base.addr, align 8
   store i64 %size, ptr %size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21ThreadActivityTrackerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21ThreadActivityTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %header_ = getelementptr inbounds %"class.base::debug::ThreadActivityTracker", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %base.addr, align 8
   store ptr %0, ptr %header_, align 8
@@ -2893,7 +2893,7 @@ entry:
   %0 = load ptr, ptr %base.addr, align 8
   %1 = load i64, ptr %size.addr, align 8
   call void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 dereferenceable(30) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mem_reference_ = getelementptr inbounds %"class.base::debug::GlobalActivityTracker::ManagedActivityTracker", ptr %this1, i32 0, i32 1
   %2 = load i32, ptr %mem_reference.addr, align 4
   store i32 %2, ptr %mem_reference_, align 8
@@ -2909,7 +2909,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
   invoke void @_ZN4base5debug21GlobalActivityTracker19ReturnTrackerMemoryEPNS1_22ManagedActivityTrackerE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %this1)
           to label %invoke.cont unwind label %terminate.lpad

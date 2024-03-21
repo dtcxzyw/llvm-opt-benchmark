@@ -2037,7 +2037,7 @@ _ZN4absl14flags_internal12_GLOBAL__N_116FlagRegistryLockD2Ev.exit51: ; preds = %
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4absl14flags_internal6RetireEPKcPKvPc(ptr noundef %name, ptr noundef %type_id, ptr noundef %buf) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl14flags_internal12_GLOBAL__N_114RetiredFlagObjE, i64 0, inrange i32 0, i64 2), ptr %buf, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl14flags_internal12_GLOBAL__N_114RetiredFlagObjE, i64 0, i32 0, i64 2), ptr %buf, align 8
   %name_.i = getelementptr inbounds i8, ptr %buf, i64 8
   store ptr %name, ptr %name_.i, align 8
   %type_id_.i = getelementptr inbounds i8, ptr %buf, i64 16

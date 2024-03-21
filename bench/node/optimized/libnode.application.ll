@@ -142,7 +142,7 @@ $_ZZN4node4quic18DefaultApplication12StreamCommitEPNS0_7Session11Application10St
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN4node4quic7Session19Application_OptionsE = linkonce_odr dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr null, ptr @_ZN4node4quic7Session19Application_OptionsD2Ev, ptr @_ZN4node4quic7Session19Application_OptionsD0Ev, ptr @_ZNK4node4quic7Session19Application_Options10MemoryInfoEPNS_13MemoryTrackerE, ptr @_ZNK4node4quic7Session19Application_Options14MemoryInfoNameEv, ptr @_ZNK4node4quic7Session19Application_Options8SelfSizeEv, ptr @_ZNK4node14MemoryRetainer13WrappedObjectEv, ptr @_ZNK4node14MemoryRetainer10IsRootNodeEv, ptr @_ZNK4node14MemoryRetainer15GetDetachednessEv] }, comdat, align 8
-@_ZN4node4quic7Session19Application_Options8kDefaultE = dso_local local_unnamed_addr global { ptr, i64, i64, i64, i64, i64, i64 } { ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i32 0, inrange i32 0, i32 2), i64 128, i64 8192, i64 0, i64 0, i64 0, i64 0 }, align 8
+@_ZN4node4quic7Session19Application_Options8kDefaultE = dso_local local_unnamed_addr global { ptr, i64, i64, i64, i64, i64, i64 } { ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i32 0, i32 0, i32 2), i64 128, i64 8192, i64 0, i64 0, i64 0, i64 0 }, align 8
 @.str = private unnamed_addr constant [26 x i8] c"options must be an object\00", align 1
 @_ZTVN4node4quic7Session11ApplicationE = dso_local unnamed_addr constant { [29 x ptr] } { [29 x ptr] [ptr null, ptr null, ptr @_ZN4node4quic7Session11ApplicationD2Ev, ptr @_ZN4node4quic7Session11ApplicationD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZNK4node14MemoryRetainer13WrappedObjectEv, ptr @_ZNK4node14MemoryRetainer10IsRootNodeEv, ptr @_ZNK4node14MemoryRetainer15GetDetachednessEv, ptr @_ZN4node4quic7Session11Application5StartEv, ptr @__cxa_pure_virtual, ptr @_ZN4node4quic7Session11Application21AcknowledgeStreamDataEPNS0_6StreamEm, ptr @_ZN4node4quic7Session11Application12CanAddHeaderEmmm, ptr @_ZN4node4quic7Session11Application11BlockStreamEl, ptr @_ZN4node4quic7Session11Application12ResumeStreamEl, ptr @_ZN4node4quic7Session11Application16ExtendMaxStreamsENS0_13EndpointLabelENS0_9DirectionEm, ptr @_ZN4node4quic7Session11Application19ExtendMaxStreamDataEPNS0_6StreamEm, ptr @_ZNK4node4quic7Session11Application27CollectSessionTicketAppDataEPNS0_13SessionTicket7AppDataE, ptr @_ZN4node4quic7Session11Application27ExtractSessionTicketAppDataERKNS0_13SessionTicket7AppDataENS4_6Source4FlagE, ptr @_ZN4node4quic7Session11Application11StreamCloseEPNS0_6StreamENS0_9QuicErrorE, ptr @_ZN4node4quic7Session11Application11StreamResetEPNS0_6StreamEmNS0_9QuicErrorE, ptr @_ZN4node4quic7Session11Application17StreamStopSendingEPNS0_6StreamENS0_9QuicErrorE, ptr @_ZN4node4quic7Session11Application11SendHeadersERKNS0_6StreamENS0_11HeadersKindERKN2v85LocalINS7_5ArrayEEENS0_12HeadersFlagsE, ptr @_ZN4node4quic7Session11Application17SetStreamPriorityERKNS0_6StreamENS0_14StreamPriorityENS0_19StreamPriorityFlagsE, ptr @_ZN4node4quic7Session11Application17GetStreamPriorityERKNS0_6StreamE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @.str.2 = private unnamed_addr constant [12 x i8] c"stream data\00", align 1
@@ -248,7 +248,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
   %call6.i.i = tail call ptr @_ZN2v87Isolate14ThrowExceptionENS_5LocalINS_5ValueEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr %call.i.i) #18
   store i8 0, ptr %agg.result, align 8, !alias.scope !5
   %value_.i.i = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i64 0, inrange i32 0, i64 2), ptr %value_.i.i, align 8, !alias.scope !5
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i64 0, i32 0, i64 2), ptr %value_.i.i, align 8, !alias.scope !5
   %max_header_pairs.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 128, ptr %max_header_pairs.i.i.i, align 8, !alias.scope !5
   %max_header_length.i.i.i = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -260,7 +260,7 @@ if.then:                                          ; preds = %lor.lhs.false, %ent
 if.end:                                           ; preds = %lor.lhs.false
   %call5 = tail call noundef nonnull align 8 dereferenceable(992) ptr @_ZN4node4quic11BindingData3GetEPNS_11EnvironmentE(ptr noundef %env) #18
   store ptr %value.coerce, ptr %params, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i64 0, inrange i32 0, i64 2), ptr %options, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i64 0, i32 0, i64 2), ptr %options, align 8
   %max_header_pairs.i = getelementptr inbounds i8, ptr %options, i64 8
   store i64 128, ptr %max_header_pairs.i, align 8
   %max_header_length.i = getelementptr inbounds i8, ptr %options, i64 16
@@ -305,7 +305,7 @@ lor.rhs:                                          ; preds = %lor.lhs.false36
 if.then49:                                        ; preds = %lor.lhs.false36, %lor.lhs.false29, %lor.lhs.false22, %lor.lhs.false15, %if.end, %lor.rhs
   store i8 0, ptr %agg.result, align 8, !alias.scope !8
   %value_.i.i14 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i64 0, inrange i32 0, i64 2), ptr %value_.i.i14, align 8, !alias.scope !8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i64 0, i32 0, i64 2), ptr %value_.i.i14, align 8, !alias.scope !8
   %max_header_pairs.i.i.i15 = getelementptr inbounds i8, ptr %agg.result, i64 16
   store i64 128, ptr %max_header_pairs.i.i.i15, align 8, !alias.scope !8
   %max_header_length.i.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 24
@@ -317,7 +317,7 @@ if.then49:                                        ; preds = %lor.lhs.false36, %l
 if.end50:                                         ; preds = %lor.rhs
   store i8 1, ptr %agg.result, align 8, !alias.scope !11
   %value_.i.i18 = getelementptr inbounds i8, ptr %agg.result, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i64 0, inrange i32 0, i64 2), ptr %value_.i.i18, align 8, !alias.scope !11
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic7Session19Application_OptionsE, i64 0, i32 0, i64 2), ptr %value_.i.i18, align 8, !alias.scope !11
   %max_header_pairs.i.i.i19 = getelementptr inbounds i8, ptr %agg.result, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %max_header_pairs.i.i.i19, ptr noundef nonnull align 8 dereferenceable(48) %max_header_pairs.i, i64 48, i1 false)
   br label %return
@@ -1071,7 +1071,7 @@ declare ptr @_ZNK4node4quic11BindingData28qpack_blocked_streams_stringEv(ptr nou
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN4node4quic7Session11ApplicationC2EPS1_RKNS1_19Application_OptionsE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %session, ptr nocapture noundef nonnull readnone align 8 dereferenceable(56) %options) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN4node4quic7Session11ApplicationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN4node4quic7Session11ApplicationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %session, ptr %session_, align 8
   ret void
@@ -1208,7 +1208,7 @@ declare noundef ptr @_ZNK4node4quic7SessioncvP11ngtcp2_connEv(ptr noundef nonnul
 define dso_local void @_ZN4node4quic7Session11Application11StreamCloseEPNS0_6StreamENS0_9QuicErrorE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %stream, ptr noundef %error) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.node::quic::QuicError", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i64 0, i32 0, i64 2), ptr %agg.tmp, align 8
   %reason_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %reason_2.i = getelementptr inbounds i8, ptr %error, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i) #18
@@ -1226,7 +1226,7 @@ declare void @_ZN4node4quic6Stream7DestroyENS0_9QuicErrorE(ptr noundef nonnull a
 define dso_local void @_ZN4node4quic7Session11Application17StreamStopSendingEPNS0_6StreamENS0_9QuicErrorE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %stream, ptr noundef %error) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.node::quic::QuicError", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i64 0, i32 0, i64 2), ptr %agg.tmp, align 8
   %reason_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %reason_2.i = getelementptr inbounds i8, ptr %error, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i) #18
@@ -1244,7 +1244,7 @@ declare void @_ZN4node4quic6Stream18ReceiveStopSendingENS0_9QuicErrorE(ptr nound
 define dso_local void @_ZN4node4quic7Session11Application11StreamResetEPNS0_6StreamEmNS0_9QuicErrorE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %stream, i64 noundef %final_size, ptr noundef %error) unnamed_addr #3 align 2 {
 entry:
   %agg.tmp = alloca %"class.node::quic::QuicError", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i64 0, i32 0, i64 2), ptr %agg.tmp, align 8
   %reason_.i = getelementptr inbounds i8, ptr %agg.tmp, i64 8
   %reason_2.i = getelementptr inbounds i8, ptr %error, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %reason_.i, ptr noundef nonnull align 8 dereferenceable(32) %reason_2.i) #18
@@ -1771,7 +1771,7 @@ _ZNSt10unique_ptrIN4node4quic18DefaultApplicationESt14default_deleteIS2_EED2Ev.e
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #20, !noalias !73
   %session_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %this, ptr %session_.i.i.i, align 8, !noalias !73
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN4node4quic18DefaultApplicationE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !73
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN4node4quic18DefaultApplicationE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !73
   %stream_queue_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr %stream_queue_.i.i, ptr %stream_queue_.i.i, align 8, !noalias !73
   %next_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24

@@ -94,7 +94,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8proxygen25CodecErrorResponseHandlerC2ENS_9ErrorCodeE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, i8 zeroext %0) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25CodecErrorResponseHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25CodecErrorResponseHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %txn_, align 8
   ret void

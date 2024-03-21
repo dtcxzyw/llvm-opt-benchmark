@@ -75,7 +75,7 @@ define dso_local void @_ZN12BuildContextC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN9rcContextC2Eb(ptr noundef nonnull align 8 dereferenceable(10) %5, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12BuildContext, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV12BuildContext, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.BuildContext, ptr %5, i32 0, i32 4
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds %class.BuildContext, ptr %5, i32 0, i32 6
@@ -115,7 +115,7 @@ define linkonce_odr dso_local void @_ZN9rcContextC2Eb(ptr noundef nonnull align 
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 1
   %6 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9rcContext, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV9rcContext, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.rcContext, ptr %6, i32 0, i32 1
   %8 = load i8, ptr %4, align 1
   %9 = trunc i8 %8 to i1
@@ -982,7 +982,7 @@ define dso_local void @_ZN6FileIOC2Ev(ptr noundef nonnull align 8 dereferenceabl
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8duFileIOC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6FileIO, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6FileIO, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 1
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 2
@@ -995,7 +995,7 @@ define linkonce_odr dso_local void @_ZN8duFileIOC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8duFileIO, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8duFileIO, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1004,7 +1004,7 @@ define dso_local void @_ZN6FileIOD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6FileIO, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV6FileIO, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FileIO, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null

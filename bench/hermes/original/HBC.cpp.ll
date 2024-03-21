@@ -8258,7 +8258,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %func.addr, align 8
   call void @_ZN6hermes17RegisterAllocatorC2EPNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1952) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6hermes3hbc20HVMRegisterAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6hermes3hbc20HVMRegisterAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %max_parameter_count_ = getelementptr inbounds %"class.hermes::hbc::HVMRegisterAllocator", ptr %this1, i32 0, i32 1
   store i32 0, ptr %max_parameter_count_, align 8
   %spill_count_ = getelementptr inbounds %"class.hermes::hbc::HVMRegisterAllocator", ptr %this1, i32 0, i32 2
@@ -9805,7 +9805,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc23LowerLoadStoreFrameInstE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc23LowerLoadStoreFrameInstE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9841,7 +9841,7 @@ entry:
   %4 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %5 = load i64, ptr %4, align 8
   call void @_ZN6hermes4PassC2ENS0_8PassKindEN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i32 noundef 0, ptr %3, i64 %5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes12FunctionPassE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes12FunctionPassE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9858,7 +9858,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %K, ptr %K.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes4PassE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6hermes4PassE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %kind = getelementptr inbounds %"class.hermes::Pass", ptr %this1, i32 0, i32 1
   %2 = load i32, ptr %K.addr, align 4
   store i32 %2, ptr %kind, align 8
@@ -10494,7 +10494,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc18OptEnvironmentInitE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc18OptEnvironmentInitE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -10944,7 +10944,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes27LowerExponentiationOperatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes27LowerExponentiationOperatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11394,7 +11394,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc17LowerBuiltinCallsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc17LowerBuiltinCallsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11844,7 +11844,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes22LowerNumericPropertiesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes22LowerNumericPropertiesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -12294,7 +12294,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc17LowerConstructionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc17LowerConstructionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -12744,7 +12744,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc19LowerArgumentsArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc19LowerArgumentsArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13200,7 +13200,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes15LimitAllocArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes15LimitAllocArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %maxSize_ = getelementptr inbounds %"class.hermes::LimitAllocArray", ptr %this1, i32 0, i32 1
   %7 = load i32, ptr %maxSizeInclusive.addr, align 4
   store i32 %7, ptr %maxSize_, align 8
@@ -13653,7 +13653,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc19DedupReifyArgumentsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc19DedupReifyArgumentsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -14103,7 +14103,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc25LowerSwitchIntoJumpTablesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc25LowerSwitchIntoJumpTablesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -14553,7 +14553,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes14SwitchLoweringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes14SwitchLoweringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -15003,7 +15003,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc13LoadConstantsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc13LoadConstantsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -15453,7 +15453,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc14LoadParametersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc14LoadParametersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -15903,7 +15903,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes16LowerAllocObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes16LowerAllocObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -16353,7 +16353,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes15LowerCondBranchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes15LowerCondBranchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -16803,7 +16803,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes13FuncCallNOptsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes13FuncCallNOptsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -37330,7 +37330,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %func, ptr %func.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6hermes17RegisterAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6hermes17RegisterAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %blockLiveness_ = getelementptr inbounds %"class.hermes::RegisterAllocator", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh8DenseMapIPN6hermes10BasicBlockENS1_17RegisterAllocator17BlockLifetimeInfoENS_12DenseMapInfoIS3_EENS_6detail12DenseMapPairIS3_S5_EEEC2Ej(ptr noundef nonnull align 8 dereferenceable(20) %blockLiveness_, i32 noundef 0)
   %instructionNumbers_ = getelementptr inbounds %"class.hermes::RegisterAllocator", ptr %this1, i32 0, i32 2
@@ -37430,7 +37430,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6hermes17RegisterAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6hermes17RegisterAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %file = getelementptr inbounds %"class.hermes::RegisterAllocator", ptr %this1, i32 0, i32 6
   call void @_ZN6hermes12RegisterFileD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %file) #10
   %allocated = getelementptr inbounds %"class.hermes::RegisterAllocator", ptr %this1, i32 0, i32 5
@@ -54782,7 +54782,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes16LowerStoreInstrsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes16LowerStoreInstrsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %RA_ = getelementptr inbounds %"class.hermes::LowerStoreInstrs", ptr %this1, i32 0, i32 1
   %7 = load ptr, ptr %RA.addr, align 8
   store ptr %7, ptr %RA_, align 8
@@ -55240,7 +55240,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc10LowerCallsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc10LowerCallsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %RA_ = getelementptr inbounds %"class.hermes::hbc::LowerCalls", ptr %this1, i32 0, i32 1
   %7 = load ptr, ptr %RA.addr, align 8
   store ptr %7, ptr %RA_, align 8
@@ -55698,7 +55698,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes14MovEliminationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes14MovEliminationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %RA_ = getelementptr inbounds %"class.hermes::MovElimination", ptr %this1, i32 0, i32 1
   %7 = load ptr, ptr %RA.addr, align 8
   store ptr %7, ptr %RA_, align 8
@@ -56156,7 +56156,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc19RecreateCheapValuesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc19RecreateCheapValuesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %RA_ = getelementptr inbounds %"class.hermes::hbc::RecreateCheapValues", ptr %this1, i32 0, i32 1
   %7 = load ptr, ptr %RA.addr, align 8
   store ptr %7, ptr %RA_, align 8
@@ -56614,7 +56614,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc26LoadConstantValueNumberingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc26LoadConstantValueNumberingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %RA_ = getelementptr inbounds %"class.hermes::hbc::LoadConstantValueNumbering", ptr %this1, i32 0, i32 1
   %7 = load ptr, ptr %RA.addr, align 8
   store ptr %7, ptr %RA_, align 8
@@ -57072,7 +57072,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc14SpillRegistersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc14SpillRegistersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %RA_ = getelementptr inbounds %"class.hermes::hbc::SpillRegisters", ptr %this1, i32 0, i32 1
   %7 = load ptr, ptr %RA.addr, align 8
   store ptr %7, ptr %RA_, align 8
@@ -57525,7 +57525,7 @@ _ZN4llvh9StringRefC2EPKc.exit:                    ; preds = %cond.false.i, %cond
   %5 = getelementptr inbounds { ptr, i64 }, ptr %agg.tmp, i32 0, i32 1
   %6 = load i64, ptr %5, align 8
   call void @_ZN6hermes12FunctionPassC2EN4llvh9StringRefE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr %4, i64 %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc18InsertProfilePointE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6hermes3hbc18InsertProfilePointE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

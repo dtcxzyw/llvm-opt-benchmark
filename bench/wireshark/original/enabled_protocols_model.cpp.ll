@@ -745,7 +745,7 @@ define void @_ZN19EnabledProtocolItemC2E7QStringS0_bPS_(ptr noundef nonnull alig
   %12 = load ptr, ptr %6, align 8
   %13 = load ptr, ptr %10, align 8
   call void @_ZN19ModelHelperTreeItemI19EnabledProtocolItemEC2EPS0_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19EnabledProtocolItem, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19EnabledProtocolItem, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %class.EnabledProtocolItem, ptr %12, i32 0, i32 1
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %1) #11
   %15 = getelementptr inbounds %class.EnabledProtocolItem, ptr %12, i32 0, i32 2
@@ -772,7 +772,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI19EnabledProtocolItemEC2EPS0_
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19EnabledProtocolItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19EnabledProtocolItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.ModelHelperTreeItem, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -800,7 +800,7 @@ define void @_ZN19EnabledProtocolItemD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19EnabledProtocolItem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19EnabledProtocolItem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.EnabledProtocolItem, ptr %3, i32 0, i32 2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   %5 = getelementptr inbounds %class.EnabledProtocolItem, ptr %3, i32 0, i32 1
@@ -889,7 +889,7 @@ define void @_ZN21EnabledProtocolsModelC2EP7QObject(ptr noundef nonnull align 8 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN18QAbstractItemModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV21EnabledProtocolsModel, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV21EnabledProtocolsModel, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.EnabledProtocolsModel, ptr %7, i32 0, i32 1
   %10 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 104) #13
           to label %11 unwind label %13
@@ -978,7 +978,7 @@ define linkonce_odr void @_ZN16ProtocolTreeItemC2EP9_protocolP19EnabledProtocolI
 23:                                               ; preds = %20
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16ProtocolTreeItem, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16ProtocolTreeItem, i32 0, i32 0, i32 2), ptr %11, align 8
   %24 = getelementptr inbounds %class.ProtocolTreeItem, ptr %11, i32 0, i32 1
   %25 = load ptr, ptr %5, align 8
   store ptr %25, ptr %24, align 8
@@ -1026,7 +1026,7 @@ define void @_ZN21EnabledProtocolsModelD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV21EnabledProtocolsModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV21EnabledProtocolsModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.EnabledProtocolsModel, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -2322,7 +2322,7 @@ define void @_ZN26EnabledProtocolsProxyModelC2EP7QObject(ptr noundef nonnull ali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV26EnabledProtocolsProxyModel, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV26EnabledProtocolsProxyModel, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.EnabledProtocolsProxyModel, ptr %5, i32 0, i32 1
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds %class.EnabledProtocolsProxyModel, ptr %5, i32 0, i32 2
@@ -4003,7 +4003,7 @@ define linkonce_odr void @_ZN17HeuristicTreeItemC2EP15heur_dtbl_entryP19EnabledP
 24:                                               ; preds = %18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #11
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17HeuristicTreeItem, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17HeuristicTreeItem, i32 0, i32 0, i32 2), ptr %11, align 8
   %25 = getelementptr inbounds %class.HeuristicTreeItem, ptr %11, i32 0, i32 1
   %26 = load ptr, ptr %5, align 8
   store ptr %26, ptr %25, align 8
@@ -4093,7 +4093,7 @@ define linkonce_odr void @_ZN19ModelHelperTreeItemI19EnabledProtocolItemED2Ev(pt
   %4 = alloca %class.QVariant, align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19EnabledProtocolItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV19ModelHelperTreeItemI19EnabledProtocolItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   store i32 0, ptr %3, align 4
   br label %6
 

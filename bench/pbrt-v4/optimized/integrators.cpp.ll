@@ -1847,7 +1847,7 @@ _ZN4pbrt12StringPrintfIJRKiEEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4pbrt10IntegratorD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -9189,7 +9189,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %maxDepth6 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth6, align 8
   %sampleLights7 = getelementptr inbounds i8, ptr %this, i64 84
@@ -9434,7 +9434,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt13RayIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt13RayIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZNSt6vectorIN4pbrt5LightESaIS1_EEC2ERKS3_.exit
@@ -11450,7 +11450,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   %lightSampler = getelementptr inbounds i8, ptr %this, i64 88
@@ -11559,7 +11559,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont6
 
 invoke.cont6:                                     ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19ImageTileIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19ImageTileIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %camera3 = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %camera3, align 8
   %5 = load i64, ptr %camera, align 8
@@ -12998,7 +12998,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14PathIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14PathIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   %lightSampler = getelementptr inbounds i8, ptr %this, i64 88
@@ -15315,7 +15315,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt23SimpleVolPathIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt23SimpleVolPathIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   %7 = load ptr, ptr %lights, align 8
@@ -28428,7 +28428,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont12
 
 invoke.cont12:                                    ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt12AOIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt12AOIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cosSample5 = getelementptr inbounds i8, ptr %this, i64 80
   store i8 %frombool, ptr %cosSample5, align 8
   %maxDist7 = getelementptr inbounds i8, ptr %this, i64 84
@@ -44429,7 +44429,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %func3 = getelementptr inbounds i8, ptr %this, i64 64
   %_M_manager.i.i = getelementptr inbounds i8, ptr %this, i64 80
   %_M_invoker.i = getelementptr inbounds i8, ptr %this, i64 88
@@ -44546,7 +44546,7 @@ define linkonce_odr dso_local void @_ZN4pbrt10IntegratorC2ENS_9PrimitiveESt6vect
 entry:
   %s.i = alloca %"class.std::__cxx11::basic_string", align 8
   %sceneBounds = alloca %"class.pbrt::Bounds3", align 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %aggregate2 = getelementptr inbounds i8, ptr %this, i64 8
   store i64 0, ptr %aggregate2, align 8
   %0 = load i64, ptr %aggregate, align 8
@@ -48019,7 +48019,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt19ImageTileIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -48053,7 +48053,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt13RayIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -48087,7 +48087,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt20RandomWalkIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48114,7 +48114,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt20RandomWalkIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48161,7 +48161,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt17VolPathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48188,7 +48188,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt17VolPathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48216,7 +48216,7 @@ _ZN4pbrt17VolPathIntegratorD2Ev.exit:             ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14BDPTIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %weightFilms = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %weightFilms, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -48227,7 +48227,7 @@ if.then.i.i.i:                                    ; preds = %entry
   br label %_ZNSt6vectorIN4pbrt4FilmESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt4FilmESaIS1_EED2Ev.exit:       ; preds = %entry, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %1, null
@@ -48254,7 +48254,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14BDPTIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %weightFilms.i = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %weightFilms.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -48265,7 +48265,7 @@ if.then.i.i.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorIN4pbrt4FilmESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN4pbrt4FilmESaIS1_EED2Ev.exit.i:     ; preds = %if.then.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %1 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %1, null
@@ -48293,7 +48293,7 @@ _ZN4pbrt14BDPTIntegratorD2Ev.exit:                ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt13MLTIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -48320,7 +48320,7 @@ _ZN4pbrt10IntegratorD2Ev.exit:                    ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt13MLTIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -48348,7 +48348,7 @@ _ZN4pbrt13MLTIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14SPPMIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -48375,7 +48375,7 @@ _ZN4pbrt10IntegratorD2Ev.exit:                    ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14SPPMIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -48403,7 +48403,7 @@ _ZN4pbrt14SPPMIntegratorD2Ev.exit:                ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt20SimplePathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %nStored.le.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %nStored.le.i.i.i, align 8
   %ptr.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -48431,7 +48431,7 @@ terminate.lpad.i.i:                               ; preds = %if.end.i.i.i.i.i
   unreachable
 
 _ZN4pbrt19UniformLightSamplerD2Ev.exit:           ; preds = %entry, %if.end.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -48458,7 +48458,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt20SimplePathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20SimplePathIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %nStored.le.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 112
   store i64 0, ptr %nStored.le.i.i.i.i, align 8
   %ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -48486,7 +48486,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.end.i.i.i.i.i.i
   unreachable
 
 _ZN4pbrt19UniformLightSamplerD2Ev.exit.i:         ; preds = %if.end.i.i.i.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %6 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %6, null
@@ -48514,10 +48514,10 @@ _ZN4pbrt20SimplePathIntegratorD2Ev.exit:          ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt19LightPathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lightSampler = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4pbrt17PowerLightSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %lightSampler) #31
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -48544,10 +48544,10 @@ _ZN4pbrt19ImageTileIntegratorD2Ev.exit:           ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt19LightPathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt19LightPathIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %lightSampler.i = getelementptr inbounds i8, ptr %this, i64 88
   tail call void @_ZN4pbrt17PowerLightSamplerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %lightSampler.i) #31
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48575,7 +48575,7 @@ _ZN4pbrt19LightPathIntegratorD2Ev.exit:           ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14PathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48602,7 +48602,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt14PathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(97) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48630,7 +48630,7 @@ _ZN4pbrt14PathIntegratorD2Ev.exit:                ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt23SimpleVolPathIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48657,7 +48657,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt23SimpleVolPathIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(84) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48685,7 +48685,7 @@ _ZN4pbrt23SimpleVolPathIntegratorD2Ev.exit:       ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt12AOIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48712,7 +48712,7 @@ _ZN4pbrt13RayIntegratorD2Ev.exit:                 ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt12AOIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %infiniteLights.i.i.i.i, align 8
   %tobool.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -48740,7 +48740,7 @@ _ZN4pbrt12AOIntegratorD2Ev.exit:                  ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt18FunctionIntegratorD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %imageFilename = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %imageFilename) #31
   %outputFilename = getelementptr inbounds i8, ptr %this, i64 96
@@ -48763,7 +48763,7 @@ terminate.lpad.i.i:                               ; preds = %if.then.i.i
   unreachable
 
 _ZNSt8functionIFdN4pbrt6Point2IfEEEED2Ev.exit:    ; preds = %entry, %if.then.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %infiniteLights.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %3, null
@@ -48790,7 +48790,7 @@ _ZN4pbrt10IntegratorD2Ev.exit:                    ; preds = %_ZNSt6vectorIN4pbrt
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4pbrt18FunctionIntegratorD0Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt18FunctionIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %imageFilename.i = getelementptr inbounds i8, ptr %this, i64 152
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %imageFilename.i) #31
   %outputFilename.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -48813,7 +48813,7 @@ terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
   unreachable
 
 _ZNSt8functionIFdN4pbrt6Point2IfEEEED2Ev.exit.i:  ; preds = %if.then.i.i.i, %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt10IntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %infiniteLights.i.i = getelementptr inbounds i8, ptr %this, i64 40
   %3 = load ptr, ptr %infiniteLights.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -67196,7 +67196,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20RandomWalkIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt20RandomWalkIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   ret void
@@ -86180,7 +86180,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt17VolPathIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt17VolPathIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %maxDepth5 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth5, align 8
   %lightSampler = getelementptr inbounds i8, ptr %this, i64 88
@@ -87999,7 +87999,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %_ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4pbrt5LightESaIS1_EED2Ev.exit:      ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4pbrt14BDPTIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %maxDepth7 = getelementptr inbounds i8, ptr %this, i64 80
   store i32 %maxDepth, ptr %maxDepth7, align 8
   %regularize8 = getelementptr inbounds i8, ptr %this, i64 84
@@ -90719,7 +90719,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont5
 
 invoke.cont5:                                     ; preds = %if.then.i.i.i, %invoke.cont
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt13MLTIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt13MLTIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %camera3 = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %camera3, align 8
   %5 = load i64, ptr %camera, align 8
@@ -97037,7 +97037,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont
   br label %invoke.cont7
 
 invoke.cont7:                                     ; preds = %invoke.cont, %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt14SPPMIntegratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4pbrt14SPPMIntegratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %camera3 = getelementptr inbounds i8, ptr %this, i64 64
   store i64 0, ptr %camera3, align 8
   %5 = load i64, ptr %camera, align 8

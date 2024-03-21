@@ -1494,7 +1494,7 @@ entry:
   store i8 %ignoreCase, ptr %ignoreCase.addr, align 1
   store ptr %valueDeleter, ptr %valueDeleter.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7511TextTrieMapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7511TextTrieMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fIgnoreCase = getelementptr inbounds %"class.icu_75::TextTrieMap", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %ignoreCase.addr, align 1
   store i8 %0, ptr %fIgnoreCase, align 8
@@ -1522,7 +1522,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7511TextTrieMapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7511TextTrieMapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i32 0, ptr %index, align 4
   br label %for.cond
 
@@ -2050,7 +2050,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -3438,7 +3438,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522MetaZoneIDsEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522MetaZoneIDsEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLen = getelementptr inbounds %"class.icu_75::MetaZoneIDsEnumeration", ptr %this1, i32 0, i32 1
   store i32 0, ptr %fLen, align 4
   %fPos = getelementptr inbounds %"class.icu_75::MetaZoneIDsEnumeration", ptr %this1, i32 0, i32 2
@@ -3499,7 +3499,7 @@ entry:
   store ptr %mzIDs, ptr %mzIDs.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522MetaZoneIDsEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522MetaZoneIDsEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fPos = getelementptr inbounds %"class.icu_75::MetaZoneIDsEnumeration", ptr %this1, i32 0, i32 2
   store i32 0, ptr %fPos, align 8
   %fMetaZoneIDs = getelementptr inbounds %"class.icu_75::MetaZoneIDsEnumeration", ptr %this1, i32 0, i32 3
@@ -3562,7 +3562,7 @@ entry:
   store ptr %mzIDs, ptr %mzIDs.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522MetaZoneIDsEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522MetaZoneIDsEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLen = getelementptr inbounds %"class.icu_75::MetaZoneIDsEnumeration", ptr %this1, i32 0, i32 1
   store i32 0, ptr %fLen, align 4
   %fPos = getelementptr inbounds %"class.icu_75::MetaZoneIDsEnumeration", ptr %this1, i32 0, i32 2
@@ -3758,7 +3758,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522MetaZoneIDsEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7522MetaZoneIDsEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLocalVector = getelementptr inbounds %"class.icu_75::MetaZoneIDsEnumeration", ptr %this1, i32 0, i32 4
   call void @_ZN6icu_7512LocalPointerINS_7UVectorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %fLocalVector) #10
   call void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1) #10
@@ -3785,7 +3785,7 @@ entry:
   store i32 %types, ptr %types.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7530TextTrieMapSearchResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518ZNameSearchHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518ZNameSearchHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fTypes = getelementptr inbounds %"class.icu_75::ZNameSearchHandler", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %types.addr, align 4
   store i32 %0, ptr %fTypes, align 8
@@ -3802,7 +3802,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7530TextTrieMapSearchResultHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7530TextTrieMapSearchResultHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3812,7 +3812,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518ZNameSearchHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7518ZNameSearchHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fResults = getelementptr inbounds %"class.icu_75::ZNameSearchHandler", ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %fResults, align 8
   %cmp = icmp ne ptr %0, null
@@ -4221,7 +4221,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7513TimeZoneNamesC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517TimeZoneNamesImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517TimeZoneNamesImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::TimeZoneNamesImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %locale.addr, align 8
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %0)
@@ -4302,7 +4302,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7513TimeZoneNamesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7513TimeZoneNamesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5060,7 +5060,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517TimeZoneNamesImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517TimeZoneNamesImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN6icu_7517TimeZoneNamesImpl7cleanupEv(ptr noundef nonnull align 8 dereferenceable(320) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -6398,7 +6398,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756ZNames12ZNamesLoaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_756ZNames12ZNamesLoaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN6icu_756ZNames12ZNamesLoader5clearEv(ptr noundef nonnull align 8 dereferenceable(64) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -7553,7 +7553,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7517TimeZoneNamesImpl17ZoneStringsLoaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7517TimeZoneNamesImpl17ZoneStringsLoaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %keyToLoader = getelementptr inbounds %"struct.icu_75::TimeZoneNamesImpl::ZoneStringsLoader", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %keyToLoader, align 8
   invoke void @uhash_close_75(ptr noundef %0)
@@ -7956,7 +7956,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512ResourceSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7517TimeZoneNamesImpl17ZoneStringsLoaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7517TimeZoneNamesImpl17ZoneStringsLoaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %tzn = getelementptr inbounds %"struct.icu_75::TimeZoneNamesImpl::ZoneStringsLoader", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %_tzn.addr, align 8
   store ptr %0, ptr %tzn, align 8
@@ -8486,7 +8486,7 @@ entry:
   store ptr %regions, ptr %regions.addr, align 8
   store i32 %numRegions, ptr %numRegions.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759TZDBNamesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759TZDBNamesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fNames = getelementptr inbounds %"class.icu_75::TZDBNames", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %names.addr, align 8
   store ptr %0, ptr %fNames, align 8
@@ -8507,7 +8507,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759TZDBNamesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_759TZDBNamesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fNames = getelementptr inbounds %"class.icu_75::TZDBNames", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fNames, align 8
   %cmp = icmp ne ptr %0, null
@@ -9098,7 +9098,7 @@ entry:
   store ptr %region, ptr %region.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7530TextTrieMapSearchResultHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521TZDBNameSearchHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521TZDBNameSearchHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fTypes = getelementptr inbounds %"class.icu_75::TZDBNameSearchHandler", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %types.addr, align 4
   store i32 %0, ptr %fTypes, align 8
@@ -9118,7 +9118,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521TZDBNameSearchHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521TZDBNameSearchHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fResults = getelementptr inbounds %"class.icu_75::TZDBNameSearchHandler", ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %fResults, align 8
   %cmp = icmp ne ptr %0, null
@@ -9554,7 +9554,7 @@ entry:
   store ptr %locale, ptr %locale.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7513TimeZoneNamesC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517TZDBTimeZoneNamesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517TZDBTimeZoneNamesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::TZDBTimeZoneNames", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %locale.addr, align 8
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %fLocale, ptr noundef nonnull align 8 dereferenceable(217) %0)
@@ -9785,7 +9785,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517TZDBTimeZoneNamesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517TZDBTimeZoneNamesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fLocale = getelementptr inbounds %"class.icu_75::TZDBTimeZoneNames", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %fLocale) #10
   call void @_ZN6icu_7513TimeZoneNamesD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
@@ -11060,7 +11060,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11070,7 +11070,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11268,7 +11268,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512ResourceSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

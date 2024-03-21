@@ -183,7 +183,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %17, %36, %49, %_ZNS
   %54 = zext i1 %8 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 200
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %55, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   %56 = getelementptr inbounds i8, ptr %0, i64 240
@@ -1786,7 +1786,7 @@ declare noundef zeroext i1 @_ZNK17cmGeneratorTarget17IsCFBundleOnAppleEv(ptr nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN42cmInstallImportedRuntimeArtifactsGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(273) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -1797,7 +1797,7 @@ define linkonce_odr dso_local void @_ZN42cmInstallImportedRuntimeArtifactsGenera
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN42cmInstallImportedRuntimeArtifactsGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(273) %0) unnamed_addr #3 comdat align 2 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV42cmInstallImportedRuntimeArtifactsGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #16
   %3 = getelementptr inbounds i8, ptr %0, i64 200

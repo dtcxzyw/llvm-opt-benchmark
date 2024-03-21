@@ -220,7 +220,7 @@ define noundef nonnull ptr @_ZNK16RichDynamicFloat5cloneEv(ptr noundef nonnull a
           to label %3 unwind label %7
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16RichDynamicFloat, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16RichDynamicFloat, i64 0, i32 0, i64 2), ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 56
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i64, ptr %5, align 8
@@ -285,7 +285,7 @@ define void @_ZN16RichDynamicFloatC2ERK7QStringfffS2_S2_bS2_(ptr noundef nonnull
   %10 = alloca %class.FloatValue, align 8
   call void @_ZN10FloatValueC1Ef(ptr noundef nonnull align 8 dereferenceable(12) %10, float noundef %2)
   call void @_ZN13RichParameterC2ERK7QStringRK5ValueS2_S2_bS2_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, i1 noundef zeroext %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16RichDynamicFloat, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16RichDynamicFloat, i64 0, i32 0, i64 2), ptr %0, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 56
   store float %3, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %0, i64 60

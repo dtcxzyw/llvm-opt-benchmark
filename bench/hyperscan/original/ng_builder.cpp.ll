@@ -1588,7 +1588,7 @@ entry:
   store ptr %parsed, ptr %parsed.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue210NFABuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rm = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %rm_in.addr, align 8
   store ptr %0, ptr %rm, align 8
@@ -1709,7 +1709,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue210NFABuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue210NFABuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1977,7 +1977,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %id2vertex = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 5
   call void @_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %id2vertex) #2
   %graph = getelementptr inbounds %"class.ue2::(anonymous namespace)::NFABuilderImpl", ptr %this1, i32 0, i32 3

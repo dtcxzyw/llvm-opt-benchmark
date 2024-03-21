@@ -462,7 +462,7 @@ declare void @_ZN4node7tracing5Agent5FlushEb(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing15NodeTraceBufferC2EmPNS0_5AgentEP9uv_loop_s(ptr noundef nonnull align 8 dereferenceable(584) %this, i64 noundef %max_chunks, ptr noundef %agent, ptr noundef %tracing_loop) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %tracing_loop_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %tracing_loop, ptr %tracing_loop_, align 8
   %exited_ = getelementptr inbounds i8, ptr %this, i64 272
@@ -785,7 +785,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node7tracing15NodeTraceBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(584) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing15NodeTraceBufferE, i64 0, i32 0, i64 2), ptr %this, align 8
   %exit_signal_ = getelementptr inbounds i8, ptr %this, i64 144
   %call = tail call i32 @uv_async_send(ptr noundef nonnull %exit_signal_) #13
   %exit_mutex_ = getelementptr inbounds i8, ptr %this, i64 280

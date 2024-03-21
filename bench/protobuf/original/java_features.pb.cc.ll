@@ -138,7 +138,7 @@ $_ZTIN6google8protobuf11MessageLiteE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN2pb12JavaFeaturesE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN2pb12JavaFeaturesE, ptr @_ZN2pb12JavaFeaturesD1Ev, ptr @_ZN2pb12JavaFeaturesD0Ev, ptr @_ZNK2pb12JavaFeatures3NewEPN6google8protobuf5ArenaE, ptr @_ZN2pb12JavaFeatures5ClearEv, ptr @_ZNK2pb12JavaFeatures13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK2pb12JavaFeatures12ByteSizeLongEv, ptr @_ZN2pb12JavaFeatures14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE, ptr @_ZNK2pb12JavaFeatures12GetClassDataEv, ptr @_ZNK2pb12JavaFeatures18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE, ptr @_ZNK2pb12JavaFeatures11GetMetadataEv] }, align 8
-@_ZN2pb31_JavaFeatures_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon zeroinitializer } } }, align 8
+@_ZN2pb31_JavaFeatures_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon zeroinitializer } } }, align 8
 @_ZN73TableStruct_google_2fprotobuf_2fcompiler_2fjava_2fjava_5ffeatures_2eproto7offsetsE = constant [12 x i32] [i32 16, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 24, i32 28, i32 0, i32 1], section "protodesc_cold", align 16
 @_ZL87descriptor_table_protodef_google_2fprotobuf_2fcompiler_2fjava_2fjava_5ffeatures_2eproto = internal constant [431 x i8] c"\0A1google/protobuf/compiler/java/java_features.proto\12\02pb\1A google/protobuf/descriptor.proto\22\EA\01\0A\0CJavaFeatures\12>\0A\12legacy_closed_enum\18\01 \01(\08B\22\88\01\01\98\01\04\98\01\01\A2\01\09\12\04true\18\E6\07\A2\01\0A\12\05false\18\E7\07\12R\0A\0Futf8_validation\18\02 \01(\0E2\1F.pb.JavaFeatures.Utf8ValidationB\18\88\01\01\98\01\04\98\01\01\A2\01\0C\12\07DEFAULT\18\E6\07\22F\0A\0EUtf8Validation\12\1B\0A\17UTF8_VALIDATION_UNKNOWN\10\00\12\0B\0A\07DEFAULT\10\01\12\0A\0A\06VERIFY\10\02:<\0A\04java\12\1B.google.protobuf.FeatureSet\18\E9\07 \01(\0B2\10.pb.JavaFeaturesB(\0A\13com.google.protobufB\11JavaFeaturesProto\00", section "protodesc_cold", align 16
 @.str = private unnamed_addr constant [50 x i8] c"google/protobuf/compiler/java/java_features.proto\00", align 1
@@ -235,7 +235,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN2pb12JavaFeatures10SharedCtorEPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -271,7 +271,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1251,7 +1251,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %arena, ptr %arena.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef %0)

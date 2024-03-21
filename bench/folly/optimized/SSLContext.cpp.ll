@@ -2884,7 +2884,7 @@ define void @_ZN5folly10SSLContextC2ENS0_10SSLVersionE(ptr noundef nonnull align
 invoke.cont:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5folly10SSLContextE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5folly10SSLContextE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %verifyPeer_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 3, ptr %verifyPeer_, align 8, !tbaa !74
   %verifyClient_ = getelementptr inbounds i8, ptr %this, i64 20
@@ -3068,7 +3068,7 @@ invoke.cont24:                                    ; preds = %invoke.cont21
           to label %invoke.cont28 unwind label %lpad27
 
 invoke.cont28:                                    ; preds = %invoke.cont24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15SSLAcceptRunnerE, i64 0, inrange i32 0, i64 2), ptr %call.i6667, align 8, !tbaa !7, !noalias !132
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15SSLAcceptRunnerE, i64 0, i32 0, i64 2), ptr %call.i6667, align 8, !tbaa !7, !noalias !132
   %20 = load ptr, ptr %sslAcceptRunner_, align 8, !tbaa !81
   store ptr %call.i6667, ptr %sslAcceptRunner_, align 8, !tbaa !81
   %tobool.not.i.i.i.i = icmp eq ptr %20, null
@@ -4263,7 +4263,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE19_M_release_last_useEv.ex
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly10SSLContextD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5folly10SSLContextE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5folly10SSLContextE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %ctx_, align 8, !tbaa !10
   %cmp.not = icmp eq ptr %0, null
@@ -5200,7 +5200,7 @@ declare void @EC_KEY_free(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5folly10SSLContextC2EP10ssl_ctx_st(ptr noundef nonnull align 8 dereferenceable(304) %this, ptr noundef %ctx) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5folly10SSLContextE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN5folly10SSLContextE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %ctx_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %ctx, ptr %ctx_, align 8, !tbaa !10
   %verifyPeer_ = getelementptr inbounds i8, ptr %this, i64 16

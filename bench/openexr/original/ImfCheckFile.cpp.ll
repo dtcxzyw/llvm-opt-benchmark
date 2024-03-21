@@ -1837,7 +1837,7 @@ entry:
   store i64 %nBytes, ptr %nBytes.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef @.str.13)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_110PtrIStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_110PtrIStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %base = getelementptr inbounds %"class.Imf_3_2::(anonymous namespace)::PtrIStream", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %data.addr, align 8
   store ptr %0, ptr %base, align 8

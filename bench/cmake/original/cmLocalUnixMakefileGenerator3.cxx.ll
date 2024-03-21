@@ -4396,7 +4396,7 @@ define dso_local void @_ZN29cmLocalUnixMakefileGenerator3C2EP17cmGlobalGenerator
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN22cmLocalCommonGeneratorC2EP17cmGlobalGeneratorP10cmMakefile(ptr noundef nonnull align 8 dereferenceable(848) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES_I23cmDependencyScannerKindS_IS5_S_IS5_St6vectorIS5_SaIS5_EESt4lessIS5_ESaISt4pairIKS5_S9_EEESB_SaISC_ISD_SG_EEESA_IS6_ESaISC_IKS6_SJ_EEESB_SaISC_ISD_SO_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #3
   %11 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %7, i32 0, i32 2
@@ -4470,7 +4470,7 @@ define dso_local void @_ZN29cmLocalUnixMakefileGenerator3D2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV29cmLocalUnixMakefileGenerator3, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 12
   call void @_ZNSt3mapIPK17cmGeneratorTargetSt3setIPK12cmSourceFileSt4lessIS6_ESaIS6_EES7_IS2_ESaISt4pairIKS2_SA_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %class.cmLocalUnixMakefileGenerator3, ptr %3, i32 0, i32 5

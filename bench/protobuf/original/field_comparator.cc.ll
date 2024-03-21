@@ -788,7 +788,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util15FieldComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util15FieldComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -821,7 +821,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf4util15FieldComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %float_comparison_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 1
   store i32 0, ptr %float_comparison_, align 8
   %treat_nan_as_equal_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 2
@@ -889,7 +889,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util21SimpleFieldComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %map_tolerance_ = getelementptr inbounds %"class.google::protobuf::util::SimpleFieldComparator", ptr %this1, i32 0, i32 5
   call void @_ZN4absl12lts_2023080213flat_hash_mapIPKN6google8protobuf15FieldDescriptorENS3_4util21SimpleFieldComparator9ToleranceENS0_18container_internal6HashEqIS6_vE4HashENSC_2EqESaISt4pairIKS6_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %map_tolerance_) #3
   call void @_ZN6google8protobuf4util15FieldComparatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

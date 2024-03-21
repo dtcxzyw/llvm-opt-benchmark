@@ -3228,7 +3228,7 @@ define dso_local void @_ZN5vcpkg19MapPortFileProviderC2ERKSt13unordered_mapINSt7
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg16PortFileProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg19MapPortFileProviderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg19MapPortFileProviderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.vcpkg::MapPortFileProvider", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -3240,7 +3240,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg16PortFileProviderC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg16PortFileProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg16PortFileProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3575,7 +3575,7 @@ define dso_local void @_ZN5vcpkg21PathsPortFileProviderC2ERKNS_18ReadOnlyFilesys
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5vcpkg16PortFileProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %7, align 8
   invoke void @_ZN5vcpkg22make_baseline_providerERKNS_11RegistrySetE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.11") align 8 %12, ptr noundef nonnull align 8 dereferenceable(32) %13)
@@ -4620,7 +4620,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg21PathsPortFileProviderD2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN5vcpkg20IFullOverlayProviderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #13
   %5 = getelementptr inbounds %"struct.vcpkg::PathsPortFileProvider", ptr %3, i32 0, i32 2
@@ -15237,7 +15237,7 @@ define internal void @_ZN5vcpkg12_GLOBAL__N_120BaselineProviderImplC2ERKNS_11Reg
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg17IBaselineProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_120BaselineProviderImplE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_120BaselineProviderImplE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::BaselineProviderImpl", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -15274,7 +15274,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg17IBaselineProviderC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg17IBaselineProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg17IBaselineProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15316,7 +15316,7 @@ define internal void @_ZN5vcpkg12_GLOBAL__N_120BaselineProviderImplD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_120BaselineProviderImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_120BaselineProviderImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::BaselineProviderImpl", ptr %3, i32 0, i32 2
   call void @_ZN5vcpkg5CacheINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_9ExpectedTINS_7VersionENS_15LocalizedStringEEESt4lessIvEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   call void @_ZN5vcpkg17IBaselineProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
@@ -18239,7 +18239,7 @@ define internal void @_ZN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplC2ER
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg30IFullVersionedPortfileProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::VersionedPortfileProviderImpl", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -18282,7 +18282,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg30IFullVersionedPortfileProviderC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg26IVersionedPortfileProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg30IFullVersionedPortfileProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg30IFullVersionedPortfileProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18375,7 +18375,7 @@ define internal void @_ZN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplD2Ev
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_129VersionedPortfileProviderImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::VersionedPortfileProviderImpl", ptr %3, i32 0, i32 4
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg9ExpectedTISt10unique_ptrINS6_13RegistryEntryESt14default_deleteIS9_EENS6_15LocalizedStringEEESt4lessIvESaISt4pairIKS5_SE_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   %5 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::VersionedPortfileProviderImpl", ptr %3, i32 0, i32 3
@@ -18601,7 +18601,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg26IVersionedPortfileProviderC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg26IVersionedPortfileProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg26IVersionedPortfileProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30644,7 +30644,7 @@ define internal void @_ZN5vcpkg12_GLOBAL__N_119OverlayProviderImplC2ERKNS_18Read
   store ptr %2, ptr %9, align 8
   %23 = load ptr, ptr %7, align 8
   call void @_ZN5vcpkg20IFullOverlayProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_119OverlayProviderImplE, i32 0, inrange i32 0, i32 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_119OverlayProviderImplE, i32 0, i32 0, i32 2), ptr %23, align 8
   %24 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::OverlayProviderImpl", ptr %23, i32 0, i32 1
   %25 = load ptr, ptr %8, align 8
   store ptr %25, ptr %24, align 8
@@ -30792,7 +30792,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg20IFullOverlayProviderC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg16IOverlayProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg20IFullOverlayProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg20IFullOverlayProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -31138,7 +31138,7 @@ define internal void @_ZN5vcpkg12_GLOBAL__N_119OverlayProviderImplD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_119OverlayProviderImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_119OverlayProviderImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::OverlayProviderImpl", ptr %3, i32 0, i32 3
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN5vcpkg8OptionalINS6_28SourceControlFileAndLocationEEESt4lessIvESaISt4pairIKS5_S9_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #13
   %5 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::OverlayProviderImpl", ptr %3, i32 0, i32 2
@@ -31587,7 +31587,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg16IOverlayProviderC2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg16IOverlayProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5vcpkg16IOverlayProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -36774,7 +36774,7 @@ define internal void @_ZN5vcpkg12_GLOBAL__N_120ManifestProviderImplC2ERKNS_18Rea
   store ptr %6, ptr %13, align 8
   %19 = load ptr, ptr %9, align 8
   call void @_ZN5vcpkg20IFullOverlayProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_120ManifestProviderImplE, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_120ManifestProviderImplE, i32 0, i32 0, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::ManifestProviderImpl", ptr %19, i32 0, i32 1
   %21 = load ptr, ptr %10, align 8
   %22 = load ptr, ptr %11, align 8
@@ -36861,7 +36861,7 @@ define internal void @_ZN5vcpkg12_GLOBAL__N_120ManifestProviderImplD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_120ManifestProviderImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg12_GLOBAL__N_120ManifestProviderImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::ManifestProviderImpl", ptr %3, i32 0, i32 2
   call void @_ZN5vcpkg28SourceControlFileAndLocationD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #13
   %5 = getelementptr inbounds %"struct.vcpkg::(anonymous namespace)::ManifestProviderImpl", ptr %3, i32 0, i32 1

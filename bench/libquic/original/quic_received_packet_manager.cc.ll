@@ -1394,7 +1394,7 @@ entry:
   store ptr %stats, ptr %stats.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net42QuicReceivedEntropyHashCalculatorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %entropy_tracker_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this1, i32 0, i32 1
   invoke void @_ZN3net25QuicReceivedPacketManager14EntropyTrackerC1Ev(ptr noundef nonnull align 8 dereferenceable(104) %entropy_tracker_)
           to label %invoke.cont unwind label %lpad
@@ -1477,7 +1477,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net42QuicReceivedEntropyHashCalculatorInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net42QuicReceivedEntropyHashCalculatorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1502,7 +1502,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3net25QuicReceivedPacketManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ack_frame_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this1, i32 0, i32 3
   call void @_ZN3net12QuicAckFrameD1Ev(ptr noundef nonnull align 8 dereferenceable(100) %ack_frame_) #10
   %entropy_tracker_ = getelementptr inbounds %"class.net::QuicReceivedPacketManager", ptr %this1, i32 0, i32 1

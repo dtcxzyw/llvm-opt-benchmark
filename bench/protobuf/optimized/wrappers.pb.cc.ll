@@ -58,24 +58,24 @@ $_ZNK6google8protobuf9BoolValue3NewEPNS0_5ArenaE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN6google8protobuf11UInt64ValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf11UInt64ValueE, ptr @_ZN6google8protobuf11UInt64ValueD1Ev, ptr @_ZN6google8protobuf11UInt64ValueD0Ev, ptr @_ZNK6google8protobuf11UInt64Value3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf11UInt64Value5ClearEv, ptr @_ZNK6google8protobuf11UInt64Value13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf11UInt64Value12ByteSizeLongEv, ptr @_ZN6google8protobuf11UInt64Value14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf11UInt64Value12GetClassDataEv, ptr @_ZNK6google8protobuf11UInt64Value18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf11UInt64Value11GetMetadataEv] }, align 8
-@_ZN6google8protobuf30_UInt64Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt64ValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { i64, %"class.google::protobuf::internal::CachedSize" } } zeroinitializer } } }, align 8
+@_ZN6google8protobuf30_UInt64Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt64ValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { i64, %"class.google::protobuf::internal::CachedSize" } } zeroinitializer } } }, align 8
 @_ZTVN6google8protobuf11UInt32ValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf11UInt32ValueE, ptr @_ZN6google8protobuf11UInt32ValueD1Ev, ptr @_ZN6google8protobuf11UInt32ValueD0Ev, ptr @_ZNK6google8protobuf11UInt32Value3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf11UInt32Value5ClearEv, ptr @_ZNK6google8protobuf11UInt32Value13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf11UInt32Value12ByteSizeLongEv, ptr @_ZN6google8protobuf11UInt32Value14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf11UInt32Value12GetClassDataEv, ptr @_ZNK6google8protobuf11UInt32Value18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf11UInt32Value11GetMetadataEv] }, align 8
-@_ZN6google8protobuf30_UInt32Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.1 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.1 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.1 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt32ValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.1 zeroinitializer } } }, align 8
+@_ZN6google8protobuf30_UInt32Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.1 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.1 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.1 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt32ValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.1 zeroinitializer } } }, align 8
 @_ZTVN6google8protobuf11StringValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf11StringValueE, ptr @_ZN6google8protobuf11StringValueD1Ev, ptr @_ZN6google8protobuf11StringValueD0Ev, ptr @_ZNK6google8protobuf11StringValue3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf11StringValue5ClearEv, ptr @_ZNK6google8protobuf11StringValue13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf11StringValue12ByteSizeLongEv, ptr @_ZN6google8protobuf11StringValue14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf11StringValue12GetClassDataEv, ptr @_ZNK6google8protobuf11StringValue18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf11StringValue11GetMetadataEv] }, align 8
 @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E = external global %"class.google::protobuf::internal::ExplicitlyConstructed", align 8
-@_ZN6google8protobuf30_StringValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11StringValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } { %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } } } }, align 8
+@_ZN6google8protobuf30_StringValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11StringValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } { %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } } } }, align 8
 @_ZTVN6google8protobuf10Int64ValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf10Int64ValueE, ptr @_ZN6google8protobuf10Int64ValueD1Ev, ptr @_ZN6google8protobuf10Int64ValueD0Ev, ptr @_ZNK6google8protobuf10Int64Value3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf10Int64Value5ClearEv, ptr @_ZNK6google8protobuf10Int64Value13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf10Int64Value12ByteSizeLongEv, ptr @_ZN6google8protobuf10Int64Value14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf10Int64Value12GetClassDataEv, ptr @_ZNK6google8protobuf10Int64Value18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf10Int64Value11GetMetadataEv] }, align 8
-@_ZN6google8protobuf29_Int64Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int64ValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { i64, %"class.google::protobuf::internal::CachedSize" } } zeroinitializer } } }, align 8
+@_ZN6google8protobuf29_Int64Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { i64, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int64ValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { i64, %"class.google::protobuf::internal::CachedSize" } } zeroinitializer } } }, align 8
 @_ZTVN6google8protobuf10Int32ValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf10Int32ValueE, ptr @_ZN6google8protobuf10Int32ValueD1Ev, ptr @_ZN6google8protobuf10Int32ValueD0Ev, ptr @_ZNK6google8protobuf10Int32Value3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf10Int32Value5ClearEv, ptr @_ZNK6google8protobuf10Int32Value13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf10Int32Value12ByteSizeLongEv, ptr @_ZN6google8protobuf10Int32Value14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf10Int32Value12GetClassDataEv, ptr @_ZNK6google8protobuf10Int32Value18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf10Int32Value11GetMetadataEv] }, align 8
-@_ZN6google8protobuf29_Int32Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.7 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.7 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.7 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int32ValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.7 zeroinitializer } } }, align 8
+@_ZN6google8protobuf29_Int32Value_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.7 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.7 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.7 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int32ValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.7 zeroinitializer } } }, align 8
 @_ZTVN6google8protobuf10FloatValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf10FloatValueE, ptr @_ZN6google8protobuf10FloatValueD1Ev, ptr @_ZN6google8protobuf10FloatValueD0Ev, ptr @_ZNK6google8protobuf10FloatValue3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf10FloatValue5ClearEv, ptr @_ZNK6google8protobuf10FloatValue13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf10FloatValue12ByteSizeLongEv, ptr @_ZN6google8protobuf10FloatValue14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf10FloatValue12GetClassDataEv, ptr @_ZNK6google8protobuf10FloatValue18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf10FloatValue11GetMetadataEv] }, align 8
-@_ZN6google8protobuf29_FloatValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.9 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.9 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.9 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10FloatValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.9 zeroinitializer } } }, align 8
+@_ZN6google8protobuf29_FloatValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.9 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.9 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.9 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10FloatValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.9 zeroinitializer } } }, align 8
 @_ZTVN6google8protobuf11DoubleValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf11DoubleValueE, ptr @_ZN6google8protobuf11DoubleValueD1Ev, ptr @_ZN6google8protobuf11DoubleValueD0Ev, ptr @_ZNK6google8protobuf11DoubleValue3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf11DoubleValue5ClearEv, ptr @_ZNK6google8protobuf11DoubleValue13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf11DoubleValue12ByteSizeLongEv, ptr @_ZN6google8protobuf11DoubleValue14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf11DoubleValue12GetClassDataEv, ptr @_ZNK6google8protobuf11DoubleValue18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf11DoubleValue11GetMetadataEv] }, align 8
-@_ZN6google8protobuf30_DoubleValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { double, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { double, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { double, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11DoubleValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { double, %"class.google::protobuf::internal::CachedSize" } } zeroinitializer } } }, align 8
+@_ZN6google8protobuf30_DoubleValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { double, %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { double, %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { double, %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11DoubleValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { double, %"class.google::protobuf::internal::CachedSize" } } zeroinitializer } } }, align 8
 @_ZTVN6google8protobuf10BytesValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf10BytesValueE, ptr @_ZN6google8protobuf10BytesValueD1Ev, ptr @_ZN6google8protobuf10BytesValueD0Ev, ptr @_ZNK6google8protobuf10BytesValue3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf10BytesValue5ClearEv, ptr @_ZNK6google8protobuf10BytesValue13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf10BytesValue12ByteSizeLongEv, ptr @_ZN6google8protobuf10BytesValue14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf10BytesValue12GetClassDataEv, ptr @_ZNK6google8protobuf10BytesValue18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf10BytesValue11GetMetadataEv] }, align 8
-@_ZN6google8protobuf29_BytesValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10BytesValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } { %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } } } }, align 8
+@_ZN6google8protobuf29_BytesValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10BytesValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } } { { %"struct.google::protobuf::internal::ArenaStringPtr", %"class.google::protobuf::internal::CachedSize" } { %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } } } }, align 8
 @_ZTVN6google8protobuf9BoolValueE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf9BoolValueE, ptr @_ZN6google8protobuf9BoolValueD1Ev, ptr @_ZN6google8protobuf9BoolValueD0Ev, ptr @_ZNK6google8protobuf9BoolValue3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf9BoolValue5ClearEv, ptr @_ZNK6google8protobuf9BoolValue13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf9BoolValue12ByteSizeLongEv, ptr @_ZN6google8protobuf9BoolValue14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf9BoolValue12GetClassDataEv, ptr @_ZNK6google8protobuf9BoolValue18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf9BoolValue11GetMetadataEv] }, align 8
-@_ZN6google8protobuf28_BoolValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.15 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.15 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.15 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9BoolValueE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.15 zeroinitializer } } }, align 8
+@_ZN6google8protobuf28_BoolValue_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.15 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.15 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.15 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9BoolValueE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.15 zeroinitializer } } }, align 8
 @_ZN48TableStruct_google_2fprotobuf_2fwrappers_2eproto7offsetsE = constant [81 x i32] [i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16], section "protodesc_cold", align 16
 @_ZL62descriptor_table_protodef_google_2fprotobuf_2fwrappers_2eproto = internal constant [456 x i8] c"\0A\1Egoogle/protobuf/wrappers.proto\12\0Fgoogle.protobuf\22\1C\0A\0BDoubleValue\12\0D\0A\05value\18\01 \01(\01\22\1B\0A\0AFloatValue\12\0D\0A\05value\18\01 \01(\02\22\1B\0A\0AInt64Value\12\0D\0A\05value\18\01 \01(\03\22\1C\0A\0BUInt64Value\12\0D\0A\05value\18\01 \01(\04\22\1B\0A\0AInt32Value\12\0D\0A\05value\18\01 \01(\05\22\1C\0A\0BUInt32Value\12\0D\0A\05value\18\01 \01(\0D\22\1A\0A\09BoolValue\12\0D\0A\05value\18\01 \01(\08\22\1C\0A\0BStringValue\12\0D\0A\05value\18\01 \01(\09\22\1B\0A\0ABytesValue\12\0D\0A\05value\18\01 \01(\0CB\83\01\0A\13com.google.protobufB\0DWrappersProtoP\01Z1google.golang.org/protobuf/types/known/wrapperspb\F8\01\01\A2\02\03GPB\AA\02\1EGoogle.Protobuf.WellKnownTypesb\06proto3\00", section "protodesc_cold", align 16
 @.str = private unnamed_addr constant [31 x i8] c"google/protobuf/wrappers.proto\00", align 1
@@ -174,7 +174,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11DoubleValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11DoubleValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_cached_size_.i.i, align 8
@@ -190,7 +190,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11DoubleValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11DoubleValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_cached_size_.i.i.i, align 8
@@ -492,7 +492,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10FloatValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10FloatValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_.i.i, align 4
@@ -506,7 +506,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10FloatValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10FloatValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_.i.i.i, align 4
@@ -781,7 +781,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int64ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int64ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_cached_size_.i.i, align 8
@@ -795,7 +795,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int64ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int64ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_cached_size_.i.i.i, align 8
@@ -1089,7 +1089,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt64ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt64ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_cached_size_.i.i, align 8
@@ -1103,7 +1103,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt64ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt64ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_cached_size_.i.i.i, align 8
@@ -1397,7 +1397,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int32ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int32ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_.i.i, align 4
@@ -1411,7 +1411,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int32ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10Int32ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_.i.i.i, align 4
@@ -1713,7 +1713,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt32ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt32ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_.i.i, align 4
@@ -1727,7 +1727,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt32ValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11UInt32ValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_.i.i.i, align 4
@@ -2028,7 +2028,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9BoolValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9BoolValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_.i.i, align 4
@@ -2042,7 +2042,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9BoolValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf9BoolValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_.i.i.i, align 4
@@ -2322,7 +2322,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11StringValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11StringValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %1, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2336,7 +2336,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11StringValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf11StringValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i14 = and i64 %1, 1
@@ -2722,7 +2722,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10BytesValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10BytesValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %1, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2736,7 +2736,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10BytesValueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf10BytesValueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i14 = and i64 %1, 1

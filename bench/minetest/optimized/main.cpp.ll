@@ -976,7 +976,7 @@ define internal void @__cxx_global_array_dtor(ptr nocapture readnone %0) #5 sect
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13FileLogOutputD2Ev(ptr noundef nonnull align 8 dereferenceable(520) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13FileLogOutput, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13FileLogOutput, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %2) #31
   ret void
@@ -4207,7 +4207,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   %1517 = load i64, ptr %1383, align 8
   %1518 = getelementptr inbounds i8, ptr %5, i64 %1517
   store ptr %1382, ptr %1518, align 8, !tbaa !15, !noalias !180
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %1384, align 8, !tbaa !15, !noalias !180
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %1384, align 8, !tbaa !15, !noalias !180
   %1519 = load ptr, ptr %1385, align 8, !tbaa !11, !noalias !180
   %1520 = icmp eq ptr %1519, %1386
   br i1 %1520, label %1521, label %1524
@@ -4223,7 +4223,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
   br label %1525
 
 1525:                                             ; preds = %1524, %1521
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %1384, align 8, !tbaa !15, !noalias !180
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %1384, align 8, !tbaa !15, !noalias !180
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1388) #31
   store ptr %1389, ptr %5, align 8, !tbaa !15, !noalias !180
   %1526 = load i64, ptr %1391, align 8
@@ -17858,7 +17858,7 @@ define internal fastcc noundef zeroext i1 @_ZL20run_dedicated_serverRK10GamePara
   %1698 = getelementptr inbounds i8, ptr %17, i64 %1697
   store ptr %1695, ptr %1698, align 8, !tbaa !15
   %1699 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %1699, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %1699, align 8, !tbaa !15
   %1700 = getelementptr inbounds i8, ptr %17, i64 80
   %1701 = load ptr, ptr %1700, align 8, !tbaa !11
   %1702 = getelementptr inbounds i8, ptr %17, i64 96
@@ -17877,7 +17877,7 @@ define internal fastcc noundef zeroext i1 @_ZL20run_dedicated_serverRK10GamePara
   br label %1709
 
 1709:                                             ; preds = %1708, %1704
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %1699, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %1699, align 8, !tbaa !15
   %1710 = getelementptr inbounds i8, ptr %17, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1710) #31
   %1711 = getelementptr inbounds i8, ptr %17, i64 112
@@ -17891,7 +17891,7 @@ define internal fastcc noundef zeroext i1 @_ZL20run_dedicated_serverRK10GamePara
   %1716 = getelementptr inbounds i8, ptr %16, i64 %1715
   store ptr %1713, ptr %1716, align 8, !tbaa !15
   %1717 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %1717, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %1717, align 8, !tbaa !15
   %1718 = getelementptr inbounds i8, ptr %16, i64 88
   %1719 = load ptr, ptr %1718, align 8, !tbaa !11
   %1720 = getelementptr inbounds i8, ptr %16, i64 104
@@ -17910,7 +17910,7 @@ define internal fastcc noundef zeroext i1 @_ZL20run_dedicated_serverRK10GamePara
   br label %1727
 
 1727:                                             ; preds = %1726, %1722
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %1717, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %1717, align 8, !tbaa !15
   %1728 = getelementptr inbounds i8, ptr %16, i64 72
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1728) #31
   %1729 = load ptr, ptr getelementptr inbounds ([4 x ptr], ptr @_ZTTNSt7__cxx1119basic_istringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 1), align 8
@@ -25655,7 +25655,7 @@ define internal void @_GLOBAL__sub_I_main.cpp() #25 section ".text.startup" pers
   store i8 0, ptr %103, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #31
   %104 = call i32 @__cxa_atexit(ptr nonnull @__cxx_global_array_dtor, ptr null, ptr nonnull @__dso_handle) #31
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13FileLogOutput, i64 0, inrange i32 0, i64 2), ptr @file_log_output, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV13FileLogOutput, i64 0, i32 0, i64 2), ptr @file_log_output, align 8, !tbaa !15
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) getelementptr inbounds (%class.FileLogOutput, ptr @file_log_output, i64 0, i32 1, i32 0, i32 0))
   %105 = call i32 @__cxa_atexit(ptr nonnull @_ZN13FileLogOutputD2Ev, ptr nonnull @file_log_output, ptr nonnull @__dso_handle) #31
   store i32 0, ptr getelementptr inbounds (%"class.std::map", ptr @_ZL15allowed_optionsB5cxx11, i64 0, i32 0, i32 0, i32 1, i32 0, i32 0), align 8, !tbaa !394

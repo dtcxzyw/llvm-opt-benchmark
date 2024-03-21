@@ -32,7 +32,7 @@ entry:
   store ptr %parentList, ptr %parentList.addr, align 8
   store i32 %parentListLength, ptr %parentListLength.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %list = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 8
   %0 = load ptr, ptr %parentList.addr, align 8
   store ptr %0, ptr %list, align 8
@@ -774,7 +774,7 @@ entry:
   store ptr %newParentList, ptr %newParentList.addr, align 8
   store i32 %newParentListLength, ptr %newParentListLength.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756BMPSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %containsFFFD = getelementptr inbounds %"class.icu_75::BMPSet", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %otherBMPSet.addr, align 8
   %containsFFFD2 = getelementptr inbounds %"class.icu_75::BMPSet", ptr %0, i32 0, i32 2

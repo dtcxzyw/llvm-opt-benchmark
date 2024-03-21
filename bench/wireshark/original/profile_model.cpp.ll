@@ -1950,7 +1950,7 @@ define void @_ZN16ProfileSortModelC2EP7QObject(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ProfileSortModel, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV16ProfileSortModel, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.ProfileSortModel, ptr %5, i32 0, i32 1
   store i32 0, ptr %7, align 8
   %8 = getelementptr inbounds %class.ProfileSortModel, ptr %5, i32 0, i32 2
@@ -2942,7 +2942,7 @@ define void @_ZN12ProfileModelC2EP7QObject(ptr noundef nonnull align 8 dereferen
   %10 = load ptr, ptr %3, align 8
   %11 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 3
   call void @_ZN5QListIP11profile_defEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #1
   %13 = getelementptr inbounds %class.ProfileModel, ptr %10, i32 0, i32 4
@@ -14187,7 +14187,7 @@ define linkonce_odr void @_ZN12ProfileModelD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #1
   %5 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 4

@@ -116,7 +116,7 @@ define void @_ZN5draco23CreatePointCloudDecoderEa(ptr dead_on_unwind noalias wri
           to label %_ZNSt10unique_ptrIN5draco17PointCloudDecoderESt14default_deleteIS1_EED2Ev.exit unwind label %11
 
 _ZNSt10unique_ptrIN5draco17PointCloudDecoderESt14default_deleteIS1_EED2Ev.exit: ; preds = %6
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5draco27PointCloudSequentialDecoderE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5draco27PointCloudSequentialDecoderE, i64 0, i32 0, i64 2), ptr %7, align 8
   store i32 0, ptr %0, align 8, !alias.scope !4
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #14
@@ -138,7 +138,7 @@ _ZNSt10unique_ptrIN5draco17PointCloudDecoderESt14default_deleteIS1_EED2Ev.exit: 
           to label %_ZNSt10unique_ptrIN5draco17PointCloudDecoderESt14default_deleteIS1_EED2Ev.exit16 unwind label %18
 
 _ZNSt10unique_ptrIN5draco17PointCloudDecoderESt14default_deleteIS1_EED2Ev.exit16: ; preds = %13
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5draco23PointCloudKdTreeDecoderE, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN5draco23PointCloudKdTreeDecoderE, i64 0, i32 0, i64 2), ptr %14, align 8
   store i32 0, ptr %0, align 8, !alias.scope !7
   %15 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #14

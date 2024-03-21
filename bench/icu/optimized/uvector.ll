@@ -35,7 +35,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVectorC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %elements.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -74,7 +74,7 @@ _ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, i32 noundef %initialCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %count = getelementptr inbounds i8, ptr %this, i64 8
   %capacity = getelementptr inbounds i8, ptr %this, i64 12
   %elements = getelementptr inbounds i8, ptr %this, i64 16
@@ -122,7 +122,7 @@ if.end12:                                         ; preds = %entry, %if.else, %i
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVectorC2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, i32 noundef %initialCapacity, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %elements.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -166,7 +166,7 @@ _ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode.exit: ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef %d, ptr noundef %c, ptr nocapture noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %count.i = getelementptr inbounds i8, ptr %this, i64 8
   %capacity.i = getelementptr inbounds i8, ptr %this, i64 12
   %elements.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -217,7 +217,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_757UVectorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UVectorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %deleter.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %deleter.i, align 8
   %cmp.not.i = icmp eq ptr %0, null

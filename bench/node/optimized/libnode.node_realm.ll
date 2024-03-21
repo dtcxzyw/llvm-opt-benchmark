@@ -377,7 +377,7 @@ if.end.i400:
   %ref.tmp = alloca %"struct.node::ContextInfo", align 8
   %ref.tmp7 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp8 = alloca %"class.std::allocator.117", align 1
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node5RealmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node5RealmE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -422,7 +422,7 @@ if.end.i400:
   %base_object_count_ = getelementptr inbounds i8, ptr %this, i64 688
   %cleanup_queue_ = getelementptr inbounds i8, ptr %this, i64 800
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %base_object_count_, i8 0, i64 112, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, inrange i32 0, i64 2), ptr %cleanup_queue_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, i32 0, i64 2), ptr %cleanup_queue_, align 8
   %cleanup_hooks_.i = getelementptr inbounds i8, ptr %this, i64 808
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 856
   store ptr %_M_single_bucket.i.i.i, ptr %cleanup_hooks_.i, align 8
@@ -473,7 +473,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node5RealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node5RealmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node5RealmE, i64 0, i32 0, i64 2), ptr %this, align 8
   %base_object_count_ = getelementptr inbounds i8, ptr %this, i64 688
   %0 = load i64, ptr %base_object_count_, align 8
   %cmp.not = icmp eq i64 %0, 0
@@ -486,7 +486,7 @@ do.body4:                                         ; preds = %entry
 
 do.end6:                                          ; preds = %entry
   %cleanup_queue_ = getelementptr inbounds i8, ptr %this, i64 800
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, inrange i32 0, i64 2), ptr %cleanup_queue_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, i32 0, i64 2), ptr %cleanup_queue_, align 8
   %cleanup_hooks_.i = getelementptr inbounds i8, ptr %this, i64 808
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 824
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -1273,7 +1273,7 @@ declare void @abort() local_unnamed_addr #5
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node12CleanupQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cleanup_hooks_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -13451,7 +13451,7 @@ _ZN2v814PersistentBaseINS_8FunctionEE5ResetIS1_EEvPNS_7IsolateERKNS_5LocalIT_EE.
 define dso_local void @_ZN4node14PrincipalRealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEEPKNS_18RealmSerializeInfoE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef %env, ptr %context.coerce, ptr noundef readnone %realm_info) unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN4node5RealmC2EPNS_11EnvironmentEN2v85LocalINS3_7ContextEEENS0_4KindE(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef %env, ptr %context.coerce, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cmp = icmp eq ptr %realm_info, null
   br i1 %cmp, label %if.then, label %if.end
 
@@ -13467,7 +13467,7 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local void @_ZN4node14PrincipalRealmD2Ev(ptr noundef nonnull align 8 dereferenceable(872) %this) unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i64 0, i32 0, i64 2), ptr %this, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %0) #18
@@ -13490,7 +13490,7 @@ define dso_local void @_ZN4node14PrincipalRealmD0Ev(ptr noundef nonnull align 8 
 entry:
   %handle_scope.i = alloca %"class.v8::HandleScope", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %handle_scope.i)
-  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [132 x ptr] }, ptr @_ZTVN4node14PrincipalRealmE, i64 0, i32 0, i64 2), ptr %this, align 8
   %isolate_.i.i = getelementptr inbounds i8, ptr %this, i64 184
   %0 = load ptr, ptr %isolate_.i.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope.i, ptr noundef %0) #18
@@ -13773,7 +13773,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node12CleanupQueueD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cleanup_hooks_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -14290,7 +14290,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.296", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %retainer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -14983,7 +14983,7 @@ entry:
   %n = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %is_root_node_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -15092,7 +15092,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #22
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40

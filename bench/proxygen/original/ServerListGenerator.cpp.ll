@@ -838,7 +838,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen19ServerListGenerator8CallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %this1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18ServerListCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18ServerListCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %status = getelementptr inbounds %"class.proxygen::ServerListCallback", ptr %this1, i32 0, i32 1
   store i32 0, ptr %status, align 4
   %servers = getelementptr inbounds %"class.proxygen::ServerListCallback", ptr %this1, i32 0, i32 2
@@ -970,7 +970,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18ServerListCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8proxygen18ServerListCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %errorPtr = getelementptr inbounds %"class.proxygen::ServerListCallback", ptr %this1, i32 0, i32 3
   call void @_ZNSt15__exception_ptr13exception_ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %errorPtr) #12
   %servers = getelementptr inbounds %"class.proxygen::ServerListCallback", ptr %this1, i32 0, i32 2
@@ -988,7 +988,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8proxygen19ServerListGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
   %0 = load ptr, ptr %vfn, align 8
@@ -1147,7 +1147,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %gen_ = getelementptr inbounds %"class.proxygen::ServerListGenerator::Callback", ptr %this1, i32 0, i32 1
   store ptr null, ptr %gen_, align 8
   %takeOwnershipOfGenerator_ = getelementptr inbounds %"class.proxygen::ServerListGenerator::Callback", ptr %this1, i32 0, i32 2
@@ -1235,7 +1235,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen19ServerListGenerator8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN8proxygen19ServerListGenerator8Callback23cancelServerListRequestEv(ptr noundef nonnull align 8 dereferenceable(17) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 

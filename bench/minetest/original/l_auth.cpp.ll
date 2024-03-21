@@ -285,7 +285,7 @@ define dso_local noundef ptr @_ZN10ModApiAuth9getAuthDbEP9lua_State(ptr noundef 
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = icmp eq ptr %5, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, inrange i32 0, i64 2)
+  %6 = icmp eq ptr %5, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, i32 0, i64 2)
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4, %1
@@ -376,7 +376,7 @@ define dso_local noundef i32 @_ZN10ModApiAuth11l_auth_readEP9lua_State(ptr nound
 
 7:                                                ; preds = %1
   %8 = load ptr, ptr %5, align 8, !tbaa !12
-  %9 = icmp eq ptr %8, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, inrange i32 0, i64 2)
+  %9 = icmp eq ptr %8, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, i32 0, i64 2)
   br i1 %9, label %12, label %10
 
 10:                                               ; preds = %7, %1
@@ -715,7 +715,7 @@ define dso_local noundef i32 @_ZN10ModApiAuth11l_auth_saveEP9lua_State(ptr nound
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %4, align 8, !tbaa !12
-  %8 = icmp eq ptr %7, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, inrange i32 0, i64 2)
+  %8 = icmp eq ptr %7, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, i32 0, i64 2)
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6, %1
@@ -1077,7 +1077,7 @@ define dso_local noundef i32 @_ZN10ModApiAuth13l_auth_createEP9lua_State(ptr nou
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %4, align 8, !tbaa !12
-  %8 = icmp eq ptr %7, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, inrange i32 0, i64 2)
+  %8 = icmp eq ptr %7, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, i32 0, i64 2)
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6, %1
@@ -1321,7 +1321,7 @@ define dso_local noundef i32 @_ZN10ModApiAuth13l_auth_deleteEP9lua_State(ptr nou
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %4, align 8, !tbaa !12
-  %8 = icmp eq ptr %7, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, inrange i32 0, i64 2)
+  %8 = icmp eq ptr %7, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, i32 0, i64 2)
   br i1 %8, label %11, label %9
 
 9:                                                ; preds = %6, %1
@@ -1449,7 +1449,7 @@ define dso_local noundef i32 @_ZN10ModApiAuth17l_auth_list_namesEP9lua_State(ptr
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr %3, align 8, !tbaa !12
-  %7 = icmp eq ptr %6, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, inrange i32 0, i64 2)
+  %7 = icmp eq ptr %6, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, i32 0, i64 2)
   br i1 %7, label %10, label %8
 
 8:                                                ; preds = %5, %1
@@ -1640,7 +1640,7 @@ define dso_local noundef i32 @_ZN10ModApiAuth13l_auth_reloadEP9lua_State(ptr nou
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %2, align 8, !tbaa !12
-  %6 = icmp eq ptr %5, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, inrange i32 0, i64 2)
+  %6 = icmp eq ptr %5, getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17ServerEnvironment, i64 0, i32 0, i64 2)
   br i1 %6, label %9, label %7
 
 7:                                                ; preds = %4, %1

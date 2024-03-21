@@ -662,7 +662,7 @@ define void @_ZN17ExtArgMultiSelectC2EP11_extcap_argP7QObject(ptr noundef nonnul
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN14ExtcapArgumentC2EP11_extcap_argP7QObject(ptr noundef nonnull align 8 dereferenceable(88) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV17ExtArgMultiSelect, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV17ExtArgMultiSelect, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.ExtArgMultiSelect, ptr %7, i32 0, i32 1
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds %class.ExtArgMultiSelect, ptr %7, i32 0, i32 2
@@ -677,7 +677,7 @@ define void @_ZN17ExtArgMultiSelectD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV17ExtArgMultiSelect, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV17ExtArgMultiSelect, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ExtArgMultiSelect, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
@@ -7379,7 +7379,7 @@ define linkonce_odr void @_ZN11ExtcapValueC2ERKS_(ptr noundef nonnull align 8 de
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV11ExtcapValue, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.ExtcapValue, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %class.ExtcapValue, ptr %7, i32 0, i32 1

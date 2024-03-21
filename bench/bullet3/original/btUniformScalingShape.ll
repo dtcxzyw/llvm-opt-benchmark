@@ -102,7 +102,7 @@ entry:
   store float %uniformScalingFactor, ptr %uniformScalingFactor.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN13btConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21btUniformScalingShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV21btUniformScalingShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_childConvexShape = getelementptr inbounds %class.btUniformScalingShape, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %convexChildShape.addr, align 8
   store ptr %0, ptr %m_childConvexShape, align 8

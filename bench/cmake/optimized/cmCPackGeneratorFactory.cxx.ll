@@ -1204,7 +1204,7 @@ define linkonce_odr dso_local noundef ptr @_ZN21cmCPackNuGetGenerator15CreateGen
           to label %2 unwind label %3
 
 2:                                                ; preds = %0
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV21cmCPackNuGetGenerator, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV21cmCPackNuGetGenerator, i64 0, i32 0, i64 2), ptr %1, align 8
   ret ptr %1
 
 3:                                                ; preds = %0
@@ -1221,7 +1221,7 @@ define linkonce_odr dso_local noundef ptr @_ZN24cmCPackExternalGenerator15Create
           to label %2 unwind label %4
 
 2:                                                ; preds = %0
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV24cmCPackExternalGenerator, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV24cmCPackExternalGenerator, i64 0, i32 0, i64 2), ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %1, i64 360
   store ptr null, ptr %3, align 8
   ret ptr %1

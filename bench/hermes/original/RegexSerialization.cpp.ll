@@ -6978,7 +6978,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.51", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %vals.addr, align 8
   call void @_ZNSt5tupleIJcEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKcEEEbE4typeELb1EEES4_(ptr noundef nonnull align 1 dereferenceable(1) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %1) #10
@@ -6994,7 +6994,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %fmt, ptr %fmt.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh18format_object_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Fmt = getelementptr inbounds %"class.llvh::format_object_base", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fmt.addr, align 8
   store ptr %0, ptr %Fmt, align 8
@@ -7292,7 +7292,7 @@ entry:
   %this9 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this9, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjhEEE, i32 0, inrange i32 0, i32 2), ptr %this9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjhEEE, i32 0, i32 0, i32 2), ptr %this9, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.58", ptr %this9, i32 0, i32 1
   %1 = load ptr, ptr %vals.addr, align 8
   %2 = load ptr, ptr %vals.addr2, align 8
@@ -7838,7 +7838,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.89", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %vals.addr, align 8
   call void @_ZNSt5tupleIJhEEC2ILb1ETnNSt9enable_ifIXclsr4_TCCIXT_EEE29__is_implicitly_constructibleIRKhEEEbE4typeELb1EEES4_(ptr noundef nonnull align 1 dereferenceable(1) %Vals, ptr noundef nonnull align 1 dereferenceable(1) %1) #10
@@ -8009,7 +8009,7 @@ entry:
   %this7 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this7, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjEEE, i32 0, inrange i32 0, i32 2), ptr %this7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjEEE, i32 0, i32 0, i32 2), ptr %this7, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object.95", ptr %this7, i32 0, i32 1
   %1 = load ptr, ptr %vals.addr, align 8
   %2 = load ptr, ptr %vals.addr2, align 8
@@ -11987,7 +11987,7 @@ entry:
   %this7 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %fmt.addr, align 8
   call void @_ZN4llvh18format_object_baseC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this7, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJtthhEEE, i32 0, inrange i32 0, i32 2), ptr %this7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJtthhEEE, i32 0, i32 0, i32 2), ptr %this7, align 8
   %Vals = getelementptr inbounds %"class.llvh::format_object", ptr %this7, i32 0, i32 1
   %1 = load ptr, ptr %vals.addr, align 8
   %2 = load ptr, ptr %vals.addr2, align 8
@@ -17510,7 +17510,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -19116,7 +19116,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes5regex4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex8GoalNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex8GoalNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -20771,7 +20771,7 @@ entry:
   store ptr %chars, ptr %chars.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6hermes5regex4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %chars_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh11SmallVectorIjLj5EEC2EOS1_(ptr noundef nonnull align 8 dereferenceable(36) %chars_, ptr noundef nonnull align 8 dereferenceable(36) %chars)
   %icase_ = getelementptr inbounds %"class.hermes::regex::MatchCharNode", ptr %this1, i32 0, i32 2

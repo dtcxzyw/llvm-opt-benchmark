@@ -6743,7 +6743,7 @@ define linkonce_odr void @_ZN18MeshLabApplicationC2ERiPPc(ptr noundef nonnull al
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN12QApplicationC2ERiPPci(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef %9, i32 noundef 331523)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18MeshLabApplication, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18MeshLabApplication, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -7254,7 +7254,7 @@ define linkonce_odr void @_ZN13FileOpenEaterC2EP10MainWindow(ptr noundef nonnull
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef null)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13FileOpenEater, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV13FileOpenEater, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds %class.FileOpenEater, ptr %5, i32 0, i32 1
   store ptr %6, ptr %7, align 8

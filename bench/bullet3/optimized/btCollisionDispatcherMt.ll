@@ -74,7 +74,7 @@ invoke.cont3:
   %ref.tmp = alloca %class.btAlignedObjectArray, align 8
   %ref.tmp19 = alloca %class.btAlignedObjectArray, align 8
   tail call void @_ZN21btCollisionDispatcherC2EP24btCollisionConfiguration(ptr noundef nonnull align 8 dereferenceable(20816) %this, ptr noundef %config)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_batchManifoldsPtr = getelementptr inbounds i8, ptr %this, i64 20816
   %m_ownsMemory.i.i = getelementptr inbounds i8, ptr %this, i64 20840
   store i8 1, ptr %m_ownsMemory.i.i, align 8
@@ -982,7 +982,7 @@ entry:
   br i1 %cmp, label %return, label %if.end
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26CollisionDispatcherUpdater, i64 0, inrange i32 0, i64 2), ptr %updater, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV26CollisionDispatcherUpdater, i64 0, i32 0, i64 2), ptr %updater, align 8
   %mPairArray.i = getelementptr inbounds i8, ptr %updater, i64 8
   %m_nearCallback.i = getelementptr inbounds i8, ptr %this, i64 48
   %1 = load ptr, ptr %m_nearCallback.i, align 8
@@ -1279,7 +1279,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23btCollisionDispatcherMtD2Ev(ptr noundef nonnull align 8 dereferenceable(20888) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_batchReleasePtr = getelementptr inbounds i8, ptr %this, i64 20848
   tail call void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_batchReleasePtr) #8
   %m_batchManifoldsPtr = getelementptr inbounds i8, ptr %this, i64 20816
@@ -1291,7 +1291,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN23btCollisionDispatcherMtD0Ev(ptr noundef nonnull align 8 dereferenceable(20888) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btCollisionDispatcherMt, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_batchReleasePtr.i = getelementptr inbounds i8, ptr %this, i64 20848
   tail call void @_ZN20btAlignedObjectArrayIS_IP20btPersistentManifoldEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_batchReleasePtr.i) #8
   %m_batchManifoldsPtr.i = getelementptr inbounds i8, ptr %this, i64 20816

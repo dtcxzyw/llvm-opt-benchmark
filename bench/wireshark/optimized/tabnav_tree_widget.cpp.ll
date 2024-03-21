@@ -37,9 +37,9 @@ $_ZThn16_N16TabnavTreeWidgetD0Ev = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN16TabnavTreeWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   tail call void @_ZN11QTreeWidgetC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [104 x ptr], [10 x ptr] }, ptr @_ZTV16TabnavTreeWidget, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [104 x ptr], [10 x ptr] }, ptr @_ZTV16TabnavTreeWidget, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [104 x ptr], [10 x ptr] }, ptr @_ZTV16TabnavTreeWidget, i64 0, inrange i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [104 x ptr], [10 x ptr] }, ptr @_ZTV16TabnavTreeWidget, i64 0, i32 1, i64 2), ptr %3, align 8
   ret void
 }
 

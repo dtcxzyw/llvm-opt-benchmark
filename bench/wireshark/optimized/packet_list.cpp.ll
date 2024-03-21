@@ -1190,9 +1190,9 @@ define void @_ZN10PacketListC2EP7QWidget(ptr noundef nonnull align 8 dereference
   %29 = alloca %"class.QMetaObject::Connection", align 8
   %30 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i64 0, i32 0, i64 2), ptr %0, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i64 0, inrange i32 1, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i64 0, i32 1, i64 2), ptr %31, align 8
   %32 = getelementptr inbounds i8, ptr %0, i64 56
   %33 = getelementptr inbounds i8, ptr %0, i64 64
   %34 = getelementptr inbounds i8, ptr %0, i64 72
@@ -2213,7 +2213,7 @@ _ZN17QArrayDataPointerIP7QActionED2Ev.exit:       ; preds = %1, %_ZN17QArrayData
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN21RelatedPacketDelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(36) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2328,9 +2328,9 @@ declare void @_ZN9QTreeViewD2Ev(ptr noundef nonnull align 8 dereferenceable(40))
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN10PacketListD2Ev(ptr noundef nonnull align 8 dereferenceable(464) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV10PacketList, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 456
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -2390,7 +2390,7 @@ _ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i: ; preds = %_ZN5QListI11QMode
 
 _ZN5QListIP7QActionED2Ev.exit:                    ; preds = %_ZN5QListI11QModelIndexED2Ev.exit, %_ZN17QArrayDataPointerIP7QActionE5derefEv.exit.i.i, %21
   %23 = getelementptr inbounds i8, ptr %0, i64 296
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21RelatedPacketDelegate, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 312
   %25 = load ptr, ptr %24, align 8
   %.not.i.i5 = icmp eq ptr %25, null

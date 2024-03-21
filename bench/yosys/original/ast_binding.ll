@@ -536,7 +536,7 @@ define void @_ZN5Yosys3AST7BindingC2ENS_5RTLIL8IdStringES3_RKNS0_7AstNodeE(ptr n
 15:                                               ; preds = %14
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %10) #3
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %9) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Yosys3AST7BindingE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Yosys3AST7BindingE, i32 0, i32 0, i32 2), ptr %13, align 8
   %16 = getelementptr inbounds %"class.Yosys::AST::Binding", ptr %13, i32 0, i32 1
   %17 = load ptr, ptr %8, align 8
   %18 = invoke noundef ptr @_ZNK5Yosys3AST7AstNode5cloneEv(ptr noundef nonnull align 8 dereferenceable(284) %17)
@@ -859,7 +859,7 @@ define linkonce_odr void @_ZN5Yosys3AST7BindingD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Yosys3AST7BindingE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Yosys3AST7BindingE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Yosys::AST::Binding", ptr %3, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN5Yosys3AST7AstNodeESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN5Yosys5RTLIL7BindingD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %3) #3
@@ -4613,7 +4613,7 @@ define linkonce_odr void @_ZN5Yosys5RTLIL7BindingD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Yosys5RTLIL7BindingE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Yosys5RTLIL7BindingE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %3, i32 0, i32 3
   call void @_ZN5Yosys5RTLIL8IdStringD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %4) #3
   %5 = getelementptr inbounds %"struct.Yosys::RTLIL::Binding", ptr %3, i32 0, i32 2

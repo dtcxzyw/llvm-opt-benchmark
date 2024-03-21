@@ -995,7 +995,7 @@ entry:
   %frombool2 = zext i1 %0 to i8
   store i8 %frombool2, ptr %.addr, align 1
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11btMultiBody, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11btMultiBody, i32 0, i32 0, i32 2), ptr %this3, align 8
   %m_baseCollider = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 1
   store ptr null, ptr %m_baseCollider, align 8
   %m_baseName = getelementptr inbounds %class.btMultiBody, ptr %this3, i32 0, i32 2
@@ -2236,7 +2236,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11btMultiBody, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11btMultiBody, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_matrixBuf = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 19
   call void @_ZN20btAlignedObjectArrayI11btMatrix3x3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_matrixBuf) #10
   %m_vectorBuf = getelementptr inbounds %class.btMultiBody, ptr %this1, i32 0, i32 18

@@ -221,7 +221,7 @@ entry:
   store i32 %sense, ptr %sense.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3ue217ComponentSequenceC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue218ComponentAssertionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue218ComponentAssertionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_dir = getelementptr inbounds %"class.ue2::ComponentAssertion", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %dir.addr, align 4
   store i32 %0, ptr %m_dir, align 8
@@ -306,7 +306,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3ue217ComponentSequenceC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(88) %this1, ptr noundef nonnull align 8 dereferenceable(88) %1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue218ComponentAssertionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue218ComponentAssertionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_dir = getelementptr inbounds %"class.ue2::ComponentAssertion", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %m_dir2 = getelementptr inbounds %"class.ue2::ComponentAssertion", ptr %2, i32 0, i32 1

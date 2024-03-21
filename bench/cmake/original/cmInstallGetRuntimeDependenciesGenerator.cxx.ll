@@ -546,7 +546,7 @@ define dso_local void @_ZN40cmInstallGetRuntimeDependenciesGeneratorC2EP29cmInst
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %38) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV40cmInstallGetRuntimeDependenciesGenerator, i32 0, inrange i32 0, i32 2), ptr %46, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV40cmInstallGetRuntimeDependenciesGenerator, i32 0, i32 0, i32 2), ptr %46, align 8
   %54 = getelementptr inbounds %class.cmInstallGetRuntimeDependenciesGenerator, ptr %46, i32 0, i32 1
   %55 = load ptr, ptr %20, align 8
   store ptr %55, ptr %54, align 8
@@ -1962,7 +1962,7 @@ define linkonce_odr dso_local void @_ZN40cmInstallGetRuntimeDependenciesGenerato
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV40cmInstallGetRuntimeDependenciesGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV40cmInstallGetRuntimeDependenciesGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmInstallGetRuntimeDependenciesGenerator, ptr %3, i32 0, i32 10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.cmInstallGetRuntimeDependenciesGenerator, ptr %3, i32 0, i32 9

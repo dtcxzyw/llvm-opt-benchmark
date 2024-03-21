@@ -8734,9 +8734,9 @@ entry:
   call void @_ZN9grpc_core8ActivityC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
   %2 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #3
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %call_stack_ = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData", ptr %this1, i32 0, i32 2
   %3 = load ptr, ptr %args.addr, align 8
   %call_stack = getelementptr inbounds %struct.grpc_call_element_args, ptr %3, i32 0, i32 0
@@ -8908,7 +8908,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core10OrphanableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core8ActivityE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core8ActivityE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8918,7 +8918,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9085,9 +9085,9 @@ entry:
   %ref.tmp2 = alloca %class.anon, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   invoke void @_ZN9grpc_core21promise_filter_detail12_GLOBAL__N_112FakeActivityC2EPNS_8ActivityE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -9129,7 +9129,7 @@ entry:
   store ptr %wake_activity, ptr %wake_activity.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8ActivityC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12_GLOBAL__N_112FakeActivityE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12_GLOBAL__N_112FakeActivityE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %wake_activity_ = getelementptr inbounds %"class.grpc_core::promise_filter_detail::(anonymous namespace)::FakeActivity", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %wake_activity.addr, align 8
   store ptr %0, ptr %wake_activity_, align 8
@@ -16182,9 +16182,9 @@ entry:
   %9 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %10 = load ptr, ptr %9, align 8
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallDataC2EP17grpc_call_elementPK22grpc_call_element_argshN4absl12lts_2023080211FunctionRefIFPNS1_11InterceptorEvEEESD_(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr %8, ptr %10, ptr noundef byval(%"class.absl::lts_20230802::FunctionRef") align 8 %agg.tmp2)
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %promise_ = getelementptr inbounds %"class.grpc_core::promise_filter_detail::ClientCallData", ptr %this1, i32 0, i32 2
   call void @_ZN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %promise_) #3
   %send_initial_metadata_batch_ = getelementptr inbounds %"class.grpc_core::promise_filter_detail::ClientCallData", ptr %this1, i32 0, i32 3
@@ -16625,9 +16625,9 @@ entry:
   %ref.tmp = alloca %"class.grpc_core::ClientInitialMetadataOutstandingToken", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ClientCallDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   invoke void @_ZN9grpc_core8Activity14ScopedActivityC2EPS0_(ptr noundef nonnull align 8 dereferenceable(8) %scoped_activity, ptr noundef %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -22942,9 +22942,9 @@ entry:
   %9 = getelementptr inbounds { ptr, ptr }, ptr %agg.tmp, i32 0, i32 1
   %10 = load ptr, ptr %9, align 8
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallDataC2EP17grpc_call_elementPK22grpc_call_element_argshN4absl12lts_2023080211FunctionRefIFPNS1_11InterceptorEvEEESD_(ptr noundef nonnull align 8 dereferenceable(120) %this1, ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr %8, ptr %10, ptr noundef byval(%"class.absl::lts_20230802::FunctionRef") align 8 %agg.tmp2)
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %promise_ = getelementptr inbounds %"class.grpc_core::promise_filter_detail::ServerCallData", ptr %this1, i32 0, i32 2
   call void @_ZN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEC2Ev(ptr noundef nonnull align 16 dereferenceable(32) %promise_) #3
   %recv_initial_metadata_ = getelementptr inbounds %"class.grpc_core::promise_filter_detail::ServerCallData", ptr %this1, i32 0, i32 3
@@ -23186,9 +23186,9 @@ entry:
   %ref.tmp4 = alloca %"class.std::__cxx11::basic_string", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr], [6 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail14ServerCallDataE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %call = invoke noundef zeroext i1 @_ZN9grpc_core9TraceFlag7enabledEv(ptr noundef nonnull align 8 dereferenceable(17) @grpc_trace_channel)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -29183,7 +29183,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core10OrphanableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -63976,7 +63976,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -87744,7 +87744,7 @@ entry:
   store ptr %__reason, ptr %__reason.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_reason = getelementptr inbounds %"class.std::bad_variant_access", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__reason.addr, align 8
   store ptr %0, ptr %_M_reason, align 8
@@ -87769,7 +87769,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -89474,7 +89474,7 @@ entry:
   store ptr %arena, ptr %arena.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallData11InterceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData18ReceiveInterceptorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData18ReceiveInterceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pipe_ = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData::ReceiveInterceptor", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN9grpc_core4PipeISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(16) %pipe_, ptr noundef %0)
@@ -89509,7 +89509,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData11InterceptorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData11InterceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -90062,7 +90062,7 @@ entry:
   store ptr %arena, ptr %arena.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core21promise_filter_detail12BaseCallData11InterceptorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData15SendInterceptorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core21promise_filter_detail12BaseCallData15SendInterceptorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pipe_ = getelementptr inbounds %"class.grpc_core::promise_filter_detail::BaseCallData::SendInterceptor", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN9grpc_core4PipeISt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEEEC2EPS3_(ptr noundef nonnull align 8 dereferenceable(16) %pipe_, ptr noundef %0)

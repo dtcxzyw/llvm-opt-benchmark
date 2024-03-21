@@ -1561,7 +1561,7 @@ define dso_local void @_ZN6GameUI6updateERK8RunStatsP6ClientP14MapDrawControlRK1
   %383 = getelementptr inbounds i8, ptr %17, i64 %382
   store ptr %380, ptr %383, align 8, !tbaa !38
   %384 = getelementptr inbounds i8, ptr %17, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %384, align 8, !tbaa !38
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %384, align 8, !tbaa !38
   %385 = getelementptr inbounds i8, ptr %17, i64 80
   %386 = load ptr, ptr %385, align 8, !tbaa !4
   %387 = getelementptr inbounds i8, ptr %17, i64 96
@@ -1580,7 +1580,7 @@ define dso_local void @_ZN6GameUI6updateERK8RunStatsP6ClientP14MapDrawControlRK1
   br label %394
 
 394:                                              ; preds = %393, %389
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %384, align 8, !tbaa !38
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %384, align 8, !tbaa !38
   %395 = getelementptr inbounds i8, ptr %17, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %395) #23
   %396 = getelementptr inbounds i8, ptr %17, i64 112
@@ -2205,7 +2205,7 @@ define dso_local void @_ZN6GameUI6updateERK8RunStatsP6ClientP14MapDrawControlRK1
   %765 = getelementptr inbounds i8, ptr %21, i64 %764
   store ptr %762, ptr %765, align 8, !tbaa !38
   %766 = getelementptr inbounds i8, ptr %21, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %766, align 8, !tbaa !38
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %766, align 8, !tbaa !38
   %767 = getelementptr inbounds i8, ptr %21, i64 80
   %768 = load ptr, ptr %767, align 8, !tbaa !4
   %769 = getelementptr inbounds i8, ptr %21, i64 96
@@ -2224,7 +2224,7 @@ define dso_local void @_ZN6GameUI6updateERK8RunStatsP6ClientP14MapDrawControlRK1
   br label %776
 
 776:                                              ; preds = %775, %771
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %766, align 8, !tbaa !38
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %766, align 8, !tbaa !38
   %777 = getelementptr inbounds i8, ptr %21, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %777) #23
   %778 = getelementptr inbounds i8, ptr %21, i64 112
@@ -3556,7 +3556,7 @@ define dso_local void @_ZN6GameUI14updateProfilerEv(ptr nocapture noundef nonnul
   %236 = getelementptr inbounds i8, ptr %2, i64 %235
   store ptr %233, ptr %236, align 8, !tbaa !38
   %237 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %237, align 8, !tbaa !38
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %237, align 8, !tbaa !38
   %238 = getelementptr inbounds i8, ptr %2, i64 80
   %239 = load ptr, ptr %238, align 8, !tbaa !4
   %240 = getelementptr inbounds i8, ptr %2, i64 96
@@ -3575,7 +3575,7 @@ define dso_local void @_ZN6GameUI14updateProfilerEv(ptr nocapture noundef nonnul
   br label %247
 
 247:                                              ; preds = %246, %242
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %237, align 8, !tbaa !38
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %237, align 8, !tbaa !38
   %248 = getelementptr inbounds i8, ptr %2, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %248) #23
   %249 = getelementptr inbounds i8, ptr %2, i64 112

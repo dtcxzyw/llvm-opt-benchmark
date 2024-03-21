@@ -5099,7 +5099,7 @@ entry:
   store i32 %subTypeId, ptr %subTypeId.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fImpl = getelementptr inbounds %"class.icu_75::MeasureUnit", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fImpl, align 8
   %fSubTypeId = getelementptr inbounds %"class.icu_75::MeasureUnit", ptr %this1, i32 0, i32 2
@@ -5119,7 +5119,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5134,7 +5134,7 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fImpl = getelementptr inbounds %"class.icu_75::MeasureUnit", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fImpl, align 8
   %0 = load ptr, ptr %other.addr, align 8
@@ -5356,7 +5356,7 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fImpl = getelementptr inbounds %"class.icu_75::MeasureUnit", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %other.addr, align 8
   %fImpl2 = getelementptr inbounds %"class.icu_75::MeasureUnit", ptr %0, i32 0, i32 1
@@ -5392,7 +5392,7 @@ entry:
   store ptr %impl, ptr %impl.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fImpl = getelementptr inbounds %"class.icu_75::MeasureUnit", ptr %this1, i32 0, i32 1
   store ptr null, ptr %fImpl, align 8
   %fSubTypeId = getelementptr inbounds %"class.icu_75::MeasureUnit", ptr %this1, i32 0, i32 2
@@ -5608,7 +5608,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %errorCode = getelementptr inbounds %"class.icu_75::ErrorCode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %errorCode, align 8
   ret void
@@ -5870,7 +5870,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7511MeasureUnitE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fImpl = getelementptr inbounds %"class.icu_75::MeasureUnit", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fImpl, align 8
   %cmp = icmp ne ptr %0, null

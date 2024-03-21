@@ -13327,7 +13327,7 @@ define dso_local void @_ZN4Json17CharReaderBuilderC2Ev(ptr noundef nonnull align
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN4Json10CharReader7FactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json17CharReaderBuilderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json17CharReaderBuilderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.Json::CharReaderBuilder", ptr %5, i32 0, i32 1
   invoke void @_ZN4Json5ValueC1ENS_9ValueTypeE(ptr noundef nonnull align 8 dereferenceable(40) %6, i32 noundef 0)
           to label %7 unwind label %10
@@ -13376,7 +13376,7 @@ define linkonce_odr dso_local void @_ZN4Json10CharReader7FactoryC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10CharReader7FactoryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10CharReader7FactoryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -13629,7 +13629,7 @@ define dso_local void @_ZN4Json17CharReaderBuilderD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json17CharReaderBuilderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json17CharReaderBuilderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Json::CharReaderBuilder", ptr %3, i32 0, i32 1
   call void @_ZN4Json5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
   call void @_ZN4Json10CharReader7FactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -13779,7 +13779,7 @@ define linkonce_odr dso_local void @_ZN4Json13OurCharReaderC2EbRKNS_11OurFeature
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN4Json10CharReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json13OurCharReaderE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json13OurCharReaderE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.Json::OurCharReader", ptr %10, i32 0, i32 1
   %12 = load i8, ptr %5, align 1
   %13 = trunc i8 %12 to i1
@@ -17028,7 +17028,7 @@ define linkonce_odr dso_local void @_ZN4Json10CharReaderC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10CharReaderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json10CharReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17037,7 +17037,7 @@ define linkonce_odr dso_local void @_ZN4Json13OurCharReaderD2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json13OurCharReaderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4Json13OurCharReaderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Json::OurCharReader", ptr %3, i32 0, i32 3
   call void @_ZN4Json9OurReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(297) %4) #3
   call void @_ZN4Json10CharReaderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3

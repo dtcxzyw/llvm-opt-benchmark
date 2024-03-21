@@ -45,7 +45,7 @@ if.then:                                          ; preds = %entry
   tail call void (ptr, i32, i32, ptr, ...) @gpr_log(ptr noundef nonnull @.str, i32 noundef 42, i32 noundef 0, ptr noundef nonnull @.str.1)
   %resolver_registry_.i = getelementptr inbounds i8, ptr %builder, i64 680
   %call.i5 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #7, !noalias !4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core42EventEngineClientChannelDNSResolverFactoryE, i64 0, inrange i32 0, i64 2), ptr %call.i5, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN9grpc_core42EventEngineClientChannelDNSResolverFactoryE, i64 0, i32 0, i64 2), ptr %call.i5, align 8, !noalias !4
   store ptr %call.i5, ptr %agg.tmp, align 8
   invoke void @_ZN9grpc_core16ResolverRegistry7Builder23RegisterResolverFactoryESt10unique_ptrINS_15ResolverFactoryESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(80) %resolver_registry_.i, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad

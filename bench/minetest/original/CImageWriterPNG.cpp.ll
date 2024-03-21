@@ -102,7 +102,7 @@ define void @_ZN3irr5video15CImageWriterPNGC2Ev(ptr nocapture noundef nonnull wr
   store ptr null, ptr %2, align 8, !tbaa !6
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 1, ptr %3, align 8, !tbaa !11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3irr5video15CImageWriterPNGE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3irr5video15CImageWriterPNGE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
   ret void
 }
 

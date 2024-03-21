@@ -3442,7 +3442,7 @@ define linkonce_odr void @_ZN22dtFindNearestPolyQueryC2EPK14dtNavMeshQueryPKf(pt
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN11dtPolyQueryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22dtFindNearestPolyQuery, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22dtFindNearestPolyQuery, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.dtFindNearestPolyQuery, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -4746,7 +4746,7 @@ define linkonce_odr void @_ZN19dtCollectPolysQueryC2EPji(ptr noundef nonnull ali
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZN11dtPolyQueryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19dtCollectPolysQuery, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV19dtCollectPolysQuery, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.dtCollectPolysQuery, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -15126,7 +15126,7 @@ define linkonce_odr void @_ZN11dtPolyQueryC2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11dtPolyQuery, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11dtPolyQuery, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

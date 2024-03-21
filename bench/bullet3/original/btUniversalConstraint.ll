@@ -284,7 +284,7 @@ entry:
   %call = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN11btTransform11getIdentityEv()
   %call2 = call noundef nonnull align 4 dereferenceable(64) ptr @_ZN11btTransform11getIdentityEv()
   call void @_ZN23btGeneric6DofConstraintC2ER11btRigidBodyS1_RK11btTransformS4_b(ptr noundef nonnull align 8 dereferenceable(1333) %this1, ptr noundef nonnull align 8 dereferenceable(744) %0, ptr noundef nonnull align 8 dereferenceable(744) %1, ptr noundef nonnull align 4 dereferenceable(64) %call, ptr noundef nonnull align 4 dereferenceable(64) %call2, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV21btUniversalConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV21btUniversalConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_anchor = getelementptr inbounds %class.btUniversalConstraint, ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %anchor.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %m_anchor, ptr align 4 %2, i64 16, i1 false)
@@ -1113,7 +1113,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

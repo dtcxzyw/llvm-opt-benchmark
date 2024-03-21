@@ -532,7 +532,7 @@ entry:
   %ref.tmp27 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %ref.tmp30 = alloca i8, align 1
   tail call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(576) %env)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11TermDbSygusE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11TermDbSygusE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_qstate = getelementptr inbounds i8, ptr %this, i64 16
   store ptr %qs, ptr %d_qstate, align 8
   %d_syexp = getelementptr inbounds i8, ptr %this, i64 32
@@ -17025,7 +17025,7 @@ init.end:                                         ; preds = %init.check, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory11quantifiers11TermDbSygusD2Ev(ptr noundef nonnull align 8 dereferenceable(1040) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11TermDbSygusE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11TermDbSygusE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_sel_weight = getelementptr inbounds i8, ptr %this, i64 992
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1008
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8

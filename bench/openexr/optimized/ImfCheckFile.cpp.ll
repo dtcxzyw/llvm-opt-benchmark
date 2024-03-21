@@ -686,7 +686,7 @@ _ZN7Imf_3_212_GLOBAL__N_113runCoreChecksEPKcmbb.exit: ; preds = %if.then, %if.en
 
 if.else:                                          ; preds = %entry
   call void @_ZN7Imf_3_27IStreamC2EPKc(ptr noundef nonnull align 8 dereferenceable(40) %stream, ptr noundef nonnull @.str.13)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_110PtrIStreamE, i64 0, inrange i32 0, i64 2), ptr %stream, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_212_GLOBAL__N_110PtrIStreamE, i64 0, i32 0, i64 2), ptr %stream, align 8
   %base.i = getelementptr inbounds i8, ptr %stream, i64 40
   store ptr %data, ptr %base.i, align 8
   %current.i = getelementptr inbounds i8, ptr %stream, i64 48

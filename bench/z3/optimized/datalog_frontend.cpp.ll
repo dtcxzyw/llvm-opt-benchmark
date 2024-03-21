@@ -2497,7 +2497,7 @@ invoke.cont5:                                     ; preds = %invoke.cont3
   %m_num_deleted.i.i17 = getelementptr inbounds i8, ptr %this, i64 120
   store i32 0, ptr %m_num_deleted.i.i17, align 8
   %m_instruction_observer = getelementptr inbounds i8, ptr %this, i64 128
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog8compiler20instruction_observerE, i64 0, inrange i32 0, i64 2), ptr %m_instruction_observer, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7datalog8compiler20instruction_observerE, i64 0, i32 0, i64 2), ptr %m_instruction_observer, align 8
   %m_parent.i = getelementptr inbounds i8, ptr %this, i64 136
   store ptr %this, ptr %m_parent.i, align 8
   %m_current.i = getelementptr inbounds i8, ptr %this, i64 144

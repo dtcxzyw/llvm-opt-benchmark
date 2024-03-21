@@ -720,9 +720,9 @@ define dso_local void @_ZN15EmergeScriptingC1EP12EmergeThread(ptr noundef nonnul
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN13ScriptApiBaseC2E13ScriptingType(ptr noundef nonnull align 8 dereferenceable(137) %6, i8 noundef zeroext 4)
   %7 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV15EmergeScripting, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV15EmergeScripting, i64 0, inrange i32 2, i64 3), ptr %6, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV15EmergeScripting, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV15EmergeScripting, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV15EmergeScripting, i64 0, i32 2, i64 3), ptr %6, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV15EmergeScripting, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !12
   %8 = getelementptr inbounds i8, ptr %1, i64 152
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = icmp eq ptr %9, null

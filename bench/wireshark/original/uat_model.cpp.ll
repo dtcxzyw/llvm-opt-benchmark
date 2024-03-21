@@ -1390,7 +1390,7 @@ define void @_ZN8UatModelC2EP7QObjectP8epan_uat(ptr noundef nonnull align 8 dere
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.UatModel, ptr %9, i32 0, i32 1
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds %class.UatModel, ptr %9, i32 0, i32 2
@@ -1575,7 +1575,7 @@ define void @_ZN8UatModelC2EP7QObject7QString(ptr noundef nonnull align 8 derefe
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.UatModel, ptr %10, i32 0, i32 1
   store ptr null, ptr %12, align 8
   %13 = getelementptr inbounds %class.UatModel, ptr %10, i32 0, i32 2
@@ -5984,7 +5984,7 @@ define linkonce_odr void @_ZN8UatModelD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV8UatModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.UatModel, ptr %3, i32 0, i32 3
   call void @_ZN5QListI4QMapIi7QStringEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = getelementptr inbounds %class.UatModel, ptr %3, i32 0, i32 2

@@ -588,7 +588,7 @@ define hidden void @_ZN4cvc56parser9Smt2StateC2EPNS0_19ParserStateCallbackEPNS_6
 entry:
   %frombool1 = zext i1 %isSygus to i8
   tail call void @_ZN4cvc56parser11ParserStateC2EPNS0_19ParserStateCallbackEPNS_6SolverEPNS0_10SymManagerEb(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %psc, ptr noundef %solver, ptr noundef %sm, i1 noundef zeroext %strictMode)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2StateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2StateE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_isSygus = getelementptr inbounds i8, ptr %this, i64 168
   store i8 %frombool1, ptr %d_isSygus, align 8
   %d_logicSet = getelementptr inbounds i8, ptr %this, i64 169
@@ -746,7 +746,7 @@ declare void @_ZN4cvc56parser11ParserStateD2Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4cvc56parser9Smt2StateD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2StateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser9Smt2StateE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_allocGrammars = getelementptr inbounds i8, ptr %this, i64 488
   %0 = load ptr, ptr %d_allocGrammars, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 496

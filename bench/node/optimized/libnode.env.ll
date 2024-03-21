@@ -50222,7 +50222,7 @@ entry:
   %ref.tmp = alloca %"class.std::unique_ptr.318", align 8
   %ref.tmp11 = alloca %"struct.v8::CppHeapCreateParams", align 8
   %ref.tmp27 = alloca ptr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11IsolateDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11IsolateDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %max_young_gen_size = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %max_young_gen_size, align 8
   %static_str_map = getelementptr inbounds i8, ptr %this, i64 16
@@ -50267,7 +50267,7 @@ cond.end:                                         ; preds = %entry, %cond.false
   %1 = load ptr, ptr @_ZN4node11per_process11cli_optionsE, align 8
   %per_isolate = getelementptr inbounds i8, ptr %1, i64 8
   %2 = load ptr, ptr %per_isolate, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node17PerIsolateOptionsE, i64 0, i32 0, i64 2), ptr %call3, align 8
   %per_env.i = getelementptr inbounds i8, ptr %call3, i64 8
   %per_env2.i = getelementptr inbounds i8, ptr %2, i64 8
   %3 = load ptr, ptr %per_env2.i, align 8
@@ -50316,7 +50316,7 @@ _ZN4node17PerIsolateOptionsC2ERKS0_.exit:         ; preds = %cond.end, %if.then.
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN4node17PerIsolateOptionsELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8
   %_M_ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i.i, i64 16
   store ptr %call3, ptr %_M_ptr.i.i.i.i.i, align 8
   store ptr %call3, ptr %options_, align 8
@@ -50593,7 +50593,7 @@ declare void @_ZN2v87Isolate13AttachCppHeapEPNS_7CppHeapE(ptr noundef nonnull al
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node11IsolateDataD2Ev(ptr noundef nonnull align 8 dereferenceable(4192) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11IsolateDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11IsolateDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cpp_heap_ = getelementptr inbounds i8, ptr %this, i64 4152
   %0 = load ptr, ptr %cpp_heap_, align 8
   %cmp.i.i.not = icmp eq ptr %0, null
@@ -66184,7 +66184,7 @@ _ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit7
 if.then:                                          ; preds = %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit7178
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40
@@ -66260,7 +66260,7 @@ _ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit: ; preds = %_ZNSt10uniq
 if.end:                                           ; preds = %_ZN4node13MemoryTracker18TrackFieldWithSizeEPKcmS2_.exit, %_ZN4node13MemoryTracker10TrackFieldIN2v86StringEEEvPKcRKNS2_5LocalIT_EES5_.exit7178
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i7181)
   %call.i.i7183 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i.i7183, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i7183, align 8
   %retainer_.i.i.i7184 = getelementptr inbounds i8, ptr %call.i.i7183, i64 8
   %is_root_node_.i.i.i7185 = getelementptr inbounds i8, ptr %call.i.i7183, i64 24
   %size_.i.i.i7186 = getelementptr inbounds i8, ptr %call.i.i7183, i64 40
@@ -66992,7 +66992,7 @@ entry:
   %ref.tmp220 = alloca %"class.std::vector.96", align 8
   %ref.tmp222 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %ref.tmp224 = alloca %"class.std::allocator.78", align 1
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11EnvironmentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11EnvironmentE, i64 0, i32 0, i64 2), ptr %this, align 8
   %hash_to_module_map = getelementptr inbounds i8, ptr %this, i64 8
   %_M_single_bucket.i.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %_M_single_bucket.i.i, ptr %hash_to_module_map, align 8
@@ -67026,7 +67026,7 @@ entry:
   %immediate_info_ = getelementptr inbounds i8, ptr %this, i64 1128
   %immediate_info = getelementptr inbounds i8, ptr %env_info, i64 64
   %cond6 = select i1 %cmp, ptr null, ptr %immediate_info
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, inrange i32 0, i64 2), ptr %immediate_info_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, i32 0, i64 2), ptr %immediate_info_, align 8
   %fields_.i = getelementptr inbounds i8, ptr %this, i64 1136
   tail call void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEC2EPNS1_7IsolateEmPKm(ptr noundef nonnull align 8 dereferenceable(56) %fields_.i, ptr noundef %isolate, i64 noundef 3, ptr noundef %cond6)
   %timeout_info_ = getelementptr inbounds i8, ptr %this, i64 1192
@@ -67037,7 +67037,7 @@ entry:
   %tick_info_ = getelementptr inbounds i8, ptr %this, i64 1248
   %tick_info = getelementptr inbounds i8, ptr %env_info, i64 56
   %cond17 = select i1 %cmp, ptr null, ptr %tick_info
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, inrange i32 0, i64 2), ptr %tick_info_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, i32 0, i64 2), ptr %tick_info_, align 8
   %fields_.i38 = getelementptr inbounds i8, ptr %this, i64 1256
   tail call void @_ZN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEC2EPNS1_7IsolateEmPKm(ptr noundef nonnull align 8 dereferenceable(56) %fields_.i38, ptr noundef %isolate, i64 noundef 2, ptr noundef %cond17)
   %permission_ = getelementptr inbounds i8, ptr %this, i64 1312
@@ -67306,7 +67306,7 @@ _ZN4node9MutexBaseINS_16LibuvMutexTraitsEEC2Ev.exit86: ; preds = %_ZN4node9Mutex
   store ptr null, ptr %interrupt_data_, align 8
   %cleanup_queue_ = getelementptr inbounds i8, ptr %this, i64 2560
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(49) %native_immediates_threadsafe_, i8 0, i64 49, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, inrange i32 0, i64 2), ptr %cleanup_queue_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, i32 0, i64 2), ptr %cleanup_queue_, align 8
   %cleanup_hooks_.i = getelementptr inbounds i8, ptr %this, i64 2568
   %_M_single_bucket.i.i.i = getelementptr inbounds i8, ptr %this, i64 2616
   store ptr %_M_single_bucket.i.i.i, ptr %cleanup_hooks_.i, align 8
@@ -67780,7 +67780,7 @@ _ZN4node11IsolateData7optionsEv.exit:             ; preds = %_ZNSt10shared_ptrIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !954
   %_M_weak_count.i.i.i.i.i.i168 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i168, align 4, !noalias !954
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node18EnvironmentOptionsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !954
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node18EnvironmentOptionsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i, align 8, !noalias !954
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i, i64 16
   call void @_ZN4node18EnvironmentOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1144) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(1144) %80), !noalias !954
   store ptr %_M_impl.i.i.i.i.i.i, ptr %options_, align 8
@@ -67936,7 +67936,7 @@ _ZNSt10shared_ptrIN4node17PerIsolateOptionsEED2Ev.exit: ; preds = %_ZNSt10shared
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i263, align 8, !noalias !960
   %_M_weak_count.i.i.i.i.i.i264 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i262, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i264, align 4, !noalias !960
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node15ExclusiveAccessINS0_8HostPortENS0_9MutexBaseINS0_16LibuvMutexTraitsEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i262, align 8, !noalias !960
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node15ExclusiveAccessINS0_8HostPortENS0_9MutexBaseINS0_16LibuvMutexTraitsEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i.i.i.i.i262, align 8, !noalias !960
   %_M_impl.i.i.i.i.i.i265 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i.i.i262, i64 16
   %call.i.i.i.i.i.i.i.i.i.i = call noundef i32 @uv_mutex_init(ptr noundef nonnull %_M_impl.i.i.i.i.i.i265) #25, !noalias !960
   %cmp.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %call.i.i.i.i.i.i.i.i.i.i, 0
@@ -68061,7 +68061,7 @@ _ZNKSt14default_deleteIN4node9inspector5AgentEEclEPS2_.exit.i.i.i.i: ; preds = %
 
 if.then106:                                       ; preds = %if.end99, %_ZNKSt14default_deleteIN4node9inspector5AgentEEclEPS2_.exit.i.i.i.i
   %call.i334 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27, !noalias !964
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node26TrackingTraceStateObserverE, i64 0, inrange i32 0, i64 2), ptr %call.i334, align 8, !noalias !964
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4node26TrackingTraceStateObserverE, i64 0, i32 0, i64 2), ptr %call.i334, align 8, !noalias !964
   %env_.i.i335 = getelementptr inbounds i8, ptr %call.i334, i64 8
   store ptr %this, ptr %env_.i.i335, align 8, !noalias !964
   %119 = load ptr, ptr %trace_state_observer_, align 8
@@ -68152,7 +68152,7 @@ _ZNSt6vectorIdSaIdEE7reserveEm.exit:              ; preds = %if.end117, %_ZNSt12
 
 delete.notnull.i.i.i.i.i:                         ; preds = %_ZNSt6vectorIdSaIdEE7reserveEm.exit
   %observers.i.i.i.i.i.i = getelementptr inbounds i8, ptr %129, i64 112
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %observers.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %observers.i.i.i.i.i.i, align 8
   %js_array_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %129, i64 152
   %130 = load ptr, ptr %js_array_.i.i.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i.i.i.i = icmp eq ptr %130, null
@@ -68165,7 +68165,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %delete.notnull.i.i.
 
 _ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit.i.i.i.i.i.i: ; preds = %if.end.i.i.i.i.i.i.i.i, %delete.notnull.i.i.i.i.i
   %milestones.i.i.i.i.i.i = getelementptr inbounds i8, ptr %129, i64 56
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %milestones.i.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, i32 0, i64 2), ptr %milestones.i.i.i.i.i.i, align 8
   %js_array_.i1.i.i.i.i.i.i = getelementptr inbounds i8, ptr %129, i64 96
   %131 = load ptr, ptr %js_array_.i1.i.i.i.i.i.i, align 8
   %cmp.i.i.i2.i.i.i.i.i.i = icmp eq ptr %131, null
@@ -68177,7 +68177,7 @@ if.end.i.i3.i.i.i.i.i.i:                          ; preds = %_ZN4node17AliasedBu
   br label %_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit.i.i.i.i.i.i
 
 _ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit.i.i.i.i.i.i: ; preds = %if.end.i.i3.i.i.i.i.i.i, %_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %129, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, i32 0, i64 2), ptr %129, align 8
   %js_array_.i4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %129, i64 40
   %132 = load ptr, ptr %js_array_.i4.i.i.i.i.i.i, align 8
   %cmp.i.i.i5.i.i.i.i.i.i = icmp eq ptr %132, null
@@ -68549,7 +68549,7 @@ define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIiN2v810Int32Arra
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Global.20", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %isolate, ptr %isolate_, align 8
   %count_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -68652,7 +68652,7 @@ define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIjN2v811Uint32Arr
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Global.1", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %isolate, ptr %isolate_, align 8
   %count_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -69108,7 +69108,7 @@ entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %allow_js_here = alloca %"class.v8::Isolate::AllowJavascriptExecutionScope", align 8
   %try_catch = alloca %"class.v8::TryCatch", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11EnvironmentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node11EnvironmentE, i64 0, i32 0, i64 2), ptr %this, align 8
   %isolate_.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %isolate_.i, align 8
   call void @_ZN2v811HandleScopeC1EPNS_7IsolateE(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope, ptr noundef %0) #25
@@ -69437,7 +69437,7 @@ if.end.i.i.i.i46:                                 ; preds = %_ZNSt10_HashtableIi
 
 _ZNSt13unordered_setIiSt4hashIiESt8equal_toIiESaIiEED2Ev.exit: ; preds = %_ZNSt10_HashtableIiiSaIiENSt8__detail9_IdentityESt8equal_toIiESt4hashIiENS1_18_Mod_range_hashingENS1_20_Default_ranged_hashENS1_20_Prime_rehash_policyENS1_17_Hashtable_traitsILb0ELb1ELb1EEEE5clearEv.exit.i.i, %if.end.i.i.i.i46
   %cleanup_queue_ = getelementptr inbounds i8, ptr %this, i64 2560
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, inrange i32 0, i64 2), ptr %cleanup_queue_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, i32 0, i64 2), ptr %cleanup_queue_, align 8
   %cleanup_hooks_.i = getelementptr inbounds i8, ptr %this, i64 2568
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 2584
   %49 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -69721,7 +69721,7 @@ _ZNSt13unordered_setIPN4node6worker6WorkerESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED
 
 delete.notnull.i.i:                               ; preds = %_ZNSt13unordered_setIPN4node6worker6WorkerESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit
   %observers.i.i.i = getelementptr inbounds i8, ptr %93, i64 112
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %observers.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %observers.i.i.i, align 8
   %js_array_.i.i.i.i = getelementptr inbounds i8, ptr %93, i64 152
   %94 = load ptr, ptr %js_array_.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i96 = icmp eq ptr %94, null
@@ -69734,7 +69734,7 @@ if.end.i.i.i.i.i97:                               ; preds = %delete.notnull.i.i
 
 _ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit.i.i.i: ; preds = %if.end.i.i.i.i.i97, %delete.notnull.i.i
   %milestones.i.i.i = getelementptr inbounds i8, ptr %93, i64 56
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %milestones.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, i32 0, i64 2), ptr %milestones.i.i.i, align 8
   %js_array_.i1.i.i.i = getelementptr inbounds i8, ptr %93, i64 96
   %95 = load ptr, ptr %js_array_.i1.i.i.i, align 8
   %cmp.i.i.i2.i.i.i = icmp eq ptr %95, null
@@ -69746,7 +69746,7 @@ if.end.i.i3.i.i.i:                                ; preds = %_ZN4node17AliasedBu
   br label %_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit.i.i.i
 
 _ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit.i.i.i: ; preds = %if.end.i.i3.i.i.i, %_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit.i.i.i
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %93, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, i32 0, i64 2), ptr %93, align 8
   %js_array_.i4.i.i.i = getelementptr inbounds i8, ptr %93, i64 40
   %96 = load ptr, ptr %js_array_.i4.i.i.i, align 8
   %cmp.i.i.i5.i.i.i = icmp eq ptr %96, null
@@ -69763,7 +69763,7 @@ _ZNKSt14default_deleteIN4node11performance16PerformanceStateEEclEPS2_.exit.i: ; 
 _ZNSt10unique_ptrIN4node11performance16PerformanceStateESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNSt13unordered_setIPN4node6worker6WorkerESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev.exit, %_ZNKSt14default_deleteIN4node11performance16PerformanceStateEEclEPS2_.exit.i
   store ptr null, ptr %performance_state_, align 8
   %stream_base_state_ = getelementptr inbounds i8, ptr %this, i64 1968
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %stream_base_state_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, i32 0, i64 2), ptr %stream_base_state_, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 2008
   %97 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i99 = icmp eq ptr %97, null
@@ -69789,7 +69789,7 @@ _ZNKSt14default_deleteIN4node26TrackingTraceStateObserverEEclEPS1_.exit.i: ; pre
 _ZNSt10unique_ptrIN4node26TrackingTraceStateObserverESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZN4node17AliasedBufferBaseIiN2v810Int32ArrayEED2Ev.exit, %_ZNKSt14default_deleteIN4node26TrackingTraceStateObserverEEclEPS1_.exit.i
   store ptr null, ptr %trace_state_observer_, align 8
   %should_abort_on_uncaught_toggle_ = getelementptr inbounds i8, ptr %this, i64 1896
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %should_abort_on_uncaught_toggle_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %should_abort_on_uncaught_toggle_, align 8
   %js_array_.i104 = getelementptr inbounds i8, ptr %this, i64 1936
   %100 = load ptr, ptr %js_array_.i104, align 8
   %cmp.i.i.i105 = icmp eq ptr %100, null
@@ -69802,7 +69802,7 @@ if.end.i.i106:                                    ; preds = %_ZNSt10unique_ptrIN
 
 _ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit: ; preds = %_ZNSt10unique_ptrIN4node26TrackingTraceStateObserverESt14default_deleteIS1_EED2Ev.exit, %if.end.i.i106
   %exit_info_ = getelementptr inbounds i8, ptr %this, i64 1840
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %exit_info_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, i32 0, i64 2), ptr %exit_info_, align 8
   %js_array_.i107 = getelementptr inbounds i8, ptr %this, i64 1880
   %101 = load ptr, ptr %js_array_.i107, align 8
   %cmp.i.i.i108 = icmp eq ptr %101, null
@@ -70189,9 +70189,9 @@ _ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit:      ; preds = %_ZNSt6vectorIdSaIdE
   %permission_ = getelementptr inbounds i8, ptr %this, i64 1312
   call void @_ZNSt10_HashtableIN4node10permission15PermissionScopeESt4pairIKS2_St10shared_ptrINS1_14PermissionBaseEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ESt4hashIS2_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb0ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %permission_) #25
   %tick_info_ = getelementptr inbounds i8, ptr %this, i64 1248
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, inrange i32 0, i64 2), ptr %tick_info_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, i32 0, i64 2), ptr %tick_info_, align 8
   %fields_.i = getelementptr inbounds i8, ptr %this, i64 1256
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %fields_.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, i32 0, i64 2), ptr %fields_.i, align 8
   %js_array_.i.i = getelementptr inbounds i8, ptr %this, i64 1296
   %153 = load ptr, ptr %js_array_.i.i, align 8
   %cmp.i.i.i.i224 = icmp eq ptr %153, null
@@ -70204,7 +70204,7 @@ if.end.i.i.i:                                     ; preds = %_ZNSt10shared_ptrIN
 
 _ZN4node8TickInfoD2Ev.exit:                       ; preds = %_ZNSt10shared_ptrIN4node7KVStoreEED2Ev.exit, %if.end.i.i.i
   %timeout_info_ = getelementptr inbounds i8, ptr %this, i64 1192
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %timeout_info_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, i32 0, i64 2), ptr %timeout_info_, align 8
   %js_array_.i225 = getelementptr inbounds i8, ptr %this, i64 1232
   %154 = load ptr, ptr %js_array_.i225, align 8
   %cmp.i.i.i226 = icmp eq ptr %154, null
@@ -70217,9 +70217,9 @@ if.end.i.i227:                                    ; preds = %_ZN4node8TickInfoD2
 
 _ZN4node17AliasedBufferBaseIiN2v810Int32ArrayEED2Ev.exit228: ; preds = %_ZN4node8TickInfoD2Ev.exit, %if.end.i.i227
   %immediate_info_ = getelementptr inbounds i8, ptr %this, i64 1128
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, inrange i32 0, i64 2), ptr %immediate_info_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, i32 0, i64 2), ptr %immediate_info_, align 8
   %fields_.i229 = getelementptr inbounds i8, ptr %this, i64 1136
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %fields_.i229, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %fields_.i229, align 8
   %js_array_.i.i230 = getelementptr inbounds i8, ptr %this, i64 1176
   %155 = load ptr, ptr %js_array_.i.i230, align 8
   %cmp.i.i.i.i231 = icmp eq ptr %155, null
@@ -70562,7 +70562,7 @@ _ZN4node21ThreadsafeCopyOnWriteISt3mapINSt7__cxx1112basic_stringIcSt11char_trait
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node12CleanupQueueD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cleanup_hooks_ = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8
@@ -70599,7 +70599,7 @@ _ZNSt13unordered_setIN4node12CleanupQueue19CleanupHookCallbackENS2_4HashENS2_5Eq
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIiN2v810Int32ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %js_array_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -70617,7 +70617,7 @@ _ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit: ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %js_array_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -70635,9 +70635,9 @@ _ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit: ; preds = %entry, %if.en
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8TickInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fields_ = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %fields_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, i32 0, i64 2), ptr %fields_, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -70655,9 +70655,9 @@ _ZN4node17AliasedBufferBaseIhN2v810Uint8ArrayEED2Ev.exit: ; preds = %entry, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node13ImmediateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fields_ = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %fields_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %fields_, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -70675,7 +70675,7 @@ _ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit: ; preds = %entry, %if
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node10AsyncHooksD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node10AsyncHooksE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node10AsyncHooksE, i64 0, i32 0, i64 2), ptr %this, align 8
   br label %arraydestroy.body.i
 
 arraydestroy.body.i:                              ; preds = %_ZN2v814PersistentBaseINS_8FunctionEE5ResetEv.exit.i, %entry
@@ -70718,7 +70718,7 @@ if.end.i:                                         ; preds = %_ZNSt6vectorIN2v85L
 
 _ZN2v814PersistentBaseINS_5ArrayEE5ResetEv.exit:  ; preds = %_ZNSt6vectorIN2v85LocalINS0_6ObjectEEESaIS3_EED2Ev.exit, %if.end.i
   %async_id_fields_ = getelementptr inbounds i8, ptr %this, i64 120
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %async_id_fields_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, i32 0, i64 2), ptr %async_id_fields_, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 160
   %3 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i1 = icmp eq ptr %3, null
@@ -70731,7 +70731,7 @@ if.end.i.i2:                                      ; preds = %_ZN2v814PersistentB
 
 _ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit: ; preds = %_ZN2v814PersistentBaseINS_5ArrayEE5ResetEv.exit, %if.end.i.i2
   %fields_ = getelementptr inbounds i8, ptr %this, i64 64
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %fields_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %fields_, align 8
   %js_array_.i3 = getelementptr inbounds i8, ptr %this, i64 104
   %4 = load ptr, ptr %js_array_.i3, align 8
   %cmp.i.i.i4 = icmp eq ptr %4, null
@@ -70744,7 +70744,7 @@ if.end.i.i5:                                      ; preds = %_ZN4node17AliasedBu
 
 _ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED2Ev.exit: ; preds = %_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev.exit, %if.end.i.i5
   %async_ids_stack_ = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %async_ids_stack_, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, i32 0, i64 2), ptr %async_ids_stack_, align 8
   %js_array_.i6 = getelementptr inbounds i8, ptr %this, i64 48
   %5 = load ptr, ptr %js_array_.i6, align 8
   %cmp.i.i.i7 = icmp eq ptr %5, null
@@ -71250,7 +71250,7 @@ if.end:                                           ; preds = %if.then, %entry
   store i32 1, ptr %flags_.i.i.i.i.i, align 8, !noalias !990
   %next_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store ptr null, ptr %next_.i.i.i.i.i, align 8, !noalias !990
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0EE", i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !990
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0EE", i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8, !noalias !990
   %native_immediates_threadsafe_mutex_.i = getelementptr inbounds i8, ptr %this, i64 2456
   tail call void @uv_mutex_lock(ptr noundef nonnull %native_immediates_threadsafe_mutex_.i) #25
   %tail_.i.i = getelementptr inbounds i8, ptr %this, i64 2512
@@ -73153,7 +73153,7 @@ declare ptr @uv_strerror(i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node13ImmediateInfoC2EPN2v87IsolateEPKNS0_13SerializeInfoE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %isolate, ptr noundef %info) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fields_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEC2EPNS1_7IsolateEmPKm(ptr noundef nonnull align 8 dereferenceable(56) %fields_, ptr noundef %isolate, i64 noundef 3, ptr noundef %info)
   ret void
@@ -73516,7 +73516,7 @@ _ZN4node13MemoryTracker10TrackFieldEPKcRKNS_14MemoryRetainerES2_.exit: ; preds =
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node8TickInfoC2EPN2v87IsolateEPKNS0_13SerializeInfoE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef %isolate, ptr noundef %info) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fields_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEC2EPNS1_7IsolateEmPKm(ptr noundef nonnull align 8 dereferenceable(56) %fields_, ptr noundef %isolate, i64 noundef 2, ptr noundef %info)
   ret void
@@ -73527,7 +73527,7 @@ define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIhN2v810Uint8Arra
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Global.23", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %isolate, ptr %isolate_, align 8
   %count_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -73615,7 +73615,7 @@ return:                                           ; preds = %do.end5, %_ZN2v814P
 define dso_local void @_ZN4node10AsyncHooksC2EPN2v87IsolateEPKNS0_13SerializeInfoE(ptr noundef nonnull align 8 dereferenceable(248) %this, ptr noundef %isolate, ptr noundef %info) unnamed_addr #3 align 2 {
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node10AsyncHooksE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node10AsyncHooksE, i64 0, i32 0, i64 2), ptr %this, align 8
   %async_ids_stack_ = getelementptr inbounds i8, ptr %this, i64 8
   %cmp = icmp eq ptr %info, null
   tail call void @_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEEC2EPNS1_7IsolateEmPKm(ptr noundef nonnull align 8 dereferenceable(56) %async_ids_stack_, ptr noundef %isolate, i64 noundef 32, ptr noundef %info)
@@ -73661,7 +73661,7 @@ define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIdN2v812Float64Ar
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Global", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %isolate_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %isolate, ptr %isolate_, align 8
   %count_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -78112,9 +78112,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node13ImmediateInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13ImmediateInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fields_.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %fields_.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %fields_.i, align 8
   %js_array_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %js_array_.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, null
@@ -78144,9 +78144,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node8TickInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node8TickInfoE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fields_.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %fields_.i, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, i32 0, i64 2), ptr %fields_.i, align 8
   %js_array_.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %js_array_.i.i, align 8
   %cmp.i.i.i.i = icmp eq ptr %0, null
@@ -78310,7 +78310,7 @@ declare void @_ZN2v812BackingStoreD1Ev(ptr noundef nonnull align 1 dereferenceab
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node12CleanupQueueD0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node12CleanupQueueE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cleanup_hooks_.i = getelementptr inbounds i8, ptr %this, i64 8
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8
@@ -78427,7 +78427,7 @@ declare void @_ZN4node9inspector5AgentD1Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %js_array_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -78445,7 +78445,7 @@ _ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit: ; preds = %entry, %if.e
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIhN2v810Uint8ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %js_array_ = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -78463,7 +78463,7 @@ _ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit: ; preds = %entry, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIdN2v812Float64ArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIdN2v812Float64ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -78575,7 +78575,7 @@ declare noundef ptr @_ZN2v811HandleScope12CreateHandleEPNS_8internal7IsolateEm(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIhN2v810Uint8ArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIhN2v810Uint8ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -78691,7 +78691,7 @@ declare void @_ZN2v87Isolate27RemoveNearHeapLimitCallbackEPFmPvmmEm(ptr noundef 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIiN2v810Int32ArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIiN2v810Int32ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -78799,7 +78799,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node17AliasedBufferBaseIjN2v811Uint32ArrayEED0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node17AliasedBufferBaseIjN2v811Uint32ArrayEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %js_array_.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %js_array_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null
@@ -79497,7 +79497,7 @@ define linkonce_odr dso_local void @_ZN4node18MemoryRetainerNodeC2EPNS_13MemoryT
 entry:
   %handle_scope = alloca %"class.v8::HandleScope", align 8
   %ref.tmp = alloca %"class.v8::Local.260", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %retainer_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %retainer, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -81360,7 +81360,7 @@ entry:
   %n = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %is_root_node_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -82247,7 +82247,7 @@ return:                                           ; preds = %lor.lhs.false, %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node18EnvironmentOptionsC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1144) %this, ptr noundef nonnull align 8 dereferenceable(1144) %0) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node18EnvironmentOptionsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %abort_on_uncaught_exception = getelementptr inbounds i8, ptr %this, i64 8
   %abort_on_uncaught_exception2 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = load i8, ptr %abort_on_uncaught_exception2, align 8
@@ -82959,7 +82959,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7
   %__cur.0.lcssa.i.i.i.i.i319 = phi ptr [ %cond.i.i.i.i308, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.i307 ], [ %incdec.ptr.i.i.i.i.i317, %for.body.i.i.i.i.i313 ]
   store ptr %__cur.0.lcssa.i.i.i.i.i319, ptr %_M_finish.i.i.i309, align 8
   %debug_options_ = getelementptr inbounds i8, ptr %this, i64 1048
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i64 0, inrange i32 0, i64 2), ptr %debug_options_, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node12DebugOptionsE, i64 0, i32 0, i64 2), ptr %debug_options_, align 8
   %allow_attaching_debugger.i = getelementptr inbounds i8, ptr %this, i64 1056
   %allow_attaching_debugger2.i = getelementptr inbounds i8, ptr %0, i64 1056
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %allow_attaching_debugger.i, ptr noundef nonnull align 8 dereferenceable(5) %allow_attaching_debugger2.i, i64 5, i1 false)
@@ -83066,7 +83066,7 @@ declare void @_ZN4node14PrincipalRealmC1EPNS_11EnvironmentEN2v85LocalINS3_7Conte
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0ED2Ev"(ptr nocapture noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %next_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -83087,7 +83087,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev.exit: ; preds = %ent
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @"_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS1_7ExitEnvENS_9StopFlags5FlagsEE3$_0ED0Ev"(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %next_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -83121,7 +83121,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #3 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node13CallbackQueueIvJPNS_11EnvironmentEEE8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %next_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %next_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -86194,7 +86194,7 @@ entry:
 if.then.i:                                        ; preds = %entry
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #27
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %retainer_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   %is_root_node_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   %size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 40

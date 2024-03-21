@@ -65,7 +65,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN8proxygen16SimpleControllerC2EPNS_19HTTPSessionAcceptorE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %acceptor) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN8proxygen16SimpleControllerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN8proxygen16SimpleControllerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %acceptor_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %acceptor, ptr %acceptor_, align 8
   ret void

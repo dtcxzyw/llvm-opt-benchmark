@@ -59,7 +59,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 define dso_local void @_ZN3net21QuicServerSessionBaseC2ERKNS_10QuicConfigEPNS_14QuicConnectionEPNS0_7VisitorEPNS_22QuicCryptoServerStream6HelperEPKNS_22QuicCryptoServerConfigEPNS_24QuicCompressedCertsCacheE(ptr noundef nonnull align 8 dereferenceable(2169) %this, ptr noundef nonnull align 8 dereferenceable(600) %config, ptr noundef %connection, ptr noundef %visitor, ptr noundef %helper, ptr noundef %crypto_config, ptr noundef %compressed_certs_cache) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN3net15QuicSpdySessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2057) %this, ptr noundef %connection, ptr noundef nonnull align 8 dereferenceable(600) %config)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN3net21QuicServerSessionBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN3net21QuicServerSessionBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %crypto_config_ = getelementptr inbounds i8, ptr %this, i64 2064
   store ptr %crypto_config, ptr %crypto_config_, align 8
   %compressed_certs_cache_ = getelementptr inbounds i8, ptr %this, i64 2072
@@ -122,7 +122,7 @@ declare void @_ZN3net15QuicSpdySessionD2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net21QuicServerSessionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2169) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN3net21QuicServerSessionBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN3net21QuicServerSessionBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %serving_region_ = getelementptr inbounds i8, ptr %this, i64 2120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serving_region_) #14
   %crypto_stream_ = getelementptr inbounds i8, ptr %this, i64 2080

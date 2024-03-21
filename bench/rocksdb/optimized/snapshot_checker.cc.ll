@@ -78,7 +78,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN7rocksdb28WritePreparedSnapshotCheckerC2EPNS_18WritePreparedTxnDBE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %txn_db) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedSnapshotCheckerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb28WritePreparedSnapshotCheckerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %txn_db_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %txn_db, ptr %txn_db_, align 8
   ret void
@@ -482,7 +482,7 @@ init:                                             ; preds = %init.check
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %init
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24DisableGCSnapshotCheckerE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24DisableGCSnapshotCheckerE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr @_ZZN7rocksdb24DisableGCSnapshotChecker8InstanceEvE8instance, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN7rocksdb24DisableGCSnapshotChecker8InstanceEvE8instance) #12
   br label %init.end

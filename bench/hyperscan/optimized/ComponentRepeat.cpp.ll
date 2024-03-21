@@ -84,7 +84,7 @@ entry:
   %agg.tmp12 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp13 = alloca %"class.std::allocator.2", align 1
   tail call void @_ZN3ue29ComponentC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %t, ptr %type, align 8
   %sub_comp = getelementptr inbounds i8, ptr %this, i64 24
@@ -117,7 +117,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont4 unwind label %ehcleanup
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #19
           to label %unreachable unwind label %ehcleanup
 
@@ -150,7 +150,7 @@ invoke.cont15:                                    ; preds = %if.then10
           to label %invoke.cont17 unwind label %ehcleanup20
 
 invoke.cont17:                                    ; preds = %invoke.cont15
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception11, align 8
   invoke void @__cxa_throw(ptr nonnull %exception11, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #19
           to label %unreachable unwind label %ehcleanup20
 
@@ -307,7 +307,7 @@ declare void @_ZN3ue29ComponentD2Ev(ptr noundef nonnull align 8 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue215ComponentRepeatD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_lasts = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_lasts, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
@@ -432,7 +432,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #5
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue215ComponentRepeatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(96) %other) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN3ue29ComponentE, i64 0, i32 0, i64 2), ptr %this, align 8
   %pos_begin.i = getelementptr inbounds i8, ptr %this, i64 8
   %pos_begin2.i = getelementptr inbounds i8, ptr %other, i64 8
   %0 = load i32, ptr %pos_begin2.i, align 8
@@ -441,7 +441,7 @@ entry:
   %pos_end3.i = getelementptr inbounds i8, ptr %other, i64 12
   %1 = load i32, ptr %pos_end3.i, align 4
   store i32 %1, ptr %pos_end.i, align 4
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3ue215ComponentRepeatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type = getelementptr inbounds i8, ptr %this, i64 16
   %type2 = getelementptr inbounds i8, ptr %other, i64 16
   %2 = load i32, ptr %type2, align 8
@@ -978,7 +978,7 @@ invoke.cont:                                      ; preds = %if.then48
           to label %invoke.cont51 unwind label %ehcleanup
 
 invoke.cont51:                                    ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #19
           to label %unreachable unwind label %ehcleanup
 
@@ -1305,7 +1305,7 @@ invoke.cont:                                      ; preds = %if.then
           to label %invoke.cont10 unwind label %ehcleanup
 
 invoke.cont10:                                    ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3ue210ParseErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN3ue210ParseErrorE, ptr nonnull @_ZN3ue210ParseErrorD1Ev) #19
           to label %unreachable unwind label %ehcleanup
 

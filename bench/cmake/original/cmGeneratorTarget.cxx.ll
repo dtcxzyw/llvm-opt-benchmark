@@ -16221,7 +16221,7 @@ define dso_local void @_ZN17cmGeneratorTarget19TargetPropertyEntryC2ERK14cmLinkI
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17cmGeneratorTarget19TargetPropertyEntryE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN17cmGeneratorTarget19TargetPropertyEntryE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.cmGeneratorTarget::TargetPropertyEntry", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -120585,7 +120585,7 @@ define linkonce_odr dso_local void @_ZN24TargetPropertyEntryGenexC2ESt10unique_p
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZN17cmGeneratorTarget19TargetPropertyEntryC2ERK14cmLinkImplItem(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(105) %8)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.TargetPropertyEntryGenex, ptr %7, i32 0, i32 1
   call void @_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
   ret void
@@ -120729,7 +120729,7 @@ define linkonce_odr dso_local void @_ZN24TargetPropertyEntryGenexD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV24TargetPropertyEntryGenex, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.TargetPropertyEntryGenex, ptr %3, i32 0, i32 1
   call void @_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN17cmGeneratorTarget19TargetPropertyEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -121192,7 +121192,7 @@ define linkonce_odr dso_local void @_ZN25TargetPropertyEntryStringC2E2BTINSt7__c
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %6, align 8
   call void @_ZN17cmGeneratorTarget19TargetPropertyEntryC2ERK14cmLinkImplItem(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(105) %8)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.TargetPropertyEntryString, ptr %7, i32 0, i32 1
   call void @_ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(48) %1) #3
   ret void
@@ -121244,7 +121244,7 @@ define linkonce_odr dso_local void @_ZN25TargetPropertyEntryStringD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25TargetPropertyEntryString, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.TargetPropertyEntryString, ptr %3, i32 0, i32 1
   call void @_ZN2BTINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   call void @_ZN17cmGeneratorTarget19TargetPropertyEntryD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -127492,7 +127492,7 @@ define linkonce_odr dso_local void @_ZN26TargetPropertyEntryFileSetC2ESt6vectorI
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %12, align 8
   call void @_ZN17cmGeneratorTarget19TargetPropertyEntryC2ERK14cmLinkImplItem(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(105) %15)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.TargetPropertyEntryFileSet, ptr %14, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %1) #3
   %17 = getelementptr inbounds %class.TargetPropertyEntryFileSet, ptr %14, i32 0, i32 2
@@ -127611,7 +127611,7 @@ define linkonce_odr dso_local void @_ZN26TargetPropertyEntryFileSetD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26TargetPropertyEntryFileSet, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.TargetPropertyEntryFileSet, ptr %3, i32 0, i32 3
   call void @_ZNSt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.TargetPropertyEntryFileSet, ptr %3, i32 0, i32 1

@@ -822,7 +822,7 @@ _ZNSt6vectorIPKN5vcpkg17SourceControlFileESaIS3_EED2Ev.exit77: ; preds = %.loope
 
 _ZNSt6vectorIPKN5vcpkg28SourceControlFileAndLocationESaIS3_EED2Ev.exit73: ; preds = %188, %_ZNSt6vectorIPKN5vcpkg17SourceControlFileESaIS3_EED2Ev.exit77, %116, %.body, %113
   %.pn.pn = phi { ptr, i32 } [ %114, %113 ], [ %lpad.phi.i, %.body ], [ %lpad.phi.i, %116 ], [ %.pn, %_ZNSt6vectorIPKN5vcpkg17SourceControlFileESaIS3_EED2Ev.exit77 ], [ %.pn, %188 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i64 0, i32 0, i64 2), ptr %9, align 8
   %189 = getelementptr inbounds i8, ptr %9, i64 24
   %190 = load ptr, ptr %189, align 8
   %.not.i.i80 = icmp eq ptr %190, null

@@ -35,7 +35,7 @@ $_ZNK2pb12JavaFeatures3NewEPN6google8protobuf5ArenaE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN2pb12JavaFeaturesE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN2pb12JavaFeaturesE, ptr @_ZN2pb12JavaFeaturesD1Ev, ptr @_ZN2pb12JavaFeaturesD0Ev, ptr @_ZNK2pb12JavaFeatures3NewEPN6google8protobuf5ArenaE, ptr @_ZN2pb12JavaFeatures5ClearEv, ptr @_ZNK2pb12JavaFeatures13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK2pb12JavaFeatures12ByteSizeLongEv, ptr @_ZN2pb12JavaFeatures14_InternalParseEPKcPN6google8protobuf8internal12ParseContextE, ptr @_ZNK2pb12JavaFeatures12GetClassDataEv, ptr @_ZNK2pb12JavaFeatures18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE, ptr @_ZNK2pb12JavaFeatures11GetMetadataEv] }, align 8
-@_ZN2pb31_JavaFeatures_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon zeroinitializer } } }, align 8
+@_ZN2pb31_JavaFeatures_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon zeroinitializer } } }, align 8
 @_ZN73TableStruct_google_2fprotobuf_2fcompiler_2fjava_2fjava_5ffeatures_2eproto7offsetsE = constant [12 x i32] [i32 16, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 24, i32 28, i32 0, i32 1], section "protodesc_cold", align 16
 @_ZL87descriptor_table_protodef_google_2fprotobuf_2fcompiler_2fjava_2fjava_5ffeatures_2eproto = internal constant [431 x i8] c"\0A1google/protobuf/compiler/java/java_features.proto\12\02pb\1A google/protobuf/descriptor.proto\22\EA\01\0A\0CJavaFeatures\12>\0A\12legacy_closed_enum\18\01 \01(\08B\22\88\01\01\98\01\04\98\01\01\A2\01\09\12\04true\18\E6\07\A2\01\0A\12\05false\18\E7\07\12R\0A\0Futf8_validation\18\02 \01(\0E2\1F.pb.JavaFeatures.Utf8ValidationB\18\88\01\01\98\01\04\98\01\01\A2\01\0C\12\07DEFAULT\18\E6\07\22F\0A\0EUtf8Validation\12\1B\0A\17UTF8_VALIDATION_UNKNOWN\10\00\12\0B\0A\07DEFAULT\10\01\12\0A\0A\06VERIFY\10\02:<\0A\04java\12\1B.google.protobuf.FeatureSet\18\E9\07 \01(\0B2\10.pb.JavaFeaturesB(\0A\13com.google.protobufB\11JavaFeaturesProto\00", section "protodesc_cold", align 16
 @.str = private unnamed_addr constant [50 x i8] c"google/protobuf/compiler/java/java_features.proto\00", align 1
@@ -100,7 +100,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i64 0, i32 0, i64 2), ptr %this, align 8
   %arrayinit.cur.i.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.cur.i.ptr.i, i8 0, i64 16, i1 false)
   ret void
@@ -114,7 +114,7 @@ entry:
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2pb12JavaFeaturesE, i64 0, i32 0, i64 2), ptr %this, align 8
   %arrayinit.cur.i.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayinit.cur.i.ptr.i.i, i8 0, i64 16, i1 false)
   %1 = getelementptr inbounds i8, ptr %from, i64 16

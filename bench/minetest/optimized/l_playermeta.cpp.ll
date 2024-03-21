@@ -67,7 +67,7 @@ define dso_local void @_ZN13PlayerMetaRef20reportMetadataChangeEPKNSt7__cxx1112b
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN13PlayerMetaRef6createEP9lua_StateP9IMetadata(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13PlayerMetaRef, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13PlayerMetaRef, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !10
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !4
   %5 = tail call ptr @lua_newuserdata(ptr noundef %0, i64 noundef 8)

@@ -1158,7 +1158,7 @@ _ZNSt8_Rb_treeIN3vcg8ColorMapESt4pairIKS1_St6vectorINS0_6Color4IhEESaIS6_EEESt10
 ; Function Attrs: mustprogress uwtable
 define void @_ZN21VarianceShadowMappingC2Ef(ptr noundef nonnull align 8 dereferenceable(60) %0, float noundef %1) unnamed_addr #1 align 2 {
   tail call void @_ZN13ShadowMappingC2Ef(ptr noundef nonnull align 8 dereferenceable(44) %0, float noundef %1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21VarianceShadowMapping, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21VarianceShadowMapping, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   ret void
@@ -1168,7 +1168,7 @@ declare void @_ZN13ShadowMappingC2Ef(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN21VarianceShadowMappingD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21VarianceShadowMapping, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV21VarianceShadowMapping, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = load ptr, ptr @__glewDetachShader, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 48
   %4 = load i32, ptr %3, align 8

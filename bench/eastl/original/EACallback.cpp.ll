@@ -178,7 +178,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mPeriod = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 1
   store i64 1000000000, ptr %mPeriod, align 8
   %mPrecision = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 2
@@ -285,7 +285,7 @@ entry:
   %frombool = zext i1 %bEnableRefCount to i8
   store i8 %frombool, ptr %bEnableRefCount.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mPeriod = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %period.addr, align 8
   store i64 %0, ptr %mPeriod, align 8
@@ -325,7 +325,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN2EA4StdC8CallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mbStarted = getelementptr inbounds %"class.EA::StdC::Callback", ptr %this1, i32 0, i32 7
   %call = invoke noundef i32 @_ZNK2EA6Thread9AtomicIntIiEcvKiEv(ptr noundef nonnull align 4 dereferenceable(4) %mbStarted)
           to label %invoke.cont unwind label %terminate.lpad
@@ -909,7 +909,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2EA4StdC16ICallbackManagerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC15CallbackManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC15CallbackManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mCallbackArray = getelementptr inbounds %"class.EA::StdC::CallbackManager", ptr %this1, i32 0, i32 1
   invoke void @_ZN2EA4StdC15CallbackManager14CallbackVectorC1Ev(ptr noundef nonnull align 8 dereferenceable(88) %mCallbackArray)
           to label %invoke.cont unwind label %lpad
@@ -1049,7 +1049,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC16ICallbackManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC16ICallbackManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1107,7 +1107,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC15CallbackManagerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN2EA4StdC15CallbackManagerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN2EA4StdC15CallbackManager8ShutdownEv(ptr noundef nonnull align 8 dereferenceable(296) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 

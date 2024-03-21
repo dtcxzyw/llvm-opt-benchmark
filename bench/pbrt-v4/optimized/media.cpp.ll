@@ -7687,7 +7687,7 @@ invoke.cont17:                                    ; preds = %for.body.i.i.i
   %res.sroa.4.0.res4.sroa_idx.i = getelementptr inbounds i8, ptr %this, i64 304
   store i32 64, ptr %res.sroa.4.0.res4.sroa_idx.i, align 8
   %densityGrid = getelementptr inbounds i8, ptr %this, i64 312
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %densityGrid, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %densityGrid, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %this, i64 320
   %call.i.i.i = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i, ptr %mBuffer.i, align 8
@@ -7705,7 +7705,7 @@ invoke.cont17:                                    ; preds = %for.body.i.i.i
   store ptr %12, ptr %ptr.i.i.i13, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i1.i, i8 0, i64 16, i1 false)
   %temperatureGrid = getelementptr inbounds i8, ptr %this, i64 344
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %temperatureGrid, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %temperatureGrid, align 8
   %mBuffer.i14 = getelementptr inbounds i8, ptr %this, i64 352
   %call.i.i.i15 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i15, ptr %mBuffer.i14, align 8
@@ -8105,7 +8105,7 @@ declare void @_ZN4pbrt3LogENS_8LogLevelEPKciS2_(i32 noundef, ptr noundef, i32 no
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ptr.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr.i.i, align 8
   %bytesAllocated.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -8308,7 +8308,7 @@ lpad13:                                           ; preds = %if.then
   br label %ehcleanup165
 
 if.end:                                           ; preds = %invoke.cont9
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %densityGrid, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %densityGrid, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %densityGrid, i64 8
   %call.i.i.i = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i, ptr %mBuffer.i, align 8
@@ -8395,7 +8395,7 @@ _ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit: ; preds = %invoke.cont
   %ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp29, i64 24
   %17 = load ptr, ptr %ptr.i.i, align 8
   store ptr %17, ptr %ptr.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp29, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %ref.tmp29, align 8
   %vtable.i.i.pre = load ptr, ptr %densityGrid, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i.i72, i8 0, i64 16, i1 false)
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i.pre, i64 16
@@ -8447,7 +8447,7 @@ lpad32:                                           ; preds = %_ZN7nanovdb10GridHa
   br label %ehcleanup163
 
 if.end39:                                         ; preds = %invoke.cont35
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %temperatureGrid, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %temperatureGrid, align 8
   %mBuffer.i81 = getelementptr inbounds i8, ptr %temperatureGrid, i64 8
   %call.i.i.i82 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i82, ptr %mBuffer.i81, align 8
@@ -8534,7 +8534,7 @@ _ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit120: ; preds = %if.end.i
   %ptr.i.i110 = getelementptr inbounds i8, ptr %ref.tmp54, i64 24
   %33 = load ptr, ptr %ptr.i.i110, align 8
   store ptr %33, ptr %ptr.i.i.i101, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp54, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %ref.tmp54, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i.i109, i8 0, i64 16, i1 false)
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp61) #27
   %call.i125 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp60)
@@ -8934,7 +8934,7 @@ call.i.i.i.i.noexc:                               ; preds = %invoke.cont155
 
 invoke.cont159:                                   ; preds = %call.i.i.i.i.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %temperaturename) #27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %temperatureGrid, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %temperatureGrid, align 8
   %66 = load ptr, ptr %ptr.i.i.i101, align 8
   %tobool.not.i.i.i.i.i199 = icmp eq ptr %66, null
   br i1 %tobool.not.i.i.i.i.i199, label %_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit205, label %if.end.i.i.i.i.i200
@@ -8958,7 +8958,7 @@ terminate.lpad.i204:                              ; preds = %if.end.i.i.i.i.i200
 _ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit205: ; preds = %invoke.cont159, %if.end.i.i.i.i.i200
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i.i83, i8 0, i64 16, i1 false)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %gridname) #27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %densityGrid, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %densityGrid, align 8
   %72 = load ptr, ptr %ptr.i.i.i, align 8
   %tobool.not.i.i.i.i.i208 = icmp eq ptr %72, null
   br i1 %tobool.not.i.i.i.i.i208, label %_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit214, label %if.end.i.i.i.i.i209
@@ -9043,7 +9043,7 @@ entry:
   store ptr %alloc.coerce, ptr %buf, align 8
   %bytesAllocated.i = getelementptr inbounds i8, ptr %buf, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call.i.i.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i, ptr %mBuffer.i, align 8
@@ -9084,7 +9084,7 @@ _ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED2Ev.exit: ; preds = %invoke.cont
   %ptr.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 24
   %8 = load ptr, ptr %ptr.i.i, align 8
   store ptr %8, ptr %ptr.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8
   %vtable.i.i.pre = load ptr, ptr %agg.result, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i.i8, i8 0, i64 16, i1 false)
   %vfn.i.i = getelementptr inbounds i8, ptr %vtable.i.i.pre, i64 16
@@ -13570,7 +13570,7 @@ declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %ptr.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %ptr.i.i.i, align 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -26235,7 +26235,7 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE14allocate_bytesEmm.exit.i.i.i: ; pr
 
 _ZN4pbrt13NanoVDBBufferD2Ev.exit:                 ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE14allocate_bytesEmm.exit.i.i.i, %if.then
   %agg.result.val12 = phi ptr [ null, %if.then ], [ %call.i.i.i.i.i15, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE14allocate_bytesEmm.exit.i.i.i ]
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call.i.i.i = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   %bytesAllocated.i.i16 = getelementptr inbounds i8, ptr %agg.result, i64 16
@@ -26409,7 +26409,7 @@ for.end:                                          ; preds = %if.else, %while.bod
           to label %while.cond unwind label %lpad.loopexit, !llvm.loop !70
 
 while.end:                                        ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %mBuffer.i26 = getelementptr inbounds i8, ptr %agg.result, i64 8
   %call.i.i.i27 = call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   store ptr %call.i.i.i27, ptr %mBuffer.i26, align 8
@@ -27706,7 +27706,7 @@ entry:
   store i64 %1, ptr %agg.tmp22, align 8
   %2 = load float, ptr %args5, align 4
   %3 = load float, ptr %args7, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp23, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.tmp23, align 8
   %mBuffer.i = getelementptr inbounds i8, ptr %agg.tmp23, i64 8
   %call.i.i.i = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   %bytesAllocated.i.i = getelementptr inbounds i8, ptr %agg.tmp23, i64 16
@@ -27721,7 +27721,7 @@ entry:
   %6 = load ptr, ptr %ptr.i.i, align 8
   store ptr %6, ptr %ptr.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %bytesAllocated.i1.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp24, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7nanovdb10GridHandleIN4pbrt13NanoVDBBufferEEE, i64 0, i32 0, i64 2), ptr %agg.tmp24, align 8
   %mBuffer.i1 = getelementptr inbounds i8, ptr %agg.tmp24, i64 8
   %call.i.i.i2 = tail call noundef ptr @_ZN4pstd3pmr19new_delete_resourceEv() #27
   %bytesAllocated.i.i3 = getelementptr inbounds i8, ptr %agg.tmp24, i64 16

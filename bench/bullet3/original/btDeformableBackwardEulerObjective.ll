@@ -2336,7 +2336,7 @@ entry:
   store ptr %softBodies, ptr %softBodies.addr, align 8
   store ptr %backup_v, ptr %backup_v.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV34btDeformableBackwardEulerObjective, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV34btDeformableBackwardEulerObjective, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_lf = getelementptr inbounds %class.btDeformableBackwardEulerObjective, ptr %this1, i32 0, i32 3
   call void @_ZN20btAlignedObjectArrayIP27btDeformableLagrangianForceEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_lf)
   %m_softBodies = getelementptr inbounds %class.btDeformableBackwardEulerObjective, ptr %this1, i32 0, i32 4
@@ -2481,7 +2481,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %softBodies, ptr %softBodies.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV29btDeformableContactProjection, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV29btDeformableContactProjection, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_softBodies = getelementptr inbounds %class.btDeformableContactProjection, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %softBodies.addr, align 8
   store ptr %0, ptr %m_softBodies, align 8
@@ -2646,7 +2646,7 @@ entry:
   store ptr %softBodies, ptr %softBodies.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14PreconditionerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18MassPreconditioner, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18MassPreconditioner, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inv_mass = getelementptr inbounds %class.MassPreconditioner, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_inv_mass)
           to label %invoke.cont unwind label %lpad
@@ -2697,7 +2697,7 @@ entry:
   store ptr %implicit, ptr %implicit.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14PreconditionerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17KKTPreconditioner, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17KKTPreconditioner, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_softBodies = getelementptr inbounds %class.KKTPreconditioner, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %softBodies.addr, align 8
   store ptr %0, ptr %m_softBodies, align 8
@@ -2782,7 +2782,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV29btDeformableContactProjection, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV29btDeformableContactProjection, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_nodeAnchorConstraints = getelementptr inbounds %class.btDeformableContactProjection, ptr %this1, i32 0, i32 9
   call void @_ZN20btAlignedObjectArrayIS_I32btDeformableNodeAnchorConstraintEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_nodeAnchorConstraints) #4
   %m_deformableConstraints = getelementptr inbounds %class.btDeformableContactProjection, ptr %this1, i32 0, i32 8
@@ -2828,7 +2828,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV34btDeformableBackwardEulerObjective, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV34btDeformableBackwardEulerObjective, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_KKTPreconditioner = getelementptr inbounds %class.btDeformableBackwardEulerObjective, ptr %this1, i32 0, i32 11
   %0 = load ptr, ptr %m_KKTPreconditioner, align 8
   %isnull = icmp eq ptr %0, null
@@ -9194,7 +9194,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV14Preconditioner, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV14Preconditioner, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9379,7 +9379,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18MassPreconditioner, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV18MassPreconditioner, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inv_mass = getelementptr inbounds %class.MassPreconditioner, ptr %this1, i32 0, i32 1
   call void @_ZN20btAlignedObjectArrayIfED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_inv_mass) #4
   call void @_ZN14PreconditionerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
@@ -10181,7 +10181,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17KKTPreconditioner, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17KKTPreconditioner, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_inv_S = getelementptr inbounds %class.KKTPreconditioner, ptr %this1, i32 0, i32 5
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_inv_S) #4
   %m_inv_A = getelementptr inbounds %class.KKTPreconditioner, ptr %this1, i32 0, i32 4

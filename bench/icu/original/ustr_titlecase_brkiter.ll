@@ -636,7 +636,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7513BreakIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(479) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7524WholeStringBreakIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7524WholeStringBreakIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %length = getelementptr inbounds %"class.icu_75::WholeStringBreakIterator", ptr %this1, i32 0, i32 1
   store i32 0, ptr %length, align 8
   ret void

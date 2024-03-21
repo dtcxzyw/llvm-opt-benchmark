@@ -422,11 +422,11 @@ declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #7
 define void @_ZN17grpc_event_engine12experimental12TimerManagerC2ESt10shared_ptrINS0_10ThreadPoolEE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr nocapture noundef %thread_pool) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.absl::lts_20230802::AnyInvocable", align 16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12TimerManagerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12TimerManagerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mu_ = getelementptr inbounds i8, ptr %this, i64 8
   %host_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %mu_, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12TimerManager4HostE, i64 0, inrange i32 0, i64 2), ptr %host_, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN17grpc_event_engine12experimental12TimerManager4HostE, i64 0, i32 0, i64 2), ptr %host_, align 8
   %timer_manager_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %this, ptr %timer_manager_.i, align 8
   %shutdown_ = getelementptr inbounds i8, ptr %this, i64 40

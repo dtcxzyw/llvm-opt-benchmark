@@ -249,7 +249,7 @@ entry:
   %frombool = zext i1 %is_snapshot to i8
   store i8 %frombool, ptr %is_snapshot.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %is_snapshot_ = getelementptr inbounds %"class.absl::cord_internal::CordzHandle", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %is_snapshot.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -521,7 +521,7 @@ entry:
   %handle = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4absl13cord_internal11CordzHandleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef ptr @_ZN4absl13cord_internal12_GLOBAL__N_111GlobalQueueEv()
           to label %invoke.cont unwind label %terminate.lpad
 

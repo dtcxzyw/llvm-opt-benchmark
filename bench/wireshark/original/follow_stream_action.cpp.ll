@@ -106,7 +106,7 @@ define void @_ZN18FollowStreamActionC2EP7QObjectP15register_follow(ptr noundef n
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %5, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18FollowStreamAction, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18FollowStreamAction, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.FollowStreamAction, ptr %14, i32 0, i32 1
   %17 = load ptr, ptr %6, align 8
   store ptr %17, ptr %16, align 8

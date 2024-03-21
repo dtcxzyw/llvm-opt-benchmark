@@ -374,7 +374,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net23CachedNetworkParametersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net23CachedNetworkParametersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_arena_ptr_ = getelementptr inbounds %"class.net::CachedNetworkParameters", ptr %this1, i32 0, i32 2
   store ptr null, ptr %_arena_ptr_, align 8
   invoke void @_ZN3net23CachedNetworkParameters10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
@@ -407,7 +407,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -458,7 +458,7 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net23CachedNetworkParametersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net23CachedNetworkParametersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_arena_ptr_ = getelementptr inbounds %"class.net::CachedNetworkParameters", ptr %this1, i32 0, i32 2
   store ptr null, ptr %_arena_ptr_, align 8
   invoke void @_ZN3net23CachedNetworkParameters10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
@@ -651,7 +651,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net23CachedNetworkParametersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net23CachedNetworkParametersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN3net23CachedNetworkParameters10SharedDtorEv(ptr noundef nonnull align 8 dereferenceable(72) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -3960,7 +3960,7 @@ entry:
   store ptr %p1, ptr %p1.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf14ResultCallbackIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net23CachedNetworkParametersEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net23CachedNetworkParametersEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %function_ = getelementptr inbounds %"class.google::protobuf::internal::FunctionResultCallback_1_0", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %function.addr, align 8
   store ptr %0, ptr %function_, align 8
@@ -3981,7 +3981,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf14ResultCallbackIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf14ResultCallbackIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

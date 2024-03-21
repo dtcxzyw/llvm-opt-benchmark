@@ -2195,7 +2195,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %_ZN5arrow6StatusD2E
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !27
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i474, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !27
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i474, align 8, !noalias !27
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i474, align 8, !noalias !27
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i474, i64 16
   invoke void @_ZSt10_ConstructIN5arrow12BooleanArrayEJlRSt10shared_ptrINS0_6BufferEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp102, ptr noundef nonnull align 8 dereferenceable(16) %insert_buf)
           to label %invoke.cont105 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !27
@@ -2225,7 +2225,7 @@ call5.i.i.i3.i.i.i.i.noexc479:                    ; preds = %invoke.cont105
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i475, align 8, !noalias !30
   %_M_weak_count.i.i.i.i.i.i476 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i480, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i476, align 4, !noalias !30
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i480, align 8, !noalias !30
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i480, align 8, !noalias !30
   %_M_impl.i.i.i.i.i.i477 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i480, i64 16
   invoke void @_ZSt10_ConstructIN5arrow12NumericArrayINS0_9Int64TypeEEEJlRSt10shared_ptrINS0_6BufferEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i477, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp107, ptr noundef nonnull align 8 dereferenceable(16) %run_length_buf)
           to label %invoke.cont110 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS1_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !30
@@ -7509,7 +7509,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -8335,7 +8335,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -9204,7 +9204,7 @@ call5.i.i.i3.i.i.i.i.noexc:                       ; preds = %for.end
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !139
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i70, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !139
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i70, align 8, !noalias !139
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i70, align 8, !noalias !139
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i70, i64 16
   invoke void @_ZSt10_ConstructIN5arrow12BooleanArrayEJRlSt10shared_ptrINS0_6BufferEEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %length, ptr noundef nonnull align 8 dereferenceable(16) %insert_buf)
           to label %invoke.cont79 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12BooleanArrayESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !139
@@ -9233,7 +9233,7 @@ call5.i.i.i3.i.i.i.i.noexc75:                     ; preds = %invoke.cont79
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i71, align 8, !noalias !142
   %_M_weak_count.i.i.i.i.i.i72 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i76, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i72, align 4, !noalias !142
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i76, align 8, !noalias !142
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS0_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i76, align 8, !noalias !142
   %_M_impl.i.i.i.i.i.i73 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i76, i64 16
   invoke void @_ZSt10_ConstructIN5arrow12NumericArrayINS0_9Int64TypeEEEJRlSt10unique_ptrINS0_6BufferESt14default_deleteIS6_EEEEvPT_DpOT0_(ptr noundef nonnull %_M_impl.i.i.i.i.i.i73, ptr noundef nonnull align 8 dereferenceable(8) %length, ptr noundef nonnull align 8 dereferenceable(8) %run_length_buf)
           to label %invoke.cont82 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow12NumericArrayINS1_9Int64TypeEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i, !noalias !142
@@ -10766,7 +10766,7 @@ sw.bb:                                            ; preds = %entry
 sw.bb4:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !145)
   %call.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !148
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12BooleanArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !noalias !148
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12BooleanArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !148
   %base2.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr %args, ptr %base2.i.i.i, align 8, !noalias !148
   %target3.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
@@ -10790,7 +10790,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_11BooleanTypeEEENS_6StatusERKT_RKNS_5
 sw.bb6:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !154)
   %call.i.i170 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !157
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_8Int8TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i170, align 8, !noalias !157
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_8Int8TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i170, align 8, !noalias !157
   %base2.i.i.i171 = getelementptr inbounds i8, ptr %call.i.i170, i64 8
   store ptr %args, ptr %base2.i.i.i171, align 8, !noalias !157
   %target3.i.i.i172 = getelementptr inbounds i8, ptr %call.i.i170, i64 16
@@ -10814,7 +10814,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_8Int8TypeEEENS_6StatusERKT_RKNS_5Arra
 sw.bb8:                                           ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !163)
   %call.i.i177 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !166
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9UInt8TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i177, align 8, !noalias !166
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9UInt8TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i177, align 8, !noalias !166
   %base2.i.i.i178 = getelementptr inbounds i8, ptr %call.i.i177, i64 8
   store ptr %args, ptr %base2.i.i.i178, align 8, !noalias !166
   %target3.i.i.i179 = getelementptr inbounds i8, ptr %call.i.i177, i64 16
@@ -10838,7 +10838,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_9UInt8TypeEEENS_6StatusERKT_RKNS_5Arr
 sw.bb10:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !172)
   %call.i.i184 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !175
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int16TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i184, align 8, !noalias !175
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int16TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i184, align 8, !noalias !175
   %base2.i.i.i185 = getelementptr inbounds i8, ptr %call.i.i184, i64 8
   store ptr %args, ptr %base2.i.i.i185, align 8, !noalias !175
   %target3.i.i.i186 = getelementptr inbounds i8, ptr %call.i.i184, i64 16
@@ -10862,7 +10862,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_9Int16TypeEEENS_6StatusERKT_RKNS_5Arr
 sw.bb12:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !181)
   %call.i.i191 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !184
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt16TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i191, align 8, !noalias !184
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt16TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i191, align 8, !noalias !184
   %base2.i.i.i192 = getelementptr inbounds i8, ptr %call.i.i191, i64 8
   store ptr %args, ptr %base2.i.i.i192, align 8, !noalias !184
   %target3.i.i.i193 = getelementptr inbounds i8, ptr %call.i.i191, i64 16
@@ -10886,7 +10886,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10UInt16TypeEEENS_6StatusERKT_RKNS_5A
 sw.bb14:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !190)
   %call.i.i198 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !193
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int32TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i198, align 8, !noalias !193
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int32TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i198, align 8, !noalias !193
   %base2.i.i.i199 = getelementptr inbounds i8, ptr %call.i.i198, i64 8
   store ptr %args, ptr %base2.i.i.i199, align 8, !noalias !193
   %target3.i.i.i200 = getelementptr inbounds i8, ptr %call.i.i198, i64 16
@@ -10910,7 +10910,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_9Int32TypeEEENS_6StatusERKT_RKNS_5Arr
 sw.bb16:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !199)
   %call.i.i205 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !202
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt32TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i205, align 8, !noalias !202
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt32TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i205, align 8, !noalias !202
   %base2.i.i.i206 = getelementptr inbounds i8, ptr %call.i.i205, i64 8
   store ptr %args, ptr %base2.i.i.i206, align 8, !noalias !202
   %target3.i.i.i207 = getelementptr inbounds i8, ptr %call.i.i205, i64 16
@@ -10934,7 +10934,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10UInt32TypeEEENS_6StatusERKT_RKNS_5A
 sw.bb18:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !208)
   %call.i.i212 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !211
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int64TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i212, align 8, !noalias !211
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9Int64TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i212, align 8, !noalias !211
   %base2.i.i.i213 = getelementptr inbounds i8, ptr %call.i.i212, i64 8
   store ptr %args, ptr %base2.i.i.i213, align 8, !noalias !211
   %target3.i.i.i214 = getelementptr inbounds i8, ptr %call.i.i212, i64 16
@@ -10958,7 +10958,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_9Int64TypeEEENS_6StatusERKT_RKNS_5Arr
 sw.bb20:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !217)
   %call.i.i219 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !220
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt64TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i219, align 8, !noalias !220
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10UInt64TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i219, align 8, !noalias !220
   %base2.i.i.i220 = getelementptr inbounds i8, ptr %call.i.i219, i64 8
   store ptr %args, ptr %base2.i.i.i220, align 8, !noalias !220
   %target3.i.i.i221 = getelementptr inbounds i8, ptr %call.i.i219, i64 16
@@ -10982,7 +10982,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10UInt64TypeEEENS_6StatusERKT_RKNS_5A
 sw.bb22:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !226)
   %call.i.i226 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !229
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_13HalfFloatTypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i226, align 8, !noalias !229
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_13HalfFloatTypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i226, align 8, !noalias !229
   %base2.i.i.i227 = getelementptr inbounds i8, ptr %call.i.i226, i64 8
   store ptr %args, ptr %base2.i.i.i227, align 8, !noalias !229
   %target3.i.i.i228 = getelementptr inbounds i8, ptr %call.i.i226, i64 16
@@ -11006,7 +11006,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_13HalfFloatTypeEEENS_6StatusERKT_RKNS
 sw.bb24:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !235)
   %call.i.i233 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !238
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9FloatTypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i233, align 8, !noalias !238
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_9FloatTypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i233, align 8, !noalias !238
   %base2.i.i.i234 = getelementptr inbounds i8, ptr %call.i.i233, i64 8
   store ptr %args, ptr %base2.i.i.i234, align 8, !noalias !238
   %target3.i.i.i235 = getelementptr inbounds i8, ptr %call.i.i233, i64 16
@@ -11030,7 +11030,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_9FloatTypeEEENS_6StatusERKT_RKNS_5Arr
 sw.bb26:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !244)
   %call.i.i240 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !247
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10DoubleTypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i240, align 8, !noalias !247
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10DoubleTypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i240, align 8, !noalias !247
   %base2.i.i.i241 = getelementptr inbounds i8, ptr %call.i.i240, i64 8
   store ptr %args, ptr %base2.i.i.i241, align 8, !noalias !247
   %target3.i.i.i242 = getelementptr inbounds i8, ptr %call.i.i240, i64 16
@@ -11054,7 +11054,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10DoubleTypeEEENS_6StatusERKT_RKNS_5A
 sw.bb28:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !253)
   %call.i.i247 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !256
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11StringArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i247, align 8, !noalias !256
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11StringArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i247, align 8, !noalias !256
   %base2.i.i.i248 = getelementptr inbounds i8, ptr %call.i.i247, i64 8
   store ptr %args, ptr %base2.i.i.i248, align 8, !noalias !256
   %target3.i.i.i249 = getelementptr inbounds i8, ptr %call.i.i247, i64 16
@@ -11078,7 +11078,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10StringTypeEEENS_6StatusERKT_RKNS_5A
 sw.bb30:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !262)
   %call.i.i254 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !265
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15StringViewArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i254, align 8, !noalias !265
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15StringViewArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i254, align 8, !noalias !265
   %base2.i.i.i255 = getelementptr inbounds i8, ptr %call.i.i254, i64 8
   store ptr %args, ptr %base2.i.i.i255, align 8, !noalias !265
   %target3.i.i.i256 = getelementptr inbounds i8, ptr %call.i.i254, i64 16
@@ -11102,7 +11102,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_14StringViewTypeEEENS_6StatusERKT_RKN
 sw.bb32:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !271)
   %call.i.i261 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !274
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11BinaryArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i261, align 8, !noalias !274
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11BinaryArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i261, align 8, !noalias !274
   %base2.i.i.i262 = getelementptr inbounds i8, ptr %call.i.i261, i64 8
   store ptr %args, ptr %base2.i.i.i262, align 8, !noalias !274
   %target3.i.i.i263 = getelementptr inbounds i8, ptr %call.i.i261, i64 16
@@ -11126,7 +11126,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10BinaryTypeEEENS_6StatusERKT_RKNS_5A
 sw.bb34:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   %call.i.i268 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !283
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15BinaryViewArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i268, align 8, !noalias !283
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15BinaryViewArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i268, align 8, !noalias !283
   %base2.i.i.i269 = getelementptr inbounds i8, ptr %call.i.i268, i64 8
   store ptr %args, ptr %base2.i.i.i269, align 8, !noalias !283
   %target3.i.i.i270 = getelementptr inbounds i8, ptr %call.i.i268, i64 16
@@ -11150,7 +11150,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_14BinaryViewTypeEEENS_6StatusERKT_RKN
 sw.bb36:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !289)
   %call.i.i275 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !292
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16LargeStringArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i275, align 8, !noalias !292
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16LargeStringArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i275, align 8, !noalias !292
   %base2.i.i.i276 = getelementptr inbounds i8, ptr %call.i.i275, i64 8
   store ptr %args, ptr %base2.i.i.i276, align 8, !noalias !292
   %target3.i.i.i277 = getelementptr inbounds i8, ptr %call.i.i275, i64 16
@@ -11174,7 +11174,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_15LargeStringTypeEEENS_6StatusERKT_RK
 sw.bb38:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !298)
   %call.i.i282 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !301
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16LargeBinaryArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i282, align 8, !noalias !301
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16LargeBinaryArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i282, align 8, !noalias !301
   %base2.i.i.i283 = getelementptr inbounds i8, ptr %call.i.i282, i64 8
   store ptr %args, ptr %base2.i.i.i283, align 8, !noalias !301
   %target3.i.i.i284 = getelementptr inbounds i8, ptr %call.i.i282, i64 16
@@ -11198,7 +11198,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_15LargeBinaryTypeEEENS_6StatusERKT_RK
 sw.bb40:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !307)
   %call.i.i289 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !310
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_20FixedSizeBinaryArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i289, align 8, !noalias !310
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_20FixedSizeBinaryArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i289, align 8, !noalias !310
   %base2.i.i.i290 = getelementptr inbounds i8, ptr %call.i.i289, i64 8
   store ptr %args, ptr %base2.i.i.i290, align 8, !noalias !310
   %target3.i.i.i291 = getelementptr inbounds i8, ptr %call.i.i289, i64 16
@@ -11222,7 +11222,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_19FixedSizeBinaryTypeEEENS_6StatusERK
 sw.bb42:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !316)
   %call.i.i296 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !319
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_12DurationTypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i296, align 8, !noalias !319
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_12DurationTypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i296, align 8, !noalias !319
   %base2.i.i.i297 = getelementptr inbounds i8, ptr %call.i.i296, i64 8
   store ptr %args, ptr %base2.i.i.i297, align 8, !noalias !319
   %target3.i.i.i298 = getelementptr inbounds i8, ptr %call.i.i296, i64 16
@@ -11246,7 +11246,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_12DurationTypeEEENS_6StatusERKT_RKNS_
 sw.bb44:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !325)
   %call.i.i303 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !328
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Date32TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i303, align 8, !noalias !328
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Date32TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i303, align 8, !noalias !328
   %base2.i.i.i304 = getelementptr inbounds i8, ptr %call.i.i303, i64 8
   store ptr %args, ptr %base2.i.i.i304, align 8, !noalias !328
   %target3.i.i.i305 = getelementptr inbounds i8, ptr %call.i.i303, i64 16
@@ -11270,7 +11270,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10Date32TypeEEENS_6StatusERKT_RKNS_5A
 sw.bb46:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !334)
   %call.i.i310 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !337
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Date64TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i310, align 8, !noalias !337
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Date64TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i310, align 8, !noalias !337
   %base2.i.i.i311 = getelementptr inbounds i8, ptr %call.i.i310, i64 8
   store ptr %args, ptr %base2.i.i.i311, align 8, !noalias !337
   %target3.i.i.i312 = getelementptr inbounds i8, ptr %call.i.i310, i64 16
@@ -11294,7 +11294,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10Date64TypeEEENS_6StatusERKT_RKNS_5A
 sw.bb48:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !343)
   %call.i.i317 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !346
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_13TimestampTypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i317, align 8, !noalias !346
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_13TimestampTypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i317, align 8, !noalias !346
   %base2.i.i.i318 = getelementptr inbounds i8, ptr %call.i.i317, i64 8
   store ptr %args, ptr %base2.i.i.i318, align 8, !noalias !346
   %target3.i.i.i319 = getelementptr inbounds i8, ptr %call.i.i317, i64 16
@@ -11318,7 +11318,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_13TimestampTypeEEENS_6StatusERKT_RKNS
 sw.bb50:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
   %call.i.i324 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !355
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Time32TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i324, align 8, !noalias !355
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Time32TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i324, align 8, !noalias !355
   %base2.i.i.i325 = getelementptr inbounds i8, ptr %call.i.i324, i64 8
   store ptr %args, ptr %base2.i.i.i325, align 8, !noalias !355
   %target3.i.i.i326 = getelementptr inbounds i8, ptr %call.i.i324, i64 16
@@ -11342,7 +11342,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10Time32TypeEEENS_6StatusERKT_RKNS_5A
 sw.bb52:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !361)
   %call.i.i331 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !364
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Time64TypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i331, align 8, !noalias !364
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_10Time64TypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i331, align 8, !noalias !364
   %base2.i.i.i332 = getelementptr inbounds i8, ptr %call.i.i331, i64 8
   store ptr %args, ptr %base2.i.i.i332, align 8, !noalias !364
   %target3.i.i.i333 = getelementptr inbounds i8, ptr %call.i.i331, i64 16
@@ -11366,7 +11366,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10Time64TypeEEENS_6StatusERKT_RKNS_5A
 sw.bb54:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !370)
   %call.i.i338 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !373
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_25MonthDayNanoIntervalArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i338, align 8, !noalias !373
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_25MonthDayNanoIntervalArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i338, align 8, !noalias !373
   %base2.i.i.i339 = getelementptr inbounds i8, ptr %call.i.i338, i64 8
   store ptr %args, ptr %base2.i.i.i339, align 8, !noalias !373
   %target3.i.i.i340 = getelementptr inbounds i8, ptr %call.i.i338, i64 16
@@ -11390,7 +11390,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_24MonthDayNanoIntervalTypeEEENS_6Stat
 sw.bb56:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !379)
   %call.i.i345 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !382
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_17MonthIntervalTypeEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i345, align 8, !noalias !382
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_12NumericArrayINS_17MonthIntervalTypeEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i345, align 8, !noalias !382
   %base2.i.i.i346 = getelementptr inbounds i8, ptr %call.i.i345, i64 8
   store ptr %args, ptr %base2.i.i.i346, align 8, !noalias !382
   %target3.i.i.i347 = getelementptr inbounds i8, ptr %call.i.i345, i64 16
@@ -11414,7 +11414,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_17MonthIntervalTypeEEENS_6StatusERKT_
 sw.bb58:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !388)
   %call.i.i352 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !391
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_20DayTimeIntervalArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i352, align 8, !noalias !391
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_20DayTimeIntervalArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i352, align 8, !noalias !391
   %base2.i.i.i353 = getelementptr inbounds i8, ptr %call.i.i352, i64 8
   store ptr %args, ptr %base2.i.i.i353, align 8, !noalias !391
   %target3.i.i.i354 = getelementptr inbounds i8, ptr %call.i.i352, i64 16
@@ -11438,7 +11438,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_19DayTimeIntervalTypeEEENS_6StatusERK
 sw.bb60:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !397)
   %call.i.i359 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !400
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15Decimal128ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i359, align 8, !noalias !400
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15Decimal128ArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i359, align 8, !noalias !400
   %base2.i.i.i360 = getelementptr inbounds i8, ptr %call.i.i359, i64 8
   store ptr %args, ptr %base2.i.i.i360, align 8, !noalias !400
   %target3.i.i.i361 = getelementptr inbounds i8, ptr %call.i.i359, i64 16
@@ -11462,7 +11462,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_14Decimal128TypeEEENS_6StatusERKT_RKN
 sw.bb62:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !406)
   %call.i.i366 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !409
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15Decimal256ArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i366, align 8, !noalias !409
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15Decimal256ArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i366, align 8, !noalias !409
   %base2.i.i.i367 = getelementptr inbounds i8, ptr %call.i.i366, i64 8
   store ptr %args, ptr %base2.i.i.i367, align 8, !noalias !409
   %target3.i.i.i368 = getelementptr inbounds i8, ptr %call.i.i366, i64 16
@@ -11486,7 +11486,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_14Decimal256TypeEEENS_6StatusERKT_RKN
 sw.bb64:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !415)
   %call.i.i373 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !418
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_9ListArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i373, align 8, !noalias !418
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_9ListArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i373, align 8, !noalias !418
   %base2.i.i.i374 = getelementptr inbounds i8, ptr %call.i.i373, i64 8
   store ptr %args, ptr %base2.i.i.i374, align 8, !noalias !418
   %target3.i.i.i375 = getelementptr inbounds i8, ptr %call.i.i373, i64 16
@@ -11510,7 +11510,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_8ListTypeEEENS_6StatusERKT_RKNS_5Arra
 sw.bb66:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
   %call.i.i380 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !427
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_14LargeListArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i380, align 8, !noalias !427
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_14LargeListArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i380, align 8, !noalias !427
   %base2.i.i.i381 = getelementptr inbounds i8, ptr %call.i.i380, i64 8
   store ptr %args, ptr %base2.i.i.i381, align 8, !noalias !427
   %target3.i.i.i382 = getelementptr inbounds i8, ptr %call.i.i380, i64 16
@@ -11542,7 +11542,7 @@ sw.bb70:                                          ; preds = %entry
 sw.bb72:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !433)
   %call.i.i387 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !436
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_8MapArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i387, align 8, !noalias !436
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_8MapArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i387, align 8, !noalias !436
   %base2.i.i.i388 = getelementptr inbounds i8, ptr %call.i.i387, i64 8
   store ptr %args, ptr %base2.i.i.i388, align 8, !noalias !436
   %target3.i.i.i389 = getelementptr inbounds i8, ptr %call.i.i387, i64 16
@@ -11566,7 +11566,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_7MapTypeEEENS_6StatusERKT_RKNS_5Array
 sw.bb74:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !442)
   %call.i.i394 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !445
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_18FixedSizeListArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i394, align 8, !noalias !445
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_18FixedSizeListArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i394, align 8, !noalias !445
   %base2.i.i.i395 = getelementptr inbounds i8, ptr %call.i.i394, i64 8
   store ptr %args, ptr %base2.i.i.i395, align 8, !noalias !445
   %target3.i.i.i396 = getelementptr inbounds i8, ptr %call.i.i394, i64 16
@@ -11590,7 +11590,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_17FixedSizeListTypeEEENS_6StatusERKT_
 sw.bb76:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !451)
   %call.i.i401 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !454
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11StructArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i401, align 8, !noalias !454
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_11StructArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i401, align 8, !noalias !454
   %base2.i.i.i402 = getelementptr inbounds i8, ptr %call.i.i401, i64 8
   store ptr %args, ptr %base2.i.i.i402, align 8, !noalias !454
   %target3.i.i.i403 = getelementptr inbounds i8, ptr %call.i.i401, i64 16
@@ -11614,7 +11614,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_10StructTypeEEENS_6StatusERKT_RKNS_5A
 sw.bb78:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
   %call.i.i408 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !463
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16SparseUnionArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i408, align 8, !noalias !463
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_16SparseUnionArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i408, align 8, !noalias !463
   %base2.i.i.i409 = getelementptr inbounds i8, ptr %call.i.i408, i64 8
   store ptr %args, ptr %base2.i.i.i409, align 8, !noalias !463
   %target3.i.i.i410 = getelementptr inbounds i8, ptr %call.i.i408, i64 16
@@ -11638,7 +11638,7 @@ _ZN5arrow22ValueComparatorFactory5VisitINS_15SparseUnionTypeEEENS_6StatusERKT_RK
 sw.bb80:                                          ; preds = %entry
   tail call void @llvm.experimental.noalias.scope.decl(metadata !469)
   %call.i.i415 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #21, !noalias !472
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15DenseUnionArrayEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i415, align 8, !noalias !472
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow22DefaultValueComparatorINS_15DenseUnionArrayEEE, i64 0, i32 0, i64 2), ptr %call.i.i415, align 8, !noalias !472
   %base2.i.i.i416 = getelementptr inbounds i8, ptr %call.i.i415, i64 8
   store ptr %args, ptr %base2.i.i.i416, align 8, !noalias !472
   %target3.i.i.i417 = getelementptr inbounds i8, ptr %call.i.i415, i64 16
@@ -18789,7 +18789,7 @@ lpad:                                             ; preds = %_ZN5arrow4util13Str
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow18REEValueComparatorIsEC2ERKNS_18RunEndEncodedArrayES4_OSt10unique_ptrINS_15ValueComparatorESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(320) %this, ptr noundef nonnull align 8 dereferenceable(64) %base, ptr noundef nonnull align 8 dereferenceable(64) %target, ptr noundef nonnull align 8 dereferenceable(8) %inner_value_comparator) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %base_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %base, ptr %base_, align 8
   %target_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -18884,7 +18884,7 @@ _ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow18REEValueComparatorIiEC2ERKNS_18RunEndEncodedArrayES4_OSt10unique_ptrINS_15ValueComparatorESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(320) %this, ptr noundef nonnull align 8 dereferenceable(64) %base, ptr noundef nonnull align 8 dereferenceable(64) %target, ptr noundef nonnull align 8 dereferenceable(8) %inner_value_comparator) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %base_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %base, ptr %base_, align 8
   %target_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -18979,7 +18979,7 @@ _ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit: ; 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5arrow18REEValueComparatorIlEC2ERKNS_18RunEndEncodedArrayES4_OSt10unique_ptrINS_15ValueComparatorESt14default_deleteIS6_EE(ptr noundef nonnull align 8 dereferenceable(320) %this, ptr noundef nonnull align 8 dereferenceable(64) %base, ptr noundef nonnull align 8 dereferenceable(64) %target, ptr noundef nonnull align 8 dereferenceable(8) %inner_value_comparator) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %base_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %base, ptr %base_, align 8
   %target_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -19111,7 +19111,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow18REEValueComparatorIsED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_data.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %child_data.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -19188,7 +19188,7 @@ _ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow18REEValueComparatorIsED0Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIsEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %child_data.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -19466,7 +19466,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow18REEValueComparatorIiED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_data.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %child_data.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -19543,7 +19543,7 @@ _ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow18REEValueComparatorIiED0Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIiEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %child_data.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -19752,7 +19752,7 @@ _ZN5arrow9ArraySpanD2Ev.exit:                     ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow18REEValueComparatorIlED2Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_data.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %child_data.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -19829,7 +19829,7 @@ _ZNSt10unique_ptrIN5arrow15ValueComparatorESt14default_deleteIS1_EED2Ev.exit: ; 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow18REEValueComparatorIlED0Ev(ptr noundef nonnull align 8 dereferenceable(320) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow18REEValueComparatorIlEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_data.i.i.i = getelementptr inbounds i8, ptr %this, i64 280
   %0 = load ptr, ptr %child_data.i.i.i, align 8
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 288
@@ -21886,7 +21886,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit
 
 _ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev.exit:    ; preds = %invoke.cont, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %if.end8.sink.split.i.i.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow12NumericArrayINS_9Int64TypeEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow12NumericArrayINS_9Int64TypeEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 
 lpad:                                             ; preds = %_ZN5arrow10TypeTraitsINS_9Int64TypeEE14type_singletonEv.exit
@@ -21901,7 +21901,7 @@ declare void @_ZN5arrow14PrimitiveArrayC2ERKSt10shared_ptrINS_8DataTypeEElRKS1_I
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12NumericArrayINS_9Int64TypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -21982,7 +21982,7 @@ _ZN5arrow14PrimitiveArrayD2Ev.exit:               ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12NumericArrayINS_9Int64TypeEED0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -22064,7 +22064,7 @@ _ZN5arrow12NumericArrayINS_9Int64TypeEED2Ev.exit: ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow5ArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -22145,7 +22145,7 @@ _ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev.exit:   ; preds = %entry, %_ZN9__gnu_c
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow5ArrayD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null

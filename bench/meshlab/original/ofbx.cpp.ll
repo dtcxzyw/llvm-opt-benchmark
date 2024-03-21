@@ -3808,7 +3808,7 @@ define void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull a
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %8 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4ofbx6ObjectE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4ofbx6ObjectE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"struct.ofbx::Object", ptr %8, i32 0, i32 3
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %9, align 8
@@ -3946,7 +3946,7 @@ define void @_ZN4ofbx4MeshC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull ali
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4ofbx4MeshE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4ofbx4MeshE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -3979,7 +3979,7 @@ define void @_ZN4ofbx8MaterialC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx8MaterialE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx8MaterialE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4012,7 +4012,7 @@ define void @_ZN4ofbx13NodeAttributeC2ERKNS_5SceneERKNS_8IElementE(ptr noundef n
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx13NodeAttributeE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx13NodeAttributeE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4045,7 +4045,7 @@ define void @_ZN4ofbx8GeometryC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx8GeometryE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx8GeometryE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4078,7 +4078,7 @@ define void @_ZN4ofbx7ClusterC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4ofbx7ClusterE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4ofbx7ClusterE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4111,7 +4111,7 @@ define void @_ZN4ofbx14AnimationStackC2ERKNS_5SceneERKNS_8IElementE(ptr noundef 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx14AnimationStackE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx14AnimationStackE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4144,7 +4144,7 @@ define void @_ZN4ofbx14AnimationLayerC2ERKNS_5SceneERKNS_8IElementE(ptr noundef 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx14AnimationLayerE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx14AnimationLayerE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4177,7 +4177,7 @@ define void @_ZN4ofbx14AnimationCurveC2ERKNS_5SceneERKNS_8IElementE(ptr noundef 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4ofbx14AnimationCurveE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4ofbx14AnimationCurveE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4210,7 +4210,7 @@ define void @_ZN4ofbx18AnimationCurveNodeC2ERKNS_5SceneERKNS_8IElementE(ptr noun
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx18AnimationCurveNodeE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx18AnimationCurveNodeE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4243,7 +4243,7 @@ define void @_ZN4ofbx4SkinC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull ali
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx4SkinE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx4SkinE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4276,7 +4276,7 @@ define void @_ZN4ofbx7TextureC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull 
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx7TextureE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx7TextureE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4405,7 +4405,7 @@ define linkonce_odr void @_ZN4ofbx11TextureImplC2ERKNS_5SceneERKNS_8IElementE(pt
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx7TextureC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx11TextureImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx11TextureImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::TextureImpl", ptr %7, i32 0, i32 1
   call void @_ZN4ofbx8DataViewC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %10) #13
   %11 = getelementptr inbounds %"struct.ofbx::TextureImpl", ptr %7, i32 0, i32 2
@@ -7367,7 +7367,7 @@ define linkonce_odr void @_ZN4ofbx5SceneC2Ev(ptr noundef nonnull align 8 derefer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4ofbx6ISceneC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4ofbx5SceneE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4ofbx5SceneE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::Scene", ptr %3, i32 0, i32 1
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds %"struct.ofbx::Scene", ptr %3, i32 0, i32 2
@@ -10085,7 +10085,7 @@ define linkonce_odr void @_ZN4ofbx6ISceneC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4ofbx6ISceneE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4ofbx6ISceneE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10399,7 +10399,7 @@ define linkonce_odr void @_ZN4ofbx5SceneD2Ev(ptr noundef nonnull align 8 derefer
   %6 = alloca %"struct.std::pair", align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4ofbx5SceneE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN4ofbx5SceneE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.ofbx::Scene", ptr %7, i32 0, i32 5
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr %3, align 8
@@ -13782,7 +13782,7 @@ define linkonce_odr void @_ZN4ofbx7ElementC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4ofbx8IElementC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx7ElementE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx7ElementE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::Element", ptr %3, i32 0, i32 1
   call void @_ZN4ofbx8DataViewC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #13
   %5 = getelementptr inbounds %"struct.ofbx::Element", ptr %3, i32 0, i32 2
@@ -14110,7 +14110,7 @@ define linkonce_odr void @_ZN4ofbx8IElementC2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx8IElementE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx8IElementE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -14986,7 +14986,7 @@ define linkonce_odr void @_ZN4ofbx8PropertyC2Ev(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4ofbx16IElementPropertyC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx8PropertyE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx8PropertyE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::Property", ptr %3, i32 0, i32 4
   call void @_ZN4ofbx8DataViewC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %4) #13
   %5 = getelementptr inbounds %"struct.ofbx::Property", ptr %3, i32 0, i32 5
@@ -15158,7 +15158,7 @@ define linkonce_odr void @_ZN4ofbx16IElementPropertyC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx16IElementPropertyE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx16IElementPropertyE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15167,7 +15167,7 @@ define linkonce_odr void @_ZN4ofbx8PropertyD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx8PropertyE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx8PropertyE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::Property", ptr %3, i32 0, i32 5
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -19612,7 +19612,7 @@ define linkonce_odr void @_ZN4ofbx4RootC2ERKNS_5SceneERKNS_8IElementE(ptr nounde
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %9, ptr noundef nonnull align 8 dereferenceable(296) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4ofbx4RootE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4ofbx4RootE, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %"struct.ofbx::Object", ptr %9, i32 0, i32 2
   %13 = invoke noundef zeroext i1 @_ZN4ofbxL10copyStringILi128EEEbRAT__cPKc(ptr noundef nonnull align 1 dereferenceable(128) %12, ptr noundef @.str.58)
           to label %14 unwind label %16
@@ -23683,7 +23683,7 @@ define linkonce_odr void @_ZN4ofbx12GeometryImplC2ERKNS_5SceneERKNS_8IElementE(p
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx8GeometryC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx12GeometryImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx12GeometryImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::GeometryImpl", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorIN4ofbx4Vec3ESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %11 = getelementptr inbounds %"struct.ofbx::GeometryImpl", ptr %7, i32 0, i32 2
@@ -26441,7 +26441,7 @@ define linkonce_odr void @_ZN4ofbx12GeometryImplD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx12GeometryImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4ofbx12GeometryImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::GeometryImpl", ptr %3, i32 0, i32 9
   call void @_ZNSt6vectorIN4ofbx12GeometryImpl9NewVertexESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %5 = getelementptr inbounds %"struct.ofbx::GeometryImpl", ptr %3, i32 0, i32 8
@@ -36917,7 +36917,7 @@ define linkonce_odr void @_ZN4ofbx12MaterialImplC2ERKNS_5SceneERKNS_8IElementE(p
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx8MaterialC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %11, ptr noundef nonnull align 8 dereferenceable(296) %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx12MaterialImplE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx12MaterialImplE, i32 0, i32 0, i32 2), ptr %11, align 8
   %14 = getelementptr inbounds %"struct.ofbx::MaterialImpl", ptr %11, i32 0, i32 1
   store ptr %14, ptr %7, align 8
   %15 = load ptr, ptr %7, align 8
@@ -37019,7 +37019,7 @@ define linkonce_odr void @_ZN4ofbx18AnimationStackImplC2ERKNS_5SceneERKNS_8IElem
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx14AnimationStackC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx18AnimationStackImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx18AnimationStackImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -37605,7 +37605,7 @@ define linkonce_odr void @_ZN4ofbx18AnimationLayerImplC2ERKNS_5SceneERKNS_8IElem
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx14AnimationLayerC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx18AnimationLayerImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx18AnimationLayerImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::AnimationLayerImpl", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorIPN4ofbx22AnimationCurveNodeImplESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   ret void
@@ -37625,7 +37625,7 @@ define linkonce_odr void @_ZN4ofbx18AnimationLayerImplD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx18AnimationLayerImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx18AnimationLayerImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::AnimationLayerImpl", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIPN4ofbx22AnimationCurveNodeImplESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   call void @_ZN4ofbx14AnimationLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #13
@@ -38122,7 +38122,7 @@ define linkonce_odr void @_ZN4ofbx18AnimationCurveImplC2ERKNS_5SceneERKNS_8IElem
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx14AnimationCurveC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4ofbx18AnimationCurveImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4ofbx18AnimationCurveImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::AnimationCurveImpl", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorIxSaIxEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   %11 = getelementptr inbounds %"struct.ofbx::AnimationCurveImpl", ptr %7, i32 0, i32 2
@@ -38297,7 +38297,7 @@ define linkonce_odr void @_ZN4ofbx18AnimationCurveImplD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4ofbx18AnimationCurveImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4ofbx18AnimationCurveImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::AnimationCurveImpl", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIfSaIfEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %5 = getelementptr inbounds %"struct.ofbx::AnimationCurveImpl", ptr %3, i32 0, i32 1
@@ -39606,7 +39606,7 @@ define linkonce_odr void @_ZN4ofbx22AnimationCurveNodeImplC2ERKNS_5SceneERKNS_8I
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx18AnimationCurveNodeC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx22AnimationCurveNodeImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx22AnimationCurveNodeImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::AnimationCurveNodeImpl", ptr %7, i32 0, i32 1
   %11 = getelementptr inbounds [3 x %"struct.ofbx::AnimationCurveNodeImpl::Curve"], ptr %10, i32 0, i32 0
   %12 = getelementptr inbounds %"struct.ofbx::AnimationCurveNodeImpl::Curve", ptr %11, i64 3
@@ -39908,7 +39908,7 @@ define linkonce_odr void @_ZN4ofbx11ClusterImplC2ERKNS_5SceneERKNS_8IElementE(pt
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx7ClusterC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4ofbx11ClusterImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4ofbx11ClusterImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::ClusterImpl", ptr %7, i32 0, i32 1
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds %"struct.ofbx::ClusterImpl", ptr %7, i32 0, i32 2
@@ -40196,7 +40196,7 @@ define linkonce_odr void @_ZN4ofbx11ClusterImplD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4ofbx11ClusterImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4ofbx11ClusterImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::ClusterImpl", ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIdSaIdEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   %5 = getelementptr inbounds %"struct.ofbx::ClusterImpl", ptr %3, i32 0, i32 3
@@ -40926,7 +40926,7 @@ define linkonce_odr void @_ZN4ofbx8SkinImplC2ERKNS_5SceneERKNS_8IElementE(ptr no
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx4SkinC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx8SkinImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx8SkinImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::SkinImpl", ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorIPN4ofbx7ClusterESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #13
   ret void
@@ -40946,7 +40946,7 @@ define linkonce_odr void @_ZN4ofbx8SkinImplD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx8SkinImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4ofbx8SkinImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::SkinImpl", ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIPN4ofbx7ClusterESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   call void @_ZN4ofbx4SkinD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #13
@@ -41273,7 +41273,7 @@ define linkonce_odr void @_ZN4ofbx17NodeAttributeImplC2ERKNS_5SceneERKNS_8IEleme
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx13NodeAttributeC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx17NodeAttributeImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4ofbx17NodeAttributeImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::NodeAttributeImpl", ptr %7, i32 0, i32 1
   call void @_ZN4ofbx8DataViewC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %10) #13
   ret void
@@ -41327,7 +41327,7 @@ define linkonce_odr void @_ZN4ofbx8MeshImplC2ERKNS_5SceneERKNS_8IElementE(ptr no
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx4MeshC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4ofbx8MeshImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4ofbx8MeshImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::MeshImpl", ptr %7, i32 0, i32 1
   store ptr null, ptr %10, align 8
   %11 = getelementptr inbounds %"struct.ofbx::MeshImpl", ptr %7, i32 0, i32 2
@@ -41354,7 +41354,7 @@ define linkonce_odr void @_ZN4ofbx8MeshImplD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4ofbx8MeshImplE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4ofbx8MeshImplE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.ofbx::MeshImpl", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIPKN4ofbx8MaterialESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #13
   call void @_ZN4ofbx4MeshD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %3) #13
@@ -42218,7 +42218,7 @@ define linkonce_odr void @_ZN4ofbx12LimbNodeImplC2ERKNS_5SceneERKNS_8IElementE(p
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4ofbx12LimbNodeImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4ofbx12LimbNodeImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::Object", ptr %7, i32 0, i32 5
   store i8 1, ptr %10, align 8
   ret void
@@ -42262,7 +42262,7 @@ define linkonce_odr void @_ZN4ofbx8NullImplC2ERKNS_5SceneERKNS_8IElementE(ptr no
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN4ofbx6ObjectC2ERKNS_5SceneERKNS_8IElementE(ptr noundef nonnull align 8 dereferenceable(176) %7, ptr noundef nonnull align 8 dereferenceable(296) %8, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4ofbx8NullImplE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4ofbx8NullImplE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"struct.ofbx::Object", ptr %7, i32 0, i32 5
   store i8 1, ptr %10, align 8
   ret void

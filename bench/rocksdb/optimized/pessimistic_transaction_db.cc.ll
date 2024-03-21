@@ -707,7 +707,7 @@ entry:
   store ptr %db, ptr %db_.i.i, align 8
   %shared_db_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shared_db_ptr_.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb24PessimisticTransactionDBE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb24PessimisticTransactionDBE, i64 0, i32 0, i64 2), ptr %this, align 8
   %db_impl_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %db, ptr %db_impl_, align 8
   %info_log_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -2150,7 +2150,7 @@ entry:
   store ptr %db, ptr %db_.i.i, align 8
   %shared_db_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %shared_db_ptr_.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb24PessimisticTransactionDBE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb24PessimisticTransactionDBE, i64 0, i32 0, i64 2), ptr %this, align 8
   %vtable = load ptr, ptr %db, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 1176
   %0 = load ptr, ptr %vfn, align 8
@@ -2245,7 +2245,7 @@ ehcleanup11:                                      ; preds = %ehcleanup10, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7rocksdb24PessimisticTransactionDBD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb24PessimisticTransactionDBE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb24PessimisticTransactionDBE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_element_count.i.i.i = getelementptr inbounds i8, ptr %this, i64 448
   %0 = load i64, ptr %_M_element_count.i.i.i, align 8
   %cmp.i.i54 = icmp eq i64 %0, 0
@@ -2496,7 +2496,7 @@ if.end8.sink.split.i.i.i.i34:                     ; preds = %_ZN9__gnu_cxx27__ex
   br label %_ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit
 
 _ZNSt10shared_ptrIN7rocksdb6LoggerEED2Ev.exit:    ; preds = %_ZNSt10shared_ptrIN7rocksdb11LockManagerEED2Ev.exit, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i21, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i31, %if.end8.sink.split.i.i.i.i34
-  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, i32 0, i64 2), ptr %this, align 8
   %shared_db_ptr_.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %42 = load ptr, ptr %shared_db_ptr_.i.i, align 8
   %cmp.i.not.i.i.i = icmp eq ptr %42, null
@@ -5471,7 +5471,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i, %.noex
           to label %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i unwind label %lpad3.i, !noalias !26
 
 _ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i: ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds ({ [170 x ptr] }, ptr @_ZTVN7rocksdb20WriteUnpreparedTxnDBE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !26
+  store ptr getelementptr inbounds ({ [170 x ptr] }, ptr @_ZTVN7rocksdb20WriteUnpreparedTxnDBE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !26
   br label %sw.epilog.i
 
 lpad1.i:                                          ; preds = %sw.bb.i
@@ -5549,7 +5549,7 @@ invoke.cont24.i:                                  ; preds = %if.then.i34.i, %.no
           to label %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit43.i unwind label %lpad25.i, !noalias !26
 
 _ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit43.i: ; preds = %invoke.cont24.i
-  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb19WriteCommittedTxnDBE, i64 0, inrange i32 0, i64 2), ptr %call21.i, align 8, !noalias !26
+  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb19WriteCommittedTxnDBE, i64 0, i32 0, i64 2), ptr %call21.i, align 8, !noalias !26
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit43.i, %invoke.cont10.i, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i
@@ -5751,7 +5751,7 @@ invoke.cont2.i:                                   ; preds = %if.then.i.i, %.noex
           to label %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i unwind label %lpad3.i, !noalias !41
 
 _ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i: ; preds = %invoke.cont2.i
-  store ptr getelementptr inbounds ({ [170 x ptr] }, ptr @_ZTVN7rocksdb20WriteUnpreparedTxnDBE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !41
+  store ptr getelementptr inbounds ({ [170 x ptr] }, ptr @_ZTVN7rocksdb20WriteUnpreparedTxnDBE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !41
   br label %sw.epilog.i
 
 lpad1.i:                                          ; preds = %sw.bb.i
@@ -5829,7 +5829,7 @@ invoke.cont24.i:                                  ; preds = %if.then.i34.i, %.no
           to label %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit43.i unwind label %lpad25.i, !noalias !41
 
 _ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit43.i: ; preds = %invoke.cont24.i
-  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb19WriteCommittedTxnDBE, i64 0, inrange i32 0, i64 2), ptr %call21.i, align 8, !noalias !41
+  store ptr getelementptr inbounds ({ [169 x ptr] }, ptr @_ZTVN7rocksdb19WriteCommittedTxnDBE, i64 0, i32 0, i64 2), ptr %call21.i, align 8, !noalias !41
   br label %sw.epilog.i
 
 sw.epilog.i:                                      ; preds = %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit43.i, %invoke.cont10.i, %_ZNSt10unique_ptrIN7rocksdb24PessimisticTransactionDBESt14default_deleteIS1_EE5resetEPS1_.exit.i
@@ -13099,7 +13099,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb24SnapshotCreationCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %state_.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %state_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -13191,7 +13191,7 @@ _ZNSt10shared_ptrIN7rocksdb19TransactionNotifierEED2Ev.exit: ; preds = %_ZN7rock
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb24SnapshotCreationCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7rocksdb24SnapshotCreationCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %state_.i.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %state_.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -13296,7 +13296,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb13TransactionDBD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, i32 0, i64 2), ptr %this, align 8
   %shared_db_ptr_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %shared_db_ptr_.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %0, null
@@ -13531,7 +13531,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11StackableDBD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, i32 0, i64 2), ptr %this, align 8
   %shared_db_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %shared_db_ptr_, align 8
   %cmp.i.not.i = icmp eq ptr %0, null
@@ -13634,7 +13634,7 @@ _ZNSt10shared_ptrIN7rocksdb2DBEED2Ev.exit:        ; preds = %if.end, %_ZN9__gnu_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb11StackableDBD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [153 x ptr] }, ptr @_ZTVN7rocksdb11StackableDBE, i64 0, i32 0, i64 2), ptr %this, align 8
   %shared_db_ptr_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %shared_db_ptr_.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %0, null
@@ -17175,7 +17175,7 @@ unreachable:                                      ; preds = %invoke.cont5
 define linkonce_odr void @_ZN7rocksdb18WritePreparedTxnDBC2EPNS_2DBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(1352) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7rocksdb24PessimisticTransactionDBC2EPNS_2DBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options)
-  store ptr getelementptr inbounds ({ [170 x ptr] }, ptr @_ZTVN7rocksdb18WritePreparedTxnDBE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [170 x ptr] }, ptr @_ZTVN7rocksdb18WritePreparedTxnDBE, i64 0, i32 0, i64 2), ptr %this, align 8
   %rollback_deletion_type_callback_ = getelementptr inbounds i8, ptr %this, i64 480
   %SNAPSHOT_CACHE_BITS = getelementptr inbounds i8, ptr %this, i64 520
   %wp_snapshot_cache_bits = getelementptr inbounds i8, ptr %txn_db_options, i64 128
@@ -17303,7 +17303,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   %cf_map_ = getelementptr inbounds i8, ptr %this, i64 1248
   %dummy_max_snapshot_ = getelementptr inbounds i8, ptr %this, i64 1280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cf_map_, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 0, inrange i32 0, i64 2), ptr %dummy_max_snapshot_, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 0, i32 0, i64 2), ptr %dummy_max_snapshot_, align 8
   %min_uncommitted_.i = getelementptr inbounds i8, ptr %this, i64 1296
   store i64 1, ptr %min_uncommitted_.i, align 8
   invoke void @_ZN7rocksdb18WritePreparedTxnDB4InitERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(1352) %this, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options)
@@ -17943,7 +17943,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeImSt4
 define linkonce_odr void @_ZN7rocksdb18WritePreparedTxnDBC2EPNS_11StackableDBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(1352) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7rocksdb24PessimisticTransactionDBC2EPNS_11StackableDBERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(480) %this, ptr noundef %db, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options)
-  store ptr getelementptr inbounds ({ [170 x ptr] }, ptr @_ZTVN7rocksdb18WritePreparedTxnDBE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [170 x ptr] }, ptr @_ZTVN7rocksdb18WritePreparedTxnDBE, i64 0, i32 0, i64 2), ptr %this, align 8
   %rollback_deletion_type_callback_ = getelementptr inbounds i8, ptr %this, i64 480
   %SNAPSHOT_CACHE_BITS = getelementptr inbounds i8, ptr %this, i64 520
   %wp_snapshot_cache_bits = getelementptr inbounds i8, ptr %txn_db_options, i64 128
@@ -18071,7 +18071,7 @@ invoke.cont15:                                    ; preds = %invoke.cont13
   %cf_map_ = getelementptr inbounds i8, ptr %this, i64 1248
   %dummy_max_snapshot_ = getelementptr inbounds i8, ptr %this, i64 1280
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %cf_map_, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 0, inrange i32 0, i64 2), ptr %dummy_max_snapshot_, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb12SnapshotImplE, i64 0, i32 0, i64 2), ptr %dummy_max_snapshot_, align 8
   %min_uncommitted_.i = getelementptr inbounds i8, ptr %this, i64 1296
   store i64 1, ptr %min_uncommitted_.i, align 8
   invoke void @_ZN7rocksdb18WritePreparedTxnDB4InitERKNS_20TransactionDBOptionsE(ptr noundef nonnull align 8 dereferenceable(1352) %this, ptr noundef nonnull align 8 dereferenceable(145) %txn_db_options)

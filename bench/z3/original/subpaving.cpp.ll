@@ -1152,7 +1152,7 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEC2ER8reslimitR11mpq_managerILb0EERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1568) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(728) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_c = getelementptr inbounds %"class.subpaving::context_mpq_wrapper", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %m.addr, align 8
   invoke void @_ZN15_scoped_numeralI11mpq_managerILb0EEEC2ERS1_(ptr noundef nonnull align 8 dereferenceable(40) %m_c, ptr noundef nonnull align 8 dereferenceable(728) %4)
@@ -1239,7 +1239,7 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_11context_mpfEEC2ER8reslimitR3f2nI11mpf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(1568) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_qm = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %fm.addr, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(840) ptr @_ZNK3f2nI11mpf_managerE1mEv(ptr noundef nonnull align 8 dereferenceable(88) %4)
@@ -1390,7 +1390,7 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_11context_hwfEEC2ER8reslimitR3f2nI11hwf_managerERK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(848) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_qm = getelementptr inbounds %"class.subpaving::context_hwf_wrapper", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %qm.addr, align 8
   store ptr %4, ptr %m_qm, align 8
@@ -1465,7 +1465,7 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEC2ER8reslimitR12mpff_managerRK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(792) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(89) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_qm = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %qm.addr, align 8
   store ptr %4, ptr %m_qm, align 8
@@ -1600,7 +1600,7 @@ entry:
   %2 = load ptr, ptr %p.addr, align 8
   %3 = load ptr, ptr %a.addr, align 8
   call void @_ZN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEC2ER8reslimitR12mpfx_managerRK10params_refP22small_object_allocator(ptr noundef nonnull align 8 dereferenceable(664) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(85) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_qm = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %qm.addr, align 8
   store ptr %4, ptr %m_qm, align 8
@@ -1707,7 +1707,7 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %lim.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
@@ -1803,7 +1803,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpq_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_as = getelementptr inbounds %"class.subpaving::context_mpq_wrapper", ptr %this1, i32 0, i32 2
   call void @_ZN22_scoped_numeral_vectorI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %m_as) #3
   %m_c = getelementptr inbounds %"class.subpaving::context_mpq_wrapper", ptr %this1, i32 0, i32 1
@@ -2143,7 +2143,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving7contextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving7contextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2169,7 +2169,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_10config_mpqEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving9context_tINS_10config_mpqEED1Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3114,7 +3114,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -3127,7 +3127,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -3400,7 +3400,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4193,7 +4193,7 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.22", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %lim.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
@@ -4309,7 +4309,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_mpf_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_q2 = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 5
   call void @_ZN15_scoped_numeralI11mpq_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %m_q2) #3
   %m_q1 = getelementptr inbounds %"class.subpaving::context_mpf_wrapper", ptr %this1, i32 0, i32 4
@@ -4854,7 +4854,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_mpfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.22", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving11context_mpfD2Ev(ptr noundef nonnull align 8 dereferenceable(1560) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -6516,7 +6516,7 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.45", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %lim.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
@@ -6564,7 +6564,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving19context_hwf_wrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_as = getelementptr inbounds %"class.subpaving::context_hwf_wrapper", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorI3hwfjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_as) #3
   call void @_ZN9subpaving15context_wrapperINS_11context_hwfEED2Ev(ptr noundef nonnull align 8 dereferenceable(848) %this1) #3
@@ -7096,7 +7096,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_11context_hwfEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.45", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving11context_hwfD2Ev(ptr noundef nonnull align 8 dereferenceable(840) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -7969,7 +7969,7 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.67", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %lim.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
@@ -8123,7 +8123,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_z2 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 5
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_z2) #3
   %m_z1 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper", ptr %this1, i32 0, i32 4
@@ -8662,7 +8662,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpffEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.67", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving9context_tINS_11config_mpffEED1Ev(ptr noundef nonnull align 8 dereferenceable(784) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -9470,7 +9470,7 @@ entry:
   store ptr %a, ptr %a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9subpaving7contextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.91", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %lim.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
@@ -9585,7 +9585,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving22context_fpoint_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_z2 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 5
   call void @_ZN15_scoped_numeralI11mpz_managerILb0EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_z2) #3
   %m_z1 = getelementptr inbounds %"class.subpaving::context_fpoint_wrapper.90", ptr %this1, i32 0, i32 4
@@ -10124,7 +10124,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN9subpaving15context_wrapperINS_9context_tINS_11config_mpfxEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_ctx = getelementptr inbounds %"class.subpaving::context_wrapper.91", ptr %this1, i32 0, i32 1
   call void @_ZN9subpaving9context_tINS_11config_mpfxEED1Ev(ptr noundef nonnull align 8 dereferenceable(656) %m_ctx) #3
   call void @_ZN9subpaving7contextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

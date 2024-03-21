@@ -222,10 +222,10 @@ define void @_ZN12ByteViewTextC2ERK10QByteArray15packet_char_encP7QWidget(ptr no
   %8 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN19QAbstractScrollAreaC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %3)
   %9 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, inrange i32 1, i64 2), ptr %10, align 8
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, inrange i32 2, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 1, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 2, i64 2), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %0, i64 48
   %12 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #21
           to label %13 unwind label %80
@@ -1238,11 +1238,11 @@ declare void @_ZN19QAbstractScrollAreaD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12ByteViewTextD2Ev(ptr noundef nonnull align 8 dereferenceable(328) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
-  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, inrange i32 2, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr], [10 x ptr], [5 x ptr] }, ptr @_ZTV12ByteViewText, i64 0, i32 2, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 120
   invoke void @_ZN5QMenu5clearEv(ptr noundef nonnull align 8 dereferenceable(40) %4)
           to label %5 unwind label %26

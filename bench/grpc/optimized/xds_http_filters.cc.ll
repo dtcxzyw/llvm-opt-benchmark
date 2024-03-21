@@ -341,7 +341,7 @@ if.then:                                          ; preds = %entry
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN9grpc_core19XdsHttpRouterFilterE, i64 0, inrange i32 0, i64 2), ptr %call.i2, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN9grpc_core19XdsHttpRouterFilterE, i64 0, i32 0, i64 2), ptr %call.i2, align 8, !noalias !4
   store ptr %call.i2, ptr %agg.tmp, align 8
   invoke void @_ZN9grpc_core21XdsHttpFilterRegistry14RegisterFilterESt10unique_ptrINS_17XdsHttpFilterImplESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont3 unwind label %lpad2
@@ -364,7 +364,7 @@ _ZNSt10unique_ptrIN9grpc_core19XdsHttpRouterFilterESt14default_deleteIS1_EED2Ev.
           to label %invoke.cont6 unwind label %lpad
 
 invoke.cont6:                                     ; preds = %_ZNSt10unique_ptrIN9grpc_core19XdsHttpRouterFilterESt14default_deleteIS1_EED2Ev.exit
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN9grpc_core18XdsHttpFaultFilterE, i64 0, inrange i32 0, i64 2), ptr %call.i6, align 8, !noalias !7
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN9grpc_core18XdsHttpFaultFilterE, i64 0, i32 0, i64 2), ptr %call.i6, align 8, !noalias !7
   store ptr %call.i6, ptr %agg.tmp4, align 8
   invoke void @_ZN9grpc_core21XdsHttpFilterRegistry14RegisterFilterESt10unique_ptrINS_17XdsHttpFilterImplESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %agg.tmp4)
           to label %invoke.cont8 unwind label %lpad7
@@ -387,7 +387,7 @@ _ZNSt10unique_ptrIN9grpc_core18XdsHttpFaultFilterESt14default_deleteIS1_EED2Ev.e
           to label %invoke.cont11 unwind label %lpad
 
 invoke.cont11:                                    ; preds = %_ZNSt10unique_ptrIN9grpc_core18XdsHttpFaultFilterESt14default_deleteIS1_EED2Ev.exit
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN9grpc_core17XdsHttpRbacFilterE, i64 0, inrange i32 0, i64 2), ptr %call.i15, align 8, !noalias !10
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN9grpc_core17XdsHttpRbacFilterE, i64 0, i32 0, i64 2), ptr %call.i15, align 8, !noalias !10
   store ptr %call.i15, ptr %agg.tmp9, align 8
   invoke void @_ZN9grpc_core21XdsHttpFilterRegistry14RegisterFilterESt10unique_ptrINS_17XdsHttpFilterImplESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %agg.tmp9)
           to label %invoke.cont13 unwind label %lpad12
@@ -410,7 +410,7 @@ _ZNSt10unique_ptrIN9grpc_core17XdsHttpRbacFilterESt14default_deleteIS1_EED2Ev.ex
           to label %invoke.cont16 unwind label %lpad
 
 invoke.cont16:                                    ; preds = %_ZNSt10unique_ptrIN9grpc_core17XdsHttpRbacFilterESt14default_deleteIS1_EED2Ev.exit
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN9grpc_core28XdsHttpStatefulSessionFilterE, i64 0, inrange i32 0, i64 2), ptr %call.i24, align 8, !noalias !13
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN9grpc_core28XdsHttpStatefulSessionFilterE, i64 0, i32 0, i64 2), ptr %call.i24, align 8, !noalias !13
   store ptr %call.i24, ptr %agg.tmp14, align 8
   invoke void @_ZN9grpc_core21XdsHttpFilterRegistry14RegisterFilterESt10unique_ptrINS_17XdsHttpFilterImplESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull %agg.tmp14)
           to label %invoke.cont18 unwind label %lpad17

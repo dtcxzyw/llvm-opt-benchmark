@@ -999,78 +999,78 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_Z18install_basic_cmdsR11cmd_context(ptr noundef nonnull align 8 dereferenceable(872) %ctx) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_name.i.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i, ptr noundef nonnull @.str.35)
   %m_line.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %m_line.i.i, align 8
   %m_pos.i.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 0, ptr %m_pos.i.i, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV13set_logic_cmd, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV13set_logic_cmd, i64 0, i32 0, i64 2), ptr %call, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call)
   %call1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call1, align 8
   %m_name.i.i25 = getelementptr inbounds i8, ptr %call1, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i25, ptr noundef nonnull @.str.48)
   %m_line.i.i26 = getelementptr inbounds i8, ptr %call1, i64 16
   store i32 0, ptr %m_line.i.i26, align 8
   %m_pos.i.i27 = getelementptr inbounds i8, ptr %call1, i64 20
   store i32 0, ptr %m_pos.i.i27, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8exit_cmd, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8exit_cmd, i64 0, i32 0, i64 2), ptr %call1, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call1)
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call2, align 8
   %m_name.i.i28 = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i28, ptr noundef nonnull @.str.50)
   %m_line.i.i29 = getelementptr inbounds i8, ptr %call2, i64 16
   store i32 0, ptr %m_line.i.i29, align 8
   %m_pos.i.i30 = getelementptr inbounds i8, ptr %call2, i64 20
   store i32 0, ptr %m_pos.i.i30, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV18get_assignment_cmd, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV18get_assignment_cmd, i64 0, i32 0, i64 2), ptr %call2, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call2)
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call3, align 8
   %m_name.i.i31 = getelementptr inbounds i8, ptr %call3, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i31, ptr noundef nonnull @.str.59)
   %m_line.i.i32 = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 0, ptr %m_line.i.i32, align 8
   %m_pos.i.i33 = getelementptr inbounds i8, ptr %call3, i64 20
   store i32 0, ptr %m_pos.i.i33, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV18get_assertions_cmd, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV18get_assertions_cmd, i64 0, i32 0, i64 2), ptr %call3, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call3)
   %call4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call4, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call4, align 8
   %m_name.i.i34 = getelementptr inbounds i8, ptr %call4, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i34, ptr noundef nonnull @.str.61)
   %m_line.i.i35 = getelementptr inbounds i8, ptr %call4, i64 16
   store i32 0, ptr %m_line.i.i35, align 8
   %m_pos.i.i36 = getelementptr inbounds i8, ptr %call4, i64 20
   store i32 0, ptr %m_pos.i.i36, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV13get_proof_cmd, i64 0, inrange i32 0, i64 2), ptr %call4, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV13get_proof_cmd, i64 0, i32 0, i64 2), ptr %call4, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call4)
   %call5 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call5, align 8
   %m_name.i.i37 = getelementptr inbounds i8, ptr %call5, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i37, ptr noundef nonnull @.str.68)
   %m_line.i.i38 = getelementptr inbounds i8, ptr %call5, i64 16
   store i32 0, ptr %m_line.i.i38, align 8
   %m_pos.i.i39 = getelementptr inbounds i8, ptr %call5, i64 20
   store i32 0, ptr %m_pos.i.i39, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV19get_proof_graph_cmd, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV19get_proof_graph_cmd, i64 0, i32 0, i64 2), ptr %call5, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call5)
   %call6 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call6, align 8
   %m_name.i.i40 = getelementptr inbounds i8, ptr %call6, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i40, ptr noundef nonnull @.str.70)
   %m_line.i.i41 = getelementptr inbounds i8, ptr %call6, i64 16
   store i32 0, ptr %m_line.i.i41, align 8
   %m_pos.i.i42 = getelementptr inbounds i8, ptr %call6, i64 20
   store i32 0, ptr %m_pos.i.i42, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV18get_unsat_core_cmd, i64 0, inrange i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV18get_unsat_core_cmd, i64 0, i32 0, i64 2), ptr %call6, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call6)
   %call7 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 216)
   tail call void @_ZN18set_get_option_cmdC2EPKc(ptr noundef nonnull align 8 dereferenceable(200) %call7, ptr noundef nonnull @.str.74)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV14set_option_cmd, i64 0, inrange i32 0, i64 2), ptr %call7, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV14set_option_cmd, i64 0, i32 0, i64 2), ptr %call7, align 8
   %m_unsupported.i = getelementptr inbounds i8, ptr %call7, i64 200
   store i8 0, ptr %m_unsupported.i, align 8
   %m_option.i = getelementptr inbounds i8, ptr %call7, i64 208
@@ -1078,20 +1078,20 @@ entry:
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call7)
   %call8 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 200)
   tail call void @_ZN18set_get_option_cmdC2EPKc(ptr noundef nonnull align 8 dereferenceable(200) %call8, ptr noundef nonnull @.str.108)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV14get_option_cmd, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV14get_option_cmd, i64 0, i32 0, i64 2), ptr %call8, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call8)
   %call9 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 96)
   tail call void @_ZN12get_info_cmdC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %call9)
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call9)
   %call10 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call10, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call10, align 8
   %m_name.i.i43 = getelementptr inbounds i8, ptr %call10, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i43, ptr noundef nonnull @.str.132)
   %m_line.i.i44 = getelementptr inbounds i8, ptr %call10, i64 16
   store i32 0, ptr %m_line.i.i44, align 8
   %m_pos.i.i45 = getelementptr inbounds i8, ptr %call10, i64 20
   store i32 0, ptr %m_pos.i.i45, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV12set_info_cmd, i64 0, inrange i32 0, i64 2), ptr %call10, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV12set_info_cmd, i64 0, i32 0, i64 2), ptr %call10, align 8
   %m_info.i = getelementptr inbounds i8, ptr %call10, i64 24
   store ptr null, ptr %m_info.i, align 8
   %m_status.i = getelementptr inbounds i8, ptr %call10, i64 32
@@ -1104,190 +1104,190 @@ entry:
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_unknown.i, ptr noundef nonnull @.str.135)
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call10)
   %call11 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 48)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call11, align 8
   %m_name.i.i46 = getelementptr inbounds i8, ptr %call11, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i46, ptr noundef nonnull @.str.138)
   %m_line.i.i47 = getelementptr inbounds i8, ptr %call11, i64 16
   store i32 0, ptr %m_line.i.i47, align 8
   %m_pos.i.i48 = getelementptr inbounds i8, ptr %call11, i64 20
   store i32 0, ptr %m_pos.i.i48, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV20get_consequences_cmd, i64 0, inrange i32 0, i64 2), ptr %call11, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV20get_consequences_cmd, i64 0, i32 0, i64 2), ptr %call11, align 8
   %m_assumptions.i = getelementptr inbounds i8, ptr %call11, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %m_assumptions.i, i8 0, i64 20, i1 false)
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call11)
   %call12 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call12, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call12, align 8
   %m_name.i.i49 = getelementptr inbounds i8, ptr %call12, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i49, ptr noundef nonnull @.str)
   %m_line.i.i50 = getelementptr inbounds i8, ptr %call12, i64 16
   store i32 0, ptr %m_line.i.i50, align 8
   %m_pos.i.i51 = getelementptr inbounds i8, ptr %call12, i64 20
   store i32 0, ptr %m_pos.i.i51, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call12, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call12, align 8
   %m_usage.i = getelementptr inbounds i8, ptr %call12, i64 24
   store ptr @.str.1, ptr %m_usage.i, align 8
   %m_descr.i = getelementptr inbounds i8, ptr %call12, i64 32
   store ptr @.str.2, ptr %m_descr.i, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call12)
   %call13 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call13, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call13, align 8
   %m_name.i.i52 = getelementptr inbounds i8, ptr %call13, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i52, ptr noundef nonnull @.str.3)
   %m_line.i.i53 = getelementptr inbounds i8, ptr %call13, i64 16
   store i32 0, ptr %m_line.i.i53, align 8
   %m_pos.i.i54 = getelementptr inbounds i8, ptr %call13, i64 20
   store i32 0, ptr %m_pos.i.i54, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call13, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call13, align 8
   %m_usage.i55 = getelementptr inbounds i8, ptr %call13, i64 24
   store ptr @.str.4, ptr %m_usage.i55, align 8
   %m_descr.i56 = getelementptr inbounds i8, ptr %call13, i64 32
   store ptr @.str.5, ptr %m_descr.i56, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call13)
   %call14 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call14, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call14, align 8
   %m_name.i.i57 = getelementptr inbounds i8, ptr %call14, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i57, ptr noundef nonnull @.str.6)
   %m_line.i.i58 = getelementptr inbounds i8, ptr %call14, i64 16
   store i32 0, ptr %m_line.i.i58, align 8
   %m_pos.i.i59 = getelementptr inbounds i8, ptr %call14, i64 20
   store i32 0, ptr %m_pos.i.i59, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call14, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call14, align 8
   %m_usage.i60 = getelementptr inbounds i8, ptr %call14, i64 24
   store ptr @.str.7, ptr %m_usage.i60, align 8
   %m_descr.i61 = getelementptr inbounds i8, ptr %call14, i64 32
   store ptr @.str.8, ptr %m_descr.i61, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call14)
   %call15 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call15, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call15, align 8
   %m_name.i.i62 = getelementptr inbounds i8, ptr %call15, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i62, ptr noundef nonnull @.str.9)
   %m_line.i.i63 = getelementptr inbounds i8, ptr %call15, i64 16
   store i32 0, ptr %m_line.i.i63, align 8
   %m_pos.i.i64 = getelementptr inbounds i8, ptr %call15, i64 20
   store i32 0, ptr %m_pos.i.i64, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call15, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call15, align 8
   %m_usage.i65 = getelementptr inbounds i8, ptr %call15, i64 24
   store ptr @.str.7, ptr %m_usage.i65, align 8
   %m_descr.i66 = getelementptr inbounds i8, ptr %call15, i64 32
   store ptr @.str.10, ptr %m_descr.i66, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call15)
   %call16 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call16, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call16, align 8
   %m_name.i.i67 = getelementptr inbounds i8, ptr %call16, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i67, ptr noundef nonnull @.str.11)
   %m_line.i.i68 = getelementptr inbounds i8, ptr %call16, i64 16
   store i32 0, ptr %m_line.i.i68, align 8
   %m_pos.i.i69 = getelementptr inbounds i8, ptr %call16, i64 20
   store i32 0, ptr %m_pos.i.i69, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call16, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call16, align 8
   %m_usage.i70 = getelementptr inbounds i8, ptr %call16, i64 24
   store ptr @.str.12, ptr %m_usage.i70, align 8
   %m_descr.i71 = getelementptr inbounds i8, ptr %call16, i64 32
   store ptr @.str.13, ptr %m_descr.i71, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call16)
   %call17 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call17, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call17, align 8
   %m_name.i.i72 = getelementptr inbounds i8, ptr %call17, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i72, ptr noundef nonnull @.str.14)
   %m_line.i.i73 = getelementptr inbounds i8, ptr %call17, i64 16
   store i32 0, ptr %m_line.i.i73, align 8
   %m_pos.i.i74 = getelementptr inbounds i8, ptr %call17, i64 20
   store i32 0, ptr %m_pos.i.i74, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call17, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call17, align 8
   %m_usage.i75 = getelementptr inbounds i8, ptr %call17, i64 24
   store ptr @.str.15, ptr %m_usage.i75, align 8
   %m_descr.i76 = getelementptr inbounds i8, ptr %call17, i64 32
   store ptr @.str.16, ptr %m_descr.i76, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call17)
   %call18 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call18, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call18, align 8
   %m_name.i.i77 = getelementptr inbounds i8, ptr %call18, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i77, ptr noundef nonnull @.str.17)
   %m_line.i.i78 = getelementptr inbounds i8, ptr %call18, i64 16
   store i32 0, ptr %m_line.i.i78, align 8
   %m_pos.i.i79 = getelementptr inbounds i8, ptr %call18, i64 20
   store i32 0, ptr %m_pos.i.i79, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call18, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call18, align 8
   %m_usage.i80 = getelementptr inbounds i8, ptr %call18, i64 24
   store ptr @.str.18, ptr %m_usage.i80, align 8
   %m_descr.i81 = getelementptr inbounds i8, ptr %call18, i64 32
   store ptr @.str.19, ptr %m_descr.i81, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call18)
   %call19 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call19, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call19, align 8
   %m_name.i.i82 = getelementptr inbounds i8, ptr %call19, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i82, ptr noundef nonnull @.str.20)
   %m_line.i.i83 = getelementptr inbounds i8, ptr %call19, i64 16
   store i32 0, ptr %m_line.i.i83, align 8
   %m_pos.i.i84 = getelementptr inbounds i8, ptr %call19, i64 20
   store i32 0, ptr %m_pos.i.i84, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call19, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call19, align 8
   %m_usage.i85 = getelementptr inbounds i8, ptr %call19, i64 24
   store ptr @.str.21, ptr %m_usage.i85, align 8
   %m_descr.i86 = getelementptr inbounds i8, ptr %call19, i64 32
   store ptr @.str.22, ptr %m_descr.i86, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call19)
   %call20 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call20, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call20, align 8
   %m_name.i.i87 = getelementptr inbounds i8, ptr %call20, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i87, ptr noundef nonnull @.str.23)
   %m_line.i.i88 = getelementptr inbounds i8, ptr %call20, i64 16
   store i32 0, ptr %m_line.i.i88, align 8
   %m_pos.i.i89 = getelementptr inbounds i8, ptr %call20, i64 20
   store i32 0, ptr %m_pos.i.i89, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call20, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call20, align 8
   %m_usage.i90 = getelementptr inbounds i8, ptr %call20, i64 24
   store ptr @.str.24, ptr %m_usage.i90, align 8
   %m_descr.i91 = getelementptr inbounds i8, ptr %call20, i64 32
   store ptr @.str.25, ptr %m_descr.i91, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call20)
   %call21 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call21, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call21, align 8
   %m_name.i.i92 = getelementptr inbounds i8, ptr %call21, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i92, ptr noundef nonnull @.str.26)
   %m_line.i.i93 = getelementptr inbounds i8, ptr %call21, i64 16
   store i32 0, ptr %m_line.i.i93, align 8
   %m_pos.i.i94 = getelementptr inbounds i8, ptr %call21, i64 20
   store i32 0, ptr %m_pos.i.i94, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call21, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call21, align 8
   %m_usage.i95 = getelementptr inbounds i8, ptr %call21, i64 24
   store ptr @.str.27, ptr %m_usage.i95, align 8
   %m_descr.i96 = getelementptr inbounds i8, ptr %call21, i64 32
   store ptr @.str.28, ptr %m_descr.i96, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call21)
   %call22 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call22, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call22, align 8
   %m_name.i.i97 = getelementptr inbounds i8, ptr %call22, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i97, ptr noundef nonnull @.str.29)
   %m_line.i.i98 = getelementptr inbounds i8, ptr %call22, i64 16
   store i32 0, ptr %m_line.i.i98, align 8
   %m_pos.i.i99 = getelementptr inbounds i8, ptr %call22, i64 20
   store i32 0, ptr %m_pos.i.i99, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call22, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call22, align 8
   %m_usage.i100 = getelementptr inbounds i8, ptr %call22, i64 24
   store ptr @.str.30, ptr %m_usage.i100, align 8
   %m_descr.i101 = getelementptr inbounds i8, ptr %call22, i64 32
   store ptr @.str.31, ptr %m_descr.i101, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call22)
   %call23 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call23, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call23, align 8
   %m_name.i.i102 = getelementptr inbounds i8, ptr %call23, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i102, ptr noundef nonnull @.str.143)
   %m_line.i.i103 = getelementptr inbounds i8, ptr %call23, i64 16
   store i32 0, ptr %m_line.i.i103, align 8
   %m_pos.i.i104 = getelementptr inbounds i8, ptr %call23, i64 20
   store i32 0, ptr %m_pos.i.i104, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV25get_unsat_assumptions_cmd, i64 0, inrange i32 0, i64 2), ptr %call23, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV25get_unsat_assumptions_cmd, i64 0, i32 0, i64 2), ptr %call23, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call23)
   %call24 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call24, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call24, align 8
   %m_name.i.i105 = getelementptr inbounds i8, ptr %call24, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i105, ptr noundef nonnull @.str.147)
   %m_line.i.i106 = getelementptr inbounds i8, ptr %call24, i64 16
   store i32 0, ptr %m_line.i.i106, align 8
   %m_pos.i.i107 = getelementptr inbounds i8, ptr %call24, i64 20
   store i32 0, ptr %m_pos.i.i107, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV20reset_assertions_cmd, i64 0, inrange i32 0, i64 2), ptr %call24, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV20reset_assertions_cmd, i64 0, i32 0, i64 2), ptr %call24, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call24)
   ret void
 }
@@ -1299,14 +1299,14 @@ declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_ad
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN12get_info_cmdC2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_name.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i, ptr noundef nonnull @.str.111)
   %m_line.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %m_line.i, align 8
   %m_pos.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %m_pos.i, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV12get_info_cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV12get_info_cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_error_behavior = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_error_behavior, ptr noundef nonnull @.str.92)
   %m_name = getelementptr inbounds i8, ptr %this, i64 32
@@ -1332,68 +1332,68 @@ entry:
 define hidden void @_Z22install_ext_basic_cmdsR11cmd_context(ptr noundef nonnull align 8 dereferenceable(872) %ctx) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_name.i.i = getelementptr inbounds i8, ptr %call, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i, ptr noundef nonnull @.str.149)
   %m_line.i.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 0, ptr %m_line.i.i, align 8
   %m_pos.i.i = getelementptr inbounds i8, ptr %call, i64 20
   store i32 0, ptr %m_pos.i.i, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8help_cmd, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8help_cmd, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_cmds.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %m_cmds.i, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call)
   %call1 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call1, align 8
   %m_name.i.i9 = getelementptr inbounds i8, ptr %call1, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i9, ptr noundef nonnull @.str.159)
   %m_line.i.i10 = getelementptr inbounds i8, ptr %call1, i64 16
   store i32 0, ptr %m_line.i.i10, align 8
   %m_pos.i.i11 = getelementptr inbounds i8, ptr %call1, i64 20
   store i32 0, ptr %m_pos.i.i11, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV6pp_cmd, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV6pp_cmd, i64 0, i32 0, i64 2), ptr %call1, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call1)
   %call2 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 32)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call2, align 8
   %m_name.i.i12 = getelementptr inbounds i8, ptr %call2, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i12, ptr noundef nonnull @.str.161)
   %m_line.i.i13 = getelementptr inbounds i8, ptr %call2, i64 16
   store i32 0, ptr %m_line.i.i13, align 8
   %m_pos.i.i14 = getelementptr inbounds i8, ptr %call2, i64 20
   store i32 0, ptr %m_pos.i.i14, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV13get_model_cmd, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV13get_model_cmd, i64 0, i32 0, i64 2), ptr %call2, align 8
   %m_index.i = getelementptr inbounds i8, ptr %call2, i64 24
   store i32 0, ptr %m_index.i, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call2)
   %call3 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call3, align 8
   %m_name.i.i15 = getelementptr inbounds i8, ptr %call3, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i15, ptr noundef nonnull @.str.164)
   %m_line.i.i16 = getelementptr inbounds i8, ptr %call3, i64 16
   store i32 0, ptr %m_line.i.i16, align 8
   %m_pos.i.i17 = getelementptr inbounds i8, ptr %call3, i64 20
   store i32 0, ptr %m_pos.i.i17, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8echo_cmd, i64 0, inrange i32 0, i64 2), ptr %call3, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8echo_cmd, i64 0, i32 0, i64 2), ptr %call3, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call3)
   %call4 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call4, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call4, align 8
   %m_name.i.i18 = getelementptr inbounds i8, ptr %call4, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i18, ptr noundef nonnull @.str.167)
   %m_line.i.i19 = getelementptr inbounds i8, ptr %call4, i64 16
   store i32 0, ptr %m_line.i.i19, align 8
   %m_pos.i.i20 = getelementptr inbounds i8, ptr %call4, i64 20
   store i32 0, ptr %m_pos.i.i20, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV10labels_cmd, i64 0, inrange i32 0, i64 2), ptr %call4, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV10labels_cmd, i64 0, i32 0, i64 2), ptr %call4, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call4)
   %call5 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 64)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call5, align 8
   %m_name.i.i21 = getelementptr inbounds i8, ptr %call5, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i21, ptr noundef nonnull @.str.171)
   %m_line.i.i22 = getelementptr inbounds i8, ptr %call5, i64 16
   store i32 0, ptr %m_line.i.i22, align 8
   %m_pos.i.i23 = getelementptr inbounds i8, ptr %call5, i64 20
   store i32 0, ptr %m_pos.i.i23, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV15declare_map_cmd, i64 0, inrange i32 0, i64 2), ptr %call5, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV15declare_map_cmd, i64 0, i32 0, i64 2), ptr %call5, align 8
   %m_array_sort.i = getelementptr inbounds i8, ptr %call5, i64 24
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_array_sort.i, ptr noundef nonnull @.str.172)
   %m_name.i = getelementptr inbounds i8, ptr %call5, i64 32
@@ -1402,14 +1402,14 @@ entry:
   store i32 -1, ptr %m_array_fid.i, align 8
   tail call void @_ZN11cmd_context6insertEP3cmd(ptr noundef nonnull align 8 dereferenceable(872) %ctx, ptr noundef nonnull %call5)
   %call6 = tail call noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 40)
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %call6, align 8
   %m_name.i.i24 = getelementptr inbounds i8, ptr %call6, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i.i24, ptr noundef nonnull @.str.32)
   %m_line.i.i25 = getelementptr inbounds i8, ptr %call6, i64 16
   store i32 0, ptr %m_line.i.i25, align 8
   %m_pos.i.i26 = getelementptr inbounds i8, ptr %call6, i64 20
   store i32 0, ptr %m_pos.i.i26, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, inrange i32 0, i64 2), ptr %call6, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV11builtin_cmd, i64 0, i32 0, i64 2), ptr %call6, align 8
   %m_usage.i = getelementptr inbounds i8, ptr %call6, i64 24
   store ptr null, ptr %m_usage.i, align 8
   %m_descr.i = getelementptr inbounds i8, ptr %call6, i64 32
@@ -2498,12 +2498,12 @@ if.end.i:                                         ; preds = %.noexc
           to label %invoke.cont unwind label %lpad.i
 
 invoke.cont:                                      ; preds = %if.end.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_line = getelementptr inbounds i8, ptr %this, i64 40
   store i32 -1, ptr %m_line, align 8
   %m_pos = getelementptr inbounds i8, ptr %this, i64 44
@@ -2526,7 +2526,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13cmd_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i) #18
   ret void
@@ -2693,7 +2693,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN13cmd_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #16
@@ -3108,7 +3108,7 @@ invoke.cont68:                                    ; preds = %if.else
           to label %invoke.cont70 unwind label %lpad53
 
 invoke.cont70:                                    ; preds = %invoke.cont68
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15cmd_is_declared, i64 0, inrange i32 0, i64 2), ptr %isd, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15cmd_is_declared, i64 0, i32 0, i64 2), ptr %isd, align 8
   %m_ctx.i = getelementptr inbounds i8, ptr %isd, i64 8
   store ptr %ctx, ptr %m_ctx.i, align 8
   %m_is_declared.i = getelementptr inbounds i8, ptr %pp, i64 128
@@ -4102,14 +4102,14 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN18set_get_option_cmdC2EPKc(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %name) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV3cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_name.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_name.i, ptr noundef %name)
   %m_line.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %m_line.i, align 8
   %m_pos.i = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %m_pos.i, align 4
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV18set_get_option_cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV18set_get_option_cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_true = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZN6symbolC1EPKc(ptr noundef nonnull align 8 dereferenceable(8) %m_true, ptr noundef nonnull @.str.55)
   %m_false = getelementptr inbounds i8, ptr %this, i64 32
@@ -5033,10 +5033,10 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %exception = call ptr @__cxa_allocate_exception(i64 48) #18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg) #18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_line.i = getelementptr inbounds i8, ptr %exception, i64 40
   store i32 -1, ptr %m_line.i, align 8
   %m_pos.i = getelementptr inbounds i8, ptr %exception, i64 44
@@ -5115,10 +5115,10 @@ invoke.cont5:                                     ; preds = %invoke.cont3
 
 invoke.cont7:                                     ; preds = %invoke.cont5
   %exception = call ptr @__cxa_allocate_exception(i64 48) #18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %msg) #18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_line.i = getelementptr inbounds i8, ptr %exception, i64 40
   store i32 -1, ptr %m_line.i, align 8
   %m_pos.i = getelementptr inbounds i8, ptr %exception, i64 44
@@ -6019,7 +6019,7 @@ _ZN11cmd_context13print_successEv.exit:           ; preds = %entry, %if.then.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20get_consequences_cmdD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV20get_consequences_cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV20get_consequences_cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_variables = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_variables, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6062,7 +6062,7 @@ _ZN10ptr_vectorI4exprED2Ev.exit5:                 ; preds = %_ZN10ptr_vectorI4ex
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN20get_consequences_cmdD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV20get_consequences_cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV20get_consequences_cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_variables.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %m_variables.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6721,7 +6721,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #19
@@ -6763,7 +6763,7 @@ unreachable:                                      ; preds = %invoke.cont
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN17default_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_msg = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #18
   ret void
@@ -6963,7 +6963,7 @@ declare void @_ZN11cmd_context16reset_assertionsEv(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8help_cmdD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8help_cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8help_cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_cmds = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cmds, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6988,7 +6988,7 @@ _ZN7svectorI6symboljED2Ev.exit:                   ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8help_cmdD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8help_cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV8help_cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_cmds.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %m_cmds.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -7090,10 +7090,10 @@ invoke.cont10:                                    ; preds = %invoke.cont8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp3) #18
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp4) #18
   %exception = call ptr @__cxa_allocate_exception(i64 48) #18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i.i, ptr noundef nonnull align 8 dereferenceable(32) %err_msg) #18
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13cmd_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_line.i = getelementptr inbounds i8, ptr %exception, i64 40
   store i32 -1, ptr %m_line.i, align 8
   %m_pos.i = getelementptr inbounds i8, ptr %exception, i64 44
@@ -7493,7 +7493,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #19
@@ -7682,7 +7682,7 @@ if.then17:                                        ; preds = %if.else
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #19
@@ -9051,7 +9051,7 @@ eh.resume:                                        ; preds = %lpad5, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15declare_map_cmdD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV15declare_map_cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV15declare_map_cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_domain = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_domain, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -9076,7 +9076,7 @@ _ZN10ptr_vectorI4sortED2Ev.exit:                  ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN15declare_map_cmdD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV15declare_map_cmd, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr] }, ptr @_ZTV15declare_map_cmd, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_domain.i = getelementptr inbounds i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_domain.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -9861,7 +9861,7 @@ if.then17:                                        ; preds = %lor.lhs.false, %if.
           to label %invoke.cont unwind label %cleanup.action
 
 invoke.cont:                                      ; preds = %if.then17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i64 0, i32 0, i64 2), ptr %exception, align 8
   %m_msg.i = getelementptr inbounds i8, ptr %exception, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg.i, ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #18
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTI17default_exception, ptr nonnull @_ZN17default_exceptionD2Ev) #19

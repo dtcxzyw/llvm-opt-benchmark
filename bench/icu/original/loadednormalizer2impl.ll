@@ -84,7 +84,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memory = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %memory, align 8
   invoke void @udata_close_75(ptr noundef %0)
@@ -484,7 +484,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7515Normalizer2ImplC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7521LoadedNormalizer2ImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memory = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %this1, i32 0, i32 1
   store ptr null, ptr %memory, align 8
   %ownedTrie = getelementptr inbounds %"class.icu_75::LoadedNormalizer2Impl", ptr %this1, i32 0, i32 2
@@ -1684,7 +1684,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515Normalizer2ImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7515Normalizer2ImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %normTrie = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this1, i32 0, i32 13
   store ptr null, ptr %normTrie, align 8
   %fCanonIterDataInitOnce = getelementptr inbounds %"class.icu_75::Normalizer2Impl", ptr %this1, i32 0, i32 17
@@ -1703,7 +1703,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

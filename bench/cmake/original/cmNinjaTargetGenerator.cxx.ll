@@ -5072,7 +5072,7 @@ define dso_local void @_ZN22cmNinjaTargetGeneratorC2EP17cmGeneratorTarget(ptr no
   %14 = load ptr, ptr %3, align 8
   %15 = load ptr, ptr %4, align 8
   call void @_ZN23cmCommonTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(120) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmNinjaTargetGenerator, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmNinjaTargetGenerator, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %14, i32 0, i32 1
   call void @_ZNSt10unique_ptrI20cmOSXBundleGeneratorSt14default_deleteIS0_EEC2IS2_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %16, ptr null) #3
   %17 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %14, i32 0, i32 2
@@ -5563,7 +5563,7 @@ define dso_local void @_ZN22cmNinjaTargetGeneratorD2Ev(ptr noundef nonnull align
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmNinjaTargetGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22cmNinjaTargetGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %3, i32 0, i32 5
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22cmNinjaTargetGenerator8ByConfigESt4lessIS5_ESaISt4pairIKS5_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %class.cmNinjaTargetGenerator, ptr %3, i32 0, i32 2
@@ -36658,7 +36658,7 @@ define linkonce_odr dso_local void @_ZN22cmNinjaTargetGenerator26MacOSXContentGe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.cmNinjaTargetGenerator::MacOSXContentGeneratorType", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN20cmOSXBundleGenerator26MacOSXContentGeneratorTypeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -53273,7 +53273,7 @@ define linkonce_odr dso_local void @_ZN22cmNinjaTargetGenerator26MacOSXContentGe
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN20cmOSXBundleGenerator26MacOSXContentGeneratorTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN22cmNinjaTargetGenerator26MacOSXContentGeneratorTypeE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.cmNinjaTargetGenerator::MacOSXContentGeneratorType", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -53310,7 +53310,7 @@ define linkonce_odr dso_local void @_ZN20cmOSXBundleGenerator26MacOSXContentGene
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN20cmOSXBundleGenerator26MacOSXContentGeneratorTypeE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN20cmOSXBundleGenerator26MacOSXContentGeneratorTypeE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

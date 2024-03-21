@@ -5339,7 +5339,7 @@ define linkonce_odr void @_ZN7testing8internal20MakeDeathTestMatcherB5cxx11EPKc(
           to label %.noexc unwind label %64
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !noalias !49
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !49
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   %7 = load ptr, ptr %4, align 8, !noalias !49
   store ptr %7, ptr %6, align 8, !noalias !49
@@ -5384,7 +5384,7 @@ _ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15Monomorphic
   store i64 %27, ptr %26, align 8, !noalias !49
   %28 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %24, ptr %28, align 8, !alias.scope !49
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !alias.scope !49
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8, !alias.scope !49
   %29 = load ptr, ptr %9, align 8
   %.not.i.i.i.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i, label %_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit, label %30
@@ -5469,7 +5469,7 @@ _ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEED2Ev.exit: ; 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -15980,7 +15980,7 @@ _ZN5boost10conversion6detail19try_lexical_convertIiNS_14iterator_rangeIPKcEEEEbR
 
 26:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIiNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.i.i, %20, %_ZN5boost10conversion6detail19try_lexical_convertIiNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread.i.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %2, align 8
   %27 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @_ZTIN5boost14iterator_rangeIPKcEE, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %2, i64 16
@@ -31178,7 +31178,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29ab
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29absPath_doesntChangeRoot_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29absPath_doesntChangeRoot_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -31213,7 +31213,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34ab
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34absPath_turnsEmptyPathIntoCWD_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34absPath_turnsEmptyPathIntoCWD_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -31241,7 +31241,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix42ab
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix42absPath_usesOptionalBasePathWhenGiven_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix42absPath_usesOptionalBasePathWhenGiven_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -31269,7 +31269,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25ab
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25absPath_isIdempotent_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25absPath_isIdempotent_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -31297,7 +31297,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32ab
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix32absPath_pathIsCanonicalised_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix32absPath_pathIsCanonicalised_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -31325,7 +31325,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37ca
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37canonPath_removesTrailingSlashes_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37canonPath_removesTrailingSlashes_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -31353,7 +31353,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26ca
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26canonPath_removesDots_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26canonPath_removesDots_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -31381,7 +31381,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27ca
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27canonPath_removesDots2_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27canonPath_removesDots2_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -31409,7 +31409,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35ca
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix35canonPath_requiresAbsolutePath_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix35canonPath_requiresAbsolutePath_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -31609,7 +31609,7 @@ define linkonce_odr void @_ZN7testing13ContainsRegexEPKNS_8internal2REE(ptr dead
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %20, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPKN7testing8internal2REELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8
   %21 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %1, ptr %21, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !437)
@@ -31746,7 +31746,7 @@ declare void @_ZN7testing8internal2RE4InitEPKc(ptr noundef nonnull align 8 deref
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -31826,7 +31826,7 @@ _ZN7testing8internal19MatchesRegexMatcherD2Ev.exit: ; preds = %1, %20, %33, %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7testing18PolymorphicMatcherINS_8internal19MatchesRegexMatcherEE15MonomorphicImplIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -32074,7 +32074,7 @@ declare noundef zeroext i1 @_ZN7testing8internal2RE12PartialMatchEPKcRKS1_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -32179,7 +32179,7 @@ define linkonce_odr void @_ZNK7testing8internal11MatcherBaseIRKNSt7__cxx1112basi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -32219,7 +32219,7 @@ _ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -32345,7 +32345,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36di
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix36dirOf_returnsEmptyStringForRoot_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix36dirOf_returnsEmptyStringForRoot_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32373,7 +32373,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36di
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix36dirOf_returnsFirstPathComponent_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix36dirOf_returnsFirstPathComponent_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32401,7 +32401,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25baseNameOf_emptyPath_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25baseNameOf_emptyPath_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32429,7 +32429,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26baseNameOf_pathOnRoot_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26baseNameOf_pathOnRoot_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32457,7 +32457,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix28baseNameOf_relativePath_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix28baseNameOf_relativePath_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32485,7 +32485,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix41baseNameOf_pathWithTrailingSlashRoot_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix41baseNameOf_pathWithTrailingSlashRoot_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32513,7 +32513,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29baseNameOf_trailingSlash_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29baseNameOf_trailingSlash_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32541,7 +32541,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24is
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix24isInDir_trivialCase_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix24isInDir_trivialCase_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32569,7 +32569,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix21is
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix21isInDir_notInDir_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix21isInDir_notInDir_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32597,7 +32597,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix21is
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix21isInDir_emptyDir_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix21isInDir_emptyDir_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32625,7 +32625,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix38is
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix38isDirOrInDir_trueForSameDirectory_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix38isDirOrInDir_trueForSameDirectory_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32653,7 +32653,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix35is
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix35isDirOrInDir_trueForEmptyPaths_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix35isDirOrInDir_trueForEmptyPaths_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32681,7 +32681,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39is
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix39isDirOrInDir_falseForDisjunctPaths_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix39isDirOrInDir_falseForDisjunctPaths_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32709,7 +32709,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31is
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31isDirOrInDir_relativePaths_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31isDirOrInDir_relativePaths_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32737,7 +32737,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37is
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37isDirOrInDir_DISABLED_shouldWork_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37isDirOrInDir_DISABLED_shouldWork_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32765,7 +32765,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26pa
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26pathExists_rootExists_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26pathExists_rootExists_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32793,7 +32793,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25pa
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25pathExists_cwdExists_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25pathExists_cwdExists_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32821,7 +32821,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37pa
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37pathExists_bogusPathDoesNotExist_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37pathExists_bogusPathDoesNotExist_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32849,7 +32849,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47co
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix47concatStringsSep_buildCommaSeparatedString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix47concatStringsSep_buildCommaSeparatedString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32913,7 +32913,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix51co
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix51concatStringsSep_buildStringWithEmptySeparator_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix51concatStringsSep_buildStringWithEmptySeparator_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32941,7 +32941,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix39co
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix39concatStringsSep_buildSingleString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix39concatStringsSep_buildSingleString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32969,7 +32969,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37hasPrefix_emptyStringHasNoPrefix_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37hasPrefix_emptyStringHasNoPrefix_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -32997,7 +32997,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix40hasPrefix_emptyStringIsAlwaysPrefix_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix40hasPrefix_emptyStringIsAlwaysPrefix_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33025,7 +33025,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26hasPrefix_trivialCase_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26hasPrefix_trivialCase_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33053,7 +33053,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37hasSuffix_emptyStringHasNoSuffix_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37hasSuffix_emptyStringHasNoSuffix_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33081,7 +33081,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix26ha
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26hasSuffix_trivialCase_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix26hasSuffix_trivialCase_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33109,7 +33109,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29base64Encode_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29base64Encode_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33137,7 +33137,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix32ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix32base64Encode_encodesAString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix32base64Encode_encodesAString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33165,7 +33165,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix33base64Encode_encodeAndDecode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix33base64Encode_encodeAndDecode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33193,7 +33193,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix45ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix45base64Encode_encodeAndDecodeNonPrintable_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix45base64Encode_encodeAndDecodeNonPrintable_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33221,7 +33221,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29base64Decode_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29base64Decode_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33249,7 +33249,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31base64Decode_decodeAString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31base64Decode_decodeAString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33277,7 +33277,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix43ba
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix43base64Decode_decodeThrowsOnInvalidChar_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix43base64Decode_decodeThrowsOnInvalidChar_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33794,7 +33794,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix16ge
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix16getLine_all_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix16getLine_all_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33822,7 +33822,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix24to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix24toLower_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix24toLower_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33850,7 +33850,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix23toLower_nonLetters_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix23toLower_nonLetters_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33878,7 +33878,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix20to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix20toLower_umlauts_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix20toLower_umlauts_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33906,7 +33906,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix29st
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29string2Float_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix29string2Float_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33934,7 +33934,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36st
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix36string2Float_trivialConversions_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix36string2Float_trivialConversions_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33962,7 +33962,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27st
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27string2Int_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27string2Int_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -33990,7 +33990,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34st
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34string2Int_trivialConversions_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34string2Int_trivialConversions_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34018,7 +34018,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix22st
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix22statusOk_zeroIsOk_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix22statusOk_zeroIsOk_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34046,7 +34046,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31re
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31rewriteStrings_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31rewriteStrings_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34132,7 +34132,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix33re
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix33rewriteStrings_emptyRewrites_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix33rewriteStrings_emptyRewrites_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34160,7 +34160,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37re
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37rewriteStrings_successfulRewrite_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37rewriteStrings_successfulRewrite_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34188,7 +34188,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31re
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31rewriteStrings_doesntOccur_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31rewriteStrings_doesntOccur_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34216,7 +34216,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31re
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31replaceStrings_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31replaceStrings_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34244,7 +34244,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix37re
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37replaceStrings_successfulReplace_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix37replaceStrings_successfulReplace_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34272,7 +34272,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31re
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31replaceStrings_doesntOccur_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31replaceStrings_doesntOccur_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34300,7 +34300,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix21tr
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix21trim_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix21trim_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34328,7 +34328,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27tr
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27trim_removesWhitespace_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27trim_removesWhitespace_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34356,7 +34356,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix22ch
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix22chomp_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix22chomp_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34384,7 +34384,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix28ch
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix28chomp_removesWhitespace_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix28chomp_removesWhitespace_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34412,7 +34412,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23qu
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix23quoteStrings_empty_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix23quoteStrings_empty_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34440,7 +34440,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30qu
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix30quoteStrings_emptyStrings_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix30quoteStrings_emptyStrings_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34468,7 +34468,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix30qu
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix30quoteStrings_trivialQuote_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix30quoteStrings_trivialQuote_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34496,7 +34496,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix31qu
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31quoteStrings_quotedStrings_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix31quoteStrings_quotedStrings_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34524,7 +34524,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25tokenizeString_empty_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25tokenizeString_empty_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34552,7 +34552,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix46tokenizeString_tokenizeSpacesWithDefaults_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix46tokenizeString_tokenizeSpacesWithDefaults_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34580,7 +34580,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix44to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix44tokenizeString_tokenizeTabsWithDefaults_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix44tokenizeString_tokenizeTabsWithDefaults_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34608,7 +34608,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix50to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix50tokenizeString_tokenizeTabsSpacesWithDefaults_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix50tokenizeString_tokenizeTabsSpacesWithDefaults_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34636,7 +34636,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix57tokenizeString_tokenizeTabsSpacesNewlineWithDefaults_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix57tokenizeString_tokenizeTabsSpacesNewlineWithDefaults_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34664,7 +34664,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix60to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix60tokenizeString_tokenizeTabsSpacesNewlineRetWithDefaults_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix60tokenizeString_tokenizeTabsSpacesNewlineRetWithDefaults_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34692,7 +34692,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix41to
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix41tokenizeString_tokenizeWithCustomSep_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix41tokenizeString_tokenizeWithCustomSep_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34720,7 +34720,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix23ge
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix23get_emptyContainer_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix23get_emptyContainer_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34748,7 +34748,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25ge
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25get_getFromContainer_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25get_getFromContainer_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34776,7 +34776,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix25ge
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25getOr_emptyContainer_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix25getOr_emptyContainer_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34804,7 +34804,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27ge
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27getOr_getFromContainer_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27getOr_getFromContainer_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34832,7 +34832,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34filterANSIEscapes_emptyString_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34filterANSIEscapes_emptyString_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34860,7 +34860,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix49filterANSIEscapes_doesntChangePrintableChars_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix49filterANSIEscapes_doesntChangePrintableChars_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34888,7 +34888,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix40fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix40filterANSIEscapes_filtersColorCodes_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix40filterANSIEscapes_filtersColorCodes_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34916,7 +34916,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix34fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34filterANSIEscapes_expandsTabs_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix34filterANSIEscapes_expandsTabs_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -34944,7 +34944,7 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix27fi
           to label %3 unwind label %4
 
 3:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27filterANSIEscapes_utf8_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27filterANSIEscapes_utf8_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 4:                                                ; preds = %1
@@ -37637,7 +37637,7 @@ _ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbR
 
 16:                                               ; preds = %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit, %_ZN5boost10conversion6detail19try_lexical_convertIdNS_14iterator_rangeIPKcEEEEbRKT0_RT_.exit.thread2
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %2, align 8
   %17 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @_ZTIN5boost14iterator_rangeIPKcEE, ptr %17, align 8
   %18 = getelementptr inbounds i8, ptr %2, i64 16
@@ -37664,7 +37664,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5boost6detail27lexical_ostream_limite
   %3 = alloca %"class.boost::detail::basic_unlockedbuf", align 8
   %4 = alloca %"class.std::basic_istream", align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost6detail16basic_pointerbufIcSt15basic_streambufIcSt11char_traitsIcEEEE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost6detail16basic_pointerbufIcSt15basic_streambufIcSt11char_traitsIcEEEE, i64 0, i32 0, i64 2), ptr %3, align 8
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef null, ptr noundef null, ptr noundef null)
           to label %_ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2Ev.exit unwind label %5
 
@@ -37679,7 +37679,7 @@ common.resume:                                    ; preds = %62, %5
   br label %common.resume
 
 _ZN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEC2Ev.exit: ; preds = %2
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost6detail17basic_unlockedbufISt15basic_streambufIcSt11char_traitsIcEEcEE, i64 0, i32 0, i64 2), ptr %3, align 8
   %7 = load ptr, ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -38138,9 +38138,9 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
@@ -38149,9 +38149,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEEC2ERKS1_(
   %8 = getelementptr inbounds i8, ptr %0, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   store i32 -1, ptr %8, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 }
 
@@ -38160,7 +38160,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -38198,14 +38198,14 @@ declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_16bad_lexical_castEE5cloneEv(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #28
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %2, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   %8 = getelementptr inbounds i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -38231,9 +38231,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptINS_16bad_lexical_castEE5
   %16 = getelementptr inbounds i8, ptr %2, i64 48
   %17 = getelementptr inbounds i8, ptr %0, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %16, ptr noundef nonnull align 8 dereferenceable(20) %17, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 32
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %6, ptr noundef nonnull %18)
           to label %_ZN5boost10wrapexceptINS_16bad_lexical_castEE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptINS_16bad_lexical_castEE7deleterD2Ev.exit7
@@ -38275,7 +38275,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptINS_16bad_lexical_castEE7rethrow
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -38312,7 +38312,7 @@ _ZN5boost10wrapexceptINS_16bad_lexical_castEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_16bad_lexical_castEED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -38347,7 +38347,7 @@ _ZN5boost10wrapexceptINS_16bad_lexical_castEED2Ev.exit: ; preds = %1, %.noexc.i.
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptINS_16bad_lexical_castEED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -38388,7 +38388,7 @@ define linkonce_odr noundef ptr @_ZNK5boost16bad_lexical_cast4whatEv(ptr noundef
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_16bad_lexical_castEED1Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -38423,7 +38423,7 @@ _ZN5boost10wrapexceptINS_16bad_lexical_castEED2Ev.exit: ; preds = %1, %.noexc.i.
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn32_N5boost10wrapexceptINS_16bad_lexical_castEED0Ev(ptr noundef %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -38481,14 +38481,14 @@ declare void @_ZNSt8bad_castD2Ev(ptr noundef nonnull align 8 dereferenceable(8))
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(68) %0, ptr noundef nonnull align 8 dereferenceable(68) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost16bad_lexical_castE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %6 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 40
   %8 = getelementptr inbounds i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
@@ -38507,9 +38507,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptINS_16bad_lexical_castEEC2ERKS2_(
   %15 = getelementptr inbounds i8, ptr %0, i64 48
   %16 = getelementptr inbounds i8, ptr %1, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, ptr noundef nonnull align 8 dereferenceable(20) %16, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, inrange i32 2, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINS_16bad_lexical_castEEE, i64 0, i32 2, i64 2), ptr %6, align 8
   ret void
 
 17:                                               ; preds = %10
@@ -41755,7 +41755,7 @@ define internal void @_GLOBAL__sub_I_tests.cc() #20 section ".text.startup" pers
           to label %258 unwind label %277
 
 258:                                              ; preds = %256
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29absPath_doesntChangeRoot_TestEEE, i64 0, inrange i32 0, i64 2), ptr %257, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29absPath_doesntChangeRoot_TestEEE, i64 0, i32 0, i64 2), ptr %257, align 8
   %259 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %244, ptr noundef %251, ptr noundef %253, ptr noundef %255, ptr noundef nonnull %257)
           to label %260 unwind label %277
 
@@ -41858,7 +41858,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %290 unwind label %309
 
 290:                                              ; preds = %288
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34absPath_turnsEmptyPathIntoCWD_TestEEE, i64 0, inrange i32 0, i64 2), ptr %289, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34absPath_turnsEmptyPathIntoCWD_TestEEE, i64 0, i32 0, i64 2), ptr %289, align 8
   %291 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.11, ptr noundef null, ptr noundef null, ptr noundef nonnull %241, ptr noundef %283, ptr noundef %285, ptr noundef %287, ptr noundef nonnull %289)
           to label %292 unwind label %309
 
@@ -41955,7 +41955,7 @@ __cxx_global_var_init.10.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %322 unwind label %341
 
 322:                                              ; preds = %320
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42absPath_usesOptionalBasePathWhenGiven_TestEEE, i64 0, inrange i32 0, i64 2), ptr %321, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix42absPath_usesOptionalBasePathWhenGiven_TestEEE, i64 0, i32 0, i64 2), ptr %321, align 8
   %323 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.15, ptr noundef null, ptr noundef null, ptr noundef nonnull %238, ptr noundef %315, ptr noundef %317, ptr noundef %319, ptr noundef nonnull %321)
           to label %324 unwind label %341
 
@@ -42052,7 +42052,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %354 unwind label %373
 
 354:                                              ; preds = %352
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25absPath_isIdempotent_TestEEE, i64 0, inrange i32 0, i64 2), ptr %353, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25absPath_isIdempotent_TestEEE, i64 0, i32 0, i64 2), ptr %353, align 8
   %355 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.18, ptr noundef null, ptr noundef null, ptr noundef nonnull %235, ptr noundef %347, ptr noundef %349, ptr noundef %351, ptr noundef nonnull %353)
           to label %356 unwind label %373
 
@@ -42149,7 +42149,7 @@ __cxx_global_var_init.17.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %386 unwind label %405
 
 386:                                              ; preds = %384
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32absPath_pathIsCanonicalised_TestEEE, i64 0, inrange i32 0, i64 2), ptr %385, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32absPath_pathIsCanonicalised_TestEEE, i64 0, i32 0, i64 2), ptr %385, align 8
   %387 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.22, ptr noundef null, ptr noundef null, ptr noundef nonnull %232, ptr noundef %379, ptr noundef %381, ptr noundef %383, ptr noundef nonnull %385)
           to label %388 unwind label %405
 
@@ -42246,7 +42246,7 @@ __cxx_global_var_init.21.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %418 unwind label %437
 
 418:                                              ; preds = %416
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37canonPath_removesTrailingSlashes_TestEEE, i64 0, inrange i32 0, i64 2), ptr %417, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37canonPath_removesTrailingSlashes_TestEEE, i64 0, i32 0, i64 2), ptr %417, align 8
   %419 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef null, ptr noundef nonnull %229, ptr noundef %411, ptr noundef %413, ptr noundef %415, ptr noundef nonnull %417)
           to label %420 unwind label %437
 
@@ -42343,7 +42343,7 @@ __cxx_global_var_init.26.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %450 unwind label %469
 
 450:                                              ; preds = %448
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26canonPath_removesDots_TestEEE, i64 0, inrange i32 0, i64 2), ptr %449, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26canonPath_removesDots_TestEEE, i64 0, i32 0, i64 2), ptr %449, align 8
   %451 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef null, ptr noundef nonnull %226, ptr noundef %443, ptr noundef %445, ptr noundef %447, ptr noundef nonnull %449)
           to label %452 unwind label %469
 
@@ -42440,7 +42440,7 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %482 unwind label %501
 
 482:                                              ; preds = %480
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27canonPath_removesDots2_TestEEE, i64 0, inrange i32 0, i64 2), ptr %481, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27canonPath_removesDots2_TestEEE, i64 0, i32 0, i64 2), ptr %481, align 8
   %483 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef null, ptr noundef nonnull %223, ptr noundef %475, ptr noundef %477, ptr noundef %479, ptr noundef nonnull %481)
           to label %484 unwind label %501
 
@@ -42537,7 +42537,7 @@ __cxx_global_var_init.35.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %514 unwind label %533
 
 514:                                              ; preds = %512
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35canonPath_requiresAbsolutePath_TestEEE, i64 0, inrange i32 0, i64 2), ptr %513, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35canonPath_requiresAbsolutePath_TestEEE, i64 0, i32 0, i64 2), ptr %513, align 8
   %515 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.39, ptr noundef null, ptr noundef null, ptr noundef nonnull %220, ptr noundef %507, ptr noundef %509, ptr noundef %511, ptr noundef nonnull %513)
           to label %516 unwind label %533
 
@@ -42634,7 +42634,7 @@ __cxx_global_var_init.38.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %546 unwind label %565
 
 546:                                              ; preds = %544
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36dirOf_returnsEmptyStringForRoot_TestEEE, i64 0, inrange i32 0, i64 2), ptr %545, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36dirOf_returnsEmptyStringForRoot_TestEEE, i64 0, i32 0, i64 2), ptr %545, align 8
   %547 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.51, ptr noundef null, ptr noundef null, ptr noundef nonnull %217, ptr noundef %539, ptr noundef %541, ptr noundef %543, ptr noundef nonnull %545)
           to label %548 unwind label %565
 
@@ -42731,7 +42731,7 @@ __cxx_global_var_init.49.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %578 unwind label %597
 
 578:                                              ; preds = %576
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36dirOf_returnsFirstPathComponent_TestEEE, i64 0, inrange i32 0, i64 2), ptr %577, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36dirOf_returnsFirstPathComponent_TestEEE, i64 0, i32 0, i64 2), ptr %577, align 8
   %579 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.50, ptr noundef nonnull @.str.53, ptr noundef null, ptr noundef null, ptr noundef nonnull %214, ptr noundef %571, ptr noundef %573, ptr noundef %575, ptr noundef nonnull %577)
           to label %580 unwind label %597
 
@@ -42828,7 +42828,7 @@ __cxx_global_var_init.52.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %610 unwind label %629
 
 610:                                              ; preds = %608
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25baseNameOf_emptyPath_TestEEE, i64 0, inrange i32 0, i64 2), ptr %609, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25baseNameOf_emptyPath_TestEEE, i64 0, i32 0, i64 2), ptr %609, align 8
   %611 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.64, ptr noundef null, ptr noundef null, ptr noundef nonnull %211, ptr noundef %603, ptr noundef %605, ptr noundef %607, ptr noundef nonnull %609)
           to label %612 unwind label %629
 
@@ -42925,7 +42925,7 @@ __cxx_global_var_init.62.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %642 unwind label %661
 
 642:                                              ; preds = %640
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26baseNameOf_pathOnRoot_TestEEE, i64 0, inrange i32 0, i64 2), ptr %641, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26baseNameOf_pathOnRoot_TestEEE, i64 0, i32 0, i64 2), ptr %641, align 8
   %643 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.67, ptr noundef null, ptr noundef null, ptr noundef nonnull %208, ptr noundef %635, ptr noundef %637, ptr noundef %639, ptr noundef nonnull %641)
           to label %644 unwind label %661
 
@@ -43022,7 +43022,7 @@ __cxx_global_var_init.66.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %674 unwind label %693
 
 674:                                              ; preds = %672
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28baseNameOf_relativePath_TestEEE, i64 0, inrange i32 0, i64 2), ptr %673, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28baseNameOf_relativePath_TestEEE, i64 0, i32 0, i64 2), ptr %673, align 8
   %675 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.71, ptr noundef null, ptr noundef null, ptr noundef nonnull %205, ptr noundef %667, ptr noundef %669, ptr noundef %671, ptr noundef nonnull %673)
           to label %676 unwind label %693
 
@@ -43119,7 +43119,7 @@ __cxx_global_var_init.70.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %706 unwind label %725
 
 706:                                              ; preds = %704
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41baseNameOf_pathWithTrailingSlashRoot_TestEEE, i64 0, inrange i32 0, i64 2), ptr %705, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41baseNameOf_pathWithTrailingSlashRoot_TestEEE, i64 0, i32 0, i64 2), ptr %705, align 8
   %707 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.76, ptr noundef null, ptr noundef null, ptr noundef nonnull %202, ptr noundef %699, ptr noundef %701, ptr noundef %703, ptr noundef nonnull %705)
           to label %708 unwind label %725
 
@@ -43216,7 +43216,7 @@ __cxx_global_var_init.75.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %738 unwind label %757
 
 738:                                              ; preds = %736
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29baseNameOf_trailingSlash_TestEEE, i64 0, inrange i32 0, i64 2), ptr %737, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29baseNameOf_trailingSlash_TestEEE, i64 0, i32 0, i64 2), ptr %737, align 8
   %739 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.63, ptr noundef nonnull @.str.78, ptr noundef null, ptr noundef null, ptr noundef nonnull %199, ptr noundef %731, ptr noundef %733, ptr noundef %735, ptr noundef nonnull %737)
           to label %740 unwind label %757
 
@@ -43313,7 +43313,7 @@ __cxx_global_var_init.77.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %770 unwind label %789
 
 770:                                              ; preds = %768
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24isInDir_trivialCase_TestEEE, i64 0, inrange i32 0, i64 2), ptr %769, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24isInDir_trivialCase_TestEEE, i64 0, i32 0, i64 2), ptr %769, align 8
   %771 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.81, ptr noundef null, ptr noundef null, ptr noundef nonnull %196, ptr noundef %763, ptr noundef %765, ptr noundef %767, ptr noundef nonnull %769)
           to label %772 unwind label %789
 
@@ -43410,7 +43410,7 @@ __cxx_global_var_init.79.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %802 unwind label %821
 
 802:                                              ; preds = %800
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix21isInDir_notInDir_TestEEE, i64 0, inrange i32 0, i64 2), ptr %801, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix21isInDir_notInDir_TestEEE, i64 0, i32 0, i64 2), ptr %801, align 8
   %803 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.86, ptr noundef null, ptr noundef null, ptr noundef nonnull %193, ptr noundef %795, ptr noundef %797, ptr noundef %799, ptr noundef nonnull %801)
           to label %804 unwind label %821
 
@@ -43507,7 +43507,7 @@ __cxx_global_var_init.85.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %834 unwind label %853
 
 834:                                              ; preds = %832
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix21isInDir_emptyDir_TestEEE, i64 0, inrange i32 0, i64 2), ptr %833, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix21isInDir_emptyDir_TestEEE, i64 0, i32 0, i64 2), ptr %833, align 8
   %835 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.80, ptr noundef nonnull @.str.90, ptr noundef null, ptr noundef null, ptr noundef nonnull %190, ptr noundef %827, ptr noundef %829, ptr noundef %831, ptr noundef nonnull %833)
           to label %836 unwind label %853
 
@@ -43604,7 +43604,7 @@ __cxx_global_var_init.89.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %866 unwind label %885
 
 866:                                              ; preds = %864
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38isDirOrInDir_trueForSameDirectory_TestEEE, i64 0, inrange i32 0, i64 2), ptr %865, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix38isDirOrInDir_trueForSameDirectory_TestEEE, i64 0, i32 0, i64 2), ptr %865, align 8
   %867 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.93, ptr noundef null, ptr noundef null, ptr noundef nonnull %187, ptr noundef %859, ptr noundef %861, ptr noundef %863, ptr noundef nonnull %865)
           to label %868 unwind label %885
 
@@ -43701,7 +43701,7 @@ __cxx_global_var_init.91.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %898 unwind label %917
 
 898:                                              ; preds = %896
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35isDirOrInDir_trueForEmptyPaths_TestEEE, i64 0, inrange i32 0, i64 2), ptr %897, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix35isDirOrInDir_trueForEmptyPaths_TestEEE, i64 0, i32 0, i64 2), ptr %897, align 8
   %899 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.98, ptr noundef null, ptr noundef null, ptr noundef nonnull %184, ptr noundef %891, ptr noundef %893, ptr noundef %895, ptr noundef nonnull %897)
           to label %900 unwind label %917
 
@@ -43798,7 +43798,7 @@ __cxx_global_var_init.97.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %930 unwind label %949
 
 930:                                              ; preds = %928
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39isDirOrInDir_falseForDisjunctPaths_TestEEE, i64 0, inrange i32 0, i64 2), ptr %929, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39isDirOrInDir_falseForDisjunctPaths_TestEEE, i64 0, i32 0, i64 2), ptr %929, align 8
   %931 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.101, ptr noundef null, ptr noundef null, ptr noundef nonnull %181, ptr noundef %923, ptr noundef %925, ptr noundef %927, ptr noundef nonnull %929)
           to label %932 unwind label %949
 
@@ -43895,7 +43895,7 @@ __cxx_global_var_init.100.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %962 unwind label %981
 
 962:                                              ; preds = %960
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31isDirOrInDir_relativePaths_TestEEE, i64 0, inrange i32 0, i64 2), ptr %961, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31isDirOrInDir_relativePaths_TestEEE, i64 0, i32 0, i64 2), ptr %961, align 8
   %963 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.105, ptr noundef null, ptr noundef null, ptr noundef nonnull %178, ptr noundef %955, ptr noundef %957, ptr noundef %959, ptr noundef nonnull %961)
           to label %964 unwind label %981
 
@@ -43992,7 +43992,7 @@ __cxx_global_var_init.104.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %994 unwind label %1013
 
 994:                                              ; preds = %992
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37isDirOrInDir_DISABLED_shouldWork_TestEEE, i64 0, inrange i32 0, i64 2), ptr %993, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37isDirOrInDir_DISABLED_shouldWork_TestEEE, i64 0, i32 0, i64 2), ptr %993, align 8
   %995 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.92, ptr noundef nonnull @.str.109, ptr noundef null, ptr noundef null, ptr noundef nonnull %175, ptr noundef %987, ptr noundef %989, ptr noundef %991, ptr noundef nonnull %993)
           to label %996 unwind label %1013
 
@@ -44089,7 +44089,7 @@ __cxx_global_var_init.108.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1026 unwind label %1045
 
 1026:                                             ; preds = %1024
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26pathExists_rootExists_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1025, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26pathExists_rootExists_TestEEE, i64 0, i32 0, i64 2), ptr %1025, align 8
   %1027 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.114, ptr noundef null, ptr noundef null, ptr noundef nonnull %172, ptr noundef %1019, ptr noundef %1021, ptr noundef %1023, ptr noundef nonnull %1025)
           to label %1028 unwind label %1045
 
@@ -44186,7 +44186,7 @@ __cxx_global_var_init.112.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1058 unwind label %1077
 
 1058:                                             ; preds = %1056
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25pathExists_cwdExists_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1057, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25pathExists_cwdExists_TestEEE, i64 0, i32 0, i64 2), ptr %1057, align 8
   %1059 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.117, ptr noundef null, ptr noundef null, ptr noundef nonnull %169, ptr noundef %1051, ptr noundef %1053, ptr noundef %1055, ptr noundef nonnull %1057)
           to label %1060 unwind label %1077
 
@@ -44283,7 +44283,7 @@ __cxx_global_var_init.116.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1090 unwind label %1109
 
 1090:                                             ; preds = %1088
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37pathExists_bogusPathDoesNotExist_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1089, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37pathExists_bogusPathDoesNotExist_TestEEE, i64 0, i32 0, i64 2), ptr %1089, align 8
   %1091 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.113, ptr noundef nonnull @.str.120, ptr noundef null, ptr noundef null, ptr noundef nonnull %166, ptr noundef %1083, ptr noundef %1085, ptr noundef %1087, ptr noundef nonnull %1089)
           to label %1092 unwind label %1109
 
@@ -44380,7 +44380,7 @@ __cxx_global_var_init.119.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1122 unwind label %1141
 
 1122:                                             ; preds = %1120
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47concatStringsSep_buildCommaSeparatedString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1121, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47concatStringsSep_buildCommaSeparatedString_TestEEE, i64 0, i32 0, i64 2), ptr %1121, align 8
   %1123 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.125, ptr noundef null, ptr noundef null, ptr noundef nonnull %163, ptr noundef %1115, ptr noundef %1117, ptr noundef %1119, ptr noundef nonnull %1121)
           to label %1124 unwind label %1141
 
@@ -44477,7 +44477,7 @@ __cxx_global_var_init.123.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1154 unwind label %1173
 
 1154:                                             ; preds = %1152
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51concatStringsSep_buildStringWithEmptySeparator_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1153, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix51concatStringsSep_buildStringWithEmptySeparator_TestEEE, i64 0, i32 0, i64 2), ptr %1153, align 8
   %1155 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.134, ptr noundef null, ptr noundef null, ptr noundef nonnull %160, ptr noundef %1147, ptr noundef %1149, ptr noundef %1151, ptr noundef nonnull %1153)
           to label %1156 unwind label %1173
 
@@ -44574,7 +44574,7 @@ __cxx_global_var_init.133.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1186 unwind label %1205
 
 1186:                                             ; preds = %1184
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39concatStringsSep_buildSingleString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1185, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix39concatStringsSep_buildSingleString_TestEEE, i64 0, i32 0, i64 2), ptr %1185, align 8
   %1187 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.124, ptr noundef nonnull @.str.139, ptr noundef null, ptr noundef null, ptr noundef nonnull %157, ptr noundef %1179, ptr noundef %1181, ptr noundef %1183, ptr noundef nonnull %1185)
           to label %1188 unwind label %1205
 
@@ -44671,7 +44671,7 @@ __cxx_global_var_init.138.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1218 unwind label %1237
 
 1218:                                             ; preds = %1216
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37hasPrefix_emptyStringHasNoPrefix_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1217, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37hasPrefix_emptyStringHasNoPrefix_TestEEE, i64 0, i32 0, i64 2), ptr %1217, align 8
   %1219 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.143, ptr noundef null, ptr noundef null, ptr noundef nonnull %154, ptr noundef %1211, ptr noundef %1213, ptr noundef %1215, ptr noundef nonnull %1217)
           to label %1220 unwind label %1237
 
@@ -44768,7 +44768,7 @@ __cxx_global_var_init.141.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1250 unwind label %1269
 
 1250:                                             ; preds = %1248
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40hasPrefix_emptyStringIsAlwaysPrefix_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1249, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40hasPrefix_emptyStringIsAlwaysPrefix_TestEEE, i64 0, i32 0, i64 2), ptr %1249, align 8
   %1251 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.146, ptr noundef null, ptr noundef null, ptr noundef nonnull %151, ptr noundef %1243, ptr noundef %1245, ptr noundef %1247, ptr noundef nonnull %1249)
           to label %1252 unwind label %1269
 
@@ -44865,7 +44865,7 @@ __cxx_global_var_init.145.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1282 unwind label %1301
 
 1282:                                             ; preds = %1280
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26hasPrefix_trivialCase_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1281, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26hasPrefix_trivialCase_TestEEE, i64 0, i32 0, i64 2), ptr %1281, align 8
   %1283 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.142, ptr noundef nonnull @.str.81, ptr noundef null, ptr noundef null, ptr noundef nonnull %148, ptr noundef %1275, ptr noundef %1277, ptr noundef %1279, ptr noundef nonnull %1281)
           to label %1284 unwind label %1301
 
@@ -44962,7 +44962,7 @@ __cxx_global_var_init.150.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1314 unwind label %1333
 
 1314:                                             ; preds = %1312
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37hasSuffix_emptyStringHasNoSuffix_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1313, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37hasSuffix_emptyStringHasNoSuffix_TestEEE, i64 0, i32 0, i64 2), ptr %1313, align 8
   %1315 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.155, ptr noundef null, ptr noundef null, ptr noundef nonnull %145, ptr noundef %1307, ptr noundef %1309, ptr noundef %1311, ptr noundef nonnull %1313)
           to label %1316 unwind label %1333
 
@@ -45059,7 +45059,7 @@ __cxx_global_var_init.153.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1346 unwind label %1365
 
 1346:                                             ; preds = %1344
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26hasSuffix_trivialCase_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1345, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix26hasSuffix_trivialCase_TestEEE, i64 0, i32 0, i64 2), ptr %1345, align 8
   %1347 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.154, ptr noundef nonnull @.str.81, ptr noundef null, ptr noundef null, ptr noundef nonnull %142, ptr noundef %1339, ptr noundef %1341, ptr noundef %1343, ptr noundef nonnull %1345)
           to label %1348 unwind label %1365
 
@@ -45156,7 +45156,7 @@ __cxx_global_var_init.157.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1378 unwind label %1397
 
 1378:                                             ; preds = %1376
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29base64Encode_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1377, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29base64Encode_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %1377, align 8
   %1379 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %139, ptr noundef %1371, ptr noundef %1373, ptr noundef %1375, ptr noundef nonnull %1377)
           to label %1380 unwind label %1397
 
@@ -45253,7 +45253,7 @@ __cxx_global_var_init.161.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1410 unwind label %1429
 
 1410:                                             ; preds = %1408
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32base64Encode_encodesAString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1409, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix32base64Encode_encodesAString_TestEEE, i64 0, i32 0, i64 2), ptr %1409, align 8
   %1411 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef null, ptr noundef nonnull %136, ptr noundef %1403, ptr noundef %1405, ptr noundef %1407, ptr noundef nonnull %1409)
           to label %1412 unwind label %1429
 
@@ -45350,7 +45350,7 @@ __cxx_global_var_init.165.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1442 unwind label %1461
 
 1442:                                             ; preds = %1440
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33base64Encode_encodeAndDecode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1441, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33base64Encode_encodeAndDecode_TestEEE, i64 0, i32 0, i64 2), ptr %1441, align 8
   %1443 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.172, ptr noundef null, ptr noundef null, ptr noundef nonnull %133, ptr noundef %1435, ptr noundef %1437, ptr noundef %1439, ptr noundef nonnull %1441)
           to label %1444 unwind label %1461
 
@@ -45447,7 +45447,7 @@ __cxx_global_var_init.171.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1474 unwind label %1493
 
 1474:                                             ; preds = %1472
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45base64Encode_encodeAndDecodeNonPrintable_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1473, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45base64Encode_encodeAndDecodeNonPrintable_TestEEE, i64 0, i32 0, i64 2), ptr %1473, align 8
   %1475 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.162, ptr noundef nonnull @.str.176, ptr noundef null, ptr noundef null, ptr noundef nonnull %130, ptr noundef %1467, ptr noundef %1469, ptr noundef %1471, ptr noundef nonnull %1473)
           to label %1476 unwind label %1493
 
@@ -45544,7 +45544,7 @@ __cxx_global_var_init.175.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1506 unwind label %1525
 
 1506:                                             ; preds = %1504
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29base64Decode_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1505, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29base64Decode_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %1505, align 8
   %1507 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.180, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %127, ptr noundef %1499, ptr noundef %1501, ptr noundef %1503, ptr noundef nonnull %1505)
           to label %1508 unwind label %1525
 
@@ -45641,7 +45641,7 @@ __cxx_global_var_init.179.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1538 unwind label %1557
 
 1538:                                             ; preds = %1536
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31base64Decode_decodeAString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1537, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31base64Decode_decodeAString_TestEEE, i64 0, i32 0, i64 2), ptr %1537, align 8
   %1539 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.180, ptr noundef nonnull @.str.183, ptr noundef null, ptr noundef null, ptr noundef nonnull %124, ptr noundef %1531, ptr noundef %1533, ptr noundef %1535, ptr noundef nonnull %1537)
           to label %1540 unwind label %1557
 
@@ -45738,7 +45738,7 @@ __cxx_global_var_init.182.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1570 unwind label %1589
 
 1570:                                             ; preds = %1568
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43base64Decode_decodeThrowsOnInvalidChar_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1569, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix43base64Decode_decodeThrowsOnInvalidChar_TestEEE, i64 0, i32 0, i64 2), ptr %1569, align 8
   %1571 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.180, ptr noundef nonnull @.str.187, ptr noundef null, ptr noundef null, ptr noundef nonnull %121, ptr noundef %1563, ptr noundef %1565, ptr noundef %1567, ptr noundef nonnull %1569)
           to label %1572 unwind label %1589
 
@@ -45835,7 +45835,7 @@ __cxx_global_var_init.186.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1602 unwind label %1621
 
 1602:                                             ; preds = %1600
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix16getLine_all_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1601, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix16getLine_all_TestEEE, i64 0, i32 0, i64 2), ptr %1601, align 8
   %1603 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.195, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef nonnull %118, ptr noundef %1595, ptr noundef %1597, ptr noundef %1599, ptr noundef nonnull %1601)
           to label %1604 unwind label %1621
 
@@ -45932,7 +45932,7 @@ __cxx_global_var_init.194.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1634 unwind label %1653
 
 1634:                                             ; preds = %1632
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24toLower_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1633, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix24toLower_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %1633, align 8
   %1635 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.207, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %115, ptr noundef %1627, ptr noundef %1629, ptr noundef %1631, ptr noundef nonnull %1633)
           to label %1636 unwind label %1653
 
@@ -46029,7 +46029,7 @@ __cxx_global_var_init.206.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1666 unwind label %1685
 
 1666:                                             ; preds = %1664
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23toLower_nonLetters_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1665, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23toLower_nonLetters_TestEEE, i64 0, i32 0, i64 2), ptr %1665, align 8
   %1667 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.207, ptr noundef nonnull @.str.210, ptr noundef null, ptr noundef null, ptr noundef nonnull %112, ptr noundef %1659, ptr noundef %1661, ptr noundef %1663, ptr noundef nonnull %1665)
           to label %1668 unwind label %1685
 
@@ -46126,7 +46126,7 @@ __cxx_global_var_init.209.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1698 unwind label %1717
 
 1698:                                             ; preds = %1696
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix20toLower_umlauts_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1697, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix20toLower_umlauts_TestEEE, i64 0, i32 0, i64 2), ptr %1697, align 8
   %1699 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.207, ptr noundef nonnull @.str.214, ptr noundef null, ptr noundef null, ptr noundef nonnull %109, ptr noundef %1691, ptr noundef %1693, ptr noundef %1695, ptr noundef nonnull %1697)
           to label %1700 unwind label %1717
 
@@ -46223,7 +46223,7 @@ __cxx_global_var_init.213.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1730 unwind label %1749
 
 1730:                                             ; preds = %1728
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29string2Float_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1729, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix29string2Float_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %1729, align 8
   %1731 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %106, ptr noundef %1723, ptr noundef %1725, ptr noundef %1727, ptr noundef nonnull %1729)
           to label %1732 unwind label %1749
 
@@ -46320,7 +46320,7 @@ __cxx_global_var_init.217.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1762 unwind label %1781
 
 1762:                                             ; preds = %1760
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36string2Float_trivialConversions_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1761, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36string2Float_trivialConversions_TestEEE, i64 0, i32 0, i64 2), ptr %1761, align 8
   %1763 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.218, ptr noundef nonnull @.str.222, ptr noundef null, ptr noundef null, ptr noundef nonnull %103, ptr noundef %1755, ptr noundef %1757, ptr noundef %1759, ptr noundef nonnull %1761)
           to label %1764 unwind label %1781
 
@@ -46417,7 +46417,7 @@ __cxx_global_var_init.221.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1794 unwind label %1813
 
 1794:                                             ; preds = %1792
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27string2Int_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1793, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27string2Int_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %1793, align 8
   %1795 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.230, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %100, ptr noundef %1787, ptr noundef %1789, ptr noundef %1791, ptr noundef nonnull %1793)
           to label %1796 unwind label %1813
 
@@ -46514,7 +46514,7 @@ __cxx_global_var_init.229.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1826 unwind label %1845
 
 1826:                                             ; preds = %1824
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34string2Int_trivialConversions_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1825, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34string2Int_trivialConversions_TestEEE, i64 0, i32 0, i64 2), ptr %1825, align 8
   %1827 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.230, ptr noundef nonnull @.str.222, ptr noundef null, ptr noundef null, ptr noundef nonnull %97, ptr noundef %1819, ptr noundef %1821, ptr noundef %1823, ptr noundef nonnull %1825)
           to label %1828 unwind label %1845
 
@@ -46611,7 +46611,7 @@ __cxx_global_var_init.232.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1858 unwind label %1877
 
 1858:                                             ; preds = %1856
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix22statusOk_zeroIsOk_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1857, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix22statusOk_zeroIsOk_TestEEE, i64 0, i32 0, i64 2), ptr %1857, align 8
   %1859 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.240, ptr noundef nonnull @.str.241, ptr noundef null, ptr noundef null, ptr noundef nonnull %94, ptr noundef %1851, ptr noundef %1853, ptr noundef %1855, ptr noundef nonnull %1857)
           to label %1860 unwind label %1877
 
@@ -46708,7 +46708,7 @@ __cxx_global_var_init.239.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1890 unwind label %1909
 
 1890:                                             ; preds = %1888
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31rewriteStrings_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1889, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31rewriteStrings_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %1889, align 8
   %1891 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %91, ptr noundef %1883, ptr noundef %1885, ptr noundef %1887, ptr noundef nonnull %1889)
           to label %1892 unwind label %1909
 
@@ -46805,7 +46805,7 @@ __cxx_global_var_init.244.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1922 unwind label %1941
 
 1922:                                             ; preds = %1920
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33rewriteStrings_emptyRewrites_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1921, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix33rewriteStrings_emptyRewrites_TestEEE, i64 0, i32 0, i64 2), ptr %1921, align 8
   %1923 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.249, ptr noundef null, ptr noundef null, ptr noundef nonnull %88, ptr noundef %1915, ptr noundef %1917, ptr noundef %1919, ptr noundef nonnull %1921)
           to label %1924 unwind label %1941
 
@@ -46902,7 +46902,7 @@ __cxx_global_var_init.248.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1954 unwind label %1973
 
 1954:                                             ; preds = %1952
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37rewriteStrings_successfulRewrite_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1953, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37rewriteStrings_successfulRewrite_TestEEE, i64 0, i32 0, i64 2), ptr %1953, align 8
   %1955 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.254, ptr noundef null, ptr noundef null, ptr noundef nonnull %85, ptr noundef %1947, ptr noundef %1949, ptr noundef %1951, ptr noundef nonnull %1953)
           to label %1956 unwind label %1973
 
@@ -46999,7 +46999,7 @@ __cxx_global_var_init.253.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %1986 unwind label %2005
 
 1986:                                             ; preds = %1984
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31rewriteStrings_doesntOccur_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1985, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31rewriteStrings_doesntOccur_TestEEE, i64 0, i32 0, i64 2), ptr %1985, align 8
   %1987 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.245, ptr noundef nonnull @.str.258, ptr noundef null, ptr noundef null, ptr noundef nonnull %82, ptr noundef %1979, ptr noundef %1981, ptr noundef %1983, ptr noundef nonnull %1985)
           to label %1988 unwind label %2005
 
@@ -47096,7 +47096,7 @@ __cxx_global_var_init.257.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2018 unwind label %2037
 
 2018:                                             ; preds = %2016
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31replaceStrings_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2017, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31replaceStrings_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %2017, align 8
   %2019 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %79, ptr noundef %2011, ptr noundef %2013, ptr noundef %2015, ptr noundef nonnull %2017)
           to label %2020 unwind label %2037
 
@@ -47193,7 +47193,7 @@ __cxx_global_var_init.259.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2050 unwind label %2069
 
 2050:                                             ; preds = %2048
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37replaceStrings_successfulReplace_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2049, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix37replaceStrings_successfulReplace_TestEEE, i64 0, i32 0, i64 2), ptr %2049, align 8
   %2051 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.264, ptr noundef null, ptr noundef null, ptr noundef nonnull %76, ptr noundef %2043, ptr noundef %2045, ptr noundef %2047, ptr noundef nonnull %2049)
           to label %2052 unwind label %2069
 
@@ -47290,7 +47290,7 @@ __cxx_global_var_init.263.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2082 unwind label %2101
 
 2082:                                             ; preds = %2080
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31replaceStrings_doesntOccur_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2081, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31replaceStrings_doesntOccur_TestEEE, i64 0, i32 0, i64 2), ptr %2081, align 8
   %2083 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.258, ptr noundef null, ptr noundef null, ptr noundef nonnull %73, ptr noundef %2075, ptr noundef %2077, ptr noundef %2079, ptr noundef nonnull %2081)
           to label %2084 unwind label %2101
 
@@ -47387,7 +47387,7 @@ __cxx_global_var_init.266.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2114 unwind label %2133
 
 2114:                                             ; preds = %2112
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix21trim_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2113, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix21trim_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %2113, align 8
   %2115 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %70, ptr noundef %2107, ptr noundef %2109, ptr noundef %2111, ptr noundef nonnull %2113)
           to label %2116 unwind label %2133
 
@@ -47484,7 +47484,7 @@ __cxx_global_var_init.268.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2146 unwind label %2165
 
 2146:                                             ; preds = %2144
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27trim_removesWhitespace_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2145, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27trim_removesWhitespace_TestEEE, i64 0, i32 0, i64 2), ptr %2145, align 8
   %2147 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.273, ptr noundef null, ptr noundef null, ptr noundef nonnull %67, ptr noundef %2139, ptr noundef %2141, ptr noundef %2143, ptr noundef nonnull %2145)
           to label %2148 unwind label %2165
 
@@ -47581,7 +47581,7 @@ __cxx_global_var_init.272.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2178 unwind label %2197
 
 2178:                                             ; preds = %2176
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix22chomp_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2177, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix22chomp_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %2177, align 8
   %2179 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %64, ptr noundef %2171, ptr noundef %2173, ptr noundef %2175, ptr noundef nonnull %2177)
           to label %2180 unwind label %2197
 
@@ -47678,7 +47678,7 @@ __cxx_global_var_init.283.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2210 unwind label %2229
 
 2210:                                             ; preds = %2208
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28chomp_removesWhitespace_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2209, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix28chomp_removesWhitespace_TestEEE, i64 0, i32 0, i64 2), ptr %2209, align 8
   %2211 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.284, ptr noundef nonnull @.str.273, ptr noundef null, ptr noundef null, ptr noundef nonnull %61, ptr noundef %2203, ptr noundef %2205, ptr noundef %2207, ptr noundef nonnull %2209)
           to label %2212 unwind label %2229
 
@@ -47775,7 +47775,7 @@ __cxx_global_var_init.286.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2242 unwind label %2261
 
 2242:                                             ; preds = %2240
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23quoteStrings_empty_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2241, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23quoteStrings_empty_TestEEE, i64 0, i32 0, i64 2), ptr %2241, align 8
   %2243 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.304, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef %2235, ptr noundef %2237, ptr noundef %2239, ptr noundef nonnull %2241)
           to label %2244 unwind label %2261
 
@@ -47872,7 +47872,7 @@ __cxx_global_var_init.302.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2274 unwind label %2293
 
 2274:                                             ; preds = %2272
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30quoteStrings_emptyStrings_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2273, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30quoteStrings_emptyStrings_TestEEE, i64 0, i32 0, i64 2), ptr %2273, align 8
   %2275 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.308, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef %2267, ptr noundef %2269, ptr noundef %2271, ptr noundef nonnull %2273)
           to label %2276 unwind label %2293
 
@@ -47969,7 +47969,7 @@ __cxx_global_var_init.307.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2306 unwind label %2325
 
 2306:                                             ; preds = %2304
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30quoteStrings_trivialQuote_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2305, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix30quoteStrings_trivialQuote_TestEEE, i64 0, i32 0, i64 2), ptr %2305, align 8
   %2307 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.311, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef %2299, ptr noundef %2301, ptr noundef %2303, ptr noundef nonnull %2305)
           to label %2308 unwind label %2325
 
@@ -48066,7 +48066,7 @@ __cxx_global_var_init.310.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2338 unwind label %2357
 
 2338:                                             ; preds = %2336
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31quoteStrings_quotedStrings_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2337, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix31quoteStrings_quotedStrings_TestEEE, i64 0, i32 0, i64 2), ptr %2337, align 8
   %2339 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.303, ptr noundef nonnull @.str.317, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef %2331, ptr noundef %2333, ptr noundef %2335, ptr noundef nonnull %2337)
           to label %2340 unwind label %2357
 
@@ -48163,7 +48163,7 @@ __cxx_global_var_init.316.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2370 unwind label %2389
 
 2370:                                             ; preds = %2368
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25tokenizeString_empty_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2369, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25tokenizeString_empty_TestEEE, i64 0, i32 0, i64 2), ptr %2369, align 8
   %2371 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.304, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef %2363, ptr noundef %2365, ptr noundef %2367, ptr noundef nonnull %2369)
           to label %2372 unwind label %2389
 
@@ -48260,7 +48260,7 @@ __cxx_global_var_init.321.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2402 unwind label %2421
 
 2402:                                             ; preds = %2400
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46tokenizeString_tokenizeSpacesWithDefaults_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2401, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46tokenizeString_tokenizeSpacesWithDefaults_TestEEE, i64 0, i32 0, i64 2), ptr %2401, align 8
   %2403 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.326, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef %2395, ptr noundef %2397, ptr noundef %2399, ptr noundef nonnull %2401)
           to label %2404 unwind label %2421
 
@@ -48357,7 +48357,7 @@ __cxx_global_var_init.325.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2434 unwind label %2453
 
 2434:                                             ; preds = %2432
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44tokenizeString_tokenizeTabsWithDefaults_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2433, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix44tokenizeString_tokenizeTabsWithDefaults_TestEEE, i64 0, i32 0, i64 2), ptr %2433, align 8
   %2435 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.329, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef %2427, ptr noundef %2429, ptr noundef %2431, ptr noundef nonnull %2433)
           to label %2436 unwind label %2453
 
@@ -48454,7 +48454,7 @@ __cxx_global_var_init.328.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2466 unwind label %2485
 
 2466:                                             ; preds = %2464
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50tokenizeString_tokenizeTabsSpacesWithDefaults_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2465, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix50tokenizeString_tokenizeTabsSpacesWithDefaults_TestEEE, i64 0, i32 0, i64 2), ptr %2465, align 8
   %2467 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.332, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef %2459, ptr noundef %2461, ptr noundef %2463, ptr noundef nonnull %2465)
           to label %2468 unwind label %2485
 
@@ -48551,7 +48551,7 @@ __cxx_global_var_init.331.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2498 unwind label %2517
 
 2498:                                             ; preds = %2496
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57tokenizeString_tokenizeTabsSpacesNewlineWithDefaults_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2497, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57tokenizeString_tokenizeTabsSpacesNewlineWithDefaults_TestEEE, i64 0, i32 0, i64 2), ptr %2497, align 8
   %2499 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.335, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef %2491, ptr noundef %2493, ptr noundef %2495, ptr noundef nonnull %2497)
           to label %2500 unwind label %2517
 
@@ -48648,7 +48648,7 @@ __cxx_global_var_init.334.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2530 unwind label %2549
 
 2530:                                             ; preds = %2528
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60tokenizeString_tokenizeTabsSpacesNewlineRetWithDefaults_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2529, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60tokenizeString_tokenizeTabsSpacesNewlineRetWithDefaults_TestEEE, i64 0, i32 0, i64 2), ptr %2529, align 8
   %2531 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.338, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef %2523, ptr noundef %2525, ptr noundef %2527, ptr noundef nonnull %2529)
           to label %2532 unwind label %2549
 
@@ -48745,7 +48745,7 @@ __cxx_global_var_init.337.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2562 unwind label %2581
 
 2562:                                             ; preds = %2560
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41tokenizeString_tokenizeWithCustomSep_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2561, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix41tokenizeString_tokenizeWithCustomSep_TestEEE, i64 0, i32 0, i64 2), ptr %2561, align 8
   %2563 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.322, ptr noundef nonnull @.str.344, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef %2555, ptr noundef %2557, ptr noundef %2559, ptr noundef nonnull %2561)
           to label %2564 unwind label %2581
 
@@ -48842,7 +48842,7 @@ __cxx_global_var_init.343.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2594 unwind label %2613
 
 2594:                                             ; preds = %2592
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23get_emptyContainer_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2593, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix23get_emptyContainer_TestEEE, i64 0, i32 0, i64 2), ptr %2593, align 8
   %2595 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.350, ptr noundef nonnull @.str.351, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef %2587, ptr noundef %2589, ptr noundef %2591, ptr noundef nonnull %2593)
           to label %2596 unwind label %2613
 
@@ -48939,7 +48939,7 @@ __cxx_global_var_init.349.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2626 unwind label %2645
 
 2626:                                             ; preds = %2624
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25get_getFromContainer_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2625, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25get_getFromContainer_TestEEE, i64 0, i32 0, i64 2), ptr %2625, align 8
   %2627 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.350, ptr noundef nonnull @.str.355, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef %2619, ptr noundef %2621, ptr noundef %2623, ptr noundef nonnull %2625)
           to label %2628 unwind label %2645
 
@@ -49036,7 +49036,7 @@ __cxx_global_var_init.354.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2658 unwind label %2677
 
 2658:                                             ; preds = %2656
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25getOr_emptyContainer_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2657, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix25getOr_emptyContainer_TestEEE, i64 0, i32 0, i64 2), ptr %2657, align 8
   %2659 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.361, ptr noundef nonnull @.str.351, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef %2651, ptr noundef %2653, ptr noundef %2655, ptr noundef nonnull %2657)
           to label %2660 unwind label %2677
 
@@ -49133,7 +49133,7 @@ __cxx_global_var_init.360.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2690 unwind label %2709
 
 2690:                                             ; preds = %2688
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27getOr_getFromContainer_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2689, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27getOr_getFromContainer_TestEEE, i64 0, i32 0, i64 2), ptr %2689, align 8
   %2691 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.361, ptr noundef nonnull @.str.355, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef %2683, ptr noundef %2685, ptr noundef %2687, ptr noundef nonnull %2689)
           to label %2692 unwind label %2709
 
@@ -49230,7 +49230,7 @@ __cxx_global_var_init.363.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2722 unwind label %2741
 
 2722:                                             ; preds = %2720
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34filterANSIEscapes_emptyString_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2721, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34filterANSIEscapes_emptyString_TestEEE, i64 0, i32 0, i64 2), ptr %2721, align 8
   %2723 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.163, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef %2715, ptr noundef %2717, ptr noundef %2719, ptr noundef nonnull %2721)
           to label %2724 unwind label %2741
 
@@ -49327,7 +49327,7 @@ __cxx_global_var_init.366.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2754 unwind label %2773
 
 2754:                                             ; preds = %2752
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49filterANSIEscapes_doesntChangePrintableChars_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2753, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49filterANSIEscapes_doesntChangePrintableChars_TestEEE, i64 0, i32 0, i64 2), ptr %2753, align 8
   %2755 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.370, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef %2747, ptr noundef %2749, ptr noundef %2751, ptr noundef nonnull %2753)
           to label %2756 unwind label %2773
 
@@ -49424,7 +49424,7 @@ __cxx_global_var_init.369.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2786 unwind label %2805
 
 2786:                                             ; preds = %2784
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40filterANSIEscapes_filtersColorCodes_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2785, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix40filterANSIEscapes_filtersColorCodes_TestEEE, i64 0, i32 0, i64 2), ptr %2785, align 8
   %2787 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.373, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef %2779, ptr noundef %2781, ptr noundef %2783, ptr noundef nonnull %2785)
           to label %2788 unwind label %2805
 
@@ -49521,7 +49521,7 @@ __cxx_global_var_init.372.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2818 unwind label %2837
 
 2818:                                             ; preds = %2816
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34filterANSIEscapes_expandsTabs_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2817, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix34filterANSIEscapes_expandsTabs_TestEEE, i64 0, i32 0, i64 2), ptr %2817, align 8
   %2819 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.391, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef %2811, ptr noundef %2813, ptr noundef %2815, ptr noundef nonnull %2817)
           to label %2820 unwind label %2837
 
@@ -49618,7 +49618,7 @@ __cxx_global_var_init.390.exit:                   ; preds = %_ZNKSt7__cxx1112bas
           to label %2850 unwind label %2869
 
 2850:                                             ; preds = %2848
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27filterANSIEscapes_utf8_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2849, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix27filterANSIEscapes_utf8_TestEEE, i64 0, i32 0, i64 2), ptr %2849, align 8
   %2851 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.367, ptr noundef nonnull @.str.396, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef %2843, ptr noundef %2845, ptr noundef %2847, ptr noundef nonnull %2849)
           to label %2852 unwind label %2869
 

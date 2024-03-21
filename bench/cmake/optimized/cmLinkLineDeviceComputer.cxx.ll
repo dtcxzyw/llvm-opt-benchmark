@@ -106,7 +106,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN24cmLinkLineDeviceComputerC2EP17cmOutputConverterRK16cmStateDirectory(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2) unnamed_addr #3 align 2 {
   tail call void @_ZN18cmLinkLineComputerC2EP17cmOutputConverterRK16cmStateDirectory(ptr noundef nonnull align 8 dereferenceable(60) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(40) %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV24cmLinkLineDeviceComputer, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV24cmLinkLineDeviceComputer, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
@@ -1847,7 +1847,7 @@ _Z6cmIsOn7cmValue.exit:                           ; preds = %68
   call void @_ZNK16cmLocalGenerator16GetStateSnapshotEv(ptr dead_on_unwind nonnull writable sret(%class.cmStateSnapshot) align 8 %14, ptr noundef nonnull align 8 dereferenceable(824) %1)
   call void @_ZNK15cmStateSnapshot12GetDirectoryEv(ptr dead_on_unwind nonnull writable sret(%class.cmStateDirectory) align 8 %13, ptr noundef nonnull align 8 dereferenceable(24) %14)
   call void @_ZN18cmLinkLineComputerC2EP17cmOutputConverterRK16cmStateDirectory(ptr noundef nonnull align 8 dereferenceable(60) %12, ptr noundef nonnull %1, ptr noundef nonnull align 8 dereferenceable(40) %13)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV24cmLinkLineDeviceComputer, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV24cmLinkLineDeviceComputer, i64 0, i32 0, i64 2), ptr %12, align 8
   %83 = invoke noundef zeroext i1 @_ZN24cmLinkLineDeviceComputer28ComputeRequiresDeviceLinkingER24cmComputeLinkInformation(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(2960) %81)
           to label %84 unwind label %85
 

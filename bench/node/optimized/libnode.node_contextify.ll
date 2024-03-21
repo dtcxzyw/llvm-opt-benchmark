@@ -706,7 +706,7 @@ entry:
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %0, ptr %wrapper.coerce) #21
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i64 0, i32 0, i64 2), ptr %this, align 8
   %context_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %context_, align 8
   %microtask_queue_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -758,7 +758,7 @@ declare void @_ZN2v87Context31SetAlignedPointerInEmbedderDataEiPv(ptr noundef no
 define dso_local void @_ZN4node10contextify17ContextifyContextD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #3 align 2 {
 entry:
   %scope = alloca %"class.v8::HandleScope", align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i64 0, i32 0, i64 2), ptr %this, align 8
   %realm_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %realm_.i, align 8
   %env_.i.i = getelementptr inbounds i8, ptr %0, i64 176
@@ -2473,7 +2473,7 @@ entry:
   %principal_realm_.i.i.i = getelementptr inbounds i8, ptr %0, i64 2728
   %2 = load ptr, ptr %principal_realm_.i.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call, ptr noundef %2, ptr %agg.tmp.sroa.0.0.copyload) #21
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify17ContextifyContextE, i64 0, i32 0, i64 2), ptr %call, align 8
   %context_.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %context_.i, align 8
   %microtask_queue_.i = getelementptr inbounds i8, ptr %call, i64 40
@@ -7043,7 +7043,7 @@ if.end274:                                        ; preds = %if.then.i, %if.end.
   %add.ptr.i1077 = getelementptr inbounds i8, ptr %145, i64 -8
   %146 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call275, ptr noundef %146, ptr nonnull %add.ptr.i1077) #21
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 0, inrange i32 0, i64 2), ptr %call275, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 0, i32 0, i64 2), ptr %call275, align 8
   %script_.i = getelementptr inbounds i8, ptr %call275, i64 32
   store ptr null, ptr %script_.i, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %call275) #21
@@ -9206,7 +9206,7 @@ entry:
   %principal_realm_.i.i = getelementptr inbounds i8, ptr %env, i64 2728
   %0 = load ptr, ptr %principal_realm_.i.i, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef %0, ptr %object.coerce) #21
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 0, i32 0, i64 2), ptr %this, align 8
   %script_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %script_, align 8
   tail call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this) #21
@@ -9216,7 +9216,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node10contextify16ContextifyScriptD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 0, i32 0, i64 2), ptr %this, align 8
   %script_ = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %script_, align 8
   %cmp.i.i = icmp eq ptr %0, null
@@ -9235,7 +9235,7 @@ _ZN2v814PersistentBaseINS_13UnboundScriptEE5ResetEv.exit: ; preds = %entry, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node10contextify16ContextifyScriptD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10contextify16ContextifyScriptE, i64 0, i32 0, i64 2), ptr %this, align 8
   %script_.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %script_.i, align 8
   %cmp.i.i.i = icmp eq ptr %0, null

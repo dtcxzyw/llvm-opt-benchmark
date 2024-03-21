@@ -1106,7 +1106,7 @@ $_ZTVN4node13SocketAddressE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN4node4quic15TransportParams7OptionsE = dso_local unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr null, ptr @_ZN4node4quic15TransportParams7OptionsD2Ev, ptr @_ZN4node4quic15TransportParams7OptionsD0Ev, ptr @_ZNK4node4quic15TransportParams7Options10MemoryInfoEPNS_13MemoryTrackerE, ptr @_ZNK4node4quic15TransportParams7Options14MemoryInfoNameEv, ptr @_ZNK4node4quic15TransportParams7Options8SelfSizeEv, ptr @_ZNK4node14MemoryRetainer13WrappedObjectEv, ptr @_ZNK4node14MemoryRetainer10IsRootNodeEv, ptr @_ZNK4node14MemoryRetainer15GetDetachednessEv] }, align 8
-@_ZN4node4quic15TransportParams7Options8kDefaultE = dso_local global { ptr, { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } }, { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } }, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8 } { ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic15TransportParams7OptionsE, i32 0, inrange i32 0, i32 2), { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } } { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] } undef, i8 0, [7 x i8] undef } }, { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } } { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] } undef, i8 0, [7 x i8] undef } }, i64 262144, i64 262144, i64 262144, i64 1048576, i64 100, i64 3, i64 10, i64 2, i64 3, i64 25000000, i64 1200, i8 0 }, align 8
+@_ZN4node4quic15TransportParams7Options8kDefaultE = dso_local global { ptr, { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } }, { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } }, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i8 } { ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic15TransportParams7OptionsE, i32 0, i32 0, i32 2), { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } } { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] } undef, i8 0, [7 x i8] undef } }, { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } } { { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] }, i8, [7 x i8] } { { %"struct.std::_Optional_payload_base<node::SocketAddress>::_Empty_byte", [135 x i8] } undef, i8 0, [7 x i8] undef } }, i64 262144, i64 262144, i64 262144, i64 1048576, i64 100, i64 3, i64 10, i64 2, i64 3, i64 25000000, i64 1200, i8 0 }, align 8
 @.str = private unnamed_addr constant [23 x i8] c"preferred_address_ipv4\00", align 1
 @.str.2 = private unnamed_addr constant [23 x i8] c"preferred_address_ipv6\00", align 1
 @_ZN4node4quic9QuicError18TRANSPORT_NO_ERRORE = external global %"class.node::quic::QuicError", align 8
@@ -1227,7 +1227,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic15TransportParams7OptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic15TransportParams7OptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %preferred_address_ipv6 = getelementptr inbounds %"struct.node::quic::TransportParams::Options", ptr %this1, i32 0, i32 2
   call void @_ZNSt8optionalIN4node13SocketAddressEED2Ev(ptr noundef nonnull align 8 dereferenceable(144) %preferred_address_ipv6) #3
   %preferred_address_ipv4 = getelementptr inbounds %"struct.node::quic::TransportParams::Options", ptr %this1, i32 0, i32 1
@@ -1527,7 +1527,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic15TransportParams7OptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic15TransportParams7OptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %preferred_address_ipv4 = getelementptr inbounds %"struct.node::quic::TransportParams::Options", ptr %this1, i32 0, i32 1
   call void @_ZNSt8optionalIN4node13SocketAddressEEC2Ev(ptr noundef nonnull align 8 dereferenceable(144) %preferred_address_ipv4) #3
   %preferred_address_ipv6 = getelementptr inbounds %"struct.node::quic::TransportParams::Options", ptr %this1, i32 0, i32 2
@@ -7384,7 +7384,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN4node14MemoryRetainerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic9QuicErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %reason_ = getelementptr inbounds %"class.node::quic::QuicError", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %reason_2 = getelementptr inbounds %"class.node::quic::QuicError", ptr %2, i32 0, i32 1
@@ -7946,7 +7946,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic5StoreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %store_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN2v812BackingStoreEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %store_) #3
   %length_ = getelementptr inbounds %"class.node::quic::Store", ptr %this1, i32 0, i32 2
@@ -9396,7 +9396,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -10824,7 +10824,7 @@ entry:
   store ptr %retainer, ptr %retainer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %retainer.addr, align 8
   store ptr %0, ptr %retainer_, align 8
@@ -11007,7 +11007,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13825,7 +13825,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -15189,7 +15189,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN4node14MemoryRetainerC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic15TransportParams7OptionsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node4quic15TransportParams7OptionsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %preferred_address_ipv4 = getelementptr inbounds %"struct.node::quic::TransportParams::Options", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %preferred_address_ipv42 = getelementptr inbounds %"struct.node::quic::TransportParams::Options", ptr %2, i32 0, i32 1
@@ -15343,7 +15343,7 @@ entry:
   store ptr %addr, ptr %addr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %address_2 = getelementptr inbounds %"class.node::SocketAddress", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %addr.addr, align 8
   %address_3 = getelementptr inbounds %"class.node::SocketAddress", ptr %0, i32 0, i32 1

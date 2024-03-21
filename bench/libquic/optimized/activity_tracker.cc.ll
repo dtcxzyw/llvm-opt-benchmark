@@ -135,7 +135,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr nocapture noundef nonnull align 8 dereferenceable(30) %this, ptr noundef %base, i64 noundef %size) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21ThreadActivityTrackerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21ThreadActivityTrackerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %header_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %base, ptr %header_, align 8
   %stack_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -747,7 +747,7 @@ entry:
 define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerC2EjPvm(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %mem_reference, ptr noundef %base, i64 noundef %size) unnamed_addr #1 align 2 {
 entry:
   tail call void @_ZN4base5debug21ThreadActivityTrackerC2EPvm(ptr noundef nonnull align 8 dereferenceable(30) %this, ptr noundef %base, i64 noundef %size)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mem_reference_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 %mem_reference, ptr %mem_reference_, align 8
   %mem_base_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -758,7 +758,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
   %mem_reference_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %mem_reference_.i, align 8
@@ -878,7 +878,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4base5debug21GlobalActivityTracker22ManagedActivityTrackerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load ptr, ptr @_ZN4base5debug21GlobalActivityTracker10g_tracker_E, align 8
   %mem_reference_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load i32, ptr %mem_reference_.i.i, align 8
@@ -1095,7 +1095,7 @@ if.end45:                                         ; preds = %while.body17, %whil
           to label %invoke.cont49 unwind label %lpad48
 
 invoke.cont49:                                    ; preds = %if.end45
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 0, inrange i32 0, i64 2), ptr %call46, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base5debug21GlobalActivityTracker22ManagedActivityTrackerE, i64 0, i32 0, i64 2), ptr %call46, align 8
   %mem_reference_.i = getelementptr inbounds i8, ptr %call46, i64 32
   store i32 %mem_reference.2, ptr %mem_reference_.i, align 8
   %mem_base_.i = getelementptr inbounds i8, ptr %call46, i64 40

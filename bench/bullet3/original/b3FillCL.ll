@@ -123,7 +123,7 @@ entry:
   store ptr %device, ptr %device.addr, align 8
   store ptr %queue, ptr %queue.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8b3FillCL, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8b3FillCL, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_commandQueue = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %queue.addr, align 8
   store ptr %0, ptr %m_commandQueue, align 8
@@ -235,7 +235,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8b3FillCL, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8b3FillCL, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load ptr, ptr @__clewReleaseKernel, align 8
   %m_fillKernelInt2 = getelementptr inbounds %class.b3FillCL, ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %m_fillKernelInt2, align 8

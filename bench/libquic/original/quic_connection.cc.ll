@@ -1537,13 +1537,13 @@ entry:
   call void @_ZN3net19QuicPacketGenerator17DelegateInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #14
   %2 = getelementptr inbounds i8, ptr %this1, i64 24
   call void @_ZN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #14
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, inrange i32 3, i32 2), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
   %framer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 4
   %3 = load ptr, ptr %supported_versions.addr, align 8
   %4 = load ptr, ptr %helper.addr, align 8
@@ -2575,7 +2575,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN3net26QuicFramerVisitorInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN3net26QuicFramerVisitorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2585,7 +2585,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net26QuicBlockedWriterInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net26QuicBlockedWriterInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2596,7 +2596,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net17QuicPacketCreator17DelegateInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3net19QuicPacketGenerator17DelegateInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN3net19QuicPacketGenerator17DelegateInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2606,7 +2606,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3net30QuicSentPacketManagerInterface20NetworkChangeVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4405,13 +4405,13 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, inrange i32 3, i32 2), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
   %owns_writer_ = getelementptr inbounds %"class.net::QuicConnection", ptr %this1, i32 0, i32 9
   %0 = load i8, ptr %owns_writer_, align 8
   %tobool = trunc i8 %0 to i1
@@ -17802,7 +17802,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net36QuicConnectionCloseDelegateInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicPacketCreator17DelegateInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net17QuicPacketCreator17DelegateInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -17831,7 +17831,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net36QuicConnectionCloseDelegateInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net36QuicConnectionCloseDelegateInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -22037,7 +22037,7 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_116AckAlarmDelegateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_116AckAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::AckAlarmDelegate", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %connection.addr, align 8
   store ptr %0, ptr %connection_, align 8
@@ -22116,7 +22116,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net9QuicAlarm8DelegateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net9QuicAlarm8DelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -22472,7 +22472,7 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::RetransmissionAlarmDelegate", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %connection.addr, align 8
   store ptr %0, ptr %connection_, align 8
@@ -22688,7 +22688,7 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::SendAlarmDelegate", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %connection.addr, align 8
   store ptr %0, ptr %connection_, align 8
@@ -22904,7 +22904,7 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::TimeoutAlarmDelegate", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %connection.addr, align 8
   store ptr %0, ptr %connection_, align 8
@@ -23120,7 +23120,7 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::PingAlarmDelegate", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %connection.addr, align 8
   store ptr %0, ptr %connection_, align 8
@@ -23336,7 +23336,7 @@ entry:
   store ptr %connection, ptr %connection.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net9QuicAlarm8DelegateC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #14
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %connection_ = getelementptr inbounds %"class.net::(anonymous namespace)::MtuDiscoveryAlarmDelegate", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %connection.addr, align 8
   store ptr %0, ptr %connection_, align 8

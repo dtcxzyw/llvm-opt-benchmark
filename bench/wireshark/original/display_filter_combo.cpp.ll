@@ -255,9 +255,9 @@ define void @_ZN18DisplayFilterComboC2EP7QWidget(ptr noundef nonnull align 8 der
   %17 = load ptr, ptr %3, align 8
   %18 = load ptr, ptr %4, align 8
   call void @_ZN9QComboBoxC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %17, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i32 0, i32 0, i32 2), ptr %17, align 8
   %19 = getelementptr inbounds i8, ptr %17, i64 16
-  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i32 0, inrange i32 1, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [10 x ptr] }, ptr @_ZTV18DisplayFilterCombo, i32 0, i32 1, i32 2), ptr %19, align 8
   invoke void @_ZN9QComboBox11setEditableEb(ptr noundef nonnull align 8 dereferenceable(40) %17, i1 noundef zeroext true)
           to label %20 unwind label %56
 

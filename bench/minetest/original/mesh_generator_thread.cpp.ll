@@ -2100,7 +2100,7 @@ define dso_local void @_ZN22MeshUpdateWorkerThreadC2EP6ClientP15MeshUpdateQueueP
 
 19:                                               ; preds = %18, %15
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #26
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22MeshUpdateWorkerThread, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !124
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22MeshUpdateWorkerThread, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !124
   %20 = getelementptr inbounds i8, ptr %0, i64 176
   store ptr %1, ptr %20, align 8, !tbaa !130
   %21 = getelementptr inbounds i8, ptr %0, i64 184
@@ -2205,7 +2205,7 @@ define dso_local void @_ZN22MeshUpdateWorkerThreadC2EP6ClientP15MeshUpdateQueueP
 66:                                               ; preds = %65, %62, %56
   %67 = phi { ptr, i32 } [ %57, %56 ], [ %59, %62 ], [ %59, %65 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #26
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12UpdateThread, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !124
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12UpdateThread, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !124
   %68 = getelementptr inbounds i8, ptr %0, i64 144
   call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %68) #26
   call void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #26
@@ -2321,7 +2321,7 @@ define linkonce_odr dso_local void @_ZN12UpdateThreadC2ERKNSt7__cxx1112basic_str
 
 48:                                               ; preds = %47, %44
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #26
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12UpdateThread, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !124
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12UpdateThread, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !124
   %49 = getelementptr inbounds i8, ptr %0, i64 144
   invoke void @_ZN9SemaphoreC1Ei(ptr noundef nonnull align 8 dereferenceable(32) %49, i32 noundef 0)
           to label %50 unwind label %60
@@ -4223,7 +4223,7 @@ define dso_local noundef zeroext i1 @_ZN17MeshUpdateManager9isRunningEv(ptr noca
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12UpdateThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(176) %0) unnamed_addr #6 comdat align 2 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12UpdateThread, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !124
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12UpdateThread, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !124
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   tail call void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #26
@@ -4232,7 +4232,7 @@ define linkonce_odr dso_local void @_ZN12UpdateThreadD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22MeshUpdateWorkerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(212) %0) unnamed_addr #8 comdat align 2 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12UpdateThread, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !124
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12UpdateThread, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !124
   %2 = getelementptr inbounds i8, ptr %0, i64 144
   tail call void @_ZN9SemaphoreD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #26
   tail call void @_ZN6ThreadD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %0) #26

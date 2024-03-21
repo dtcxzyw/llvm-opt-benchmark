@@ -3154,7 +3154,7 @@ entry:
   %0 = load ptr, ptr %db_options.addr, align 8
   %1 = load ptr, ptr %dbname.addr, align 8
   call void @_ZN7rocksdb6DBImplC2ERKNS_9DBOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEbbb(ptr noundef nonnull align 64 dereferenceable(6660) %this1, ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i1 noundef zeroext false, i1 noundef zeroext true, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [162 x ptr] }, ptr @_ZTVN7rocksdb14DBImplReadOnlyE, i32 0, inrange i32 0, i32 2), ptr %this1, align 64
+  store ptr getelementptr inbounds ({ [162 x ptr] }, ptr @_ZTVN7rocksdb14DBImplReadOnlyE, i32 0, i32 0, i32 2), ptr %this1, align 64
   %immutable_db_options_ = getelementptr inbounds %"class.rocksdb::DBImpl", ptr %this1, i32 0, i32 11
   %info_log = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %immutable_db_options_, i32 0, i32 11
   %call = invoke noundef ptr @_Z23RocksLogShorterFileNamePKc(ptr noundef @.str.1)
@@ -4704,7 +4704,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %seq.addr, align 8
   call void @_ZN7rocksdb12ReadCallbackC2Em(ptr noundef nonnull align 8 dereferenceable(24) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28GetWithTimestampReadCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb28GetWithTimestampReadCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11365,7 +11365,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %last_visible_seq, ptr %last_visible_seq.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb12ReadCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb12ReadCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %max_visible_seq_ = getelementptr inbounds %"class.rocksdb::ReadCallback", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %last_visible_seq.addr, align 8
   store i64 %0, ptr %max_visible_seq_, align 8

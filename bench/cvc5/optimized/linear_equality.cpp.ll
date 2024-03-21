@@ -879,7 +879,7 @@ invoke.cont3:
   %d_tableau = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %t, ptr %d_tableau, align 8
   %d_basicVariableUpdates = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear27BasicVarModelUpdateCallBackE, i64 0, inrange i32 0, i64 2), ptr %d_basicVariableUpdates, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear27BasicVarModelUpdateCallBackE, i64 0, i32 0, i64 2), ptr %d_basicVariableUpdates, align 8
   %d_ta.i = getelementptr inbounds i8, ptr %this, i64 24
   %d_ta2.i = getelementptr inbounds i8, ptr %f, i64 8
   %0 = load ptr, ptr %d_ta2.i, align 8
@@ -915,7 +915,7 @@ invoke.cont7:                                     ; preds = %invoke.cont5
   %d_areTracking = getelementptr inbounds i8, ptr %this, i64 360
   store i8 0, ptr %d_areTracking, align 8
   %d_trackCallback = getelementptr inbounds i8, ptr %this, i64 368
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear20LinearEqualityModule16TrackingCallbackE, i64 0, inrange i32 0, i64 2), ptr %d_trackCallback, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear20LinearEqualityModule16TrackingCallbackE, i64 0, i32 0, i64 2), ptr %d_trackCallback, align 8
   %d_linEq.i = getelementptr inbounds i8, ptr %this, i64 376
   store ptr %this, ptr %d_linEq.i, align 8
   %d_statistics = getelementptr inbounds i8, ptr %this, i64 384
@@ -10264,7 +10264,7 @@ _ZNK4cvc58internal6theory5arith6linear20LinearEqualityModule13updateProductERKNS
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #15 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #25
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #23
   unreachable
 }

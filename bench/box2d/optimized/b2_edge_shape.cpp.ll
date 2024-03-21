@@ -60,7 +60,7 @@ entry:
 define noundef ptr @_ZNK11b2EdgeShape5CloneEP16b2BlockAllocator(ptr nocapture noundef nonnull readonly align 8 dereferenceable(49) %this, ptr noundef nonnull %allocator) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noundef ptr @_ZN16b2BlockAllocator8AllocateEi(ptr noundef nonnull align 8 dereferenceable(128) %allocator, i32 noundef 56)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11b2EdgeShape, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV11b2EdgeShape, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_type.i = getelementptr inbounds i8, ptr %call, i64 8
   store i32 1, ptr %m_type.i, align 8
   %m_radius.i = getelementptr inbounds i8, ptr %call, i64 12

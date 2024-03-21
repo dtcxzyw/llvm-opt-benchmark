@@ -4474,7 +4474,7 @@ sw.bb2:                                           ; preds = %entry
   %memo_table_.i = getelementptr inbounds i8, ptr %visitor, i64 24
   %4 = load ptr, ptr %memo_table_.i, align 8, !noalias !428
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #20, !noalias !428
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !428
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !428
   %index_to_value_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr null, ptr %index_to_value_.i.i, align 8, !noalias !428
   %_M_offset.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -4525,7 +4525,7 @@ sw.bb4:                                           ; preds = %entry
   %memo_table_.i86 = getelementptr inbounds i8, ptr %visitor, i64 24
   %8 = load ptr, ptr %memo_table_.i86, align 8, !noalias !434
   %call.i87 = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #20, !noalias !434
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i87, align 8, !noalias !434
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i87, align 8, !noalias !434
   %index_to_value_.i.i88 = getelementptr inbounds i8, ptr %call.i87, i64 1040
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %index_to_value_.i.i88, i8 0, i64 24, i1 false), !noalias !434
   %scevgep.i.i89 = getelementptr inbounds i8, ptr %call.i87, i64 8
@@ -4567,7 +4567,7 @@ sw.bb6:                                           ; preds = %entry
   %memo_table_.i96 = getelementptr inbounds i8, ptr %visitor, i64 24
   %12 = load ptr, ptr %memo_table_.i96, align 8, !noalias !440
   %call.i97 = tail call noalias noundef nonnull dereferenceable(1064) ptr @_Znwm(i64 noundef 1064) #20, !noalias !440
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i97, align 8, !noalias !440
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i97, align 8, !noalias !440
   %index_to_value_.i.i98 = getelementptr inbounds i8, ptr %call.i97, i64 1040
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %index_to_value_.i.i98, i8 0, i64 24, i1 false), !noalias !440
   %scevgep.i.i99 = getelementptr inbounds i8, ptr %call.i97, i64 8
@@ -4611,7 +4611,7 @@ sw.bb8:                                           ; preds = %entry
   %call.i111 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !446
   %pool_.i = getelementptr inbounds i8, ptr %visitor, i64 16
   %17 = load ptr, ptr %pool_.i, align 8, !noalias !446
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i111, align 8, !noalias !446
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i111, align 8, !noalias !446
   %hash_table_.i.i = getelementptr inbounds i8, ptr %call.i111, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIsS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i, ptr noundef %17, i64 noundef 0)
           to label %invoke.cont.i113 unwind label %lpad.i112, !noalias !446
@@ -4648,7 +4648,7 @@ sw.bb10:                                          ; preds = %entry
   %call.i119 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !452
   %pool_.i120 = getelementptr inbounds i8, ptr %visitor, i64 16
   %22 = load ptr, ptr %pool_.i120, align 8, !noalias !452
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i119, align 8, !noalias !452
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i119, align 8, !noalias !452
   %hash_table_.i.i121 = getelementptr inbounds i8, ptr %call.i119, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i121, ptr noundef %22, i64 noundef 0)
           to label %invoke.cont.i123 unwind label %lpad.i122, !noalias !452
@@ -4685,7 +4685,7 @@ sw.bb12:                                          ; preds = %entry
   %call.i130 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !458
   %pool_.i131 = getelementptr inbounds i8, ptr %visitor, i64 16
   %27 = load ptr, ptr %pool_.i131, align 8, !noalias !458
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i130, align 8, !noalias !458
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i130, align 8, !noalias !458
   %hash_table_.i.i132 = getelementptr inbounds i8, ptr %call.i130, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i132, ptr noundef %27, i64 noundef 0)
           to label %invoke.cont.i134 unwind label %lpad.i133, !noalias !458
@@ -4722,7 +4722,7 @@ sw.bb14:                                          ; preds = %entry
   %call.i141 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !464
   %pool_.i142 = getelementptr inbounds i8, ptr %visitor, i64 16
   %32 = load ptr, ptr %pool_.i142, align 8, !noalias !464
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i141, align 8, !noalias !464
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i141, align 8, !noalias !464
   %hash_table_.i.i143 = getelementptr inbounds i8, ptr %call.i141, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIjS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i143, ptr noundef %32, i64 noundef 0)
           to label %invoke.cont.i145 unwind label %lpad.i144, !noalias !464
@@ -4759,7 +4759,7 @@ sw.bb16:                                          ; preds = %entry
   %call.i152 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !470
   %pool_.i153 = getelementptr inbounds i8, ptr %visitor, i64 16
   %37 = load ptr, ptr %pool_.i153, align 8, !noalias !470
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i152, align 8, !noalias !470
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i152, align 8, !noalias !470
   %hash_table_.i.i154 = getelementptr inbounds i8, ptr %call.i152, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i154, ptr noundef %37, i64 noundef 0)
           to label %invoke.cont.i156 unwind label %lpad.i155, !noalias !470
@@ -4796,7 +4796,7 @@ sw.bb18:                                          ; preds = %entry
   %call.i163 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !476
   %pool_.i164 = getelementptr inbounds i8, ptr %visitor, i64 16
   %42 = load ptr, ptr %pool_.i164, align 8, !noalias !476
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i163, align 8, !noalias !476
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i163, align 8, !noalias !476
   %hash_table_.i.i165 = getelementptr inbounds i8, ptr %call.i163, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableImS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i165, ptr noundef %42, i64 noundef 0)
           to label %invoke.cont.i167 unwind label %lpad.i166, !noalias !476
@@ -4833,7 +4833,7 @@ sw.bb20:                                          ; preds = %entry
   %call.i174 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !482
   %pool_.i175 = getelementptr inbounds i8, ptr %visitor, i64 16
   %47 = load ptr, ptr %pool_.i175, align 8, !noalias !482
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i174, align 8, !noalias !482
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i174, align 8, !noalias !482
   %hash_table_.i.i176 = getelementptr inbounds i8, ptr %call.i174, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i176, ptr noundef %47, i64 noundef 0)
           to label %invoke.cont.i178 unwind label %lpad.i177, !noalias !482
@@ -4870,7 +4870,7 @@ sw.bb22:                                          ; preds = %entry
   %call.i185 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !488
   %pool_.i186 = getelementptr inbounds i8, ptr %visitor, i64 16
   %52 = load ptr, ptr %pool_.i186, align 8, !noalias !488
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i185, align 8, !noalias !488
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i185, align 8, !noalias !488
   %hash_table_.i.i187 = getelementptr inbounds i8, ptr %call.i185, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i187, ptr noundef %52, i64 noundef 0)
           to label %invoke.cont.i189 unwind label %lpad.i188, !noalias !488
@@ -4907,7 +4907,7 @@ sw.bb24:                                          ; preds = %entry
   %call.i196 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !494
   %pool_.i197 = getelementptr inbounds i8, ptr %visitor, i64 16
   %57 = load ptr, ptr %pool_.i197, align 8, !noalias !494
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i196, align 8, !noalias !494
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i196, align 8, !noalias !494
   %hash_table_.i.i198 = getelementptr inbounds i8, ptr %call.i196, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIdS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i198, ptr noundef %57, i64 noundef 0)
           to label %invoke.cont.i200 unwind label %lpad.i199, !noalias !494
@@ -5175,7 +5175,7 @@ sw.bb40:                                          ; preds = %entry
   %call.i270 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !542
   %pool_.i271 = getelementptr inbounds i8, ptr %visitor, i64 16
   %97 = load ptr, ptr %pool_.i271, align 8, !noalias !542
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i270, align 8, !noalias !542
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i270, align 8, !noalias !542
   %hash_table_.i.i272 = getelementptr inbounds i8, ptr %call.i270, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i272, ptr noundef %97, i64 noundef 0)
           to label %invoke.cont.i274 unwind label %lpad.i273, !noalias !542
@@ -5212,7 +5212,7 @@ sw.bb42:                                          ; preds = %entry
   %call.i281 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !548
   %pool_.i282 = getelementptr inbounds i8, ptr %visitor, i64 16
   %102 = load ptr, ptr %pool_.i282, align 8, !noalias !548
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i281, align 8, !noalias !548
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i281, align 8, !noalias !548
   %hash_table_.i.i283 = getelementptr inbounds i8, ptr %call.i281, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i283, ptr noundef %102, i64 noundef 0)
           to label %invoke.cont.i285 unwind label %lpad.i284, !noalias !548
@@ -5249,7 +5249,7 @@ sw.bb44:                                          ; preds = %entry
   %call.i292 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !554
   %pool_.i293 = getelementptr inbounds i8, ptr %visitor, i64 16
   %107 = load ptr, ptr %pool_.i293, align 8, !noalias !554
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i292, align 8, !noalias !554
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i292, align 8, !noalias !554
   %hash_table_.i.i294 = getelementptr inbounds i8, ptr %call.i292, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i294, ptr noundef %107, i64 noundef 0)
           to label %invoke.cont.i296 unwind label %lpad.i295, !noalias !554
@@ -5286,7 +5286,7 @@ sw.bb46:                                          ; preds = %entry
   %call.i303 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !560
   %pool_.i304 = getelementptr inbounds i8, ptr %visitor, i64 16
   %112 = load ptr, ptr %pool_.i304, align 8, !noalias !560
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i303, align 8, !noalias !560
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i303, align 8, !noalias !560
   %hash_table_.i.i305 = getelementptr inbounds i8, ptr %call.i303, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i305, ptr noundef %112, i64 noundef 0)
           to label %invoke.cont.i307 unwind label %lpad.i306, !noalias !560
@@ -5323,7 +5323,7 @@ sw.bb48:                                          ; preds = %entry
   %call.i314 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !566
   %pool_.i315 = getelementptr inbounds i8, ptr %visitor, i64 16
   %117 = load ptr, ptr %pool_.i315, align 8, !noalias !566
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i314, align 8, !noalias !566
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i314, align 8, !noalias !566
   %hash_table_.i.i316 = getelementptr inbounds i8, ptr %call.i314, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i316, ptr noundef %117, i64 noundef 0)
           to label %invoke.cont.i318 unwind label %lpad.i317, !noalias !566
@@ -5360,7 +5360,7 @@ sw.bb50:                                          ; preds = %entry
   %call.i325 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !572
   %pool_.i326 = getelementptr inbounds i8, ptr %visitor, i64 16
   %122 = load ptr, ptr %pool_.i326, align 8, !noalias !572
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i325, align 8, !noalias !572
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i325, align 8, !noalias !572
   %hash_table_.i.i327 = getelementptr inbounds i8, ptr %call.i325, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i327, ptr noundef %122, i64 noundef 0)
           to label %invoke.cont.i329 unwind label %lpad.i328, !noalias !572
@@ -5397,7 +5397,7 @@ sw.bb52:                                          ; preds = %entry
   %call.i336 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !578
   %pool_.i337 = getelementptr inbounds i8, ptr %visitor, i64 16
   %127 = load ptr, ptr %pool_.i337, align 8, !noalias !578
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i336, align 8, !noalias !578
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i336, align 8, !noalias !578
   %hash_table_.i.i338 = getelementptr inbounds i8, ptr %call.i336, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosES1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i338, ptr noundef %127, i64 noundef 0)
           to label %invoke.cont.i340 unwind label %lpad.i339, !noalias !578
@@ -5434,7 +5434,7 @@ sw.bb54:                                          ; preds = %entry
   %call.i347 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !584
   %pool_.i348 = getelementptr inbounds i8, ptr %visitor, i64 16
   %132 = load ptr, ptr %pool_.i348, align 8, !noalias !584
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i347, align 8, !noalias !584
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i347, align 8, !noalias !584
   %hash_table_.i.i349 = getelementptr inbounds i8, ptr %call.i347, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i349, ptr noundef %132, i64 noundef 0)
           to label %invoke.cont.i351 unwind label %lpad.i350, !noalias !584
@@ -5471,7 +5471,7 @@ sw.bb56:                                          ; preds = %entry
   %call.i358 = tail call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #20, !noalias !590
   %pool_.i359 = getelementptr inbounds i8, ptr %visitor, i64 16
   %137 = load ptr, ptr %pool_.i359, align 8, !noalias !590
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %call.i358, align 8, !noalias !590
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %call.i358, align 8, !noalias !590
   %hash_table_.i.i360 = getelementptr inbounds i8, ptr %call.i358, i64 8
   invoke void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsES1_E7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_.i.i360, ptr noundef %137, i64 noundef 0)
           to label %invoke.cont.i362 unwind label %lpad.i361, !noalias !590
@@ -6008,7 +6008,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %index_to_value_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %index_to_value_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6041,7 +6041,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %index_to_value_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %index_to_value_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6096,7 +6096,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %index_to_value_ = getelementptr inbounds i8, ptr %this, i64 1040
   %0 = load ptr, ptr %index_to_value_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6113,7 +6113,7 @@ _ZNSt6vectorIaSaIaEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %index_to_value_.i = getelementptr inbounds i8, ptr %this, i64 1040
   %0 = load ptr, ptr %index_to_value_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6145,7 +6145,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %index_to_value_ = getelementptr inbounds i8, ptr %this, i64 1040
   %0 = load ptr, ptr %index_to_value_, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -6162,7 +6162,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(1064) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %index_to_value_.i = getelementptr inbounds i8, ptr %this, i64 1040
   %0 = load ptr, ptr %index_to_value_.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -6337,7 +6337,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -6418,7 +6418,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIsS1_E7PayloadEED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -7045,7 +7045,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -7436,7 +7436,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableItNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -7517,7 +7517,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableItNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -7836,7 +7836,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -7917,7 +7917,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -8236,7 +8236,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -8317,7 +8317,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIjS1_E7PayloadEED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -8636,7 +8636,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -8717,7 +8717,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -9036,7 +9036,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableImNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -9117,7 +9117,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableImS1_E7PayloadEED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableImNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -9436,7 +9436,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -9517,7 +9517,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -9836,7 +9836,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -9917,7 +9917,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIdS1_E7PayloadEED2Ev.exit: ; p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -10095,7 +10095,7 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilder
 entry:
   %agg.tmp.ensured = alloca %"class.arrow::Status", align 8
   %agg.tmp.ensured8 = alloca %"class.arrow::Status", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %hash_table_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN5arrow8internal9HashTableINS0_15BinaryMemoTableINS_13BinaryBuilderEE7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_, ptr noundef %pool, i64 noundef %entries)
   %binary_builder_ = getelementptr inbounds i8, ptr %this, i64 96
@@ -10133,7 +10133,7 @@ entry:
   %alignment_.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity_.i.i8.i.i, i8 0, i64 16, i1 false)
   store i64 64, ptr %alignment_.i.i9.i.i, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow13BinaryBuilderE, i64 0, inrange i32 0, i64 2), ptr %binary_builder_, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow13BinaryBuilderE, i64 0, i32 0, i64 2), ptr %binary_builder_, align 8
   %null_index_ = getelementptr inbounds i8, ptr %this, i64 352
   store i32 -1, ptr %null_index_, align 8
   invoke void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEE6ResizeEl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(256) %binary_builder_, i64 noundef %entries)
@@ -10714,7 +10714,7 @@ _ZN5arrow18TypedBufferBuilderINS_8internal9HashTableINS1_15BinaryMemoTableINS_13
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %binary_builder_ = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %binary_builder_) #21
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -10797,7 +10797,7 @@ _ZN5arrow8internal9HashTableINS0_15BinaryMemoTableINS_13BinaryBuilderEE7PayloadE
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEED0Ev(ptr noundef nonnull align 8 dereferenceable(356) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %binary_builder_.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %binary_builder_.i) #21
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -12570,7 +12570,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow12ArrayBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %children_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %children_, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 128
@@ -12752,7 +12752,7 @@ _ZN5arrow18TypedBufferBuilderIbvED2Ev.exit:       ; preds = %_ZNSt6vectorISt10sh
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_10BinaryTypeEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_10BinaryTypeEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -13762,7 +13762,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -14149,7 +14149,7 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBu
 entry:
   %agg.tmp.ensured = alloca %"class.arrow::Status", align 8
   %agg.tmp.ensured8 = alloca %"class.arrow::Status", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %hash_table_ = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN5arrow8internal9HashTableINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEE7PayloadEEC2EPNS_10MemoryPoolEm(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_, ptr noundef %pool, i64 noundef %entries)
   %binary_builder_ = getelementptr inbounds i8, ptr %this, i64 96
@@ -14187,7 +14187,7 @@ entry:
   %alignment_.i.i9.i.i = getelementptr inbounds i8, ptr %this, i64 344
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %capacity_.i.i8.i.i, i8 0, i64 16, i1 false)
   store i64 64, ptr %alignment_.i.i9.i.i, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow18LargeBinaryBuilderE, i64 0, inrange i32 0, i64 2), ptr %binary_builder_, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow18LargeBinaryBuilderE, i64 0, i32 0, i64 2), ptr %binary_builder_, align 8
   %null_index_ = getelementptr inbounds i8, ptr %this, i64 352
   store i32 -1, ptr %null_index_, align 8
   invoke void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEE6ResizeEl(ptr nonnull sret(%"class.arrow::Status") align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(256) %binary_builder_, i64 noundef %entries)
@@ -14768,7 +14768,7 @@ _ZN5arrow18TypedBufferBuilderINS_8internal9HashTableINS1_15BinaryMemoTableINS_18
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %binary_builder_ = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %binary_builder_) #21
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -14851,7 +14851,7 @@ _ZN5arrow8internal9HashTableINS0_15BinaryMemoTableINS_18LargeBinaryBuilderEE7Pay
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEED0Ev(ptr noundef nonnull align 8 dereferenceable(356) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %binary_builder_.i = getelementptr inbounds i8, ptr %this, i64 96
   tail call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %binary_builder_.i) #21
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
@@ -16642,7 +16642,7 @@ _ZNSt10shared_ptrIN5arrow8DataTypeEEC2ERKS2_.exit: ; preds = %entry, %if.then.i.
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -16950,7 +16950,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -17031,7 +17031,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableINS_24MonthDayNanoIntervalType
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -17350,7 +17350,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -17431,7 +17431,7 @@ _ZN5arrow8internal9HashTableINS0_15ScalarMemoTableINS_19DayTimeIntervalType15Day
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEED0Ev(ptr noundef nonnull align 8 dereferenceable(100) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_refcount.i.i.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i.i.i = icmp eq ptr %0, null
@@ -30000,7 +30000,7 @@ if.end8.sink.split.i.i.i.i:                       ; preds = %_ZN9__gnu_cxx27__ex
   br label %cleanup43
 
 cleanup43:                                        ; preds = %if.end8.sink.split.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i, %cleanup42, %_ZN5arrow6Status11DeleteStateEv.exit.i61, %if.then18
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14BooleanBuilderE, i64 0, inrange i32 0, i64 2), ptr %builder, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14BooleanBuilderE, i64 0, i32 0, i64 2), ptr %builder, align 8
   %_M_refcount.i.i.i.i.i231 = getelementptr inbounds i8, ptr %builder, i64 152
   %72 = load ptr, ptr %_M_refcount.i.i.i.i.i231, align 8
   %cmp.not.i.i.i.i.i.i232 = icmp eq ptr %72, null
@@ -30478,7 +30478,7 @@ declare void @_ZN5arrow14BooleanBuilder14FinishInternalEPSt10shared_ptrINS_9Arra
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow14BooleanBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14BooleanBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14BooleanBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %_M_refcount.i.i.i.i, align 8
   %cmp.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -42093,7 +42093,7 @@ entry:
   store i64 64, ptr %alignment_.i.i.i.i, align 8
   %bit_length_.i.i.i = getelementptr inbounds i8, ptr %builder, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %bit_length_.i.i.i, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i64 0, inrange i32 0, i64 2), ptr %builder, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i64 0, i32 0, i64 2), ptr %builder, align 8
   %data_builder_.i = getelementptr inbounds i8, ptr %builder, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_builder_.i, i8 0, i64 16, i1 false)
   %pool_.i.i.i = getelementptr inbounds i8, ptr %builder, i64 160
@@ -42789,7 +42789,7 @@ declare void @_ZN5arrow17BinaryViewBuilder14FinishInternalEPSt10shared_ptrINS_9A
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5arrow17BinaryViewBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %this) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %blocks_.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %blocks_.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 232
@@ -43942,7 +43942,7 @@ entry:
   store i64 64, ptr %alignment_.i.i.i.i, align 8
   %bit_length_.i.i.i = getelementptr inbounds i8, ptr %builder, i64 80
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %bit_length_.i.i.i, i8 0, i64 64, i1 false)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i64 0, inrange i32 0, i64 2), ptr %builder, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i64 0, i32 0, i64 2), ptr %builder, align 8
   %data_builder_.i = getelementptr inbounds i8, ptr %builder, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_builder_.i, i8 0, i64 16, i1 false)
   %pool_.i.i.i = getelementptr inbounds i8, ptr %builder, i64 160

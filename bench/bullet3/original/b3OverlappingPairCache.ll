@@ -219,7 +219,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN22b3OverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV28b3HashedOverlappingPairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV28b3HashedOverlappingPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_overlappingPairArray = getelementptr inbounds %class.b3HashedOverlappingPairCache, ptr %this1, i32 0, i32 1
   invoke void @_ZN20b3AlignedObjectArrayI6b3Int4EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray)
           to label %invoke.cont unwind label %lpad
@@ -313,7 +313,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV22b3OverlappingPairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV22b3OverlappingPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -588,7 +588,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV28b3HashedOverlappingPairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV28b3HashedOverlappingPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_next = getelementptr inbounds %class.b3HashedOverlappingPairCache, ptr %this1, i32 0, i32 4
   call void @_ZN20b3AlignedObjectArrayIiED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_next) #7
   %m_hashTable = getelementptr inbounds %class.b3HashedOverlappingPairCache, ptr %this1, i32 0, i32 3
@@ -683,7 +683,7 @@ entry:
   store ptr %dispatcher, ptr %dispatcher.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17b3OverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN28b3HashedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cleanProxy = getelementptr inbounds %class.CleanPairCallback, ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %cleanProxy.addr, align 4
   store i32 %0, ptr %m_cleanProxy, align 8
@@ -759,7 +759,7 @@ entry:
   store i32 %obsoleteProxy, ptr %obsoleteProxy.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17b3OverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN28b3HashedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_obsoleteProxy = getelementptr inbounds %class.RemovePairCallback, ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %obsoleteProxy.addr, align 4
   store i32 %0, ptr %m_obsoleteProxy, align 8
@@ -2416,7 +2416,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN22b3OverlappingPairCacheC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV28b3SortedOverlappingPairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV28b3SortedOverlappingPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_overlappingPairArray = getelementptr inbounds %class.b3SortedOverlappingPairCache, ptr %this1, i32 0, i32 1
   invoke void @_ZN20b3AlignedObjectArrayI6b3Int4EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray)
           to label %invoke.cont unwind label %lpad
@@ -2474,7 +2474,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV28b3SortedOverlappingPairCache, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV28b3SortedOverlappingPairCache, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_overlappingPairArray = getelementptr inbounds %class.b3SortedOverlappingPairCache, ptr %this1, i32 0, i32 1
   call void @_ZN20b3AlignedObjectArrayI6b3Int4ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_overlappingPairArray) #7
   call void @_ZN22b3OverlappingPairCacheD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
@@ -2562,7 +2562,7 @@ entry:
   store ptr %dispatcher, ptr %dispatcher.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17b3OverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN28b3SortedOverlappingPairCache19cleanProxyFromPairsEiP12b3DispatcherE17CleanPairCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cleanProxy = getelementptr inbounds %class.CleanPairCallback.5, ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %cleanProxy.addr, align 4
   store i32 %0, ptr %m_cleanProxy, align 8
@@ -2638,7 +2638,7 @@ entry:
   store i32 %obsoleteProxy, ptr %obsoleteProxy.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17b3OverlapCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #7
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN28b3SortedOverlappingPairCache37removeOverlappingPairsContainingProxyEiP12b3DispatcherE18RemovePairCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_obsoleteProxy = getelementptr inbounds %class.RemovePairCallback.6, ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %obsoleteProxy.addr, align 4
   store i32 %0, ptr %m_obsoleteProxy, align 8
@@ -2862,7 +2862,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17b3OverlapCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17b3OverlapCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

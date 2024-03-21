@@ -285,7 +285,7 @@ entry:
   %ref.tmp16 = alloca float, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, i32 0, i32 2), ptr %this1, align 16
   %m_bulletVersion = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 5
   store i32 300, ptr %m_bulletVersion, align 16
   %m_useQuantization = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 7
@@ -1344,7 +1344,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, i32 0, i32 2), ptr %this1, align 16
   %m_SubtreeHeaders = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 15
   call void @_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_SubtreeHeaders) #10
   %m_quantizedContiguousNodes = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 12
@@ -6298,7 +6298,7 @@ entry:
   %frombool = zext i1 %0 to i8
   store i8 %frombool, ptr %.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14b3QuantizedBvh, i32 0, i32 0, i32 2), ptr %this1, align 16
   %m_bvhAabbMin = getelementptr inbounds %class.b3QuantizedBvh, ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %self.addr, align 8
   %m_bvhAabbMin2 = getelementptr inbounds %class.b3QuantizedBvh, ptr %1, i32 0, i32 2

@@ -298,7 +298,7 @@ define linkonce_odr void @_ZN11MyTrendererD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV11MyTrenderer, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV11MyTrenderer, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MyTrenderer, ptr %3, i32 0, i32 2
   invoke void @_ZN5QListI7QStringE5clearEv(ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %5 unwind label %8

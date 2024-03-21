@@ -778,7 +778,7 @@ define void @_ZN16PacketListRecordC2EP11_frame_data(ptr noundef nonnull align 8 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16PacketListRecord, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16PacketListRecord, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.PacketListRecord, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8

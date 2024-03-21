@@ -2219,7 +2219,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN8facebook5velox4exec25FunctionCallToSpecialFormC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25ConjunctCallToSpecialFormE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25ConjunctCallToSpecialFormE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %isAnd_ = getelementptr inbounds %"class.facebook::velox::exec::ConjunctCallToSpecialForm", ptr %this1, i32 0, i32 1
   %1 = load i8, ptr %isAnd.addr, align 1
   %tobool = trunc i8 %1 to i1
@@ -2264,7 +2264,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25FunctionCallToSpecialFormE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25FunctionCallToSpecialFormE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2807,7 +2807,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec25FunctionCallToSpecialFormC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec21CastCallToSpecialFormE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec21CastCallToSpecialFormE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3203,7 +3203,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec25FunctionCallToSpecialFormC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec24TryCastCallToSpecialFormE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec24TryCastCallToSpecialFormE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3599,7 +3599,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec25FunctionCallToSpecialFormC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25CoalesceCallToSpecialFormE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec25CoalesceCallToSpecialFormE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3995,7 +3995,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec23SwitchCallToSpecialFormC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec19IfCallToSpecialFormE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec19IfCallToSpecialFormE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4391,7 +4391,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec25FunctionCallToSpecialFormC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec23SwitchCallToSpecialFormE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec23SwitchCallToSpecialFormE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4787,7 +4787,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec25FunctionCallToSpecialFormC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec20TryCallToSpecialFormE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec20TryCallToSpecialFormE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5183,7 +5183,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8facebook5velox4exec25FunctionCallToSpecialFormC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec31RowConstructorCallToSpecialFormE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8facebook5velox4exec31RowConstructorCallToSpecialFormE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

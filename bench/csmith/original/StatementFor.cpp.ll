@@ -3894,7 +3894,7 @@ define dso_local void @_ZN12StatementForC2EP5BlockRK15StatementAssignRK10Express
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 2, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV12StatementFor, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV12StatementFor, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.StatementFor, ptr %13, i32 0, i32 1
   %16 = load ptr, ptr %9, align 8
   store ptr %16, ptr %15, align 8
@@ -3917,7 +3917,7 @@ define dso_local void @_ZN12StatementForD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV12StatementFor, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV12StatementFor, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.StatementFor, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

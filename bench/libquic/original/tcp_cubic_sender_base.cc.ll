@@ -201,7 +201,7 @@ entry:
   store ptr %stats, ptr %stats.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net22SendAlgorithmInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN3net18TcpCubicSenderBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN3net18TcpCubicSenderBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hybrid_slow_start_ = getelementptr inbounds %"class.net::TcpCubicSenderBase", ptr %this1, i32 0, i32 1
   invoke void @_ZN3net15HybridSlowStartC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %hybrid_slow_start_)
           to label %invoke.cont unwind label %lpad
@@ -267,7 +267,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3net22SendAlgorithmInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN3net22SendAlgorithmInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

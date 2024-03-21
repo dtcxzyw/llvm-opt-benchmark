@@ -318,9 +318,9 @@ define void @_ZN13SettingDialogC2ERK13RichParameterS2_P7QWidget(ptr noundef nonn
   %38 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %39 = load i32, ptr %38, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef %37, i32 %39)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13SettingDialog, i32 0, inrange i32 0, i32 2), ptr %36, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13SettingDialog, i32 0, i32 0, i32 2), ptr %36, align 8
   %40 = getelementptr inbounds i8, ptr %36, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13SettingDialog, i32 0, inrange i32 1, i32 2), ptr %40, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13SettingDialog, i32 0, i32 1, i32 2), ptr %40, align 8
   %41 = getelementptr inbounds %class.SettingDialog, ptr %36, i32 0, i32 1
   %42 = load ptr, ptr %6, align 8
   %43 = load ptr, ptr %42, align 8
@@ -1101,9 +1101,9 @@ define void @_ZN13SettingDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13SettingDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13SettingDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13SettingDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV13SettingDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.SettingDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

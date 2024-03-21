@@ -2976,7 +2976,7 @@ define void @_ZN5faiss18BlockInvertedListsC2Emmm(ptr noundef nonnull align 8 der
   %11 = load ptr, ptr %5, align 8
   %12 = load i64, ptr %6, align 8
   call void @_ZN5faiss13InvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(25) %11, i64 noundef %12, i64 noundef -1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %11, i32 0, i32 1
   %14 = load i64, ptr %7, align 8
   store i64 %14, ptr %13, align 8
@@ -5673,7 +5673,7 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5687,7 +5687,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5850,7 +5850,7 @@ define void @_ZN5faiss18BlockInvertedListsC2EmPKNS_10CodePackerE(ptr noundef non
   %9 = load ptr, ptr %4, align 8
   %10 = load i64, ptr %5, align 8
   call void @_ZN5faiss13InvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(25) %9, i64 noundef %10, i64 noundef -1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %6, align 8
   %13 = getelementptr inbounds %"struct.faiss::CodePacker", ptr %12, i32 0, i32 2
@@ -5908,7 +5908,7 @@ define void @_ZN5faiss18BlockInvertedListsC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5faiss13InvertedListsC2Emm(ptr noundef nonnull align 8 dereferenceable(25) %3, i64 noundef 0, i64 noundef -1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 1
   store i64 0, ptr %4, align 8
   %5 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 2
@@ -5944,7 +5944,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #13
@@ -7927,7 +7927,7 @@ define void @_ZN5faiss18BlockInvertedListsD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss18BlockInvertedListsE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::BlockInvertedLists", ptr %3, i32 0, i32 3
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -7979,7 +7979,7 @@ define void @_ZN5faiss24BlockInvertedListsIOHookC2Ev(ptr noundef nonnull align 8
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #13
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #13
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss24BlockInvertedListsIOHookE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss24BlockInvertedListsIOHookE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 14:                                               ; preds = %1
@@ -8099,7 +8099,7 @@ define linkonce_odr void @_ZN5faiss19InvertedListsIOHookD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss19InvertedListsIOHookE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5faiss19InvertedListsIOHookE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::InvertedListsIOHook", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #13
   %5 = getelementptr inbounds %"struct.faiss::InvertedListsIOHook", ptr %3, i32 0, i32 1

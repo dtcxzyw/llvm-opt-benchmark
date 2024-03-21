@@ -445,7 +445,7 @@ entry:
   store ptr %solver, ptr %solver.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN35btSequentialImpulseConstraintSolverC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %this1)
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV12btMLCPSolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV12btMLCPSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_A = getelementptr inbounds %class.btMLCPSolver, ptr %this1, i32 0, i32 1
   invoke void @_ZN9btMatrixXIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_A)
           to label %invoke.cont unwind label %lpad
@@ -939,7 +939,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV12btMLCPSolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTV12btMLCPSolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_scratchTmp = getelementptr inbounds %class.btMLCPSolver, ptr %this1, i32 0, i32 21
   call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %m_scratchTmp) #11
   %m_scratchJTranspose = getelementptr inbounds %class.btMLCPSolver, ptr %this1, i32 0, i32 20
@@ -6436,7 +6436,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

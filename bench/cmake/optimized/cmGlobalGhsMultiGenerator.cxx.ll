@@ -431,7 +431,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN25cmGlobalGhsMultiGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(1840) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN17cmGlobalGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(1778) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1784
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #20
   %4 = getelementptr inbounds i8, ptr %0, i64 1816
@@ -472,7 +472,7 @@ declare void @_ZN17cmGlobalGeneratorD2Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN25cmGlobalGhsMultiGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(1840) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1816
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -491,7 +491,7 @@ _ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EED2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN25cmGlobalGhsMultiGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(1840) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [70 x ptr] }, ptr @_ZTV25cmGlobalGhsMultiGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 1816
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null

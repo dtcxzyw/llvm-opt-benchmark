@@ -329,7 +329,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %88 = select i1 %87, i32 %25, i32 %26
   %89 = zext i32 %88 to i64
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %13) #17
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVZN9Stockfish4Eval4NNUE13load_networksERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10OptionsMapESt13unordered_mapINS1_7NetSizeENS0_8EvalFileESt4hashISE_ESt8equal_toISE_ESaISt4pairIKSE_SF_EEEE12MemoryBuffer, i64 0, inrange i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVZN9Stockfish4Eval4NNUE13load_networksERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_10OptionsMapESt13unordered_mapINS1_7NetSizeENS0_8EvalFileESt4hashISE_ESt8equal_toISE_ESaISt4pairIKSE_SF_EEEE12MemoryBuffer, i64 0, i32 0, i64 2), ptr %13, align 8
   %90 = getelementptr inbounds i8, ptr %gEmbeddedNNUESmallData.gEmbeddedNNUEBigData, i64 %89
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setgEPcS3_S3_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull %gEmbeddedNNUESmallData.gEmbeddedNNUEBigData, ptr noundef nonnull %gEmbeddedNNUESmallData.gEmbeddedNNUEBigData, ptr noundef nonnull %90) #17
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEE4setpEPcS3_(ptr noundef nonnull align 8 dereferenceable(64) %13, ptr noundef nonnull %gEmbeddedNNUESmallData.gEmbeddedNNUEBigData, ptr noundef nonnull %90) #17

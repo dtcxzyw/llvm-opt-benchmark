@@ -59,7 +59,7 @@ define dso_local void @_ZN23cmCursesLongMessageFormC2ERKSt6vectorINSt7__cxx1112b
   store i32 %3, ptr %8, align 4
   %14 = load ptr, ptr %5, align 8
   call void @_ZN12cmCursesFormC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23cmCursesLongMessageForm, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23cmCursesLongMessageForm, i32 0, i32 0, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %15) #8
   %16 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %14, i32 0, i32 2
@@ -183,7 +183,7 @@ define dso_local void @_ZN23cmCursesLongMessageFormD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23cmCursesLongMessageForm, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV23cmCursesLongMessageForm, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCursesLongMessageForm, ptr %3, i32 0, i32 4
   %5 = getelementptr inbounds [2 x ptr], ptr %4, i64 0, i64 0
   %6 = load ptr, ptr %5, align 8

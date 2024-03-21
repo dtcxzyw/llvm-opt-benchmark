@@ -2119,7 +2119,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb11LockTrackerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb16PointLockTrackerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb16PointLockTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %tracked_keys_ = getelementptr inbounds %"class.rocksdb::PointLockTracker", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapIjS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb14TrackedKeyInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEES8_IjESA_IjESaISC_IKjSG_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %tracked_keys_) #11
   ret void
@@ -2440,7 +2440,7 @@ entry:
   store ptr %keys, ptr %keys.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb11LockTracker20ColumnFamilyIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_131TrackedKeysColumnFamilyIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_131TrackedKeysColumnFamilyIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %tracked_keys_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::TrackedKeysColumnFamilyIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %keys.addr, align 8
   store ptr %0, ptr %tracked_keys_, align 8
@@ -2506,7 +2506,7 @@ entry:
   store i32 %id, ptr %id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb11LockTracker11KeyIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_119TrackedKeysIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb12_GLOBAL__N_119TrackedKeysIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_infos_ = getelementptr inbounds %"class.rocksdb::(anonymous namespace)::TrackedKeysIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %keys.addr, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(56) ptr @_ZNKSt13unordered_mapIjS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb14TrackedKeyInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEES8_IjESA_IjESaISC_IKjSG_EEE2atERSJ_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 4 dereferenceable(4) %id.addr)
@@ -2569,7 +2569,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb16PointLockTrackerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb16PointLockTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %tracked_keys_ = getelementptr inbounds %"class.rocksdb::PointLockTracker", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapIjS_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb14TrackedKeyInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEES8_IjESA_IjESaISC_IKjSG_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %tracked_keys_) #11
   call void @_ZN7rocksdb11LockTrackerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #11
@@ -2629,7 +2629,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb11LockTrackerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN7rocksdb11LockTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2804,7 +2804,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb11LockTracker20ColumnFamilyIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb11LockTracker20ColumnFamilyIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2930,7 +2930,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb11LockTracker11KeyIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb11LockTracker11KeyIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

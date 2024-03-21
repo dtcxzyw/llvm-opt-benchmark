@@ -1658,7 +1658,7 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_Test10test_info_E = local_unnamed_addr global ptr null, align 8
 @.str.92 = private unnamed_addr constant [38 x i8] c"Derivation_dynDerivationDeps_to_aterm\00", align 1
 @_ZTVN3nix36DerivationTest_BadATerm_version_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix36DerivationTest_BadATerm_version_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix36DerivationTest_BadATerm_version_TestD1Ev, ptr @_ZN3nix36DerivationTest_BadATerm_version_TestD0Ev, ptr @_ZN3nix36DerivationTest_BadATerm_version_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix36DerivationTest_BadATerm_version_TestE, ptr @_ZThn8_N3nix36DerivationTest_BadATerm_version_TestD1Ev, ptr @_ZThn8_N3nix36DerivationTest_BadATerm_version_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix36DerivationTest_BadATerm_version_TestE, ptr @_ZTv0_n24_N3nix36DerivationTest_BadATerm_version_TestD1Ev, ptr @_ZTv0_n24_N3nix36DerivationTest_BadATerm_version_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix36DerivationTest_BadATerm_version_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix36DerivationTest_BadATerm_version_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix36DerivationTest_BadATerm_version_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix36DerivationTest_BadATerm_version_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3nix14DerivationTestE = linkonce_odr constant [23 x i8] c"N3nix14DerivationTestE\00", comdat, align 1
@@ -1673,7 +1673,7 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix36DerivationTest_BadATerm_version_TestE = constant [45 x i8] c"N3nix36DerivationTest_BadATerm_version_TestE\00", align 1
 @_ZTIN3nix36DerivationTest_BadATerm_version_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix36DerivationTest_BadATerm_version_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD1Ev, ptr @_ZN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv, ptr @_ZN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, ptr @_ZThn8_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD1Ev, ptr @_ZThn8_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, ptr @_ZTv0_n24_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD1Ev, ptr @_ZTv0_n24_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE0_NS_17DynDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix17DynDerivationTestD1Ev, ptr @_ZN3nix17DynDerivationTestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZThn8_N3nix17DynDerivationTestD1Ev, ptr @_ZThn8_N3nix17DynDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZTv0_n24_N3nix17DynDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix17DynDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix17DynDerivationTestE = linkonce_odr constant [26 x i8] c"N3nix17DynDerivationTestE\00", comdat, align 1
 @_ZTIN3nix17DynDerivationTestE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix17DynDerivationTestE, ptr @_ZTIN3nix14DerivationTestE }, comdat, align 8
@@ -1683,49 +1683,49 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE = constant [58 x i8] c"N3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE\00", align 1
 @_ZTIN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, ptr @_ZTIN3nix17DynDerivationTestE }, align 8
 @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD1Ev, ptr @_ZN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD0Ev, ptr @_ZN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, ptr @_ZThn8_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD1Ev, ptr @_ZThn8_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, ptr @_ZTv0_n24_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE = constant [70 x i8] c"N3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE\00", align 1
 @_ZTIN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD1Ev, ptr @_ZN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD0Ev, ptr @_ZN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, ptr @_ZThn8_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD1Ev, ptr @_ZThn8_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, ptr @_ZTv0_n24_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE = constant [68 x i8] c"N3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE\00", align 1
 @_ZTIN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD1Ev, ptr @_ZN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD0Ev, ptr @_ZN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, ptr @_ZThn8_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD1Ev, ptr @_ZThn8_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, ptr @_ZTv0_n24_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE = constant [67 x i8] c"N3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE\00", align 1
 @_ZTIN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD1Ev, ptr @_ZN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD0Ev, ptr @_ZN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, ptr @_ZThn8_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD1Ev, ptr @_ZThn8_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, ptr @_ZTv0_n24_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE = constant [65 x i8] c"N3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE\00", align 1
 @_ZTIN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD1Ev, ptr @_ZN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD0Ev, ptr @_ZN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, ptr @_ZThn8_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD1Ev, ptr @_ZThn8_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, ptr @_ZTv0_n24_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE = constant [66 x i8] c"N3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE\00", align 1
 @_ZTIN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD1Ev, ptr @_ZN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD0Ev, ptr @_ZN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, ptr @_ZThn8_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD1Ev, ptr @_ZThn8_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, ptr @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE = constant [64 x i8] c"N3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE\00", align 1
 @_ZTIN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD1Ev, ptr @_ZN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv, ptr @_ZN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, ptr @_ZThn8_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD1Ev, ptr @_ZThn8_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, ptr @_ZTv0_n24_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_17DynDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix17DynDerivationTestD1Ev, ptr @_ZN3nix17DynDerivationTestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZThn8_N3nix17DynDerivationTestD1Ev, ptr @_ZThn8_N3nix17DynDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZTv0_n24_N3nix17DynDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix17DynDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -1733,7 +1733,7 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE = constant [70 x i8] c"N3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE\00", align 1
 @_ZTIN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, ptr @_ZTIN3nix17DynDerivationTestE }, align 8
 @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD1Ev, ptr @_ZN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv, ptr @_ZN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, ptr @_ZThn8_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD1Ev, ptr @_ZThn8_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, ptr @_ZTv0_n24_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_17DynDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix17DynDerivationTestD1Ev, ptr @_ZN3nix17DynDerivationTestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZThn8_N3nix17DynDerivationTestD1Ev, ptr @_ZThn8_N3nix17DynDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZTv0_n24_N3nix17DynDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix17DynDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -1741,7 +1741,7 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE = constant [68 x i8] c"N3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE\00", align 1
 @_ZTIN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, ptr @_ZTIN3nix17DynDerivationTestE }, align 8
 @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD1Ev, ptr @_ZN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD0Ev, ptr @_ZN3nix16CaDerivationTest5SetUpEv, ptr @_ZN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, ptr @_ZThn8_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD1Ev, ptr @_ZThn8_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, ptr @_ZTv0_n24_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestD0Ev, ptr @_ZTv0_n32_N3nix16CaDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE0_NS_16CaDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix16CaDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix16CaDerivationTestD1Ev, ptr @_ZN3nix16CaDerivationTestD0Ev, ptr @_ZN3nix16CaDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix16CaDerivationTestE, ptr @_ZThn8_N3nix16CaDerivationTestD1Ev, ptr @_ZThn8_N3nix16CaDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix16CaDerivationTestE, ptr @_ZTv0_n24_N3nix16CaDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix16CaDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix16CaDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix16CaDerivationTestE = linkonce_odr constant [25 x i8] c"N3nix16CaDerivationTestE\00", comdat, align 1
 @_ZTIN3nix16CaDerivationTestE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix16CaDerivationTestE, ptr @_ZTIN3nix14DerivationTestE }, comdat, align 8
@@ -1751,7 +1751,7 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE = constant [68 x i8] c"N3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE\00", align 1
 @_ZTIN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, ptr @_ZTIN3nix16CaDerivationTestE }, align 8
 @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD1Ev, ptr @_ZN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD0Ev, ptr @_ZN3nix16CaDerivationTest5SetUpEv, ptr @_ZN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, ptr @_ZThn8_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD1Ev, ptr @_ZThn8_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, ptr @_ZTv0_n24_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestD0Ev, ptr @_ZTv0_n32_N3nix16CaDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_16CaDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_16CaDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix16CaDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix16CaDerivationTestD1Ev, ptr @_ZN3nix16CaDerivationTestD0Ev, ptr @_ZN3nix16CaDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix16CaDerivationTestE, ptr @_ZThn8_N3nix16CaDerivationTestD1Ev, ptr @_ZThn8_N3nix16CaDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix16CaDerivationTestE, ptr @_ZTv0_n24_N3nix16CaDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix16CaDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix16CaDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -1759,21 +1759,21 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE = constant [66 x i8] c"N3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE\00", align 1
 @_ZTIN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, ptr @_ZTIN3nix16CaDerivationTestE }, align 8
 @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD1Ev, ptr @_ZN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD0Ev, ptr @_ZN3nix55DerivationTest_DerivationOutput_deferred_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, ptr @_ZThn8_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD1Ev, ptr @_ZThn8_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, ptr @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix55DerivationTest_DerivationOutput_deferred_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE = constant [64 x i8] c"N3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE\00", align 1
 @_ZTIN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD1Ev, ptr @_ZN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD0Ev, ptr @_ZN3nix53DerivationTest_DerivationOutput_deferred_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, ptr @_ZThn8_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD1Ev, ptr @_ZThn8_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, ptr @_ZTv0_n24_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix53DerivationTest_DerivationOutput_deferred_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE = constant [62 x i8] c"N3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE\00", align 1
 @_ZTIN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD1Ev, ptr @_ZN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD0Ev, ptr @_ZN3nix20ImpureDerivationTest5SetUpEv, ptr @_ZN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, ptr @_ZThn8_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD1Ev, ptr @_ZThn8_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, ptr @_ZTv0_n24_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestD0Ev, ptr @_ZTv0_n32_N3nix20ImpureDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE0_NS_20ImpureDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20ImpureDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix20ImpureDerivationTestD1Ev, ptr @_ZN3nix20ImpureDerivationTestD0Ev, ptr @_ZN3nix20ImpureDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix20ImpureDerivationTestE, ptr @_ZThn8_N3nix20ImpureDerivationTestD1Ev, ptr @_ZThn8_N3nix20ImpureDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20ImpureDerivationTestE, ptr @_ZTv0_n24_N3nix20ImpureDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix20ImpureDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix20ImpureDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix20ImpureDerivationTestE = linkonce_odr constant [29 x i8] c"N3nix20ImpureDerivationTestE\00", comdat, align 1
 @_ZTIN3nix20ImpureDerivationTestE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix20ImpureDerivationTestE, ptr @_ZTIN3nix14DerivationTestE }, comdat, align 8
@@ -1783,7 +1783,7 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE = constant [68 x i8] c"N3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE\00", align 1
 @_ZTIN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, ptr @_ZTIN3nix20ImpureDerivationTestE }, align 8
 @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD1Ev, ptr @_ZN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD0Ev, ptr @_ZN3nix20ImpureDerivationTest5SetUpEv, ptr @_ZN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, ptr @_ZThn8_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD1Ev, ptr @_ZThn8_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, ptr @_ZTv0_n24_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestD0Ev, ptr @_ZTv0_n32_N3nix20ImpureDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20ImpureDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20ImpureDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20ImpureDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix20ImpureDerivationTestD1Ev, ptr @_ZN3nix20ImpureDerivationTestD0Ev, ptr @_ZN3nix20ImpureDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix20ImpureDerivationTestE, ptr @_ZThn8_N3nix20ImpureDerivationTestD1Ev, ptr @_ZThn8_N3nix20ImpureDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20ImpureDerivationTestE, ptr @_ZTv0_n24_N3nix20ImpureDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix20ImpureDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix20ImpureDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -1791,35 +1791,35 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE = constant [66 x i8] c"N3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE\00", align 1
 @_ZTIN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, ptr @_ZTIN3nix20ImpureDerivationTestE }, align 8
 @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix47DerivationTest_Derivation_simple_from_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix47DerivationTest_Derivation_simple_from_json_TestD1Ev, ptr @_ZN3nix47DerivationTest_Derivation_simple_from_json_TestD0Ev, ptr @_ZN3nix47DerivationTest_Derivation_simple_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix47DerivationTest_Derivation_simple_from_json_TestE, ptr @_ZThn8_N3nix47DerivationTest_Derivation_simple_from_json_TestD1Ev, ptr @_ZThn8_N3nix47DerivationTest_Derivation_simple_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix47DerivationTest_Derivation_simple_from_json_TestE, ptr @_ZTv0_n24_N3nix47DerivationTest_Derivation_simple_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix47DerivationTest_Derivation_simple_from_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix47DerivationTest_Derivation_simple_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix47DerivationTest_Derivation_simple_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix47DerivationTest_Derivation_simple_from_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix47DerivationTest_Derivation_simple_from_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix47DerivationTest_Derivation_simple_from_json_TestE = constant [56 x i8] c"N3nix47DerivationTest_Derivation_simple_from_json_TestE\00", align 1
 @_ZTIN3nix47DerivationTest_Derivation_simple_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix47DerivationTest_Derivation_simple_from_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix45DerivationTest_Derivation_simple_to_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix45DerivationTest_Derivation_simple_to_json_TestD1Ev, ptr @_ZN3nix45DerivationTest_Derivation_simple_to_json_TestD0Ev, ptr @_ZN3nix45DerivationTest_Derivation_simple_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix45DerivationTest_Derivation_simple_to_json_TestE, ptr @_ZThn8_N3nix45DerivationTest_Derivation_simple_to_json_TestD1Ev, ptr @_ZThn8_N3nix45DerivationTest_Derivation_simple_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix45DerivationTest_Derivation_simple_to_json_TestE, ptr @_ZTv0_n24_N3nix45DerivationTest_Derivation_simple_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix45DerivationTest_Derivation_simple_to_json_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix45DerivationTest_Derivation_simple_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix45DerivationTest_Derivation_simple_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix45DerivationTest_Derivation_simple_to_json_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix45DerivationTest_Derivation_simple_to_json_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix45DerivationTest_Derivation_simple_to_json_TestE = constant [54 x i8] c"N3nix45DerivationTest_Derivation_simple_to_json_TestE\00", align 1
 @_ZTIN3nix45DerivationTest_Derivation_simple_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix45DerivationTest_Derivation_simple_to_json_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix48DerivationTest_Derivation_simple_from_aterm_TestD1Ev, ptr @_ZN3nix48DerivationTest_Derivation_simple_from_aterm_TestD0Ev, ptr @_ZN3nix48DerivationTest_Derivation_simple_from_aterm_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, ptr @_ZThn8_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD1Ev, ptr @_ZThn8_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, ptr @_ZTv0_n24_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD1Ev, ptr @_ZTv0_n24_N3nix48DerivationTest_Derivation_simple_from_aterm_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix48DerivationTest_Derivation_simple_from_aterm_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix48DerivationTest_Derivation_simple_from_aterm_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix48DerivationTest_Derivation_simple_from_aterm_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix48DerivationTest_Derivation_simple_from_aterm_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix48DerivationTest_Derivation_simple_from_aterm_TestE = constant [57 x i8] c"N3nix48DerivationTest_Derivation_simple_from_aterm_TestE\00", align 1
 @_ZTIN3nix48DerivationTest_Derivation_simple_from_aterm_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix46DerivationTest_Derivation_simple_to_aterm_TestD1Ev, ptr @_ZN3nix46DerivationTest_Derivation_simple_to_aterm_TestD0Ev, ptr @_ZN3nix46DerivationTest_Derivation_simple_to_aterm_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, ptr @_ZThn8_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD1Ev, ptr @_ZThn8_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, ptr @_ZTv0_n24_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD1Ev, ptr @_ZTv0_n24_N3nix46DerivationTest_Derivation_simple_to_aterm_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix46DerivationTest_Derivation_simple_to_aterm_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix46DerivationTest_Derivation_simple_to_aterm_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix46DerivationTest_Derivation_simple_to_aterm_TestE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix46DerivationTest_Derivation_simple_to_aterm_TestE8_NS_12LibStoreTestE = unnamed_addr constant { [5 x ptr], [13 x ptr] } { [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr null, ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZN3nix12LibStoreTestD1Ev, ptr @_ZN3nix12LibStoreTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -400 to ptr), ptr inttoptr (i64 -400 to ptr), ptr @_ZTIN3nix12LibStoreTestE, ptr @_ZTv0_n24_N3nix12LibStoreTestD1Ev, ptr @_ZTv0_n24_N3nix12LibStoreTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTSN3nix46DerivationTest_Derivation_simple_to_aterm_TestE = constant [55 x i8] c"N3nix46DerivationTest_Derivation_simple_to_aterm_TestE\00", align 1
 @_ZTIN3nix46DerivationTest_Derivation_simple_to_aterm_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, ptr @_ZTIN3nix14DerivationTestE }, align 8
 @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD1Ev, ptr @_ZN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv, ptr @_ZN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, ptr @_ZThn8_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD1Ev, ptr @_ZThn8_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, ptr @_ZTv0_n24_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD1Ev, ptr @_ZTv0_n24_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_17DynDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix17DynDerivationTestD1Ev, ptr @_ZN3nix17DynDerivationTestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZThn8_N3nix17DynDerivationTestD1Ev, ptr @_ZThn8_N3nix17DynDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZTv0_n24_N3nix17DynDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix17DynDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -1827,7 +1827,7 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE = constant [70 x i8] c"N3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE\00", align 1
 @_ZTIN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, ptr @_ZTIN3nix17DynDerivationTestE }, align 8
 @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD1Ev, ptr @_ZN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv, ptr @_ZN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, ptr @_ZThn8_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD1Ev, ptr @_ZThn8_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, ptr @_ZTv0_n24_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD1Ev, ptr @_ZTv0_n24_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_17DynDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix17DynDerivationTestD1Ev, ptr @_ZN3nix17DynDerivationTestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZThn8_N3nix17DynDerivationTestD1Ev, ptr @_ZThn8_N3nix17DynDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZTv0_n24_N3nix17DynDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix17DynDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -1835,7 +1835,7 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE = constant [68 x i8] c"N3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE\00", align 1
 @_ZTIN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, ptr @_ZTIN3nix17DynDerivationTestE }, align 8
 @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD1Ev, ptr @_ZN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv, ptr @_ZN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, ptr @_ZThn8_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD1Ev, ptr @_ZThn8_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, ptr @_ZTv0_n24_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD1Ev, ptr @_ZTv0_n24_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_17DynDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix17DynDerivationTestD1Ev, ptr @_ZN3nix17DynDerivationTestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZThn8_N3nix17DynDerivationTestD1Ev, ptr @_ZThn8_N3nix17DynDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZTv0_n24_N3nix17DynDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix17DynDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -1843,7 +1843,7 @@ $_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E = comd
 @_ZTSN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE = constant [71 x i8] c"N3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE\00", align 1
 @_ZTIN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, ptr @_ZTIN3nix17DynDerivationTestE }, align 8
 @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE = unnamed_addr constant { [8 x ptr], [5 x ptr], [13 x ptr] } { [8 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD1Ev, ptr @_ZN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv, ptr @_ZN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_Test8TestBodyEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, ptr @_ZThn8_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD1Ev, ptr @_ZThn8_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD0Ev], [13 x ptr] [ptr null, ptr inttoptr (i64 -408 to ptr), ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, ptr @_ZTv0_n24_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD1Ev, ptr @_ZTv0_n24_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZTv0_n48_N3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
-@_ZTTN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE = unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_20CharacterizationTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE8_NS_12LibStoreTestE, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_14DerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_17DynDerivationTestE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i32 0, inrange i32 2, i32 7), ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_17DynDerivationTestE = unnamed_addr constant { [7 x ptr], [5 x ptr], [13 x ptr] } { [7 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix17DynDerivationTestD1Ev, ptr @_ZN3nix17DynDerivationTestD0Ev, ptr @_ZN3nix17DynDerivationTest5SetUpEv], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZThn8_N3nix17DynDerivationTestD1Ev, ptr @_ZThn8_N3nix17DynDerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix17DynDerivationTestE, ptr @_ZTv0_n24_N3nix17DynDerivationTestD1Ev, ptr @_ZTv0_n24_N3nix17DynDerivationTestD0Ev, ptr @_ZTv0_n32_N3nix17DynDerivationTest5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_14DerivationTestE = unnamed_addr constant { [6 x ptr], [5 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix14DerivationTestE, ptr @_ZNK3nix14DerivationTest12goldenMasterB5cxx11ESt17basic_string_viewIcSt11char_traitsIcEE, ptr @_ZN3nix14DerivationTestD1Ev, ptr @_ZN3nix14DerivationTestD0Ev], [5 x ptr] [ptr inttoptr (i64 400 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZThn8_N3nix14DerivationTestD1Ev, ptr @_ZThn8_N3nix14DerivationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix14DerivationTestE, ptr @_ZTv0_n24_N3nix14DerivationTestD1Ev, ptr @_ZTv0_n24_N3nix14DerivationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTCN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE0_NS_20CharacterizationTestE = unnamed_addr constant { [6 x ptr], [13 x ptr] } { [6 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3nix20CharacterizationTestE, ptr @__cxa_pure_virtual, ptr @_ZN3nix20CharacterizationTestD1Ev, ptr @_ZN3nix20CharacterizationTestD0Ev], [13 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3nix20CharacterizationTestE, ptr @_ZTv0_n24_N3nix20CharacterizationTestD1Ev, ptr @_ZTv0_n24_N3nix20CharacterizationTestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @__cxa_pure_virtual, ptr @_ZN7testing4Test5SetupEv] }, align 8
@@ -2481,7 +2481,7 @@ define void @_ZN3nix36DerivationTest_BadATerm_version_Test8TestBodyEv(ptr nounde
           to label %27 unwind label %52
 
 27:                                               ; preds = %25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %4, align 8
   %28 = getelementptr inbounds i8, ptr %4, i64 272
   %29 = getelementptr inbounds i8, ptr %4, i64 288
   %30 = load ptr, ptr %29, align 8
@@ -2754,7 +2754,7 @@ declare void @_ZN3nix8readFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10DerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8
@@ -3193,7 +3193,7 @@ define void @_ZN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_Test8TestBody
           to label %27 unwind label %52
 
 27:                                               ; preds = %25
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %4, align 8
   %28 = getelementptr inbounds i8, ptr %4, i64 272
   %29 = getelementptr inbounds i8, ptr %4, i64 288
   %30 = load ptr, ptr %29, align 8
@@ -11370,7 +11370,7 @@ define void @_ZN3nix13makeSimpleDrvERKNS_5StoreE(ptr dead_on_unwind noalias nonn
   %16 = alloca %"class.std::allocator", align 1
   %17 = alloca [1 x %"struct.std::pair.147"], align 8
   tail call void @_ZN3nix15BasicDerivationC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) #28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %0, align 8
   %18 = getelementptr inbounds i8, ptr %0, i64 280
   store i32 0, ptr %18, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 288
@@ -12468,7 +12468,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %106
   store ptr null, ptr %107, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %5, align 8
   %116 = getelementptr inbounds i8, ptr %5, i64 272
   %117 = getelementptr inbounds i8, ptr %5, i64 288
   %118 = load ptr, ptr %117, align 8
@@ -12484,7 +12484,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_del
 
 _ZN3nix10DerivationD2Ev.exit.i.i:                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i
   call void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5) #28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %4, align 8
   %122 = getelementptr inbounds i8, ptr %4, i64 272
   %123 = getelementptr inbounds i8, ptr %4, i64 288
   %124 = load ptr, ptr %123, align 8
@@ -12652,7 +12652,7 @@ define void @_ZN3nix45DerivationTest_Derivation_simple_to_json_Test8TestBodyEv(p
           to label %26 unwind label %33
 
 26:                                               ; preds = %.noexc.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !noalias !119
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !119
   %27 = getelementptr inbounds i8, ptr %6, i64 272
   %28 = getelementptr inbounds i8, ptr %6, i64 288
   %29 = load ptr, ptr %28, align 8, !noalias !119
@@ -13649,7 +13649,7 @@ _ZN7testing15AssertionResultD2Ev.exit.sink.split.i.i: ; preds = %_ZNKSt7__cxx111
 _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZN7testing15AssertionResultD2Ev.exit.sink.split.i.i, %164, %_ZN7testing7MessageD2Ev.exit.i.i
   %.sink.i.i = phi ptr [ %97, %_ZN7testing7MessageD2Ev.exit.i.i ], [ %165, %164 ], [ %.sink.ph.i.i, %_ZN7testing15AssertionResultD2Ev.exit.sink.split.i.i ]
   store ptr null, ptr %.sink.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %3, align 8
   %174 = getelementptr inbounds i8, ptr %3, i64 272
   %175 = getelementptr inbounds i8, ptr %3, i64 288
   %176 = load ptr, ptr %175, align 8
@@ -13665,7 +13665,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZN7testing15Assert
 
 _ZN3nix10DerivationD2Ev.exit.i.i:                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i
   call void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %3) #28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %2, align 8
   %180 = getelementptr inbounds i8, ptr %2, i64 272
   %181 = getelementptr inbounds i8, ptr %2, i64 288
   %182 = load ptr, ptr %181, align 8
@@ -13819,7 +13819,7 @@ define void @_ZN3nix46DerivationTest_Derivation_simple_to_aterm_Test8TestBodyEv(
           to label %22 unwind label %29
 
 22:                                               ; preds = %.noexc.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !noalias !135
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %2, align 8, !noalias !135
   %23 = getelementptr inbounds i8, ptr %2, i64 272
   %24 = getelementptr inbounds i8, ptr %2, i64 288
   %25 = load ptr, ptr %24, align 8, !noalias !135
@@ -14274,7 +14274,7 @@ define void @_ZN3nix20makeDynDepDerivationERKNS_5StoreE(ptr dead_on_unwind noali
   %28 = alloca %"class.std::allocator", align 1
   %29 = alloca [1 x %"struct.std::pair.147"], align 8
   tail call void @_ZN3nix15BasicDerivationC2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) #28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %0, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 280
   store i32 0, ptr %30, align 8
   %31 = getelementptr inbounds i8, ptr %0, i64 288
@@ -15782,7 +15782,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i.i.i, %106
   store ptr null, ptr %107, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %5, align 8
   %116 = getelementptr inbounds i8, ptr %5, i64 272
   %117 = getelementptr inbounds i8, ptr %5, i64 288
   %118 = load ptr, ptr %117, align 8
@@ -15798,7 +15798,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZNKSt14default_del
 
 _ZN3nix10DerivationD2Ev.exit.i.i:                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i
   call void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %5) #28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %4, align 8
   %122 = getelementptr inbounds i8, ptr %4, i64 272
   %123 = getelementptr inbounds i8, ptr %4, i64 288
   %124 = load ptr, ptr %123, align 8
@@ -15966,7 +15966,7 @@ define void @_ZN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_Tes
           to label %26 unwind label %33
 
 26:                                               ; preds = %.noexc.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !noalias !144
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !144
   %27 = getelementptr inbounds i8, ptr %6, i64 272
   %28 = getelementptr inbounds i8, ptr %6, i64 288
   %29 = load ptr, ptr %28, align 8, !noalias !144
@@ -16963,7 +16963,7 @@ _ZN7testing15AssertionResultD2Ev.exit.sink.split.i.i: ; preds = %_ZNKSt7__cxx111
 _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZN7testing15AssertionResultD2Ev.exit.sink.split.i.i, %164, %_ZN7testing7MessageD2Ev.exit.i.i
   %.sink.i.i = phi ptr [ %97, %_ZN7testing7MessageD2Ev.exit.i.i ], [ %165, %164 ], [ %.sink.ph.i.i, %_ZN7testing15AssertionResultD2Ev.exit.sink.split.i.i ]
   store ptr null, ptr %.sink.i.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %3, align 8
   %174 = getelementptr inbounds i8, ptr %3, i64 272
   %175 = getelementptr inbounds i8, ptr %3, i64 288
   %176 = load ptr, ptr %175, align 8
@@ -16979,7 +16979,7 @@ _ZN7testing15AssertionResultD2Ev.exit.i.i:        ; preds = %_ZN7testing15Assert
 
 _ZN3nix10DerivationD2Ev.exit.i.i:                 ; preds = %_ZN7testing15AssertionResultD2Ev.exit.i.i
   call void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %3) #28
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %2, align 8
   %180 = getelementptr inbounds i8, ptr %2, i64 272
   %181 = getelementptr inbounds i8, ptr %2, i64 288
   %182 = load ptr, ptr %181, align 8
@@ -17133,7 +17133,7 @@ define void @_ZN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_Te
           to label %22 unwind label %29
 
 22:                                               ; preds = %.noexc.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !noalias !160
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %2, align 8, !noalias !160
   %23 = getelementptr inbounds i8, ptr %2, i64 272
   %24 = getelementptr inbounds i8, ptr %2, i64 288
   %25 = load ptr, ptr %24, align 8, !noalias !160
@@ -19695,10 +19695,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix36De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix36DerivationTest_BadATerm_version_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -20121,7 +20121,7 @@ define linkonce_odr void @_ZN3nix27ExperimentalFeatureSettingsC2Ev(ptr noundef n
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaISt4pairIKS5_S5_EEED2Ev.exit: ; preds = %13
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 0, i32 0, i64 2), ptr %0, align 8
   %19 = getelementptr inbounds i8, ptr %0, i64 104
   %20 = getelementptr inbounds i8, ptr %3, i64 8
   %21 = getelementptr inbounds i8, ptr %3, i64 16
@@ -20155,7 +20155,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
           to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %26
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, inrange i32 0, i64 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %19, align 8
   invoke void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull %19)
           to label %_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEC2EPNS_6ConfigERKS6_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RKS1_ISH_S3_ISH_ESaISH_EEbSt8optionalIS2_E.exit unwind label %32
 
@@ -20607,7 +20607,7 @@ _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb
 ; Function Attrs: mustprogress noreturn uwtable
 define linkonce_odr void @_ZSt27__throw_bad_optional_accessv() local_unnamed_addr #17 comdat {
   %1 = tail call ptr @__cxa_allocate_exception(i64 8) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i64 0, i32 0, i64 2), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTISt19bad_optional_access, ptr nonnull @_ZNSt19bad_optional_accessD2Ev) #29
   unreachable
 }
@@ -20659,7 +20659,7 @@ _ZNSt8_Rb_treeIN3nix19ExperimentalFeatureES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
@@ -20674,7 +20674,7 @@ define linkonce_odr void @_ZN3nix6ConfigD2Ev(ptr noundef nonnull align 8 derefer
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit: ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 8
   %9 = getelementptr inbounds i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8
@@ -20709,7 +20709,7 @@ define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureES
   %8 = alloca %"struct.std::_Rb_tree<nix::ExperimentalFeature, nix::ExperimentalFeature, std::_Identity<nix::ExperimentalFeature>, std::less<nix::ExperimentalFeature>>::_Alloc_node", align 8
   %9 = alloca %"struct.std::_Rb_tree<nix::ExperimentalFeature, nix::ExperimentalFeature, std::_Identity<nix::ExperimentalFeature>, std::less<nix::ExperimentalFeature>>::_Alloc_node", align 8
   tail call void @_ZN3nix15AbstractSettingC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_RKSt3setIS6_St4lessIS6_ESaIS6_EESt8optionalINS_19ExperimentalFeatureEE(ptr noundef nonnull align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 %6)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 136
   %11 = getelementptr inbounds i8, ptr %0, i64 144
   store i32 0, ptr %11, align 8
@@ -20835,7 +20835,7 @@ declare void @_ZN3nix6Config10addSettingEPNS_15AbstractSettingE(ptr noundef nonn
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -20870,7 +20870,7 @@ _ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.e
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -20941,7 +20941,7 @@ declare void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferen
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -20976,7 +20976,7 @@ _ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev.exit1: ; preds = %
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED0Ev(ptr noundef nonnull align 8 dereferenceable(233) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 184
   %3 = getelementptr inbounds i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8
@@ -21536,7 +21536,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix10DerivationD0Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix10DerivationE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 272
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   %4 = load ptr, ptr %3, align 8
@@ -21558,7 +21558,7 @@ _ZN3nix10DerivationD2Ev.exit:                     ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix15BasicDerivationD2Ev(ptr noundef nonnull align 8 dereferenceable(272) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix15BasicDerivationE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix15BasicDerivationE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 256
@@ -22300,9 +22300,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix49Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22345,10 +22345,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix61De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22391,10 +22391,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22437,10 +22437,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix58De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22483,10 +22483,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix56De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22529,10 +22529,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22575,10 +22575,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix55De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22622,9 +22622,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix61Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22668,9 +22668,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22714,9 +22714,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Ca
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22760,9 +22760,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57Ca
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22805,10 +22805,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix55De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22851,10 +22851,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix53De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22898,9 +22898,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Im
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22944,9 +22944,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix57Im
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -22965,7 +22965,7 @@ define linkonce_odr void @_ZN3nix15BasicDerivationC2Ev(ptr noundef nonnull align
   %2 = alloca %"class.std::allocator", align 1
   %3 = alloca %"class.std::allocator", align 1
   %4 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix15BasicDerivationE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3nix15BasicDerivationE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 24
@@ -23739,10 +23739,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix47De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix47DerivationTest_Derivation_simple_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23785,10 +23785,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix45De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix45DerivationTest_Derivation_simple_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23831,10 +23831,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix48De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix48DerivationTest_Derivation_simple_from_aterm_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23877,10 +23877,10 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix46De
   br label %.body
 
 6:                                                ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix46DerivationTest_Derivation_simple_to_aterm_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23942,9 +23942,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix61Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -23988,9 +23988,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix59Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -24034,9 +24034,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix62Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -24080,9 +24080,9 @@ define linkonce_odr noundef ptr @_ZN7testing8internal15TestFactoryImplIN3nix60Dy
 
 6:                                                ; preds = %.noexc
   %7 = getelementptr inbounds i8, ptr %2, i64 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 0, inrange i32 0, i64 3), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 0, inrange i32 2, i64 7), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 0, inrange i32 1, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 0, i32 0, i64 3), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 0, i32 2, i64 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [5 x ptr], [13 x ptr] }, ptr @_ZTVN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestE, i64 0, i32 1, i64 3), ptr %7, align 8
   ret ptr %3
 
 8:                                                ; preds = %1
@@ -24379,9 +24379,9 @@ _ZN3nix12LibStoreTestD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix27ExperimentalFeatureSettingsD2Ev(ptr noundef nonnull align 8 dereferenceable(344) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix27ExperimentalFeatureSettingsE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3nix11BaseSettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 288
   %4 = getelementptr inbounds i8, ptr %0, i64 304
   %5 = load ptr, ptr %4, align 8
@@ -24411,7 +24411,7 @@ _ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev.exit.i.i: ; preds 
 
 _ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.exit: ; preds = %_ZNSt3setIN3nix19ExperimentalFeatureESt4lessIS1_ESaIS1_EED2Ev.exit.i.i
   tail call void @_ZN3nix15AbstractSettingD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %2) #28
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix6ConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
   %15 = getelementptr inbounds i8, ptr %0, i64 56
   %16 = getelementptr inbounds i8, ptr %0, i64 72
   %17 = load ptr, ptr %16, align 8
@@ -24426,7 +24426,7 @@ _ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.exit: 
   unreachable
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN3nix6Config11SettingDataESt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev.exit.i: ; preds = %_ZN3nix7SettingISt3setINS_19ExperimentalFeatureESt4lessIS2_ESaIS2_EEED2Ev.exit
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3nix14AbstractConfigE, i64 0, i32 0, i64 2), ptr %0, align 8
   %21 = getelementptr inbounds i8, ptr %0, i64 8
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   %23 = load ptr, ptr %22, align 8
@@ -24968,7 +24968,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
 
 67:                                               ; preds = %62
   %68 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %68, align 8
   %69 = getelementptr inbounds i8, ptr %68, i64 8
   %70 = getelementptr inbounds i8, ptr %7, i64 8
   %71 = load i32, ptr %70, align 8
@@ -24976,7 +24976,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   %72 = getelementptr inbounds i8, ptr %68, i64 16
   %73 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %72, ptr noundef nonnull align 8 dereferenceable(16) %73) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %68, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %68, align 8
   %74 = getelementptr inbounds i8, ptr %68, i64 32
   %75 = getelementptr inbounds i8, ptr %7, i64 32
   %76 = load i64, ptr %75, align 8
@@ -24988,7 +24988,7 @@ _ZNSt8functionIFbiN8nlohmann6detail13parse_event_tERNS0_10basic_jsonISt3mapSt6ve
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %62
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
   %77 = getelementptr inbounds i8, ptr %7, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %77) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #28
@@ -25102,7 +25102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %_ZN
 116:                                              ; preds = %67
   %117 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %7, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %73) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #28
   br label %118
@@ -25244,7 +25244,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 165:                                              ; preds = %161
   %166 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %166, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %166, align 8
   %167 = getelementptr inbounds i8, ptr %166, i64 8
   %168 = getelementptr inbounds i8, ptr %17, i64 8
   %169 = load i32, ptr %168, align 8
@@ -25252,7 +25252,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   %170 = getelementptr inbounds i8, ptr %166, i64 16
   %171 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %170, ptr noundef nonnull align 8 dereferenceable(16) %171) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %166, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %166, align 8
   %172 = getelementptr inbounds i8, ptr %166, i64 32
   %173 = getelementptr inbounds i8, ptr %17, i64 32
   %174 = load i64, ptr %173, align 8
@@ -25264,7 +25264,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %161
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
   %175 = getelementptr inbounds i8, ptr %17, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %175) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #28
@@ -25360,7 +25360,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit68: ; preds = %_ZN
 206:                                              ; preds = %165
   %207 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %17, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %171) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #28
   br label %208
@@ -26328,7 +26328,7 @@ declare void @_ZNSt13runtime_errorC1EPKc(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -26337,7 +26337,7 @@ define linkonce_odr void @_ZN8nlohmann6detail9exceptionD2Ev(ptr noundef nonnull 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail9exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -29422,7 +29422,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %101 unwind label %109
 
 101:                                              ; preds = %99
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %102 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %102) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #28
@@ -29451,7 +29451,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 109:                                              ; preds = %99
   %110 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %111 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %111) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #28
@@ -29518,7 +29518,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %129 unwind label %137
 
 129:                                              ; preds = %127
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %130 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %130) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #28
@@ -29547,7 +29547,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 137:                                              ; preds = %127
   %138 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %139 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %139) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #28
@@ -29703,7 +29703,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
           to label %194 unwind label %204
 
 194:                                              ; preds = %192
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %195 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %195) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #28
@@ -29737,7 +29737,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
 204:                                              ; preds = %192
   %205 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %206 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %206) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #28
@@ -29858,7 +29858,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
           to label %241 unwind label %249
 
 241:                                              ; preds = %239
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %242 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %242) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #28
@@ -29887,7 +29887,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
 249:                                              ; preds = %239
   %250 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %251 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %251) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #28
@@ -29938,7 +29938,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
           to label %263 unwind label %271
 
 263:                                              ; preds = %261
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %264 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %264) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #28
@@ -29967,7 +29967,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %174, %171
 271:                                              ; preds = %261
   %272 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %273 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %273) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #28
@@ -30089,7 +30089,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 320:                                              ; preds = %315
   %321 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %321, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %321, align 8
   %322 = getelementptr inbounds i8, ptr %321, i64 8
   %323 = getelementptr inbounds i8, ptr %45, i64 8
   %324 = load i32, ptr %323, align 8
@@ -30097,7 +30097,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %325 = getelementptr inbounds i8, ptr %321, i64 16
   %326 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %325, ptr noundef nonnull align 8 dereferenceable(16) %326) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %321, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %321, align 8
   %327 = getelementptr inbounds i8, ptr %321, i64 32
   %328 = getelementptr inbounds i8, ptr %45, i64 32
   %329 = load i64, ptr %328, align 8
@@ -30109,7 +30109,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %315
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   %330 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %330) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #28
@@ -30200,7 +30200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 359:                                              ; preds = %320
   %360 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %326) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #28
   br label %361
@@ -30275,7 +30275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 
 381:                                              ; preds = %376
   %382 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %382, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %382, align 8
   %383 = getelementptr inbounds i8, ptr %382, i64 8
   %384 = getelementptr inbounds i8, ptr %52, i64 8
   %385 = load i32, ptr %384, align 8
@@ -30283,7 +30283,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %386 = getelementptr inbounds i8, ptr %382, i64 16
   %387 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %386, ptr noundef nonnull align 8 dereferenceable(16) %387) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %382, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %382, align 8
   %388 = getelementptr inbounds i8, ptr %382, i64 32
   %389 = getelementptr inbounds i8, ptr %52, i64 32
   %390 = load i64, ptr %389, align 8
@@ -30295,7 +30295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit142: ; preds = %376
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %391 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %391) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #28
@@ -30386,7 +30386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 420:                                              ; preds = %381
   %421 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %387) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #28
   br label %422
@@ -30457,7 +30457,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 
 442:                                              ; preds = %437
   %443 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %443, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %443, align 8
   %444 = getelementptr inbounds i8, ptr %443, i64 8
   %445 = getelementptr inbounds i8, ptr %59, i64 8
   %446 = load i32, ptr %445, align 8
@@ -30465,7 +30465,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   %447 = getelementptr inbounds i8, ptr %443, i64 16
   %448 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %447, ptr noundef nonnull align 8 dereferenceable(16) %448) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %443, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %443, align 8
   %449 = getelementptr inbounds i8, ptr %443, i64 32
   %450 = getelementptr inbounds i8, ptr %59, i64 32
   %451 = load i64, ptr %450, align 8
@@ -30477,7 +30477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit157: ; preds = %437
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   %452 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %452) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #28
@@ -30568,7 +30568,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit167: ; preds = %_Z
 481:                                              ; preds = %442
   %482 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %448) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #28
   br label %483
@@ -30656,7 +30656,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 509:                                              ; preds = %504
   %510 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %510, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %510, align 8
   %511 = getelementptr inbounds i8, ptr %510, i64 8
   %512 = getelementptr inbounds i8, ptr %66, i64 8
   %513 = load i32, ptr %512, align 8
@@ -30664,7 +30664,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %514 = getelementptr inbounds i8, ptr %510, i64 16
   %515 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %514, ptr noundef nonnull align 8 dereferenceable(16) %515) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %510, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %510, align 8
   %516 = getelementptr inbounds i8, ptr %510, i64 32
   %517 = getelementptr inbounds i8, ptr %66, i64 32
   %518 = load i64, ptr %517, align 8
@@ -30676,7 +30676,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail28json_sax_dom_callback_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit173: ; preds = %504
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   %519 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %519) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #28
@@ -30767,7 +30767,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit183: ; preds = %_Z
 548:                                              ; preds = %509
   %549 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %515) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #28
   br label %550
@@ -31202,7 +31202,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %14) #28
   %76 = load i64, ptr %2, align 8
   %77 = load ptr, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %78 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %78, align 8
   %79 = getelementptr inbounds i8, ptr %0, i64 16
@@ -31217,7 +31217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %_ZN
   br label %112
 
 81:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %82 = getelementptr inbounds i8, ptr %0, i64 32
   store i64 %76, ptr %82, align 8
   %83 = load ptr, ptr %7, align 8
@@ -32231,7 +32231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101: ; preds = %_Z
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -32515,7 +32515,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %103 unwind label %111
 
 103:                                              ; preds = %101
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %104 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %104) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #28
@@ -32544,7 +32544,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 111:                                              ; preds = %101
   %112 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %11, align 8
   %113 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %113) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #28
@@ -32614,7 +32614,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
           to label %135 unwind label %143
 
 135:                                              ; preds = %133
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %136 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %136) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #28
@@ -32643,7 +32643,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8nlohmann6detail6parserINS_10basic_js
 143:                                              ; preds = %133
   %144 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %18, align 8
   %145 = getelementptr inbounds i8, ptr %18, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %145) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #28
@@ -32798,7 +32798,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
           to label %200 unwind label %210
 
 200:                                              ; preds = %198
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %201 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %201) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #28
@@ -32832,7 +32832,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
 210:                                              ; preds = %198
   %211 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %25, align 8
   %212 = getelementptr inbounds i8, ptr %25, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %212) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #28
@@ -32953,7 +32953,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
           to label %247 unwind label %255
 
 247:                                              ; preds = %245
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %248 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %248) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #28
@@ -32982,7 +32982,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
 255:                                              ; preds = %245
   %256 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %31, align 8
   %257 = getelementptr inbounds i8, ptr %31, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %257) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #28
@@ -33033,7 +33033,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
           to label %269 unwind label %277
 
 269:                                              ; preds = %267
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %270 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %270) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #28
@@ -33062,7 +33062,7 @@ _ZNSt13_Bit_iteratorppEi.exit.i112:               ; preds = %180, %177
 277:                                              ; preds = %267
   %278 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %38, align 8
   %279 = getelementptr inbounds i8, ptr %38, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %279) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #28
@@ -33180,7 +33180,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 325:                                              ; preds = %320
   %326 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %326, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %326, align 8
   %327 = getelementptr inbounds i8, ptr %326, i64 8
   %328 = getelementptr inbounds i8, ptr %45, i64 8
   %329 = load i32, ptr %328, align 8
@@ -33188,7 +33188,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %330 = getelementptr inbounds i8, ptr %326, i64 16
   %331 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %330, ptr noundef nonnull align 8 dereferenceable(16) %331) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %326, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %326, align 8
   %332 = getelementptr inbounds i8, ptr %326, i64 32
   %333 = getelementptr inbounds i8, ptr %45, i64 32
   %334 = load i64, ptr %333, align 8
@@ -33200,7 +33200,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit: ; preds = %320
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   %335 = getelementptr inbounds i8, ptr %45, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %335) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #28
@@ -33291,7 +33291,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 364:                                              ; preds = %325
   %365 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %45, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %331) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #28
   br label %366
@@ -33366,7 +33366,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
 
 386:                                              ; preds = %381
   %387 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %387, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %387, align 8
   %388 = getelementptr inbounds i8, ptr %387, i64 8
   %389 = getelementptr inbounds i8, ptr %52, i64 8
   %390 = load i32, ptr %389, align 8
@@ -33374,7 +33374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   %391 = getelementptr inbounds i8, ptr %387, i64 16
   %392 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %391, ptr noundef nonnull align 8 dereferenceable(16) %392) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %387, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %387, align 8
   %393 = getelementptr inbounds i8, ptr %387, i64 32
   %394 = getelementptr inbounds i8, ptr %52, i64 32
   %395 = load i64, ptr %394, align 8
@@ -33386,7 +33386,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit135: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit142: ; preds = %381
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   %396 = getelementptr inbounds i8, ptr %52, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %396) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #28
@@ -33477,7 +33477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 425:                                              ; preds = %386
   %426 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %52, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %52, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %392) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #28
   br label %427
@@ -33551,7 +33551,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
 
 451:                                              ; preds = %446
   %452 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %452, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %452, align 8
   %453 = getelementptr inbounds i8, ptr %452, i64 8
   %454 = getelementptr inbounds i8, ptr %59, i64 8
   %455 = load i32, ptr %454, align 8
@@ -33559,7 +33559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   %456 = getelementptr inbounds i8, ptr %452, i64 16
   %457 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %456, ptr noundef nonnull align 8 dereferenceable(16) %457) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %452, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %452, align 8
   %458 = getelementptr inbounds i8, ptr %452, i64 32
   %459 = getelementptr inbounds i8, ptr %59, i64 32
   %460 = load i64, ptr %459, align 8
@@ -33571,7 +33571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit152: ; preds = %_Z
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit159: ; preds = %446
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   %461 = getelementptr inbounds i8, ptr %59, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %461) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #28
@@ -33662,7 +33662,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit169: ; preds = %_Z
 490:                                              ; preds = %451
   %491 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %59, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %457) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #28
   br label %492
@@ -33746,7 +33746,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
 
 517:                                              ; preds = %512
   %518 = call ptr @__cxa_allocate_exception(i64 40) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %518, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %518, align 8
   %519 = getelementptr inbounds i8, ptr %518, i64 8
   %520 = getelementptr inbounds i8, ptr %66, i64 8
   %521 = load i32, ptr %520, align 8
@@ -33754,7 +33754,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   %522 = getelementptr inbounds i8, ptr %518, i64 16
   %523 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %522, ptr noundef nonnull align 8 dereferenceable(16) %523) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %518, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %518, align 8
   %524 = getelementptr inbounds i8, ptr %518, i64 32
   %525 = getelementptr inbounds i8, ptr %66, i64 32
   %526 = load i64, ptr %525, align 8
@@ -33766,7 +33766,7 @@ _ZN8nlohmann6detail6parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_str
   unreachable
 
 _ZN8nlohmann6detail19json_sax_dom_parserINS_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES4_IhSaIhEEEEE11parse_errorINS0_11parse_errorEEEbmRKSA_RKT_.exit175: ; preds = %512
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   %527 = getelementptr inbounds i8, ptr %66, i64 16
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %527) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #28
@@ -33857,7 +33857,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit185: ; preds = %_Z
 556:                                              ; preds = %517
   %557 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %66, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %66, align 8
   call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %523) #28
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %66) #28
   br label %558
@@ -35436,7 +35436,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -35451,7 +35451,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -35560,7 +35560,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %10
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -37133,7 +37133,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -37148,7 +37148,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail16invalid_iteratorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -37217,7 +37217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %_ZN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -37226,7 +37226,7 @@ define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail16invalid_iteratorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -37437,7 +37437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %9) #28
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #28
   %43 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 16
@@ -37452,7 +37452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   br label %65
 
 47:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail10type_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = load ptr, ptr %6, align 8
   %49 = getelementptr inbounds i8, ptr %6, i64 16
   %50 = icmp eq ptr %48, %49
@@ -37538,7 +37538,7 @@ switch.lookup:                                    ; preds = %1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail10type_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -37599,7 +37599,7 @@ declare noundef nonnull ptr @_ZSt28_Rb_tree_rebalance_for_erasePSt18_Rb_tree_nod
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail10type_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -38769,7 +38769,7 @@ declare void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -38777,13 +38777,13 @@ define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeC2ERKS1_(ptr noundef 
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail12out_of_rangeE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail12out_of_rangeD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -40282,7 +40282,7 @@ _ZN8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_trai
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %1) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8
@@ -40290,7 +40290,7 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef n
   %6 = getelementptr inbounds i8, ptr %0, i64 16
   %7 = getelementptr inbounds i8, ptr %1, i64 16
   tail call void @_ZNSt13runtime_errorC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail11parse_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 32
   %9 = getelementptr inbounds i8, ptr %1, i64 32
   %10 = load i64, ptr %9, align 8
@@ -40300,7 +40300,7 @@ define linkonce_odr void @_ZN8nlohmann6detail11parse_errorC2ERKS1_(ptr noundef n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN8nlohmann6detail11parse_errorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8nlohmann6detail9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #28
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #28
@@ -42777,9 +42777,9 @@ define linkonce_odr void @_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112
   store i32 1, ptr %16, align 8, !noalias !339
   %17 = getelementptr inbounds i8, ptr %14, i64 12
   store i32 1, ptr %17, align 4, !noalias !339
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %14, align 8, !noalias !339
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %14, align 8, !noalias !339
   %18 = getelementptr inbounds i8, ptr %14, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %18, align 8, !noalias !339
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_string_adapterIcNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %18, align 8, !noalias !339
   %19 = getelementptr inbounds i8, ptr %14, i64 24
   store ptr %0, ptr %19, align 8, !noalias !339
   store ptr %18, ptr %10, align 8
@@ -46797,9 +46797,9 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN8nlohmann
   store i32 1, ptr %14, align 8, !noalias !385
   %15 = getelementptr inbounds i8, ptr %13, i64 12
   store i32 1, ptr %15, align 4, !noalias !385
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %13, align 8, !noalias !385
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8nlohmann6detail21output_stream_adapterIcEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %13, align 8, !noalias !385
   %16 = getelementptr inbounds i8, ptr %13, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_stream_adapterIcEE, i64 0, inrange i32 0, i64 2), ptr %16, align 8, !noalias !385
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8nlohmann6detail21output_stream_adapterIcEE, i64 0, i32 0, i64 2), ptr %16, align 8, !noalias !385
   %17 = getelementptr inbounds i8, ptr %13, i64 24
   store ptr %0, ptr %17, align 8, !noalias !385
   store ptr %16, ptr %5, align 8
@@ -50427,7 +50427,7 @@ define internal void @_GLOBAL__sub_I_derivation.cc() #11 section ".text.startup"
           to label %82 unwind label %101
 
 82:                                               ; preds = %80
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36DerivationTest_BadATerm_version_TestEEE, i64 0, inrange i32 0, i64 2), ptr %81, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix36DerivationTest_BadATerm_version_TestEEE, i64 0, i32 0, i64 2), ptr %81, align 8
   %83 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.5, ptr noundef null, ptr noundef null, ptr noundef nonnull %70, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %77, ptr noundef %79, ptr noundef nonnull %81)
           to label %84 unwind label %101
 
@@ -50526,7 +50526,7 @@ __cxx_global_var_init.4.exit:                     ; preds = %_ZNKSt7__cxx1112bas
           to label %112 unwind label %131
 
 112:                                              ; preds = %110
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestEEE, i64 0, inrange i32 0, i64 2), ptr %111, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix49DynDerivationTest_BadATerm_oldVersionDynDeps_TestEEE, i64 0, i32 0, i64 2), ptr %111, align 8
   %113 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef null, ptr noundef null, ptr noundef nonnull %67, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %107, ptr noundef %109, ptr noundef nonnull %111)
           to label %114 unwind label %131
 
@@ -50619,7 +50619,7 @@ __cxx_global_var_init.14.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %142 unwind label %161
 
 142:                                              ; preds = %140
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %141, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DerivationTest_DerivationOutput_inputAddressed_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %141, align 8
   %143 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.23, ptr noundef null, ptr noundef null, ptr noundef nonnull %64, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %137, ptr noundef %139, ptr noundef nonnull %141)
           to label %144 unwind label %161
 
@@ -50712,7 +50712,7 @@ __cxx_global_var_init.22.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %172 unwind label %191
 
 172:                                              ; preds = %170
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %171, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DerivationTest_DerivationOutput_inputAddressed_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %171, align 8
   %173 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.26, ptr noundef null, ptr noundef null, ptr noundef nonnull %61, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %167, ptr noundef %169, ptr noundef nonnull %171)
           to label %174 unwind label %191
 
@@ -50805,7 +50805,7 @@ __cxx_global_var_init.25.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %202 unwind label %221
 
 202:                                              ; preds = %200
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %201, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix58DerivationTest_DerivationOutput_caFixedFlat_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %201, align 8
   %203 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.28, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %197, ptr noundef %199, ptr noundef nonnull %201)
           to label %204 unwind label %221
 
@@ -50898,7 +50898,7 @@ __cxx_global_var_init.27.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %232 unwind label %251
 
 232:                                              ; preds = %230
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %231, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix56DerivationTest_DerivationOutput_caFixedFlat_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %231, align 8
   %233 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.31, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %227, ptr noundef %229, ptr noundef nonnull %231)
           to label %234 unwind label %251
 
@@ -50991,7 +50991,7 @@ __cxx_global_var_init.30.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %262 unwind label %281
 
 262:                                              ; preds = %260
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %261, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57DerivationTest_DerivationOutput_caFixedNAR_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %261, align 8
   %263 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.33, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %257, ptr noundef %259, ptr noundef nonnull %261)
           to label %264 unwind label %281
 
@@ -51084,7 +51084,7 @@ __cxx_global_var_init.32.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %292 unwind label %311
 
 292:                                              ; preds = %290
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %291, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55DerivationTest_DerivationOutput_caFixedNAR_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %291, align 8
   %293 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %287, ptr noundef %289, ptr noundef nonnull %291)
           to label %294 unwind label %311
 
@@ -51177,7 +51177,7 @@ __cxx_global_var_init.35.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %322 unwind label %341
 
 322:                                              ; preds = %320
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %321, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DynDerivationTest_DerivationOutput_caFixedText_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %321, align 8
   %323 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.38, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %317, ptr noundef %319, ptr noundef nonnull %321)
           to label %324 unwind label %341
 
@@ -51270,7 +51270,7 @@ __cxx_global_var_init.37.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %352 unwind label %371
 
 352:                                              ; preds = %350
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %351, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DynDerivationTest_DerivationOutput_caFixedText_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %351, align 8
   %353 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.41, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %347, ptr noundef %349, ptr noundef nonnull %351)
           to label %354 unwind label %371
 
@@ -51363,7 +51363,7 @@ __cxx_global_var_init.40.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %382 unwind label %401
 
 382:                                              ; preds = %380
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %381, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59CaDerivationTest_DerivationOutput_caFloating_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %381, align 8
   %383 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.44, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix16CaDerivationTestEE6dummy_E, ptr noundef %377, ptr noundef %379, ptr noundef nonnull %381)
           to label %384 unwind label %401
 
@@ -51456,7 +51456,7 @@ __cxx_global_var_init.42.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %412 unwind label %431
 
 412:                                              ; preds = %410
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %411, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57CaDerivationTest_DerivationOutput_caFloating_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %411, align 8
   %413 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.43, ptr noundef nonnull @.str.47, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix16CaDerivationTestEE6dummy_E, ptr noundef %407, ptr noundef %409, ptr noundef nonnull %411)
           to label %414 unwind label %431
 
@@ -51549,7 +51549,7 @@ __cxx_global_var_init.46.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %442 unwind label %461
 
 442:                                              ; preds = %440
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %441, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix55DerivationTest_DerivationOutput_deferred_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %441, align 8
   %443 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.49, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %437, ptr noundef %439, ptr noundef nonnull %441)
           to label %444 unwind label %461
 
@@ -51642,7 +51642,7 @@ __cxx_global_var_init.48.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %472 unwind label %491
 
 472:                                              ; preds = %470
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %471, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix53DerivationTest_DerivationOutput_deferred_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %471, align 8
   %473 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.52, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %467, ptr noundef %469, ptr noundef nonnull %471)
           to label %474 unwind label %491
 
@@ -51735,7 +51735,7 @@ __cxx_global_var_init.51.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %502 unwind label %521
 
 502:                                              ; preds = %500
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %501, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59ImpureDerivationTest_DerivationOutput_impure_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %501, align 8
   %503 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.55, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E, ptr noundef %497, ptr noundef %499, ptr noundef nonnull %501)
           to label %504 unwind label %521
 
@@ -51828,7 +51828,7 @@ __cxx_global_var_init.53.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %532 unwind label %551
 
 532:                                              ; preds = %530
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %531, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix57ImpureDerivationTest_DerivationOutput_impure_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %531, align 8
   %533 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.54, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix20ImpureDerivationTestEE6dummy_E, ptr noundef %527, ptr noundef %529, ptr noundef nonnull %531)
           to label %534 unwind label %551
 
@@ -51921,7 +51921,7 @@ __cxx_global_var_init.57.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %562 unwind label %581
 
 562:                                              ; preds = %560
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47DerivationTest_Derivation_simple_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %561, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix47DerivationTest_Derivation_simple_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %561, align 8
   %563 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.71, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %557, ptr noundef %559, ptr noundef nonnull %561)
           to label %564 unwind label %581
 
@@ -52014,7 +52014,7 @@ __cxx_global_var_init.70.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %592 unwind label %611
 
 592:                                              ; preds = %590
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45DerivationTest_Derivation_simple_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %591, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix45DerivationTest_Derivation_simple_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %591, align 8
   %593 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.74, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %587, ptr noundef %589, ptr noundef nonnull %591)
           to label %594 unwind label %611
 
@@ -52107,7 +52107,7 @@ __cxx_global_var_init.73.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %622 unwind label %641
 
 622:                                              ; preds = %620
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix48DerivationTest_Derivation_simple_from_aterm_TestEEE, i64 0, inrange i32 0, i64 2), ptr %621, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix48DerivationTest_Derivation_simple_from_aterm_TestEEE, i64 0, i32 0, i64 2), ptr %621, align 8
   %623 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.76, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %617, ptr noundef %619, ptr noundef nonnull %621)
           to label %624 unwind label %641
 
@@ -52200,7 +52200,7 @@ __cxx_global_var_init.75.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %652 unwind label %671
 
 652:                                              ; preds = %650
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46DerivationTest_Derivation_simple_to_aterm_TestEEE, i64 0, inrange i32 0, i64 2), ptr %651, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix46DerivationTest_Derivation_simple_to_aterm_TestEEE, i64 0, i32 0, i64 2), ptr %651, align 8
   %653 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.79, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix14DerivationTestEE6dummy_E, ptr noundef %647, ptr noundef %649, ptr noundef nonnull %651)
           to label %654 unwind label %671
 
@@ -52293,7 +52293,7 @@ __cxx_global_var_init.78.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %682 unwind label %701
 
 682:                                              ; preds = %680
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %681, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix61DynDerivationTest_Derivation_dynDerivationDeps_from_json_TestEEE, i64 0, i32 0, i64 2), ptr %681, align 8
   %683 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.84, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %677, ptr noundef %679, ptr noundef nonnull %681)
           to label %684 unwind label %701
 
@@ -52386,7 +52386,7 @@ __cxx_global_var_init.83.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %712 unwind label %731
 
 712:                                              ; preds = %710
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestEEE, i64 0, inrange i32 0, i64 2), ptr %711, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix59DynDerivationTest_Derivation_dynDerivationDeps_to_json_TestEEE, i64 0, i32 0, i64 2), ptr %711, align 8
   %713 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.87, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %707, ptr noundef %709, ptr noundef nonnull %711)
           to label %714 unwind label %731
 
@@ -52479,7 +52479,7 @@ __cxx_global_var_init.86.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %742 unwind label %761
 
 742:                                              ; preds = %740
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestEEE, i64 0, inrange i32 0, i64 2), ptr %741, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix62DynDerivationTest_Derivation_dynDerivationDeps_from_aterm_TestEEE, i64 0, i32 0, i64 2), ptr %741, align 8
   %743 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.89, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %737, ptr noundef %739, ptr noundef nonnull %741)
           to label %744 unwind label %761
 
@@ -52572,7 +52572,7 @@ __cxx_global_var_init.88.exit:                    ; preds = %_ZNKSt7__cxx1112bas
           to label %772 unwind label %791
 
 772:                                              ; preds = %770
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestEEE, i64 0, inrange i32 0, i64 2), ptr %771, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN3nix60DynDerivationTest_Derivation_dynDerivationDeps_to_aterm_TestEEE, i64 0, i32 0, i64 2), ptr %771, align 8
   %773 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.92, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN3nix17DynDerivationTestEE6dummy_E, ptr noundef %767, ptr noundef %769, ptr noundef nonnull %771)
           to label %774 unwind label %791
 

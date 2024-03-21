@@ -208,9 +208,9 @@ define void @_ZN11ImageViewerC2Ev(ptr noundef nonnull align 8 dereferenceable(16
   %11 = getelementptr inbounds %class.QFlags, ptr %3, i32 0, i32 0
   %12 = load i32, ptr %11, align 4
   call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %10, ptr noundef null, i32 %12)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11ImageViewer, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11ImageViewer, i32 0, i32 0, i32 2), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11ImageViewer, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV11ImageViewer, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #9
           to label %15 unwind label %52
 

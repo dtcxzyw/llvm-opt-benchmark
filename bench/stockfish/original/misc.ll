@@ -1428,7 +1428,7 @@ define internal void @_ZN9Stockfish12_GLOBAL__N_13TieC2EPSt15basic_streambufIcSt
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_13TieE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN9Stockfish12_GLOBAL__N_13TieE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.Stockfish::(anonymous namespace)::Tie", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8

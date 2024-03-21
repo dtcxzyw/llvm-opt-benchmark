@@ -4744,7 +4744,7 @@ define void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenc
   %8 = alloca %class.QString, align 8
   %9 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN12QApplicationC2ERiPPci(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %2, i32 noundef 393732)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i64 0, i32 0, i64 2), ptr %0, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZN11QTranslatorC1EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef null)
           to label %11 unwind label %74
@@ -4798,7 +4798,7 @@ define void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenc
 31:                                               ; preds = %25
   %32 = getelementptr inbounds i8, ptr %30, i64 8
   store i8 1, ptr %32, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22MimeDatabaseInitThread, i64 0, inrange i32 0, i64 2), ptr %30, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22MimeDatabaseInitThread, i64 0, i32 0, i64 2), ptr %30, align 8
   %33 = invoke noundef ptr @_ZN11QThreadPool14globalInstanceEv()
           to label %34 unwind label %88
 
@@ -5105,7 +5105,7 @@ declare void @_ZN12QApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV15MainApplication, i64 0, i32 0, i64 2), ptr %0, align 8
   store ptr null, ptr @mainApp, align 8
   invoke void @_ZN15MainApplication26clearDynamicMenuGroupItemsEv(ptr nonnull align 8 poison)
           to label %2 unwind label %32

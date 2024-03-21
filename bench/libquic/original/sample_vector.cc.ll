@@ -246,7 +246,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %id.addr, align 8
   call void @_ZN4base16HistogramSamplesC2Em(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %local_counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %bucket_ranges.addr, align 8
   %call = invoke noundef i64 @_ZNK4base12BucketRanges12bucket_countEv(ptr noundef nonnull align 8 dereferenceable(28) %1)
@@ -628,7 +628,7 @@ entry:
   %0 = load i64, ptr %id.addr, align 8
   %1 = load ptr, ptr %meta.addr, align 8
   call void @_ZN4base16HistogramSamplesC2EmPNS0_8MetadataE(ptr noundef nonnull align 8 dereferenceable(40) %this1, i64 noundef %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %local_counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %local_counts_) #8
   %counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 2
@@ -824,7 +824,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4base12SampleVectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %local_counts_ = getelementptr inbounds %"class.base::SampleVector", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIiSaIiEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %local_counts_) #8
   call void @_ZN4base16HistogramSamplesD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #8
@@ -1680,7 +1680,7 @@ entry:
   store ptr %bucket_ranges, ptr %bucket_ranges.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base19SampleCountIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %counts_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %counts.addr, align 8
   %call = call noundef nonnull align 4 dereferenceable(4) ptr @_ZNKSt6vectorIiSaIiEEixEm(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef 0) #8
@@ -1779,7 +1779,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base19SampleCountIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1904,7 +1904,7 @@ entry:
   store ptr %bucket_ranges, ptr %bucket_ranges.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4base19SampleCountIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4base20SampleVectorIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %counts_ = getelementptr inbounds %"class.base::SampleVectorIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %counts.addr, align 8
   store ptr %0, ptr %counts_, align 8

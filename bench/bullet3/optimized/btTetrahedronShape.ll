@@ -49,7 +49,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN16btBU_Simplex1to4C2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
   store i32 0, ptr %m_numVertices, align 4
   %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
@@ -65,7 +65,7 @@ declare i32 @__gxx_personality_v0(...)
 define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
   %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %m_shapeType, align 8
@@ -104,7 +104,7 @@ entry:
 define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
   %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %m_shapeType, align 8
@@ -138,7 +138,7 @@ lpad:                                             ; preds = %invoke.cont2, %entr
 define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_S2_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
   %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %m_shapeType, align 8
@@ -182,7 +182,7 @@ lpad:                                             ; preds = %invoke.cont3, %invo
 define dso_local void @_ZN16btBU_Simplex1to4C2ERK9btVector3S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt0, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt1, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt2, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pt3) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN34btPolyhedralConvexAabbCachingShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(113) %this)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV16btBU_Simplex1to4, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_numVertices = getelementptr inbounds i8, ptr %this, i64 116
   %m_shapeType = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %m_shapeType, align 8

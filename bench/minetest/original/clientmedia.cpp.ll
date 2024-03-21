@@ -1293,7 +1293,7 @@ declare noundef zeroext i1 @_ZN9FileCache14updateCopyFileERKNSt7__cxx1112basic_s
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN21ClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN22IClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21ClientMediaDownloader, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21ClientMediaDownloader, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %2 = getelementptr inbounds i8, ptr %0, i64 56
   store i32 0, ptr %2, align 8, !tbaa !39
   %3 = getelementptr inbounds i8, ptr %0, i64 64
@@ -1334,7 +1334,7 @@ define dso_local void @_ZN21ClientMediaDownloaderC2Ev(ptr noundef nonnull align 
 define dso_local void @_ZN22IClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22IClientMediaDownloader, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22IClientMediaDownloader, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #28
   call fastcc void @_ZL16getMediaCacheDirB5cxx11v(ptr dead_on_unwind noalias nonnull writable align 8 %3)
@@ -1428,7 +1428,7 @@ define dso_local void @_ZN22IClientMediaDownloaderC2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21ClientMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21ClientMediaDownloader, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21ClientMediaDownloader, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %2 = getelementptr inbounds i8, ptr %0, i64 136
   %3 = load i64, ptr %2, align 8, !tbaa !71
   %4 = icmp eq i64 %3, 0
@@ -1587,7 +1587,7 @@ define dso_local void @_ZN21ClientMediaDownloaderD2Ev(ptr noundef nonnull align 
   unreachable
 
 90:                                               ; preds = %84
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22IClientMediaDownloader, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22IClientMediaDownloader, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %91 = getelementptr inbounds i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !11
   %93 = getelementptr inbounds i8, ptr %0, i64 24
@@ -6466,7 +6466,7 @@ define dso_local noundef zeroext i1 @_ZN22IClientMediaDownloader16tryLoadFromCac
   %138 = getelementptr inbounds i8, ptr %6, i64 %137
   store ptr %135, ptr %138, align 8, !tbaa !37
   %139 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %139, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %139, align 8, !tbaa !37
   %140 = getelementptr inbounds i8, ptr %6, i64 80
   %141 = load ptr, ptr %140, align 8, !tbaa !11
   %142 = getelementptr inbounds i8, ptr %6, i64 96
@@ -6485,7 +6485,7 @@ define dso_local noundef zeroext i1 @_ZN22IClientMediaDownloader16tryLoadFromCac
   br label %149
 
 149:                                              ; preds = %148, %144
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %139, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %139, align 8, !tbaa !37
   %150 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %150) #28
   %151 = getelementptr inbounds i8, ptr %6, i64 112
@@ -6637,7 +6637,7 @@ define dso_local void @_ZN21ClientMediaDownloader24serializeRequiredHashSetB5cxx
   %73 = getelementptr inbounds i8, ptr %5, i64 %72
   store ptr %70, ptr %73, align 8, !tbaa !37
   %74 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %74, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %74, align 8, !tbaa !37
   %75 = getelementptr inbounds i8, ptr %5, i64 80
   %76 = load ptr, ptr %75, align 8, !tbaa !11
   %77 = getelementptr inbounds i8, ptr %5, i64 96
@@ -6656,7 +6656,7 @@ define dso_local void @_ZN21ClientMediaDownloader24serializeRequiredHashSetB5cxx
   br label %84
 
 84:                                               ; preds = %83, %79
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %74, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %74, align 8, !tbaa !37
   %85 = getelementptr inbounds i8, ptr %5, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %85) #28
   %86 = getelementptr inbounds i8, ptr %5, i64 112
@@ -8818,7 +8818,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -8871,13 +8871,13 @@ define linkonce_odr dso_local void @_ZN18SerializationErrorC2ERKNSt7__cxx1112bas
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #28
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SerializationError, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SerializationError, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8908,7 +8908,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 define dso_local void @_ZN21SingleMediaDownloaderC2Eb(ptr noundef nonnull align 8 dereferenceable(168) %0, i1 noundef zeroext %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = zext i1 %1 to i8
   tail call void @_ZN22IClientMediaDownloaderC2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21SingleMediaDownloader, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21SingleMediaDownloader, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -8932,7 +8932,7 @@ define dso_local void @_ZN21SingleMediaDownloaderC2Eb(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN21SingleMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21SingleMediaDownloader, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21SingleMediaDownloader, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = load i64, ptr %2, align 8, !tbaa !257
   %4 = icmp eq i64 %3, 0
@@ -9023,7 +9023,7 @@ define dso_local void @_ZN21SingleMediaDownloaderD2Ev(ptr noundef nonnull align 
   br label %51
 
 51:                                               ; preds = %50, %46
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22IClientMediaDownloader, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22IClientMediaDownloader, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %52 = getelementptr inbounds i8, ptr %0, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !11
   %54 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10315,7 +10315,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22IClientMediaDownloaderD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22IClientMediaDownloader, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22IClientMediaDownloader, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10442,7 +10442,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr nou
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN18SerializationErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10475,7 +10475,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13BaseException4whatEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24

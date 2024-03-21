@@ -1097,7 +1097,7 @@ define linkonce_odr dso_local void @_ZN25cmCPackeIFWUpdatesPatcherC2EP20cmCPackI
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN11cmXMLParserC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV25cmCPackeIFWUpdatesPatcher, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV25cmCPackeIFWUpdatesPatcher, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.cmCPackeIFWUpdatesPatcher, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8

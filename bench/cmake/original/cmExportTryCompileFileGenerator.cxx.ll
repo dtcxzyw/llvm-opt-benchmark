@@ -1366,7 +1366,7 @@ define dso_local void @_ZN31cmExportTryCompileFileGeneratorC2EP17cmGlobalGenerat
   store ptr %4, ptr %10, align 8
   %16 = load ptr, ptr %6, align 8
   call void @_ZN21cmExportFileGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(341) %16)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV31cmExportTryCompileFileGenerator, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV31cmExportTryCompileFileGenerator, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.cmExportTryCompileFileGenerator, ptr %16, i32 0, i32 1
   call void @_ZNSt6vectorIPK17cmGeneratorTargetSaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %17) #3
   %18 = getelementptr inbounds %class.cmExportTryCompileFileGenerator, ptr %16, i32 0, i32 2
@@ -1615,7 +1615,7 @@ define linkonce_odr dso_local void @_ZN21cmExportFileGeneratorD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21cmExportFileGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV21cmExportFileGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 13
   call void @_ZNSt3setIPK17cmGeneratorTargetSt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %class.cmExportFileGenerator, ptr %3, i32 0, i32 12
@@ -4279,7 +4279,7 @@ define linkonce_odr dso_local void @_ZN31cmExportTryCompileFileGeneratorD2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV31cmExportTryCompileFileGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV31cmExportTryCompileFileGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmExportTryCompileFileGenerator, ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.cmExportTryCompileFileGenerator, ptr %3, i32 0, i32 2

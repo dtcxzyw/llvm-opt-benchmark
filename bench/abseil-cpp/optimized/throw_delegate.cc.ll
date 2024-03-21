@@ -416,7 +416,7 @@ declare void @_ZNSt15underflow_errorC1EPKc(ptr noundef nonnull align 8 dereferen
 define dso_local void @_ZN4absl13base_internal23ThrowStdBadFunctionCallEv() local_unnamed_addr #0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #4
   unreachable
 }
@@ -428,7 +428,7 @@ declare void @_ZNSt17bad_function_callD1Ev(ptr noundef nonnull align 8 dereferen
 define dso_local void @_ZN4absl13base_internal16ThrowStdBadAllocEv() local_unnamed_addr #0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %exception, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %exception, align 8
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #4
   unreachable
 }

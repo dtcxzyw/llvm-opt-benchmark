@@ -120,14 +120,14 @@ $_ZTIN6casadi6Logger9StreambufILb1EEE = comdat any
 @_ZSt4cerr = external global %"class.std::basic_ostream", align 8
 @_ZSt4cout = external global %"class.std::basic_ostream", align 8
 @_ZTVN6casadi6Logger6StreamILb0EEE = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTIN6casadi6Logger6StreamILb0EEE, ptr @_ZN6casadi6Logger6StreamILb0EED1Ev, ptr @_ZN6casadi6Logger6StreamILb0EED0Ev], [5 x ptr] [ptr inttoptr (i64 -72 to ptr), ptr inttoptr (i64 -72 to ptr), ptr @_ZTIN6casadi6Logger6StreamILb0EEE, ptr @_ZTv0_n24_N6casadi6Logger6StreamILb0EED1Ev, ptr @_ZTv0_n24_N6casadi6Logger6StreamILb0EED0Ev] }, comdat, align 8
-@_ZTTN6casadi6Logger6StreamILb0EEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6casadi6Logger6StreamILb0EEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6casadi6Logger6StreamILb0EEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN6casadi6Logger6StreamILb0EEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6casadi6Logger6StreamILb0EEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6casadi6Logger6StreamILb0EEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN6casadi6Logger6StreamILb0EEE0_So = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTISo, ptr @_ZNSoD1Ev, ptr @_ZNSoD0Ev], [5 x ptr] [ptr inttoptr (i64 -72 to ptr), ptr inttoptr (i64 -72 to ptr), ptr @_ZTISo, ptr @_ZTv0_n24_NSoD1Ev, ptr @_ZTv0_n24_NSoD0Ev] }, comdat, align 8
 @_ZTISo = external constant ptr
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN6casadi6Logger6StreamILb0EEE = linkonce_odr constant [30 x i8] c"N6casadi6Logger6StreamILb0EEE\00", comdat, align 1
 @_ZTIN6casadi6Logger6StreamILb0EEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6casadi6Logger6StreamILb0EEE, ptr @_ZTISo }, comdat, align 8
 @_ZTVN6casadi6Logger6StreamILb1EEE = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTIN6casadi6Logger6StreamILb1EEE, ptr @_ZN6casadi6Logger6StreamILb1EED1Ev, ptr @_ZN6casadi6Logger6StreamILb1EED0Ev], [5 x ptr] [ptr inttoptr (i64 -72 to ptr), ptr inttoptr (i64 -72 to ptr), ptr @_ZTIN6casadi6Logger6StreamILb1EEE, ptr @_ZTv0_n24_N6casadi6Logger6StreamILb1EED1Ev, ptr @_ZTv0_n24_N6casadi6Logger6StreamILb1EED0Ev] }, comdat, align 8
-@_ZTTN6casadi6Logger6StreamILb1EEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6casadi6Logger6StreamILb1EEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6casadi6Logger6StreamILb1EEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN6casadi6Logger6StreamILb1EEE = linkonce_odr unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6casadi6Logger6StreamILb1EEE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN6casadi6Logger6StreamILb1EEE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN6casadi6Logger6StreamILb1EEE0_So = linkonce_odr unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 72 to ptr), ptr null, ptr @_ZTISo, ptr @_ZNSoD1Ev, ptr @_ZNSoD0Ev], [5 x ptr] [ptr inttoptr (i64 -72 to ptr), ptr inttoptr (i64 -72 to ptr), ptr @_ZTISo, ptr @_ZTv0_n24_NSoD1Ev, ptr @_ZTv0_n24_NSoD0Ev] }, comdat, align 8
 @_ZTSN6casadi6Logger6StreamILb1EEE = linkonce_odr constant [30 x i8] c"N6casadi6Logger6StreamILb1EEE\00", comdat, align 1
 @_ZTIN6casadi6Logger6StreamILb1EEE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN6casadi6Logger6StreamILb1EEE, ptr @_ZTISo }, comdat, align 8
@@ -290,17 +290,17 @@ define linkonce_odr hidden void @_ZN6casadi6Logger6StreamILb0EEC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, i32 0, i32 3), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 72
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, inrange i32 1, i32 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, i32 1, i32 3), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::Logger::Stream", ptr %5, i32 0, i32 1
   invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN6casadi6Logger6StreamILb0EEE, i64 0, i64 1), ptr noundef %8)
           to label %9 unwind label %13
 
 9:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, i32 0, i32 3), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 72
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, inrange i32 1, i32 3), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb0EEE, i32 0, i32 1, i32 3), ptr %10, align 8
   %11 = getelementptr inbounds %"class.casadi::Logger::Stream", ptr %5, i32 0, i32 1
   invoke void @_ZN6casadi6Logger9StreambufILb0EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %12 unwind label %17
@@ -411,17 +411,17 @@ define linkonce_odr hidden void @_ZN6casadi6Logger6StreamILb1EEC1Ev(ptr noundef 
   %5 = load ptr, ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 72
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %6)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, i32 0, i32 3), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 72
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, inrange i32 1, i32 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, i32 1, i32 3), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::Logger::Stream.0", ptr %5, i32 0, i32 1
   invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN6casadi6Logger6StreamILb1EEE, i64 0, i64 1), ptr noundef %8)
           to label %9 unwind label %13
 
 9:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, i32 0, i32 3), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 72
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, inrange i32 1, i32 3), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN6casadi6Logger6StreamILb1EEE, i32 0, i32 1, i32 3), ptr %10, align 8
   %11 = getelementptr inbounds %"class.casadi::Logger::Stream.0", ptr %5, i32 0, i32 1
   invoke void @_ZN6casadi6Logger9StreambufILb1EEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %11)
           to label %12 unwind label %17
@@ -750,7 +750,7 @@ define linkonce_odr hidden void @_ZN6casadi6Logger9StreambufILb0EEC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6casadi6Logger9StreambufILb0EEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6casadi6Logger9StreambufILb0EEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -860,7 +860,7 @@ define linkonce_odr hidden void @_ZN6casadi6Logger9StreambufILb1EEC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %3)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6casadi6Logger9StreambufILb1EEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6casadi6Logger9StreambufILb1EEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

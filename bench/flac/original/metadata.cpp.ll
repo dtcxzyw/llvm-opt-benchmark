@@ -386,7 +386,7 @@ entry:
   %1 = load i8, ptr %copy.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -410,7 +410,7 @@ entry:
   %1 = load i8, ptr %copy.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -429,7 +429,7 @@ entry:
   %1 = load i8, ptr %copy.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -448,7 +448,7 @@ entry:
   %1 = load i8, ptr %copy.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -467,7 +467,7 @@ entry:
   %1 = load i8, ptr %copy.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -486,7 +486,7 @@ entry:
   %1 = load i8, ptr %copy.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -505,7 +505,7 @@ entry:
   %1 = load i8, ptr %copy.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -524,7 +524,7 @@ entry:
   %1 = load i8, ptr %copy.addr, align 1
   %tobool = trunc i8 %1 to i1
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -884,7 +884,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %object.addr, align 8
   call void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -898,7 +898,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %object.addr, align 8
   call void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -912,7 +912,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %object.addr, align 8
   call void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -926,7 +926,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %object.addr, align 8
   call void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -940,7 +940,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %object.addr, align 8
   call void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -954,7 +954,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %object.addr, align 8
   call void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -968,7 +968,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %object.addr, align 8
   call void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -982,7 +982,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %object.addr, align 8
   call void @_ZN4FLAC8Metadata9PrototypeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef nonnull align 8 dereferenceable(17) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -994,7 +994,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %object, ptr %object.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %object.addr, align 8
   %object_2 = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %0, i32 0, i32 1
@@ -1016,7 +1016,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %object, ptr %object.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %object.addr, align 8
   %call = call ptr @FLAC__metadata_object_clone(ptr noundef %0)
@@ -1034,7 +1034,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %object, ptr %object.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %object.addr, align 8
   %call = call ptr @FLAC__metadata_object_clone(ptr noundef %0)
@@ -1055,7 +1055,7 @@ entry:
   %frombool = zext i1 %copy to i8
   store i8 %frombool, ptr %copy.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.FLAC::Metadata::Prototype", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %copy.addr, align 1
   %tobool = trunc i8 %0 to i1
@@ -1084,7 +1084,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9PrototypeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 0
   %0 = load ptr, ptr %vfn, align 8
@@ -1324,7 +1324,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @FLAC__metadata_object_new(i32 noundef 0)
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata10StreamInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1642,7 +1642,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @FLAC__metadata_object_new(i32 noundef 1)
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1658,7 +1658,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @FLAC__metadata_object_new(i32 noundef 1)
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PaddingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %0 = load i32, ptr %length.addr, align 4
   invoke void @_ZN4FLAC8Metadata7Padding10set_lengthEj(ptr noundef nonnull align 8 dereferenceable(17) %this1, i32 noundef %0)
           to label %invoke.cont unwind label %lpad
@@ -1729,7 +1729,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @FLAC__metadata_object_new(i32 noundef 2)
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata11ApplicationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1854,7 +1854,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @FLAC__metadata_object_new(i32 noundef 3)
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata9SeekTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2135,7 +2135,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 1
   store i8 1, ptr %is_valid_, align 8
   %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 3
@@ -2190,7 +2190,7 @@ entry:
   store ptr %field, ptr %field.addr, align 8
   store i32 %field_length, ptr %field_length.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 1
   store i8 1, ptr %is_valid_, align 8
   %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 3
@@ -2241,7 +2241,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %field, ptr %field.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 1
   store i8 1, ptr %is_valid_, align 8
   %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 3
@@ -2288,7 +2288,7 @@ entry:
   store ptr %field_value, ptr %field_value.addr, align 8
   store i32 %field_value_length, ptr %field_value_length.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 1
   store i8 1, ptr %is_valid_, align 8
   %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 3
@@ -2349,7 +2349,7 @@ entry:
   store ptr %field_name, ptr %field_name.addr, align 8
   store ptr %field_value, ptr %field_value.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 1
   store i8 1, ptr %is_valid_, align 8
   %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this1, i32 0, i32 3
@@ -2396,7 +2396,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %entry1, ptr %entry.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %is_valid_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this2, i32 0, i32 1
   store i8 1, ptr %is_valid_, align 8
   %entry_ = getelementptr inbounds %"class.FLAC::Metadata::VorbisComment::Entry", ptr %this2, i32 0, i32 3
@@ -2463,7 +2463,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisComment5EntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN4FLAC8Metadata13VorbisComment5Entry5clearEv(ptr noundef nonnull align 8 dereferenceable(60) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -3291,7 +3291,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @FLAC__metadata_object_new(i32 noundef 4)
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata13VorbisCommentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3639,7 +3639,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this1, i32 0, i32 1
   %call = call ptr @FLAC__metadata_object_cuesheet_track_new()
   store ptr %call, ptr %object_, align 8
@@ -3656,7 +3656,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %track, ptr %track.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %track.addr, align 8
   %call = call ptr @FLAC__metadata_object_cuesheet_track_clone(ptr noundef %0)
@@ -3674,7 +3674,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %track, ptr %track.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %track.addr, align 8
   %object_2 = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %0, i32 0, i32 1
@@ -3721,7 +3721,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheet5TrackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_ = getelementptr inbounds %"class.FLAC::Metadata::CueSheet::Track", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %object_, align 8
   %cmp = icmp ne ptr null, %0
@@ -3864,7 +3864,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @FLAC__metadata_object_new(i32 noundef 5)
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8CueSheetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4308,7 +4308,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @FLAC__metadata_object_new(i32 noundef 6)
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7PictureE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4627,7 +4627,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %call = call ptr @FLAC__metadata_object_new(i32 noundef 2)
   call void @_ZN4FLAC8Metadata9PrototypeC2EP20FLAC__StreamMetadatab(ptr noundef nonnull align 8 dereferenceable(17) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata7UnknownE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5120,7 +5120,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::SimpleIterator", ptr %this1, i32 0, i32 1
   %call = call ptr @FLAC__metadata_simple_iterator_new()
   store ptr %call, ptr %iterator_, align 8
@@ -5135,7 +5135,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4FLAC8Metadata14SimpleIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN4FLAC8Metadata14SimpleIterator5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -5474,7 +5474,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata5ChainE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata5ChainE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %chain_ = getelementptr inbounds %"class.FLAC::Metadata::Chain", ptr %this1, i32 0, i32 1
   %call = call ptr @FLAC__metadata_chain_new()
   store ptr %call, ptr %chain_, align 8
@@ -5489,7 +5489,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata5ChainE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata5ChainE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
   %0 = load ptr, ptr %vfn, align 8
@@ -5810,7 +5810,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8IteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %iterator_ = getelementptr inbounds %"class.FLAC::Metadata::Iterator", ptr %this1, i32 0, i32 1
   %call = call ptr @FLAC__metadata_iterator_new()
   store ptr %call, ptr %iterator_, align 8
@@ -5825,7 +5825,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8IteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4FLAC8Metadata8IteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 2
   %0 = load ptr, ptr %vfn, align 8

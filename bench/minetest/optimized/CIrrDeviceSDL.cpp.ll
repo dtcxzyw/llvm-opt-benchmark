@@ -164,7 +164,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.4 = private unnamed_addr constant [23 x i8] c"SDL_MOUSE_TOUCH_EVENTS\00", align 1
 @.str.6 = private unnamed_addr constant [2 x i8] c".\00", align 1
 @_ZTVN3irr13CIrrDeviceSDLE = unnamed_addr constant { [57 x ptr], [5 x ptr] } { [57 x ptr] [ptr inttoptr (i64 456 to ptr), ptr null, ptr @_ZTIN3irr13CIrrDeviceSDLE, ptr @_ZN3irr13CIrrDeviceSDL3runEv, ptr @_ZN3irr13CIrrDeviceSDL5yieldEv, ptr @_ZN3irr13CIrrDeviceSDL5sleepEjb, ptr @_ZN3irr14CIrrDeviceStub14getVideoDriverEv, ptr @_ZN3irr14CIrrDeviceStub13getFileSystemEv, ptr @_ZN3irr14CIrrDeviceStub17getGUIEnvironmentEv, ptr @_ZN3irr14CIrrDeviceStub15getSceneManagerEv, ptr @_ZN3irr14CIrrDeviceStub16getCursorControlEv, ptr @_ZN3irr14CIrrDeviceStub9getLoggerEv, ptr @_ZN3irr14CIrrDeviceStub17getContextManagerEv, ptr @_ZN3irr14CIrrDeviceStub13getOSOperatorEv, ptr @_ZN3irr14CIrrDeviceStub8getTimerEv, ptr @_ZN3irr13CIrrDeviceSDL16setWindowCaptionEPKw, ptr @_ZN3irr13CIrrDeviceSDL13setWindowIconEPKNS_5video6IImageE, ptr @_ZNK3irr13CIrrDeviceSDL14isWindowActiveEv, ptr @_ZNK3irr13CIrrDeviceSDL15isWindowFocusedEv, ptr @_ZNK3irr13CIrrDeviceSDL17isWindowMinimizedEv, ptr @_ZNK3irr13CIrrDeviceSDL17isWindowMaximizedEv, ptr @_ZNK3irr13CIrrDeviceSDL12isFullscreenEv, ptr @_ZNK3irr14IrrlichtDevice15isWindowVisibleEv, ptr @_ZNK3irr13CIrrDeviceSDL14getColorFormatEv, ptr @_ZN3irr13CIrrDeviceSDL11closeDeviceEv, ptr @_ZNK3irr14CIrrDeviceStub10getVersionEv, ptr @_ZN3irr14CIrrDeviceStub16setEventReceiverEPNS_14IEventReceiverE, ptr @_ZN3irr14CIrrDeviceStub16getEventReceiverEv, ptr @_ZN3irr14CIrrDeviceStub17postEventFromUserERKNS_6SEventE, ptr @_ZN3irr14CIrrDeviceStub29setInputReceivingSceneManagerEPNS_5scene13ISceneManagerE, ptr @_ZN3irr13CIrrDeviceSDL12setResizableEb, ptr @_ZN3irr14CIrrDeviceStub13setWindowSizeERKNS_4core11dimension2dIjEE, ptr @_ZN3irr13CIrrDeviceSDL14minimizeWindowEv, ptr @_ZN3irr13CIrrDeviceSDL14maximizeWindowEv, ptr @_ZN3irr13CIrrDeviceSDL13restoreWindowEv, ptr @_ZN3irr13CIrrDeviceSDL17getWindowPositionEv, ptr @_ZN3irr13CIrrDeviceSDL17activateJoysticksERNS_4core5arrayINS_13SJoystickInfoEEE, ptr @_ZN3irr14CIrrDeviceStub21activateAccelerometerEf, ptr @_ZN3irr14CIrrDeviceStub23deactivateAccelerometerEv, ptr @_ZN3irr14CIrrDeviceStub21isAccelerometerActiveEv, ptr @_ZN3irr14CIrrDeviceStub24isAccelerometerAvailableEv, ptr @_ZN3irr14CIrrDeviceStub17activateGyroscopeEf, ptr @_ZN3irr14CIrrDeviceStub19deactivateGyroscopeEv, ptr @_ZN3irr14CIrrDeviceStub17isGyroscopeActiveEv, ptr @_ZN3irr14CIrrDeviceStub20isGyroscopeAvailableEv, ptr @_ZN3irr14CIrrDeviceStub20activateDeviceMotionEf, ptr @_ZN3irr14CIrrDeviceStub22deactivateDeviceMotionEv, ptr @_ZN3irr14CIrrDeviceStub20isDeviceMotionActiveEv, ptr @_ZN3irr14CIrrDeviceStub23isDeviceMotionAvailableEv, ptr @_ZN3irr14CIrrDeviceStub18setDoubleClickTimeEj, ptr @_ZNK3irr14CIrrDeviceStub18getDoubleClickTimeEv, ptr @_ZN3irr14CIrrDeviceStub19clearSystemMessagesEv, ptr @_ZNK3irr13CIrrDeviceSDL7getTypeEv, ptr @_ZNK3irr13CIrrDeviceSDL17getDisplayDensityEv, ptr @_ZN3irr13CIrrDeviceSDLD1Ev, ptr @_ZN3irr13CIrrDeviceSDLD0Ev, ptr @_ZN3irr14CIrrDeviceStub21checkSuccessiveClicksEiiNS_18EMOUSE_INPUT_EVENTE], [5 x ptr] [ptr inttoptr (i64 -456 to ptr), ptr inttoptr (i64 -456 to ptr), ptr @_ZTIN3irr13CIrrDeviceSDLE, ptr @_ZTv0_n24_N3irr13CIrrDeviceSDLD1Ev, ptr @_ZTv0_n24_N3irr13CIrrDeviceSDLD0Ev] }, align 8
-@_ZTTN3irr13CIrrDeviceSDLE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTCN3irr13CIrrDeviceSDLE0_NS_14CIrrDeviceStubE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [56 x ptr], [5 x ptr] }, ptr @_ZTCN3irr13CIrrDeviceSDLE0_NS_14IrrlichtDeviceE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [56 x ptr], [5 x ptr] }, ptr @_ZTCN3irr13CIrrDeviceSDLE0_NS_14IrrlichtDeviceE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTCN3irr13CIrrDeviceSDLE0_NS_14CIrrDeviceStubE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr13CIrrDeviceSDLE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTCN3irr13CIrrDeviceSDLE0_NS_14CIrrDeviceStubE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [56 x ptr], [5 x ptr] }, ptr @_ZTCN3irr13CIrrDeviceSDLE0_NS_14IrrlichtDeviceE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [56 x ptr], [5 x ptr] }, ptr @_ZTCN3irr13CIrrDeviceSDLE0_NS_14IrrlichtDeviceE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTCN3irr13CIrrDeviceSDLE0_NS_14CIrrDeviceStubE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i32 0, inrange i32 1, i32 3)], align 8
 @.str.7 = private unnamed_addr constant [9 x i8] c"Quit SDL\00", align 1
 @.str.18 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.19 = private unnamed_addr constant [27 x i8] c"Could not create window...\00", align 1
@@ -681,8 +681,8 @@ define void @_ZN3irr13CIrrDeviceSDLC2ERKNS_27SIrrlichtCreationParametersE(ptr no
   store ptr null, ptr %159, align 8, !tbaa !67
   %160 = getelementptr inbounds i8, ptr %157, i64 80
   store i32 1, ptr %160, align 8, !tbaa !69
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 0, i64 3), ptr %157, align 8, !tbaa !23
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 1, i64 3), ptr %158, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %157, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %158, align 8, !tbaa !23
   %161 = getelementptr inbounds i8, ptr %157, i64 8
   store ptr %0, ptr %161, align 8, !tbaa !70
   %162 = getelementptr inbounds i8, ptr %157, i64 16
@@ -14496,14 +14496,14 @@ define void @_ZN3irr13CIrrDeviceSDLC1ERKNS_27SIrrlichtCreationParametersE(ptr no
   %6 = alloca %"class.irr::core::string", align 8
   %7 = alloca %"class.irr::core::dimension2d", align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 456
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr17IReferenceCountedE, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !23
   %9 = getelementptr inbounds i8, ptr %0, i64 464
   store ptr null, ptr %9, align 8, !tbaa !67
   %10 = getelementptr inbounds i8, ptr %0, i64 472
   store i32 1, ptr %10, align 8, !tbaa !69
   tail call void @_ZN3irr14CIrrDeviceStubC2ERKNS_27SIrrlichtCreationParametersE(ptr noundef nonnull align 8 dereferenceable(233) %0, ptr noundef nonnull getelementptr inbounds ([6 x ptr], ptr @_ZTTN3irr13CIrrDeviceSDLE, i64 0, i64 1), ptr noundef nonnull align 8 dereferenceable(112) %1) #21
-  store ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !23
-  store ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i64 0, inrange i32 1, i64 3), ptr %8, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [57 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDLE, i64 0, i32 1, i64 3), ptr %8, align 8, !tbaa !23
   %11 = getelementptr inbounds i8, ptr %0, i64 248
   %12 = getelementptr inbounds i8, ptr %1, i64 48
   %13 = load ptr, ptr %12, align 8, !tbaa !34
@@ -14763,8 +14763,8 @@ define void @_ZN3irr13CIrrDeviceSDLC1ERKNS_27SIrrlichtCreationParametersE(ptr no
   store ptr null, ptr %154, align 8, !tbaa !67
   %155 = getelementptr inbounds i8, ptr %152, i64 80
   store i32 1, ptr %155, align 8, !tbaa !69
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 0, i64 3), ptr %152, align 8, !tbaa !23
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 1, i64 3), ptr %153, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %152, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %153, align 8, !tbaa !23
   %156 = getelementptr inbounds i8, ptr %152, i64 8
   store ptr %0, ptr %156, align 8, !tbaa !70
   %157 = getelementptr inbounds i8, ptr %152, i64 16
@@ -17065,7 +17065,7 @@ define linkonce_odr noundef i64 @_ZN3irr4core13utf8ToWStringERNS0_6stringIwEEPKc
   store i64 1114111, ptr %8, align 8, !tbaa !892
   %9 = getelementptr inbounds i8, ptr %7, i64 32
   store i32 0, ptr %9, align 8, !tbaa !898
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !23
   store ptr %7, ptr %4, align 8, !tbaa !899
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
@@ -17891,7 +17891,7 @@ define linkonce_odr noundef i64 @_ZN3irr4core13wStringToUTF8ERNS0_6stringIcEEPKw
   store i64 1114111, ptr %8, align 8, !tbaa !892
   %9 = getelementptr inbounds i8, ptr %7, i64 32
   store i32 0, ptr %9, align 8, !tbaa !898
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVSt12codecvt_utf8IwLm1114111ELSt12codecvt_mode0EE, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !23
   store ptr %7, ptr %4, align 8, !tbaa !899
   %10 = getelementptr inbounds i8, ptr %4, i64 8
   %11 = getelementptr inbounds i8, ptr %4, i64 24
@@ -20625,9 +20625,9 @@ define linkonce_odr noundef i32 @_ZNK3irr13CIrrDeviceSDL14CCursorControl13getAct
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr13CIrrDeviceSDL14CCursorControlD1Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !23
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !939
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -20670,9 +20670,9 @@ define linkonce_odr void @_ZN3irr13CIrrDeviceSDL14CCursorControlD1Ev(ptr noundef
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr13CIrrDeviceSDL14CCursorControlD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !23
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !23
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !939
   %5 = getelementptr inbounds i8, ptr %0, i64 40
@@ -20720,9 +20720,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr13CIrrDeviceSDL14CCursorControlD1Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !23
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !939
   %9 = getelementptr inbounds i8, ptr %5, i64 40
@@ -20769,9 +20769,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr13CIrrDeviceSDL14CCursorControlD0Ev(ptr
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !23
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !23
+  store ptr getelementptr inbounds ({ [22 x ptr], [5 x ptr] }, ptr @_ZTVN3irr13CIrrDeviceSDL14CCursorControlE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !23
   %7 = getelementptr inbounds i8, ptr %5, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !939
   %9 = getelementptr inbounds i8, ptr %5, i64 40

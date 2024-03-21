@@ -900,7 +900,7 @@ invoke.cont154:                                   ; preds = %invoke.cont149, %if
   %cond.i.i.i.i2972173 = phi ptr [ %call5.i.i.i.i2.i6.i310, %if.then.i.i.i.i.i.i.i.i.i305 ], [ null, %invoke.cont149 ]
   %add.ptr.i.i.i.i.i.i.i.i.i306 = getelementptr inbounds i8, ptr %cond.i.i.i.i2972173, i64 %sub.ptr.sub.i.i291
   %call.i = call noundef ptr @_ZN4pstd3pmr20get_default_resourceEv() #21
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr %resource, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr %resource, align 64
   %upstream2.i.i = getelementptr inbounds i8, ptr %resource, i64 8
   store ptr %call.i, ptr %upstream2.i.i, align 8
   %block_size.i.i = getelementptr inbounds i8, ptr %resource, i64 16
@@ -3871,7 +3871,7 @@ if.then.i.i.i1521:                                ; preds = %_ZNSt6vectorIN4pbrt
   br label %_ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit1522
 
 _ZNSt6vectorIN4pbrt6Point3IfEESaIS2_EED2Ev.exit1522: ; preds = %_ZNSt6vectorIN4pbrt7Normal3IfEESaIS2_EED2Ev.exit, %if.then.i.i.i1521
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr %resource, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr %resource, align 64
   %block_list.i.i = getelementptr inbounds i8, ptr %resource, i64 40
   %396 = load ptr, ptr %block_list.i.i, align 8
   %tobool.not3.i.i = icmp eq ptr %396, null
@@ -4028,7 +4028,7 @@ ehcleanup945:                                     ; preds = %if.then.i.i.i1577, 
   %v150.sroa.0.02506 = phi ptr [ %v150.sroa.0.0.lcssa, %lpad585 ], [ %v150.sroa.0.02669, %_ZNSt6vectorIPN4pbrt8SDVertexESaIS2_EED2Ev.exit889 ], [ %v150.sroa.0.02669, %if.then.i.i.i892 ], [ %v150.sroa.0.0.lcssa, %ehcleanup944 ], [ %v150.sroa.0.0.lcssa, %if.then.i.i.i1577 ]
   %f148.sroa.0.7 = phi ptr [ %f148.sroa.0.0.lcssa, %lpad585 ], [ %f148.sroa.0.6, %_ZNSt6vectorIPN4pbrt8SDVertexESaIS2_EED2Ev.exit889 ], [ %f148.sroa.0.6, %if.then.i.i.i892 ], [ %f148.sroa.0.0.lcssa, %ehcleanup944 ], [ %f148.sroa.0.0.lcssa, %if.then.i.i.i1577 ]
   %.pn181.pn = phi { ptr, i32 } [ %286, %lpad585 ], [ %.pn181, %_ZNSt6vectorIPN4pbrt8SDVertexESaIS2_EED2Ev.exit889 ], [ %.pn181, %if.then.i.i.i892 ], [ %.pn179, %ehcleanup944 ], [ %.pn179, %if.then.i.i.i1577 ]
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, inrange i32 0, i64 2), ptr %resource, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i64 0, i32 0, i64 2), ptr %resource, align 64
   %block_list.i.i1579 = getelementptr inbounds i8, ptr %resource, i64 40
   %413 = load ptr, ptr %block_list.i.i1579, align 8
   %tobool.not3.i.i1580 = icmp eq ptr %413, null

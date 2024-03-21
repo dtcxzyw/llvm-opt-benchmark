@@ -4985,7 +4985,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11TermDbSygusE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11TermDbSygusE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_qstate = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermDbSygus", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %qs.addr, align 8
   store ptr %1, ptr %d_qstate, align 8
@@ -20822,7 +20822,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11TermDbSygusE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory11quantifiers11TermDbSygusE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_sel_weight = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermDbSygus", ptr %this1, i32 0, i32 27
   call void @_ZNSt3mapIN4cvc58internal8TypeNodeES_INS1_12NodeTemplateILb1EEEjSt4lessIS4_ESaISt4pairIKS4_jEEES5_IS2_ESaIS7_IKS2_SB_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %d_sel_weight) #3
   %d_tinfo = getelementptr inbounds %"class.cvc5::internal::theory::quantifiers::TermDbSygus", ptr %this1, i32 0, i32 26

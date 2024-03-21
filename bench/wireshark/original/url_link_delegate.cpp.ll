@@ -142,7 +142,7 @@ define void @_ZN15UrlLinkDelegateC2EP7QObject(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN19QStyledItemDelegateC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV15UrlLinkDelegate, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV15UrlLinkDelegate, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.UrlLinkDelegate, ptr %7, i32 0, i32 1
   store i32 -1, ptr %9, align 8
   %10 = getelementptr inbounds %class.UrlLinkDelegate, ptr %7, i32 0, i32 2
@@ -208,7 +208,7 @@ define void @_ZN15UrlLinkDelegateD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV15UrlLinkDelegate, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV15UrlLinkDelegate, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.UrlLinkDelegate, ptr %3, i32 0, i32 2
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

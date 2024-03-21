@@ -12249,7 +12249,7 @@ define internal void @_ZN12_GLOBAL__N_17SimPassC2Ev(ptr noundef nonnull align 8 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_17SimPassE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_17SimPassE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %1
@@ -12342,7 +12342,7 @@ define internal void @_ZN12_GLOBAL__N_110Fst2TbPassC2Ev(ptr noundef nonnull alig
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %8) #3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110Fst2TbPassE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN12_GLOBAL__N_110Fst2TbPassE, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 
 13:                                               ; preds = %1
@@ -14672,7 +14672,7 @@ define internal void @_ZN12_GLOBAL__N_19VCDWriterC2EPNS_9SimWorkerENSt7__cxx1112
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_112OutputWriterC2EPNS_9SimWorkerE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19VCDWriterE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19VCDWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"struct.(anonymous namespace)::VCDWriter", ptr %9, i32 0, i32 1
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11)
           to label %12 unwind label %16
@@ -14835,7 +14835,7 @@ define internal void @_ZN12_GLOBAL__N_19FSTWriterC2EPNS_9SimWorkerENSt7__cxx1112
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_112OutputWriterC2EPNS_9SimWorkerE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19FSTWriterE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19FSTWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %9, i32 0, i32 1
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %9, i32 0, i32 2
@@ -14986,7 +14986,7 @@ define internal void @_ZN12_GLOBAL__N_19AIWWriterC2EPNS_9SimWorkerENSt7__cxx1112
   %9 = load ptr, ptr %4, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_112OutputWriterC2EPNS_9SimWorkerE(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19AIWWriterE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19AIWWriterE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %9, i32 0, i32 1
   invoke void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(248) %11)
           to label %12 unwind label %25
@@ -23722,7 +23722,7 @@ define internal void @_ZN12_GLOBAL__N_112OutputWriterC2EPNS_9SimWorkerE(ptr noun
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112OutputWriterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_112OutputWriterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = load ptr, ptr %4, align 8
   %7 = getelementptr inbounds %"struct.(anonymous namespace)::OutputWriter", ptr %5, i32 0, i32 1
   store ptr %6, ptr %7, align 8
@@ -23741,7 +23741,7 @@ define internal void @_ZN12_GLOBAL__N_19VCDWriterD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19VCDWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19VCDWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::VCDWriter", ptr %3, i32 0, i32 1
   call void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248) %4) #3
   call void @_ZN12_GLOBAL__N_112OutputWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -40233,7 +40233,7 @@ define internal void @_ZN12_GLOBAL__N_19FSTWriterD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19FSTWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19FSTWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::FSTWriter", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   invoke void @fstWriterClose(ptr noundef %5)
@@ -44327,7 +44327,7 @@ define internal void @_ZN12_GLOBAL__N_19AIWWriterD2Ev(ptr noundef nonnull align 
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19AIWWriterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19AIWWriterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.(anonymous namespace)::AIWWriter", ptr %5, i32 0, i32 1
   %7 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %6, i8 noundef signext 46)
           to label %8 unwind label %17

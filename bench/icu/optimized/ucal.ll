@@ -573,7 +573,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end9
 
 if.else:                                          ; preds = %if.then
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %id, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %id, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %id, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fID.i = getelementptr inbounds i8, ptr %call1, i64 8
@@ -662,7 +662,7 @@ cond.true:                                        ; preds = %if.then
 
 cond.end:                                         ; preds = %if.then, %cond.true
   %cond = phi i32 [ %call2, %cond.true ], [ %len, %if.then ]
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %zoneStrID, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %zoneStrID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %zoneStrID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %len.lobit = lshr i32 %len, 31
@@ -736,7 +736,7 @@ if.then3:                                         ; preds = %if.then
   br label %if.end9
 
 if.else:                                          ; preds = %if.then
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %id, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %id, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %id, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fID.i = getelementptr inbounds i8, ptr %call1, i64 8
@@ -1099,7 +1099,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6icu_758Calendar11getTimeZoneEv(ptr noundef nonnull align 8 dereferenceable(618) %cal)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %id, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %id, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %id, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fID.i = getelementptr inbounds i8, ptr %call1, i64 8
@@ -1156,7 +1156,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = tail call noundef nonnull align 8 dereferenceable(72) ptr @_ZNK6icu_758Calendar11getTimeZoneEv(ptr noundef nonnull align 8 dereferenceable(618) %cal)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %id, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %id, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %id, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cmp = icmp eq ptr %result, null
@@ -1913,7 +1913,7 @@ if.then11:                                        ; preds = %if.end3
   br label %return
 
 if.end12:                                         ; preds = %if.end3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %canonical, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %canonical, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %canonical, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store i8 0, ptr %systemID, align 1
@@ -1991,7 +1991,7 @@ entry:
   %ianaID = alloca %"class.icu_75::UnicodeString", align 8
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::Char16Ptr", align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %ianaID, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %ianaID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %ianaID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %id, i32 noundef %len)
@@ -2388,7 +2388,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %resultWinID, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %resultWinID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %resultWinID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %id, i32 noundef %len)
@@ -2471,7 +2471,7 @@ entry:
   br i1 %cmp.i, label %if.end, label %return
 
 if.end:                                           ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %resultID, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %resultID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %resultID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1EPKDsi(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp, ptr noundef %winid, i32 noundef %len)

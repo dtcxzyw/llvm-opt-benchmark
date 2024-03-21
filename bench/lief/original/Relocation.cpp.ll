@@ -104,7 +104,7 @@ define void @_ZN4LIEF5MachO10RelocationC2Ev(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF10RelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %3)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4LIEF5MachO10RelocationE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4LIEF5MachO10RelocationE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::MachO::Relocation", ptr %3, i32 0, i32 1
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds %"class.LIEF::MachO::Relocation", ptr %3, i32 0, i32 2
@@ -129,7 +129,7 @@ define void @_ZN4LIEF5MachO10RelocationC2ERKS1_(ptr noundef nonnull align 8 dere
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF10RelocationC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(17) %5, ptr noundef nonnull align 8 dereferenceable(17) %6)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4LIEF5MachO10RelocationE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4LIEF5MachO10RelocationE, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.LIEF::MachO::Relocation", ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
   %8 = getelementptr inbounds %"class.LIEF::MachO::Relocation", ptr %5, i32 0, i32 2
@@ -161,7 +161,7 @@ define void @_ZN4LIEF5MachO10RelocationC2Emh(ptr noundef nonnull align 8 derefer
   store i8 %2, ptr %6, align 1
   %7 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF10RelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %7)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4LIEF5MachO10RelocationE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4LIEF5MachO10RelocationE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.LIEF::MachO::Relocation", ptr %7, i32 0, i32 1
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds %"class.LIEF::MachO::Relocation", ptr %7, i32 0, i32 2

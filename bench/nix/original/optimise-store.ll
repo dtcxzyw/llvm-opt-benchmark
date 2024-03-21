@@ -1006,7 +1006,7 @@ $_ZNSt15strong_ordering7greaterE = comdat any
 @_ZTISt23_Sp_counted_ptr_inplaceI16CmdOptimiseStoreSaIvELN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSSt23_Sp_counted_ptr_inplaceI16CmdOptimiseStoreSaIvELN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE }, comdat, align 8
 @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE = linkonce_odr unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr @_ZTISt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED0Ev, ptr @__cxa_pure_virtual, ptr @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTV16CmdOptimiseStore = linkonce_odr unnamed_addr constant { [17 x ptr], [20 x ptr] } { [17 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTI16CmdOptimiseStore, ptr @_ZN16CmdOptimiseStoreD1Ev, ptr @_ZN16CmdOptimiseStoreD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @_ZN16CmdOptimiseStore3runEN3nix3refINS0_5StoreEEE, ptr @_ZN16CmdOptimiseStore11descriptionB5cxx11Ev, ptr @_ZN16CmdOptimiseStore3docB5cxx11Ev], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -24 to ptr), ptr null, ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTI16CmdOptimiseStore, ptr @_ZTv0_n24_N16CmdOptimiseStore11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZTv0_n40_N16CmdOptimiseStore3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
-@_ZTT16CmdOptimiseStore = linkonce_odr unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTT16CmdOptimiseStore = linkonce_odr unnamed_addr constant [8 x ptr] [ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, i32 0, i32 8), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [15 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, inrange i32 0, i32 8), ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix7CommandE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [12 x ptr], [20 x ptr] }, ptr @_ZTC16CmdOptimiseStore0_N3nix7CommandE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @_ZTC16CmdOptimiseStore0_N3nix12StoreCommandE = linkonce_odr unnamed_addr constant { [15 x ptr], [20 x ptr] } { [15 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTIN3nix12StoreCommandE, ptr @_ZN3nix12StoreCommandD1Ev, ptr @_ZN3nix12StoreCommandD0Ev, ptr @_ZN3nix12StoreCommand3runEv, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv, ptr @_ZN3nix12StoreCommand11createStoreEv, ptr @__cxa_pure_virtual], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN3nix12StoreCommandE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
 @_ZTIN3nix12StoreCommandE = external constant ptr
 @_ZTC16CmdOptimiseStore0_N3nix7CommandE = linkonce_odr unnamed_addr constant { [12 x ptr], [20 x ptr] } { [12 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 24 to ptr), ptr null, ptr @_ZTIN3nix7CommandE, ptr @_ZN3nix7CommandD1Ev, ptr @_ZN3nix7CommandD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN3nix7Command19experimentalFeatureEv, ptr @_ZN3nix7Command8categoryEv], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN3nix7CommandE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev] }, comdat, align 8
@@ -3802,7 +3802,7 @@ define linkonce_odr void @_ZNSt23_Sp_counted_ptr_inplaceI16CmdOptimiseStoreSaIvE
   store ptr %0, ptr %3, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #1
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16CmdOptimiseStoreSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI16CmdOptimiseStoreSaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %6, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceI16CmdOptimiseStoreSaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES1_(ptr noundef nonnull align 8 dereferenceable(232) %7) #1
   %8 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceI16CmdOptimiseStoreSaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(248) %6) #1
@@ -3982,7 +3982,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -4172,10 +4172,10 @@ define linkonce_odr void @_ZN16CmdOptimiseStoreC1Ev(ptr noundef nonnull align 8 
           to label %7 unwind label %9
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, inrange i32 0, i32 8), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, inrange i32 0, i32 8), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, i32 0, i32 8), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, i32 0, i32 8), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 24
-  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, inrange i32 1, i32 11), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr], [20 x ptr] }, ptr @_ZTV16CmdOptimiseStore, i32 0, i32 1, i32 11), ptr %8, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -4203,7 +4203,7 @@ define linkonce_odr void @_ZN3nix4ArgsC2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nix::Args", ptr %3, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3nix4Args4FlagEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #1
   %5 = getelementptr inbounds %"class.nix::Args", ptr %3, i32 0, i32 2
@@ -4255,7 +4255,7 @@ define linkonce_odr void @_ZN3nix4ArgsD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nix::Args", ptr %3, i32 0, i32 5
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #1
   %5 = getelementptr inbounds %"class.nix::Args", ptr %3, i32 0, i32 4

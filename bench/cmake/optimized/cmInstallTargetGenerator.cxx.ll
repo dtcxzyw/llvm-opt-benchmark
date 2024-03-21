@@ -314,7 +314,7 @@ _ZN19cmListFileBacktraceD2Ev.exit:                ; preds = %18, %37, %50, %_ZNS
   %56 = zext i1 %9 to i8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #19
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #19
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %57 = getelementptr inbounds i8, ptr %0, i64 200
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %57, ptr noundef nonnull align 8 dereferenceable(32) %1) #19
   %58 = getelementptr inbounds i8, ptr %0, i64 232
@@ -441,7 +441,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr n
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24cmInstallTargetGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(282) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 200
@@ -455,7 +455,7 @@ declare void @_ZN18cmInstallGeneratorD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24cmInstallTargetGeneratorD0Ev(ptr noundef nonnull align 8 dereferenceable(282) %0) unnamed_addr #4 align 2 {
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV24cmInstallTargetGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 240
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #19
   %3 = getelementptr inbounds i8, ptr %0, i64 200

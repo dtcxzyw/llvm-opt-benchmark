@@ -218,14 +218,14 @@ _ZN9grpc_core13RefCountedPtrINS_12_GLOBAL__N_114FailHandshakerEED2Ev.exit: ; pre
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #20, !noalias !4
   %refs_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i.i, align 8, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_114FailHandshakerE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_114FailHandshakerE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !4
   br label %return
 
 if.else:                                          ; preds = %entry
   %call.i1 = tail call noalias noundef nonnull dereferenceable(512) ptr @_Znwm(i64 noundef 512) #20, !noalias !7
   %refs_.i.i.i.i2 = getelementptr inbounds i8, ptr %call.i1, i64 8
   store i64 1, ptr %refs_.i.i.i.i2, align 8, !noalias !7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_118SecurityHandshakerE, i64 0, inrange i32 0, i64 2), ptr %call.i1, align 8, !noalias !7
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_118SecurityHandshakerE, i64 0, i32 0, i64 2), ptr %call.i1, align 8, !noalias !7
   %handshaker_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 16
   store ptr %handshaker, ptr %handshaker_.i.i, align 8, !noalias !7
   %connector_.i.i = getelementptr inbounds i8, ptr %call.i1, i64 24
@@ -334,7 +334,7 @@ entry:
   %agg.tmp2 = alloca %"class.std::unique_ptr", align 8
   %handshaker_registry_.i = getelementptr inbounds i8, ptr %builder, i64 560
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20, !noalias !14
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_131ClientSecurityHandshakerFactoryE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !14
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_131ClientSecurityHandshakerFactoryE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !14
   store ptr %call.i, ptr %agg.tmp, align 8
   invoke void @_ZN9grpc_core18HandshakerRegistry7Builder25RegisterHandshakerFactoryENS_14HandshakerTypeESt10unique_ptrINS_17HandshakerFactoryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(48) %handshaker_registry_.i, i32 noundef 0, ptr noundef nonnull %agg.tmp)
           to label %invoke.cont unwind label %lpad
@@ -354,7 +354,7 @@ _ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i: ; preds =
 _ZNSt10unique_ptrIN9grpc_core12_GLOBAL__N_131ClientSecurityHandshakerFactoryESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN9grpc_core17HandshakerFactoryEEclEPS1_.exit.i, %invoke.cont
   store ptr null, ptr %agg.tmp, align 8
   %call.i7 = call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #20, !noalias !17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_131ServerSecurityHandshakerFactoryE, i64 0, inrange i32 0, i64 2), ptr %call.i7, align 8, !noalias !17
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_131ServerSecurityHandshakerFactoryE, i64 0, i32 0, i64 2), ptr %call.i7, align 8, !noalias !17
   store ptr %call.i7, ptr %agg.tmp2, align 8
   invoke void @_ZN9grpc_core18HandshakerRegistry7Builder25RegisterHandshakerFactoryENS_14HandshakerTypeESt10unique_ptrINS_17HandshakerFactoryESt14default_deleteIS4_EE(ptr noundef nonnull align 8 dereferenceable(48) %handshaker_registry_.i, i32 noundef 1, ptr noundef nonnull %agg.tmp2)
           to label %invoke.cont5 unwind label %lpad4
@@ -441,7 +441,7 @@ entry:
 
 init.check:                                       ; preds = %entry
   store i8 1, ptr @_ZGVN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, inrange i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i64 0, i32 0, i64 2), ptr @_ZN9grpc_core19NoDestructSingletonINS_14promise_detail10UnwakeableEE6value_E, align 8
   br label %init.end
 
 init.end:                                         ; preds = %init.check, %entry
@@ -1730,7 +1730,7 @@ declare void @_ZN4absl12lts_202308025MutexD1Ev(ptr noundef nonnull align 8 deref
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN9grpc_core12_GLOBAL__N_118SecurityHandshakerD2Ev(ptr noundef nonnull align 8 dereferenceable(512) %this) unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_118SecurityHandshakerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core12_GLOBAL__N_118SecurityHandshakerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %handshaker_ = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %handshaker_, align 8
   invoke void @_Z22tsi_handshaker_destroyP14tsi_handshaker(ptr noundef %0)
@@ -2750,7 +2750,7 @@ invoke.cont1:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(200) %0, i8 0, i64 184, i1 false), !noalias !41
   %refs_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 1, ptr %refs_.i.i.i, align 8, !noalias !41
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNode8SecurityE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !41
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNode8SecurityE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !41
   store ptr %call.i, ptr %agg.result, align 8, !alias.scope !41
   store i32 1, ptr %0, align 8
   store i32 0, ptr %ref.tmp, align 8, !alias.scope !44
@@ -3060,7 +3060,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 define linkonce_odr void @_ZN9grpc_core8channelz10SocketNode8SecurityD2Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i = alloca %class.anon.159, align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNode8SecurityE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNode8SecurityE, i64 0, i32 0, i64 2), ptr %this, align 8
   %other = getelementptr inbounds i8, ptr %this, i64 136
   %_M_engaged.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i8, ptr %_M_engaged.i.i.i.i, align 8
@@ -3120,7 +3120,7 @@ _ZNSt8optionalIN9grpc_core8channelz10SocketNode8Security3TlsEED2Ev.exit: ; preds
 define linkonce_odr void @_ZN9grpc_core8channelz10SocketNode8SecurityD0Ev(ptr noundef nonnull align 8 dereferenceable(200) %this) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i.i.i.i.i = alloca %class.anon.159, align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNode8SecurityE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNode8SecurityE, i64 0, i32 0, i64 2), ptr %this, align 8
   %other.i = getelementptr inbounds i8, ptr %this, i64 136
   %_M_engaged.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 192
   %0 = load i8, ptr %_M_engaged.i.i.i.i.i, align 8

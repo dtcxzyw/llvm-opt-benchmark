@@ -7043,7 +7043,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI19Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI19PlanTest_Basic_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI19PlanTest_Basic_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9144,7 +9144,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32PlanTest_DoubleOutputDirect_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32PlanTest_DoubleOutputDirect_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10043,7 +10043,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI34Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34PlanTest_DoubleOutputIndirect_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34PlanTest_DoubleOutputIndirect_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -11422,7 +11422,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29PlanTest_DoubleDependent_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29PlanTest_DoubleDependent_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -14785,7 +14785,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30PlanTest_PoolWithDepthOne_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30PlanTest_PoolWithDepthOne_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -14907,7 +14907,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI25Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25PlanTest_ConsolePool_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25PlanTest_ConsolePool_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -15029,7 +15029,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI31Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31PlanTest_PoolsWithDepthTwo_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31PlanTest_PoolsWithDepthTwo_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18128,7 +18128,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI36Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36PlanTest_PoolWithRedundantEdges_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36PlanTest_PoolWithRedundantEdges_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21607,7 +21607,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33PlanTest_PoolWithFailingEdge_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33PlanTest_PoolWithFailingEdge_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -23716,7 +23716,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI37Plan
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37PlanTest_PriorityWithoutBuildLog_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37PlanTest_PriorityWithoutBuildLog_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29707,7 +29707,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI21Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21BuildTest_NoWork_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI21BuildTest_NoWork_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29952,7 +29952,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI22Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22BuildTest_OneStep_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22BuildTest_OneStep_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30794,7 +30794,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI23Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23BuildTest_OneStep2_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23BuildTest_OneStep2_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -31552,7 +31552,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI22Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22BuildTest_TwoStep_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22BuildTest_TwoStep_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -33175,7 +33175,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI25Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25BuildTest_TwoOutputs_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25BuildTest_TwoOutputs_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -34084,7 +34084,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29BuildTest_ImplicitOutput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29BuildTest_ImplicitOutput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -34993,7 +34993,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI25Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25BuildTest_MultiOutIn_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25BuildTest_MultiOutIn_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -35773,7 +35773,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI20Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20BuildTest_Chain_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20BuildTest_Chain_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -37493,7 +37493,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI27Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27BuildTest_MissingInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27BuildTest_MissingInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -37903,7 +37903,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_MissingTarget_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_MissingTarget_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -38277,7 +38277,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33BuildTest_MissingInputTarget_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33BuildTest_MissingInputTarget_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -38687,7 +38687,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI23Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23BuildTest_MakeDirs_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI23BuildTest_MakeDirs_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -39624,7 +39624,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29BuildTest_DepFileMissing_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29BuildTest_DepFileMissing_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -40349,7 +40349,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI24Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24BuildTest_DepFileOK_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI24BuildTest_DepFileOK_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -42293,7 +42293,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32BuildTest_DepFileParseError_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32BuildTest_DepFileParseError_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -42919,7 +42919,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI34Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34BuildTest_EncounterReadyTwice_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34BuildTest_EncounterReadyTwice_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -44143,7 +44143,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_OrderOnlyDeps_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_OrderOnlyDeps_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -47300,7 +47300,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35BuildTest_RebuildOrderOnlyDeps_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35BuildTest_RebuildOrderOnlyDeps_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -49550,7 +49550,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI20Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20BuildTest_Phony_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI20BuildTest_Phony_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -50482,7 +50482,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI26Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26BuildTest_PhonyNoWork_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26BuildTest_PhonyNoWork_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -51195,7 +51195,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33BuildTest_PhonySelfReference_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33BuildTest_PhonySelfReference_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -57138,7 +57138,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase1_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase1_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -57260,7 +57260,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase2_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase2_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -57382,7 +57382,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase3_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase3_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -57504,7 +57504,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase4_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase4_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -57626,7 +57626,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase5_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase5_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -57748,7 +57748,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI28Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase6_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI28BuildTest_PhonyUseCase6_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -57870,7 +57870,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI19Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI19BuildTest_Fail_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI19BuildTest_Fail_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -58633,7 +58633,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30BuildTest_SwallowFailures_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30BuildTest_SwallowFailures_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -59399,7 +59399,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35BuildTest_SwallowFailuresLimit_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35BuildTest_SwallowFailuresLimit_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -60185,7 +60185,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI34Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34BuildTest_SwallowFailuresPool_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34BuildTest_SwallowFailuresPool_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -60951,7 +60951,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildTest_PoolEdgesReadyButNotWanted_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildTest_PoolEdgesReadyButNotWanted_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -61624,7 +61624,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI48Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI48BuildWithLogTest_ImplicitGeneratedOutOfDate_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI48BuildWithLogTest_ImplicitGeneratedOutOfDate_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -62370,7 +62370,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI49Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49BuildWithLogTest_ImplicitGeneratedOutOfDate2_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49BuildWithLogTest_ImplicitGeneratedOutOfDate2_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -64524,7 +64524,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI39Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39BuildWithLogTest_NotInLogButOnDisk_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39BuildWithLogTest_NotInLogButOnDisk_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -65470,7 +65470,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildWithLogTest_RebuildAfterFailure_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildWithLogTest_RebuildAfterFailure_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -67157,7 +67157,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildWithLogTest_RebuildWithNoInputs_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildWithLogTest_RebuildWithNoInputs_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -68582,7 +68582,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32BuildWithLogTest_RestatTest_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32BuildWithLogTest_RestatTest_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -70975,7 +70975,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI39Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39BuildWithLogTest_RestatMissingFile_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI39BuildWithLogTest_RestatMissingFile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -72305,7 +72305,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI54Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI54BuildWithLogTest_RestatSingleDependentOutputDirty_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI54BuildWithLogTest_RestatSingleDependentOutputDirty_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -73731,7 +73731,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI40Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40BuildWithLogTest_RestatMissingInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40BuildWithLogTest_RestatMissingInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -75574,7 +75574,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI49Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49BuildWithLogTest_RestatInputChangesDueToRule_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI49BuildWithLogTest_RestatInputChangesDueToRule_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -77433,7 +77433,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI48Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI48BuildWithLogTest_GeneratedPlainDepfileMtime_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI48BuildWithLogTest_GeneratedPlainDepfileMtime_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -78628,7 +78628,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33BuildDryRun_AllCommandsShown_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33BuildDryRun_AllCommandsShown_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -79546,7 +79546,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29BuildTest_RspFileSuccess_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29BuildTest_RspFileSuccess_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -81790,7 +81790,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29BuildTest_RspFileFailure_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29BuildTest_RspFileFailure_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -83455,7 +83455,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI42Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42BuildWithLogTest_RspFileCmdLineChange_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42BuildWithLogTest_RspFileCmdLineChange_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -85237,7 +85237,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI31Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31BuildTest_InterruptCleanup_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31BuildTest_InterruptCleanup_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -86825,7 +86825,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI37Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_StatFailureAbortsBuild_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_StatFailureAbortsBuild_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -87429,7 +87429,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32BuildTest_PhonyWithNoInputs_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32BuildTest_PhonyWithNoInputs_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -88624,7 +88624,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI47Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47BuildTest_DepsGccWithEmptyDepfileErrorsOut_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47BuildTest_DepsGccWithEmptyDepfileErrorsOut_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -89523,7 +89523,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI34Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34BuildTest_StatusFormatElapsed_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34BuildTest_StatusFormatElapsed_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -89748,7 +89748,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI45Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45BuildTest_StatusFormatReplacePlaceholder_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45BuildTest_StatusFormatReplacePlaceholder_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -89967,7 +89967,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI30Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30BuildTest_FailedDepsParse_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI30BuildTest_FailedDepsParse_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -90883,7 +90883,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI52Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI52BuildWithQueryDepsLogTest_TwoOutputsDepFileMSVC_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI52BuildWithQueryDepsLogTest_TwoOutputsDepFileMSVC_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -92108,7 +92108,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI58Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI58BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOneLine_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI58BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOneLine_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -93559,7 +93559,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI65Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -95010,7 +95010,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI66Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI66BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineOutput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI66BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineOutput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -96461,7 +96461,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI65Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlyMainOutput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlyMainOutput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -97912,7 +97912,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI70Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI70BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlySecondaryOutput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI70BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlySecondaryOutput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -99540,7 +99540,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildWithDepsLogTest_Straightforward_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildWithDepsLogTest_Straightforward_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -101925,7 +101925,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI38Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38BuildWithDepsLogTest_ObsoleteDeps_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38BuildWithDepsLogTest_ObsoleteDeps_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -104419,7 +104419,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI45Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45BuildWithDepsLogTest_DepsIgnoredInDryRun_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45BuildWithDepsLogTest_DepsIgnoredInDryRun_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -105378,7 +105378,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI53Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI53BuildWithDepsLogTest_TestInputMtimeRaceCondition_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI53BuildWithDepsLogTest_TestInputMtimeRaceCondition_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -108076,7 +108076,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI64Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI64BuildWithDepsLogTest_TestInputMtimeRaceConditionWithDepFile_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI64BuildWithDepsLogTest_TestInputMtimeRaceConditionWithDepFile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -111837,7 +111837,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI38Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38BuildTest_RestatDepfileDependency_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI38BuildTest_RestatDepfileDependency_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -112677,7 +112677,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI56Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI56BuildWithDepsLogTest_RestatDepfileDependencyDepsLog_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI56BuildWithDepsLogTest_RestatDepfileDependencyDepsLog_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -114875,7 +114875,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI42Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42BuildWithDepsLogTest_DepFileOKDepsLog_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42BuildWithDepsLogTest_DepFileOKDepsLog_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -116988,7 +116988,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI57Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57BuildWithDepsLogTest_DiscoveredDepDuringBuildChanged_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57BuildWithDepsLogTest_DiscoveredDepDuringBuildChanged_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -119803,7 +119803,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35BuildTest_RestatMissingDepfile_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35BuildTest_RestatMissingDepfile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -120249,7 +120249,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI53Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI53BuildWithDepsLogTest_RestatMissingDepfileDepslog_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI53BuildWithDepsLogTest_RestatMissingDepfileDepslog_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -121693,7 +121693,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI48Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI48BuildTest_WrongOutputInDepfileCausesRebuild_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI48BuildTest_WrongOutputInDepfileCausesRebuild_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -122272,7 +122272,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI22Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22BuildTest_Console_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI22BuildTest_Console_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -123083,7 +123083,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI37Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_DyndepMissingAndNoRule_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_DyndepMissingAndNoRule_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -123571,7 +123571,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI44Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44BuildTest_DyndepReadyImplicitConnection_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44BuildTest_DyndepReadyImplicitConnection_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -124538,7 +124538,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI37Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_DyndepReadySyntaxError_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_DyndepReadySyntaxError_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -125086,7 +125086,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI34Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34BuildTest_DyndepReadyCircular_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34BuildTest_DyndepReadyCircular_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -125694,7 +125694,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI26Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26BuildTest_DyndepBuild_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI26BuildTest_DyndepBuild_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -127350,7 +127350,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI37Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_DyndepBuildSyntaxError_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_DyndepBuildSyntaxError_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -128050,7 +128050,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI41Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildTest_DyndepBuildUnrelatedOutput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI41BuildTest_DyndepBuildUnrelatedOutput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -129146,7 +129146,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI43Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43BuildTest_DyndepBuildDiscoverNewOutput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI43BuildTest_DyndepBuildDiscoverNewOutput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -130224,7 +130224,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI61Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules1_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules1_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -131256,7 +131256,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI61Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules2_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules2_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -132448,7 +132448,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI42Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42BuildTest_DyndepBuildDiscoverNewInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42BuildTest_DyndepBuildDiscoverNewInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -133544,7 +133544,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI56Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI56BuildTest_DyndepBuildDiscoverNewInputWithValidation_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI56BuildTest_DyndepBuildDiscoverNewInputWithValidation_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -134269,7 +134269,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI66Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI66BuildTest_DyndepBuildDiscoverNewInputWithTransitiveValidation_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI66BuildTest_DyndepBuildDiscoverNewInputWithTransitiveValidation_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -135463,7 +135463,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI52Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI52BuildTest_DyndepBuildDiscoverImplicitConnection_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI52BuildTest_DyndepBuildDiscoverImplicitConnection_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -136508,7 +136508,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI55Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI55BuildTest_DyndepBuildDiscoverOutputAndDepfileInput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI55BuildTest_DyndepBuildDiscoverOutputAndDepfileInput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -138128,7 +138128,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI45Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45BuildTest_DyndepBuildDiscoverNowWantEdge_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45BuildTest_DyndepBuildDiscoverNowWantEdge_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -139293,7 +139293,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI57Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57BuildTest_DyndepBuildDiscoverNowWantEdgeAndDependent_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI57BuildTest_DyndepBuildDiscoverNowWantEdgeAndDependent_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -140458,7 +140458,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI42Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42BuildTest_DyndepBuildDiscoverCircular_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI42BuildTest_DyndepBuildDiscoverCircular_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -141312,7 +141312,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI47Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47BuildWithLogTest_DyndepBuildDiscoverRestat_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47BuildWithLogTest_DyndepBuildDiscoverRestat_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -143109,7 +143109,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI47Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47BuildTest_DyndepBuildDiscoverScheduledEdge_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47BuildTest_DyndepBuildDiscoverScheduledEdge_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -144270,7 +144270,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35BuildTest_DyndepTwoLevelDirect_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35BuildTest_DyndepTwoLevelDirect_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -145635,7 +145635,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI37Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_DyndepTwoLevelIndirect_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI37BuildTest_DyndepTwoLevelIndirect_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -146980,7 +146980,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI44Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44BuildTest_DyndepTwoLevelDiscoveredReady_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44BuildTest_DyndepTwoLevelDiscoveredReady_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -148274,7 +148274,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI44Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44BuildTest_DyndepTwoLevelDiscoveredDirty_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44BuildTest_DyndepTwoLevelDiscoveredDirty_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -149586,7 +149586,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI25Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25BuildTest_Validation_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI25BuildTest_Validation_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -151705,7 +151705,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI40Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40BuildTest_ValidationDependsOnOutput_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI40BuildTest_ValidationDependsOnOutput_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -153735,7 +153735,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI50Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI50BuildWithDepsLogTest_ValidationThroughDepfile_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI50BuildWithDepsLogTest_ValidationThroughDepfile_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -156659,7 +156659,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33BuildTest_ValidationCircular_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33BuildTest_ValidationCircular_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -158778,7 +158778,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI47Buil
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47BuildTest_ValidationWithCircularDependency_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI47BuildTest_ValidationWithCircularDependency_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -159423,7 +159423,7 @@ define linkonce_odr dso_local void @_ZN17FakeCommandRunnerD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17FakeCommandRunner, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17FakeCommandRunner, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.FakeCommandRunner, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIP4EdgeSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %struct.FakeCommandRunner, ptr %3, i32 0, i32 1
@@ -161910,7 +161910,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -161990,7 +161990,7 @@ define linkonce_odr dso_local void @_ZN19PlanTest_Basic_TestC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19PlanTest_Basic_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19PlanTest_Basic_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -162002,7 +162002,7 @@ define linkonce_odr dso_local void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN25StateTestWithBuiltinRulesC2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8PlanTest, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8PlanTest, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %struct.PlanTest, ptr %5, i32 0, i32 1
   invoke void @_ZN4PlanC1EP7Builder(ptr noundef nonnull align 8 dereferenceable(120) %6, ptr noundef null)
           to label %7 unwind label %8
@@ -162037,7 +162037,7 @@ define linkonce_odr dso_local void @_ZN8PlanTestD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8PlanTest, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8PlanTest, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.PlanTest, ptr %3, i32 0, i32 1
   call void @_ZN4PlanD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %4) #3
   call void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %3) #3
@@ -162060,7 +162060,7 @@ define linkonce_odr dso_local void @_ZN25StateTestWithBuiltinRulesD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25StateTestWithBuiltinRules, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25StateTestWithBuiltinRules, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.StateTestWithBuiltinRules, ptr %3, i32 0, i32 1
   call void @_ZN5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %4) #3
   call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -163041,7 +163041,7 @@ define linkonce_odr dso_local void @_ZN32PlanTest_DoubleOutputDirect_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32PlanTest_DoubleOutputDirect_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32PlanTest_DoubleOutputDirect_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -163101,7 +163101,7 @@ define linkonce_odr dso_local void @_ZN34PlanTest_DoubleOutputIndirect_TestC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34PlanTest_DoubleOutputIndirect_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34PlanTest_DoubleOutputIndirect_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -163161,7 +163161,7 @@ define linkonce_odr dso_local void @_ZN29PlanTest_DoubleDependent_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29PlanTest_DoubleDependent_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29PlanTest_DoubleDependent_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -163221,7 +163221,7 @@ define linkonce_odr dso_local void @_ZN30PlanTest_PoolWithDepthOne_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30PlanTest_PoolWithDepthOne_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV30PlanTest_PoolWithDepthOne_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -163281,7 +163281,7 @@ define linkonce_odr dso_local void @_ZN25PlanTest_ConsolePool_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25PlanTest_ConsolePool_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV25PlanTest_ConsolePool_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -163341,7 +163341,7 @@ define linkonce_odr dso_local void @_ZN31PlanTest_PoolsWithDepthTwo_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31PlanTest_PoolsWithDepthTwo_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31PlanTest_PoolsWithDepthTwo_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -166651,7 +166651,7 @@ define linkonce_odr dso_local void @_ZN36PlanTest_PoolWithRedundantEdges_TestC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36PlanTest_PoolWithRedundantEdges_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36PlanTest_PoolWithRedundantEdges_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -166711,7 +166711,7 @@ define linkonce_odr dso_local void @_ZN33PlanTest_PoolWithFailingEdge_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33PlanTest_PoolWithFailingEdge_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33PlanTest_PoolWithFailingEdge_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -166771,7 +166771,7 @@ define linkonce_odr dso_local void @_ZN37PlanTest_PriorityWithoutBuildLog_TestC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN8PlanTestC2Ev(ptr noundef nonnull align 8 dereferenceable(400) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV37PlanTest_PriorityWithoutBuildLog_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV37PlanTest_PriorityWithoutBuildLog_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -166925,7 +166925,7 @@ define linkonce_odr dso_local void @_ZN10BindingEnvD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10BindingEnv, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 2
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4RuleSt4lessIS5_ESaISt4pairIKS5_S8_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %struct.BindingEnv, ptr %3, i32 0, i32 1
@@ -168516,9 +168516,9 @@ define linkonce_odr dso_local void @_ZN21BuildTest_NoWork_TestC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV21BuildTest_NoWork_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV21BuildTest_NoWork_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV21BuildTest_NoWork_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV21BuildTest_NoWork_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -168532,9 +168532,9 @@ define linkonce_odr dso_local void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 
   call void @_ZN25StateTestWithBuiltinRulesC2Ev(ptr noundef nonnull align 8 dereferenceable(280) %5)
   %6 = getelementptr inbounds i8, ptr %5, i64 280
   call void @_ZN12BuildLogUserC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, inrange i32 1, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, i32 1, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %struct.BuildTest, ptr %5, i32 0, i32 2
   invoke void @_ZN9BuildTest10MakeConfigEv(ptr dead_on_unwind writable sret(%struct.BuildConfig) align 8 %8, ptr noundef nonnull align 8 dereferenceable(1152) %5)
           to label %9 unwind label %24
@@ -168630,7 +168630,7 @@ define linkonce_odr dso_local void @_ZN12BuildLogUserC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV12BuildLogUser, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV12BuildLogUser, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -168652,7 +168652,7 @@ define linkonce_odr dso_local void @_ZN17FakeCommandRunnerC2EP17VirtualFileSyste
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN13CommandRunnerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17FakeCommandRunner, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17FakeCommandRunner, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %struct.FakeCommandRunner, ptr %5, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   %7 = getelementptr inbounds %struct.FakeCommandRunner, ptr %5, i32 0, i32 2
@@ -168671,7 +168671,7 @@ define linkonce_odr dso_local void @_ZN17VirtualFileSystemC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 2
@@ -168694,7 +168694,7 @@ define linkonce_odr dso_local void @_ZN13StatusPrinterD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV13StatusPrinter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.StatusPrinter, ptr %3, i32 0, i32 9
   call void @_ZN13StatusPrinter15SlidingRateInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %4) #3
   %5 = getelementptr inbounds %struct.StatusPrinter, ptr %3, i32 0, i32 7
@@ -168708,7 +168708,7 @@ define linkonce_odr dso_local void @_ZN17VirtualFileSystemD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV17VirtualFileSystem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 5
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #3
   %5 = getelementptr inbounds %struct.VirtualFileSystem, ptr %3, i32 0, i32 4
@@ -168728,9 +168728,9 @@ define linkonce_odr dso_local void @_ZN9BuildTestD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %struct.BuildTest, ptr %3, i32 0, i32 6
   %6 = getelementptr inbounds %struct.Builder, ptr %5, i32 0, i32 3
   %7 = call noundef ptr @_ZNSt10unique_ptrI13CommandRunnerSt14default_deleteIS0_EE7releaseEv(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
@@ -168786,7 +168786,7 @@ define linkonce_odr dso_local void @_ZN13CommandRunnerC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13CommandRunner, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13CommandRunner, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -168931,7 +168931,7 @@ define linkonce_odr dso_local void @_ZN13DiskInterfaceC2Ev(ptr noundef nonnull a
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10FileReaderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV13DiskInterface, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -168960,7 +168960,7 @@ define linkonce_odr dso_local void @_ZN10FileReaderC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV10FileReader, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -170376,9 +170376,9 @@ define linkonce_odr dso_local void @_ZN22BuildTest_OneStep_TestC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_OneStep_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_OneStep_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_OneStep_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_OneStep_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170438,9 +170438,9 @@ define linkonce_odr dso_local void @_ZN23BuildTest_OneStep2_TestC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV23BuildTest_OneStep2_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV23BuildTest_OneStep2_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV23BuildTest_OneStep2_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV23BuildTest_OneStep2_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170500,9 +170500,9 @@ define linkonce_odr dso_local void @_ZN22BuildTest_TwoStep_TestC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_TwoStep_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_TwoStep_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_TwoStep_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_TwoStep_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170562,9 +170562,9 @@ define linkonce_odr dso_local void @_ZN25BuildTest_TwoOutputs_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_TwoOutputs_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_TwoOutputs_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_TwoOutputs_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_TwoOutputs_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170624,9 +170624,9 @@ define linkonce_odr dso_local void @_ZN29BuildTest_ImplicitOutput_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_ImplicitOutput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_ImplicitOutput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_ImplicitOutput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_ImplicitOutput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170686,9 +170686,9 @@ define linkonce_odr dso_local void @_ZN25BuildTest_MultiOutIn_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_MultiOutIn_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_MultiOutIn_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_MultiOutIn_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_MultiOutIn_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170748,9 +170748,9 @@ define linkonce_odr dso_local void @_ZN20BuildTest_Chain_TestC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildTest_Chain_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildTest_Chain_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildTest_Chain_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildTest_Chain_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170810,9 +170810,9 @@ define linkonce_odr dso_local void @_ZN27BuildTest_MissingInput_TestC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV27BuildTest_MissingInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV27BuildTest_MissingInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV27BuildTest_MissingInput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV27BuildTest_MissingInput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170872,9 +170872,9 @@ define linkonce_odr dso_local void @_ZN28BuildTest_MissingTarget_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_MissingTarget_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_MissingTarget_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_MissingTarget_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_MissingTarget_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170934,9 +170934,9 @@ define linkonce_odr dso_local void @_ZN33BuildTest_MissingInputTarget_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_MissingInputTarget_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_MissingInputTarget_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_MissingInputTarget_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_MissingInputTarget_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -170996,9 +170996,9 @@ define linkonce_odr dso_local void @_ZN23BuildTest_MakeDirs_TestC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV23BuildTest_MakeDirs_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV23BuildTest_MakeDirs_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV23BuildTest_MakeDirs_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV23BuildTest_MakeDirs_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171058,9 +171058,9 @@ define linkonce_odr dso_local void @_ZN29BuildTest_DepFileMissing_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_DepFileMissing_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_DepFileMissing_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_DepFileMissing_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_DepFileMissing_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171120,9 +171120,9 @@ define linkonce_odr dso_local void @_ZN24BuildTest_DepFileOK_TestC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV24BuildTest_DepFileOK_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV24BuildTest_DepFileOK_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV24BuildTest_DepFileOK_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV24BuildTest_DepFileOK_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171185,9 +171185,9 @@ define linkonce_odr dso_local void @_ZN32BuildTest_DepFileParseError_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildTest_DepFileParseError_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildTest_DepFileParseError_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildTest_DepFileParseError_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildTest_DepFileParseError_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171247,9 +171247,9 @@ define linkonce_odr dso_local void @_ZN34BuildTest_EncounterReadyTwice_TestC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_EncounterReadyTwice_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_EncounterReadyTwice_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_EncounterReadyTwice_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_EncounterReadyTwice_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171309,9 +171309,9 @@ define linkonce_odr dso_local void @_ZN28BuildTest_OrderOnlyDeps_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_OrderOnlyDeps_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_OrderOnlyDeps_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_OrderOnlyDeps_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_OrderOnlyDeps_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171371,9 +171371,9 @@ define linkonce_odr dso_local void @_ZN35BuildTest_RebuildOrderOnlyDeps_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_RebuildOrderOnlyDeps_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_RebuildOrderOnlyDeps_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_RebuildOrderOnlyDeps_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_RebuildOrderOnlyDeps_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171433,9 +171433,9 @@ define linkonce_odr dso_local void @_ZN20BuildTest_Phony_TestC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildTest_Phony_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildTest_Phony_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildTest_Phony_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildTest_Phony_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171495,9 +171495,9 @@ define linkonce_odr dso_local void @_ZN26BuildTest_PhonyNoWork_TestC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV26BuildTest_PhonyNoWork_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV26BuildTest_PhonyNoWork_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV26BuildTest_PhonyNoWork_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV26BuildTest_PhonyNoWork_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171557,9 +171557,9 @@ define linkonce_odr dso_local void @_ZN33BuildTest_PhonySelfReference_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_PhonySelfReference_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_PhonySelfReference_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_PhonySelfReference_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_PhonySelfReference_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171619,9 +171619,9 @@ define linkonce_odr dso_local void @_ZN28BuildTest_PhonyUseCase1_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase1_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase1_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase1_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase1_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171681,9 +171681,9 @@ define linkonce_odr dso_local void @_ZN28BuildTest_PhonyUseCase2_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase2_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase2_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase2_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase2_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171743,9 +171743,9 @@ define linkonce_odr dso_local void @_ZN28BuildTest_PhonyUseCase3_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase3_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase3_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase3_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase3_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171805,9 +171805,9 @@ define linkonce_odr dso_local void @_ZN28BuildTest_PhonyUseCase4_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase4_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase4_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase4_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase4_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171867,9 +171867,9 @@ define linkonce_odr dso_local void @_ZN28BuildTest_PhonyUseCase5_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase5_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase5_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase5_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase5_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171929,9 +171929,9 @@ define linkonce_odr dso_local void @_ZN28BuildTest_PhonyUseCase6_TestC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase6_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase6_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase6_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV28BuildTest_PhonyUseCase6_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -171991,9 +171991,9 @@ define linkonce_odr dso_local void @_ZN19BuildTest_Fail_TestC2Ev(ptr noundef non
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV19BuildTest_Fail_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV19BuildTest_Fail_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV19BuildTest_Fail_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV19BuildTest_Fail_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172053,9 +172053,9 @@ define linkonce_odr dso_local void @_ZN30BuildTest_SwallowFailures_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV30BuildTest_SwallowFailures_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV30BuildTest_SwallowFailures_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV30BuildTest_SwallowFailures_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV30BuildTest_SwallowFailures_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172115,9 +172115,9 @@ define linkonce_odr dso_local void @_ZN35BuildTest_SwallowFailuresLimit_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_SwallowFailuresLimit_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_SwallowFailuresLimit_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_SwallowFailuresLimit_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_SwallowFailuresLimit_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172177,9 +172177,9 @@ define linkonce_odr dso_local void @_ZN34BuildTest_SwallowFailuresPool_TestC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_SwallowFailuresPool_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_SwallowFailuresPool_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_SwallowFailuresPool_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_SwallowFailuresPool_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172239,9 +172239,9 @@ define linkonce_odr dso_local void @_ZN41BuildTest_PoolEdgesReadyButNotWanted_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildTest_PoolEdgesReadyButNotWanted_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildTest_PoolEdgesReadyButNotWanted_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildTest_PoolEdgesReadyButNotWanted_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildTest_PoolEdgesReadyButNotWanted_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172301,9 +172301,9 @@ define linkonce_odr dso_local void @_ZN48BuildWithLogTest_ImplicitGeneratedOutOf
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildWithLogTest_ImplicitGeneratedOutOfDate_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildWithLogTest_ImplicitGeneratedOutOfDate_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildWithLogTest_ImplicitGeneratedOutOfDate_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildWithLogTest_ImplicitGeneratedOutOfDate_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172315,9 +172315,9 @@ define linkonce_odr dso_local void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnul
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %5)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV16BuildWithLogTest, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV16BuildWithLogTest, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV16BuildWithLogTest, i32 0, inrange i32 1, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV16BuildWithLogTest, i32 0, i32 1, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %struct.BuildWithLogTest, ptr %5, i32 0, i32 1
   invoke void @_ZN8BuildLogC1Ev(ptr noundef nonnull align 8 dereferenceable(97) %7)
           to label %8 unwind label %12
@@ -172380,9 +172380,9 @@ define linkonce_odr dso_local void @_ZN16BuildWithLogTestD2Ev(ptr noundef nonnul
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV16BuildWithLogTest, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV16BuildWithLogTest, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV16BuildWithLogTest, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV16BuildWithLogTest, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %struct.BuildWithLogTest, ptr %3, i32 0, i32 1
   call void @_ZN8BuildLogD1Ev(ptr noundef nonnull align 8 dereferenceable(97) %5) #3
   call void @_ZN9BuildTestD2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3) #3
@@ -172466,9 +172466,9 @@ define linkonce_odr dso_local void @_ZN49BuildWithLogTest_ImplicitGeneratedOutOf
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV49BuildWithLogTest_ImplicitGeneratedOutOfDate2_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV49BuildWithLogTest_ImplicitGeneratedOutOfDate2_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV49BuildWithLogTest_ImplicitGeneratedOutOfDate2_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV49BuildWithLogTest_ImplicitGeneratedOutOfDate2_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172528,9 +172528,9 @@ define linkonce_odr dso_local void @_ZN39BuildWithLogTest_NotInLogButOnDisk_Test
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV39BuildWithLogTest_NotInLogButOnDisk_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV39BuildWithLogTest_NotInLogButOnDisk_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV39BuildWithLogTest_NotInLogButOnDisk_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV39BuildWithLogTest_NotInLogButOnDisk_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172590,9 +172590,9 @@ define linkonce_odr dso_local void @_ZN41BuildWithLogTest_RebuildAfterFailure_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithLogTest_RebuildAfterFailure_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithLogTest_RebuildAfterFailure_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithLogTest_RebuildAfterFailure_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithLogTest_RebuildAfterFailure_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172652,9 +172652,9 @@ define linkonce_odr dso_local void @_ZN41BuildWithLogTest_RebuildWithNoInputs_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithLogTest_RebuildWithNoInputs_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithLogTest_RebuildWithNoInputs_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithLogTest_RebuildWithNoInputs_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithLogTest_RebuildWithNoInputs_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172714,9 +172714,9 @@ define linkonce_odr dso_local void @_ZN32BuildWithLogTest_RestatTest_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildWithLogTest_RestatTest_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildWithLogTest_RestatTest_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildWithLogTest_RestatTest_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildWithLogTest_RestatTest_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172776,9 +172776,9 @@ define linkonce_odr dso_local void @_ZN39BuildWithLogTest_RestatMissingFile_Test
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV39BuildWithLogTest_RestatMissingFile_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV39BuildWithLogTest_RestatMissingFile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV39BuildWithLogTest_RestatMissingFile_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV39BuildWithLogTest_RestatMissingFile_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172838,9 +172838,9 @@ define linkonce_odr dso_local void @_ZN54BuildWithLogTest_RestatSingleDependentO
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV54BuildWithLogTest_RestatSingleDependentOutputDirty_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV54BuildWithLogTest_RestatSingleDependentOutputDirty_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV54BuildWithLogTest_RestatSingleDependentOutputDirty_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV54BuildWithLogTest_RestatSingleDependentOutputDirty_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172900,9 +172900,9 @@ define linkonce_odr dso_local void @_ZN40BuildWithLogTest_RestatMissingInput_Tes
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV40BuildWithLogTest_RestatMissingInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV40BuildWithLogTest_RestatMissingInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV40BuildWithLogTest_RestatMissingInput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV40BuildWithLogTest_RestatMissingInput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -172962,9 +172962,9 @@ define linkonce_odr dso_local void @_ZN49BuildWithLogTest_RestatInputChangesDueT
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV49BuildWithLogTest_RestatInputChangesDueToRule_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV49BuildWithLogTest_RestatInputChangesDueToRule_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV49BuildWithLogTest_RestatInputChangesDueToRule_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV49BuildWithLogTest_RestatInputChangesDueToRule_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173024,9 +173024,9 @@ define linkonce_odr dso_local void @_ZN48BuildWithLogTest_GeneratedPlainDepfileM
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildWithLogTest_GeneratedPlainDepfileMtime_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildWithLogTest_GeneratedPlainDepfileMtime_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildWithLogTest_GeneratedPlainDepfileMtime_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildWithLogTest_GeneratedPlainDepfileMtime_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173086,9 +173086,9 @@ define linkonce_odr dso_local void @_ZN33BuildDryRun_AllCommandsShown_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11BuildDryRunC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildDryRun_AllCommandsShown_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildDryRun_AllCommandsShown_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildDryRun_AllCommandsShown_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildDryRun_AllCommandsShown_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173098,9 +173098,9 @@ define linkonce_odr dso_local void @_ZN11BuildDryRunC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV11BuildDryRun, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV11BuildDryRun, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV11BuildDryRun, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV11BuildDryRun, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %struct.BuildTest, ptr %3, i32 0, i32 2
   %6 = getelementptr inbounds %struct.BuildConfig, ptr %5, i32 0, i32 1
   store i8 1, ptr %6, align 4
@@ -173180,9 +173180,9 @@ define linkonce_odr dso_local void @_ZN29BuildTest_RspFileSuccess_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_RspFileSuccess_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_RspFileSuccess_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_RspFileSuccess_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_RspFileSuccess_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173242,9 +173242,9 @@ define linkonce_odr dso_local void @_ZN29BuildTest_RspFileFailure_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_RspFileFailure_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_RspFileFailure_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_RspFileFailure_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV29BuildTest_RspFileFailure_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173304,9 +173304,9 @@ define linkonce_odr dso_local void @_ZN42BuildWithLogTest_RspFileCmdLineChange_T
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildWithLogTest_RspFileCmdLineChange_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildWithLogTest_RspFileCmdLineChange_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildWithLogTest_RspFileCmdLineChange_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildWithLogTest_RspFileCmdLineChange_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173366,9 +173366,9 @@ define linkonce_odr dso_local void @_ZN31BuildTest_InterruptCleanup_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV31BuildTest_InterruptCleanup_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV31BuildTest_InterruptCleanup_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV31BuildTest_InterruptCleanup_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV31BuildTest_InterruptCleanup_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173428,9 +173428,9 @@ define linkonce_odr dso_local void @_ZN37BuildTest_StatFailureAbortsBuild_TestC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_StatFailureAbortsBuild_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_StatFailureAbortsBuild_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_StatFailureAbortsBuild_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_StatFailureAbortsBuild_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173490,9 +173490,9 @@ define linkonce_odr dso_local void @_ZN32BuildTest_PhonyWithNoInputs_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildTest_PhonyWithNoInputs_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildTest_PhonyWithNoInputs_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildTest_PhonyWithNoInputs_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV32BuildTest_PhonyWithNoInputs_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173552,9 +173552,9 @@ define linkonce_odr dso_local void @_ZN47BuildTest_DepsGccWithEmptyDepfileErrors
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_DepsGccWithEmptyDepfileErrorsOut_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_DepsGccWithEmptyDepfileErrorsOut_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_DepsGccWithEmptyDepfileErrorsOut_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_DepsGccWithEmptyDepfileErrorsOut_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173614,9 +173614,9 @@ define linkonce_odr dso_local void @_ZN34BuildTest_StatusFormatElapsed_TestC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_StatusFormatElapsed_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_StatusFormatElapsed_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_StatusFormatElapsed_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_StatusFormatElapsed_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173676,9 +173676,9 @@ define linkonce_odr dso_local void @_ZN45BuildTest_StatusFormatReplacePlaceholde
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildTest_StatusFormatReplacePlaceholder_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildTest_StatusFormatReplacePlaceholder_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildTest_StatusFormatReplacePlaceholder_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildTest_StatusFormatReplacePlaceholder_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173738,9 +173738,9 @@ define linkonce_odr dso_local void @_ZN30BuildTest_FailedDepsParse_TestC2Ev(ptr 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV30BuildTest_FailedDepsParse_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV30BuildTest_FailedDepsParse_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV30BuildTest_FailedDepsParse_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV30BuildTest_FailedDepsParse_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173800,9 +173800,9 @@ define linkonce_odr dso_local void @_ZN52BuildWithQueryDepsLogTest_TwoOutputsDep
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25BuildWithQueryDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1352) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV52BuildWithQueryDepsLogTest_TwoOutputsDepFileMSVC_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV52BuildWithQueryDepsLogTest_TwoOutputsDepFileMSVC_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV52BuildWithQueryDepsLogTest_TwoOutputsDepFileMSVC_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV52BuildWithQueryDepsLogTest_TwoOutputsDepFileMSVC_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -173813,14 +173813,14 @@ define linkonce_odr dso_local void @_ZN25BuildWithQueryDepsLogTestC2Ev(ptr nound
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, inrange i32 1, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, i32 1, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %struct.BuildWithQueryDepsLogTest, ptr %5, i32 0, i32 3
   call void @_ZN9BuildTestC2EP7DepsLog(ptr noundef nonnull align 8 dereferenceable(1152) %5, ptr noundef %7)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, i32 0, i32 2), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, inrange i32 1, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, i32 1, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %struct.BuildWithQueryDepsLogTest, ptr %5, i32 0, i32 1
   call void @_ZN13ScopedTempDirC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %9) #3
   %10 = getelementptr inbounds %struct.BuildWithQueryDepsLogTest, ptr %5, i32 0, i32 2
@@ -173879,9 +173879,9 @@ define linkonce_odr dso_local void @_ZN9BuildTestC2EP7DepsLog(ptr noundef nonnul
   call void @_ZN25StateTestWithBuiltinRulesC2Ev(ptr noundef nonnull align 8 dereferenceable(280) %7)
   %8 = getelementptr inbounds i8, ptr %7, i64 280
   call void @_ZN12BuildLogUserC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV9BuildTest, i32 0, i32 1, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %struct.BuildTest, ptr %7, i32 0, i32 2
   invoke void @_ZN9BuildTest10MakeConfigEv(ptr dead_on_unwind writable sret(%struct.BuildConfig) align 8 %10, ptr noundef nonnull align 8 dereferenceable(1152) %7)
           to label %11 unwind label %27
@@ -174002,9 +174002,9 @@ define linkonce_odr dso_local void @_ZN25BuildWithQueryDepsLogTestD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildWithQueryDepsLogTest, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %struct.BuildWithQueryDepsLogTest, ptr %3, i32 0, i32 3
   invoke void @_ZN7DepsLog5CloseEv(ptr noundef nonnull align 8 dereferenceable(96) %5)
           to label %6 unwind label %10
@@ -174091,9 +174091,9 @@ define linkonce_odr dso_local void @_ZN58BuildWithQueryDepsLogTest_TwoOutputsDep
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25BuildWithQueryDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1352) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV58BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOneLine_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV58BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOneLine_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV58BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOneLine_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV58BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOneLine_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174153,9 +174153,9 @@ define linkonce_odr dso_local void @_ZN65BuildWithQueryDepsLogTest_TwoOutputsDep
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25BuildWithQueryDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1352) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineInput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineInput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174215,9 +174215,9 @@ define linkonce_odr dso_local void @_ZN66BuildWithQueryDepsLogTest_TwoOutputsDep
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25BuildWithQueryDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1352) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV66BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineOutput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV66BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineOutput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV66BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineOutput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV66BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCMultiLineOutput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174277,9 +174277,9 @@ define linkonce_odr dso_local void @_ZN65BuildWithQueryDepsLogTest_TwoOutputsDep
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25BuildWithQueryDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1352) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlyMainOutput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlyMainOutput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlyMainOutput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV65BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlyMainOutput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174339,9 +174339,9 @@ define linkonce_odr dso_local void @_ZN70BuildWithQueryDepsLogTest_TwoOutputsDep
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN25BuildWithQueryDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1352) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV70BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlySecondaryOutput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV70BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlySecondaryOutput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV70BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlySecondaryOutput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV70BuildWithQueryDepsLogTest_TwoOutputsDepFileGCCOnlySecondaryOutput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174401,9 +174401,9 @@ define linkonce_odr dso_local void @_ZN41BuildWithDepsLogTest_Straightforward_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithDepsLogTest_Straightforward_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithDepsLogTest_Straightforward_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithDepsLogTest_Straightforward_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildWithDepsLogTest_Straightforward_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174415,9 +174415,9 @@ define linkonce_odr dso_local void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %5)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildWithDepsLogTest, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildWithDepsLogTest, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %5, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildWithDepsLogTest, i32 0, inrange i32 1, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildWithDepsLogTest, i32 0, i32 1, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %struct.BuildWithDepsLogTest, ptr %5, i32 0, i32 1
   call void @_ZN13ScopedTempDirC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
   %8 = getelementptr inbounds %struct.BuildWithDepsLogTest, ptr %5, i32 0, i32 2
@@ -174469,9 +174469,9 @@ define linkonce_odr dso_local void @_ZN20BuildWithDepsLogTestD2Ev(ptr noundef no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildWithDepsLogTest, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildWithDepsLogTest, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildWithDepsLogTest, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV20BuildWithDepsLogTest, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %struct.BuildWithDepsLogTest, ptr %3, i32 0, i32 3
   call void @_ZN14ScopedFilePathD1Ev(ptr noundef nonnull align 8 dereferenceable(33) %5) #3
   %6 = getelementptr inbounds %struct.BuildWithDepsLogTest, ptr %3, i32 0, i32 2
@@ -174546,9 +174546,9 @@ define linkonce_odr dso_local void @_ZN38BuildWithDepsLogTest_ObsoleteDeps_TestC
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV38BuildWithDepsLogTest_ObsoleteDeps_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV38BuildWithDepsLogTest_ObsoleteDeps_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV38BuildWithDepsLogTest_ObsoleteDeps_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV38BuildWithDepsLogTest_ObsoleteDeps_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174608,9 +174608,9 @@ define linkonce_odr dso_local void @_ZN45BuildWithDepsLogTest_DepsIgnoredInDryRu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildWithDepsLogTest_DepsIgnoredInDryRun_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildWithDepsLogTest_DepsIgnoredInDryRun_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildWithDepsLogTest_DepsIgnoredInDryRun_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildWithDepsLogTest_DepsIgnoredInDryRun_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174670,9 +174670,9 @@ define linkonce_odr dso_local void @_ZN53BuildWithDepsLogTest_TestInputMtimeRace
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV53BuildWithDepsLogTest_TestInputMtimeRaceCondition_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV53BuildWithDepsLogTest_TestInputMtimeRaceCondition_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV53BuildWithDepsLogTest_TestInputMtimeRaceCondition_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV53BuildWithDepsLogTest_TestInputMtimeRaceCondition_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174732,9 +174732,9 @@ define linkonce_odr dso_local void @_ZN64BuildWithDepsLogTest_TestInputMtimeRace
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV64BuildWithDepsLogTest_TestInputMtimeRaceConditionWithDepFile_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV64BuildWithDepsLogTest_TestInputMtimeRaceConditionWithDepFile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV64BuildWithDepsLogTest_TestInputMtimeRaceConditionWithDepFile_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV64BuildWithDepsLogTest_TestInputMtimeRaceConditionWithDepFile_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174794,9 +174794,9 @@ define linkonce_odr dso_local void @_ZN38BuildTest_RestatDepfileDependency_TestC
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV38BuildTest_RestatDepfileDependency_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV38BuildTest_RestatDepfileDependency_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV38BuildTest_RestatDepfileDependency_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV38BuildTest_RestatDepfileDependency_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174856,9 +174856,9 @@ define linkonce_odr dso_local void @_ZN56BuildWithDepsLogTest_RestatDepfileDepen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV56BuildWithDepsLogTest_RestatDepfileDependencyDepsLog_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV56BuildWithDepsLogTest_RestatDepfileDependencyDepsLog_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV56BuildWithDepsLogTest_RestatDepfileDependencyDepsLog_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV56BuildWithDepsLogTest_RestatDepfileDependencyDepsLog_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174918,9 +174918,9 @@ define linkonce_odr dso_local void @_ZN42BuildWithDepsLogTest_DepFileOKDepsLog_T
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildWithDepsLogTest_DepFileOKDepsLog_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildWithDepsLogTest_DepFileOKDepsLog_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildWithDepsLogTest_DepFileOKDepsLog_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildWithDepsLogTest_DepFileOKDepsLog_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -174980,9 +174980,9 @@ define linkonce_odr dso_local void @_ZN57BuildWithDepsLogTest_DiscoveredDepDurin
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV57BuildWithDepsLogTest_DiscoveredDepDuringBuildChanged_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV57BuildWithDepsLogTest_DiscoveredDepDuringBuildChanged_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV57BuildWithDepsLogTest_DiscoveredDepDuringBuildChanged_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV57BuildWithDepsLogTest_DiscoveredDepDuringBuildChanged_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175042,9 +175042,9 @@ define linkonce_odr dso_local void @_ZN35BuildTest_RestatMissingDepfile_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_RestatMissingDepfile_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_RestatMissingDepfile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_RestatMissingDepfile_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_RestatMissingDepfile_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175104,9 +175104,9 @@ define linkonce_odr dso_local void @_ZN53BuildWithDepsLogTest_RestatMissingDepfi
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV53BuildWithDepsLogTest_RestatMissingDepfileDepslog_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV53BuildWithDepsLogTest_RestatMissingDepfileDepslog_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV53BuildWithDepsLogTest_RestatMissingDepfileDepslog_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV53BuildWithDepsLogTest_RestatMissingDepfileDepslog_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175166,9 +175166,9 @@ define linkonce_odr dso_local void @_ZN48BuildTest_WrongOutputInDepfileCausesReb
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildTest_WrongOutputInDepfileCausesRebuild_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildTest_WrongOutputInDepfileCausesRebuild_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildTest_WrongOutputInDepfileCausesRebuild_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV48BuildTest_WrongOutputInDepfileCausesRebuild_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175228,9 +175228,9 @@ define linkonce_odr dso_local void @_ZN22BuildTest_Console_TestC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_Console_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_Console_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_Console_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV22BuildTest_Console_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175290,9 +175290,9 @@ define linkonce_odr dso_local void @_ZN37BuildTest_DyndepMissingAndNoRule_TestC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepMissingAndNoRule_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepMissingAndNoRule_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepMissingAndNoRule_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepMissingAndNoRule_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175352,9 +175352,9 @@ define linkonce_odr dso_local void @_ZN44BuildTest_DyndepReadyImplicitConnection
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepReadyImplicitConnection_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepReadyImplicitConnection_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepReadyImplicitConnection_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepReadyImplicitConnection_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175414,9 +175414,9 @@ define linkonce_odr dso_local void @_ZN37BuildTest_DyndepReadySyntaxError_TestC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepReadySyntaxError_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepReadySyntaxError_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepReadySyntaxError_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepReadySyntaxError_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175476,9 +175476,9 @@ define linkonce_odr dso_local void @_ZN34BuildTest_DyndepReadyCircular_TestC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_DyndepReadyCircular_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_DyndepReadyCircular_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_DyndepReadyCircular_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV34BuildTest_DyndepReadyCircular_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175538,9 +175538,9 @@ define linkonce_odr dso_local void @_ZN26BuildTest_DyndepBuild_TestC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV26BuildTest_DyndepBuild_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV26BuildTest_DyndepBuild_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV26BuildTest_DyndepBuild_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV26BuildTest_DyndepBuild_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175600,9 +175600,9 @@ define linkonce_odr dso_local void @_ZN37BuildTest_DyndepBuildSyntaxError_TestC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepBuildSyntaxError_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepBuildSyntaxError_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepBuildSyntaxError_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepBuildSyntaxError_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175662,9 +175662,9 @@ define linkonce_odr dso_local void @_ZN41BuildTest_DyndepBuildUnrelatedOutput_Te
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildTest_DyndepBuildUnrelatedOutput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildTest_DyndepBuildUnrelatedOutput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildTest_DyndepBuildUnrelatedOutput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV41BuildTest_DyndepBuildUnrelatedOutput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175724,9 +175724,9 @@ define linkonce_odr dso_local void @_ZN43BuildTest_DyndepBuildDiscoverNewOutput_
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV43BuildTest_DyndepBuildDiscoverNewOutput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV43BuildTest_DyndepBuildDiscoverNewOutput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV43BuildTest_DyndepBuildDiscoverNewOutput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV43BuildTest_DyndepBuildDiscoverNewOutput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175786,9 +175786,9 @@ define linkonce_odr dso_local void @_ZN61BuildTest_DyndepBuildDiscoverNewOutputW
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules1_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules1_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules1_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules1_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175848,9 +175848,9 @@ define linkonce_odr dso_local void @_ZN61BuildTest_DyndepBuildDiscoverNewOutputW
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules2_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules2_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules2_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV61BuildTest_DyndepBuildDiscoverNewOutputWithMultipleRules2_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175910,9 +175910,9 @@ define linkonce_odr dso_local void @_ZN42BuildTest_DyndepBuildDiscoverNewInput_T
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildTest_DyndepBuildDiscoverNewInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildTest_DyndepBuildDiscoverNewInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildTest_DyndepBuildDiscoverNewInput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildTest_DyndepBuildDiscoverNewInput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -175972,9 +175972,9 @@ define linkonce_odr dso_local void @_ZN56BuildTest_DyndepBuildDiscoverNewInputWi
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV56BuildTest_DyndepBuildDiscoverNewInputWithValidation_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV56BuildTest_DyndepBuildDiscoverNewInputWithValidation_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV56BuildTest_DyndepBuildDiscoverNewInputWithValidation_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV56BuildTest_DyndepBuildDiscoverNewInputWithValidation_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176034,9 +176034,9 @@ define linkonce_odr dso_local void @_ZN66BuildTest_DyndepBuildDiscoverNewInputWi
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV66BuildTest_DyndepBuildDiscoverNewInputWithTransitiveValidation_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV66BuildTest_DyndepBuildDiscoverNewInputWithTransitiveValidation_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV66BuildTest_DyndepBuildDiscoverNewInputWithTransitiveValidation_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV66BuildTest_DyndepBuildDiscoverNewInputWithTransitiveValidation_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176096,9 +176096,9 @@ define linkonce_odr dso_local void @_ZN52BuildTest_DyndepBuildDiscoverImplicitCo
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV52BuildTest_DyndepBuildDiscoverImplicitConnection_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV52BuildTest_DyndepBuildDiscoverImplicitConnection_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV52BuildTest_DyndepBuildDiscoverImplicitConnection_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV52BuildTest_DyndepBuildDiscoverImplicitConnection_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176158,9 +176158,9 @@ define linkonce_odr dso_local void @_ZN55BuildTest_DyndepBuildDiscoverOutputAndD
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV55BuildTest_DyndepBuildDiscoverOutputAndDepfileInput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV55BuildTest_DyndepBuildDiscoverOutputAndDepfileInput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV55BuildTest_DyndepBuildDiscoverOutputAndDepfileInput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV55BuildTest_DyndepBuildDiscoverOutputAndDepfileInput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176220,9 +176220,9 @@ define linkonce_odr dso_local void @_ZN45BuildTest_DyndepBuildDiscoverNowWantEdg
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildTest_DyndepBuildDiscoverNowWantEdge_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildTest_DyndepBuildDiscoverNowWantEdge_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildTest_DyndepBuildDiscoverNowWantEdge_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV45BuildTest_DyndepBuildDiscoverNowWantEdge_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176282,9 +176282,9 @@ define linkonce_odr dso_local void @_ZN57BuildTest_DyndepBuildDiscoverNowWantEdg
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV57BuildTest_DyndepBuildDiscoverNowWantEdgeAndDependent_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV57BuildTest_DyndepBuildDiscoverNowWantEdgeAndDependent_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV57BuildTest_DyndepBuildDiscoverNowWantEdgeAndDependent_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV57BuildTest_DyndepBuildDiscoverNowWantEdgeAndDependent_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176344,9 +176344,9 @@ define linkonce_odr dso_local void @_ZN42BuildTest_DyndepBuildDiscoverCircular_T
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildTest_DyndepBuildDiscoverCircular_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildTest_DyndepBuildDiscoverCircular_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildTest_DyndepBuildDiscoverCircular_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV42BuildTest_DyndepBuildDiscoverCircular_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176406,9 +176406,9 @@ define linkonce_odr dso_local void @_ZN47BuildWithLogTest_DyndepBuildDiscoverRes
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16BuildWithLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1256) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildWithLogTest_DyndepBuildDiscoverRestat_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildWithLogTest_DyndepBuildDiscoverRestat_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildWithLogTest_DyndepBuildDiscoverRestat_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildWithLogTest_DyndepBuildDiscoverRestat_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176468,9 +176468,9 @@ define linkonce_odr dso_local void @_ZN47BuildTest_DyndepBuildDiscoverScheduledE
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_DyndepBuildDiscoverScheduledEdge_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_DyndepBuildDiscoverScheduledEdge_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_DyndepBuildDiscoverScheduledEdge_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_DyndepBuildDiscoverScheduledEdge_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176530,9 +176530,9 @@ define linkonce_odr dso_local void @_ZN35BuildTest_DyndepTwoLevelDirect_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_DyndepTwoLevelDirect_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_DyndepTwoLevelDirect_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_DyndepTwoLevelDirect_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV35BuildTest_DyndepTwoLevelDirect_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176592,9 +176592,9 @@ define linkonce_odr dso_local void @_ZN37BuildTest_DyndepTwoLevelIndirect_TestC2
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepTwoLevelIndirect_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepTwoLevelIndirect_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepTwoLevelIndirect_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV37BuildTest_DyndepTwoLevelIndirect_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176654,9 +176654,9 @@ define linkonce_odr dso_local void @_ZN44BuildTest_DyndepTwoLevelDiscoveredReady
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepTwoLevelDiscoveredReady_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepTwoLevelDiscoveredReady_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepTwoLevelDiscoveredReady_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepTwoLevelDiscoveredReady_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176716,9 +176716,9 @@ define linkonce_odr dso_local void @_ZN44BuildTest_DyndepTwoLevelDiscoveredDirty
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepTwoLevelDiscoveredDirty_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepTwoLevelDiscoveredDirty_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepTwoLevelDiscoveredDirty_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV44BuildTest_DyndepTwoLevelDiscoveredDirty_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176778,9 +176778,9 @@ define linkonce_odr dso_local void @_ZN25BuildTest_Validation_TestC2Ev(ptr nound
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_Validation_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_Validation_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_Validation_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV25BuildTest_Validation_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176840,9 +176840,9 @@ define linkonce_odr dso_local void @_ZN40BuildTest_ValidationDependsOnOutput_Tes
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV40BuildTest_ValidationDependsOnOutput_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV40BuildTest_ValidationDependsOnOutput_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV40BuildTest_ValidationDependsOnOutput_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV40BuildTest_ValidationDependsOnOutput_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176902,9 +176902,9 @@ define linkonce_odr dso_local void @_ZN50BuildWithDepsLogTest_ValidationThroughD
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN20BuildWithDepsLogTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1304) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV50BuildWithDepsLogTest_ValidationThroughDepfile_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV50BuildWithDepsLogTest_ValidationThroughDepfile_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV50BuildWithDepsLogTest_ValidationThroughDepfile_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV50BuildWithDepsLogTest_ValidationThroughDepfile_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -176964,9 +176964,9 @@ define linkonce_odr dso_local void @_ZN33BuildTest_ValidationCircular_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_ValidationCircular_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_ValidationCircular_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_ValidationCircular_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV33BuildTest_ValidationCircular_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -177026,9 +177026,9 @@ define linkonce_odr dso_local void @_ZN47BuildTest_ValidationWithCircularDepende
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9BuildTestC2Ev(ptr noundef nonnull align 8 dereferenceable(1152) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_ValidationWithCircularDependency_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_ValidationWithCircularDependency_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 280
-  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_ValidationWithCircularDependency_Test, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [3 x ptr] }, ptr @_ZTV47BuildTest_ValidationWithCircularDependency_Test, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 

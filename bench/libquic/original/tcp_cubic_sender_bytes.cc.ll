@@ -88,7 +88,7 @@ entry:
   %tobool = trunc i8 %2 to i1
   %3 = load ptr, ptr %stats.addr, align 8
   call void @_ZN3net18TcpCubicSenderBaseC2EPKNS_9QuicClockEPKNS_8RttStatsEbPNS_19QuicConnectionStatsE(ptr noundef nonnull align 8 dereferenceable(141) %this1, ptr noundef %0, ptr noundef %1, i1 noundef zeroext %tobool, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN3net19TcpCubicSenderBytesE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTVN3net19TcpCubicSenderBytesE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cubic_ = getelementptr inbounds %"class.net::TcpCubicSenderBytes", ptr %this1, i32 0, i32 1
   %4 = load ptr, ptr %clock.addr, align 8
   invoke void @_ZN3net10CubicBytesC1EPKNS_9QuicClockE(ptr noundef nonnull align 8 dereferenceable(88) %cubic_, ptr noundef %4)

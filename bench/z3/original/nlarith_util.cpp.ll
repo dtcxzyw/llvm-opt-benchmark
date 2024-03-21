@@ -8072,7 +8072,7 @@ entry:
   store ptr %x, ptr %x.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11i_expr_predC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12contains_app4predE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12contains_app4predE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_x = getelementptr inbounds %"class.contains_app::pred", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %x.addr, align 8
   store ptr %0, ptr %m_x, align 8
@@ -8164,7 +8164,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11i_expr_pred, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11i_expr_pred, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8229,7 +8229,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_expr_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 1
   call void @_ZN8obj_markI4expr10bit_vector14default_t2uintIS0_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %m_expr_marks, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp)
   %m_decl_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 2
@@ -8263,7 +8263,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8ast_mark, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_decl_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 2
   call void @_ZN8obj_markI4decl10bit_vectorN8ast_mark9decl2uintEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_decl_marks) #3
   %m_expr_marks = getelementptr inbounds %class.ast_mark, ptr %this1, i32 0, i32 1
@@ -10095,7 +10095,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12z3_exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %m_msg, ptr noundef nonnull align 8 dereferenceable(32) %0) #3
@@ -10108,7 +10108,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17default_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_msg = getelementptr inbounds %class.default_exception, ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %m_msg) #3
   call void @_ZN12z3_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -10127,7 +10127,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV12z3_exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -15288,7 +15288,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %i.addr, align 8
   call void @_ZN7nlarith4util3imp6isubstC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(1048) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp10sqrt_substE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_s = getelementptr inbounds %"class.nlarith::util::imp::sqrt_subst", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %s.addr, align 8
   store ptr %1, ptr %m_s, align 8
@@ -15328,7 +15328,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %i.addr, align 8
   call void @_ZN7nlarith4util3imp6isubstC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(1048) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_eps_substE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_s = getelementptr inbounds %"class.nlarith::util::imp::plus_eps_subst", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %s.addr, align 8
   store ptr %1, ptr %m_s, align 8
@@ -15428,7 +15428,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %i, ptr %i.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp6isubstE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp6isubstE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_imp = getelementptr inbounds %"class.nlarith::util::imp::isubst", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %i.addr, align 8
   store ptr %0, ptr %m_imp, align 8
@@ -19022,7 +19022,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %i.addr, align 8
   call void @_ZN7nlarith4util3imp6isubstC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(1048) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp15minus_inf_substE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp15minus_inf_substE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -21500,7 +21500,7 @@ entry:
   store ptr %cnstr, ptr %cnstr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7nlarith4util6branchC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nlarith4util3imp13simple_branchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nlarith4util3imp13simple_branchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cnstr = getelementptr inbounds %"class.nlarith::util::imp::simple_branch", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %cnstr.addr, align 8
   %1 = load ptr, ptr %m.addr, align 8
@@ -21891,7 +21891,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %i.addr, align 8
   call void @_ZN7nlarith4util3imp6isubstC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(1048) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_inf_substE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp14plus_inf_substE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -22585,7 +22585,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %i.addr, align 8
   call void @_ZN7nlarith4util3imp6isubstC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(1048) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp11basic_substE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp11basic_substE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_x = getelementptr inbounds %"class.nlarith::util::imp::basic_subst", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %x.addr, align 8
   store ptr %1, ptr %m_x, align 8
@@ -23062,7 +23062,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %i.addr, align 8
   call void @_ZN7nlarith4util3imp6isubstC2ERS1_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(1048) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp15minus_eps_substE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7nlarith4util3imp15minus_eps_substE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_s = getelementptr inbounds %"class.nlarith::util::imp::minus_eps_subst", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %s.addr, align 8
   store ptr %1, ptr %m_s, align 8
@@ -23749,7 +23749,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nlarith4util6branchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nlarith4util6branchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -23771,7 +23771,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nlarith4util3imp13simple_branchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nlarith4util3imp13simple_branchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_updates = getelementptr inbounds %"class.nlarith::util::imp::simple_branch", ptr %this1, i32 0, i32 3
   call void @_ZN7svectorIN7nlarith4util11atom_updateEjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %m_updates) #3
   %m_atoms = getelementptr inbounds %"class.nlarith::util::imp::simple_branch", ptr %this1, i32 0, i32 2
@@ -24275,7 +24275,7 @@ entry:
   %0 = load ptr, ptr %m.addr, align 8
   %1 = load ptr, ptr %cnstr.addr, align 8
   call void @_ZN7nlarith4util3imp13simple_branchC2ER11ast_managerP3app(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef nonnull align 8 dereferenceable(976) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nlarith4util3imp14ins_rem_branchE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7nlarith4util3imp14ins_rem_branchE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %2 = load ptr, ptr %a.addr, align 8
   invoke void @_ZN7nlarith4util3imp13simple_branch6insertEP3app(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %2)
           to label %invoke.cont unwind label %lpad

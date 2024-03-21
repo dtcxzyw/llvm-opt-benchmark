@@ -524,7 +524,7 @@ define void @_ZN8RichEnumC2ERK7QStringiRK11QStringListS2_S2_bS2_(ptr noundef non
 
 29:                                               ; preds = %8
   call void @_ZN8IntValueD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %17) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, i32 0, i32 2), ptr %21, align 8
   %30 = getelementptr inbounds %class.RichEnum, ptr %21, i32 0, i32 1
   %31 = load ptr, ptr %12, align 8
   invoke void @_ZN11QStringListC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef nonnull align 8 dereferenceable(8) %31)
@@ -970,7 +970,7 @@ define void @_ZN8RichEnumD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.RichEnum, ptr %3, i32 0, i32 1
   call void @_ZN11QStringListD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
   call void @_ZN13RichParameterD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #5
@@ -1413,7 +1413,7 @@ define linkonce_odr void @_ZN8RichEnumC2ERKS_(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV8RichEnum, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.RichEnum, ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %class.RichEnum, ptr %10, i32 0, i32 1

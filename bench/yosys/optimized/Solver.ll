@@ -271,7 +271,7 @@ define linkonce_odr void @_ZN7Minisat10BoolOptionD2Ev(ptr noundef nonnull align 
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN7Minisat6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(857) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Minisat6SolverE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Minisat6SolverE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = getelementptr inbounds i8, ptr %0, i64 48
@@ -720,7 +720,7 @@ _ZN7Minisat6IntSetINS_3LitENS_10MkIndexLitEED2Ev.exit: ; preds = %_ZN7Minisat3ve
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN7Minisat6SolverD2Ev(ptr noundef nonnull align 8 dereferenceable(857) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Minisat6SolverE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7Minisat6SolverE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 800
   %3 = load ptr, ptr %2, align 8
   %.not.i.i = icmp eq ptr %3, null
@@ -8409,7 +8409,7 @@ _ZN7Minisat15ClauseAllocatorD2Ev.exit4:           ; preds = %25, %30
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat6OptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat6OptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 16
@@ -10109,61 +10109,61 @@ define internal void @_GLOBAL__sub_I_Solver.cc() #21 section ".text.startup" {
   store i8 1, ptr @_ZN7MinisatL7l_FalseE, align 1
   store i8 2, ptr @_ZN7MinisatL7l_UndefE, align 1
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL13opt_var_decay, ptr noundef nonnull @.str, ptr noundef nonnull @.str.4, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL13opt_var_decay, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL13opt_var_decay, align 8
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 1, i32 0), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 1, i32 2), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 1, i32 3), align 1
   store double 0x3FEE666666666666, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL13opt_var_decay, i64 0, i32 2), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_clause_decay, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL16opt_clause_decay, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL16opt_clause_decay, align 8
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL16opt_clause_decay, i64 0, i32 1, i32 0), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL16opt_clause_decay, i64 0, i32 1, i32 2), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL16opt_clause_decay, i64 0, i32 1, i32 3), align 1
   store double 0x3FEFF7CED916872B, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL16opt_clause_decay, i64 0, i32 2), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL19opt_random_var_freq, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL19opt_random_var_freq, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL19opt_random_var_freq, align 8
   store <2 x double> <double 0.000000e+00, double 1.000000e+00>, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL19opt_random_var_freq, i64 0, i32 1, i32 0), align 8
   store i8 1, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL19opt_random_var_freq, i64 0, i32 1, i32 2), align 8
   store i8 1, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL19opt_random_var_freq, i64 0, i32 1, i32 3), align 1
   store double 0.000000e+00, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL19opt_random_var_freq, i64 0, i32 2), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL15opt_random_seed, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL15opt_random_seed, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL15opt_random_seed, align 8
   store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL15opt_random_seed, i64 0, i32 1, i32 0), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL15opt_random_seed, i64 0, i32 1, i32 2), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL15opt_random_seed, i64 0, i32 1, i32 3), align 1
   store double 0x4195D9C3F4000000, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL15opt_random_seed, i64 0, i32 2), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL14opt_ccmin_mode, ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.69)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL14opt_ccmin_mode, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL14opt_ccmin_mode, align 8
   store i64 8589934592, ptr getelementptr inbounds (%"class.Minisat::IntOption", ptr @_ZL14opt_ccmin_mode, i64 0, i32 1, i32 0), align 8
   store i32 2, ptr getelementptr inbounds (%"class.Minisat::IntOption", ptr @_ZL14opt_ccmin_mode, i64 0, i32 2), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_phase_saving, ptr noundef nonnull @.str.18, ptr noundef nonnull @.str.19, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.69)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL16opt_phase_saving, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL16opt_phase_saving, align 8
   store i64 8589934592, ptr getelementptr inbounds (%"class.Minisat::IntOption", ptr @_ZL16opt_phase_saving, i64 0, i32 1, i32 0), align 8
   store i32 2, ptr getelementptr inbounds (%"class.Minisat::IntOption", ptr @_ZL16opt_phase_saving, i64 0, i32 2), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_rnd_init_act, ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.76)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat10BoolOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL16opt_rnd_init_act, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat10BoolOptionE, i64 0, i32 0, i64 2), ptr @_ZL16opt_rnd_init_act, align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::BoolOption", ptr @_ZL16opt_rnd_init_act, i64 0, i32 1), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_luby_restart, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.76)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat10BoolOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL16opt_luby_restart, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat10BoolOptionE, i64 0, i32 0, i64 2), ptr @_ZL16opt_luby_restart, align 8
   store i8 1, ptr getelementptr inbounds (%"class.Minisat::BoolOption", ptr @_ZL16opt_luby_restart, i64 0, i32 1), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL17opt_restart_first, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.69)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL17opt_restart_first, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL17opt_restart_first, align 8
   store i64 9223372032559808513, ptr getelementptr inbounds (%"class.Minisat::IntOption", ptr @_ZL17opt_restart_first, i64 0, i32 1, i32 0), align 8
   store i32 100, ptr getelementptr inbounds (%"class.Minisat::IntOption", ptr @_ZL17opt_restart_first, i64 0, i32 2), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL15opt_restart_inc, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL15opt_restart_inc, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL15opt_restart_inc, align 8
   store <2 x double> <double 1.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL15opt_restart_inc, i64 0, i32 1, i32 0), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL15opt_restart_inc, i64 0, i32 1, i32 2), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL15opt_restart_inc, i64 0, i32 1, i32 3), align 1
   store double 2.000000e+00, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL15opt_restart_inc, i64 0, i32 2), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL16opt_garbage_frac, ptr noundef nonnull @.str.33, ptr noundef nonnull @.str.34, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.62)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL16opt_garbage_frac, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat12DoubleOptionE, i64 0, i32 0, i64 2), ptr @_ZL16opt_garbage_frac, align 8
   store <2 x double> <double 0.000000e+00, double 0x7FF0000000000000>, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL16opt_garbage_frac, i64 0, i32 1, i32 0), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL16opt_garbage_frac, i64 0, i32 1, i32 2), align 8
   store i8 0, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL16opt_garbage_frac, i64 0, i32 1, i32 3), align 1
   store double 2.000000e-01, ptr getelementptr inbounds (%"class.Minisat::DoubleOption", ptr @_ZL16opt_garbage_frac, i64 0, i32 2), align 8
   tail call void @_ZN7Minisat6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) @_ZL19opt_min_learnts_lim, ptr noundef nonnull @.str.36, ptr noundef nonnull @.str.37, ptr noundef nonnull @.str.61, ptr noundef nonnull @.str.69)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i64 0, inrange i32 0, i64 2), ptr @_ZL19opt_min_learnts_lim, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Minisat9IntOptionE, i64 0, i32 0, i64 2), ptr @_ZL19opt_min_learnts_lim, align 8
   store i64 9223372032559808512, ptr getelementptr inbounds (%"class.Minisat::IntOption", ptr @_ZL19opt_min_learnts_lim, i64 0, i32 1, i32 0), align 8
   store i32 0, ptr getelementptr inbounds (%"class.Minisat::IntOption", ptr @_ZL19opt_min_learnts_lim, i64 0, i32 2), align 8
   ret void

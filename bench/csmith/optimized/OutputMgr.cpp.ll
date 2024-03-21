@@ -200,7 +200,7 @@ define dso_local noundef zeroext i1 @_ZN9OutputMgr17is_monitored_funcEv() local_
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN9OutputMgrC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(8) %0) unnamed_addr #5 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV9OutputMgr, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV9OutputMgr, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 

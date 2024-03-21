@@ -1134,7 +1134,7 @@ entry:
   store ptr %main_thread, ptr %main_thread.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector8protocol11NodeTracing7BackendC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4node9inspector8protocol12TracingAgentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4node9inspector8protocol12TracingAgentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %env_ = getelementptr inbounds %"class.node::inspector::protocol::TracingAgent", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %env.addr, align 8
   store ptr %0, ptr %env_, align 8
@@ -1155,7 +1155,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4node9inspector8protocol11NodeTracing7BackendE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4node9inspector8protocol11NodeTracing7BackendE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1203,7 +1203,7 @@ entry:
   %ref.tmp = alloca %"class.std::unique_ptr.5", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4node9inspector8protocol12TracingAgentE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4node9inspector8protocol12TracingAgentE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trace_writer_ = getelementptr inbounds %"class.node::inspector::protocol::TracingAgent", ptr %this1, i32 0, i32 3
   call void @_ZN4node7tracing17AgentWriterHandle5resetEv(ptr noundef nonnull align 8 dereferenceable(12) %trace_writer_)
   %main_thread_ = getelementptr inbounds %"class.node::inspector::protocol::TracingAgent", ptr %this1, i32 0, i32 2
@@ -3992,7 +3992,7 @@ entry:
   store i32 %object_id, ptr %object_id.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_129DestroyFrontendWrapperRequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_129DestroyFrontendWrapperRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_id_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::DestroyFrontendWrapperRequest", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %object_id.addr, align 4
   store i32 %0, ptr %object_id_, align 8
@@ -4019,7 +4019,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector7RequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector7RequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4582,7 +4582,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9inspector8protocol11NodeTracing8FrontendESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node9inspector8protocol11NodeTracing8FrontendESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node9inspector8protocol11NodeTracing8FrontendESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node9inspector8protocol11NodeTracing8FrontendESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(24) %this1) #3
@@ -4753,7 +4753,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -5197,7 +5197,7 @@ entry:
   store ptr %frontend, ptr %frontend.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_id_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::CreateFrontendWrapperRequest", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %object_id.addr, align 4
   store i32 %0, ptr %object_id_, align 8
@@ -5429,7 +5429,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_128CreateFrontendWrapperRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %frontend_wrapper_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::CreateFrontendWrapperRequest", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperESt14default_deleteIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %frontend_wrapper_) #3
   call void @_ZN4node9inspector7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -5543,7 +5543,7 @@ entry:
   store ptr %frontend, ptr %frontend.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector9DeletableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %frontend_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::DeletableFrontendWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt8weak_ptrIN4node9inspector8protocol11NodeTracing8FrontendEEC2ERKS5_(ptr noundef nonnull align 8 dereferenceable(16) %frontend_, ptr noundef nonnull align 8 dereferenceable(16) %frontend) #3
   ret void
@@ -5617,7 +5617,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector9DeletableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector9DeletableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5627,7 +5627,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_124DeletableFrontendWrapperE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %frontend_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::DeletableFrontendWrapper", ptr %this1, i32 0, i32 1
   call void @_ZNSt8weak_ptrIN4node9inspector8protocol11NodeTracing8FrontendEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %frontend_) #3
   call void @_ZN4node9inspector9DeletableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -7465,7 +7465,7 @@ entry:
   store ptr %main_thread, ptr %main_thread.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node7tracing16AsyncTraceWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %json_writer_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::InspectorTraceWriter", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN2v88platform7tracing11TraceWriterESt14default_deleteIS3_EEC2IS5_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %json_writer_) #3
   %stream_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::InspectorTraceWriter", ptr %this1, i32 0, i32 2
@@ -7498,7 +7498,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing16AsyncTraceWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node7tracing16AsyncTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -7522,7 +7522,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_120InspectorTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %main_thread_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::InspectorTraceWriter", ptr %this1, i32 0, i32 4
   call void @_ZNSt10shared_ptrIN4node9inspector16MainThreadHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %main_thread_) #3
   %stream_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::InspectorTraceWriter", ptr %this1, i32 0, i32 2
@@ -8118,7 +8118,7 @@ entry:
   store ptr %message, ptr %message.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node9inspector7RequestC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_118SendMessageRequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_118SendMessageRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %object_id_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::SendMessageRequest", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %object_id.addr, align 4
   store i32 %0, ptr %object_id_, align 8
@@ -8191,7 +8191,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_118SendMessageRequestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4node9inspector8protocol12_GLOBAL__N_118SendMessageRequestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %message_ = getelementptr inbounds %"class.node::inspector::protocol::(anonymous namespace)::SendMessageRequest", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %message_) #3
   call void @_ZN4node9inspector7RequestD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

@@ -406,7 +406,7 @@ define dso_local void @_ZN11EnvironmentC2EP8IGameDef(ptr nocapture noundef nonnu
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8
   %11 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11Environment, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11Environment, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %12 = getelementptr inbounds i8, ptr %0, i64 12
   store float 0.000000e+00, ptr %12, align 4, !tbaa !14
   %13 = getelementptr inbounds i8, ptr %0, i64 24

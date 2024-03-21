@@ -150,7 +150,7 @@ define hidden void @_ZN7nanogui6SliderC2EPNS_6WidgetE(ptr noundef nonnull align 
   %12 = load ptr, ptr %3, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN7nanogui6WidgetC2EPS0_(ptr noundef nonnull align 8 dereferenceable(140) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6SliderE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6SliderE, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 1
   store float 0.000000e+00, ptr %14, align 4
   %15 = getelementptr inbounds %"class.nanogui::Slider", ptr %12, i32 0, i32 2
@@ -1383,7 +1383,7 @@ define linkonce_odr hidden void @_ZN7nanogui6SliderD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6SliderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7nanogui6SliderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nanogui::Slider", ptr %3, i32 0, i32 3
   call void @_ZNSt8functionIFvfEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #11
   %5 = getelementptr inbounds %"class.nanogui::Slider", ptr %3, i32 0, i32 2

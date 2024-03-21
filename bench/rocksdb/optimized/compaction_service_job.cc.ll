@@ -6477,7 +6477,7 @@ if.then.i.i.i10:                                  ; preds = %_ZNSt10shared_ptrIN
   br label %_ZNSt6vectorImSaImEED2Ev.exit
 
 _ZNSt6vectorImSaImEED2Ev.exit:                    ; preds = %_ZNSt10shared_ptrIN7rocksdb5CacheEED2Ev.exit, %if.then.i.i.i10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   %output_path_ = getelementptr inbounds i8, ptr %this, i64 1456
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %output_path_, ptr noundef nonnull align 8 dereferenceable(32) %output_path) #22
   %compaction_input_ = getelementptr inbounds i8, ptr %this, i64 1488
@@ -13265,7 +13265,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb30CompactionServiceCompactionJobD2Ev(ptr noundef nonnull align 8 dereferenceable(1504) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   %output_path_ = getelementptr inbounds i8, ptr %this, i64 1456
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_path_) #22
   tail call void @_ZN7rocksdb13CompactionJobD2Ev(ptr noundef nonnull align 8 dereferenceable(1456) %this) #22
@@ -13275,7 +13275,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN7rocksdb30CompactionServiceCompactionJobD0Ev(ptr noundef nonnull align 8 dereferenceable(1504) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb30CompactionServiceCompactionJobE, i64 0, i32 0, i64 2), ptr %this, align 8
   %output_path_.i = getelementptr inbounds i8, ptr %this, i64 1456
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %output_path_.i) #22
   tail call void @_ZN7rocksdb13CompactionJobD2Ev(ptr noundef nonnull align 8 dereferenceable(1456) %this) #22

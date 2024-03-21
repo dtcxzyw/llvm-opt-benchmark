@@ -191,9 +191,9 @@ define void @_ZN16RecentFileStatusC2E7QStringP7QObject(ptr noundef nonnull align
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %12)
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   call void @_ZN9QRunnableC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %13) #10
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16RecentFileStatus, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16RecentFileStatus, i32 0, i32 0, i32 2), ptr %11, align 8
   %14 = getelementptr inbounds i8, ptr %11, i64 16
-  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16RecentFileStatus, i32 0, inrange i32 1, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr], [5 x ptr] }, ptr @_ZTV16RecentFileStatus, i32 0, i32 1, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %class.RecentFileStatus, ptr %11, i32 0, i32 2
   invoke void @_ZNK7QString14toStdU16StringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1)
           to label %16 unwind label %24
@@ -285,7 +285,7 @@ define linkonce_odr void @_ZN9QRunnableC2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9QRunnable, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV9QRunnable, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QRunnable, ptr %3, i32 0, i32 1
   store i8 1, ptr %4, align 8
   ret void

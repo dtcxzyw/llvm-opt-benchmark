@@ -179,7 +179,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -1211,7 +1211,7 @@ define dso_local void @_ZN10TestObjDef18testAddGetSetClearEv(ptr nocapture nonnu
   %82 = getelementptr inbounds i8, ptr %78, i64 32
   store i64 0, ptr %82, align 8, !tbaa !13
   store i8 0, ptr %81, align 1, !tbaa !24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, inrange i32 0, i64 2), ptr %78, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, i32 0, i64 2), ptr %78, align 8, !tbaa !4
   %83 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %80, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.13, i64 noundef 6)
           to label %84 unwind label %92
 
@@ -1389,7 +1389,7 @@ define dso_local void @_ZN10TestObjDef18testAddGetSetClearEv(ptr nocapture nonnu
   %161 = getelementptr inbounds i8, ptr %157, i64 32
   store i64 0, ptr %161, align 8, !tbaa !13
   store i8 0, ptr %160, align 1, !tbaa !24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, inrange i32 0, i64 2), ptr %157, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, i32 0, i64 2), ptr %157, align 8, !tbaa !4
   %162 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %159, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.16, i64 noundef 6)
           to label %163 unwind label %92
 
@@ -1562,7 +1562,7 @@ define dso_local void @_ZN10TestObjDef18testAddGetSetClearEv(ptr nocapture nonnu
   %238 = getelementptr inbounds i8, ptr %234, i64 32
   store i64 0, ptr %238, align 8, !tbaa !13
   store i8 0, ptr %237, align 1, !tbaa !24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, inrange i32 0, i64 2), ptr %234, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, i32 0, i64 2), ptr %234, align 8, !tbaa !4
   %239 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %236, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.19, i64 noundef 4)
           to label %240 unwind label %92
 
@@ -1735,7 +1735,7 @@ define dso_local void @_ZN10TestObjDef18testAddGetSetClearEv(ptr nocapture nonnu
   %315 = getelementptr inbounds i8, ptr %311, i64 32
   store i64 0, ptr %315, align 8, !tbaa !13
   store i8 0, ptr %314, align 1, !tbaa !24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, inrange i32 0, i64 2), ptr %311, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, i32 0, i64 2), ptr %311, align 8, !tbaa !4
   %316 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %313, i64 noundef 0, i64 noundef 0, ptr noundef nonnull @.str.22, i64 noundef 6)
           to label %317 unwind label %92
 
@@ -2337,7 +2337,7 @@ define dso_local void @_ZN10TestObjDef9testCloneEv(ptr nocapture nonnull readnon
   %18 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #22
   call void @_ZN13ObjDefManagerC2EP8IGameDef10ObjDefType(ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef null, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15MyObjDefManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15MyObjDefManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %19 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #25
           to label %20 unwind label %32
 
@@ -2348,7 +2348,7 @@ define dso_local void @_ZN10TestObjDef9testCloneEv(ptr nocapture nonnull readnon
   %23 = getelementptr inbounds i8, ptr %19, i64 32
   store i64 0, ptr %23, align 8, !tbaa !13
   store i8 0, ptr %22, align 1, !tbaa !24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, inrange i32 0, i64 2), ptr %19, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, i32 0, i64 2), ptr %19, align 8, !tbaa !4
   %24 = getelementptr inbounds i8, ptr %19, i64 56
   store i32 -301924591, ptr %24, align 8, !tbaa !38
   %25 = invoke noundef i32 @_ZN13ObjDefManager3addEP6ObjDef(ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef nonnull %19)
@@ -2417,7 +2417,7 @@ define dso_local void @_ZN10TestObjDef9testCloneEv(ptr nocapture nonnull readnon
 51:                                               ; preds = %49
   %52 = getelementptr inbounds i8, ptr %50, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %52, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15MyObjDefManager, i64 0, inrange i32 0, i64 2), ptr %50, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15MyObjDefManager, i64 0, i32 0, i64 2), ptr %50, align 8, !tbaa !4
   invoke void @_ZNK13ObjDefManager7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(44) %2, ptr noundef nonnull %50)
           to label %53 unwind label %32
 
@@ -3143,7 +3143,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3167,7 +3167,7 @@ define linkonce_odr dso_local void @_ZN6ObjDefD2Ev(ptr noundef nonnull align 8 d
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8MyObjDefD0Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV6ObjDef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 40
@@ -3197,7 +3197,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK8MyObjDef5cloneEv(ptr noundef non
   %3 = getelementptr inbounds i8, ptr %2, i64 24
   %4 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr %4, ptr %3, align 8, !tbaa !23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8MyObjDef, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   tail call void @_ZNK6ObjDef7cloneToEPS_(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %2)
   %5 = getelementptr inbounds i8, ptr %0, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !38
@@ -3356,14 +3356,14 @@ define internal void @_GLOBAL__sub_I_test_objdef.cpp() #18 section ".text.startu
   store ptr getelementptr inbounds (%class.TestObjDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestObjDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !23
   store i64 0, ptr getelementptr inbounds (%class.TestObjDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestObjDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10TestObjDef, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10TestObjDef, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%class.TestObjDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestObjDef, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

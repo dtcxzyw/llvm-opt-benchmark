@@ -822,9 +822,9 @@ define void @_ZN13MainStatusBarC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %41 = load ptr, ptr %3, align 8
   %42 = load ptr, ptr %4, align 8
   call void @_ZN10QStatusBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %41, ptr noundef %42)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13MainStatusBar, i32 0, inrange i32 0, i32 2), ptr %41, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13MainStatusBar, i32 0, i32 0, i32 2), ptr %41, align 8
   %43 = getelementptr inbounds i8, ptr %41, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13MainStatusBar, i32 0, inrange i32 1, i32 2), ptr %43, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV13MainStatusBar, i32 0, i32 1, i32 2), ptr %43, align 8
   %44 = getelementptr inbounds %class.MainStatusBar, ptr %41, i32 0, i32 3
   invoke void @_ZN10LabelStackC1EP7QWidget(ptr noundef nonnull align 8 dereferenceable(112) %44, ptr noundef null)
           to label %45 unwind label %201
@@ -3578,9 +3578,9 @@ define linkonce_odr void @_ZN10LabelStackD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV10LabelStack, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV10LabelStack, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV10LabelStack, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV10LabelStack, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.LabelStack, ptr %3, i32 0, i32 5
   call void @_ZN6QTimerD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #11
   %6 = getelementptr inbounds %class.LabelStack, ptr %3, i32 0, i32 2
@@ -5914,7 +5914,7 @@ define linkonce_odr void @_ZN12ProfileModelD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV12ProfileModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #11
   %5 = getelementptr inbounds %class.ProfileModel, ptr %3, i32 0, i32 4

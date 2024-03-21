@@ -526,9 +526,9 @@ define void @_ZN15DragDropToolBarC2ERK7QStringP7QWidget(ptr noundef nonnull alig
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN8QToolBarC2ERK7QStringP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, inrange i32 1, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 1, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %class.DragDropToolBar, ptr %9, i32 0, i32 1
   call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %13) #12
   invoke void @_ZN15DragDropToolBar12setupToolbarEv(ptr noundef nonnull align 8 dereferenceable(52) %9)
@@ -672,9 +672,9 @@ define void @_ZN15DragDropToolBarC2EP7QWidget(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN8QToolBarC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV15DragDropToolBar, i32 0, i32 1, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.DragDropToolBar, ptr %7, i32 0, i32 1
   call void @_ZN6QPointC2Ev(ptr noundef nonnull align 4 dereferenceable(8) %10) #12
   invoke void @_ZN15DragDropToolBar12setupToolbarEv(ptr noundef nonnull align 8 dereferenceable(52) %7)

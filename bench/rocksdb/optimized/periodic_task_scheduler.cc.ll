@@ -1194,7 +1194,7 @@ call.i.noexc:                                     ; preds = %if.end
           to label %call.i.noexc.i unwind label %lpad.i, !noalias !25
 
 call.i.noexc.i:                                   ; preds = %call.i.noexc
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN7rocksdb5TimerEFvvEPS4_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !25
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt6thread11_State_implINS_8_InvokerISt5tupleIJMN7rocksdb5TimerEFvvEPS4_EEEEEE, i64 0, i32 0, i64 2), ptr %call.i1.i, align 8, !noalias !25
   %_M_func.i.i.i = getelementptr inbounds i8, ptr %call.i1.i, i64 8
   store ptr %this, ptr %_M_func.i.i.i, align 8, !noalias !25
   %2 = getelementptr inbounds i8, ptr %call.i1.i, i64 16

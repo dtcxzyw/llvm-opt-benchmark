@@ -4947,7 +4947,7 @@ $_ZZN5boost9container16allocator_traitsINS0_22small_vector_allocatorIjSaIvEvEEE9
 @_ZTSN3ue218DepthOverflowErrorE = linkonce_odr hidden constant [27 x i8] c"N3ue218DepthOverflowErrorE\00", comdat, align 1
 @_ZTIN3ue218DepthOverflowErrorE = linkonce_odr hidden constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN3ue218DepthOverflowErrorE }, comdat, align 8
 @_ZTVN5boost12graph_detail8list_tagE = linkonce_odr hidden unnamed_addr constant { [7 x ptr], [5 x ptr] } { [7 x ptr] [ptr inttoptr (i64 8 to ptr), ptr inttoptr (i64 8 to ptr), ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5boost12graph_detail8list_tagE], [5 x ptr] [ptr null, ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN5boost12graph_detail8list_tagE] }, comdat, align 8
-@_ZTTN5boost12graph_detail8list_tagE = linkonce_odr hidden unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE0_NS0_24reversible_container_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE0_NS0_24reversible_container_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE0_NS0_21forward_container_tagE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_27back_insertion_sequence_tagE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [4 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_12sequence_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_12sequence_tagE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN5boost12graph_detail8list_tagE = linkonce_odr hidden unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE0_NS0_24reversible_container_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE0_NS0_24reversible_container_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE0_NS0_21forward_container_tagE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_27back_insertion_sequence_tagE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [4 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_12sequence_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [3 x ptr] }, ptr @_ZTCN5boost12graph_detail8list_tagE8_NS0_12sequence_tagE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN5boost12graph_detail8list_tagE0_NS0_24reversible_container_tagE = linkonce_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr null, ptr @_ZTIN5boost12graph_detail24reversible_container_tagE] }, comdat, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN5boost12graph_detail24reversible_container_tagE = linkonce_odr hidden constant [49 x i8] c"N5boost12graph_detail24reversible_container_tagE\00", comdat, align 1
@@ -4966,7 +4966,7 @@ $_ZZN5boost9container16allocator_traitsINS0_22small_vector_allocatorIjSaIvEvEEE9
 @_ZTSN5boost12graph_detail8list_tagE = linkonce_odr hidden constant [32 x i8] c"N5boost12graph_detail8list_tagE\00", comdat, align 1
 @_ZTIN5boost12graph_detail8list_tagE = linkonce_odr hidden constant { ptr, ptr, i32, i32, ptr, i64, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN5boost12graph_detail8list_tagE, i32 2, i32 2, ptr @_ZTIN5boost12graph_detail24reversible_container_tagE, i64 -10237, ptr @_ZTIN5boost12graph_detail27back_insertion_sequence_tagE, i64 -12285 }, comdat, align 8
 @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE = linkonce_odr hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN5boost12graph_detail27back_insertion_sequence_tagE] }, comdat, align 8
-@_ZTTN5boost12graph_detail27back_insertion_sequence_tagE = linkonce_odr hidden unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTCN5boost12graph_detail27back_insertion_sequence_tagE0_NS0_12sequence_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTCN5boost12graph_detail27back_insertion_sequence_tagE0_NS0_12sequence_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost12graph_detail27back_insertion_sequence_tagE0_NS0_21forward_container_tagE, i32 0, inrange i32 0, i32 3)], comdat, align 8
+@_ZTTN5boost12graph_detail27back_insertion_sequence_tagE = linkonce_odr hidden unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTCN5boost12graph_detail27back_insertion_sequence_tagE0_NS0_12sequence_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTCN5boost12graph_detail27back_insertion_sequence_tagE0_NS0_12sequence_tagE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost12graph_detail27back_insertion_sequence_tagE0_NS0_21forward_container_tagE, i32 0, inrange i32 0, i32 3)], comdat, align 8
 @_ZTCN5boost12graph_detail27back_insertion_sequence_tagE0_NS0_12sequence_tagE = linkonce_odr hidden unnamed_addr constant { [4 x ptr] } { [4 x ptr] [ptr null, ptr null, ptr null, ptr @_ZTIN5boost12graph_detail12sequence_tagE] }, comdat, align 8
 @_ZTCN5boost12graph_detail27back_insertion_sequence_tagE0_NS0_21forward_container_tagE = linkonce_odr hidden unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @_ZTIN5boost12graph_detail21forward_container_tagE] }, comdat, align 8
 @.str.4 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
@@ -14965,9 +14965,9 @@ entry:
   %vbase.offset8 = load i64, ptr %vbase.offset.ptr7, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %2, i64 %vbase.offset8
   call void @_ZN5boost12graph_detail12sequence_tagC2EOS1_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([6 x ptr], ptr @_ZTTN5boost12graph_detail27back_insertion_sequence_tagE, i64 0, i64 3), ptr noundef nonnull align 8 dereferenceable(8) %add.ptr9) #2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, inrange i32 0, i32 5), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost12graph_detail27back_insertion_sequence_tagE, i32 0, i32 0, i32 5), ptr %this1, align 8
   ret void
 }
 
@@ -15311,13 +15311,13 @@ entry:
   call void @_ZN5boost12graph_detail12sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 11)) #2
   %1 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN5boost12graph_detail27back_insertion_sequence_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTN5boost12graph_detail8list_tagE, i64 0, i64 8)) #2
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 0, i32 7), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 0, i32 7), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 0, i32 7), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 0, i32 7), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 1, i32 5), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, inrange i32 1, i32 5), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTVN5boost12graph_detail8list_tagE, i32 0, i32 1, i32 5), ptr %add.ptr2, align 8
   ret void
 }
 
@@ -46313,7 +46313,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -46509,7 +46509,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

@@ -38,7 +38,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN14btOptimizedBvhC2Ev(ptr noundef nonnull align 8 dereferenceable(244) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN14btQuantizedBvhC2Ev(ptr noundef nonnull align 8 dereferenceable(244) %this)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14btOptimizedBvh, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14btOptimizedBvh, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -87,7 +87,7 @@ entry:
 if.then:                                          ; preds = %entry
   tail call void @_ZN14btQuantizedBvh21setQuantizationValuesERK9btVector3S2_f(ptr noundef nonnull align 8 dereferenceable(244) %this, ptr noundef nonnull align 4 dereferenceable(16) %bvhAabbMin, ptr noundef nonnull align 4 dereferenceable(16) %bvhAabbMax, float noundef 1.000000e+00)
   %m_quantizedLeafNodes = getelementptr inbounds i8, ptr %this, i64 136
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E29QuantizedNodeTriangleCallback, i64 0, inrange i32 0, i64 2), ptr %callback, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E29QuantizedNodeTriangleCallback, i64 0, i32 0, i64 2), ptr %callback, align 8
   %m_triangleNodes.i = getelementptr inbounds i8, ptr %callback, i64 8
   store ptr %m_quantizedLeafNodes, ptr %m_triangleNodes.i, align 8
   %m_optimizedTree.i = getelementptr inbounds i8, ptr %callback, i64 16
@@ -200,7 +200,7 @@ lpad:                                             ; preds = %if.then3.i.i.i, %if
 
 if.else:                                          ; preds = %entry
   %m_leafNodes = getelementptr inbounds i8, ptr %this, i64 72
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E20NodeTriangleCallback, i64 0, inrange i32 0, i64 2), ptr %callback8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVZN14btOptimizedBvh5buildEP23btStridingMeshInterfacebRK9btVector3S4_E20NodeTriangleCallback, i64 0, i32 0, i64 2), ptr %callback8, align 8
   %m_triangleNodes.i8 = getelementptr inbounds i8, ptr %callback8, i64 8
   store ptr %m_leafNodes, ptr %m_triangleNodes.i8, align 8
   store <4 x float> <float 0xC3ABC16D60000000, float 0xC3ABC16D60000000, float 0xC3ABC16D60000000, float 0.000000e+00>, ptr %aabbMin, align 16

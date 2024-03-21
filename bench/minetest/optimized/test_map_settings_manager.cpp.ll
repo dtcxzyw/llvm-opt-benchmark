@@ -175,7 +175,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -5018,7 +5018,7 @@ define dso_local void @_ZN22TestMapSettingsManager19testMapMetaSaveLoadEv(ptr no
 
 165:                                              ; preds = %163
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #22
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !4
   %166 = getelementptr inbounds i8, ptr %7, i64 8
   store i32 0, ptr %166, align 8, !tbaa !40
   %167 = getelementptr inbounds i8, ptr %7, i64 12
@@ -5042,7 +5042,7 @@ define dso_local void @_ZN22TestMapSettingsManager19testMapMetaSaveLoadEv(ptr no
   %176 = getelementptr inbounds i8, ptr %7, i64 52
   store i8 0, ptr %176, align 4, !tbaa !72
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %8) #22
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, inrange i32 0, i64 2), ptr %8, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12MapgenParams, i64 0, i32 0, i64 2), ptr %8, align 8, !tbaa !4
   %177 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 0, ptr %177, align 8, !tbaa !40
   %178 = getelementptr inbounds i8, ptr %8, i64 12
@@ -6986,14 +6986,14 @@ define internal void @_GLOBAL__sub_I_test_map_settings_manager.cpp() #17 section
   store ptr getelementptr inbounds (%class.TestMapSettingsManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestMapSettingsManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !34
   store i64 0, ptr getelementptr inbounds (%class.TestMapSettingsManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestMapSettingsManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !35
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22TestMapSettingsManager, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV22TestMapSettingsManager, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%class.TestMapSettingsManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestMapSettingsManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

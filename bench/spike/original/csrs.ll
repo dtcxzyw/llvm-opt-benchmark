@@ -1755,7 +1755,7 @@ define void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereference
   store ptr %1, ptr %5, align 8
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV5csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV5csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.csr_t, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -2028,7 +2028,7 @@ define linkonce_odr void @_ZN24trap_illegal_instructionC2Em(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 2, i1 noundef zeroext false, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2054,7 +2054,7 @@ define linkonce_odr void @_ZN24trap_virtual_instructionC2Em(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 22, i1 noundef zeroext false, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_virtual_instruction, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2246,7 +2246,7 @@ define void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 der
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11basic_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11basic_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.basic_csr_t, ptr %9, i32 0, i32 1
   %13 = load i64, ptr %8, align 8
   store i64 %13, ptr %12, align 8
@@ -2278,7 +2278,7 @@ define void @_ZN13pmpaddr_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 de
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13pmpaddr_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13pmpaddr_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.pmpaddr_csr_t, ptr %7, i32 0, i32 1
   store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds %class.pmpaddr_csr_t, ptr %7, i32 0, i32 2
@@ -3321,7 +3321,7 @@ define void @_ZN12pmpcfg_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 der
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12pmpcfg_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12pmpcfg_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -3761,7 +3761,7 @@ define void @_ZN13mseccfg_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 de
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13mseccfg_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13mseccfg_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4015,7 +4015,7 @@ define void @_ZN17virtualized_csr_tC2EP11processor_tSt10shared_ptrI5csr_tES4_(pt
   %12 = getelementptr inbounds %class.csr_t, ptr %11, i32 0, i32 3
   %13 = load i64, ptr %12, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %13)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17virtualized_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17virtualized_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %14 = getelementptr inbounds %class.virtualized_csr_t, ptr %9, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef nonnull align 8 dereferenceable(16) %2) #3
   %15 = getelementptr inbounds %class.virtualized_csr_t, ptr %9, i32 0, i32 2
@@ -4137,7 +4137,7 @@ define void @_ZN9epc_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 derefer
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9epc_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9epc_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.epc_csr_t, ptr %7, i32 0, i32 1
   store i64 0, ptr %10, align 8
   ret void
@@ -4210,7 +4210,7 @@ define void @_ZN10tvec_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 deref
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10tvec_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10tvec_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.tvec_csr_t, ptr %7, i32 0, i32 1
   store i64 0, ptr %10, align 8
   ret void
@@ -4252,7 +4252,7 @@ define void @_ZN11cause_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dere
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11cause_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11cause_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -4374,7 +4374,7 @@ define void @_ZN17base_status_csr_tC2EP11processor_tm(ptr noundef nonnull align 
   %10 = load ptr, ptr %5, align 8
   %11 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17base_status_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17base_status_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.base_status_csr_t, ptr %9, i32 0, i32 1
   %13 = load ptr, ptr %5, align 8
   %14 = invoke noundef zeroext i1 @_ZNK11processor_t23extension_enabled_constEh(ptr noundef nonnull align 8 dereferenceable(659880) %13, i8 noundef zeroext 83)
@@ -4717,7 +4717,7 @@ define void @_ZN14vsstatus_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 d
   %10 = load ptr, ptr %5, align 8
   %11 = load i64, ptr %6, align 8
   call void @_ZN17base_status_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14vsstatus_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14vsstatus_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.vsstatus_csr_t, ptr %9, i32 0, i32 1
   %13 = load ptr, ptr %5, align 8
   %14 = invoke noundef ptr @_ZN11processor_t9get_stateEv(ptr noundef nonnull align 8 dereferenceable(659880) %13)
@@ -4824,7 +4824,7 @@ define void @_ZN19sstatus_proxy_csr_tC2EP11processor_tmSt10shared_ptrI13mstatus_
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN17base_status_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19sstatus_proxy_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19sstatus_proxy_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.sstatus_proxy_csr_t, ptr %9, i32 0, i32 1
   call void @_ZNSt10shared_ptrI13mstatus_csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
@@ -4882,7 +4882,7 @@ define void @_ZN13mstatus_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 de
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN17base_status_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13mstatus_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13mstatus_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.mstatus_csr_t, ptr %7, i32 0, i32 1
   %11 = call noundef i64 @_ZNK13mstatus_csr_t29compute_mstatus_initial_valueEv(ptr noundef nonnull align 8 dereferenceable(64) %7) #3
   store i64 %11, ptr %10, align 8
@@ -5198,7 +5198,7 @@ define void @_ZN14mnstatus_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 d
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14mnstatus_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14mnstatus_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -5279,7 +5279,7 @@ define void @_ZN14rv32_low_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr nou
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14rv32_low_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14rv32_low_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.rv32_low_csr_t, ptr %9, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
@@ -5382,7 +5382,7 @@ define void @_ZN15rv32_high_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr no
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15rv32_high_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15rv32_high_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.rv32_high_csr_t, ptr %9, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
@@ -5498,7 +5498,7 @@ define void @_ZN13sstatus_csr_tC2EP11processor_tSt10shared_ptrI19sstatus_proxy_c
 15:                                               ; preds = %4
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13sstatus_csr_t, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13sstatus_csr_t, i32 0, i32 0, i32 2), ptr %13, align 8
   %16 = getelementptr inbounds %class.sstatus_csr_t, ptr %13, i32 0, i32 1
   call void @_ZNSt10shared_ptrI19sstatus_proxy_csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %2) #3
   %17 = getelementptr inbounds %class.sstatus_csr_t, ptr %13, i32 0, i32 2
@@ -5797,7 +5797,7 @@ define void @_ZN10misa_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dere
   %11 = load i64, ptr %7, align 8
   %12 = load i64, ptr %8, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %10, i64 noundef %11, i64 noundef %12)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10misa_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10misa_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds %class.misa_csr_t, ptr %9, i32 0, i32 1
   %14 = load i64, ptr %8, align 8
   store i64 %14, ptr %13, align 8
@@ -6519,7 +6519,7 @@ define void @_ZN16mip_or_mie_csr_tC2EP11processor_tm(ptr noundef nonnull align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16mip_or_mie_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16mip_or_mie_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.mip_or_mie_csr_t, ptr %7, i32 0, i32 1
   store i64 0, ptr %10, align 8
   ret void
@@ -6563,7 +6563,7 @@ define void @_ZN9mip_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 derefer
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN16mip_or_mie_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9mip_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9mip_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -6712,7 +6712,7 @@ define void @_ZN9mie_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 derefer
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN16mip_or_mie_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9mie_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV9mie_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -7044,7 +7044,7 @@ define void @_ZN15mip_proxy_csr_tC2EP11processor_tmSt10shared_ptrI22generic_int_
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15mip_proxy_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15mip_proxy_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.mip_proxy_csr_t, ptr %9, i32 0, i32 1
   call void @_ZNSt10shared_ptrI22generic_int_accessor_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
@@ -7110,7 +7110,7 @@ define void @_ZN15mie_proxy_csr_tC2EP11processor_tmSt10shared_ptrI22generic_int_
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15mie_proxy_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15mie_proxy_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.mie_proxy_csr_t, ptr %9, i32 0, i32 1
   call void @_ZNSt10shared_ptrI22generic_int_accessor_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
@@ -7153,7 +7153,7 @@ define void @_ZN13mideleg_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 de
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13mideleg_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13mideleg_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -7326,7 +7326,7 @@ define void @_ZN13medeleg_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 de
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13medeleg_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13medeleg_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.medeleg_csr_t, ptr %7, i32 0, i32 1
   store i64 15729664, ptr %10, align 8
   ret void
@@ -7458,7 +7458,7 @@ define void @_ZN12masked_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 d
   %13 = load i64, ptr %8, align 8
   %14 = load i64, ptr %10, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %12, i64 noundef %13, i64 noundef %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12masked_csr_t, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12masked_csr_t, i32 0, i32 0, i32 2), ptr %11, align 8
   %15 = getelementptr inbounds %class.masked_csr_t, ptr %11, i32 0, i32 1
   %16 = load i64, ptr %9, align 8
   store i64 %16, ptr %15, align 8
@@ -7507,7 +7507,7 @@ define void @_ZN12envcfg_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 d
   %14 = load i64, ptr %9, align 8
   %15 = load i64, ptr %10, align 8
   call void @_ZN12masked_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12envcfg_csr_t, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12envcfg_csr_t, i32 0, i32 0, i32 2), ptr %11, align 8
   ret void
 }
 
@@ -7565,7 +7565,7 @@ define void @_ZN13henvcfg_csr_tC2EP11processor_tmmmSt10shared_ptrI5csr_tE(ptr no
   %16 = load i64, ptr %10, align 8
   %17 = load i64, ptr %11, align 8
   call void @_ZN12envcfg_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef %14, i64 noundef %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13henvcfg_csr_t, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13henvcfg_csr_t, i32 0, i32 0, i32 2), ptr %13, align 8
   %18 = getelementptr inbounds %class.henvcfg_csr_t, ptr %13, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull align 8 dereferenceable(16) %5) #3
   ret void
@@ -7583,7 +7583,7 @@ define void @_ZN14base_atp_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 d
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14base_atp_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14base_atp_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -7888,7 +7888,7 @@ define void @_ZN10satp_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 deref
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN14base_atp_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10satp_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10satp_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -8011,7 +8011,7 @@ define void @_ZN22virtualized_satp_csr_tC2EP11processor_tSt10shared_ptrI10satp_c
 15:                                               ; preds = %4
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22virtualized_satp_csr_t, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22virtualized_satp_csr_t, i32 0, i32 0, i32 2), ptr %13, align 8
   %16 = getelementptr inbounds %class.virtualized_satp_csr_t, ptr %13, i32 0, i32 1
   call void @_ZNSt10shared_ptrI10satp_csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %2) #3
   ret void
@@ -8208,7 +8208,7 @@ define void @_ZN18wide_counter_csr_tC2EP11processor_tmSt10shared_ptrI15smcntrpmf
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18wide_counter_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18wide_counter_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.wide_counter_csr_t, ptr %9, i32 0, i32 1
   store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds %class.wide_counter_csr_t, ptr %9, i32 0, i32 2
@@ -8454,7 +8454,7 @@ define void @_ZN18time_counter_csr_tC2EP11processor_tm(ptr noundef nonnull align
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18time_counter_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18time_counter_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.time_counter_csr_t, ptr %7, i32 0, i32 1
   store i64 0, ptr %10, align 8
   ret void
@@ -8615,7 +8615,7 @@ define void @_ZN11proxy_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr nounde
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11proxy_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11proxy_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.proxy_csr_t, ptr %9, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
@@ -8663,7 +8663,7 @@ define void @_ZN11const_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 der
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11const_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11const_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.const_csr_t, ptr %9, i32 0, i32 1
   %13 = load i64, ptr %8, align 8
   store i64 %13, ptr %12, align 8
@@ -8711,7 +8711,7 @@ define void @_ZN19counter_proxy_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(pt
 
 15:                                               ; preds = %4
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19counter_proxy_csr_t, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV19counter_proxy_csr_t, i32 0, i32 0, i32 2), ptr %12, align 8
   ret void
 
 16:                                               ; preds = %4
@@ -9021,7 +9021,7 @@ define void @_ZN12mevent_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 der
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12mevent_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12mevent_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9108,7 +9108,7 @@ define void @_ZN16hypervisor_csr_tC2EP11processor_tm(ptr noundef nonnull align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16hypervisor_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16hypervisor_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9185,7 +9185,7 @@ define void @_ZN13hideleg_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr noun
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN12masked_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef %10, i64 noundef %11, i64 noundef 1092, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13hideleg_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13hideleg_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.hideleg_csr_t, ptr %9, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   ret void
@@ -9219,7 +9219,7 @@ define void @_ZN11hgatp_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dere
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11hgatp_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11hgatp_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9477,7 +9477,7 @@ define void @_ZN13tselect_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 de
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13tselect_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13tselect_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9547,7 +9547,7 @@ define void @_ZN12tdata1_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 der
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12tdata1_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12tdata1_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9614,7 +9614,7 @@ define void @_ZN12tdata2_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 der
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12tdata2_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12tdata2_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9681,7 +9681,7 @@ define void @_ZN12tdata3_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 der
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12tdata3_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12tdata3_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9748,7 +9748,7 @@ define void @_ZN11tinfo_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dere
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11tinfo_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11tinfo_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9788,7 +9788,7 @@ define void @_ZN16debug_mode_csr_tC2EP11processor_tm(ptr noundef nonnull align 8
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16debug_mode_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16debug_mode_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9865,7 +9865,7 @@ define void @_ZN9dpc_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 derefer
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN9epc_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9dpc_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9dpc_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -9942,7 +9942,7 @@ define void @_ZN10dcsr_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 deref
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10dcsr_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10dcsr_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.dcsr_csr_t, ptr %7, i32 0, i32 1
   store i8 0, ptr %10, align 1
   %11 = getelementptr inbounds %class.dcsr_csr_t, ptr %7, i32 0, i32 2
@@ -10343,7 +10343,7 @@ define void @_ZN11float_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 de
   %14 = load i64, ptr %9, align 8
   %15 = load i64, ptr %10, align 8
   call void @_ZN12masked_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11float_csr_t, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11float_csr_t, i32 0, i32 0, i32 2), ptr %11, align 8
   ret void
 }
 
@@ -10704,7 +10704,7 @@ define void @_ZN15composite_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tES4_j(pt
   %14 = load ptr, ptr %8, align 8
   %15 = load i64, ptr %9, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %13, ptr noundef %14, i64 noundef %15)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15composite_csr_t, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15composite_csr_t, i32 0, i32 0, i32 2), ptr %13, align 8
   %16 = getelementptr inbounds %class.composite_csr_t, ptr %13, i32 0, i32 2
   call void @_ZNSt10shared_ptrI5csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   %17 = getelementptr inbounds %class.composite_csr_t, ptr %13, i32 0, i32 3
@@ -10800,7 +10800,7 @@ define void @_ZN10seed_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 deref
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10seed_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10seed_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -11011,7 +11011,7 @@ define void @_ZN12vector_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 d
   %13 = load i64, ptr %8, align 8
   %14 = load i64, ptr %10, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %11, ptr noundef %12, i64 noundef %13, i64 noundef %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12vector_csr_t, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12vector_csr_t, i32 0, i32 0, i32 2), ptr %11, align 8
   %15 = getelementptr inbounds %class.vector_csr_t, ptr %11, i32 0, i32 1
   %16 = load i64, ptr %9, align 8
   store i64 %16, ptr %15, align 8
@@ -11210,7 +11210,7 @@ define void @_ZN11vxsat_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dere
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN12masked_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef %8, i64 noundef %9, i64 noundef 1, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11vxsat_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11vxsat_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -11377,7 +11377,7 @@ define void @_ZN14hstateen_csr_tC2EP11processor_tmmmh(ptr noundef nonnull align 
   %16 = load i64, ptr %10, align 8
   %17 = load i64, ptr %11, align 8
   call void @_ZN12masked_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %13, ptr noundef %14, i64 noundef %15, i64 noundef %16, i64 noundef %17)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14hstateen_csr_t, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14hstateen_csr_t, i32 0, i32 0, i32 2), ptr %13, align 8
   %18 = getelementptr inbounds %class.hstateen_csr_t, ptr %13, i32 0, i32 1
   %19 = load i8, ptr %12, align 1
   store i8 %19, ptr %18, align 8
@@ -11530,7 +11530,7 @@ define void @_ZN14sstateen_csr_tC2EP11processor_tmmmh(ptr noundef nonnull align 
   %17 = load i64, ptr %11, align 8
   %18 = load i8, ptr %12, align 1
   call void @_ZN14hstateen_csr_tC2EP11processor_tmmmh(ptr noundef nonnull align 8 dereferenceable(57) %13, ptr noundef %14, i64 noundef %15, i64 noundef %16, i64 noundef %17, i8 noundef zeroext %18)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14sstateen_csr_t, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14sstateen_csr_t, i32 0, i32 0, i32 2), ptr %13, align 8
   ret void
 }
 
@@ -11716,7 +11716,7 @@ define void @_ZN13senvcfg_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 
   %14 = load i64, ptr %9, align 8
   %15 = load i64, ptr %10, align 8
   call void @_ZN12envcfg_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13senvcfg_csr_t, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13senvcfg_csr_t, i32 0, i32 0, i32 2), ptr %11, align 8
   ret void
 }
 
@@ -11947,7 +11947,7 @@ define void @_ZN14stimecmp_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %10, i64 noundef %11, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14stimecmp_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14stimecmp_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.stimecmp_csr_t, ptr %9, i32 0, i32 1
   %13 = load i64, ptr %8, align 8
   store i64 %13, ptr %12, align 8
@@ -12053,7 +12053,7 @@ define void @_ZN26virtualized_stimecmp_csr_tC2EP11processor_tSt10shared_ptrI5csr
 15:                                               ; preds = %4
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26virtualized_stimecmp_csr_t, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26virtualized_stimecmp_csr_t, i32 0, i32 0, i32 2), ptr %13, align 8
   ret void
 
 16:                                               ; preds = %4
@@ -12246,7 +12246,7 @@ define void @_ZN15scountovf_csr_tC2EP11processor_tm(ptr noundef nonnull align 8 
   %8 = load ptr, ptr %5, align 8
   %9 = load i64, ptr %6, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %7, ptr noundef %8, i64 noundef %9)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15scountovf_csr_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15scountovf_csr_t, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 }
 
@@ -12422,7 +12422,7 @@ define void @_ZN9jvt_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 derefe
   %11 = load i64, ptr %7, align 8
   %12 = load i64, ptr %8, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %10, i64 noundef %11, i64 noundef %12)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9jvt_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9jvt_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 }
 
@@ -12690,7 +12690,7 @@ define void @_ZN26virtualized_indirect_csr_tC2EP11processor_tSt10shared_ptrI5csr
 15:                                               ; preds = %4
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #3
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26virtualized_indirect_csr_t, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV26virtualized_indirect_csr_t, i32 0, i32 0, i32 2), ptr %13, align 8
   ret void
 
 16:                                               ; preds = %4
@@ -12785,7 +12785,7 @@ define void @_ZN18sscsrind_reg_csr_tC2EP11processor_tmSt10shared_ptrI5csr_tE(ptr
   %10 = load ptr, ptr %6, align 8
   %11 = load i64, ptr %7, align 8
   call void @_ZN5csr_tC2EP11processor_tm(ptr noundef nonnull align 8 dereferenceable(37) %9, ptr noundef %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18sscsrind_reg_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18sscsrind_reg_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.sscsrind_reg_csr_t, ptr %9, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %3) #3
   %13 = getelementptr inbounds %class.sscsrind_reg_csr_t, ptr %9, i32 0, i32 2
@@ -13231,7 +13231,7 @@ define void @_ZN15smcntrpmf_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 
   %14 = load i64, ptr %9, align 8
   %15 = load i64, ptr %10, align 8
   call void @_ZN12masked_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15smcntrpmf_csr_t, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15smcntrpmf_csr_t, i32 0, i32 0, i32 2), ptr %11, align 8
   %16 = getelementptr inbounds %class.smcntrpmf_csr_t, ptr %11, i32 0, i32 1
   call void @_ZNSt8optionalImEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %16) #3
   ret void
@@ -13345,7 +13345,7 @@ define void @_ZN12srmcfg_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 d
   %14 = load i64, ptr %9, align 8
   %15 = load i64, ptr %10, align 8
   call void @_ZN12masked_csr_tC2EP11processor_tmmm(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef %12, i64 noundef %13, i64 noundef %14, i64 noundef %15)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12srmcfg_csr_t, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV12srmcfg_csr_t, i32 0, i32 0, i32 2), ptr %11, align 8
   ret void
 }
 
@@ -13508,7 +13508,7 @@ define void @_ZN10hvip_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dere
   %11 = load i64, ptr %7, align 8
   %12 = load i64, ptr %8, align 8
   call void @_ZN11basic_csr_tC2EP11processor_tmm(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %10, i64 noundef %11, i64 noundef %12)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10hvip_csr_t, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10hvip_csr_t, i32 0, i32 0, i32 2), ptr %9, align 8
   ret void
 }
 
@@ -13630,7 +13630,7 @@ define linkonce_odr void @_ZN17virtualized_csr_tD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17virtualized_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV17virtualized_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.virtualized_csr_t, ptr %3, i32 0, i32 2
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds %class.virtualized_csr_t, ptr %3, i32 0, i32 1
@@ -13789,7 +13789,7 @@ define linkonce_odr void @_ZN14rv32_low_csr_tD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14rv32_low_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV14rv32_low_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.rv32_low_csr_t, ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN5csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %3) #3
@@ -13811,7 +13811,7 @@ define linkonce_odr void @_ZN15rv32_high_csr_tD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15rv32_high_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15rv32_high_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.rv32_high_csr_t, ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN5csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %3) #3
@@ -13907,7 +13907,7 @@ define linkonce_odr void @_ZN15mip_proxy_csr_tD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15mip_proxy_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15mip_proxy_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.mip_proxy_csr_t, ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrI22generic_int_accessor_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN5csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %3) #3
@@ -13929,7 +13929,7 @@ define linkonce_odr void @_ZN15mie_proxy_csr_tD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15mie_proxy_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15mie_proxy_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.mie_proxy_csr_t, ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrI22generic_int_accessor_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN5csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %3) #3
@@ -14103,7 +14103,7 @@ define linkonce_odr void @_ZN22virtualized_satp_csr_tD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22virtualized_satp_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV22virtualized_satp_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.virtualized_satp_csr_t, ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrI10satp_csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN17virtualized_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %3) #3
@@ -14125,7 +14125,7 @@ define linkonce_odr void @_ZN18wide_counter_csr_tD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18wide_counter_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18wide_counter_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.wide_counter_csr_t, ptr %3, i32 0, i32 2
   call void @_ZNSt10shared_ptrI15smcntrpmf_csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN5csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %3) #3
@@ -14175,7 +14175,7 @@ define linkonce_odr void @_ZN11proxy_csr_tD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11proxy_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV11proxy_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.proxy_csr_t, ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN5csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %3) #3
@@ -14273,7 +14273,7 @@ define linkonce_odr void @_ZN13hideleg_csr_tD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13hideleg_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13hideleg_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.hideleg_csr_t, ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   call void @_ZN12masked_csr_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
@@ -14494,7 +14494,7 @@ define linkonce_odr void @_ZN15composite_csr_tD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15composite_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV15composite_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.composite_csr_t, ptr %3, i32 0, i32 3
   call void @_ZNSt10shared_ptrI5csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds %class.composite_csr_t, ptr %3, i32 0, i32 2
@@ -14727,7 +14727,7 @@ define linkonce_odr void @_ZN18sscsrind_reg_csr_tD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18sscsrind_reg_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV18sscsrind_reg_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.sscsrind_reg_csr_t, ptr %3, i32 0, i32 2
   call void @_ZNSt13unordered_mapImSt10shared_ptrI5csr_tESt4hashImESt8equal_toImESaISt4pairIKmS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #3
   %5 = getelementptr inbounds %class.sscsrind_reg_csr_t, ptr %3, i32 0, i32 1
@@ -14825,7 +14825,7 @@ define linkonce_odr void @_ZN13sstatus_csr_tD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13sstatus_csr_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV13sstatus_csr_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.sstatus_csr_t, ptr %3, i32 0, i32 2
   call void @_ZNSt10shared_ptrI14vsstatus_csr_tED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds %class.sstatus_csr_t, ptr %3, i32 0, i32 1
@@ -14858,7 +14858,7 @@ define linkonce_odr void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 der
   %10 = load ptr, ptr %5, align 8
   %11 = load i64, ptr %6, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 1
   %13 = load i8, ptr %7, align 1
   %14 = trunc i8 %13 to i1
@@ -14978,7 +14978,7 @@ define linkonce_odr void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
   %7 = load i64, ptr %4, align 8
   store i64 %7, ptr %6, align 8

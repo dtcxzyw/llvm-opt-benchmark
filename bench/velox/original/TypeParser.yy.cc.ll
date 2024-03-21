@@ -854,7 +854,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %scanner_yyarg, ptr %scanner_yyarg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook5velox4type6ParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook5velox4type6ParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %yystack_ = getelementptr inbounds %"class.facebook::velox::type::Parser", ptr %this1, i32 0, i32 1
   call void @_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %yystack_, i64 noundef 200) #3
   %scanner = getelementptr inbounds %"class.facebook::velox::type::Parser", ptr %this1, i32 0, i32 2
@@ -896,7 +896,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook5velox4type6ParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook5velox4type6ParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %yystack_ = getelementptr inbounds %"class.facebook::velox::type::Parser", ptr %this1, i32 0, i32 1
   call void @_ZN8facebook5velox4type6Parser5stackINS2_17stack_symbol_typeESt6vectorIS4_SaIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %yystack_) #3
   ret void

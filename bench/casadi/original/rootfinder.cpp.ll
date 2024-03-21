@@ -7078,7 +7078,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionC2ERKNSt7__cxx1112ba
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.casadi::CasadiException", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -7110,7 +7110,7 @@ define linkonce_odr hidden void @_ZN6casadi15CasadiExceptionD2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6casadi15CasadiExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.casadi::CasadiException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
@@ -7347,9 +7347,9 @@ define void @_ZN6casadi10RootfinderC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
   call void @_ZN6casadi14OracleFunctionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_8FunctionE(ptr noundef nonnull align 8 dereferenceable(1520) %9, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
   %12 = getelementptr inbounds i8, ptr %9, i64 1520
   call void @_ZN6casadi15PluginInterfaceINS_10RootfinderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 1520
-  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"class.casadi::Rootfinder", ptr %9, i32 0, i32 3
   invoke void @_ZN6casadi6LinsolC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14)
           to label %15 unwind label %22
@@ -7408,7 +7408,7 @@ define linkonce_odr hidden void @_ZN6casadi15PluginInterfaceINS_10RootfinderEEC2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN6casadi15PluginInterfaceINS_10RootfinderEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN6casadi15PluginInterfaceINS_10RootfinderEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7442,9 +7442,9 @@ define void @_ZN6casadi10RootfinderD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 1520
-  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"class.casadi::Rootfinder", ptr %3, i32 0, i32 5
   call void @_ZNSt6vectorIxSaIxEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   %6 = getelementptr inbounds %"class.casadi::Rootfinder", ptr %3, i32 0, i32 4
@@ -17392,9 +17392,9 @@ define void @_ZN6casadi10RootfinderC2ERNS_19DeserializingStreamE(ptr noundef non
   call void @_ZN6casadi14OracleFunctionC2ERNS_19DeserializingStreamE(ptr noundef nonnull align 8 dereferenceable(1520) %24, ptr noundef nonnull align 8 dereferenceable(41) %25)
   %26 = getelementptr inbounds i8, ptr %24, i64 1520
   call void @_ZN6casadi15PluginInterfaceINS_10RootfinderEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #3
-  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, inrange i32 0, i32 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, i32 0, i32 2), ptr %24, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 1520
-  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, inrange i32 1, i32 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [116 x ptr], [3 x ptr] }, ptr @_ZTVN6casadi10RootfinderE, i32 0, i32 1, i32 2), ptr %27, align 8
   %28 = getelementptr inbounds %"class.casadi::Rootfinder", ptr %24, i32 0, i32 3
   invoke void @_ZN6casadi6LinsolC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %29 unwind label %68
@@ -19910,7 +19910,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

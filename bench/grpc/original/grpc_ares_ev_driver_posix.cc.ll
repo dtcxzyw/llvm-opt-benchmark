@@ -678,7 +678,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core8WakeableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core14promise_detail10UnwakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -688,7 +688,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core8WakeableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -704,7 +704,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core19GrpcPolledFdFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %kSockFuncs = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this1, i32 0, i32 1
   %asocket = getelementptr inbounds %struct.ares_socket_functions, ptr %kSockFuncs, i32 0, i32 0
   store ptr @_ZN9grpc_core24GrpcPolledFdFactoryPosix6SocketEiiiPv, ptr %asocket, align 8
@@ -751,7 +751,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19GrpcPolledFdFactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core19GrpcPolledFdFactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -900,7 +900,7 @@ entry:
   %fd = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN9grpc_core24GrpcPolledFdFactoryPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %owned_fds_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdFactoryPosix", ptr %this1, i32 0, i32 2
   store ptr %owned_fds_, ptr %__range2, align 8
   %0 = load ptr, ptr %__range2, align 8
@@ -2451,7 +2451,7 @@ entry:
   store ptr %driver_pollset_set, ptr %driver_pollset_set.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN9grpc_core12GrpcPolledFdC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308028AlphaNumC2EPKc(ptr noundef nonnull align 8 dereferenceable(48) %ref.tmp, ptr noundef @.str.3)
           to label %invoke.cont unwind label %lpad
@@ -3819,7 +3819,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12GrpcPolledFdE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core12GrpcPolledFdE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3886,7 +3886,7 @@ entry:
   %phony_release_fd = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN9grpc_core17GrpcPolledFdPosixE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %driver_pollset_set_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 4
   %0 = load ptr, ptr %driver_pollset_set_, align 8
   %fd_ = getelementptr inbounds %"class.grpc_core::GrpcPolledFdPosix", ptr %this1, i32 0, i32 3

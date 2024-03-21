@@ -638,8 +638,8 @@ define void @_ZN21EditMutualCorrsPluginC2Ev(ptr noundef nonnull align 8 derefere
           to label %4 unwind label %147
 
 4:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV21EditMutualCorrsPlugin, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV21EditMutualCorrsPlugin, i64 0, inrange i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV21EditMutualCorrsPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr], [20 x ptr] }, ptr @_ZTV21EditMutualCorrsPlugin, i64 0, i32 1, i64 2), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 0, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 36

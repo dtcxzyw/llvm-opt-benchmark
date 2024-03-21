@@ -428,7 +428,7 @@ define dso_local void @_ZN9AttributeC2ENSt7__cxx1112basic_stringIcSt11char_trait
   store ptr %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV9Attribute, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV9Attribute, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.Attribute, ptr %7, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %9 = getelementptr inbounds %class.Attribute, ptr %7, i32 0, i32 2
@@ -458,7 +458,7 @@ define dso_local void @_ZN16BooleanAttributeC2ENSt7__cxx1112basic_stringIcSt11ch
 
 12:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV16BooleanAttribute, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV16BooleanAttribute, i32 0, i32 0, i32 2), ptr %10, align 8
   ret void
 
 13:                                               ; preds = %3
@@ -560,7 +560,7 @@ define dso_local void @_ZN20MultiChoiceAttributeC2ENSt7__cxx1112basic_stringIcSt
 
 14:                                               ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV20MultiChoiceAttribute, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV20MultiChoiceAttribute, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.MultiChoiceAttribute, ptr %12, i32 0, i32 1
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %3)
           to label %16 unwind label %21
@@ -676,7 +676,7 @@ define linkonce_odr dso_local void @_ZN9AttributeD2Ev(ptr noundef nonnull align 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV9Attribute, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV9Attribute, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.Attribute, ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
   ret void
@@ -911,7 +911,7 @@ define dso_local void @_ZN16AlignedAttributeC2ENSt7__cxx1112basic_stringIcSt11ch
 
 14:                                               ; preds = %4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #10
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV16AlignedAttribute, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV16AlignedAttribute, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.AlignedAttribute, ptr %12, i32 0, i32 1
   %16 = load i32, ptr %8, align 4
   store i32 %16, ptr %15, align 4
@@ -1154,7 +1154,7 @@ define dso_local void @_ZN16SectionAttributeC2ENSt7__cxx1112basic_stringIcSt11ch
 
 12:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #10
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV16SectionAttribute, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTV16SectionAttribute, i32 0, i32 0, i32 2), ptr %10, align 8
   ret void
 
 13:                                               ; preds = %3

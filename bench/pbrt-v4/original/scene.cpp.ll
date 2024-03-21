@@ -8184,7 +8184,7 @@ entry:
   store ptr %scene, ptr %scene.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt12ParserTargetC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this1) #5
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 64
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 64
   %scene2 = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %scene.addr, align 8
   store ptr %0, ptr %scene2, align 16
@@ -8792,7 +8792,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt12ParserTargetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt12ParserTargetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %errorExit = getelementptr inbounds %"class.pbrt::ParserTarget", ptr %this1, i32 0, i32 1
   store i8 0, ptr %errorExit, align 8
   ret void
@@ -30055,7 +30055,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 64
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN4pbrt17BasicSceneBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 64
   %camera = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this1, i32 0, i32 26
   call void @_ZN4pbrt17CameraSceneEntityD2Ev(ptr noundef nonnull align 8 dereferenceable(1000) %camera) #5
   %accelerator = getelementptr inbounds %"class.pbrt::BasicSceneBuilder", ptr %this1, i32 0, i32 25
@@ -30231,7 +30231,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, i32 0, i32 2), ptr %this1, align 64
   invoke void @_ZN4pstd3pmr25monotonic_buffer_resource7releaseEv(ptr noundef nonnull align 64 dereferenceable(48) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -43066,7 +43066,7 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.301", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt7SamplerEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.301", ptr %this1, i32 0, i32 2
@@ -44020,7 +44020,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %activeWorkers = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 1
   store i32 0, ptr %activeWorkers, align 8
   %prev = getelementptr inbounds %"class.pbrt::ParallelJob", ptr %this1, i32 0, i32 3
@@ -44094,7 +44094,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_7SamplerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.301", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.301", ptr %this1, i32 0, i32 4
@@ -44198,7 +44198,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt11ParallelJobE, i32 0, i32 0, i32 2), ptr %this1, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry
@@ -45450,7 +45450,7 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.322", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt6CameraEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.322", ptr %this1, i32 0, i32 2
@@ -46141,7 +46141,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6CameraEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.322", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.322", ptr %this1, i32 0, i32 4
@@ -46460,7 +46460,7 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt6MediumEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 2
@@ -47178,7 +47178,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_6MediumEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob", ptr %this1, i32 0, i32 4
@@ -49596,7 +49596,7 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.182", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFPN4pbrt5ImageEvEEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.182", ptr %this1, i32 0, i32 2
@@ -54127,7 +54127,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobIPNS_5ImageEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.182", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.182", ptr %this1, i32 0, i32 4
@@ -54521,7 +54521,7 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.214", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt12FloatTextureEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.214", ptr %this1, i32 0, i32 2
@@ -55319,7 +55319,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_12FloatTextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.214", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.214", ptr %this1, i32 0, i32 4
@@ -55713,7 +55713,7 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.223", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt15SpectrumTextureEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.223", ptr %this1, i32 0, i32 2
@@ -56337,7 +56337,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_15SpectrumTextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.223", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.223", ptr %this1, i32 0, i32 4
@@ -56687,7 +56687,7 @@ entry:
   store ptr %w, ptr %w.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pbrt11ParallelJobC2Ev(ptr noundef nonnull align 8 dereferenceable(33) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %func = getelementptr inbounds %"class.pbrt::AsyncJob.252", ptr %this1, i32 0, i32 1
   call void @_ZNSt8functionIFN4pbrt5LightEvEEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(32) %func, ptr noundef nonnull align 8 dereferenceable(32) %w) #5
   %started = getelementptr inbounds %"class.pbrt::AsyncJob.252", ptr %this1, i32 0, i32 2
@@ -57815,7 +57815,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pbrt8AsyncJobINS_5LightEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cv = getelementptr inbounds %"class.pbrt::AsyncJob.252", ptr %this1, i32 0, i32 6
   call void @_ZNSt18condition_variableD1Ev(ptr noundef nonnull align 8 dereferenceable(48) %cv) #5
   %result = getelementptr inbounds %"class.pbrt::AsyncJob.252", ptr %this1, i32 0, i32 4
@@ -70160,7 +70160,7 @@ entry:
   store ptr %upstream, ptr %upstream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pstd3pmr15memory_resourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, i32 0, i32 2), ptr %this1, align 64
   %upstream2 = getelementptr inbounds %"class.pstd::pmr::monotonic_buffer_resource", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %upstream.addr, align 8
   store ptr %0, ptr %upstream2, align 8
@@ -70221,7 +70221,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr15memory_resourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr15memory_resourceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -94296,7 +94296,7 @@ entry:
   store ptr %upstream, ptr %upstream.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4pstd3pmr15memory_resourceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 64
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4pstd3pmr25monotonic_buffer_resourceE, i32 0, i32 0, i32 2), ptr %this1, align 64
   %upstream2 = getelementptr inbounds %"class.pstd::pmr::monotonic_buffer_resource", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %upstream.addr, align 8
   store ptr %0, ptr %upstream2, align 8

@@ -44,7 +44,7 @@ define void @_ZN20WiresharkApplicationC2ERiPPc(ptr noundef nonnull align 8 deref
   %5 = alloca %class.QString, align 16
   %6 = alloca %class.QString, align 8
   tail call void @_ZN15MainApplicationC2ERiPPc(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(4) %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i64 0, i32 0, i64 2), ptr %0, align 8
   store ptr %0, ptr @wsApp, align 8
   %7 = invoke noundef i32 @_Z21qInitResources_wsiconv()
           to label %8 unwind label %26
@@ -167,7 +167,7 @@ declare void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceab
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN20WiresharkApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) unnamed_addr #3 align 2 {
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV20WiresharkApplication, i64 0, i32 0, i64 2), ptr %0, align 8
   store ptr null, ptr @wsApp, align 8
   tail call void @_ZN15MainApplicationD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %0) #11
   ret void

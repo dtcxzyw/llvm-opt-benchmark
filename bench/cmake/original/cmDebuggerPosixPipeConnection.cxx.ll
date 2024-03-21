@@ -680,13 +680,13 @@ $_ZTSNSt13__future_base13_State_baseV27_SetterIvvEE = comdat any
 $_ZTINSt13__future_base13_State_baseV27_SetterIvvEE = comdat any
 
 @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE = dso_local unnamed_addr constant { [16 x ptr], [11 x ptr], [8 x ptr] } { [16 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN10cmDebugger30cmDebuggerPipeConnection_POSIXE, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX6isOpenEv, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX5closeEv, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX4readEPvm, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX17WaitForConnectionEv, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX14StartListeningERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX9GetReaderEv, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX9GetWriterEv, ptr @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIX5writeEPKvm], [11 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN10cmDebugger30cmDebuggerPipeConnection_POSIXE, ptr @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev, ptr @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev, ptr null, ptr null, ptr @_ZThn8_N10cmDebugger30cmDebuggerPipeConnection_POSIX5writeEPKvm], [8 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN10cmDebugger30cmDebuggerPipeConnection_POSIXE, ptr @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIXD1Ev, ptr @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIXD0Ev, ptr @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIX14StartListeningERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIX17WaitForConnectionEv, ptr @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIX9GetReaderEv, ptr @_ZThn16_N10cmDebugger30cmDebuggerPipeConnection_POSIX9GetWriterEv] }, align 8
-@_ZTTN10cmDebugger30cmDebuggerPipeConnection_POSIXE = dso_local unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE8_N3dap6WriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE8_N3dap6WriterE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 1, i32 6)], align 8
+@_ZTTN10cmDebugger30cmDebuggerPipeConnection_POSIXE = dso_local unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE8_N3dap6WriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE8_N3dap6WriterE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 1, i32 6)], align 8
 @.str = private unnamed_addr constant [26 x i8] c"Failed to create socket: \00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Failed to bind name '\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"' to socket: \00", align 1
 @.str.3 = private unnamed_addr constant [29 x i8] c"Failed to listen on socket: \00", align 1
 @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE = dso_local unnamed_addr constant { [12 x ptr], [11 x ptr] } { [12 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN10cmDebugger26cmDebuggerPipeClient_POSIXE, ptr @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXD1Ev, ptr @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev, ptr @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX6isOpenEv, ptr @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX5closeEv, ptr @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX4readEPvm, ptr @_ZN10cmDebugger26cmDebuggerPipeClient_POSIX5writeEPKvm], [11 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN10cmDebugger26cmDebuggerPipeClient_POSIXE, ptr @_ZThn8_N10cmDebugger26cmDebuggerPipeClient_POSIXD1Ev, ptr @_ZThn8_N10cmDebugger26cmDebuggerPipeClient_POSIXD0Ev, ptr null, ptr null, ptr @_ZThn8_N10cmDebugger26cmDebuggerPipeClient_POSIX5writeEPKvm] }, align 8
-@_ZTTN10cmDebugger26cmDebuggerPipeClient_POSIXE = dso_local unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE8_N3dap6WriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE8_N3dap6WriterE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, inrange i32 1, i32 6)], align 8
+@_ZTTN10cmDebugger26cmDebuggerPipeClient_POSIXE = dso_local unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap6ReaderE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE8_N3dap6WriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [9 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE8_N3dap6WriterE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [11 x ptr], [11 x ptr] }, ptr @_ZTCN10cmDebugger26cmDebuggerPipeClient_POSIXE0_N3dap12ReaderWriterE, i32 0, inrange i32 1, i32 6), ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, inrange i32 1, i32 6)], align 8
 @_ZTISt13runtime_error = external constant ptr
 @.str.4 = private unnamed_addr constant [35 x i8] c"Failed to connect path to socket: \00", align 1
 @_ZTCN10cmDebugger30cmDebuggerPipeConnection_POSIXE0_N3dap12ReaderWriterE = dso_local unnamed_addr constant { [11 x ptr], [11 x ptr] } { [11 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr @_ZTIN3dap12ReaderWriterE, ptr @_ZN3dap12ReaderWriterD1Ev, ptr @_ZN3dap12ReaderWriterD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual], [11 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN3dap12ReaderWriterE, ptr @_ZThn8_N3dap12ReaderWriterD1Ev, ptr @_ZThn8_N3dap12ReaderWriterD0Ev, ptr null, ptr null, ptr @__cxa_pure_virtual] }, align 8
@@ -781,7 +781,7 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC2ENSt7__c
   %23 = getelementptr inbounds i8, ptr %9, i64 8
   store ptr %22, ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 2, i32 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 2, i32 2), ptr %24, align 8
   %25 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %9, i32 0, i32 3
   invoke void @_ZNSt7promiseIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
           to label %26 unwind label %33
@@ -856,7 +856,7 @@ define linkonce_odr dso_local void @_ZN10cmDebugger20cmDebuggerConnectionC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10cmDebugger20cmDebuggerConnectionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10cmDebugger20cmDebuggerConnectionE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -969,12 +969,12 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXC1ENSt7__c
   call void @_ZN10cmDebugger20cmDebuggerConnectionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #16
   %9 = getelementptr inbounds i8, ptr %7, i64 24
   call void @_ZNSt23enable_shared_from_thisIN10cmDebugger30cmDebuggerPipeConnection_POSIXEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 0, i32 6), ptr %7, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 0, i32 6), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 0, i32 6), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 0, i32 6), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 1, i32 6), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 1, i32 6), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 2, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 2, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeConnection_POSIX", ptr %7, i32 0, i32 3
   invoke void @_ZNSt7promiseIvEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %13 unwind label %20
@@ -1020,7 +1020,7 @@ define linkonce_odr dso_local void @_ZN3dap8ClosableC2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dap8ClosableE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3dap8ClosableE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1046,7 +1046,7 @@ define dso_local void @_ZN10cmDebugger30cmDebuggerPipeConnection_POSIXD2Ev(ptr n
   %16 = getelementptr inbounds i8, ptr %5, i64 8
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, inrange i32 2, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr], [11 x ptr], [8 x ptr] }, ptr @_ZTVN10cmDebugger30cmDebuggerPipeConnection_POSIXE, i32 0, i32 2, i32 2), ptr %17, align 8
   %18 = load ptr, ptr %5, align 8
   %19 = getelementptr inbounds ptr, ptr %18, i64 2
   %20 = load ptr, ptr %19, align 8
@@ -1819,10 +1819,10 @@ define dso_local void @_ZN10cmDebugger26cmDebuggerPipeClient_POSIXC1ENSt7__cxx11
   call void @_ZN3dap12ReaderWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef getelementptr inbounds ([10 x ptr], ptr @_ZTTN10cmDebugger26cmDebuggerPipeClient_POSIXE, i64 0, i64 1)) #16
   %6 = getelementptr inbounds i8, ptr %5, i64 16
   call void @_ZNSt23enable_shared_from_thisIN10cmDebugger26cmDebuggerPipeClient_POSIXEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, inrange i32 0, i32 6), ptr %5, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, inrange i32 0, i32 6), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 0, i32 6), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 0, i32 6), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 8
-  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, inrange i32 1, i32 6), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr], [11 x ptr] }, ptr @_ZTVN10cmDebugger26cmDebuggerPipeClient_POSIXE, i32 0, i32 1, i32 6), ptr %7, align 8
   %8 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeClient_POSIX", ptr %5, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %1) #16
   %9 = getelementptr inbounds %"class.cmDebugger::cmDebuggerPipeClient_POSIX", ptr %5, i32 0, i32 3
@@ -2616,7 +2616,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base7_ResultIvEC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt13__future_base12_Result_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt13__future_base7_ResultIvEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2822,7 +2822,7 @@ define linkonce_odr dso_local void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future
   store ptr %0, ptr %3, align 8
   %4 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %4, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(32) %5) #16
   %6 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt13__future_base13_State_baseV2ESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %4) #16
@@ -2991,7 +2991,7 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -3180,7 +3180,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2C2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEEC2IS2_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   %5 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 2
@@ -3268,7 +3268,7 @@ define linkonce_odr dso_local void @_ZNSt13__future_base13_State_baseV2D2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVNSt13__future_base13_State_baseV2E, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::__future_base::_State_baseV2", ptr %3, i32 0, i32 1
   call void @_ZNSt10unique_ptrINSt13__future_base12_Result_baseENS1_8_DeleterEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #16
   ret void
@@ -4641,7 +4641,7 @@ define linkonce_odr dso_local void @_ZNSt12future_errorC2ERKS_(ptr noundef nonnu
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %"class.std::future_error", ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %"class.std::future_error", ptr %8, i32 0, i32 1
@@ -4692,7 +4692,7 @@ define linkonce_odr dso_local void @_ZNSt12future_errorC2ESt10error_code(ptr nou
 14:                                               ; preds = %13
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %6) #16
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12future_error, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %"class.std::future_error", ptr %12, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %4, i64 16, i1 false)
   ret void
@@ -6310,7 +6310,7 @@ define linkonce_odr dso_local void @_ZNSt12bad_weak_ptrC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12bad_weak_ptr, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6322,7 +6322,7 @@ define linkonce_odr dso_local void @_ZNSt9exceptionC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

@@ -665,7 +665,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %db_options, ptr %db_options.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %max_yield_usec_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %db_options.addr, align 8
   %enable_write_thread_adaptive_yield = getelementptr inbounds %"struct.rocksdb::ImmutableDBOptions", ptr %0, i32 0, i32 52
@@ -5695,7 +5695,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i32 0, inrange i32 0, i32 2), ptr %this1, align 16
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb11WriteThreadE, i32 0, i32 0, i32 2), ptr %this1, align 16
   %stall_cv_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 11
   call void @_ZN7rocksdb4port7CondVarD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %stall_cv_) #3
   %stall_mu_ = getelementptr inbounds %"class.rocksdb::WriteThread", ptr %this1, i32 0, i32 10

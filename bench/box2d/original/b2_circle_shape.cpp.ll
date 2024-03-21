@@ -95,7 +95,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7b2ShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #9
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13b2CircleShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV13b2CircleShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_type = getelementptr inbounds %class.b2Shape, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_type, align 8
   %m_radius = getelementptr inbounds %class.b2Shape, ptr %this1, i32 0, i32 2
@@ -652,7 +652,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7b2Shape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7b2Shape, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

@@ -32,7 +32,7 @@ $__clang_call_terminate = comdat any
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(37) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 36
   store i8 0, ptr %3, align 4
@@ -42,7 +42,7 @@ define dso_local void @_ZN16NavMeshPruneToolC2Ev(ptr nocapture noundef nonnull w
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16NavMeshPruneToolD2Ev(ptr noundef nonnull align 8 dereferenceable(37) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -112,7 +112,7 @@ declare void @_ZN10SampleToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8)
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16NavMeshPruneToolD0Ev(ptr noundef nonnull align 8 dereferenceable(37) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16NavMeshPruneTool, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

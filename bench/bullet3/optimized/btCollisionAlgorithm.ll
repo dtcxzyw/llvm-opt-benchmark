@@ -22,7 +22,7 @@ $_ZTI20btCollisionAlgorithm = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %ci) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV20btCollisionAlgorithm, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV20btCollisionAlgorithm, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load ptr, ptr %ci, align 8
   %m_dispatcher = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %0, ptr %m_dispatcher, align 8

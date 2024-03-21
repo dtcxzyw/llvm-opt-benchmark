@@ -527,7 +527,7 @@ define hidden void @_ZN5ceres12TolerantLossC2Edd(ptr noundef nonnull align 8 der
   store double %2, ptr %6, align 8
   %15 = load ptr, ptr %4, align 8
   call void @_ZN5ceres12LossFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12TolerantLossE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12TolerantLossE, i32 0, i32 0, i32 2), ptr %15, align 8
   %16 = getelementptr inbounds %"class.ceres::TolerantLoss", ptr %15, i32 0, i32 1
   %17 = load double, ptr %5, align 8
   store double %17, ptr %16, align 8
@@ -677,7 +677,7 @@ define linkonce_odr hidden void @_ZN5ceres12LossFunctionC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12LossFunctionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12LossFunctionE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -980,7 +980,7 @@ define hidden void @_ZN5ceres12ComposedLossC2EPKNS_12LossFunctionENS_9OwnershipE
   store i32 %4, ptr %10, align 4
   %19 = load ptr, ptr %6, align 8
   call void @_ZN5ceres12LossFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12ComposedLossE, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres12ComposedLossE, i32 0, i32 0, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds %"class.ceres::ComposedLoss", ptr %19, i32 0, i32 1
   %21 = load ptr, ptr %7, align 8
   call void @_ZNSt10unique_ptrIKN5ceres12LossFunctionESt14default_deleteIS2_EEC2IS4_vEEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %21) #10

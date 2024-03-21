@@ -231,9 +231,9 @@ _ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53:    ; preds = %_ZN7QStringD2Ev.exi
   br label %_ZN7QStringD2Ev.exit55
 
 _ZN7QStringD2Ev.exit55:                           ; preds = %_ZN7QStringD2Ev.exit51, %_ZN17QArrayDataPointerIDsE5derefEv.exit.i.i53, %42
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22ExportDissectionDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22ExportDissectionDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %44 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22ExportDissectionDialog, i64 0, inrange i32 1, i64 2), ptr %44, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22ExportDissectionDialog, i64 0, i32 1, i64 2), ptr %44, align 8
   %45 = getelementptr inbounds i8, ptr %0, i64 40
   store i32 %3, ptr %45, align 8
   %46 = getelementptr inbounds i8, ptr %0, i64 48
@@ -939,7 +939,7 @@ _ZN7QStringD2Ev.exit210:                          ; preds = %244, %_ZN17QArrayDa
 
 249:                                              ; preds = %247
   %250 = getelementptr inbounds i8, ptr %248, i64 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, inrange i32 0, i64 2), ptr %248, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i64 0, i32 0, i64 2), ptr %248, align 8
   store <4 x i32> <i32 0, i32 1, i32 1, i32 1114112>, ptr %250, align 8
   %251 = getelementptr inbounds i8, ptr %248, i64 24
   store <4 x i32> <i32 0, i32 0, i32 -1, i32 -1>, ptr %251, align 4
@@ -1982,9 +1982,9 @@ _ZN9QtPrivate30QExplicitlySharedDataPointerV2I8QMapDataISt3mapI7QString13export_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN22ExportDissectionDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(480) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22ExportDissectionDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22ExportDissectionDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22ExportDissectionDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV22ExportDissectionDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   invoke void @g_free(ptr noundef %4)

@@ -59,7 +59,7 @@ entry:
   %m_parent = getelementptr inbounds %struct.btMultibodyLink, ptr %0, i64 %idxprom.i.i, i32 2
   %1 = load i32, ptr %m_parent, align 4
   tail call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %body, ptr noundef nonnull %body, i32 noundef %link, i32 noundef %1, i32 noundef 1, i1 noundef zeroext true, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21btMultiBodyJointMotor, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21btMultiBodyJointMotor, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_desiredVelocity = getelementptr inbounds i8, ptr %this, i64 96
   store float %desiredVelocity, ptr %m_desiredVelocity, align 8
   %m_desiredPosition = getelementptr inbounds i8, ptr %this, i64 100
@@ -114,7 +114,7 @@ entry:
   %m_parent = getelementptr inbounds %struct.btMultibodyLink, ptr %0, i64 %idxprom.i.i, i32 2
   %1 = load i32, ptr %m_parent, align 4
   tail call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull %body, ptr noundef nonnull %body, i32 noundef %link, i32 noundef %1, i32 noundef 1, i1 noundef zeroext true, i32 noundef 4)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21btMultiBodyJointMotor, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV21btMultiBodyJointMotor, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_desiredVelocity = getelementptr inbounds i8, ptr %this, i64 96
   store float %desiredVelocity, ptr %m_desiredVelocity, align 8
   %m_desiredPosition = getelementptr inbounds i8, ptr %this, i64 100

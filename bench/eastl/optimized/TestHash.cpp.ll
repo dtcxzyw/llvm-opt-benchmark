@@ -30989,7 +30989,7 @@ if.then.i.i.i.i8997:                              ; preds = %delete.notnull.i.i.
   %mnNextResize.i.i.i8974 = getelementptr inbounds i8, ptr %myMap, i64 40
   store i32 0, ptr %mnNextResize.i.i.i8974, align 8
   %mAllocator.i.i8975 = getelementptr inbounds i8, ptr %myMap, i64 48
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mAllocator.i.i8975, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mAllocator.i.i8975, align 8
   store i64 2, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   store i64 1, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   %call.i.i8984 = call noundef i32 @_ZNK5eastl19prime_rehash_policy18GetNextBucketCountEj(ptr noundef nonnull align 4 dereferenceable(12) %mRehashPolicy.i.i8972, i32 noundef 5)
@@ -31023,7 +31023,7 @@ if.then.i.i.i.i8997:                              ; preds = %delete.notnull.i.i.
   %mRemainingSizeField.i.i.i.i.i.i = getelementptr inbounds i8, ptr %key, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i, align 1
   %mSecond.i.i.i = getelementptr inbounds i8, ptr %key, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i, align 8
   %inc.i.i.i.i8988 = add i64 %2427, 2
   store i64 %inc.i.i.i.i8988, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2429 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31061,7 +31061,7 @@ if.then.i.i.i.i9026:                              ; preds = %if.then.i.i.i.i8997
   %mRemainingSizeField.i.i.i.i.i.i9004 = getelementptr inbounds i8, ptr %value2381, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9004, align 1
   %mSecond.i.i.i9005 = getelementptr inbounds i8, ptr %value2381, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i9005, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i9005, align 8
   %inc.i.i.i.i9006 = add i64 %2434, 2
   store i64 %inc.i.i.i.i9006, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2436 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31103,7 +31103,7 @@ invoke.cont2393:                                  ; preds = %if.then.i.i.i.i9026
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2390, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1, !alias.scope !1012
   %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %ref.tmp2390, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8, !alias.scope !1012
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8, !alias.scope !1012
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2390, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2390, ptr noundef nonnull align 8 dereferenceable(24) %key, i64 24, i1 false)
@@ -31116,7 +31116,7 @@ invoke.cont2393:                                  ; preds = %if.then.i.i.i.i9026
   %mRemainingSizeField.i.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %ref.tmp2390, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i, align 1, !alias.scope !1012
   %mSecond.i.i.i3.i.i = getelementptr inbounds i8, ptr %ref.tmp2390, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i3.i.i, align 8, !alias.scope !1012
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i3.i.i, align 8, !alias.scope !1012
   store i64 2, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8, !noalias !1012
   store i64 2, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8, !noalias !1012
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i1.i.i)
@@ -31241,7 +31241,7 @@ if.then.i.i.i.i9117:                              ; preds = %delete.notnull.i.i.
   %mnNextResize.i.i.i9077 = getelementptr inbounds i8, ptr %myMap2406, i64 40
   store i32 0, ptr %mnNextResize.i.i.i9077, align 8
   %mAllocator.i.i9078 = getelementptr inbounds i8, ptr %myMap2406, i64 48
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mAllocator.i.i9078, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mAllocator.i.i9078, align 8
   %inc.i.i.i9079 = add i64 %2464, 2
   store i64 %inc.i.i.i9079, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2466 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31278,7 +31278,7 @@ if.then.i.i.i.i9117:                              ; preds = %delete.notnull.i.i.
   %mRemainingSizeField.i.i.i.i.i.i9095 = getelementptr inbounds i8, ptr %key2413, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9095, align 1
   %mSecond.i.i.i9096 = getelementptr inbounds i8, ptr %key2413, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i9096, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i9096, align 8
   %inc.i.i.i.i9097 = add i64 %2472, 2
   store i64 %inc.i.i.i.i9097, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2474 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31316,7 +31316,7 @@ if.then.i.i.i.i9153:                              ; preds = %if.then.i.i.i.i9117
   %mRemainingSizeField.i.i.i.i.i.i9131 = getelementptr inbounds i8, ptr %value2420, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9131, align 1
   %mSecond.i.i.i9132 = getelementptr inbounds i8, ptr %value2420, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i9132, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i9132, align 8
   %inc.i.i.i.i9133 = add i64 %2479, 2
   store i64 %inc.i.i.i.i9133, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2481 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31464,7 +31464,7 @@ if.then.i.i.i.i9233:                              ; preds = %invoke.cont.i.i9193
   %mAllocator.i.i9206 = getelementptr inbounds i8, ptr %myMap2441, i64 40
   %2511 = getelementptr inbounds i8, ptr %myMap2441, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2511, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mAllocator.i.i9206, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mAllocator.i.i9206, align 8
   %2512 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   store ptr %myMap2441, ptr %myMap2441, align 8
   %mpNodeLeft.i.i.i = getelementptr inbounds i8, ptr %myMap2441, i64 8
@@ -31475,7 +31475,7 @@ if.then.i.i.i.i9233:                              ; preds = %invoke.cont.i.i9193
   %mRemainingSizeField.i.i.i.i.i.i9211 = getelementptr inbounds i8, ptr %key2446, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9211, align 1
   %mSecond.i.i.i9212 = getelementptr inbounds i8, ptr %key2446, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i9212, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i9212, align 8
   %inc.i.i.i.i9213 = add i64 %2509, 4
   store i64 %inc.i.i.i.i9213, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc2.i.i.i.i9214 = add i64 %2512, 2
@@ -31512,7 +31512,7 @@ if.then.i.i.i.i9269:                              ; preds = %if.then.i.i.i.i9233
   %mRemainingSizeField.i.i.i.i.i.i9247 = getelementptr inbounds i8, ptr %value2453, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9247, align 1
   %mSecond.i.i.i9248 = getelementptr inbounds i8, ptr %value2453, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i9248, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i9248, align 8
   %inc.i.i.i.i9249 = add i64 %2517, 2
   store i64 %inc.i.i.i.i9249, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2519 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -31554,7 +31554,7 @@ invoke.cont2465:                                  ; preds = %if.then.i.i.i.i9269
   %mRemainingSizeField.i.i.i.i.i.i.i.i9283 = getelementptr inbounds i8, ptr %ref.tmp2462, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i9283, align 1, !alias.scope !1015
   %mSecond.i.i.i.i.i9284 = getelementptr inbounds i8, ptr %ref.tmp2462, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i.i.i9284, align 8, !alias.scope !1015
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i.i.i9284, align 8, !alias.scope !1015
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i.i.i9282)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %temp.sroa.0.i.i.i.i.i.i9282, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2462, i64 24, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp2462, ptr noundef nonnull align 8 dereferenceable(24) %key2446, i64 24, i1 false)
@@ -31567,7 +31567,7 @@ invoke.cont2465:                                  ; preds = %if.then.i.i.i.i9269
   %mRemainingSizeField.i.i.i.i.i.i2.i.i9289 = getelementptr inbounds i8, ptr %ref.tmp2462, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i9289, align 1, !alias.scope !1015
   %mSecond.i.i.i3.i.i9290 = getelementptr inbounds i8, ptr %ref.tmp2462, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i3.i.i9290, align 8, !alias.scope !1015
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i3.i.i9290, align 8, !alias.scope !1015
   store i64 2, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8, !noalias !1015
   store i64 2, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8, !noalias !1015
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %temp.sroa.0.i.i.i.i1.i.i9281)
@@ -31659,7 +31659,7 @@ if.then.i.i.i.i9375:                              ; preds = %_ZN5eastl12basic_st
   %mAllocator.i.i9347 = getelementptr inbounds i8, ptr %myMap2478, i64 40
   %2542 = getelementptr inbounds i8, ptr %myMap2478, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %2542, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mAllocator.i.i9347, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mAllocator.i.i9347, align 8
   %2543 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
   store ptr %myMap2478, ptr %myMap2478, align 8
   %mpNodeLeft.i.i.i9350 = getelementptr inbounds i8, ptr %myMap2478, i64 8
@@ -31670,7 +31670,7 @@ if.then.i.i.i.i9375:                              ; preds = %_ZN5eastl12basic_st
   %mRemainingSizeField.i.i.i.i.i.i9353 = getelementptr inbounds i8, ptr %key2483, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9353, align 1
   %mSecond.i.i.i9354 = getelementptr inbounds i8, ptr %key2483, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i9354, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i9354, align 8
   %inc.i.i.i.i9355 = add i64 %2540, 4
   store i64 %inc.i.i.i.i9355, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc2.i.i.i.i9356 = add i64 %2543, 2
@@ -31707,7 +31707,7 @@ if.then.i.i.i.i9411:                              ; preds = %if.then.i.i.i.i9375
   %mRemainingSizeField.i.i.i.i.i.i9389 = getelementptr inbounds i8, ptr %value2490, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i9389, align 1
   %mSecond.i.i.i9390 = getelementptr inbounds i8, ptr %value2490, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i9390, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i9390, align 8
   %inc.i.i.i.i9391 = add i64 %2548, 2
   store i64 %inc.i.i.i.i9391, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %2550 = load i64, ptr @_ZN17CountingAllocator13copyCtorCountE, align 8
@@ -64210,7 +64210,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8
   %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i.i.i = add i64 %1, 1
   store i64 %inc.i.i.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64231,7 +64231,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i3.i.i, align 1
   %mSecond.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i4.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i4.i.i, align 8
   %3 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i5.i.i = add i64 %3, 1
   store i64 %inc.i.i.i.i5.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64501,7 +64501,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 23
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8
   %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i.i.i = add i64 %1, 1
   store i64 %inc.i.i.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64521,7 +64521,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i, align 1
   %mSecond.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i3.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i3.i.i, align 8
   %3 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i4.i.i = add i64 %3, 1
   store i64 %inc.i.i.i.i4.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64674,7 +64674,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8
   %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i.i.i = add i64 %1, 1
   store i64 %inc.i.i.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64695,7 +64695,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 87
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i3.i.i, align 1
   %mSecond.i.i.i4.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i4.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i4.i.i, align 8
   %3 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i5.i.i = add i64 %3, 1
   store i64 %inc.i.i.i.i5.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64900,7 +64900,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 55
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i.i.i, align 1
   %mSecond.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 56
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i.i.i, align 8
   %1 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i.i.i = add i64 %1, 1
   store i64 %inc.i.i.i.i.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
@@ -64920,7 +64920,7 @@ entry:
   %mRemainingSizeField.i.i.i.i.i.i2.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 87
   store i8 23, ptr %mRemainingSizeField.i.i.i.i.i.i2.i.i, align 1
   %mSecond.i.i.i3.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 88
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, inrange i32 0, i64 2), ptr %mSecond.i.i.i3.i.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17CountingAllocator, i64 0, i32 0, i64 2), ptr %mSecond.i.i.i3.i.i, align 8
   %3 = load i64, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8
   %inc.i.i.i.i4.i.i = add i64 %3, 1
   store i64 %inc.i.i.i.i4.i.i, ptr @_ZN17CountingAllocator14totalCtorCountE, align 8

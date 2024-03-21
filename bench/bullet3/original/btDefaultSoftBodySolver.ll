@@ -254,7 +254,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN16btSoftBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btDefaultSoftBodySolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btDefaultSoftBodySolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_softBodySet = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
   invoke void @_ZN20btAlignedObjectArrayIP10btSoftBodyEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet)
           to label %invoke.cont unwind label %lpad
@@ -288,7 +288,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16btSoftBodySolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16btSoftBodySolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_numberOfPositionIterations = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 1
   store i32 10, ptr %m_numberOfPositionIterations, align 8
   %m_timeScale = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 3
@@ -320,7 +320,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btDefaultSoftBodySolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV23btDefaultSoftBodySolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_softBodySet = getelementptr inbounds %class.btDefaultSoftBodySolver, ptr %this1, i32 0, i32 3
   call void @_ZN20btAlignedObjectArrayIP10btSoftBodyED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_softBodySet) #10
   call void @_ZN16btSoftBodySolverD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1) #10

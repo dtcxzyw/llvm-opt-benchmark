@@ -17295,7 +17295,7 @@ define void @_ZN22QCPAbstractPaintBufferC2ERK5QSized(ptr noundef nonnull align 8
   store ptr %1, ptr %5, align 8
   store double %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22QCPAbstractPaintBuffer, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV22QCPAbstractPaintBuffer, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.QCPAbstractPaintBuffer, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 4 %9, i64 8, i1 false)
@@ -17463,7 +17463,7 @@ define void @_ZN20QCPPaintBufferPixmapC2ERK5QSized(ptr noundef nonnull align 8 d
   %10 = load ptr, ptr %5, align 8
   %11 = load double, ptr %6, align 8
   call void @_ZN22QCPAbstractPaintBufferC2ERK5QSized(ptr noundef nonnull align 8 dereferenceable(25) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, double noundef %11)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20QCPPaintBufferPixmap, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20QCPPaintBufferPixmap, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.QCPPaintBufferPixmap, ptr %9, i32 0, i32 1
   invoke void @_ZN7QPixmapC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %13 unwind label %15
@@ -17558,7 +17558,7 @@ define void @_ZN20QCPPaintBufferPixmapD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20QCPPaintBufferPixmap, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV20QCPPaintBufferPixmap, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPPaintBufferPixmap, ptr %3, i32 0, i32 1
   call void @_ZN7QPixmapD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN22QCPAbstractPaintBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %3) #23
@@ -17786,7 +17786,7 @@ define void @_ZN8QCPLayerC2EP11QCustomPlotRK7QString(ptr noundef nonnull align 8
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8QCPLayer, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8QCPLayer, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.QCPLayer, ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %5, align 8
   store ptr %10, ptr %9, align 8
@@ -17851,7 +17851,7 @@ define void @_ZN8QCPLayerD2Ev(ptr noundef nonnull align 8 dereferenceable(104) %
   %4 = alloca %class.QMessageLogger, align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8QCPLayer, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8QCPLayer, i32 0, i32 0, i32 2), ptr %5, align 8
   br label %6
 
 6:                                                ; preds = %16, %1
@@ -19350,7 +19350,7 @@ define void @_ZN12QCPLayerableC2EP11QCustomPlot7QStringPS_(ptr noundef nonnull a
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %6, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.QCPLayerable, ptr %13, i32 0, i32 1
   store i8 1, ptr %15, align 8
   %16 = getelementptr inbounds %class.QCPLayerable, ptr %13, i32 0, i32 3
@@ -19640,7 +19640,7 @@ define void @_ZN12QCPLayerableD2Ev(ptr noundef nonnull align 8 dereferenceable(5
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPLayerable, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPLayerable, ptr %3, i32 0, i32 5
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
@@ -23335,7 +23335,7 @@ define void @_ZN16QCPSelectionRectC2EP11QCustomPlot(ptr noundef nonnull align 8 
 
 11:                                               ; preds = %2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV16QCPSelectionRect, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV16QCPSelectionRect, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.QCPSelectionRect, ptr %9, i32 0, i32 2
   call void @_ZN5QRectC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %12) #23
   %13 = getelementptr inbounds %class.QCPSelectionRect, ptr %9, i32 0, i32 4
@@ -23432,7 +23432,7 @@ define void @_ZN16QCPSelectionRectD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV16QCPSelectionRect, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV16QCPSelectionRect, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN16QCPSelectionRect6cancelEv(ptr noundef nonnull align 8 dereferenceable(97) %3)
           to label %4 unwind label %7
 
@@ -24184,7 +24184,7 @@ define void @_ZN14QCPMarginGroupC2EP11QCustomPlot(ptr noundef nonnull align 8 de
   %19 = load ptr, ptr %3, align 8
   %20 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef %20)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV14QCPMarginGroup, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV14QCPMarginGroup, i32 0, i32 0, i32 2), ptr %19, align 8
   %21 = getelementptr inbounds %class.QCPMarginGroup, ptr %19, i32 0, i32 1
   %22 = load ptr, ptr %4, align 8
   store ptr %22, ptr %21, align 8
@@ -24404,7 +24404,7 @@ define void @_ZN14QCPMarginGroupD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV14QCPMarginGroup, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV14QCPMarginGroup, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN14QCPMarginGroup5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %4 unwind label %6
 
@@ -25631,7 +25631,7 @@ define void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 
 
 10:                                               ; preds = %2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV16QCPLayoutElement, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV16QCPLayoutElement, i32 0, i32 0, i32 2), ptr %8, align 8
   %11 = getelementptr inbounds %class.QCPLayoutElement, ptr %8, i32 0, i32 1
   store ptr null, ptr %11, align 8
   %12 = getelementptr inbounds %class.QCPLayoutElement, ptr %8, i32 0, i32 2
@@ -25780,7 +25780,7 @@ define void @_ZN16QCPLayoutElementD2Ev(ptr noundef nonnull align 8 dereferenceab
   %3 = alloca %class.QFlags.63, align 4
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV16QCPLayoutElement, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV16QCPLayoutElement, i32 0, i32 0, i32 2), ptr %4, align 8
   call void @_ZN6QFlagsIN3QCP10MarginSideEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %3, i32 noundef 255) #23
   %5 = getelementptr inbounds %class.QFlags.63, ptr %3, i32 0, i32 0
   %6 = load i32, ptr %5, align 4
@@ -27273,7 +27273,7 @@ define void @_ZN9QCPLayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(168) 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %3, ptr noundef null)
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLayout, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLayout, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -29946,7 +29946,7 @@ define void @_ZN13QCPLayoutGridC2Ev(ptr noundef nonnull align 8 dereferenceable(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9QCPLayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3)
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV13QCPLayoutGrid, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV13QCPLayoutGrid, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPLayoutGrid, ptr %3, i32 0, i32 1
   call void @_ZN5QListIS_IP16QCPLayoutElementEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   %5 = getelementptr inbounds %class.QCPLayoutGrid, ptr %3, i32 0, i32 2
@@ -29989,7 +29989,7 @@ define void @_ZN13QCPLayoutGridD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV13QCPLayoutGrid, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV13QCPLayoutGrid, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN9QCPLayout5clearEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %4 unwind label %8
 
@@ -33938,7 +33938,7 @@ define void @_ZN14QCPLayoutInsetC2Ev(ptr noundef nonnull align 8 dereferenceable
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN9QCPLayoutC2Ev(ptr noundef nonnull align 8 dereferenceable(168) %3)
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV14QCPLayoutInset, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV14QCPLayoutInset, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPLayoutInset, ptr %3, i32 0, i32 1
   call void @_ZN5QListIP16QCPLayoutElementEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   %5 = getelementptr inbounds %class.QCPLayoutInset, ptr %3, i32 0, i32 2
@@ -33985,7 +33985,7 @@ define void @_ZN14QCPLayoutInsetD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV14QCPLayoutInset, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV14QCPLayoutInset, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN9QCPLayout5clearEv(ptr noundef nonnull align 8 dereferenceable(168) %3)
           to label %4 unwind label %9
 
@@ -37631,7 +37631,7 @@ define void @_ZN22QCPLabelPainterPrivateC2EP11QCustomPlot(ptr noundef nonnull al
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22QCPLabelPainterPrivate, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22QCPLabelPainterPrivate, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.QCPLabelPainterPrivate, ptr %7, i32 0, i32 1
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds %class.QCPLabelPainterPrivate, ptr %7, i32 0, i32 2
@@ -37863,7 +37863,7 @@ define void @_ZN22QCPLabelPainterPrivateD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22QCPLabelPainterPrivate, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV22QCPLabelPainterPrivate, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPLabelPainterPrivate, ptr %3, i32 0, i32 15
   call void @_ZN6QCacheI7QStringN22QCPLabelPainterPrivate11CachedLabelEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #23
   %5 = getelementptr inbounds %class.QCPLabelPainterPrivate, ptr %3, i32 0, i32 14
@@ -41919,7 +41919,7 @@ define void @_ZN13QCPAxisTickerC2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13QCPAxisTicker, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV13QCPAxisTicker, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAxisTicker, ptr %3, i32 0, i32 1
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPAxisTicker, ptr %3, i32 0, i32 2
@@ -43945,7 +43945,7 @@ define void @_ZN21QCPAxisTickerDateTimeC2Ev(ptr noundef nonnull align 8 derefere
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN13QCPAxisTickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21QCPAxisTickerDateTime, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21QCPAxisTickerDateTime, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.QCPAxisTickerDateTime, ptr %6, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef @.str.49) #23
   %8 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
@@ -45073,7 +45073,7 @@ define void @_ZN17QCPAxisTickerTimeC2Ev(ptr noundef nonnull align 8 dereferencea
   store ptr %0, ptr %2, align 8
   %21 = load ptr, ptr %2, align 8
   call void @_ZN13QCPAxisTickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %21)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerTime, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerTime, i32 0, i32 0, i32 2), ptr %21, align 8
   %22 = getelementptr inbounds %class.QCPAxisTickerTime, ptr %21, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef @.str.50) #23
   %23 = getelementptr inbounds { i64, ptr }, ptr %3, i32 0, i32 0
@@ -46353,7 +46353,7 @@ define void @_ZN18QCPAxisTickerFixedC2Ev(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN13QCPAxisTickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18QCPAxisTickerFixed, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV18QCPAxisTickerFixed, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAxisTickerFixed, ptr %3, i32 0, i32 1
   store double 1.000000e+00, ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPAxisTickerFixed, ptr %3, i32 0, i32 2
@@ -46556,7 +46556,7 @@ define void @_ZN17QCPAxisTickerTextC2Ev(ptr noundef nonnull align 8 dereferencea
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN13QCPAxisTickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerText, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerText, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAxisTickerText, ptr %3, i32 0, i32 1
   call void @_ZN4QMapId7QStringEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPAxisTickerText, ptr %3, i32 0, i32 2
@@ -47500,7 +47500,7 @@ define void @_ZN15QCPAxisTickerPiC2Ev(ptr noundef nonnull align 8 dereferenceabl
   store ptr %0, ptr %2, align 8
   %8 = load ptr, ptr %2, align 8
   call void @_ZN13QCPAxisTickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV15QCPAxisTickerPi, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV15QCPAxisTickerPi, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %class.QCPAxisTickerPi, ptr %8, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef @.str.59) #23
   %10 = getelementptr inbounds { i64, ptr }, ptr %4, i32 0, i32 0
@@ -49043,7 +49043,7 @@ define void @_ZN16QCPAxisTickerLogC2Ev(ptr noundef nonnull align 8 dereferenceab
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN13QCPAxisTickerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16QCPAxisTickerLog, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV16QCPAxisTickerLog, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.QCPAxisTickerLog, ptr %5, i32 0, i32 1
   store double 1.000000e+01, ptr %6, align 8
   %7 = getelementptr inbounds %class.QCPAxisTickerLog, ptr %5, i32 0, i32 2
@@ -49659,7 +49659,7 @@ define void @_ZN7QCPGridC2EP7QCPAxis(ptr noundef nonnull align 8 dereferenceable
 
 21:                                               ; preds = %2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV7QCPGrid, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV7QCPGrid, i32 0, i32 0, i32 2), ptr %17, align 8
   %22 = getelementptr inbounds %class.QCPGrid, ptr %17, i32 0, i32 1
   store i8 0, ptr %22, align 1
   %23 = getelementptr inbounds %class.QCPGrid, ptr %17, i32 0, i32 2
@@ -51379,7 +51379,7 @@ define void @_ZN7QCPAxisC2EP11QCPAxisRectNS_8AxisTypeE(ptr noundef nonnull align
 
 23:                                               ; preds = %3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV7QCPAxis, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV7QCPAxis, i32 0, i32 0, i32 2), ptr %19, align 8
   %24 = getelementptr inbounds %class.QCPAxis, ptr %19, i32 0, i32 1
   %25 = load i32, ptr %6, align 4
   store i32 %25, ptr %24, align 4
@@ -52172,7 +52172,7 @@ define void @_ZN7QCPAxisD2Ev(ptr noundef nonnull align 8 dereferenceable(472) %0
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV7QCPAxis, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV7QCPAxis, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAxis, ptr %3, i32 0, i32 33
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -58694,7 +58694,7 @@ define void @_ZN21QCPAxisPainterPrivateC2EP11QCustomPlot(ptr noundef nonnull ali
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %10 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21QCPAxisPainterPrivate, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21QCPAxisPainterPrivate, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.QCPAxisPainterPrivate, ptr %10, i32 0, i32 1
   store i32 1, ptr %11, align 8
   %12 = getelementptr inbounds %class.QCPAxisPainterPrivate, ptr %10, i32 0, i32 2
@@ -58935,7 +58935,7 @@ define void @_ZN21QCPAxisPainterPrivateD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21QCPAxisPainterPrivate, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV21QCPAxisPainterPrivate, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAxisPainterPrivate, ptr %3, i32 0, i32 33
   call void @_ZN6QCacheI7QStringN21QCPAxisPainterPrivate11CachedLabelEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %4) #23
   %5 = getelementptr inbounds %class.QCPAxisPainterPrivate, ptr %3, i32 0, i32 32
@@ -66025,7 +66025,7 @@ define void @_ZN21QCPSelectionDecoratorC2Ev(ptr noundef nonnull align 8 derefere
   %6 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV21QCPSelectionDecorator, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV21QCPSelectionDecorator, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.QCPSelectionDecorator, ptr %7, i32 0, i32 1
   call void @_ZN6QColorC2Eiiii(ptr noundef nonnull align 4 dereferenceable(14) %4, i32 noundef 80, i32 noundef 80, i32 noundef 255, i32 noundef 255) #23
   call void @_ZN6QBrushC1ERK6QColorN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(14) %4, i32 noundef 1)
@@ -66109,7 +66109,7 @@ define void @_ZN21QCPSelectionDecoratorD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV21QCPSelectionDecorator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV21QCPSelectionDecorator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPSelectionDecorator, ptr %3, i32 0, i32 3
   call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %4) #23
   %5 = getelementptr inbounds %class.QCPSelectionDecorator, ptr %3, i32 0, i32 2
@@ -66649,7 +66649,7 @@ define void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 
 
 21:                                               ; preds = %20
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV20QCPAbstractPlottable, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV20QCPAbstractPlottable, i32 0, i32 0, i32 2), ptr %15, align 8
   %22 = getelementptr inbounds %class.QCPAbstractPlottable, ptr %15, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %22) #23
   %23 = getelementptr inbounds %class.QCPAbstractPlottable, ptr %15, i32 0, i32 2
@@ -67131,7 +67131,7 @@ define void @_ZN20QCPAbstractPlottableD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV20QCPAbstractPlottable, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr] }, ptr @_ZTV20QCPAbstractPlottable, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAbstractPlottable, ptr %3, i32 0, i32 10
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
@@ -69234,7 +69234,7 @@ define void @_ZN13QCPItemAnchorC2EP11QCustomPlotP15QCPAbstractItemRK7QStringi(pt
   store ptr %3, ptr %9, align 8
   store i32 %4, ptr %10, align 4
   %11 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13QCPItemAnchor, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13QCPItemAnchor, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %class.QCPItemAnchor, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %9, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %13) #23
@@ -69277,7 +69277,7 @@ define void @_ZN13QCPItemAnchorD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %10 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %11 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13QCPItemAnchor, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV13QCPItemAnchor, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %class.QCPItemAnchor, ptr %11, i32 0, i32 5
   invoke void @_ZNK4QSetIP15QCPItemPositionE6valuesEv(ptr dead_on_unwind writable sret(%class.QList.125) align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %13 unwind label %75
@@ -70489,7 +70489,7 @@ define void @_ZN15QCPItemPositionC2EP11QCustomPlotP15QCPAbstractItemRK7QString(p
   %11 = load ptr, ptr %7, align 8
   %12 = load ptr, ptr %8, align 8
   call void @_ZN13QCPItemAnchorC2EP11QCustomPlotP15QCPAbstractItemRK7QStringi(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef %10, ptr noundef %11, ptr noundef nonnull align 8 dereferenceable(24) %12, i32 noundef -1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15QCPItemPosition, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15QCPItemPosition, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds %class.QCPItemPosition, ptr %9, i32 0, i32 1
   store i32 0, ptr %13, align 8
   %14 = getelementptr inbounds %class.QCPItemPosition, ptr %9, i32 0, i32 2
@@ -70544,7 +70544,7 @@ define void @_ZN15QCPItemPositionD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %10 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %11 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15QCPItemPosition, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV15QCPItemPosition, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %class.QCPItemAnchor, ptr %11, i32 0, i32 5
   invoke void @_ZNK4QSetIP15QCPItemPositionE6valuesEv(ptr dead_on_unwind writable sret(%class.QList.125) align 8 %4, ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %13 unwind label %91
@@ -72265,7 +72265,7 @@ define void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 d
 
 11:                                               ; preds = %2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV15QCPAbstractItem, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV15QCPAbstractItem, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.QCPAbstractItem, ptr %9, i32 0, i32 1
   store i8 0, ptr %12, align 1
   %13 = getelementptr inbounds %class.QCPAbstractItem, ptr %9, i32 0, i32 3
@@ -72781,7 +72781,7 @@ define void @_ZN15QCPAbstractItemD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV15QCPAbstractItem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV15QCPAbstractItem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAbstractItem, ptr %3, i32 0, i32 5
   invoke void @_Z10qDeleteAllI5QListIP13QCPItemAnchorEEvRKT_(ptr noundef nonnull align 8 dereferenceable(24) %4)
           to label %5 unwind label %9
@@ -74529,9 +74529,9 @@ define void @_ZN11QCustomPlotC2EP7QWidget(ptr noundef nonnull align 8 dereferenc
   %62 = getelementptr inbounds %class.QFlags.157, ptr %5, i32 0, i32 0
   %63 = load i32, ptr %62, align 4
   call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef %61, i32 %63)
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i32 0, inrange i32 0, i32 2), ptr %60, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i32 0, i32 0, i32 2), ptr %60, align 8
   %64 = getelementptr inbounds i8, ptr %60, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i32 0, inrange i32 1, i32 2), ptr %64, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i32 0, i32 1, i32 2), ptr %64, align 8
   %65 = getelementptr inbounds %class.QCustomPlot, ptr %60, i32 0, i32 1
   store ptr null, ptr %65, align 8
   %66 = getelementptr inbounds %class.QCustomPlot, ptr %60, i32 0, i32 2
@@ -76202,9 +76202,9 @@ define void @_ZN11QCustomPlotD2Ev(ptr noundef nonnull align 8 dereferenceable(51
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [61 x ptr], [10 x ptr] }, ptr @_ZTV11QCustomPlot, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = invoke noundef i32 @_ZN11QCustomPlot15clearPlottablesEv(ptr noundef nonnull align 8 dereferenceable(513) %3)
           to label %6 unwind label %40
 
@@ -88071,7 +88071,7 @@ define linkonce_odr void @_ZN7QPixmapC2EOS_(ptr noundef nonnull align 8 derefere
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %5) #23
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV7QPixmap, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.QPixmap, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %class.QPixmap, ptr %7, i32 0, i32 1
@@ -91357,7 +91357,7 @@ define void @_ZN28QCPSelectionDecoratorBracketC2Ev(ptr noundef nonnull align 8 d
   store ptr %0, ptr %2, align 8
   %6 = load ptr, ptr %2, align 8
   call void @_ZN21QCPSelectionDecoratorC2Ev(ptr noundef nonnull align 8 dereferenceable(112) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28QCPSelectionDecoratorBracket, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28QCPSelectionDecoratorBracket, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.QCPSelectionDecoratorBracket, ptr %6, i32 0, i32 1
   call void @_ZN6QColorC1EN2Qt11GlobalColorE(ptr noundef nonnull align 4 dereferenceable(14) %3, i32 noundef 2) #23
   invoke void @_ZN4QPenC1ERK6QColor(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull align 4 dereferenceable(14) %3)
@@ -91417,7 +91417,7 @@ define void @_ZN28QCPSelectionDecoratorBracketD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28QCPSelectionDecoratorBracket, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV28QCPSelectionDecoratorBracket, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPSelectionDecoratorBracket, ptr %3, i32 0, i32 2
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPSelectionDecoratorBracket, ptr %3, i32 0, i32 1
@@ -92626,7 +92626,7 @@ define void @_ZN11QCPAxisRectC2EP11QCustomPlotb(ptr noundef nonnull align 8 dere
   %29 = load ptr, ptr %4, align 8
   %30 = load ptr, ptr %5, align 8
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %29, ptr noundef %30)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV11QCPAxisRect, i32 0, inrange i32 0, i32 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV11QCPAxisRect, i32 0, i32 0, i32 2), ptr %29, align 8
   %31 = getelementptr inbounds %class.QCPAxisRect, ptr %29, i32 0, i32 1
   invoke void @_ZN6QBrushC1EN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %31, i32 noundef 0)
           to label %32 unwind label %150
@@ -93633,7 +93633,7 @@ define void @_ZN11QCPAxisRectD2Ev(ptr noundef nonnull align 8 dereferenceable(43
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV11QCPAxisRect, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV11QCPAxisRect, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.QCPAxisRect, ptr %7, i32 0, i32 6
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
@@ -98706,7 +98706,7 @@ define void @_ZN21QCPAbstractLegendItemC2EP9QCPLegend(ptr noundef nonnull align 
   %11 = load ptr, ptr %4, align 8
   %12 = call noundef ptr @_ZNK12QCPLayerable10parentPlotEv(ptr noundef nonnull align 8 dereferenceable(57) %11)
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %10, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV21QCPAbstractLegendItem, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV21QCPAbstractLegendItem, i32 0, i32 0, i32 2), ptr %10, align 8
   %13 = getelementptr inbounds %class.QCPAbstractLegendItem, ptr %10, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   store ptr %14, ptr %13, align 8
@@ -99288,7 +99288,7 @@ define void @_ZN22QCPPlottableLegendItemC2EP9QCPLegendP20QCPAbstractPlottable(pt
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN21QCPAbstractLegendItemC2EP9QCPLegend(ptr noundef nonnull align 8 dereferenceable(242) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV22QCPPlottableLegendItem, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV22QCPPlottableLegendItem, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.QCPPlottableLegendItem, ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %9, align 8
@@ -99899,7 +99899,7 @@ define void @_ZN9QCPLegendC2Ev(ptr noundef nonnull align 8 dereferenceable(392) 
   store ptr %0, ptr %2, align 8
   %19 = load ptr, ptr %2, align 8
   call void @_ZN13QCPLayoutGridC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %19)
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLegend, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLegend, i32 0, i32 0, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds %class.QCPLegend, ptr %19, i32 0, i32 1
   invoke void @_ZN4QPenC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20)
           to label %21 unwind label %67
@@ -100708,7 +100708,7 @@ define void @_ZN9QCPLegendD2Ev(ptr noundef nonnull align 8 dereferenceable(392) 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLegend, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [39 x ptr] }, ptr @_ZTV9QCPLegend, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN9QCPLegend10clearItemsEv(ptr noundef nonnull align 8 dereferenceable(392) %3)
           to label %4 unwind label %26
 
@@ -101762,7 +101762,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlot(ptr noundef nonnull align 8 de
   %12 = load ptr, ptr %3, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %class.QCPTextElement, ptr %12, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #23
   %15 = getelementptr inbounds %class.QCPTextElement, ptr %12, i32 0, i32 2
@@ -101922,7 +101922,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QString(ptr noundef nonnull 
   %14 = load ptr, ptr %4, align 8
   %15 = load ptr, ptr %5, align 8
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.QCPTextElement, ptr %14, i32 0, i32 1
   %17 = load ptr, ptr %6, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17) #23
@@ -102085,7 +102085,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringd(ptr noundef nonnull
   %16 = load ptr, ptr %5, align 8
   %17 = load ptr, ptr %6, align 8
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, i32 0, i32 2), ptr %16, align 8
   %18 = getelementptr inbounds %class.QCPTextElement, ptr %16, i32 0, i32 1
   %19 = load ptr, ptr %7, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %19) #23
@@ -102268,7 +102268,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringS4_d(ptr noundef nonn
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.QCPTextElement, ptr %14, i32 0, i32 1
   %17 = load ptr, ptr %8, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %16, ptr noundef nonnull align 8 dereferenceable(24) %17) #23
@@ -102371,7 +102371,7 @@ define void @_ZN14QCPTextElementC2EP11QCustomPlotRK7QStringRK5QFont(ptr noundef 
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV14QCPTextElement, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %class.QCPTextElement, ptr %12, i32 0, i32 1
   %15 = load ptr, ptr %7, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15) #23
@@ -103111,7 +103111,7 @@ define void @_ZN13QCPColorScaleC2EP11QCustomPlot(ptr noundef nonnull align 8 der
   %9 = load ptr, ptr %3, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %9, ptr noundef %10)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV13QCPColorScale, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV13QCPColorScale, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.QCPColorScale, ptr %9, i32 0, i32 1
   store i32 4, ptr %11, align 8
   %12 = getelementptr inbounds %class.QCPColorScale, ptr %9, i32 0, i32 2
@@ -103728,7 +103728,7 @@ define void @_ZN13QCPColorScaleD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV13QCPColorScale, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV13QCPColorScale, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPColorScale, ptr %3, i32 0, i32 7
   %5 = invoke noundef ptr @_ZNK8QPointerI28QCPColorScaleAxisRectPrivateEcvPS0_Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %6 unwind label %16
@@ -105735,7 +105735,7 @@ define void @_ZN28QCPColorScaleAxisRectPrivateC2EP13QCPColorScale(ptr noundef no
   %29 = load ptr, ptr %4, align 8
   %30 = call noundef ptr @_ZNK12QCPLayerable10parentPlotEv(ptr noundef nonnull align 8 dereferenceable(57) %29)
   call void @_ZN11QCPAxisRectC2EP11QCustomPlotb(ptr noundef nonnull align 8 dereferenceable(432) %28, ptr noundef %30, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV28QCPColorScaleAxisRectPrivate, i32 0, inrange i32 0, i32 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV28QCPColorScaleAxisRectPrivate, i32 0, i32 0, i32 2), ptr %28, align 8
   %31 = getelementptr inbounds %class.QCPColorScaleAxisRectPrivate, ptr %28, i32 0, i32 1
   %32 = load ptr, ptr %4, align 8
   store ptr %32, ptr %31, align 8
@@ -107300,9 +107300,9 @@ define void @_ZN8QCPGraphC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereference
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %6, align 8
   call void @_ZN22QCPAbstractPlottable1DI12QCPGraphDataEC2EP7QCPAxisS3_(ptr noundef nonnull align 8 dereferenceable(208) %12, ptr noundef %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds i8, ptr %12, i64 184
-  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i32 0, inrange i32 1, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i32 0, i32 1, i32 2), ptr %15, align 8
   %16 = getelementptr inbounds %class.QCPGraph, ptr %12, i32 0, i32 1
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds %class.QCPGraph, ptr %12, i32 0, i32 3
@@ -107431,9 +107431,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI12QCPGraphDataEC2EP7QCPAxi
   call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef %10, ptr noundef %11)
   %12 = getelementptr inbounds i8, ptr %9, i64 184
   call void @_ZN23QCPPlottableInterface1DC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.QCPAbstractPlottable1D, ptr %9, i32 0, i32 2
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #26
           to label %16 unwind label %19
@@ -107652,9 +107652,9 @@ define void @_ZN8QCPGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(313) %
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [47 x ptr], [14 x ptr] }, ptr @_ZTV8QCPGraph, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPGraph, ptr %3, i32 0, i32 6
   call void @_ZN8QPointerI8QCPGraphED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   %6 = getelementptr inbounds %class.QCPGraph, ptr %3, i32 0, i32 3
@@ -119332,9 +119332,9 @@ define void @_ZN8QCPCurveC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereference
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %6, align 8
   call void @_ZN22QCPAbstractPlottable1DI12QCPCurveDataEC2EP7QCPAxisS3_(ptr noundef nonnull align 8 dereferenceable(208) %13, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i32 0, i32 0, i32 2), ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 184
-  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.QCPCurve, ptr %13, i32 0, i32 1
   invoke void @_ZN15QCPScatterStyleC1Ev(ptr noundef nonnull align 8 dereferenceable(65) %17)
           to label %18 unwind label %29
@@ -119463,9 +119463,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI12QCPCurveDataEC2EP7QCPAxi
   call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef %10, ptr noundef %11)
   %12 = getelementptr inbounds i8, ptr %9, i64 184
   call void @_ZN23QCPPlottableInterface1DC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.QCPAbstractPlottable1D.233, ptr %9, i32 0, i32 2
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #26
           to label %16 unwind label %19
@@ -119561,9 +119561,9 @@ define void @_ZN8QCPCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(288) %
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr], [14 x ptr] }, ptr @_ZTV8QCPCurve, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPCurve, ptr %3, i32 0, i32 1
   call void @_ZN15QCPScatterStyleD2Ev(ptr noundef nonnull align 8 dereferenceable(65) %5) #23
   call void @_ZN22QCPAbstractPlottable1DI12QCPCurveDataED2Ev(ptr noundef nonnull align 8 dereferenceable(208) %3) #23
@@ -129284,7 +129284,7 @@ define void @_ZN12QCPBarsGroupC2EP11QCustomPlot(ptr noundef nonnull align 8 dere
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12QCPBarsGroup, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12QCPBarsGroup, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.QCPBarsGroup, ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %7, align 8
@@ -129312,7 +129312,7 @@ define void @_ZN12QCPBarsGroupD2Ev(ptr noundef nonnull align 8 dereferenceable(6
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12QCPBarsGroup, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12QCPBarsGroup, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN12QCPBarsGroup5clearEv(ptr noundef nonnull align 8 dereferenceable(64) %3)
           to label %4 unwind label %6
 
@@ -130958,9 +130958,9 @@ define void @_ZN7QCPBarsC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferencea
   %14 = load ptr, ptr %5, align 8
   %15 = load ptr, ptr %6, align 8
   call void @_ZN22QCPAbstractPlottable1DI11QCPBarsDataEC2EP7QCPAxisS3_(ptr noundef nonnull align 8 dereferenceable(208) %13, ptr noundef %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i32 0, i32 0, i32 2), ptr %13, align 8
   %16 = getelementptr inbounds i8, ptr %13, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.QCPBars, ptr %13, i32 0, i32 1
   store double 7.500000e-01, ptr %17, align 8
   %18 = getelementptr inbounds %class.QCPBars, ptr %13, i32 0, i32 2
@@ -131060,9 +131060,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI11QCPBarsDataEC2EP7QCPAxis
   call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef %10, ptr noundef %11)
   %12 = getelementptr inbounds i8, ptr %9, i64 184
   call void @_ZN23QCPPlottableInterface1DC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.QCPAbstractPlottable1D.246, ptr %9, i32 0, i32 2
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #26
           to label %16 unwind label %19
@@ -131144,9 +131144,9 @@ define void @_ZN7QCPBarsD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV7QCPBars, i32 0, i32 1, i32 2), ptr %4, align 8
   invoke void @_ZN7QCPBars12setBarsGroupEP12QCPBarsGroup(ptr noundef nonnull align 8 dereferenceable(280) %3, ptr noundef null)
           to label %5 unwind label %26
 
@@ -135625,9 +135625,9 @@ define void @_ZN17QCPStatisticalBoxC2EP7QCPAxisS1_(ptr noundef nonnull align 8 d
   %17 = load ptr, ptr %5, align 8
   %18 = load ptr, ptr %6, align 8
   call void @_ZN22QCPAbstractPlottable1DI21QCPStatisticalBoxDataEC2EP7QCPAxisS3_(ptr noundef nonnull align 8 dereferenceable(208) %16, ptr noundef %17, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [42 x ptr], [14 x ptr] }, ptr @_ZTV17QCPStatisticalBox, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [42 x ptr], [14 x ptr] }, ptr @_ZTV17QCPStatisticalBox, i32 0, i32 0, i32 2), ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 184
-  store ptr getelementptr inbounds ({ [42 x ptr], [14 x ptr] }, ptr @_ZTV17QCPStatisticalBox, i32 0, inrange i32 1, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [42 x ptr], [14 x ptr] }, ptr @_ZTV17QCPStatisticalBox, i32 0, i32 1, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds %class.QCPStatisticalBox, ptr %16, i32 0, i32 1
   store double 5.000000e-01, ptr %20, align 8
   %21 = getelementptr inbounds %class.QCPStatisticalBox, ptr %16, i32 0, i32 2
@@ -135803,9 +135803,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI21QCPStatisticalBoxDataEC2
   call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef %10, ptr noundef %11)
   %12 = getelementptr inbounds i8, ptr %9, i64 184
   call void @_ZN23QCPPlottableInterface1DC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.QCPAbstractPlottable1D.258, ptr %9, i32 0, i32 2
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #26
           to label %16 unwind label %19
@@ -141734,7 +141734,7 @@ define void @_ZN11QCPColorMapC2EP7QCPAxisS1_(ptr noundef nonnull align 8 derefer
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %11, ptr noundef %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV11QCPColorMap, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV11QCPColorMap, i32 0, i32 0, i32 2), ptr %11, align 8
   %14 = getelementptr inbounds %class.QCPColorMap, ptr %11, i32 0, i32 1
   invoke void @_ZN8QCPRangeC1Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
           to label %15 unwind label %33
@@ -141853,7 +141853,7 @@ define void @_ZN11QCPColorMapD2Ev(ptr noundef nonnull align 8 dereferenceable(39
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV11QCPColorMap, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV11QCPColorMap, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPColorMap, ptr %3, i32 0, i32 4
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null
@@ -144735,9 +144735,9 @@ define void @_ZN12QCPFinancialC2EP7QCPAxisS1_(ptr noundef nonnull align 8 derefe
   %16 = load ptr, ptr %5, align 8
   %17 = load ptr, ptr %6, align 8
   call void @_ZN22QCPAbstractPlottable1DI16QCPFinancialDataEC2EP7QCPAxisS3_(ptr noundef nonnull align 8 dereferenceable(208) %15, ptr noundef %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds i8, ptr %15, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i32 0, inrange i32 1, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i32 0, i32 1, i32 2), ptr %18, align 8
   %19 = getelementptr inbounds %class.QCPFinancial, ptr %15, i32 0, i32 1
   store i32 1, ptr %19, align 8
   %20 = getelementptr inbounds %class.QCPFinancial, ptr %15, i32 0, i32 2
@@ -144883,9 +144883,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI16QCPFinancialDataEC2EP7QC
   call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %9, ptr noundef %10, ptr noundef %11)
   %12 = getelementptr inbounds i8, ptr %9, i64 184
   call void @_ZN23QCPPlottableInterface1DC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #23
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.QCPAbstractPlottable1D.267, ptr %9, i32 0, i32 2
   %15 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #26
           to label %16 unwind label %19
@@ -144939,9 +144939,9 @@ define void @_ZN12QCPFinancialD2Ev(ptr noundef nonnull align 8 dereferenceable(2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPFinancial, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPFinancial, ptr %3, i32 0, i32 8
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #23
   %6 = getelementptr inbounds %class.QCPFinancial, ptr %3, i32 0, i32 7
@@ -151383,9 +151383,9 @@ define void @_ZN12QCPErrorBarsC2EP7QCPAxisS1_(ptr noundef nonnull align 8 derefe
   call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %12, ptr noundef %13, ptr noundef %14)
   %15 = getelementptr inbounds i8, ptr %12, i64 184
   call void @_ZN23QCPPlottableInterface1DC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #23
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i32 0, i32 0, i32 2), ptr %12, align 8
   %16 = getelementptr inbounds i8, ptr %12, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i32 0, inrange i32 1, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i32 0, i32 1, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.QCPErrorBars, ptr %12, i32 0, i32 2
   %18 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #26
           to label %19 unwind label %29
@@ -151488,7 +151488,7 @@ define linkonce_odr void @_ZN23QCPPlottableInterface1DC2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV23QCPPlottableInterface1D, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV23QCPPlottableInterface1D, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -151551,9 +151551,9 @@ define void @_ZN12QCPErrorBarsD2Ev(ptr noundef nonnull align 8 dereferenceable(2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV12QCPErrorBars, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPErrorBars, ptr %3, i32 0, i32 3
   call void @_ZN8QPointerI20QCPAbstractPlottableED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   %6 = getelementptr inbounds %class.QCPErrorBars, ptr %3, i32 0, i32 2
@@ -156847,7 +156847,7 @@ define void @_ZN19QCPItemStraightLineC2EP11QCustomPlot(ptr noundef nonnull align
   %15 = load ptr, ptr %3, align 8
   %16 = load ptr, ptr %4, align 8
   call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV19QCPItemStraightLine, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV19QCPItemStraightLine, i32 0, i32 0, i32 2), ptr %15, align 8
   %17 = getelementptr inbounds %class.QCPItemStraightLine, ptr %15, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.193) #23
   %18 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
@@ -157053,7 +157053,7 @@ define void @_ZN19QCPItemStraightLineD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV19QCPItemStraightLine, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV19QCPItemStraightLine, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPItemStraightLine, ptr %3, i32 0, i32 4
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPItemStraightLine, ptr %3, i32 0, i32 3
@@ -158071,7 +158071,7 @@ define void @_ZN11QCPItemLineC2EP11QCustomPlot(ptr noundef nonnull align 8 deref
   %15 = load ptr, ptr %3, align 8
   %16 = load ptr, ptr %4, align 8
   call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemLine, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemLine, i32 0, i32 0, i32 2), ptr %15, align 8
   %17 = getelementptr inbounds %class.QCPItemLine, ptr %15, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.195) #23
   %18 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
@@ -158287,7 +158287,7 @@ define void @_ZN11QCPItemLineD2Ev(ptr noundef nonnull align 8 dereferenceable(23
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemLine, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemLine, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPItemLine, ptr %3, i32 0, i32 4
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPItemLine, ptr %3, i32 0, i32 3
@@ -159320,7 +159320,7 @@ define void @_ZN12QCPItemCurveC2EP11QCustomPlot(ptr noundef nonnull align 8 dere
   %19 = load ptr, ptr %3, align 8
   %20 = load ptr, ptr %4, align 8
   call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %19, ptr noundef %20)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV12QCPItemCurve, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV12QCPItemCurve, i32 0, i32 0, i32 2), ptr %19, align 8
   %21 = getelementptr inbounds %class.QCPItemCurve, ptr %19, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.195) #23
   %22 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
@@ -159594,7 +159594,7 @@ define void @_ZN12QCPItemCurveD2Ev(ptr noundef nonnull align 8 dereferenceable(2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV12QCPItemCurve, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV12QCPItemCurve, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPItemCurve, ptr %3, i32 0, i32 6
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPItemCurve, ptr %3, i32 0, i32 5
@@ -160358,7 +160358,7 @@ define void @_ZN11QCPItemRectC2EP11QCustomPlot(ptr noundef nonnull align 8 deref
   %29 = load ptr, ptr %3, align 8
   %30 = load ptr, ptr %4, align 8
   call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %29, ptr noundef %30)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemRect, i32 0, inrange i32 0, i32 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemRect, i32 0, i32 0, i32 2), ptr %29, align 8
   %31 = getelementptr inbounds %class.QCPItemRect, ptr %29, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.199) #23
   %32 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
@@ -160820,7 +160820,7 @@ define void @_ZN11QCPItemRectD2Ev(ptr noundef nonnull align 8 dereferenceable(23
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemRect, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemRect, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPItemRect, ptr %3, i32 0, i32 12
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPItemRect, ptr %3, i32 0, i32 11
@@ -161465,7 +161465,7 @@ define void @_ZN11QCPItemTextC2EP11QCustomPlot(ptr noundef nonnull align 8 deref
   %32 = load ptr, ptr %3, align 8
   %33 = load ptr, ptr %4, align 8
   call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %32, ptr noundef %33)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemText, i32 0, inrange i32 0, i32 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemText, i32 0, i32 0, i32 2), ptr %32, align 8
   %34 = getelementptr inbounds %class.QCPItemText, ptr %32, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.208) #23
   %35 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
@@ -162069,7 +162069,7 @@ define void @_ZN11QCPItemTextD2Ev(ptr noundef nonnull align 8 dereferenceable(36
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemText, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV11QCPItemText, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPItemText, ptr %3, i32 0, i32 18
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   %5 = getelementptr inbounds %class.QCPItemText, ptr %3, i32 0, i32 17
@@ -163477,7 +163477,7 @@ define void @_ZN14QCPItemEllipseC2EP11QCustomPlot(ptr noundef nonnull align 8 de
   %35 = load ptr, ptr %3, align 8
   %36 = load ptr, ptr %4, align 8
   call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %35, ptr noundef %36)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemEllipse, i32 0, inrange i32 0, i32 2), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemEllipse, i32 0, i32 0, i32 2), ptr %35, align 8
   %37 = getelementptr inbounds %class.QCPItemEllipse, ptr %35, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.199) #23
   %38 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
@@ -164017,7 +164017,7 @@ define void @_ZN14QCPItemEllipseD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemEllipse, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemEllipse, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPItemEllipse, ptr %3, i32 0, i32 15
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPItemEllipse, ptr %3, i32 0, i32 14
@@ -165082,7 +165082,7 @@ define void @_ZN13QCPItemPixmapC2EP11QCustomPlot(ptr noundef nonnull align 8 der
   %26 = load ptr, ptr %3, align 8
   %27 = load ptr, ptr %4, align 8
   call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %26, ptr noundef %27)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemPixmap, i32 0, inrange i32 0, i32 2), ptr %26, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemPixmap, i32 0, i32 0, i32 2), ptr %26, align 8
   %28 = getelementptr inbounds %class.QCPItemPixmap, ptr %26, i32 0, i32 1
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.199) #23
   %29 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
@@ -165470,7 +165470,7 @@ define void @_ZN13QCPItemPixmapD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemPixmap, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemPixmap, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPItemPixmap, ptr %3, i32 0, i32 16
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPItemPixmap, ptr %3, i32 0, i32 15
@@ -166585,7 +166585,7 @@ define void @_ZN13QCPItemTracerC2EP11QCustomPlot(ptr noundef nonnull align 8 der
   %15 = load ptr, ptr %3, align 8
   %16 = load ptr, ptr %4, align 8
   call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %15, ptr noundef %16)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemTracer, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemTracer, i32 0, i32 0, i32 2), ptr %15, align 8
   %17 = getelementptr inbounds %class.QCPItemTracer, ptr %15, i32 0, i32 2
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.208) #23
   %18 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
@@ -166872,7 +166872,7 @@ define void @_ZN13QCPItemTracerD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemTracer, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV13QCPItemTracer, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPItemTracer, ptr %3, i32 0, i32 6
   call void @_ZN6QBrushD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPItemTracer, ptr %3, i32 0, i32 5
@@ -168424,7 +168424,7 @@ define void @_ZN14QCPItemBracketC2EP11QCustomPlot(ptr noundef nonnull align 8 de
   %17 = load ptr, ptr %3, align 8
   %18 = load ptr, ptr %4, align 8
   call void @_ZN15QCPAbstractItemC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(130) %17, ptr noundef %18)
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemBracket, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemBracket, i32 0, i32 0, i32 2), ptr %17, align 8
   %19 = getelementptr inbounds %class.QCPItemBracket, ptr %17, i32 0, i32 2
   call void @_ZN13QLatin1StringC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef @.str.206) #23
   %20 = getelementptr inbounds { i64, ptr }, ptr %6, i32 0, i32 0
@@ -168660,7 +168660,7 @@ define void @_ZN14QCPItemBracketD2Ev(ptr noundef nonnull align 8 dereferenceable
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemBracket, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [28 x ptr] }, ptr @_ZTV14QCPItemBracket, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPItemBracket, ptr %3, i32 0, i32 6
   call void @_ZN4QPenD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPItemBracket, ptr %3, i32 0, i32 5
@@ -171048,7 +171048,7 @@ define void @_ZN18QCPPolarAxisRadialC2EP19QCPPolarAxisAngular(ptr noundef nonnul
 
 21:                                               ; preds = %2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV18QCPPolarAxisRadial, i32 0, inrange i32 0, i32 2), ptr %17, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV18QCPPolarAxisRadial, i32 0, i32 0, i32 2), ptr %17, align 8
   %22 = getelementptr inbounds %class.QCPPolarAxisRadial, ptr %17, i32 0, i32 1
   store i8 1, ptr %22, align 1
   %23 = getelementptr inbounds %class.QCPPolarAxisRadial, ptr %17, i32 0, i32 2
@@ -171681,7 +171681,7 @@ define void @_ZN18QCPPolarAxisRadialD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV18QCPPolarAxisRadial, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV18QCPPolarAxisRadial, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPPolarAxisRadial, ptr %3, i32 0, i32 50
   call void @_ZN22QCPLabelPainterPrivateD1Ev(ptr noundef nonnull align 8 dereferenceable(256) %4) #23
   %5 = getelementptr inbounds %class.QCPPolarAxisRadial, ptr %3, i32 0, i32 45
@@ -175600,7 +175600,7 @@ define void @_ZN19QCPPolarAxisAngularC2EP11QCustomPlot(ptr noundef nonnull align
   %19 = load ptr, ptr %3, align 8
   %20 = load ptr, ptr %4, align 8
   call void @_ZN16QCPLayoutElementC2EP11QCustomPlot(ptr noundef nonnull align 8 dereferenceable(168) %19, ptr noundef %20)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV19QCPPolarAxisAngular, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV19QCPPolarAxisAngular, i32 0, i32 0, i32 2), ptr %19, align 8
   %21 = getelementptr inbounds %class.QCPPolarAxisAngular, ptr %19, i32 0, i32 1
   invoke void @_ZN6QBrushC1EN2Qt10BrushStyleE(ptr noundef nonnull align 8 dereferenceable(8) %21, i32 noundef 0)
           to label %22 unwind label %147
@@ -176718,7 +176718,7 @@ define void @_ZN19QCPPolarAxisAngularD2Ev(ptr noundef nonnull align 8 dereferenc
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV19QCPPolarAxisAngular, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV19QCPPolarAxisAngular, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.QCPPolarAxisAngular, ptr %5, i32 0, i32 47
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -181672,7 +181672,7 @@ define void @_ZN12QCPPolarGridC2EP19QCPPolarAxisAngular(ptr noundef nonnull alig
 
 29:                                               ; preds = %2
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #23
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPPolarGrid, i32 0, inrange i32 0, i32 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTV12QCPPolarGrid, i32 0, i32 0, i32 2), ptr %25, align 8
   %30 = getelementptr inbounds %class.QCPPolarGrid, ptr %25, i32 0, i32 1
   call void @_ZN6QFlagsIN12QCPPolarGrid8GridTypeEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %30, i32 noundef 0) #23
   %31 = getelementptr inbounds %class.QCPPolarGrid, ptr %25, i32 0, i32 2
@@ -182724,7 +182724,7 @@ define void @_ZN18QCPPolarLegendItemC2EP9QCPLegendP13QCPPolarGraph(ptr noundef n
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN21QCPAbstractLegendItemC2EP9QCPLegend(ptr noundef nonnull align 8 dereferenceable(242) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV18QCPPolarLegendItem, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [33 x ptr] }, ptr @_ZTV18QCPPolarLegendItem, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.QCPPolarLegendItem, ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   store ptr %10, ptr %9, align 8
@@ -183314,7 +183314,7 @@ define void @_ZN13QCPPolarGraphC2EP19QCPPolarAxisAngularP18QCPPolarAxisRadial(pt
 
 20:                                               ; preds = %3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #23
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV13QCPPolarGraph, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV13QCPPolarGraph, i32 0, i32 0, i32 2), ptr %16, align 8
   %21 = getelementptr inbounds %class.QCPPolarGraph, ptr %16, i32 0, i32 1
   %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 40) #26
           to label %23 unwind label %63
@@ -183739,7 +183739,7 @@ define void @_ZN13QCPPolarGraphD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV13QCPPolarGraph, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV13QCPPolarGraph, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPPolarGraph, ptr %3, i32 0, i32 14
   call void @_ZN16QCPDataSelectionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   %5 = getelementptr inbounds %class.QCPPolarGraph, ptr %3, i32 0, i32 12
@@ -188517,7 +188517,7 @@ define linkonce_odr void @_ZN21QCPAxisTickerDateTimeD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21QCPAxisTickerDateTime, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21QCPAxisTickerDateTime, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAxisTickerDateTime, ptr %3, i32 0, i32 4
   call void @_ZN9QTimeZoneD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPAxisTickerDateTime, ptr %3, i32 0, i32 1
@@ -188541,7 +188541,7 @@ define linkonce_odr void @_ZN17QCPAxisTickerTimeD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerTime, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerTime, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAxisTickerTime, ptr %3, i32 0, i32 5
   call void @_ZN5QHashIN17QCPAxisTickerTime8TimeUnitE7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   %5 = getelementptr inbounds %class.QCPAxisTickerTime, ptr %3, i32 0, i32 2
@@ -188586,7 +188586,7 @@ define linkonce_odr void @_ZN17QCPAxisTickerTextD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerText, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV17QCPAxisTickerText, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAxisTickerText, ptr %3, i32 0, i32 1
   call void @_ZN4QMapId7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #23
   call void @_ZN13QCPAxisTickerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
@@ -188608,7 +188608,7 @@ define linkonce_odr void @_ZN15QCPAxisTickerPiD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV15QCPAxisTickerPi, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV15QCPAxisTickerPi, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.QCPAxisTickerPi, ptr %3, i32 0, i32 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #23
   call void @_ZN13QCPAxisTickerD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #23
@@ -198063,7 +198063,7 @@ define linkonce_odr void @_ZN6QImageC2EOS_(ptr noundef nonnull align 8 dereferen
   store ptr %1, ptr %4, align 8
   %6 = load ptr, ptr %3, align 8
   call void @_ZN12QPaintDeviceC2Ev(ptr noundef nonnull align 8 dereferenceable(10) %6) #23
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV6QImage, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.QImage, ptr %6, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds %class.QImage, ptr %8, i32 0, i32 1
@@ -294524,9 +294524,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI12QCPGraphDataED2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPGraphDataE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPAbstractPlottable1D, ptr %3, i32 0, i32 2
   call void @_ZN14QSharedPointerI16QCPDataContainerI12QCPGraphDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   %6 = getelementptr inbounds i8, ptr %3, i64 184
@@ -306879,9 +306879,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI12QCPCurveDataED2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI12QCPCurveDataE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPAbstractPlottable1D.233, ptr %3, i32 0, i32 2
   call void @_ZN14QSharedPointerI16QCPDataContainerI12QCPCurveDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   %6 = getelementptr inbounds i8, ptr %3, i64 184
@@ -322622,9 +322622,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI11QCPBarsDataED2Ev(ptr nou
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI11QCPBarsDataE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPAbstractPlottable1D.246, ptr %3, i32 0, i32 2
   call void @_ZN14QSharedPointerI16QCPDataContainerI11QCPBarsDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   %6 = getelementptr inbounds i8, ptr %3, i64 184
@@ -332557,9 +332557,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI21QCPStatisticalBoxDataED2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI21QCPStatisticalBoxDataE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPAbstractPlottable1D.258, ptr %3, i32 0, i32 2
   call void @_ZN14QSharedPointerI16QCPDataContainerI21QCPStatisticalBoxDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   %6 = getelementptr inbounds i8, ptr %3, i64 184
@@ -343989,9 +343989,9 @@ define linkonce_odr void @_ZN22QCPAbstractPlottable1DI16QCPFinancialDataED2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 184
-  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [41 x ptr], [14 x ptr] }, ptr @_ZTV22QCPAbstractPlottable1DI16QCPFinancialDataE, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.QCPAbstractPlottable1D.267, ptr %3, i32 0, i32 2
   call void @_ZN14QSharedPointerI16QCPDataContainerI16QCPFinancialDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   %6 = getelementptr inbounds i8, ptr %3, i64 184

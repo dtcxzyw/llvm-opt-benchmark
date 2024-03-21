@@ -43,7 +43,7 @@ $_ZTIN3zmq16mechanism_base_tE = comdat any
 define void @_ZN3zmq14plain_client_tC2EPNS_14session_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1504) %this, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(1336) %options_) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3zmq16mechanism_base_tC2EPNS_14session_base_tERKNS_9options_tE(ptr noundef nonnull align 8 dereferenceable(1496) %this, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(1336) %options_)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq14plain_client_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3zmq14plain_client_tE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_state = getelementptr inbounds i8, ptr %this, i64 1496
   store i32 0, ptr %_state, align 8
   ret void

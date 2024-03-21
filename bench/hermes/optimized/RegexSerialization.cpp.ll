@@ -385,7 +385,7 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %Fmt.i.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 8
   store ptr @.str, ptr %Fmt.i.i.i, align 8, !alias.scope !4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJtthhEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJtthhEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !alias.scope !4
   %Vals.i.i = getelementptr inbounds i8, ptr %ref.tmp, i64 16
   %1 = load i8, ptr %constraints, align 1, !noalias !4
   store i8 %1, ptr %Vals.i.i, align 8, !alias.scope !4
@@ -649,7 +649,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit.i:               ; preds = %if.then4.i.i.i, %if
 
 if.then.i:                                        ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit.i
   store ptr @.str.33, ptr %Fmt.i.i.i.i, align 8, !alias.scope !10
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i, align 8, !alias.scope !10
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i, align 8, !alias.scope !10
   store i8 %21, ptr %Vals.i.i.i, align 8, !alias.scope !10
   %call3.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #20
   br label %_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex14MatchChar8InsnERN4llvh11raw_ostreamE.exit
@@ -786,7 +786,7 @@ for.body.i:                                       ; preds = %if.end.i, %for.body
 
 if.then.i199:                                     ; preds = %for.body.i
   store ptr @.str.37, ptr %Fmt.i.i.i.i190, align 8, !alias.scope !22
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i179, align 8, !alias.scope !22
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i179, align 8, !alias.scope !22
   store i8 %34, ptr %Vals.i.i.i191, align 8, !alias.scope !22
   %call3.i200 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i179) #20
   br label %if.end.i
@@ -879,7 +879,7 @@ for.body.i229:                                    ; preds = %if.end.i237, %for.b
 
 if.then.i235:                                     ; preds = %for.body.i229
   store ptr @.str.37, ptr %Fmt.i.i.i.i222, align 8, !alias.scope !30
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i207, align 8, !alias.scope !30
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i207, align 8, !alias.scope !30
   store i8 %43, ptr %Vals.i.i.i223, align 8, !alias.scope !30
   %call3.i236 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i207) #20
   br label %if.end.i237
@@ -961,7 +961,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit.i265:            ; preds = %if.then4.i.i.i263, 
 
 if.then.i270:                                     ; preds = %_ZN4llvh11raw_ostreamlsEPKc.exit.i265
   store ptr @.str.33, ptr %Fmt.i.i.i.i271, align 8, !alias.scope !37
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i255, align 8, !alias.scope !37
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJcEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i255, align 8, !alias.scope !37
   store i8 %51, ptr %Vals.i.i.i272, align 8, !alias.scope !37
   %call3.i273 = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i255) #20
   br label %_ZN12_GLOBAL__N_115dumpInstructionEPKN6hermes5regex19MatchCharICase8InsnERN4llvh11raw_ostreamE.exit
@@ -1571,7 +1571,7 @@ sw.bb135:                                         ; preds = %_ZN4llvh11raw_ostre
   %loopeeConstraints.i = getelementptr inbounds i8, ptr %arrayidx.i, i64 18
   %133 = load i8, ptr %loopeeConstraints.i, align 1
   store ptr @.str.66, ptr %Fmt.i.i.i.i453, align 8, !alias.scope !58
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjhEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i450, align 8, !alias.scope !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjhEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i450, align 8, !alias.scope !58
   store i8 %133, ptr %Vals.i.i.i454, align 8, !alias.scope !58
   %134 = load <2 x i32>, ptr %min.i, align 1
   %135 = shufflevector <2 x i32> %134, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
@@ -1625,7 +1625,7 @@ sw.bb145:                                         ; preds = %_ZN4llvh11raw_ostre
   %call147.val = load i8, ptr %140, align 1, !noalias !64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %ref.tmp.i476)
   store ptr @.str.70, ptr %Fmt.i.i.i.i477, align 8, !alias.scope !67
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i476, align 8, !alias.scope !67
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJhEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i476, align 8, !alias.scope !67
   store i8 %call147.val, ptr %Vals.i.i.i478, align 8, !alias.scope !67
   %call.i = call noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsERKNS_18format_object_baseE(ptr noundef nonnull align 8 dereferenceable(36) %OS, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i476) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %ref.tmp.i476)
@@ -1680,7 +1680,7 @@ sw.bb155:                                         ; preds = %_ZN4llvh11raw_ostre
   %cond.i504 = select i1 %tobool.not.i503, ptr @.str.68, ptr @.str.67
   %min.i505 = getelementptr inbounds i8, ptr %arrayidx.i, i64 5
   store ptr @.str.72, ptr %Fmt.i.i.i.i507, align 8, !alias.scope !73
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp.i500, align 8, !alias.scope !73
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4llvh13format_objectIJjPKcjjEEE, i64 0, i32 0, i64 2), ptr %ref.tmp.i500, align 8, !alias.scope !73
   %148 = load <2 x i32>, ptr %min.i505, align 1
   %149 = shufflevector <2 x i32> %148, <2 x i32> poison, <2 x i32> <i32 1, i32 0>
   store <2 x i32> %149, ptr %Vals.i.i.i508, align 8, !alias.scope !73
@@ -5420,7 +5420,7 @@ return:                                           ; preds = %_ZN6hermes5regex5Re
 define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_4NodeEJEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !150
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex4NodeE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !150
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex4NodeE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !150
   %nodeHolder_ = getelementptr inbounds i8, ptr %this, i64 168
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5583,7 +5583,7 @@ declare noundef i32 @_ZN6hermes5regex10parseRegexINS0_5RegexINS0_16UTF16RegexTra
 define linkonce_odr hidden noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_8GoalNodeEJEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
   %call.i = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22, !noalias !159
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex8GoalNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !159
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex8GoalNodeE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !159
   %nodeHolder_ = getelementptr inbounds i8, ptr %this, i64 168
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 176
   %0 = load ptr, ptr %_M_finish.i.i, align 8
@@ -5915,7 +5915,7 @@ if.then:                                          ; preds = %while.end
   br i1 %tobool.not.i.i, label %_ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit.thread, label %if.then.i
 
 _ZN4llvh11SmallVectorIjLj5EEC2EOS1_.exit.thread:  ; preds = %if.then
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 0, i32 0, i64 2), ptr %call21, align 8
   %chars_.i214 = getelementptr inbounds i8, ptr %call21, i64 8
   %add.ptr.i.i.i.i.i.i32215 = getelementptr inbounds i8, ptr %call21, i64 24
   store ptr %add.ptr.i.i.i.i.i.i32215, ptr %chars_.i214, align 8
@@ -5965,7 +5965,7 @@ _ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.ex
 
 if.then.i.i33:                                    ; preds = %if.end8.i, %_ZN4llvh23SmallVectorTemplateBaseIjLb1EE18uninitialized_moveIPjS3_EEvT_S4_T0_.exit.i
   store i32 0, ptr %Size.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 0, inrange i32 0, i64 2), ptr %call21, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6hermes5regex13MatchCharNodeE, i64 0, i32 0, i64 2), ptr %call21, align 8
   %chars_.i = getelementptr inbounds i8, ptr %call21, i64 8
   %add.ptr.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %call21, i64 24
   store ptr %add.ptr.i.i.i.i.i.i32, ptr %chars_.i, align 8

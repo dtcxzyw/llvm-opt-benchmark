@@ -20,7 +20,7 @@ $_ZTIN3irr17IReferenceCountedE = comdat any
 $_ZTIN3irr11IOSOperatorE = comdat any
 
 @_ZTVN3irr11COSOperatorE = unnamed_addr constant { [11 x ptr], [5 x ptr] } { [11 x ptr] [ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3irr11COSOperatorE, ptr @_ZNK3irr11COSOperator25getOperatingSystemVersionEv, ptr @_ZNK3irr11COSOperator15copyToClipboardEPKc, ptr @_ZNK3irr11COSOperator22copyToPrimarySelectionEPKc, ptr @_ZNK3irr11COSOperator20getTextFromClipboardEv, ptr @_ZNK3irr11COSOperator27getTextFromPrimarySelectionEv, ptr @_ZNK3irr11COSOperator15getSystemMemoryEPjS1_, ptr @_ZN3irr11COSOperatorD1Ev, ptr @_ZN3irr11COSOperatorD0Ev], [5 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3irr11COSOperatorE, ptr @_ZTv0_n24_N3irr11COSOperatorD1Ev, ptr @_ZTv0_n24_N3irr11COSOperatorD0Ev] }, align 8
-@_ZTTN3irr11COSOperatorE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr11COSOperatorE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3irr11COSOperatorE0_NS_11IOSOperatorE = unnamed_addr constant { [11 x ptr], [5 x ptr] } { [11 x ptr] [ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3irr11IOSOperatorE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3irr11IOSOperatorD1Ev, ptr @_ZN3irr11IOSOperatorD0Ev], [5 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3irr11IOSOperatorE, ptr @_ZTv0_n24_N3irr11IOSOperatorD1Ev, ptr @_ZTv0_n24_N3irr11IOSOperatorD0Ev] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3irr11IOSOperatorE = linkonce_odr constant [20 x i8] c"N3irr11IOSOperatorE\00", comdat, align 1
@@ -77,8 +77,8 @@ define void @_ZN3irr11COSOperatorC1ERKNS_4core6stringIcEE(ptr noundef nonnull al
   store ptr null, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 1, ptr %5, align 8, !tbaa !17
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %7, ptr %6, align 8, !tbaa !6
@@ -139,9 +139,9 @@ declare void @SDL_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr11COSOperatorD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   tail call void @SDL_free(ptr noundef %4) #11
@@ -175,9 +175,9 @@ define void @_ZTv0_n24_N3irr11COSOperatorD1Ev(ptr noundef %0) unnamed_addr #2 al
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   tail call void @SDL_free(ptr noundef %8) #11
@@ -207,9 +207,9 @@ define void @_ZTv0_n24_N3irr11COSOperatorD1Ev(ptr noundef %0) unnamed_addr #2 al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr11COSOperatorD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !18
   tail call void @SDL_free(ptr noundef %4) #11
@@ -247,9 +247,9 @@ define void @_ZTv0_n24_N3irr11COSOperatorD0Ev(ptr noundef %0) unnamed_addr #2 al
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [11 x ptr], [5 x ptr] }, ptr @_ZTVN3irr11COSOperatorE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 40
   %8 = load ptr, ptr %7, align 8, !tbaa !18
   tail call void @SDL_free(ptr noundef %8) #11

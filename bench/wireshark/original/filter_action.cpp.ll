@@ -1005,7 +1005,7 @@ define void @_ZN12FilterActionC2EP7QObjectNS_6ActionENS_10ActionTypeE7QString(pt
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.FilterAction, ptr %13, i32 0, i32 1
   %16 = load i32, ptr %8, align 4
   store i32 %16, ptr %15, align 8
@@ -1090,7 +1090,7 @@ define void @_ZN12FilterActionC2EP7QObjectNS_6ActionENS_10ActionTypeENS_15Action
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.FilterAction, ptr %14, i32 0, i32 1
   %17 = load i32, ptr %8, align 4
   store i32 %17, ptr %16, align 8
@@ -1235,7 +1235,7 @@ define void @_ZN12FilterActionC2EP7QObjectNS_6ActionENS_10ActionTypeE(ptr nounde
   %12 = load ptr, ptr %5, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef %13)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i32 0, i32 0, i32 2), ptr %12, align 8
   %14 = getelementptr inbounds %class.FilterAction, ptr %12, i32 0, i32 1
   %15 = load i32, ptr %7, align 4
   store i32 %15, ptr %14, align 8
@@ -1352,7 +1352,7 @@ define void @_ZN12FilterActionC2EP7QObjectNS_6ActionE(ptr noundef nonnull align 
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.FilterAction, ptr %10, i32 0, i32 1
   %13 = load i32, ptr %6, align 4
   store i32 %13, ptr %12, align 8

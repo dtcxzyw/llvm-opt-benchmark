@@ -235,7 +235,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i8 %trace_type, ptr %trace_type.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb17TraceRecordResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb17TraceRecordResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trace_type_ = getelementptr inbounds %"class.rocksdb::TraceRecordResult", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %trace_type.addr, align 1
   store i8 %0, ptr %trace_type_, align 8
@@ -267,7 +267,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i8, ptr %trace_type.addr, align 1
   call void @_ZN7rocksdb17TraceRecordResultC2ENS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(9) %this1, i8 noundef signext %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb20TraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb20TraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ts_start_ = getelementptr inbounds %"class.rocksdb::TraceExecutionResult", ptr %this1, i32 0, i32 1
   %1 = load i64, ptr %start_timestamp.addr, align 8
   store i64 %1, ptr %ts_start_, align 8
@@ -317,7 +317,7 @@ entry:
   %1 = load i64, ptr %end_timestamp.addr, align 8
   %2 = load i8, ptr %trace_type.addr, align 1
   call void @_ZN7rocksdb20TraceExecutionResultC2EmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %0, i64 noundef %1, i8 noundef signext %2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %status_ = getelementptr inbounds %"class.rocksdb::StatusOnlyTraceExecutionResult", ptr %this1, i32 0, i32 1
   call void @_ZN7rocksdb6StatusC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %status_, ptr noundef nonnull align 8 dereferenceable(16) %status) #9
   ret void
@@ -402,7 +402,7 @@ entry:
   %1 = load i64, ptr %end_timestamp.addr, align 8
   %2 = load i8, ptr %trace_type.addr, align 1
   call void @_ZN7rocksdb20TraceExecutionResultC2EmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %0, i64 noundef %1, i8 noundef signext %2)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %status_ = getelementptr inbounds %"class.rocksdb::SingleValueTraceExecutionResult", ptr %this1, i32 0, i32 1
   call void @_ZN7rocksdb6StatusC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %status_, ptr noundef nonnull align 8 dereferenceable(16) %status) #9
   %value_ = getelementptr inbounds %"class.rocksdb::SingleValueTraceExecutionResult", ptr %this1, i32 0, i32 2
@@ -467,7 +467,7 @@ entry:
   %1 = load i64, ptr %end_timestamp.addr, align 8
   %2 = load i8, ptr %trace_type.addr, align 1
   call void @_ZN7rocksdb20TraceExecutionResultC2EmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %0, i64 noundef %1, i8 noundef signext %2)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %status_ = getelementptr inbounds %"class.rocksdb::SingleValueTraceExecutionResult", ptr %this1, i32 0, i32 1
   call void @_ZN7rocksdb6StatusC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %status_, ptr noundef nonnull align 8 dereferenceable(16) %status) #9
   %value_ = getelementptr inbounds %"class.rocksdb::SingleValueTraceExecutionResult", ptr %this1, i32 0, i32 2
@@ -485,7 +485,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31SingleValueTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_ = getelementptr inbounds %"class.rocksdb::SingleValueTraceExecutionResult", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr noundef nonnull align 8 dereferenceable(32) %value_) #9
   %value_2 = getelementptr inbounds %"class.rocksdb::SingleValueTraceExecutionResult", ptr %this1, i32 0, i32 2
@@ -574,7 +574,7 @@ entry:
   %1 = load i64, ptr %end_timestamp.addr, align 8
   %2 = load i8, ptr %trace_type.addr, align 1
   call void @_ZN7rocksdb20TraceExecutionResultC2EmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %0, i64 noundef %1, i8 noundef signext %2)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31MultiValuesTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31MultiValuesTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %multi_status_ = getelementptr inbounds %"class.rocksdb::MultiValuesTraceExecutionResult", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb6StatusESaIS1_EEC2EOS3_(ptr noundef nonnull align 8 dereferenceable(24) %multi_status_, ptr noundef nonnull align 8 dereferenceable(24) %multi_status) #9
   %values_ = getelementptr inbounds %"class.rocksdb::MultiValuesTraceExecutionResult", ptr %this1, i32 0, i32 2
@@ -614,7 +614,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31MultiValuesTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7rocksdb31MultiValuesTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %multi_status_ = getelementptr inbounds %"class.rocksdb::MultiValuesTraceExecutionResult", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN7rocksdb6StatusESaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %multi_status_) #9
   %values_ = getelementptr inbounds %"class.rocksdb::MultiValuesTraceExecutionResult", ptr %this1, i32 0, i32 2
@@ -785,7 +785,7 @@ entry:
   %1 = load i64, ptr %end_timestamp.addr, align 8
   %2 = load i8, ptr %trace_type.addr, align 1
   call void @_ZN7rocksdb20TraceExecutionResultC2EmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %0, i64 noundef %1, i8 noundef signext %2)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %valid_ = getelementptr inbounds %"class.rocksdb::IteratorTraceExecutionResult", ptr %this1, i32 0, i32 1
   %3 = load i8, ptr %valid.addr, align 1
   %tobool = trunc i8 %3 to i1
@@ -883,7 +883,7 @@ entry:
   %1 = load i64, ptr %end_timestamp.addr, align 8
   %2 = load i8, ptr %trace_type.addr, align 1
   call void @_ZN7rocksdb20TraceExecutionResultC2EmmNS_9TraceTypeE(ptr noundef nonnull align 8 dereferenceable(32) %this1, i64 noundef %0, i64 noundef %1, i8 noundef signext %2)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %valid_ = getelementptr inbounds %"class.rocksdb::IteratorTraceExecutionResult", ptr %this1, i32 0, i32 1
   %3 = load i8, ptr %valid.addr, align 1
   %tobool = trunc i8 %3 to i1
@@ -1040,7 +1040,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.rocksdb::IteratorTraceExecutionResult", ptr %this1, i32 0, i32 3
   invoke void @_ZN7rocksdb5Slice5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %key_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1216,7 +1216,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb30StatusOnlyTraceExecutionResultE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %status_ = getelementptr inbounds %"class.rocksdb::StatusOnlyTraceExecutionResult", ptr %this1, i32 0, i32 1
   call void @_ZN7rocksdb6StatusD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %status_) #9
   call void @_ZN7rocksdb20TraceExecutionResultD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #9

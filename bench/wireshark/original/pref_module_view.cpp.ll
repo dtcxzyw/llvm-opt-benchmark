@@ -119,9 +119,9 @@ define void @_ZN18PrefModuleTreeViewC2EP7QWidget(ptr noundef nonnull align 8 der
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV18PrefModuleTreeView, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV18PrefModuleTreeView, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV18PrefModuleTreeView, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV18PrefModuleTreeView, i32 0, i32 1, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.PrefModuleTreeView, ptr %7, i32 0, i32 1
   invoke void @_ZN10PrefsModel12typeToStringEi(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, i32 noundef 257)
           to label %11 unwind label %12

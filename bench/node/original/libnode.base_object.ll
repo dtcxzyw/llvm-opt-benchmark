@@ -710,7 +710,7 @@ entry:
   store ptr %realm, ptr %realm.addr, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this3) #3
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %persistent_handle_ = getelementptr inbounds %"class.node::BaseObject", ptr %this3, i32 0, i32 1
   %0 = load ptr, ptr %realm.addr, align 8
   %call = call noundef ptr @_ZNK4node5Realm7isolateEv(ptr noundef nonnull align 8 dereferenceable(872) %0)
@@ -854,7 +854,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1023,7 +1023,7 @@ entry:
   %ref.tmp = alloca %"class.v8::Local", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef ptr @_ZNK4node10BaseObject5realmEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
   call void @_ZN4node5Realm24modify_base_object_countEl(ptr noundef nonnull align 8 dereferenceable(872) %call, i64 noundef -1)
   %call2 = call noundef ptr @_ZNK4node10BaseObject5realmEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)

@@ -503,7 +503,7 @@ entry:
   %0 = load ptr, ptr %connection.addr, align 8
   %1 = load ptr, ptr %config.addr, align 8
   call void @_ZN3net15QuicSpdySessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2057) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(600) %1)
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN3net21QuicServerSessionBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN3net21QuicServerSessionBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %crypto_config_ = getelementptr inbounds %"class.net::QuicServerSessionBase", ptr %this1, i32 0, i32 2
   %2 = load ptr, ptr %crypto_config.addr, align 8
   store ptr %2, ptr %crypto_config_, align 8
@@ -655,7 +655,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN3net21QuicServerSessionBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr] }, ptr @_ZTVN3net21QuicServerSessionBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %serving_region_ = getelementptr inbounds %"class.net::QuicServerSessionBase", ptr %this1, i32 0, i32 10
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %serving_region_) #12
   %crypto_stream_ = getelementptr inbounds %"class.net::QuicServerSessionBase", ptr %this1, i32 0, i32 4

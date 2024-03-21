@@ -40672,7 +40672,7 @@ define linkonce_odr dso_local void @_ZN29cmInstallRuntimeDependencySet10TargetIt
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN29cmInstallRuntimeDependencySet4ItemC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN29cmInstallRuntimeDependencySet10TargetItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN29cmInstallRuntimeDependencySet10TargetItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.cmInstallRuntimeDependencySet::TargetItem", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -40707,7 +40707,7 @@ define linkonce_odr dso_local void @_ZN29cmInstallRuntimeDependencySet4ItemC2Ev(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN29cmInstallRuntimeDependencySet4ItemE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN29cmInstallRuntimeDependencySet4ItemE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -50099,7 +50099,7 @@ define linkonce_odr dso_local void @_ZN29cmInstallRuntimeDependencySet18Imported
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN29cmInstallRuntimeDependencySet4ItemC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN29cmInstallRuntimeDependencySet18ImportedTargetItemE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN29cmInstallRuntimeDependencySet18ImportedTargetItemE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.cmInstallRuntimeDependencySet::ImportedTargetItem", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8

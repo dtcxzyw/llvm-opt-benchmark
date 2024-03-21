@@ -372,7 +372,7 @@ define internal void @__cxx_global_array_dtor.20(ptr nocapture readnone %0) #4 s
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN8MapgenV5C2EP14MapgenV5ParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(504) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) %0, i32 noundef 3, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8MapgenV5, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8MapgenV5, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %1, i64 32
   %5 = load i32, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds i8, ptr %0, i64 268
@@ -545,7 +545,7 @@ declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN8MapgenV5D2Ev(ptr noundef nonnull align 8 dereferenceable(504) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8MapgenV5, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV8MapgenV5, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !52
   %4 = icmp eq ptr %3, null
@@ -628,7 +628,7 @@ define dso_local void @_ZN14MapgenV5ParamsC2Ev(ptr noundef nonnull writeonly ali
   store i16 31007, ptr %11, align 2, !tbaa !67
   %12 = getelementptr inbounds i8, ptr %0, i64 52
   store i8 0, ptr %12, align 4, !tbaa !68
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14MapgenV5Params, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14MapgenV5Params, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   store float 0x3FB70A3D80000000, ptr %13, align 8, !tbaa !37
   %14 = getelementptr inbounds i8, ptr %0, i64 60

@@ -1647,7 +1647,7 @@ entry:
   %frombool = zext i1 %readonly to i8
   store i8 %frombool, ptr %readonly.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base25PersistentMemoryAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base25PersistentMemoryAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mem_base_ = getelementptr inbounds %"class.base::PersistentMemoryAllocator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %base.addr, align 8
   store ptr %0, ptr %mem_base_, align 8
@@ -6767,7 +6767,7 @@ entry:
   %4 = load i64, ptr %id.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %name, i64 16, i1 false)
   call void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %call, i64 noundef %3, i64 noundef 0, i64 noundef %4, ptr noundef byval(%"class.base::BasicStringPiece") align 8 %agg.tmp, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6790,7 +6790,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base30LocalPersistentMemoryAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mem_base_ = getelementptr inbounds %"class.base::PersistentMemoryAllocator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %mem_base_, align 8
   %mem_size_ = getelementptr inbounds %"class.base::PersistentMemoryAllocator", ptr %this1, i32 0, i32 2
@@ -6882,7 +6882,7 @@ entry:
   %3 = load i8, ptr %read_only.addr, align 1
   %tobool = trunc i8 %3 to i1
   call void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %call2, i64 noundef %call4, i64 noundef 0, i64 noundef %2, ptr noundef byval(%"class.base::BasicStringPiece") align 8 %agg.tmp, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %shared_memory_ = getelementptr inbounds %"class.base::SharedPersistentMemoryAllocator", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4base12SharedMemoryESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %shared_memory_, ptr noundef nonnull align 8 dereferenceable(8) %memory) #7
   ret void
@@ -6941,7 +6941,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base31SharedPersistentMemoryAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %shared_memory_ = getelementptr inbounds %"class.base::SharedPersistentMemoryAllocator", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4base12SharedMemoryESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %shared_memory_) #7
   call void @_ZN4base25PersistentMemoryAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #7
@@ -7053,7 +7053,7 @@ cond.end:                                         ; preds = %cond.false, %cond.t
   %5 = load i8, ptr %read_only.addr, align 1
   %tobool = trunc i8 %5 to i1
   call void @_ZN4base25PersistentMemoryAllocatorC2EPvmmmNS_16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEb(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef %call2, i64 noundef %cond, i64 noundef 0, i64 noundef %4, ptr noundef byval(%"class.base::BasicStringPiece") align 8 %agg.tmp, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mapped_file_ = getelementptr inbounds %"class.base::FilePersistentMemoryAllocator", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4base16MemoryMappedFileESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %mapped_file_, ptr noundef nonnull align 8 dereferenceable(8) %file) #7
   ret void
@@ -7112,7 +7112,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4base29FilePersistentMemoryAllocatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mapped_file_ = getelementptr inbounds %"class.base::FilePersistentMemoryAllocator", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN4base16MemoryMappedFileESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mapped_file_) #7
   call void @_ZN4base25PersistentMemoryAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #7

@@ -67,7 +67,7 @@ define void @_ZN4LIEF2PE11ExportEntryD2Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::PE::ExportEntry", ptr %3, i32 0, i32 5
   call void @_ZN4LIEF2PE11ExportEntry21forward_information_tD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %4) #6
   call void @_ZN4LIEF6SymbolD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #6
@@ -113,7 +113,7 @@ define void @_ZN4LIEF2PE11ExportEntryC2ERKS1_(ptr noundef nonnull align 8 derefe
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN4LIEF6SymbolC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"class.LIEF::PE::ExportEntry", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %"class.LIEF::PE::ExportEntry", ptr %10, i32 0, i32 1
@@ -238,7 +238,7 @@ define void @_ZN4LIEF2PE11ExportEntryC2Ev(ptr noundef nonnull align 8 dereferenc
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN4LIEF6SymbolC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.LIEF::PE::ExportEntry", ptr %3, i32 0, i32 1
   store i32 0, ptr %4, align 8
   %5 = getelementptr inbounds %"class.LIEF::PE::ExportEntry", ptr %3, i32 0, i32 2
@@ -281,7 +281,7 @@ define void @_ZN4LIEF2PE11ExportEntryC2Ejbtj(ptr noundef nonnull align 8 derefer
   store i32 %4, ptr %10, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN4LIEF6SymbolC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %12)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4LIEF2PE11ExportEntryE, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %"class.LIEF::PE::ExportEntry", ptr %12, i32 0, i32 1
   %14 = load i32, ptr %10, align 4
   store i32 %14, ptr %13, align 8

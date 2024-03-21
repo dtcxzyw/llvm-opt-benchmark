@@ -719,7 +719,7 @@ define dso_local noalias noundef nonnull ptr @_ZN30FogShaderConstantSetterFactor
   %2 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #27
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %3, i8 0, i64 56, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23FogShaderConstantSetter, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23FogShaderConstantSetter, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !20
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @.str.52, ptr %4, align 8, !tbaa !26
   %5 = getelementptr inbounds i8, ptr %2, i64 33

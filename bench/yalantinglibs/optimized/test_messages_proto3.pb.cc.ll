@@ -3943,7 +3943,7 @@ define internal void @_ZL88InitDefaultsscc_info_EnumOnlyProto3_google_2fprotobuf
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::EnumOnlyProto3DefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto333_EnumOnlyProto3_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto333_EnumOnlyProto3_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto333_EnumOnlyProto3_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::EnumOnlyProto3DefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto333_EnumOnlyProto3_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN22protobuf_test_messages6proto333_EnumOnlyProto3_default_instance_E)
   ret void
@@ -3954,7 +3954,7 @@ define internal void @_ZL88InitDefaultsscc_info_ForeignMessage_google_2fprotobuf
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::ForeignMessageDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto333_ForeignMessage_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto333_ForeignMessage_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto333_ForeignMessage_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::ForeignMessageDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto333_ForeignMessage_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 12), align 4
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::ForeignMessageDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto333_ForeignMessage_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN22protobuf_test_messages6proto333_ForeignMessage_default_instance_E)
@@ -3966,7 +3966,7 @@ define internal void @_ZL94InitDefaultsscc_info_NullHypothesisProto3_google_2fpr
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::NullHypothesisProto3DefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto339_NullHypothesisProto3_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto339_NullHypothesisProto3_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto339_NullHypothesisProto3_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::NullHypothesisProto3DefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto339_NullHypothesisProto3_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN22protobuf_test_messages6proto339_NullHypothesisProto3_default_instance_E)
   ret void
@@ -3977,7 +3977,7 @@ define internal void @_ZL92InitDefaultsscc_info_TestAllTypesProto3_google_2fprot
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessageDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto351_TestAllTypesProto3_NestedMessage_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto351_TestAllTypesProto3_NestedMessage_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto351_TestAllTypesProto3_NestedMessage_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessageDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto351_TestAllTypesProto3_NestedMessage_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 20), align 4
   %0 = load atomic i32, ptr @scc_info_TestAllTypesProto3_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -3995,7 +3995,7 @@ _ZN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageC2Ev.exit: ;
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto374_TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), align 8
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto374_TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto374_TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto374_TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto374_TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUse_default_instance_E, align 8
   tail call void @_ZN22protobuf_test_messages6proto318TestAllTypesProto3C2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(3648) @_ZN22protobuf_test_messages6proto337_TestAllTypesProto3_default_instance_E, ptr noundef null)
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN22protobuf_test_messages6proto337_TestAllTypesProto3_default_instance_E)
   store ptr @_ZN22protobuf_test_messages6proto337_TestAllTypesProto3_default_instance_E, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_NestedMessageDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto351_TestAllTypesProto3_NestedMessage_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
@@ -4038,7 +4038,7 @@ entry:
   store i8 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapBoolBoolEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto363_TestAllTypesProto3_MapBoolBoolEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 9), align 1
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapBoolBoolEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto363_TestAllTypesProto3_MapBoolBoolEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 12), align 4
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapBoolBoolEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto363_TestAllTypesProto3_MapBoolBoolEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto363_TestAllTypesProto3_MapBoolBoolEntry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto363_TestAllTypesProto3_MapBoolBoolEntry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4048,7 +4048,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4058,7 +4058,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto369_TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4071,7 +4071,7 @@ entry:
   store double 0.000000e+00, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapInt32DoubleEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), align 8
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapInt32DoubleEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapInt32DoubleEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapInt32DoubleEntry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapInt32DoubleEntry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4081,7 +4081,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapInt32FloatEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32FloatEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapInt32FloatEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32FloatEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32FloatEntry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32FloatEntry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4091,7 +4091,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapInt32Int32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32Int32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapInt32Int32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32Int32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32Int32Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt32Int32Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4101,7 +4101,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapInt64Int64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt64Int64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapInt64Int64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt64Int64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt64Int64Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto365_TestAllTypesProto3_MapInt64Int64Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4111,7 +4111,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4121,7 +4121,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4131,7 +4131,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint32Sint32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint32Sint32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint32Sint32Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint32Sint32Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4141,7 +4141,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint64Sint64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint64Sint64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint64Sint64Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapSint64Sint64Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4154,7 +4154,7 @@ entry:
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringBytesEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapStringBytesEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), align 8
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringBytesEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapStringBytesEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringBytesEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapStringBytesEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapStringBytesEntry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto366_TestAllTypesProto3_MapStringBytesEntry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4165,7 +4165,7 @@ entry:
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto372_TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto372_TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto372_TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto372_TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto372_TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4177,7 +4177,7 @@ entry:
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto375_TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto375_TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto375_TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto375_TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto375_TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUse_default_instance_E, align 8
   store ptr @_ZN22protobuf_test_messages6proto333_ForeignMessage_default_instance_E, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto375_TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), align 8
   ret void
 }
@@ -4189,7 +4189,7 @@ entry:
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto371_TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4202,7 +4202,7 @@ entry:
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringStringEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapStringStringEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), align 8
   store i32 0, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringStringEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapStringStringEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapStringStringEntry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapStringStringEntry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapStringStringEntry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapStringStringEntry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4212,7 +4212,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint32Uint32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 20, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint32Uint32Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 24), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint32Uint32Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint32Uint32Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4222,7 +4222,7 @@ entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.20)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint64Uint64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), i8 0, i64 28, i1 false)
   store ptr null, ptr getelementptr inbounds (%"class.protobuf_test_messages::proto3::TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseDefaultTypeInternal", ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint64Uint64Entry_DoNotUse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint64Uint64Entry_DoNotUse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr @_ZN22protobuf_test_messages6proto367_TestAllTypesProto3_MapUint64Uint64Entry_DoNotUse_default_instance_E, align 8
   ret void
 }
 
@@ -4311,7 +4311,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto332TestAllTypesProto3_Ne
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
   %0 = load atomic i32, ptr @scc_info_TestAllTypesProto3_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto acquire, align 8
@@ -4335,7 +4335,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto332TestAllTypesProto3_Ne
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 28
   store i32 0, ptr %_cached_size_, align 4
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -5615,7 +5615,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto314
   %call.i.sink10.i.us = phi ptr [ %call.i.i739.us, %if.then.i.i738.us ], [ %call2.i8.i.us, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.us ]
   %_internal_metadata_.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.sink10.i.us, i64 8
   store ptr %.fr769, ptr %_internal_metadata_.i.i.i.i.i.us, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.us, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.us, align 8
   %_cached_size_.i.i.i.us = getelementptr inbounds i8, ptr %call.i.sink10.i.us, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.us, align 4
   %c_.i.i.i.i737.us = getelementptr inbounds i8, ptr %call.i.sink10.i.us, i64 16
@@ -5695,7 +5695,7 @@ for.body8.i.us744:                                ; preds = %for.body8.i.lr.ph.s
   %call.i.i739.us749 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %_internal_metadata_.i.i.i.i.i.us752 = getelementptr inbounds i8, ptr %call.i.i739.us749, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.us752, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.i739.us749, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.i739.us749, align 8
   %_cached_size_.i.i.i.us753 = getelementptr inbounds i8, ptr %call.i.i739.us749, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.us753, align 4
   %c_.i.i.i.i737.us754 = getelementptr inbounds i8, ptr %call.i.i739.us749, i64 16
@@ -5748,7 +5748,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
   %call2.i8.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr769, i64 noundef 24)
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 8
   store ptr %.fr769, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call2.i8.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call2.i8.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %c_.i.i.i.i737 = getelementptr inbounds i8, ptr %call2.i8.i, i64 16
@@ -6298,7 +6298,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6p
   %call.i.sink10.i.i = phi ptr [ %call.i.i.i633, %if.then.i.i.i632 ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i631 ]
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 8
   store ptr %retval.i.0.i639, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   %c_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 16
@@ -8000,7 +8000,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8017,7 +8017,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8103,7 +8103,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8116,7 +8116,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8200,7 +8200,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8217,7 +8217,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8301,7 +8301,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8314,7 +8314,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8398,7 +8398,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8415,7 +8415,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8499,7 +8499,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8512,7 +8512,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8596,7 +8596,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8613,7 +8613,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8697,7 +8697,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8710,7 +8710,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8794,7 +8794,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8811,7 +8811,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8895,7 +8895,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8908,7 +8908,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %key_.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -8992,7 +8992,7 @@ entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9009,7 +9009,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9099,7 +9099,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9116,7 +9116,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9206,7 +9206,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 4
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9223,7 +9223,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 4
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9315,7 +9315,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9332,7 +9332,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9487,7 +9487,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9504,7 +9504,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9659,7 +9659,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9676,7 +9676,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9827,7 +9827,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9844,7 +9844,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 40
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -9965,7 +9965,7 @@ _ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6p
   %call.i.sink10.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 8
   store ptr %retval.i.0.i21, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %_cached_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i, align 4
   %c_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 16
@@ -10097,7 +10097,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 4
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -10114,7 +10114,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 4
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -10233,7 +10233,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 4
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr null, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -10250,7 +10250,7 @@ entry:
   store i32 0, ptr %_has_bits_.i.i, align 4
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %arena, ptr %_internal_metadata_.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -11875,7 +11875,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto318TestAllTypesProto3C2E
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto318TestAllTypesProto3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto318TestAllTypesProto3E, i64 0, i32 0, i64 2), ptr %this, align 8
   %repeated_int32_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6google8protobuf13RepeatedFieldIiEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %repeated_int32_, ptr noundef %arena)
   %_repeated_int32_cached_byte_size_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -12007,7 +12007,7 @@ invoke.cont39:                                    ; preds = %invoke.cont37
 
 invoke.cont41:                                    ; preds = %invoke.cont39
   %map_int32_int32_ = getelementptr inbounds i8, ptr %this, i64 520
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_int32_int32_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_int32_int32_, align 8
   %arena_.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
   store ptr %arena, ptr %arena_.i.i.i, align 8
   %repeated_field_.i.i.i = getelementptr inbounds i8, ptr %this, i64 536
@@ -12021,7 +12021,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont41
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i unwind label %lpad42
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i, %invoke.cont41
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_int32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_int32_, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 592
   store ptr %arena, ptr %impl_.i, align 8
   %default_enum_value_.i.i.i = getelementptr inbounds i8, ptr %this, i64 600
@@ -12038,7 +12038,7 @@ lpad.i:                                           ; preds = %_ZN6google8protobuf
 invoke.cont43:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i, align 8
   %map_int64_int64_ = getelementptr inbounds i8, ptr %this, i64 616
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_int64_int64_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_int64_int64_, align 8
   %arena_.i.i.i153 = getelementptr inbounds i8, ptr %this, i64 624
   store ptr %arena, ptr %arena_.i.i.i153, align 8
   %repeated_field_.i.i.i154 = getelementptr inbounds i8, ptr %this, i64 632
@@ -12051,7 +12051,7 @@ if.then.i.i.i156:                                 ; preds = %invoke.cont43
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i unwind label %lpad44
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i156, %invoke.cont43
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int64_int64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int64_int64_, align 8
   %impl_.i158 = getelementptr inbounds i8, ptr %this, i64 688
   store ptr %arena, ptr %impl_.i158, align 8
   %default_enum_value_.i.i.i159 = getelementptr inbounds i8, ptr %this, i64 696
@@ -12068,7 +12068,7 @@ lpad.i160:                                        ; preds = %_ZN6google8protobuf
 invoke.cont45:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i159, align 8
   %map_uint32_uint32_ = getelementptr inbounds i8, ptr %this, i64 712
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_uint32_uint32_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_uint32_uint32_, align 8
   %arena_.i.i.i163 = getelementptr inbounds i8, ptr %this, i64 720
   store ptr %arena, ptr %arena_.i.i.i163, align 8
   %repeated_field_.i.i.i164 = getelementptr inbounds i8, ptr %this, i64 728
@@ -12081,7 +12081,7 @@ if.then.i.i.i166:                                 ; preds = %invoke.cont45
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i unwind label %lpad46
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i166, %invoke.cont45
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint32_uint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint32_uint32_, align 8
   %impl_.i168 = getelementptr inbounds i8, ptr %this, i64 784
   store ptr %arena, ptr %impl_.i168, align 8
   %default_enum_value_.i.i.i169 = getelementptr inbounds i8, ptr %this, i64 792
@@ -12098,7 +12098,7 @@ lpad.i170:                                        ; preds = %_ZN6google8protobuf
 invoke.cont47:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i169, align 8
   %map_uint64_uint64_ = getelementptr inbounds i8, ptr %this, i64 808
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_uint64_uint64_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_uint64_uint64_, align 8
   %arena_.i.i.i173 = getelementptr inbounds i8, ptr %this, i64 816
   store ptr %arena, ptr %arena_.i.i.i173, align 8
   %repeated_field_.i.i.i174 = getelementptr inbounds i8, ptr %this, i64 824
@@ -12111,7 +12111,7 @@ if.then.i.i.i176:                                 ; preds = %invoke.cont47
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i unwind label %lpad48
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i176, %invoke.cont47
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint64_uint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint64_uint64_, align 8
   %impl_.i178 = getelementptr inbounds i8, ptr %this, i64 880
   store ptr %arena, ptr %impl_.i178, align 8
   %default_enum_value_.i.i.i179 = getelementptr inbounds i8, ptr %this, i64 888
@@ -12128,7 +12128,7 @@ lpad.i180:                                        ; preds = %_ZN6google8protobuf
 invoke.cont49:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i179, align 8
   %map_sint32_sint32_ = getelementptr inbounds i8, ptr %this, i64 904
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_sint32_sint32_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_sint32_sint32_, align 8
   %arena_.i.i.i183 = getelementptr inbounds i8, ptr %this, i64 912
   store ptr %arena, ptr %arena_.i.i.i183, align 8
   %repeated_field_.i.i.i184 = getelementptr inbounds i8, ptr %this, i64 920
@@ -12141,7 +12141,7 @@ if.then.i.i.i186:                                 ; preds = %invoke.cont49
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i188 unwind label %lpad50
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i188: ; preds = %if.then.i.i.i186, %invoke.cont49
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint32_sint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint32_sint32_, align 8
   %impl_.i189 = getelementptr inbounds i8, ptr %this, i64 976
   store ptr %arena, ptr %impl_.i189, align 8
   %default_enum_value_.i.i.i190 = getelementptr inbounds i8, ptr %this, i64 984
@@ -12158,7 +12158,7 @@ lpad.i191:                                        ; preds = %_ZN6google8protobuf
 invoke.cont51:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i188
   store i32 0, ptr %default_enum_value_.i.i.i190, align 8
   %map_sint64_sint64_ = getelementptr inbounds i8, ptr %this, i64 1000
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_sint64_sint64_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_sint64_sint64_, align 8
   %arena_.i.i.i194 = getelementptr inbounds i8, ptr %this, i64 1008
   store ptr %arena, ptr %arena_.i.i.i194, align 8
   %repeated_field_.i.i.i195 = getelementptr inbounds i8, ptr %this, i64 1016
@@ -12171,7 +12171,7 @@ if.then.i.i.i197:                                 ; preds = %invoke.cont51
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i199 unwind label %lpad52
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i199: ; preds = %if.then.i.i.i197, %invoke.cont51
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint64_sint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint64_sint64_, align 8
   %impl_.i200 = getelementptr inbounds i8, ptr %this, i64 1072
   store ptr %arena, ptr %impl_.i200, align 8
   %default_enum_value_.i.i.i201 = getelementptr inbounds i8, ptr %this, i64 1080
@@ -12188,7 +12188,7 @@ lpad.i202:                                        ; preds = %_ZN6google8protobuf
 invoke.cont53:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i199
   store i32 0, ptr %default_enum_value_.i.i.i201, align 8
   %map_fixed32_fixed32_ = getelementptr inbounds i8, ptr %this, i64 1096
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
   %arena_.i.i.i205 = getelementptr inbounds i8, ptr %this, i64 1104
   store ptr %arena, ptr %arena_.i.i.i205, align 8
   %repeated_field_.i.i.i206 = getelementptr inbounds i8, ptr %this, i64 1112
@@ -12201,7 +12201,7 @@ if.then.i.i.i208:                                 ; preds = %invoke.cont53
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i210 unwind label %lpad54
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i210: ; preds = %if.then.i.i.i208, %invoke.cont53
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
   %impl_.i211 = getelementptr inbounds i8, ptr %this, i64 1168
   store ptr %arena, ptr %impl_.i211, align 8
   %default_enum_value_.i.i.i212 = getelementptr inbounds i8, ptr %this, i64 1176
@@ -12218,7 +12218,7 @@ lpad.i213:                                        ; preds = %_ZN6google8protobuf
 invoke.cont55:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIjjEC2EPNS0_5ArenaE.exit.i210
   store i32 0, ptr %default_enum_value_.i.i.i212, align 8
   %map_fixed64_fixed64_ = getelementptr inbounds i8, ptr %this, i64 1192
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
   %arena_.i.i.i216 = getelementptr inbounds i8, ptr %this, i64 1200
   store ptr %arena, ptr %arena_.i.i.i216, align 8
   %repeated_field_.i.i.i217 = getelementptr inbounds i8, ptr %this, i64 1208
@@ -12231,7 +12231,7 @@ if.then.i.i.i219:                                 ; preds = %invoke.cont55
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i221 unwind label %lpad56
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i221: ; preds = %if.then.i.i.i219, %invoke.cont55
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
   %impl_.i222 = getelementptr inbounds i8, ptr %this, i64 1264
   store ptr %arena, ptr %impl_.i222, align 8
   %default_enum_value_.i.i.i223 = getelementptr inbounds i8, ptr %this, i64 1272
@@ -12248,7 +12248,7 @@ lpad.i224:                                        ; preds = %_ZN6google8protobuf
 invoke.cont57:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseImmEC2EPNS0_5ArenaE.exit.i221
   store i32 0, ptr %default_enum_value_.i.i.i223, align 8
   %map_sfixed32_sfixed32_ = getelementptr inbounds i8, ptr %this, i64 1288
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
   %arena_.i.i.i227 = getelementptr inbounds i8, ptr %this, i64 1296
   store ptr %arena, ptr %arena_.i.i.i227, align 8
   %repeated_field_.i.i.i228 = getelementptr inbounds i8, ptr %this, i64 1304
@@ -12261,7 +12261,7 @@ if.then.i.i.i230:                                 ; preds = %invoke.cont57
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i232 unwind label %lpad58
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i232: ; preds = %if.then.i.i.i230, %invoke.cont57
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
   %impl_.i233 = getelementptr inbounds i8, ptr %this, i64 1360
   store ptr %arena, ptr %impl_.i233, align 8
   %default_enum_value_.i.i.i234 = getelementptr inbounds i8, ptr %this, i64 1368
@@ -12278,7 +12278,7 @@ lpad.i235:                                        ; preds = %_ZN6google8protobuf
 invoke.cont59:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIiiEC2EPNS0_5ArenaE.exit.i232
   store i32 0, ptr %default_enum_value_.i.i.i234, align 8
   %map_sfixed64_sfixed64_ = getelementptr inbounds i8, ptr %this, i64 1384
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
   %arena_.i.i.i238 = getelementptr inbounds i8, ptr %this, i64 1392
   store ptr %arena, ptr %arena_.i.i.i238, align 8
   %repeated_field_.i.i.i239 = getelementptr inbounds i8, ptr %this, i64 1400
@@ -12291,7 +12291,7 @@ if.then.i.i.i241:                                 ; preds = %invoke.cont59
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i243 unwind label %lpad60
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i243: ; preds = %if.then.i.i.i241, %invoke.cont59
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
   %impl_.i244 = getelementptr inbounds i8, ptr %this, i64 1456
   store ptr %arena, ptr %impl_.i244, align 8
   %default_enum_value_.i.i.i245 = getelementptr inbounds i8, ptr %this, i64 1464
@@ -12308,7 +12308,7 @@ lpad.i246:                                        ; preds = %_ZN6google8protobuf
 invoke.cont61:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIllEC2EPNS0_5ArenaE.exit.i243
   store i32 0, ptr %default_enum_value_.i.i.i245, align 8
   %map_int32_float_ = getelementptr inbounds i8, ptr %this, i64 1480
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_int32_float_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_int32_float_, align 8
   %arena_.i.i.i249 = getelementptr inbounds i8, ptr %this, i64 1488
   store ptr %arena, ptr %arena_.i.i.i249, align 8
   %repeated_field_.i.i.i250 = getelementptr inbounds i8, ptr %this, i64 1496
@@ -12321,7 +12321,7 @@ if.then.i.i.i252:                                 ; preds = %invoke.cont61
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIifEC2EPNS0_5ArenaE.exit.i unwind label %lpad62
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIifEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i252, %invoke.cont61
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_float_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_float_, align 8
   %impl_.i254 = getelementptr inbounds i8, ptr %this, i64 1552
   store ptr %arena, ptr %impl_.i254, align 8
   %default_enum_value_.i.i.i255 = getelementptr inbounds i8, ptr %this, i64 1560
@@ -12338,7 +12338,7 @@ lpad.i256:                                        ; preds = %_ZN6google8protobuf
 invoke.cont63:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIifEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i255, align 8
   %map_int32_double_ = getelementptr inbounds i8, ptr %this, i64 1576
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_int32_double_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_int32_double_, align 8
   %arena_.i.i.i259 = getelementptr inbounds i8, ptr %this, i64 1584
   store ptr %arena, ptr %arena_.i.i.i259, align 8
   %repeated_field_.i.i.i260 = getelementptr inbounds i8, ptr %this, i64 1592
@@ -12351,7 +12351,7 @@ if.then.i.i.i262:                                 ; preds = %invoke.cont63
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIidEC2EPNS0_5ArenaE.exit.i unwind label %lpad64
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIidEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i262, %invoke.cont63
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_double_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_double_, align 8
   %impl_.i264 = getelementptr inbounds i8, ptr %this, i64 1648
   store ptr %arena, ptr %impl_.i264, align 8
   %default_enum_value_.i.i.i265 = getelementptr inbounds i8, ptr %this, i64 1656
@@ -12368,7 +12368,7 @@ lpad.i266:                                        ; preds = %_ZN6google8protobuf
 invoke.cont65:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIidEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i265, align 8
   %map_bool_bool_ = getelementptr inbounds i8, ptr %this, i64 1672
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_bool_bool_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_bool_bool_, align 8
   %arena_.i.i.i269 = getelementptr inbounds i8, ptr %this, i64 1680
   store ptr %arena, ptr %arena_.i.i.i269, align 8
   %repeated_field_.i.i.i270 = getelementptr inbounds i8, ptr %this, i64 1688
@@ -12381,7 +12381,7 @@ if.then.i.i.i272:                                 ; preds = %invoke.cont65
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIbbEC2EPNS0_5ArenaE.exit.i unwind label %lpad66
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIbbEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i272, %invoke.cont65
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_bool_bool_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, i32 0, i64 2), ptr %map_bool_bool_, align 8
   %impl_.i274 = getelementptr inbounds i8, ptr %this, i64 1744
   store ptr %arena, ptr %impl_.i274, align 8
   %default_enum_value_.i.i.i275 = getelementptr inbounds i8, ptr %this, i64 1752
@@ -12398,7 +12398,7 @@ lpad.i276:                                        ; preds = %_ZN6google8protobuf
 invoke.cont67:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseIbbEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i275, align 8
   %map_string_string_ = getelementptr inbounds i8, ptr %this, i64 1768
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_string_string_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_string_string_, align 8
   %arena_.i.i.i279 = getelementptr inbounds i8, ptr %this, i64 1776
   store ptr %arena, ptr %arena_.i.i.i279, align 8
   %repeated_field_.i.i.i280 = getelementptr inbounds i8, ptr %this, i64 1784
@@ -12411,7 +12411,7 @@ if.then.i.i.i282:                                 ; preds = %invoke.cont67
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i unwind label %lpad68
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i282, %invoke.cont67
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_string_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_string_, align 8
   %impl_.i284 = getelementptr inbounds i8, ptr %this, i64 1840
   store ptr %arena, ptr %impl_.i284, align 8
   %default_enum_value_.i.i.i285 = getelementptr inbounds i8, ptr %this, i64 1848
@@ -12428,7 +12428,7 @@ lpad.i286:                                        ; preds = %_ZN6google8protobuf
 invoke.cont69:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i285, align 8
   %map_string_bytes_ = getelementptr inbounds i8, ptr %this, i64 1864
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_string_bytes_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_string_bytes_, align 8
   %arena_.i.i.i289 = getelementptr inbounds i8, ptr %this, i64 1872
   store ptr %arena, ptr %arena_.i.i.i289, align 8
   %repeated_field_.i.i.i290 = getelementptr inbounds i8, ptr %this, i64 1880
@@ -12441,7 +12441,7 @@ if.then.i.i.i292:                                 ; preds = %invoke.cont69
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i294 unwind label %lpad70
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i294: ; preds = %if.then.i.i.i292, %invoke.cont69
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_bytes_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_bytes_, align 8
   %impl_.i295 = getelementptr inbounds i8, ptr %this, i64 1936
   store ptr %arena, ptr %impl_.i295, align 8
   %default_enum_value_.i.i.i296 = getelementptr inbounds i8, ptr %this, i64 1944
@@ -12458,7 +12458,7 @@ lpad.i297:                                        ; preds = %_ZN6google8protobuf
 invoke.cont71:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EC2EPNS0_5ArenaE.exit.i294
   store i32 0, ptr %default_enum_value_.i.i.i296, align 8
   %map_string_nested_message_ = getelementptr inbounds i8, ptr %this, i64 1960
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_message_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_string_nested_message_, align 8
   %arena_.i.i.i300 = getelementptr inbounds i8, ptr %this, i64 1968
   store ptr %arena, ptr %arena_.i.i.i300, align 8
   %repeated_field_.i.i.i301 = getelementptr inbounds i8, ptr %this, i64 1976
@@ -12471,7 +12471,7 @@ if.then.i.i.i303:                                 ; preds = %invoke.cont71
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEEC2EPNS0_5ArenaE.exit.i unwind label %lpad72
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i303, %invoke.cont71
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_message_, align 8
   %impl_.i305 = getelementptr inbounds i8, ptr %this, i64 2032
   store ptr %arena, ptr %impl_.i305, align 8
   %default_enum_value_.i.i.i306 = getelementptr inbounds i8, ptr %this, i64 2040
@@ -12488,7 +12488,7 @@ lpad.i307:                                        ; preds = %_ZN6google8protobuf
 invoke.cont73:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i306, align 8
   %map_string_foreign_message_ = getelementptr inbounds i8, ptr %this, i64 2056
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_message_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_string_foreign_message_, align 8
   %arena_.i.i.i310 = getelementptr inbounds i8, ptr %this, i64 2064
   store ptr %arena, ptr %arena_.i.i.i310, align 8
   %repeated_field_.i.i.i311 = getelementptr inbounds i8, ptr %this, i64 2072
@@ -12501,7 +12501,7 @@ if.then.i.i.i313:                                 ; preds = %invoke.cont73
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEEC2EPNS0_5ArenaE.exit.i unwind label %lpad74
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i313, %invoke.cont73
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_message_, align 8
   %impl_.i315 = getelementptr inbounds i8, ptr %this, i64 2128
   store ptr %arena, ptr %impl_.i315, align 8
   %default_enum_value_.i.i.i316 = getelementptr inbounds i8, ptr %this, i64 2136
@@ -12518,7 +12518,7 @@ lpad.i317:                                        ; preds = %_ZN6google8protobuf
 invoke.cont75:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i316, align 8
   %map_string_nested_enum_ = getelementptr inbounds i8, ptr %this, i64 2152
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_enum_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_string_nested_enum_, align 8
   %arena_.i.i.i320 = getelementptr inbounds i8, ptr %this, i64 2160
   store ptr %arena, ptr %arena_.i.i.i320, align 8
   %repeated_field_.i.i.i321 = getelementptr inbounds i8, ptr %this, i64 2168
@@ -12531,7 +12531,7 @@ if.then.i.i.i323:                                 ; preds = %invoke.cont75
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEEC2EPNS0_5ArenaE.exit.i unwind label %lpad76
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i323, %invoke.cont75
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_enum_, align 8
   %impl_.i325 = getelementptr inbounds i8, ptr %this, i64 2224
   store ptr %arena, ptr %impl_.i325, align 8
   %default_enum_value_.i.i.i326 = getelementptr inbounds i8, ptr %this, i64 2232
@@ -12548,7 +12548,7 @@ lpad.i327:                                        ; preds = %_ZN6google8protobuf
 invoke.cont77:                                    ; preds = %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEEC2EPNS0_5ArenaE.exit.i
   store i32 0, ptr %default_enum_value_.i.i.i326, align 8
   %map_string_foreign_enum_ = getelementptr inbounds i8, ptr %this, i64 2248
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapFieldBaseE, i64 0, i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
   %arena_.i.i.i330 = getelementptr inbounds i8, ptr %this, i64 2256
   store ptr %arena, ptr %arena_.i.i.i330, align 8
   %repeated_field_.i.i.i331 = getelementptr inbounds i8, ptr %this, i64 2264
@@ -12561,7 +12561,7 @@ if.then.i.i.i333:                                 ; preds = %invoke.cont77
           to label %_ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEEC2EPNS0_5ArenaE.exit.i unwind label %lpad78
 
 _ZN6google8protobuf8internal23TypeDefinedMapFieldBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEEC2EPNS0_5ArenaE.exit.i: ; preds = %if.then.i.i.i333, %invoke.cont77
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
   %impl_.i335 = getelementptr inbounds i8, ptr %this, i64 2320
   store ptr %arena, ptr %impl_.i335, align 8
   %default_enum_value_.i.i.i336 = getelementptr inbounds i8, ptr %this, i64 2328
@@ -13318,133 +13318,133 @@ ehcleanup213:                                     ; preds = %ehcleanup212, %lpad
 
 ehcleanup214:                                     ; preds = %ehcleanup213, %lpad80
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup213 ], [ %57, %lpad80 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i335) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_) #29
   br label %ehcleanup215
 
 ehcleanup215:                                     ; preds = %lpad78, %lpad.i337, %ehcleanup214
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup214 ], [ %56, %lpad78 ], [ %18, %lpad.i337 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_enum_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i325) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_) #29
   br label %ehcleanup216
 
 ehcleanup216:                                     ; preds = %lpad76, %lpad.i327, %ehcleanup215
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup215 ], [ %55, %lpad76 ], [ %17, %lpad.i327 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_message_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i315) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_) #29
   br label %ehcleanup217
 
 ehcleanup217:                                     ; preds = %lpad74, %lpad.i317, %ehcleanup216
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup216 ], [ %54, %lpad74 ], [ %16, %lpad.i317 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_message_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i305) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_) #29
   br label %ehcleanup218
 
 ehcleanup218:                                     ; preds = %lpad72, %lpad.i307, %ehcleanup217
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup217 ], [ %53, %lpad72 ], [ %15, %lpad.i307 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_bytes_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_bytes_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i295) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_) #29
   br label %ehcleanup219
 
 ehcleanup219:                                     ; preds = %lpad70, %lpad.i297, %ehcleanup218
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup218 ], [ %52, %lpad70 ], [ %14, %lpad.i297 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_string_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_string_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i284) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_) #29
   br label %ehcleanup220
 
 ehcleanup220:                                     ; preds = %lpad68, %lpad.i286, %ehcleanup219
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup219 ], [ %51, %lpad68 ], [ %13, %lpad.i286 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_bool_bool_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, i32 0, i64 2), ptr %map_bool_bool_, align 8
   tail call void @_ZN6google8protobuf3MapIbbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i274) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_) #29
   br label %ehcleanup221
 
 ehcleanup221:                                     ; preds = %lpad66, %lpad.i276, %ehcleanup220
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup220 ], [ %50, %lpad66 ], [ %12, %lpad.i276 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_double_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_double_, align 8
   tail call void @_ZN6google8protobuf3MapIidED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i264) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_) #29
   br label %ehcleanup222
 
 ehcleanup222:                                     ; preds = %lpad64, %lpad.i266, %ehcleanup221
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup221 ], [ %49, %lpad64 ], [ %11, %lpad.i266 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_float_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_float_, align 8
   tail call void @_ZN6google8protobuf3MapIifED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i254) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_) #29
   br label %ehcleanup223
 
 ehcleanup223:                                     ; preds = %lpad62, %lpad.i256, %ehcleanup222
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup222 ], [ %48, %lpad62 ], [ %10, %lpad.i256 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i244) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_) #29
   br label %ehcleanup224
 
 ehcleanup224:                                     ; preds = %lpad60, %lpad.i246, %ehcleanup223
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup223 ], [ %47, %lpad60 ], [ %9, %lpad.i246 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i233) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_) #29
   br label %ehcleanup225
 
 ehcleanup225:                                     ; preds = %lpad58, %lpad.i235, %ehcleanup224
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup224 ], [ %46, %lpad58 ], [ %8, %lpad.i235 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i222) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_) #29
   br label %ehcleanup226
 
 ehcleanup226:                                     ; preds = %lpad56, %lpad.i224, %ehcleanup225
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup225 ], [ %45, %lpad56 ], [ %7, %lpad.i224 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i211) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_) #29
   br label %ehcleanup227
 
 ehcleanup227:                                     ; preds = %lpad54, %lpad.i213, %ehcleanup226
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup226 ], [ %44, %lpad54 ], [ %6, %lpad.i213 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint64_sint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint64_sint64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i200) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_) #29
   br label %ehcleanup228
 
 ehcleanup228:                                     ; preds = %lpad52, %lpad.i202, %ehcleanup227
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup227 ], [ %43, %lpad52 ], [ %5, %lpad.i202 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint32_sint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint32_sint32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i189) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_) #29
   br label %ehcleanup229
 
 ehcleanup229:                                     ; preds = %lpad50, %lpad.i191, %ehcleanup228
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup228 ], [ %42, %lpad50 ], [ %4, %lpad.i191 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint64_uint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint64_uint64_, align 8
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i178) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_) #29
   br label %ehcleanup230
 
 ehcleanup230:                                     ; preds = %lpad48, %lpad.i180, %ehcleanup229
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup229 ], [ %41, %lpad48 ], [ %3, %lpad.i180 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint32_uint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint32_uint32_, align 8
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i168) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_) #29
   br label %ehcleanup231
 
 ehcleanup231:                                     ; preds = %lpad46, %lpad.i170, %ehcleanup230
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup230 ], [ %40, %lpad46 ], [ %2, %lpad.i170 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int64_int64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int64_int64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i158) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_) #29
   br label %ehcleanup232
 
 ehcleanup232:                                     ; preds = %lpad44, %lpad.i160, %ehcleanup231
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup231 ], [ %39, %lpad44 ], [ %1, %lpad.i160 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_int32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_int32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_) #29
   br label %ehcleanup233
@@ -14429,7 +14429,7 @@ declare void @_ZN6google8protobuf13RepeatedFieldIjED1Ev(ptr noundef nonnull alig
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14439,7 +14439,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14449,7 +14449,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14459,7 +14459,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14469,7 +14469,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14479,7 +14479,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14489,7 +14489,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIbbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14499,7 +14499,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIidED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14509,7 +14509,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIifED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14519,7 +14519,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14529,7 +14529,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14539,7 +14539,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14549,7 +14549,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14559,7 +14559,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14569,7 +14569,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14579,7 +14579,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14589,7 +14589,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14599,7 +14599,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14609,7 +14609,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_ = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -14676,7 +14676,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto318TestAllTypesProto3C2E
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto318TestAllTypesProto3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto318TestAllTypesProto3E, i64 0, i32 0, i64 2), ptr %this, align 8
   %repeated_int32_ = getelementptr inbounds i8, ptr %this, i64 16
   %repeated_int32_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @_ZN6google8protobuf13RepeatedFieldIiEC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %repeated_int32_, ptr noundef nonnull align 8 dereferenceable(16) %repeated_int32_2)
@@ -14866,7 +14866,7 @@ invoke.cont62:                                    ; preds = %invoke.cont59
   %map_int32_int32_ = getelementptr inbounds i8, ptr %this, i64 520
   %arena_.i.i.i = getelementptr inbounds i8, ptr %this, i64 528
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_int32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_int32_, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 592
   store ptr null, ptr %impl_.i, align 8
   %default_enum_value_.i.i.i = getelementptr inbounds i8, ptr %this, i64 600
@@ -14884,7 +14884,7 @@ invoke.cont64:                                    ; preds = %invoke.cont62
   %map_int64_int64_ = getelementptr inbounds i8, ptr %this, i64 616
   %arena_.i.i.i229 = getelementptr inbounds i8, ptr %this, i64 624
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i229, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int64_int64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int64_int64_, align 8
   %impl_.i230 = getelementptr inbounds i8, ptr %this, i64 688
   store ptr null, ptr %impl_.i230, align 8
   %default_enum_value_.i.i.i231 = getelementptr inbounds i8, ptr %this, i64 696
@@ -14902,7 +14902,7 @@ invoke.cont66:                                    ; preds = %invoke.cont64
   %map_uint32_uint32_ = getelementptr inbounds i8, ptr %this, i64 712
   %arena_.i.i.i234 = getelementptr inbounds i8, ptr %this, i64 720
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i234, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint32_uint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint32_uint32_, align 8
   %impl_.i235 = getelementptr inbounds i8, ptr %this, i64 784
   store ptr null, ptr %impl_.i235, align 8
   %default_enum_value_.i.i.i236 = getelementptr inbounds i8, ptr %this, i64 792
@@ -14920,7 +14920,7 @@ invoke.cont68:                                    ; preds = %invoke.cont66
   %map_uint64_uint64_ = getelementptr inbounds i8, ptr %this, i64 808
   %arena_.i.i.i239 = getelementptr inbounds i8, ptr %this, i64 816
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i239, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint64_uint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint64_uint64_, align 8
   %impl_.i240 = getelementptr inbounds i8, ptr %this, i64 880
   store ptr null, ptr %impl_.i240, align 8
   %default_enum_value_.i.i.i241 = getelementptr inbounds i8, ptr %this, i64 888
@@ -14938,7 +14938,7 @@ invoke.cont70:                                    ; preds = %invoke.cont68
   %map_sint32_sint32_ = getelementptr inbounds i8, ptr %this, i64 904
   %arena_.i.i.i244 = getelementptr inbounds i8, ptr %this, i64 912
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i244, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint32_sint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint32_sint32_, align 8
   %impl_.i245 = getelementptr inbounds i8, ptr %this, i64 976
   store ptr null, ptr %impl_.i245, align 8
   %default_enum_value_.i.i.i246 = getelementptr inbounds i8, ptr %this, i64 984
@@ -14956,7 +14956,7 @@ invoke.cont72:                                    ; preds = %invoke.cont70
   %map_sint64_sint64_ = getelementptr inbounds i8, ptr %this, i64 1000
   %arena_.i.i.i249 = getelementptr inbounds i8, ptr %this, i64 1008
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i249, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint64_sint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint64_sint64_, align 8
   %impl_.i250 = getelementptr inbounds i8, ptr %this, i64 1072
   store ptr null, ptr %impl_.i250, align 8
   %default_enum_value_.i.i.i251 = getelementptr inbounds i8, ptr %this, i64 1080
@@ -14974,7 +14974,7 @@ invoke.cont74:                                    ; preds = %invoke.cont72
   %map_fixed32_fixed32_ = getelementptr inbounds i8, ptr %this, i64 1096
   %arena_.i.i.i254 = getelementptr inbounds i8, ptr %this, i64 1104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i254, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
   %impl_.i255 = getelementptr inbounds i8, ptr %this, i64 1168
   store ptr null, ptr %impl_.i255, align 8
   %default_enum_value_.i.i.i256 = getelementptr inbounds i8, ptr %this, i64 1176
@@ -14992,7 +14992,7 @@ invoke.cont76:                                    ; preds = %invoke.cont74
   %map_fixed64_fixed64_ = getelementptr inbounds i8, ptr %this, i64 1192
   %arena_.i.i.i259 = getelementptr inbounds i8, ptr %this, i64 1200
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i259, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
   %impl_.i260 = getelementptr inbounds i8, ptr %this, i64 1264
   store ptr null, ptr %impl_.i260, align 8
   %default_enum_value_.i.i.i261 = getelementptr inbounds i8, ptr %this, i64 1272
@@ -15010,7 +15010,7 @@ invoke.cont78:                                    ; preds = %invoke.cont76
   %map_sfixed32_sfixed32_ = getelementptr inbounds i8, ptr %this, i64 1288
   %arena_.i.i.i264 = getelementptr inbounds i8, ptr %this, i64 1296
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i264, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
   %impl_.i265 = getelementptr inbounds i8, ptr %this, i64 1360
   store ptr null, ptr %impl_.i265, align 8
   %default_enum_value_.i.i.i266 = getelementptr inbounds i8, ptr %this, i64 1368
@@ -15028,7 +15028,7 @@ invoke.cont80:                                    ; preds = %invoke.cont78
   %map_sfixed64_sfixed64_ = getelementptr inbounds i8, ptr %this, i64 1384
   %arena_.i.i.i269 = getelementptr inbounds i8, ptr %this, i64 1392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i269, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
   %impl_.i270 = getelementptr inbounds i8, ptr %this, i64 1456
   store ptr null, ptr %impl_.i270, align 8
   %default_enum_value_.i.i.i271 = getelementptr inbounds i8, ptr %this, i64 1464
@@ -15046,7 +15046,7 @@ invoke.cont82:                                    ; preds = %invoke.cont80
   %map_int32_float_ = getelementptr inbounds i8, ptr %this, i64 1480
   %arena_.i.i.i274 = getelementptr inbounds i8, ptr %this, i64 1488
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i274, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_float_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_float_, align 8
   %impl_.i275 = getelementptr inbounds i8, ptr %this, i64 1552
   store ptr null, ptr %impl_.i275, align 8
   %default_enum_value_.i.i.i276 = getelementptr inbounds i8, ptr %this, i64 1560
@@ -15064,7 +15064,7 @@ invoke.cont84:                                    ; preds = %invoke.cont82
   %map_int32_double_ = getelementptr inbounds i8, ptr %this, i64 1576
   %arena_.i.i.i279 = getelementptr inbounds i8, ptr %this, i64 1584
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i279, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_double_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_double_, align 8
   %impl_.i280 = getelementptr inbounds i8, ptr %this, i64 1648
   store ptr null, ptr %impl_.i280, align 8
   %default_enum_value_.i.i.i281 = getelementptr inbounds i8, ptr %this, i64 1656
@@ -15082,7 +15082,7 @@ invoke.cont86:                                    ; preds = %invoke.cont84
   %map_bool_bool_ = getelementptr inbounds i8, ptr %this, i64 1672
   %arena_.i.i.i284 = getelementptr inbounds i8, ptr %this, i64 1680
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i284, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_bool_bool_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, i32 0, i64 2), ptr %map_bool_bool_, align 8
   %impl_.i285 = getelementptr inbounds i8, ptr %this, i64 1744
   store ptr null, ptr %impl_.i285, align 8
   %default_enum_value_.i.i.i286 = getelementptr inbounds i8, ptr %this, i64 1752
@@ -15100,7 +15100,7 @@ invoke.cont88:                                    ; preds = %invoke.cont86
   %map_string_string_ = getelementptr inbounds i8, ptr %this, i64 1768
   %arena_.i.i.i289 = getelementptr inbounds i8, ptr %this, i64 1776
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i289, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_string_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_string_, align 8
   %impl_.i290 = getelementptr inbounds i8, ptr %this, i64 1840
   store ptr null, ptr %impl_.i290, align 8
   %default_enum_value_.i.i.i291 = getelementptr inbounds i8, ptr %this, i64 1848
@@ -15118,7 +15118,7 @@ invoke.cont90:                                    ; preds = %invoke.cont88
   %map_string_bytes_ = getelementptr inbounds i8, ptr %this, i64 1864
   %arena_.i.i.i294 = getelementptr inbounds i8, ptr %this, i64 1872
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i294, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_bytes_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_bytes_, align 8
   %impl_.i295 = getelementptr inbounds i8, ptr %this, i64 1936
   store ptr null, ptr %impl_.i295, align 8
   %default_enum_value_.i.i.i296 = getelementptr inbounds i8, ptr %this, i64 1944
@@ -15136,7 +15136,7 @@ invoke.cont92:                                    ; preds = %invoke.cont90
   %map_string_nested_message_ = getelementptr inbounds i8, ptr %this, i64 1960
   %arena_.i.i.i299 = getelementptr inbounds i8, ptr %this, i64 1968
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i299, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_message_, align 8
   %impl_.i300 = getelementptr inbounds i8, ptr %this, i64 2032
   store ptr null, ptr %impl_.i300, align 8
   %default_enum_value_.i.i.i301 = getelementptr inbounds i8, ptr %this, i64 2040
@@ -15154,7 +15154,7 @@ invoke.cont94:                                    ; preds = %invoke.cont92
   %map_string_foreign_message_ = getelementptr inbounds i8, ptr %this, i64 2056
   %arena_.i.i.i304 = getelementptr inbounds i8, ptr %this, i64 2064
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i304, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_message_, align 8
   %impl_.i305 = getelementptr inbounds i8, ptr %this, i64 2128
   store ptr null, ptr %impl_.i305, align 8
   %default_enum_value_.i.i.i306 = getelementptr inbounds i8, ptr %this, i64 2136
@@ -15172,7 +15172,7 @@ invoke.cont96:                                    ; preds = %invoke.cont94
   %map_string_nested_enum_ = getelementptr inbounds i8, ptr %this, i64 2152
   %arena_.i.i.i309 = getelementptr inbounds i8, ptr %this, i64 2160
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i309, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_enum_, align 8
   %impl_.i310 = getelementptr inbounds i8, ptr %this, i64 2224
   store ptr null, ptr %impl_.i310, align 8
   %default_enum_value_.i.i.i311 = getelementptr inbounds i8, ptr %this, i64 2232
@@ -15190,7 +15190,7 @@ invoke.cont98:                                    ; preds = %invoke.cont96
   %map_string_foreign_enum_ = getelementptr inbounds i8, ptr %this, i64 2248
   %arena_.i.i.i314 = getelementptr inbounds i8, ptr %this, i64 2256
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %arena_.i.i.i314, i8 0, i64 60, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
   %impl_.i315 = getelementptr inbounds i8, ptr %this, i64 2320
   store ptr null, ptr %impl_.i315, align 8
   %default_enum_value_.i.i.i316 = getelementptr inbounds i8, ptr %this, i64 2328
@@ -16387,7 +16387,7 @@ if.then371:                                       ; preds = %if.end368
 invoke.cont372:                                   ; preds = %if.then371
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call373, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call373, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call373, align 8
   %_cached_size_.i = getelementptr inbounds i8, ptr %call373, i64 20
   store i32 0, ptr %_cached_size_.i, align 4
   %_internal_metadata_2.i = getelementptr inbounds i8, ptr %128, i64 8
@@ -17227,133 +17227,133 @@ ehcleanup645:                                     ; preds = %ehcleanup644, %lpad
 
 ehcleanup646:                                     ; preds = %ehcleanup645, %lpad102
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup645 ], [ %62, %lpad102 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i315) #29
   br label %ehcleanup647
 
 ehcleanup647:                                     ; preds = %lpad.i317, %ehcleanup646
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup646 ], [ %26, %lpad.i317 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_enum_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i310) #29
   br label %ehcleanup648
 
 ehcleanup648:                                     ; preds = %lpad.i312, %ehcleanup647
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup647 ], [ %25, %lpad.i312 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_message_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i305) #29
   br label %ehcleanup649
 
 ehcleanup649:                                     ; preds = %lpad.i307, %ehcleanup648
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup648 ], [ %24, %lpad.i307 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_message_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i300) #29
   br label %ehcleanup650
 
 ehcleanup650:                                     ; preds = %lpad.i302, %ehcleanup649
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup649 ], [ %23, %lpad.i302 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_bytes_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_bytes_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i295) #29
   br label %ehcleanup651
 
 ehcleanup651:                                     ; preds = %lpad.i297, %ehcleanup650
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup650 ], [ %22, %lpad.i297 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_string_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_string_, align 8
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i290) #29
   br label %ehcleanup652
 
 ehcleanup652:                                     ; preds = %lpad.i292, %ehcleanup651
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup651 ], [ %21, %lpad.i292 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_bool_bool_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, i32 0, i64 2), ptr %map_bool_bool_, align 8
   tail call void @_ZN6google8protobuf3MapIbbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i285) #29
   br label %ehcleanup653
 
 ehcleanup653:                                     ; preds = %lpad.i287, %ehcleanup652
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup652 ], [ %20, %lpad.i287 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_double_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_double_, align 8
   tail call void @_ZN6google8protobuf3MapIidED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i280) #29
   br label %ehcleanup654
 
 ehcleanup654:                                     ; preds = %lpad.i282, %ehcleanup653
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup653 ], [ %19, %lpad.i282 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_float_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_float_, align 8
   tail call void @_ZN6google8protobuf3MapIifED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i275) #29
   br label %ehcleanup655
 
 ehcleanup655:                                     ; preds = %lpad.i277, %ehcleanup654
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup654 ], [ %18, %lpad.i277 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i270) #29
   br label %ehcleanup656
 
 ehcleanup656:                                     ; preds = %lpad.i272, %ehcleanup655
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup655 ], [ %17, %lpad.i272 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i265) #29
   br label %ehcleanup657
 
 ehcleanup657:                                     ; preds = %lpad.i267, %ehcleanup656
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup656 ], [ %16, %lpad.i267 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i260) #29
   br label %ehcleanup658
 
 ehcleanup658:                                     ; preds = %lpad.i262, %ehcleanup657
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup657 ], [ %15, %lpad.i262 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i255) #29
   br label %ehcleanup659
 
 ehcleanup659:                                     ; preds = %lpad.i257, %ehcleanup658
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup658 ], [ %14, %lpad.i257 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint64_sint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint64_sint64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i250) #29
   br label %ehcleanup660
 
 ehcleanup660:                                     ; preds = %lpad.i252, %ehcleanup659
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup659 ], [ %13, %lpad.i252 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint32_sint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint32_sint32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i245) #29
   br label %ehcleanup661
 
 ehcleanup661:                                     ; preds = %lpad.i247, %ehcleanup660
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup660 ], [ %12, %lpad.i247 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint64_uint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint64_uint64_, align 8
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i240) #29
   br label %ehcleanup662
 
 ehcleanup662:                                     ; preds = %lpad.i242, %ehcleanup661
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup661 ], [ %11, %lpad.i242 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint32_uint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint32_uint32_, align 8
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i235) #29
   br label %ehcleanup663
 
 ehcleanup663:                                     ; preds = %lpad.i237, %ehcleanup662
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup662 ], [ %10, %lpad.i237 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int64_int64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int64_int64_, align 8
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i230) #29
   br label %ehcleanup664
 
 ehcleanup664:                                     ; preds = %lpad.i232, %ehcleanup663
   %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn.pn, %ehcleanup663 ], [ %9, %lpad.i232 ]
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_) #29
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_int32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_int32_, align 8
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   br label %ehcleanup665
 
@@ -18812,97 +18812,97 @@ _ZN6google8protobuf16RepeatedPtrFieldINS0_9BoolValueEED2Ev.exit: ; preds = %_ZN6
   %packed_int32_ = getelementptr inbounds i8, ptr %this, i64 2344
   tail call void @_ZN6google8protobuf13RepeatedFieldIiED1Ev(ptr noundef nonnull align 8 dereferenceable(16) %packed_int32_) #29
   %map_string_foreign_enum_ = getelementptr inbounds i8, ptr %this, i64 2248
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_enum_, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 2320
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_enum_) #29
   %map_string_nested_enum_ = getelementptr inbounds i8, ptr %this, i64 2152
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_enum_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_enum_, align 8
   %impl_.i287 = getelementptr inbounds i8, ptr %this, i64 2224
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i287) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_enum_) #29
   %map_string_foreign_message_ = getelementptr inbounds i8, ptr %this, i64 2056
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_foreign_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_foreign_message_, align 8
   %impl_.i288 = getelementptr inbounds i8, ptr %this, i64 2128
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i288) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_foreign_message_) #29
   %map_string_nested_message_ = getelementptr inbounds i8, ptr %this, i64 1960
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_nested_message_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_nested_message_, align 8
   %impl_.i289 = getelementptr inbounds i8, ptr %this, i64 2032
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i289) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_nested_message_) #29
   %map_string_bytes_ = getelementptr inbounds i8, ptr %this, i64 1864
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_bytes_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_bytes_, align 8
   %impl_.i290 = getelementptr inbounds i8, ptr %this, i64 1936
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i290) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_bytes_) #29
   %map_string_string_ = getelementptr inbounds i8, ptr %this, i64 1768
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_string_string_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, i32 0, i64 2), ptr %map_string_string_, align 8
   %impl_.i291 = getelementptr inbounds i8, ptr %this, i64 1840
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i291) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_string_string_) #29
   %map_bool_bool_ = getelementptr inbounds i8, ptr %this, i64 1672
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_bool_bool_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, i32 0, i64 2), ptr %map_bool_bool_, align 8
   %impl_.i292 = getelementptr inbounds i8, ptr %this, i64 1744
   tail call void @_ZN6google8protobuf3MapIbbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i292) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_bool_bool_) #29
   %map_int32_double_ = getelementptr inbounds i8, ptr %this, i64 1576
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_double_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_double_, align 8
   %impl_.i293 = getelementptr inbounds i8, ptr %this, i64 1648
   tail call void @_ZN6google8protobuf3MapIidED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i293) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_double_) #29
   %map_int32_float_ = getelementptr inbounds i8, ptr %this, i64 1480
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_float_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_float_, align 8
   %impl_.i294 = getelementptr inbounds i8, ptr %this, i64 1552
   tail call void @_ZN6google8protobuf3MapIifED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i294) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_float_) #29
   %map_sfixed64_sfixed64_ = getelementptr inbounds i8, ptr %this, i64 1384
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed64_sfixed64_, align 8
   %impl_.i295 = getelementptr inbounds i8, ptr %this, i64 1456
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i295) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed64_sfixed64_) #29
   %map_sfixed32_sfixed32_ = getelementptr inbounds i8, ptr %this, i64 1288
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sfixed32_sfixed32_, align 8
   %impl_.i296 = getelementptr inbounds i8, ptr %this, i64 1360
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i296) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sfixed32_sfixed32_) #29
   %map_fixed64_fixed64_ = getelementptr inbounds i8, ptr %this, i64 1192
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed64_fixed64_, align 8
   %impl_.i297 = getelementptr inbounds i8, ptr %this, i64 1264
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i297) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed64_fixed64_) #29
   %map_fixed32_fixed32_ = getelementptr inbounds i8, ptr %this, i64 1096
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, i32 0, i64 2), ptr %map_fixed32_fixed32_, align 8
   %impl_.i298 = getelementptr inbounds i8, ptr %this, i64 1168
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i298) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_fixed32_fixed32_) #29
   %map_sint64_sint64_ = getelementptr inbounds i8, ptr %this, i64 1000
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint64_sint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint64_sint64_, align 8
   %impl_.i299 = getelementptr inbounds i8, ptr %this, i64 1072
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i299) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint64_sint64_) #29
   %map_sint32_sint32_ = getelementptr inbounds i8, ptr %this, i64 904
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_sint32_sint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, i32 0, i64 2), ptr %map_sint32_sint32_, align 8
   %impl_.i300 = getelementptr inbounds i8, ptr %this, i64 976
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i300) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_sint32_sint32_) #29
   %map_uint64_uint64_ = getelementptr inbounds i8, ptr %this, i64 808
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint64_uint64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint64_uint64_, align 8
   %impl_.i301 = getelementptr inbounds i8, ptr %this, i64 880
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i301) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint64_uint64_) #29
   %map_uint32_uint32_ = getelementptr inbounds i8, ptr %this, i64 712
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_uint32_uint32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, i32 0, i64 2), ptr %map_uint32_uint32_, align 8
   %impl_.i302 = getelementptr inbounds i8, ptr %this, i64 784
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i302) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_uint32_uint32_) #29
   %map_int64_int64_ = getelementptr inbounds i8, ptr %this, i64 616
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int64_int64_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int64_int64_, align 8
   %impl_.i303 = getelementptr inbounds i8, ptr %this, i64 688
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i303) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int64_int64_) #29
   %map_int32_int32_ = getelementptr inbounds i8, ptr %this, i64 520
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %map_int32_int32_, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, i32 0, i64 2), ptr %map_int32_int32_, align 8
   %impl_.i304 = getelementptr inbounds i8, ptr %this, i64 592
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i304) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %map_int32_int32_) #29
@@ -23573,7 +23573,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6p
   %call.i.sink10.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 8
   store ptr %retval.i.0.i.i324, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %_cached_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i, align 4
   %c_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 16
@@ -58542,7 +58542,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto314ForeignMessageC2EPN6g
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_, align 4
   %c_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -58555,7 +58555,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto314ForeignMessageC2ERKS1
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_, align 4
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -59478,7 +59478,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto320NullHypothesisProto3C
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %_cached_size_, align 8
   ret void
@@ -59489,7 +59489,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto320NullHypothesisProto3C
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %_cached_size_, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -60309,7 +60309,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto314EnumOnlyProto3C2EPN6g
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %_cached_size_, align 8
   ret void
@@ -60320,7 +60320,7 @@ define dso_local void @_ZN22protobuf_test_messages6proto314EnumOnlyProto3C2ERKS1
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %_cached_size_, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -61139,7 +61139,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 28
   store i32 0, ptr %_cached_size_.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_TestAllTypesProto3_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto acquire, align 8
@@ -61170,7 +61170,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 32)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %_cached_size_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 28
   store i32 0, ptr %_cached_size_.i.i6, align 4
   %3 = load atomic i32, ptr @scc_info_TestAllTypesProto3_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto acquire, align 8
@@ -61227,7 +61227,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 32
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61266,7 +61266,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 40
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61309,7 +61309,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 32
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61348,7 +61348,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 40
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61391,7 +61391,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 32
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61430,7 +61430,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 40
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61473,7 +61473,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 32
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61512,7 +61512,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 40
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61555,7 +61555,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 32
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61594,7 +61594,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 40
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61637,7 +61637,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink5, i64 32
   store ptr %.sink, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5, align 8
   ret ptr %call.i.sink5
 }
 
@@ -61678,7 +61678,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 40
   store ptr %.sink9, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10, align 8
   ret ptr %call.i.sink10
 }
 
@@ -61719,7 +61719,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i, align 4
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 24
   store ptr %.sink9, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10, align 8
   ret ptr %call.i.sink10
 }
 
@@ -61760,7 +61760,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 40
   store ptr %.sink9, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10, align 8
   ret ptr %call.i.sink10
 }
 
@@ -61801,7 +61801,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 40
   store ptr %.sink9, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10, align 8
   ret ptr %call.i.sink10
 }
 
@@ -61842,7 +61842,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 40
   store ptr %.sink9, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10, align 8
   ret ptr %call.i.sink10
 }
 
@@ -61883,7 +61883,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 40
   store ptr %.sink9, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10, align 8
   ret ptr %call.i.sink10
 }
 
@@ -61929,7 +61929,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEEEPT_PS1_.exit: ; preds = %if.then.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
   %call.i.sink = phi ptr [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink, align 8
   ret ptr %call.i.sink
 }
 
@@ -61975,7 +61975,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
 
 _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEEEPT_PS1_.exit: ; preds = %if.then.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit
   %call.i.sink = phi ptr [ %call.i, %if.then.i ], [ %call2.i8, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink, align 8
   ret ptr %call.i.sink
 }
 
@@ -62045,7 +62045,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 8
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 20
   store i32 0, ptr %_cached_size_.i.i, align 4
   %c_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 16
@@ -62082,7 +62082,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 8
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, i32 0, i64 2), ptr %call.i.sink8, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
   store i32 0, ptr %_cached_size_.i.i, align 4
   ret ptr %call.i.sink8
@@ -62117,7 +62117,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN22protobuf_test_messages6proto
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 8
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, i32 0, i64 2), ptr %call.i.sink8, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i.sink8, i64 16
   store i32 0, ptr %_cached_size_.i.i, align 4
   ret ptr %call.i.sink8
@@ -62131,7 +62131,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 28
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_TestAllTypesProto3_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto acquire, align 8
@@ -62251,7 +62251,7 @@ entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   %c_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
@@ -62287,7 +62287,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6p
   %call.i.sink10.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   %c_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 16
@@ -62309,7 +62309,7 @@ entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   ret ptr %call.i.i.i
@@ -62343,7 +62343,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6p
   %call.i.sink8.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto320NullHypothesisProto3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   ret ptr %call.i.sink8.i.i
@@ -62363,7 +62363,7 @@ entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   ret ptr %call.i.i.i
@@ -62397,7 +62397,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN22protobuf_test_messages6p
   %call.i.sink8.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, inrange i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314EnumOnlyProto3E, i64 0, i32 0, i64 2), ptr %call.i.sink8.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink8.i.i, i64 16
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   ret ptr %call.i.sink8.i.i
@@ -62453,7 +62453,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -62495,7 +62495,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto346
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 32
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -63063,7 +63063,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -63101,7 +63101,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto346
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -63651,7 +63651,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -63693,7 +63693,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 32
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -64241,7 +64241,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -64279,7 +64279,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -64829,7 +64829,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -64871,7 +64871,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 32
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -65455,7 +65455,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -65493,7 +65493,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -66073,7 +66073,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -66115,7 +66115,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto350
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 32
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -66487,7 +66487,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -66525,7 +66525,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto350
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -66895,7 +66895,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -66937,7 +66937,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto352
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 32
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -67309,7 +67309,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %_internal_metadata_.i.i.i.i.i, i8 0, i64 28, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -67347,7 +67347,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto352
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -67717,7 +67717,7 @@ invoke.cont:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %_internal_metadata_.i.i.i.i.i, i8 0, i64 20, i1 false)
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -67759,7 +67759,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto346
   %call.i.sink5.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i, i64 32
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i, align 8
   ret ptr %call.i.sink5.i
 }
 
@@ -68232,7 +68232,7 @@ invoke.cont:
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -68272,7 +68272,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto347
   store i32 0, ptr %_has_bits_.i.i.i.i, align 8
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i, align 8
   ret ptr %call.i.sink10.i
 }
 
@@ -68745,7 +68745,7 @@ invoke.cont:
   store i32 0, ptr %_has_bits_.i.i.i, align 4
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 24
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -68785,7 +68785,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto344
   store i32 0, ptr %_has_bits_.i.i.i.i, align 4
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i, i64 24
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i, align 8
   ret ptr %call.i.sink10.i
 }
 
@@ -69223,7 +69223,7 @@ invoke.cont:
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -69263,7 +69263,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto348
   store i32 0, ptr %_has_bits_.i.i.i.i, align 8
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i, align 8
   ret ptr %call.i.sink10.i
 }
 
@@ -69835,7 +69835,7 @@ invoke.cont:
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -69875,7 +69875,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto347
   store i32 0, ptr %_has_bits_.i.i.i.i, align 8
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i, align 8
   ret ptr %call.i.sink10.i
 }
 
@@ -70438,7 +70438,7 @@ invoke.cont:
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -70478,7 +70478,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto355
   store i32 0, ptr %_has_bits_.i.i.i.i, align 8
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i, align 8
   ret ptr %call.i.sink10.i
 }
 
@@ -71223,7 +71223,7 @@ invoke.cont:
   store i32 0, ptr %_has_bits_.i.i.i, align 8
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -71263,7 +71263,7 @@ _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto356
   store i32 0, ptr %_has_bits_.i.i.i.i, align 8
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i, i64 40
   store ptr %arena, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i, align 8
   ret ptr %call.i.sink10.i
 }
 
@@ -71687,7 +71687,7 @@ _ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6p
   %call.i.sink10.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call2.i8.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.i, i64 8
   store ptr %retval.i.0.i.i25, ptr %_internal_metadata_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i.i, align 8
   %_cached_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i.i, align 4
   %c_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.i, i64 16
@@ -71912,7 +71912,7 @@ invoke.cont:
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %key_2.i.i.i, align 8
   %value_.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %value_.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -71958,7 +71958,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEJEEEPT_PS1_DpOT0_.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i, align 8
   ret ptr %call.i.sink.i
 }
 
@@ -72577,7 +72577,7 @@ invoke.cont:
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %key_2.i.i.i, align 8
   %value_.i.i.i = getelementptr inbounds i8, ptr %call, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %value_.i.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call, align 8
   ret ptr %call
 }
 
@@ -72623,7 +72623,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i: ; preds = %if.then.
 
 _ZN6google8protobuf5Arena18CreateMaybeMessageIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEJEEEPT_PS1_DpOT0_.exit: ; preds = %if.then.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i
   %call.i.sink.i = phi ptr [ %call.i.i, %if.then.i.i ], [ %call2.i8.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i, align 8
   ret ptr %call.i.sink.i
 }
 
@@ -73220,7 +73220,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #15
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto311ForeignEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -77094,7 +77094,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %call.i.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 28
   %1 = load i32, ptr %_has_bits_.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -77568,7 +77568,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_.exit: ; preds = %if
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto329TestAllTypesProto3_NestedEnumEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -80553,7 +80553,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
 
 _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseEE16NewFromPrototypeEPKS5_PNS0_5ArenaE.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %call.i.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 28
   %1 = load i32, ptr %_has_bits_.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -80729,7 +80729,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto314ForeignMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -81446,7 +81446,7 @@ _ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6p
   %call.i.sink10.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call2.i8.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.i, i64 8
   store ptr %retval.i.0.i.i20, ptr %_internal_metadata_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i.i, align 8
   %_cached_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i.i, align 4
   %c_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.i, i64 16
@@ -82672,7 +82672,7 @@ return:                                           ; preds = %if.then, %_ZNK6goog
   %second.i.sink = getelementptr inbounds i8, ptr %call.sink11, i64 32
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.sink11, i64 40
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %second.i.sink, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %second.i.sink, align 8
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.sink11, i64 52
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %c_.i.i.i.i = getelementptr inbounds i8, ptr %call.sink11, i64 48
@@ -83792,7 +83792,7 @@ _ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6p
   %call.i.sink10.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 8
   store ptr %retval.i.0.i, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %_cached_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i, align 4
   %c_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 16
@@ -83859,7 +83859,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE17MergeFromInternalERKSG_(ptr noundef nonnull align 8 dereferenceable(36) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %value)
   br i1 %cmp2, label %delete.notnull.i, label %if.end5
 
@@ -83962,7 +83962,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -86089,7 +86089,7 @@ if.then:                                          ; preds = %entry
   %second.i = getelementptr inbounds i8, ptr %call, i64 32
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call, i64 40
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, inrange i32 0, i64 2), ptr %second.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, i32 0, i64 2), ptr %second.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call, i64 60
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %1 = load atomic i32, ptr @scc_info_TestAllTypesProto3_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto acquire, align 8
@@ -86135,7 +86135,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %_ZN6google
   %6 = load ptr, ptr %this, align 8
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call11.i25, i64 40
   store ptr %6, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, inrange i32 0, i64 2), ptr %second, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto332TestAllTypesProto3_NestedMessageE, i64 0, i32 0, i64 2), ptr %second, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call11.i25, i64 60
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   %7 = load atomic i32, ptr @scc_info_TestAllTypesProto3_google_2fprotobuf_2ftest_5fmessages_5fproto3_2eproto acquire, align 8
@@ -87303,7 +87303,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EE17MergeFromInternalERKSG_(ptr noundef nonnull align 8 dereferenceable(36) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %value)
   br i1 %cmp2, label %delete.notnull.i, label %if.end5
 
@@ -87406,7 +87406,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -90529,7 +90529,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_12ELi0EE17MergeFromInternalERKSF_(ptr noundef nonnull align 8 dereferenceable(36) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %value)
   br i1 %cmp2, label %delete.notnull.i, label %if.end5
 
@@ -90632,7 +90632,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -91599,7 +91599,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   tail call void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_9ELi0EE17MergeFromInternalERKSF_(ptr noundef nonnull align 8 dereferenceable(36) %call.i.sink10.i.i.i, ptr noundef nonnull align 8 dereferenceable(36) %value)
   br i1 %cmp2, label %delete.notnull.i, label %if.end5
 
@@ -91702,7 +91702,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIbbED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -95166,7 +95166,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 4
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 24
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 20
   %1 = load i32, ptr %_has_bits_.i.i.i, align 4
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -95312,7 +95312,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIidED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -98766,7 +98766,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -98910,7 +98910,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIifED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -102016,7 +102016,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -102164,7 +102164,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -105603,7 +105603,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -105751,7 +105751,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -108857,7 +108857,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -109005,7 +109005,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -112444,7 +112444,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -112592,7 +112592,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -116043,7 +116043,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -116191,7 +116191,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -117069,7 +117069,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -117217,7 +117217,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -118101,7 +118101,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -118249,7 +118249,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapImmED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -119127,7 +119127,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -119275,7 +119275,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIjjED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -120159,7 +120159,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -120307,7 +120307,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIllED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -121185,7 +121185,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 32
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -121333,7 +121333,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase23UnsafeArenaAddAllocatedINS0_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EED0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #9 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapFieldIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %impl_.i = getelementptr inbounds i8, ptr %this, i64 72
   tail call void @_ZN6google8protobuf3MapIiiED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %impl_.i) #29
   tail call void @_ZN6google8protobuf8internal12MapFieldBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this) #29
@@ -122217,7 +122217,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %my_arena, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %_has_bits_.i.i.i = getelementptr inbounds i8, ptr %value, i64 24
   %1 = load i32, ptr %_has_bits_.i.i.i, align 8
   %tobool.not.i.i.i = icmp eq i32 %1, 0
@@ -122456,7 +122456,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink10.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 8
   store ptr %8, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %_cached_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i, align 4
   %c_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 16
@@ -131168,7 +131168,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNK6google8protobuf13Re
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE5ELS7_5ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -131271,7 +131271,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131287,7 +131287,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE5ELS8_5ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131304,7 +131304,7 @@ declare void @llvm.trap() #19
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE3ELS7_3ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -131407,7 +131407,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131421,7 +131421,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE3ELS8_3ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131435,7 +131435,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE13ELS7_13ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -131538,7 +131538,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131552,7 +131552,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE13ELS8_13ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131566,7 +131566,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE4ELS7_4ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -131669,7 +131669,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131683,7 +131683,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE4ELS8_4ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131697,7 +131697,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE17ELS7_17ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -131800,7 +131800,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131814,7 +131814,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE17ELS8_17ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131828,7 +131828,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE18ELS7_18ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -131931,7 +131931,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131945,7 +131945,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE18ELS8_18ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -131959,7 +131959,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseEjjLNS1_14WireFormatLite9FieldTypeE7ELS7_7ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -132062,7 +132062,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132076,7 +132076,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseENS0_7MessageEjjLNS1_14WireFormatLite9FieldTypeE7ELS8_7ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132090,7 +132090,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseEmmLNS1_14WireFormatLite9FieldTypeE6ELS7_6ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -132193,7 +132193,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132207,7 +132207,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseENS0_7MessageEmmLNS1_14WireFormatLite9FieldTypeE6ELS8_6ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132221,7 +132221,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseEiiLNS1_14WireFormatLite9FieldTypeE15ELS7_15ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -132324,7 +132324,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132338,7 +132338,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseENS0_7MessageEiiLNS1_14WireFormatLite9FieldTypeE15ELS8_15ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132352,7 +132352,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseEllLNS1_14WireFormatLite9FieldTypeE16ELS7_16ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -132455,7 +132455,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132469,7 +132469,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseENS0_7MessageEllLNS1_14WireFormatLite9FieldTypeE16ELS8_16ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132483,7 +132483,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseEifLNS1_14WireFormatLite9FieldTypeE5ELS7_2ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -132586,7 +132586,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132600,7 +132600,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseENS0_7MessageEifLNS1_14WireFormatLite9FieldTypeE5ELS8_2ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132614,7 +132614,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseEidLNS1_14WireFormatLite9FieldTypeE5ELS7_1ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -132717,7 +132717,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132731,7 +132731,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseENS0_7MessageEidLNS1_14WireFormatLite9FieldTypeE5ELS8_1ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132745,7 +132745,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseEbbLNS1_14WireFormatLite9FieldTypeE8ELS7_8ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -132848,7 +132848,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132862,7 +132862,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseENS0_7MessageEbbLNS1_14WireFormatLite9FieldTypeE8ELS8_8ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -132876,7 +132876,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_9ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -132993,7 +132993,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_9ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_9ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_9ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -133086,7 +133086,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_LNS1_14WireFormatLite9FieldTypeE9ELSD_12ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -133203,7 +133203,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_12ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_12ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESC_LNS1_14WireFormatLite9FieldTypeE9ELSE_12ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -133296,7 +133296,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -133399,7 +133399,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %18 = load ptr, ptr %_internal_metadata_, align 8
   %19 = ptrtoint ptr %18 to i64
   %conv.i1.i.i = and i64 %19, 1
@@ -133472,7 +133472,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_32TestAllTypesProto3_NestedMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -133546,7 +133546,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSE_11ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -133663,7 +133663,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_14ForeignMessageELNS1_14WireFormatLite9FieldTypeE9ELSF_11ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -133787,7 +133787,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -133890,7 +133890,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %18 = load ptr, ptr %_internal_metadata_, align 8
   %19 = ptrtoint ptr %18 to i64
   %conv.i1.i.i = and i64 %19, 1
@@ -133952,7 +133952,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -134015,7 +134015,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal8MapEntryIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -134118,7 +134118,7 @@ _ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEE
   br label %invoke.cont3
 
 invoke.cont3:                                     ; preds = %_ZN6google8protobuf8internal16InternalMetadata9ContainerINS0_15UnknownFieldSetEED2Ev.exit.i17, %if.then.i.i3, %invoke.cont
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %18 = load ptr, ptr %_internal_metadata_, align 8
   %19 = ptrtoint ptr %18 to i64
   %conv.i1.i.i = and i64 %19, 1
@@ -134180,7 +134180,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %_internal_metadata_.i, align 8
   %1 = ptrtoint ptr %0 to i64
@@ -138029,7 +138029,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i22, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %36, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -138092,7 +138092,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346Tes
   %call.i.sink5.i.i.i36 = phi ptr [ %call.i.i.i.i40, %if.then.i.i.i.i39 ], [ %call2.i8.i.i.i31, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30 ]
   %_internal_metadata_.i.i.i.i.i37 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i36, i64 32
   store ptr %44, ptr %_internal_metadata_.i.i.i.i.i37, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i36, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i36, align 8
   %entry_.i38 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i36, ptr %entry_.i38, align 8
   br label %if.end74
@@ -138195,7 +138195,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto346Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 32
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32Int32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -138493,7 +138493,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i22, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %36, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -138552,7 +138552,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346Tes
   %call.i.sink5.i.i.i34 = phi ptr [ %call.i.i.i.i38, %if.then.i.i.i.i37 ], [ %call2.i8.i.i.i31, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30 ]
   %_internal_metadata_.i.i.i.i.i35 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i34, i64 40
   store ptr %44, ptr %_internal_metadata_.i.i.i.i.i35, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i34, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i34, align 8
   %entry_.i36 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i34, ptr %entry_.i36, align 8
   br label %if.end74
@@ -138653,7 +138653,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto346Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt64Int64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -138947,7 +138947,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i22, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %36, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -139010,7 +139010,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   %call.i.sink5.i.i.i36 = phi ptr [ %call.i.i.i.i40, %if.then.i.i.i.i39 ], [ %call2.i8.i.i.i31, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30 ]
   %_internal_metadata_.i.i.i.i.i37 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i36, i64 32
   store ptr %44, ptr %_internal_metadata_.i.i.i.i.i37, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i36, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i36, align 8
   %entry_.i38 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i36, ptr %entry_.i38, align 8
   br label %if.end74
@@ -139113,7 +139113,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 32
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint32Uint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -139411,7 +139411,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i22, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %36, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -139470,7 +139470,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   %call.i.sink5.i.i.i34 = phi ptr [ %call.i.i.i.i38, %if.then.i.i.i.i37 ], [ %call2.i8.i.i.i31, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30 ]
   %_internal_metadata_.i.i.i.i.i35 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i34, i64 40
   store ptr %44, ptr %_internal_metadata_.i.i.i.i.i35, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i34, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i34, align 8
   %entry_.i36 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i34, ptr %entry_.i36, align 8
   br label %if.end74
@@ -139571,7 +139571,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapUint64Uint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -139875,7 +139875,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i22 ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %36, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -139938,7 +139938,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   %call.i.sink5.i.i.i36 = phi ptr [ %call.i.i.i.i40, %if.then.i.i.i.i39 ], [ %call2.i8.i.i.i31, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30 ]
   %_internal_metadata_.i.i.i.i.i37 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i36, i64 32
   store ptr %44, ptr %_internal_metadata_.i.i.i.i.i37, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i36, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i36, align 8
   %entry_.i38 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i36, ptr %entry_.i38, align 8
   br label %if.end74
@@ -140046,7 +140046,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 32
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint32Sint32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -140345,7 +140345,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i22 ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %36, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -140404,7 +140404,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   %call.i.sink5.i.i.i34 = phi ptr [ %call.i.i.i.i38, %if.then.i.i.i.i37 ], [ %call2.i8.i.i.i31, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i30 ]
   %_internal_metadata_.i.i.i.i.i35 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i34, i64 40
   store ptr %44, ptr %_internal_metadata_.i.i.i.i.i35, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i34, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i34, align 8
   %entry_.i36 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i34, ptr %entry_.i36, align 8
   br label %if.end74
@@ -140507,7 +140507,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapSint64Sint64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -140764,7 +140764,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %31, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -140827,7 +140827,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350Tes
   %call.i.sink5.i.i.i37 = phi ptr [ %call.i.i.i.i41, %if.then.i.i.i.i40 ], [ %call2.i8.i.i.i32, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i31 ]
   %_internal_metadata_.i.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i37, i64 32
   store ptr %39, ptr %_internal_metadata_.i.i.i.i.i38, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i37, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i37, align 8
   %entry_.i39 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i37, ptr %entry_.i39, align 8
   br label %if.end74
@@ -140890,7 +140890,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto350Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 32
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed32Fixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -141143,7 +141143,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %31, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -141202,7 +141202,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto350Tes
   %call.i.sink5.i.i.i35 = phi ptr [ %call.i.i.i.i39, %if.then.i.i.i.i38 ], [ %call2.i8.i.i.i32, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i31 ]
   %_internal_metadata_.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i35, i64 40
   store ptr %39, ptr %_internal_metadata_.i.i.i.i.i36, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i35, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i35, align 8
   %entry_.i37 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i35, ptr %entry_.i37, align 8
   br label %if.end74
@@ -141261,7 +141261,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto350Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto350TestAllTypesProto3_MapFixed64Fixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -141518,7 +141518,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %31, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -141581,7 +141581,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352Tes
   %call.i.sink5.i.i.i37 = phi ptr [ %call.i.i.i.i41, %if.then.i.i.i.i40 ], [ %call2.i8.i.i.i32, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i31 ]
   %_internal_metadata_.i.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i37, i64 32
   store ptr %39, ptr %_internal_metadata_.i.i.i.i.i38, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i37, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i37, align 8
   %entry_.i39 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i37, ptr %entry_.i39, align 8
   br label %if.end74
@@ -141644,7 +141644,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto352Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 32
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed32Sfixed32Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -141897,7 +141897,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 40
   store ptr %31, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -141956,7 +141956,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352Tes
   %call.i.sink5.i.i.i35 = phi ptr [ %call.i.i.i.i39, %if.then.i.i.i.i38 ], [ %call2.i8.i.i.i32, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i31 ]
   %_internal_metadata_.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i35, i64 40
   store ptr %39, ptr %_internal_metadata_.i.i.i.i.i36, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i35, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i35, align 8
   %entry_.i37 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i35, ptr %entry_.i37, align 8
   br label %if.end74
@@ -142015,7 +142015,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto352Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapSfixed64Sfixed64Entry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -142302,7 +142302,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346Tes
   %call.i.sink5.i.i.i = phi ptr [ %call.i.i.i.i23, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i, i64 32
   store ptr %35, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -142365,7 +142365,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto346Tes
   %call.i.sink5.i.i.i37 = phi ptr [ %call.i.i.i.i41, %if.then.i.i.i.i40 ], [ %call2.i8.i.i.i32, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i31 ]
   %_internal_metadata_.i.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.sink5.i.i.i37, i64 32
   store ptr %43, ptr %_internal_metadata_.i.i.i.i.i38, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i.i37, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i.i37, align 8
   %entry_.i39 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i.i37, ptr %entry_.i39, align 8
   br label %if.end74
@@ -142428,7 +142428,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto346Te
   %call.i.sink5.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink5.i.i, i64 32
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto346TestAllTypesProto3_MapInt32FloatEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink5.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink5.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink5.i.i
@@ -142713,7 +142713,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %35, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink10.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -142774,7 +142774,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i37, align 8
   %_internal_metadata_.i.i.i.i.i38 = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i33, i64 40
   store ptr %43, ptr %_internal_metadata_.i.i.i.i.i38, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i33, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i33, align 8
   %entry_.i39 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink10.i.i.i33, ptr %entry_.i39, align 8
   br label %if.end74
@@ -142835,7 +142835,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto347Te
   store i32 0, ptr %_has_bits_.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapInt32DoubleEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink10.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink10.i.i
@@ -143137,7 +143137,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 4
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 24
   store ptr %37, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink10.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -143199,7 +143199,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto344Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i35, align 4
   %_internal_metadata_.i.i.i.i.i36 = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i31, i64 24
   store ptr %46, ptr %_internal_metadata_.i.i.i.i.i36, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i31, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i31, align 8
   %entry_.i37 = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink10.i.i.i31, ptr %entry_.i37, align 8
   br label %if.end74
@@ -143321,7 +143321,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto344Te
   store i32 0, ptr %_has_bits_.i.i.i.i.i, align 4
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 24
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto344TestAllTypesProto3_MapBoolBoolEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 32
   store ptr %call.i.sink10.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink10.i.i
@@ -143632,7 +143632,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %40, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -143794,7 +143794,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto348Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i44, align 8
   %_internal_metadata_.i.i.i.i.i45 = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i40, i64 40
   store ptr %70, ptr %_internal_metadata_.i.i.i.i.i45, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i40, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i40, align 8
   %entry_.i46 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i.i40, ptr %entry_.i46, align 8
   br label %if.end74
@@ -143960,7 +143960,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto348Te
   store i32 0, ptr %_has_bits_.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto348TestAllTypesProto3_MapStringStringEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink10.i.i
@@ -144866,7 +144866,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %37, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -145028,7 +145028,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto347Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i41, align 8
   %_internal_metadata_.i.i.i.i.i42 = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i37, i64 40
   store ptr %67, ptr %_internal_metadata_.i.i.i.i.i42, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i37, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i37, align 8
   %entry_.i43 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i.i37, ptr %entry_.i43, align 8
   br label %if.end74
@@ -145194,7 +145194,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto347Te
   store i32 0, ptr %_has_bits_.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto347TestAllTypesProto3_MapStringBytesEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink10.i.i
@@ -145601,7 +145601,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto355Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %41, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -145763,7 +145763,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto355Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i41, align 8
   %_internal_metadata_.i.i.i.i.i42 = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i37, i64 40
   store ptr %71, ptr %_internal_metadata_.i.i.i.i.i42, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i37, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i37, align 8
   %entry_.i43 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i.i37, ptr %entry_.i43, align 8
   br label %if.end74
@@ -145955,7 +145955,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto355Te
   store i32 0, ptr %_has_bits_.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto355TestAllTypesProto3_MapStringNestedMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink10.i.i
@@ -146437,7 +146437,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto356Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 40
   store ptr %37, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -146599,7 +146599,7 @@ _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto356Tes
   store i32 0, ptr %_has_bits_.i.i.i.i.i.i41, align 8
   %_internal_metadata_.i.i.i.i.i42 = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i37, i64 40
   store ptr %67, ptr %_internal_metadata_.i.i.i.i.i42, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i37, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i37, align 8
   %entry_.i43 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i.i37, ptr %entry_.i43, align 8
   br label %if.end74
@@ -146791,7 +146791,7 @@ _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto356Te
   store i32 0, ptr %_has_bits_.i.i.i.i.i, align 8
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 40
   store ptr %1, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto356TestAllTypesProto3_MapStringForeignMessageEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink10.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink10.i.i
@@ -146944,7 +146944,7 @@ _ZN6google8protobuf8internal22MapArenaMessageCreatorIN22protobuf_test_messages6p
   %call.i.sink10.i.i.i.i = phi ptr [ %call.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %call2.i8.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.i, i64 8
   store ptr %retval.i.0.i.i, ptr %_internal_metadata_.i.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i.i, align 8
   %_cached_size_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i.i, align 4
   %c_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.i, i64 16
@@ -147313,7 +147313,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_14ELi0EEENS0_3MapISC_SD_EEE8NewEntryEv.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %call.i.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -147481,7 +147481,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i37: ; preds = %if
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_14ELi0EEENS0_3MapISC_SD_EEE8NewEntryEv.exit51: ; preds = %if.then.i.i.i.i46, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i37
   %call.i.sink.i.i.i44 = phi ptr [ %call.i.i.i.i47, %if.then.i.i.i.i46 ], [ %call2.i8.i.i.i38, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i37 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i.i.i44, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i.i.i44, align 8
   %entry_.i45 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink.i.i.i44, ptr %entry_.i45, align 8
   br label %if.end74
@@ -147692,7 +147692,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 
 _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_29TestAllTypesProto3_NestedEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE8NewEntryEv.exit: ; preds = %if.then.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %call.i.sink.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto352TestAllTypesProto3_MapStringNestedEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink.i.i
@@ -148007,7 +148007,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_14ELi0EEENS0_3MapISC_SD_EEE8NewEntryEv.exit: ; preds = %if.then.i.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i
   %call.i.sink.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i.i.i, align 8
   %entry_.i = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink.i.i.i, ptr %entry_.i, align 8
   br label %move_key
@@ -148175,7 +148175,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i37: ; preds = %if
 
 _ZN6google8protobuf8internal12MapEntryImplIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENS0_7MessageENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSF_14ELi0EE6ParserINS1_12MapFieldLiteIS5_SC_SD_LSF_9ELSF_14ELi0EEENS0_3MapISC_SD_EEE8NewEntryEv.exit51: ; preds = %if.then.i.i.i.i46, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i37
   %call.i.sink.i.i.i44 = phi ptr [ %call.i.i.i.i47, %if.then.i.i.i.i46 ], [ %call2.i8.i.i.i38, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i37 ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i.i.i44, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i.i.i44, align 8
   %entry_.i45 = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink.i.i.i44, ptr %entry_.i45, align 8
   br label %if.end74
@@ -148386,7 +148386,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %if.the
 
 _ZNK6google8protobuf8internal12MapFieldLiteIN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS4_11ForeignEnumELNS1_14WireFormatLite9FieldTypeE9ELSE_14ELi0EE8NewEntryEv.exit: ; preds = %if.then.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %call.i.sink.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink.i.i, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto353TestAllTypesProto3_MapStringForeignEnumEntry_DoNotUseE, i64 0, i32 0, i64 2), ptr %call.i.sink.i.i, align 8
   %entry_ = getelementptr inbounds i8, ptr %this, i64 56
   store ptr %call.i.sink.i.i, ptr %entry_, align 8
   ret ptr %call.i.sink.i.i
@@ -151628,7 +151628,7 @@ _ZN6google8protobuf8internal18GenericTypeHandlerIN22protobuf_test_messages6proto
   %call.i.sink10.i.i.i.us = phi ptr [ %call.i.i.i.i.us, %if.then.i.i.i.i14.us ], [ %call2.i8.i.i.i.us, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i.us ]
   %_internal_metadata_.i.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.us, i64 8
   store ptr %.fr76, ptr %_internal_metadata_.i.i.i.i.i.i.i.us, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i.us, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i.us, align 8
   %_cached_size_.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.us, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i.us, align 4
   %c_.i.i.i.i.i.i.us = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i.us, i64 16
@@ -151708,7 +151708,7 @@ for.body8.us51:                                   ; preds = %for.body8.lr.ph.spl
   %call.i.i.i.i.us56 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #27
   %_internal_metadata_.i.i.i.i.i.i.i.us59 = getelementptr inbounds i8, ptr %call.i.i.i.i.us56, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i.i.us59, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i.us56, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i.us56, align 8
   %_cached_size_.i.i.i.i.i.us60 = getelementptr inbounds i8, ptr %call.i.i.i.i.us56, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i.us60, align 4
   %c_.i.i.i.i.i.i.us61 = getelementptr inbounds i8, ptr %call.i.i.i.i.us56, i64 16
@@ -151761,7 +151761,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i: ; preds = %if.t
   %call2.i8.i.i.i = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %.fr76, i64 noundef 24)
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 8
   store ptr %.fr76, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, inrange i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN22protobuf_test_messages6proto314ForeignMessageE, i64 0, i32 0, i64 2), ptr %call2.i8.i.i.i, align 8
   %_cached_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i, align 4
   %c_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call2.i8.i.i.i, i64 16

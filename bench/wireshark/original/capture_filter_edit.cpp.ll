@@ -2863,9 +2863,9 @@ define void @_ZN17CaptureFilterEditC2EP7QWidgetb(ptr noundef nonnull align 8 der
   %70 = load ptr, ptr %4, align 8
   %71 = load ptr, ptr %5, align 8
   call void @_ZN14SyntaxLineEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(185) %70, ptr noundef %71)
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i32 0, inrange i32 0, i32 2), ptr %70, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i32 0, i32 0, i32 2), ptr %70, align 8
   %72 = getelementptr inbounds i8, ptr %70, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i32 0, inrange i32 1, i32 2), ptr %72, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i32 0, i32 1, i32 2), ptr %72, align 8
   %73 = getelementptr inbounds %class.CaptureFilterEdit, ptr %70, i32 0, i32 1
   %74 = load i8, ptr %6, align 1
   %75 = trunc i8 %74 to i1
@@ -4712,7 +4712,7 @@ define linkonce_odr void @_ZN25CaptureFilterSyntaxWorkerC2EP7QObject(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV25CaptureFilterSyntaxWorker, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV25CaptureFilterSyntaxWorker, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -5687,9 +5687,9 @@ define linkonce_odr void @_ZN14SyntaxLineEditD2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV14SyntaxLineEdit, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 9
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #3
   %6 = getelementptr inbounds %class.SyntaxLineEdit, ptr %3, i32 0, i32 8
@@ -5710,9 +5710,9 @@ define void @_ZN17CaptureFilterEditD2Ev(ptr noundef nonnull align 8 dereferencea
   %3 = alloca %class.QDeadlineTimer, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 16
-  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i32 0, inrange i32 1, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [56 x ptr], [10 x ptr] }, ptr @_ZTV17CaptureFilterEdit, i32 0, i32 1, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.CaptureFilterEdit, ptr %4, i32 0, i32 12
   %7 = load ptr, ptr %6, align 8
   invoke void @_ZN7QThread4quitEv(ptr noundef nonnull align 8 dereferenceable(16) %7)
@@ -6543,7 +6543,7 @@ define linkonce_odr void @_ZN15FilterListModelD2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV15FilterListModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FilterListModel, ptr %3, i32 0, i32 2
   call void @_ZN5QListI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   call void @_ZN18QAbstractListModelD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3

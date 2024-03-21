@@ -415,7 +415,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN15StatementFilterC2ERK9CGContext(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(216) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15StatementFilter, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15StatementFilter, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = load i8, ptr @_ZN15StatementFilter19label_attr_generateE, align 1
@@ -760,7 +760,7 @@ select.unfold:                                    ; preds = %16, %_ZN9Statement2
 
 20:                                               ; preds = %select.unfold
   call void @_ZN6FilterC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15StatementFilter, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15StatementFilter, i64 0, i32 0, i64 2), ptr %4, align 8
   %21 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %0, ptr %21, align 8
   %22 = load i8, ptr @_ZN15StatementFilter19label_attr_generateE, align 1
@@ -1575,7 +1575,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit3:       ; preds = %9, %12
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN9StatementC2E14eStatementTypeP5Block(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV9Statement, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV9Statement, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8
   %.not = icmp eq ptr %2, null

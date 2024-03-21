@@ -321,7 +321,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7531SimpleFilteredSentenceBreakDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7531SimpleFilteredSentenceBreakDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fBackwardsTrie = getelementptr inbounds %"class.icu_75::SimpleFilteredSentenceBreakData", ptr %this1, i32 0, i32 2
   call void @_ZN6icu_7512LocalPointerINS_10UCharsTrieEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %fBackwardsTrie) #9
   %fForwardsPartialTrie = getelementptr inbounds %"class.icu_75::SimpleFilteredSentenceBreakData", ptr %this1, i32 0, i32 1
@@ -373,7 +373,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_7513BreakIteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(479) %this1, ptr noundef nonnull align 8 dereferenceable(479) %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::SimpleFilteredSentenceBreakIterator", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %fData2 = getelementptr inbounds %"class.icu_75::SimpleFilteredSentenceBreakIterator", ptr %1, i32 0, i32 1
@@ -552,7 +552,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp2) #9
   call void @_ZN6icu_756LocaleD1Ev(ptr noundef nonnull align 8 dereferenceable(217) %ref.tmp) #9
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::SimpleFilteredSentenceBreakIterator", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 32) #9
   %new.isnull = icmp eq ptr %call, null
@@ -737,7 +737,7 @@ entry:
   store ptr %forwards, ptr %forwards.addr, align 8
   store ptr %backwards, ptr %backwards.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7531SimpleFilteredSentenceBreakDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6icu_7531SimpleFilteredSentenceBreakDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fForwardsPartialTrie = getelementptr inbounds %"class.icu_75::SimpleFilteredSentenceBreakData", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %forwards.addr, align 8
   call void @_ZN6icu_7512LocalPointerINS_10UCharsTrieEEC2EPS1_(ptr noundef nonnull align 8 dereferenceable(8) %fForwardsPartialTrie, ptr noundef %0)
@@ -821,7 +821,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN6icu_7535SimpleFilteredSentenceBreakIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fData = getelementptr inbounds %"class.icu_75::SimpleFilteredSentenceBreakIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fData, align 8
   %call = invoke noundef ptr @_ZN6icu_7531SimpleFilteredSentenceBreakData4decrEv(ptr noundef nonnull align 8 dereferenceable(28) %0)
@@ -1727,7 +1727,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fSet = getelementptr inbounds %"class.icu_75::SimpleFilteredBreakIteratorBuilder", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7510UStringSetD1Ev(ptr noundef nonnull align 8 dereferenceable(40) %fSet) #9
   call void @_ZN6icu_7528FilteredBreakIteratorBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
@@ -1766,7 +1766,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7528FilteredBreakIteratorBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fSet = getelementptr inbounds %"class.icu_75::SimpleFilteredBreakIteratorBuilder", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %status.addr, align 8
   invoke void @_ZN6icu_7510UStringSetC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSet, ptr noundef nonnull align 4 dereferenceable(4) %0)
@@ -1800,7 +1800,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7528FilteredBreakIteratorBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7528FilteredBreakIteratorBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1814,7 +1814,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef @uprv_deleteUObject_75, ptr noundef @uhash_compareUnicodeString_75, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7510UStringSetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7510UStringSetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1838,7 +1838,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7528FilteredBreakIteratorBuilderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6icu_7534SimpleFilteredBreakIteratorBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fSet = getelementptr inbounds %"class.icu_75::SimpleFilteredBreakIteratorBuilder", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %status.addr, align 8
   invoke void @_ZN6icu_7510UStringSetC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %fSet, ptr noundef nonnull align 4 dereferenceable(4) %0)
@@ -3911,7 +3911,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4812,7 +4812,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -4868,7 +4868,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

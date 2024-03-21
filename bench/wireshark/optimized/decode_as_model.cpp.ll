@@ -147,7 +147,7 @@ define void @_ZN12DecodeAsItemC2EPKcPKv(ptr noundef nonnull align 8 dereferencea
   %4 = alloca %class.QString, align 16
   %5 = alloca %class.QString, align 16
   %6 = alloca %class.QString, align 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str.29, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -423,7 +423,7 @@ define void @_ZN12DecodeAsItemC2EPK11decode_as_sPKv(ptr noundef nonnull align 8 
   %4 = alloca %class.QString, align 16
   %5 = alloca %class.QString, align 16
   %6 = alloca %class.QString, align 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i64 0, i32 0, i64 2), ptr %0, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr @.str.29, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 16
@@ -511,7 +511,7 @@ define void @_ZN12DecodeAsItemC2EPK11decode_as_sPKv(ptr noundef nonnull align 8 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN12DecodeAsItemD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12DecodeAsItem, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -912,7 +912,7 @@ _ZN7QStringaSEPKc.exit7:                          ; preds = %_ZN14QByteArrayView
 ; Function Attrs: mustprogress uwtable
 define void @_ZN13DecodeAsModelC2EP7QObjectP13_capture_file(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {
   tail call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %2, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -925,7 +925,7 @@ declare void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 d
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN13DecodeAsModelD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV13DecodeAsModel, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !noalias !4
   %5 = getelementptr inbounds i8, ptr %0, i64 32

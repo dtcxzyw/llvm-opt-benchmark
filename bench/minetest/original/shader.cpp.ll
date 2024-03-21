@@ -2104,7 +2104,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN12ShaderSourceC2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV12ShaderSource, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV12ShaderSource, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = getelementptr inbounds i8, ptr %0, i64 64
@@ -2128,7 +2128,7 @@ define dso_local void @_ZN12ShaderSourceC2Ev(ptr noundef nonnull align 8 derefer
           to label %13 unwind label %18
 
 13:                                               ; preds = %11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31MainShaderConstantSetterFactory, i64 0, inrange i32 0, i64 2), ptr %12, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV31MainShaderConstantSetterFactory, i64 0, i32 0, i64 2), ptr %12, align 8, !tbaa !58
   %14 = load ptr, ptr %0, align 8, !tbaa !58
   %15 = getelementptr inbounds i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
@@ -2304,7 +2304,7 @@ define linkonce_odr dso_local void @_ZN17SourceShaderCacheD2Ev(ptr noundef nonnu
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN12ShaderSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(160) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV12ShaderSource, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV12ShaderSource, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds i8, ptr %0, i64 96
   %3 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %2) #27
   %4 = icmp eq i32 %3, 0
@@ -2880,7 +2880,7 @@ define dso_local noundef i32 @_ZN12ShaderSource17getShaderIdDirectERKNSt7__cxx11
   br i1 %151, label %178, label %152
 
 152:                                              ; preds = %141
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %142, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %142, align 8, !tbaa !58
   %153 = getelementptr inbounds i8, ptr %142, i64 8
   %154 = getelementptr inbounds i8, ptr %6, i64 8
   %155 = getelementptr inbounds i8, ptr %142, i64 24
@@ -3068,7 +3068,7 @@ define dso_local noundef i32 @_ZN12ShaderSource17getShaderIdDirectERKNSt7__cxx11
 
 253:                                              ; preds = %251, %222, %217, %210, %205, %199, %194, %187
   %254 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %136) #27
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !58
   %255 = getelementptr inbounds i8, ptr %6, i64 8
   %256 = load ptr, ptr %255, align 8, !tbaa !17
   %257 = getelementptr inbounds i8, ptr %6, i64 24
@@ -3103,7 +3103,7 @@ define dso_local noundef i32 @_ZN12ShaderSource17getShaderIdDirectERKNSt7__cxx11
 
 270:                                              ; preds = %267, %265
   %271 = phi { ptr, i32 } [ %268, %267 ], [ %266, %265 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !58
   %272 = getelementptr inbounds i8, ptr %6, i64 8
   %273 = load ptr, ptr %272, align 8, !tbaa !17
   %274 = getelementptr inbounds i8, ptr %6, i64 24
@@ -3198,7 +3198,7 @@ define dso_local void @_ZN12ShaderSource14generateShaderERKNSt7__cxx1112basic_st
   %69 = alloca %"class.std::__cxx11::basic_string", align 8
   %70 = alloca ptr, align 8
   %71 = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %72 = getelementptr inbounds i8, ptr %0, i64 8
   %73 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %73, ptr %72, align 8, !tbaa !15
@@ -6923,7 +6923,7 @@ define dso_local void @_ZN12ShaderSource14generateShaderERKNSt7__cxx1112basic_st
   %1794 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %1794, ptr %176, align 8, !tbaa !58
   %1795 = getelementptr inbounds i8, ptr %25, i64 24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %1795, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %1795, align 8, !tbaa !58
   %1796 = getelementptr inbounds i8, ptr %25, i64 96
   %1797 = load ptr, ptr %1796, align 8, !tbaa !17
   %1798 = getelementptr inbounds i8, ptr %25, i64 112
@@ -6942,7 +6942,7 @@ define dso_local void @_ZN12ShaderSource14generateShaderERKNSt7__cxx1112basic_st
   br label %1805
 
 1805:                                             ; preds = %1804, %1800
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %1795, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %1795, align 8, !tbaa !58
   %1806 = getelementptr inbounds i8, ptr %25, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %1806) #27
   %1807 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 2), align 8
@@ -7120,7 +7120,7 @@ define dso_local void @_ZN12ShaderSource14generateShaderERKNSt7__cxx1112basic_st
 
 1894:                                             ; preds = %1891, %204, %157, %156, %144, %142, %110, %81
   %1895 = phi { ptr, i32 } [ %82, %81 ], [ %103, %110 ], [ %143, %142 ], [ %158, %157 ], [ %145, %144 ], [ %1892, %1891 ], [ %205, %204 ], [ %147, %156 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %1896 = load ptr, ptr %72, align 8, !tbaa !17
   %1897 = icmp eq ptr %1896, %73
   br i1 %1897, label %1898, label %1901
@@ -7144,7 +7144,7 @@ define dso_local void @_ZN12ShaderSource14generateShaderERKNSt7__cxx1112basic_st
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -7195,7 +7195,7 @@ define dso_local void @_ZN12ShaderSource13getShaderInfoEj(ptr dead_on_unwind noa
 21:                                               ; preds = %9
   %22 = getelementptr inbounds i8, ptr %0, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %22, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %23 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %20, ptr %23, align 8, !tbaa !15
   %24 = getelementptr inbounds i8, ptr %0, i64 16
@@ -7214,7 +7214,7 @@ define dso_local void @_ZN12ShaderSource13getShaderInfoEj(ptr dead_on_unwind noa
 
 30:                                               ; preds = %9
   %31 = getelementptr inbounds %struct.ShaderInfo, ptr %14, i64 %10
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %32 = getelementptr inbounds i8, ptr %0, i64 8
   %33 = getelementptr inbounds i8, ptr %31, i64 8
   store ptr %20, ptr %32, align 8, !tbaa !15
@@ -7832,7 +7832,7 @@ define dso_local void @_ZN12ShaderSource14rebuildShadersEv(ptr noundef nonnull a
 74:                                               ; preds = %73
   %75 = getelementptr inbounds i8, ptr %63, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %75, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !58
   %76 = load ptr, ptr %37, align 8, !tbaa !17
   %77 = icmp eq ptr %76, %39
   br i1 %77, label %78, label %81
@@ -7859,7 +7859,7 @@ define dso_local void @_ZN12ShaderSource14rebuildShadersEv(ptr noundef nonnull a
 85:                                               ; preds = %73
   %86 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !58
   %87 = load ptr, ptr %37, align 8, !tbaa !17
   %88 = icmp eq ptr %87, %39
   br i1 %88, label %89, label %92
@@ -7900,7 +7900,7 @@ declare ptr @gettext(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ShaderExceptionC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !15
@@ -7953,13 +7953,13 @@ define linkonce_odr dso_local void @_ZN15ShaderExceptionC2ERKNSt7__cxx1112basic_
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15ShaderException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV15ShaderException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -8753,8 +8753,8 @@ define linkonce_odr dso_local void @_ZN14ShaderCallbackC1ISt6vectorISt10unique_p
   store ptr null, ptr %4, align 8, !tbaa !163
   %5 = getelementptr inbounds i8, ptr %0, i64 48
   store i32 1, ptr %5, align 8, !tbaa !141
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !58
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !58
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   %7 = load ptr, ptr %1, align 8, !tbaa !25
@@ -9859,7 +9859,7 @@ define linkonce_odr dso_local noundef ptr @_ZN31MainShaderConstantSetterFactory6
   %2 = tail call noalias noundef nonnull dereferenceable(368) ptr @_Znwm(i64 noundef 368) #30
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %3, i8 0, i64 352, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV24MainShaderConstantSetter, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV24MainShaderConstantSetter, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !58
   %4 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr @.str.116, ptr %4, align 8, !tbaa !199
   %5 = getelementptr inbounds i8, ptr %2, i64 81
@@ -10353,7 +10353,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture read
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN10ShaderInfoD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10859,7 +10859,7 @@ define linkonce_odr dso_local void @_ZNSt10_HashtableINSt7__cxx1112basic_stringI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN15ShaderExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -10892,7 +10892,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK13BaseException4whatEv(ptr nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !17
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -11819,7 +11819,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI10ShaderInfoSaIS0_EE17_M_reallo
   %27 = getelementptr inbounds %struct.ShaderInfo, ptr %26, i64 %20
   %28 = getelementptr inbounds i8, ptr %27, i64 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %27, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %27, align 8, !tbaa !58
   %29 = getelementptr inbounds i8, ptr %27, i64 8
   store ptr %28, ptr %29, align 8, !tbaa !15
   %30 = getelementptr inbounds i8, ptr %27, i64 16
@@ -11931,7 +11931,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt16__do_uninit_copyIPK10ShaderInfo
 6:                                                ; preds = %25, %3
   %7 = phi ptr [ %33, %25 ], [ %2, %3 ]
   %8 = phi ptr [ %32, %25 ], [ %0, %3 ]
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %7, align 8, !tbaa !58
   %9 = getelementptr inbounds i8, ptr %7, i64 8
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   %11 = getelementptr inbounds i8, ptr %7, i64 24
@@ -12068,7 +12068,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorI10ShaderInfoSaIS0_EE17_M_reallo
 27:                                               ; preds = %24, %13
   %28 = phi ptr [ %26, %24 ], [ null, %13 ]
   %29 = getelementptr inbounds %struct.ShaderInfo, ptr %28, i64 %22
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, inrange i32 0, i64 2), ptr %29, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10ShaderInfo, i64 0, i32 0, i64 2), ptr %29, align 8, !tbaa !58
   %30 = getelementptr inbounds i8, ptr %29, i64 8
   %31 = getelementptr inbounds i8, ptr %2, i64 8
   %32 = getelementptr inbounds i8, ptr %29, i64 24
@@ -12319,9 +12319,9 @@ define linkonce_odr dso_local void @_ZN14ShaderCallback14OnSetConstantsEPN3irr5v
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14ShaderCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !58
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !181
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12367,9 +12367,9 @@ define linkonce_odr dso_local void @_ZN14ShaderCallbackD1Ev(ptr noundef nonnull 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN14ShaderCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !58
   %2 = getelementptr inbounds i8, ptr %0, i64 32
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !58
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !181
   %5 = getelementptr inbounds i8, ptr %0, i64 16
@@ -12420,9 +12420,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N14ShaderCallbackD1Ev(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !58
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !58
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !181
   %9 = getelementptr inbounds i8, ptr %5, i64 16
@@ -12472,9 +12472,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N14ShaderCallbackD0Ev(ptr noundef 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !58
   %6 = getelementptr inbounds i8, ptr %5, i64 32
-  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !58
+  store ptr getelementptr inbounds ({ [7 x ptr], [5 x ptr] }, ptr @_ZTV14ShaderCallback, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !58
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !181
   %9 = getelementptr inbounds i8, ptr %5, i64 16

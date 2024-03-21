@@ -1406,7 +1406,7 @@ if.else:                                          ; preds = %land.lhs.true, %if.
   br i1 %tobool.not, label %if.else24, label %if.then16
 
 if.then16:                                        ; preds = %if.else
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %u16result, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %u16result, align 8
   store i16 2, ptr %fUnion2.i, align 8
   %call17 = invoke noundef signext i8 @_ZN6icu_7511ICU_Utility17escapeUnprintableERNS_13UnicodeStringEi(ptr noundef nonnull align 8 dereferenceable(64) %u16result, i32 noundef %cp.022)
           to label %invoke.cont unwind label %lpad
@@ -1609,7 +1609,7 @@ entry:
   %fLength.i = getelementptr inbounds i8, ptr %this, i64 12
   %2 = load i32, ptr %fLength.i, align 4
   %cond.i = select i1 %cmp.i.i, i32 %2, i32 %shr.i.i
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7514StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, inrange i32 0, i64 2), ptr %sbs, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7514StringByteSinkINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 0, i32 0, i64 2), ptr %sbs, align 8
   %dest_.i = getelementptr inbounds i8, ptr %sbs, i64 8
   store ptr %result, ptr %dest_.i, align 8
   %cmp.i = icmp sgt i32 %cond.i, 0

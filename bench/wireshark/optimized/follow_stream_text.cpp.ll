@@ -70,9 +70,9 @@ define void @_ZN16FollowStreamTextC2EP7QWidget(ptr noundef nonnull align 8 deref
   %3 = alloca %class.QFont, align 8
   %4 = alloca %class.QColor, align 4
   tail call void @_ZN14QPlainTextEditC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV16FollowStreamText, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV16FollowStreamText, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV16FollowStreamText, i64 0, inrange i32 1, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [64 x ptr], [10 x ptr] }, ptr @_ZTV16FollowStreamText, i64 0, i32 1, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 48

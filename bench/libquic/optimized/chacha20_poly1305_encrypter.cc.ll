@@ -19,7 +19,7 @@ define dso_local void @_ZN3net25ChaCha20Poly1305EncrypterC2Ev(ptr noundef nonnul
 entry:
   %call = tail call ptr @EVP_aead_chacha20_poly1305()
   tail call void @_ZN3net17AeadBaseEncrypterC2EPK11evp_aead_stmmm(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %call, i64 noundef 32, i64 noundef 12, i64 noundef 4)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net25ChaCha20Poly1305EncrypterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net25ChaCha20Poly1305EncrypterE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 

@@ -1607,7 +1607,7 @@ define void @_ZN17TrafficTypesModelC2EPP6_GListP7QObject(ptr noundef nonnull ali
   %27 = load ptr, ptr %4, align 8
   %28 = load ptr, ptr %6, align 8
   call void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %27, ptr noundef %28)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV17TrafficTypesModel, i32 0, inrange i32 0, i32 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV17TrafficTypesModel, i32 0, i32 0, i32 2), ptr %27, align 8
   %29 = getelementptr inbounds %class.TrafficTypesModel, ptr %27, i32 0, i32 3
   call void @_ZN5QListI19TrafficTypesRowDataEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %29) #13
   %30 = getelementptr inbounds %class.TrafficTypesModel, ptr %27, i32 0, i32 4
@@ -3224,7 +3224,7 @@ define void @_ZN20TrafficListSortModelC2EP7QObject(ptr noundef nonnull align 8 d
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN21QSortFilterProxyModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV20TrafficListSortModel, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr] }, ptr @_ZTV20TrafficListSortModel, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.TrafficListSortModel, ptr %5, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #13
   ret void
@@ -3581,9 +3581,9 @@ define void @_ZN16TrafficTypesListC2EP7QWidget(ptr noundef nonnull align 8 deref
   %8 = load ptr, ptr %3, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN9QTreeViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV16TrafficTypesList, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV16TrafficTypesList, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %8, i64 16
-  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV16TrafficTypesList, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [100 x ptr], [10 x ptr] }, ptr @_ZTV16TrafficTypesList, i32 0, i32 1, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %class.TrafficTypesList, ptr %8, i32 0, i32 1
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #13
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #13

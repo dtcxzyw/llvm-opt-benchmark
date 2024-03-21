@@ -1729,7 +1729,7 @@ entry:
   store ptr %flatc_version, ptr %flatc_version.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11flatbuffers17BaseBfbsGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %keywords_ = getelementptr inbounds %"class.flatbuffers::(anonymous namespace)::LuaBfbsGenerator", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %keywords_, i8 0, i64 56, i1 false)
   call void @_ZNSt13unordered_setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4hashIS5_ESt8equal_toIS5_ESaIS5_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %keywords_) #13
@@ -1926,7 +1926,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN11flatbuffers13CodeGeneratorC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #13
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN11flatbuffers17BaseBfbsGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN11flatbuffers17BaseBfbsGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %schema_ = getelementptr inbounds %"class.flatbuffers::BaseBfbsGenerator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %schema_, align 8
   ret void
@@ -2882,7 +2882,7 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp2) #13
   call void @_ZN11flatbuffers5Namer6ConfigD2Ev(ptr noundef nonnull align 8 dereferenceable(336) %agg.tmp) #13
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN11flatbuffers9BfbsNamerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN11flatbuffers9BfbsNamerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -2984,7 +2984,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN11flatbuffers12_GLOBAL__N_116LuaBfbsGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %namer_ = getelementptr inbounds %"class.flatbuffers::(anonymous namespace)::LuaBfbsGenerator", ptr %this1, i32 0, i32 7
   call void @_ZN11flatbuffers9BfbsNamerD2Ev(ptr noundef nonnull align 8 dereferenceable(392) %namer_) #13
   %flatc_version_ = getelementptr inbounds %"class.flatbuffers::(anonymous namespace)::LuaBfbsGenerator", ptr %this1, i32 0, i32 6
@@ -3274,7 +3274,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %status_detail = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail) #13
   ret void
@@ -3310,7 +3310,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN11flatbuffers13CodeGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %status_detail = getelementptr inbounds %"class.flatbuffers::CodeGenerator", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %status_detail) #13
   ret void
@@ -5701,7 +5701,7 @@ entry:
   store ptr %config, ptr %config.indirect_addr, align 8
   store ptr %keywords, ptr %keywords.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN11flatbuffers5NamerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN11flatbuffers5NamerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %config_ = getelementptr inbounds %"class.flatbuffers::Namer", ptr %this1, i32 0, i32 1
   call void @_ZN11flatbuffers5Namer6ConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(336) %config_, ptr noundef nonnull align 8 dereferenceable(336) %config)
   %keywords_ = getelementptr inbounds %"class.flatbuffers::Namer", ptr %this1, i32 0, i32 2
@@ -7394,7 +7394,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN11flatbuffers5NamerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN11flatbuffers5NamerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %keywords_ = getelementptr inbounds %"class.flatbuffers::Namer", ptr %this1, i32 0, i32 2
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %keywords_) #13
   %config_ = getelementptr inbounds %"class.flatbuffers::Namer", ptr %this1, i32 0, i32 1

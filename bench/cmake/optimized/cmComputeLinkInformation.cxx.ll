@@ -14391,7 +14391,7 @@ define dso_local void @_ZNK24cmComputeLinkInformation17FeatureDescriptor16GetDec
   %.v = select i1 %7, i64 104, i64 136
   %8 = getelementptr inbounds i8, ptr %1, i64 %.v
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i64 0, i32 0, i64 2), ptr %6, align 8
   %9 = getelementptr inbounds i8, ptr %6, i64 8
   store ptr %2, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %6, i64 16
@@ -14431,7 +14431,7 @@ define dso_local void @_ZNK24cmComputeLinkInformation17FeatureDescriptor16GetDec
   %.v = select i1 %9, i64 104, i64 136
   %10 = getelementptr inbounds i8, ptr %1, i64 %.v
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i64 0, i32 0, i64 2), ptr %8, align 8
   %11 = getelementptr inbounds i8, ptr %8, i64 8
   store ptr %2, ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %8, i64 16
@@ -21086,7 +21086,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
           to label %.noexc53 unwind label %333
 
 .noexc53:                                         ; preds = %216
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i64 0, inrange i32 0, i64 2), ptr %7, align 8, !noalias !773
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN12_GLOBAL__N_126FeaturePlaceHolderExpanderE, i64 0, i32 0, i64 2), ptr %7, align 8, !noalias !773
   %218 = getelementptr inbounds i8, ptr %7, i64 8
   store ptr %22, ptr %218, align 8, !noalias !773
   %219 = getelementptr inbounds i8, ptr %7, i64 16

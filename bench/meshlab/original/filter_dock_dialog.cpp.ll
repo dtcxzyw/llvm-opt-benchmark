@@ -5950,9 +5950,9 @@ define void @_ZN16FilterDockDialogC2ERK17RichParameterListP12FilterPluginPK7QAct
   %25 = getelementptr inbounds %class.QFlags, ptr %13, i32 0, i32 0
   %26 = load i32, ptr %25, align 4
   call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %24, i32 %26)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16FilterDockDialog, i32 0, inrange i32 0, i32 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16FilterDockDialog, i32 0, i32 0, i32 2), ptr %23, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16FilterDockDialog, i32 0, inrange i32 1, i32 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16FilterDockDialog, i32 0, i32 1, i32 2), ptr %27, align 8
   %28 = getelementptr inbounds %class.FilterDockDialog, ptr %23, i32 0, i32 1
   %29 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 152) #18
           to label %30 unwind label %112
@@ -10574,9 +10574,9 @@ define void @_ZN16FilterDockDialogD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16FilterDockDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16FilterDockDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16FilterDockDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV16FilterDockDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.FilterDockDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

@@ -3348,7 +3348,7 @@ define linkonce_odr dso_local void @_ZN5Catch10BinaryExprIiiEC2EbiNS_9StringRefE
   %16 = load i8, ptr %9, align 1
   %17 = trunc i8 %16 to i1
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %15, i1 noundef zeroext true, i1 noundef zeroext %17)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch10BinaryExprIiiEE, i32 0, i32 0, i32 2), ptr %15, align 8
   %18 = getelementptr inbounds %"class.Catch::BinaryExpr", ptr %15, i32 0, i32 2
   %19 = load i32, ptr %10, align 4
   store i32 %19, ptr %18, align 4
@@ -3371,7 +3371,7 @@ define linkonce_odr dso_local void @_ZN5Catch20ITransientExpressionC2Ebb(ptr nou
   %8 = zext i1 %2 to i8
   store i8 %8, ptr %6, align 1
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch20ITransientExpressionE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch20ITransientExpressionE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.Catch::ITransientExpression", ptr %9, i32 0, i32 1
   %11 = load i8, ptr %5, align 1
   %12 = trunc i8 %11 to i1
@@ -3511,7 +3511,7 @@ define linkonce_odr dso_local void @_ZN5Catch9MatchExprIRA1_jNS_8Matchers18Range
   %9 = load ptr, ptr %5, align 8
   %10 = call noundef zeroext i1 @_ZNK5Catch8Matchers18RangeEqualsMatcherIRA1_KjSt8equal_toIvEE5matchIRA1_jEEbOT_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(4) %9)
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %7, i1 noundef zeroext true, i1 noundef zeroext %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA1_jNS_8Matchers18RangeEqualsMatcherIRA1_KjSt8equal_toIvEEEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA1_jNS_8Matchers18RangeEqualsMatcherIRA1_KjSt8equal_toIvEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %11 = getelementptr inbounds %"class.Catch::MatchExpr", ptr %7, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   store ptr %12, ptr %11, align 8
@@ -3967,7 +3967,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers18RangeEqualsMatcherIRA1_K
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA1_KjSt8equal_toIvEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA1_KjSt8equal_toIvEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::Matchers::RangeEqualsMatcher", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -3980,7 +3980,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherGenericBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherGenericBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4037,7 +4037,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers18MatcherUntypedBaseC2Ev(p
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18MatcherUntypedBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Catch::Matchers::MatcherUntypedBase", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #10
   ret void
@@ -4082,7 +4082,7 @@ define linkonce_odr dso_local void @_ZN5Catch9MatchExprIRA2_jNS_8Matchers18Range
   %9 = load ptr, ptr %5, align 8
   %10 = call noundef zeroext i1 @_ZNK5Catch8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEE5matchIRA2_jEEbOT_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %7, i1 noundef zeroext true, i1 noundef zeroext %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA2_jNS_8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA2_jNS_8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %11 = getelementptr inbounds %"class.Catch::MatchExpr.0", ptr %7, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   store ptr %12, ptr %11, align 8
@@ -4340,7 +4340,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers18RangeEqualsMatcherIRA2_K
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA2_KjSt8equal_toIvEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::Matchers::RangeEqualsMatcher.1", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -4408,7 +4408,7 @@ define linkonce_odr dso_local void @_ZN5Catch9MatchExprIRA3_jNS_8Matchers18Range
   %9 = load ptr, ptr %5, align 8
   %10 = call noundef zeroext i1 @_ZNK5Catch8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEE5matchIRA3_jEEbOT_(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 4 dereferenceable(12) %9)
   call void @_ZN5Catch20ITransientExpressionC2Ebb(ptr noundef nonnull align 8 dereferenceable(10) %7, i1 noundef zeroext true, i1 noundef zeroext %10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA3_jNS_8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch9MatchExprIRA3_jNS_8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %11 = getelementptr inbounds %"class.Catch::MatchExpr.3", ptr %7, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   store ptr %12, ptr %11, align 8
@@ -4666,7 +4666,7 @@ define linkonce_odr dso_local void @_ZN5Catch8Matchers18RangeEqualsMatcherIRA3_K
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5Catch8Matchers18MatcherGenericBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5Catch8Matchers18RangeEqualsMatcherIRA3_KjSt8equal_toIvEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.Catch::Matchers::RangeEqualsMatcher.4", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8

@@ -1817,7 +1817,7 @@ entry:
   store ptr %pTestName, ptr %pTestName.addr, align 8
   store ptr %pReportFunction, ptr %pReportFunction.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pTestName.addr, align 8
   call void @_ZN5eastl9allocatorC2EPKc(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp, ptr noundef @.str.11)
@@ -1870,7 +1870,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest4TestE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %msTestName = getelementptr inbounds %"class.EA::UnitTest::Test", ptr %this1, i32 0, i32 1
   call void @_ZN5eastl12basic_stringIcNS_9allocatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %msTestName) #13
   ret void
@@ -2271,7 +2271,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %pTestName.addr, align 8
   call void @_ZN2EA8UnitTest4TestC2EPKcPFvS3_E(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef %0, ptr noundef null)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2EA8UnitTest12TestFunctionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mpFunction = getelementptr inbounds %"class.EA::UnitTest::TestFunction", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %pFunction.addr, align 8
   store ptr %1, ptr %mpFunction, align 8
@@ -2345,7 +2345,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mTests = getelementptr inbounds %"class.EA::UnitTest::TestCollection", ptr %this1, i32 0, i32 1
   call void @_ZN5eastl6vectorIN2EA8UnitTest14TestCollection8TestInfoENS_9allocatorEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mTests)
   ret void
@@ -2368,7 +2368,7 @@ entry:
   %ref.tmp = alloca %"class.eastl::reverse_iterator", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN2EA8UnitTest14TestCollectionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   br label %while.cond
 
 while.cond:                                       ; preds = %invoke.cont4, %entry
@@ -3487,9 +3487,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %mnTestResult = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 2
   store i32 -2147483647, ptr %mnTestResult, align 8
   %mResults = getelementptr inbounds %"class.EA::UnitTest::TestSuite", ptr %this1, i32 0, i32 3
@@ -3547,9 +3547,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest9TestSuiteE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %vtable = load ptr, ptr %this1, align 8
   %vfn = getelementptr inbounds ptr, ptr %vtable, i64 3
   %0 = load ptr, ptr %vfn, align 8
@@ -4519,9 +4519,9 @@ entry:
   %0 = load ptr, ptr %pTestApplicationName.addr, align 8
   %call = call noundef ptr @_ZN2EA6EAMain17GetReportFunctionEv()
   call void @_ZN2EA8UnitTest9TestSuiteC2EPKcPFvS3_E(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, ptr noundef %call)
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr], [10 x ptr] }, ptr @_ZTVN2EA8UnitTest15TestApplicationE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %mArgc = getelementptr inbounds %"class.EA::UnitTest::TestApplication", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %argc.addr, align 4
   store i32 %1, ptr %mArgc, align 8

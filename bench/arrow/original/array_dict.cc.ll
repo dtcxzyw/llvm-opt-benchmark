@@ -6705,7 +6705,7 @@ entry:
   store ptr %data, ptr %data.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow5ArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #18
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15DictionaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15DictionaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %dict_type_ = getelementptr inbounds %"class.arrow::DictionaryArray", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %data.addr, align 8
   %call = call noundef ptr @_ZNKSt19__shared_ptr_accessIN5arrow9ArrayDataELN9__gnu_cxx12_Lock_policyE2ELb0ELb0EEptEv(ptr noundef nonnull align 1 dereferenceable(1) %0) #18
@@ -6890,7 +6890,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.arrow::Array", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN5arrow9ArrayDataEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_) #18
   %null_bitmap_data_ = getelementptr inbounds %"class.arrow::Array", ptr %this1, i32 0, i32 2
@@ -7234,7 +7234,7 @@ entry:
   store ptr %dictionary, ptr %dictionary.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow5ArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #18
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15DictionaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15DictionaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %dict_type_ = getelementptr inbounds %"class.arrow::DictionaryArray", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %type.addr, align 8
   %call = call noundef ptr @_ZNKSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EE3getEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
@@ -12418,7 +12418,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15DictionaryArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow15DictionaryArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %dictionary_ = getelementptr inbounds %"class.arrow::DictionaryArray", ptr %this1, i32 0, i32 3
   call void @_ZNSt10shared_ptrIN5arrow5ArrayEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %dictionary_) #18
   %indices_ = getelementptr inbounds %"class.arrow::DictionaryArray", ptr %this1, i32 0, i32 2
@@ -12454,7 +12454,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow5ArrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.arrow::Array", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN5arrow9ArrayDataEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %data_) #18
   ret void
@@ -13069,7 +13069,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow9ArrayDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow9ArrayDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow9ArrayDataESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(104) %_M_impl) #18
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow9ArrayDataESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(120) %this1) #18
@@ -13253,7 +13253,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -18120,7 +18120,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   call void @_ZNSt19_Sp_counted_deleterIPN5arrow6BufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
@@ -20967,7 +20967,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_8Int8TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_8Int8TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder", ptr %this1, i32 0, i32 1
   invoke void @_ZN5arrow10TypeTraitsINS_8Int8TypeEE14type_singletonEv(ptr sret(%"class.std::shared_ptr.9") align 8 %type_)
           to label %invoke.cont unwind label %lpad
@@ -21188,7 +21188,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_8Int8TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_8Int8TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::NumericBuilder", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderIavED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %data_builder_) #18
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder", ptr %this1, i32 0, i32 1
@@ -22563,7 +22563,7 @@ entry:
   store ptr %pool, ptr %pool.addr, align 8
   store i64 %alignment, ptr %alignment.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -22618,7 +22618,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow12ArrayBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %children_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 7
   call void @_ZNSt6vectorISt10shared_ptrIN5arrow12ArrayBuilderEESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children_) #18
   %null_bitmap_builder_ = getelementptr inbounds %"class.arrow::ArrayBuilder", ptr %this1, i32 0, i32 3
@@ -25290,7 +25290,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter.226", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   call void @_ZNSt19_Sp_counted_deleterIPN5arrow15ResizableBufferESt14default_deleteIS1_ESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_S4_RKS5_(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl, ptr noundef %0, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #18
@@ -30805,7 +30805,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9UInt8TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9UInt8TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.253", ptr %this1, i32 0, i32 1
   invoke void @_ZN5arrow10TypeTraitsINS_9UInt8TypeEE14type_singletonEv(ptr sret(%"class.std::shared_ptr.9") align 8 %type_)
           to label %invoke.cont unwind label %lpad
@@ -30872,7 +30872,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9UInt8TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9UInt8TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::NumericBuilder.253", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderIhvED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %data_builder_) #18
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.253", ptr %this1, i32 0, i32 1
@@ -33066,7 +33066,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int16TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int16TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.256", ptr %this1, i32 0, i32 1
   invoke void @_ZN5arrow10TypeTraitsINS_9Int16TypeEE14type_singletonEv(ptr sret(%"class.std::shared_ptr.9") align 8 %type_)
           to label %invoke.cont unwind label %lpad
@@ -33133,7 +33133,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int16TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int16TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::NumericBuilder.256", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderIsvED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %data_builder_) #18
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.256", ptr %this1, i32 0, i32 1
@@ -35387,7 +35387,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt16TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt16TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.259", ptr %this1, i32 0, i32 1
   invoke void @_ZN5arrow10TypeTraitsINS_10UInt16TypeEE14type_singletonEv(ptr sret(%"class.std::shared_ptr.9") align 8 %type_)
           to label %invoke.cont unwind label %lpad
@@ -35454,7 +35454,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt16TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt16TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::NumericBuilder.259", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderItvED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %data_builder_) #18
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.259", ptr %this1, i32 0, i32 1
@@ -37703,7 +37703,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.262", ptr %this1, i32 0, i32 1
   invoke void @_ZN5arrow10TypeTraitsINS_9Int32TypeEE14type_singletonEv(ptr sret(%"class.std::shared_ptr.9") align 8 %type_)
           to label %invoke.cont unwind label %lpad
@@ -37770,7 +37770,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::NumericBuilder.262", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderIivED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %data_builder_) #18
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.262", ptr %this1, i32 0, i32 1
@@ -40019,7 +40019,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.265", ptr %this1, i32 0, i32 1
   invoke void @_ZN5arrow10TypeTraitsINS_10UInt32TypeEE14type_singletonEv(ptr sret(%"class.std::shared_ptr.9") align 8 %type_)
           to label %invoke.cont unwind label %lpad
@@ -40086,7 +40086,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::NumericBuilder.265", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderIjvED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %data_builder_) #18
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.265", ptr %this1, i32 0, i32 1
@@ -42329,7 +42329,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.268", ptr %this1, i32 0, i32 1
   invoke void @_ZN5arrow10TypeTraitsINS_9Int64TypeEE14type_singletonEv(ptr sret(%"class.std::shared_ptr.9") align 8 %type_)
           to label %invoke.cont unwind label %lpad
@@ -42396,7 +42396,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_9Int64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::NumericBuilder.268", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderIlvED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %data_builder_) #18
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.268", ptr %this1, i32 0, i32 1
@@ -44623,7 +44623,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.271", ptr %this1, i32 0, i32 1
   invoke void @_ZN5arrow10TypeTraitsINS_10UInt64TypeEE14type_singletonEv(ptr sret(%"class.std::shared_ptr.9") align 8 %type_)
           to label %invoke.cont unwind label %lpad
@@ -44690,7 +44690,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14NumericBuilderINS_10UInt64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::NumericBuilder.271", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderImvED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %data_builder_) #18
   %type_ = getelementptr inbounds %"class.arrow::NumericBuilder.271", ptr %this1, i32 0, i32 1
@@ -48701,7 +48701,7 @@ entry:
   store ptr %__args3, ptr %__args.addr4, align 8
   %this5 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this5) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15DictionaryArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15DictionaryArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this5, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.289", ptr %this5, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow15DictionaryArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(72) %_M_impl) #18
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow15DictionaryArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(88) %this5) #18
@@ -49451,7 +49451,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15DictionaryArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow15DictionaryArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.289", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow15DictionaryArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(72) %_M_impl) #18
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow15DictionaryArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(88) %this1) #18
@@ -51943,7 +51943,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -52011,7 +52011,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow17DictionaryUnifierE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow17DictionaryUnifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -52028,7 +52028,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index_to_value_ = getelementptr inbounds %"class.arrow::internal::SmallScalarMemoTable", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIbSaIbEEC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %index_to_value_) #18
   %value_to_index_ = getelementptr inbounds %"class.arrow::internal::SmallScalarMemoTable", ptr %this1, i32 0, i32 1
@@ -52073,7 +52073,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_11BooleanTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl", ptr %this1, i32 0, i32 2
@@ -52828,7 +52828,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal9MemoTableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal9MemoTableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -52880,7 +52880,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIbNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index_to_value_ = getelementptr inbounds %"class.arrow::internal::SmallScalarMemoTable", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %index_to_value_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -55926,7 +55926,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14BooleanBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow14BooleanBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::BooleanBuilder", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow18TypedBufferBuilderIbvED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %data_builder_) #18
   call void @_ZN5arrow12ArrayBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this1) #18
@@ -56142,7 +56142,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load i64, ptr %.addr, align 8
   call void @_ZN5arrow13NumericScalarINS_9Int64TypeEEC2El(ptr noundef nonnull align 8 dereferenceable(56) %this1, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow11Int64ScalarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -56188,7 +56188,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13NumericScalarINS_9Int64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow13NumericScalarINS_9Int64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -56272,7 +56272,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal15PrimitiveScalarINS_9Int64TypeElEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal15PrimitiveScalarINS_9Int64TypeElEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value2 = getelementptr inbounds %"struct.arrow::internal::PrimitiveScalar", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %value.addr, align 8
   store i64 %0, ptr %value2, align 8
@@ -56344,7 +56344,7 @@ entry:
   %2 = load i8, ptr %.addr, align 1
   %tobool = trunc i8 %2 to i1
   call void @_ZN5arrow6ScalarC2ESt10shared_ptrINS_8DataTypeEEb(ptr noundef nonnull align 8 dereferenceable(41) %this1, ptr noundef %0, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal19PrimitiveScalarBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5arrow8internal19PrimitiveScalarBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -56382,7 +56382,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZNSt23enable_shared_from_thisIN5arrow6ScalarEEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #18
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type2 = getelementptr inbounds %"struct.arrow::Scalar", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %type2, ptr noundef nonnull align 8 dereferenceable(16) %type) #18
   %is_valid3 = getelementptr inbounds %"struct.arrow::Scalar", ptr %this1, i32 0, i32 3
@@ -56429,7 +56429,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow6ScalarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type = getelementptr inbounds %"struct.arrow::Scalar", ptr %this1, i32 0, i32 2
   call void @_ZNSt10shared_ptrIN5arrow8DataTypeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %type) #18
   call void @_ZN5arrow4util18EqualityComparableINS_6ScalarEED2Ev(ptr noundef nonnull align 1 dereferenceable(1) %this1) #18
@@ -56753,7 +56753,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.303", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -56799,7 +56799,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index_to_value_ = getelementptr inbounds %"class.arrow::internal::SmallScalarMemoTable.304", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIaSaIaEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %index_to_value_) #18
   %value_to_index_ = getelementptr inbounds %"class.arrow::internal::SmallScalarMemoTable.304", ptr %this1, i32 0, i32 1
@@ -56844,7 +56844,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_8Int8TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.303", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.303", ptr %this1, i32 0, i32 2
@@ -57697,7 +57697,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIaNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index_to_value_ = getelementptr inbounds %"class.arrow::internal::SmallScalarMemoTable.304", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIaSaIaEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %index_to_value_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -59304,7 +59304,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.310", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -59350,7 +59350,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index_to_value_ = getelementptr inbounds %"class.arrow::internal::SmallScalarMemoTable.311", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIhSaIhEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %index_to_value_) #18
   %value_to_index_ = getelementptr inbounds %"class.arrow::internal::SmallScalarMemoTable.311", ptr %this1, i32 0, i32 1
@@ -59395,7 +59395,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9UInt8TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.310", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(1064) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.310", ptr %this1, i32 0, i32 2
@@ -60248,7 +60248,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal20SmallScalarMemoTableIhNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index_to_value_ = getelementptr inbounds %"class.arrow::internal::SmallScalarMemoTable.311", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %index_to_value_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -61841,7 +61841,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.323", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -61887,7 +61887,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -61923,7 +61923,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int16TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.323", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.323", ptr %this1, i32 0, i32 2
@@ -62763,7 +62763,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIsNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIsS1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -64559,7 +64559,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.337", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -64605,7 +64605,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.338", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -64641,7 +64641,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt16TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.337", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableItNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.337", ptr %this1, i32 0, i32 2
@@ -65478,7 +65478,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableItNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.338", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableItS1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -67193,7 +67193,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.354", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -67239,7 +67239,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.355", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -67275,7 +67275,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.354", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.354", ptr %this1, i32 0, i32 2
@@ -68112,7 +68112,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.355", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIiS1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -69825,7 +69825,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.371", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -69871,7 +69871,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.372", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -69907,7 +69907,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.371", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.371", ptr %this1, i32 0, i32 2
@@ -70744,7 +70744,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIjNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.372", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIjS1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -72457,7 +72457,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.388", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -72503,7 +72503,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.389", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -72539,7 +72539,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9Int64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.388", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.388", ptr %this1, i32 0, i32 2
@@ -73376,7 +73376,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.389", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIlS1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -75088,7 +75088,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.405", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -75134,7 +75134,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.406", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -75170,7 +75170,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10UInt64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.405", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableImNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.405", ptr %this1, i32 0, i32 2
@@ -76007,7 +76007,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableImNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.406", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableImS1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -77719,7 +77719,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.422", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -77758,7 +77758,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13HalfFloatTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.422", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableItNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.422", ptr %this1, i32 0, i32 2
@@ -78861,7 +78861,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.424", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -78907,7 +78907,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.425", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -78943,7 +78943,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_9FloatTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.424", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.424", ptr %this1, i32 0, i32 2
@@ -79780,7 +79780,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIfNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.425", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIfS1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -83330,7 +83330,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.441", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -83376,7 +83376,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.442", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -83412,7 +83412,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10DoubleTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.441", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.441", ptr %this1, i32 0, i32 2
@@ -84249,7 +84249,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableIdNS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.442", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableIdS1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -85985,7 +85985,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.458", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -86036,7 +86036,7 @@ entry:
   store i64 %values_size, ptr %values_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::BinaryMemoTable", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -86152,7 +86152,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10StringTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.458", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.458", ptr %this1, i32 0, i32 2
@@ -87014,7 +87014,7 @@ entry:
   %2 = load ptr, ptr %.addr, align 8
   %3 = load i64, ptr %.addr1, align 8
   call void @_ZN5arrow17BaseBinaryBuilderINS_10BinaryTypeEEC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(256) %this2, ptr noundef %2, i64 noundef %3)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow13BinaryBuilderE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow13BinaryBuilderE, i32 0, i32 0, i32 2), ptr %this2, align 8
   ret void
 }
 
@@ -87251,7 +87251,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %binary_builder_ = getelementptr inbounds %"class.arrow::internal::BinaryMemoTable", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow13BinaryBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %binary_builder_) #18
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::BinaryMemoTable", ptr %this1, i32 0, i32 1
@@ -87447,7 +87447,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_10BinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_10BinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %offsets_builder_ = getelementptr inbounds %"class.arrow::BaseBinaryBuilder", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %pool.addr, align 8
   %3 = load i64, ptr %alignment.addr, align 8
@@ -88508,7 +88508,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_10BinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_10BinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_data_builder_ = getelementptr inbounds %"class.arrow::BaseBinaryBuilder", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderIhvED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %value_data_builder_) #18
   %offsets_builder_ = getelementptr inbounds %"class.arrow::BaseBinaryBuilder", ptr %this1, i32 0, i32 1
@@ -91545,7 +91545,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.472", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -91584,7 +91584,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14StringViewTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.472", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.472", ptr %this1, i32 0, i32 2
@@ -92633,7 +92633,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_builder_ = getelementptr inbounds %"class.arrow::BinaryViewBuilder", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %pool.addr, align 8
   %3 = load i64, ptr %alignment.addr, align 8
@@ -92877,7 +92877,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BinaryViewBuilderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_heap_builder_ = getelementptr inbounds %"class.arrow::BinaryViewBuilder", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow8internal17StringHeapBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %data_heap_builder_) #18
   %data_builder_ = getelementptr inbounds %"class.arrow::BinaryViewBuilder", ptr %this1, i32 0, i32 1
@@ -93560,7 +93560,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.483", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -93599,7 +93599,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10BinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.483", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.483", ptr %this1, i32 0, i32 2
@@ -94777,7 +94777,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.484", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -94816,7 +94816,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14BinaryViewTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.484", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.484", ptr %this1, i32 0, i32 2
@@ -95938,7 +95938,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.486", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -95989,7 +95989,7 @@ entry:
   store i64 %values_size, ptr %values_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::BinaryMemoTable.487", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -96105,7 +96105,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeStringTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.486", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.486", ptr %this1, i32 0, i32 2
@@ -96967,7 +96967,7 @@ entry:
   %2 = load ptr, ptr %.addr, align 8
   %3 = load i64, ptr %.addr1, align 8
   call void @_ZN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEEC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(256) %this2, ptr noundef %2, i64 noundef %3)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow18LargeBinaryBuilderE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow18LargeBinaryBuilderE, i32 0, i32 0, i32 2), ptr %this2, align 8
   ret void
 }
 
@@ -97204,7 +97204,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %binary_builder_ = getelementptr inbounds %"class.arrow::internal::BinaryMemoTable.487", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18LargeBinaryBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %binary_builder_) #18
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::BinaryMemoTable.487", ptr %this1, i32 0, i32 1
@@ -97400,7 +97400,7 @@ entry:
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %alignment.addr, align 8
   call void @_ZN5arrow12ArrayBuilderC2EPNS_10MemoryPoolEl(ptr noundef nonnull align 8 dereferenceable(144) %this1, ptr noundef %0, i64 noundef %1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %offsets_builder_ = getelementptr inbounds %"class.arrow::BaseBinaryBuilder.490", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %pool.addr, align 8
   %3 = load i64, ptr %alignment.addr, align 8
@@ -98457,7 +98457,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5arrow17BaseBinaryBuilderINS_15LargeBinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %value_data_builder_ = getelementptr inbounds %"class.arrow::BaseBinaryBuilder.490", ptr %this1, i32 0, i32 2
   call void @_ZN5arrow18TypedBufferBuilderIhvED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %value_data_builder_) #18
   %offsets_builder_ = getelementptr inbounds %"class.arrow::BaseBinaryBuilder.490", ptr %this1, i32 0, i32 1
@@ -100767,7 +100767,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.504", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -100806,7 +100806,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_15LargeBinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.504", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.504", ptr %this1, i32 0, i32 2
@@ -101984,7 +101984,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.505", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -102023,7 +102023,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19FixedSizeBinaryTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.505", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.505", ptr %this1, i32 0, i32 2
@@ -103295,7 +103295,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.506", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -103334,7 +103334,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_12DurationTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.506", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.506", ptr %this1, i32 0, i32 2
@@ -104437,7 +104437,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.508", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -104476,7 +104476,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.508", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.508", ptr %this1, i32 0, i32 2
@@ -105579,7 +105579,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.510", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -105618,7 +105618,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Date64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.510", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.510", ptr %this1, i32 0, i32 2
@@ -106721,7 +106721,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.512", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -106760,7 +106760,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_13TimestampTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.512", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.512", ptr %this1, i32 0, i32 2
@@ -107863,7 +107863,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.514", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -107902,7 +107902,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time32TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.514", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.514", ptr %this1, i32 0, i32 2
@@ -109005,7 +109005,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.516", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -109044,7 +109044,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_10Time64TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.516", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIlNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.516", ptr %this1, i32 0, i32 2
@@ -110147,7 +110147,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.518", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -110193,7 +110193,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.519", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -110229,7 +110229,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_24MonthDayNanoIntervalTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.518", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.518", ptr %this1, i32 0, i32 2
@@ -111076,7 +111076,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosENS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.519", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableINS_24MonthDayNanoIntervalType13MonthDayNanosES1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -112824,7 +112824,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.534", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -112863,7 +112863,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_17MonthIntervalTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.534", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableIiNS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.534", ptr %this1, i32 0, i32 2
@@ -113966,7 +113966,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.536", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -114012,7 +114012,7 @@ entry:
   store i64 %entries, ptr %entries.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow8internal9MemoTableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.537", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   %1 = load i64, ptr %entries.addr, align 8
@@ -114048,7 +114048,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_19DayTimeIntervalTypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.536", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEED2Ev(ptr noundef nonnull align 8 dereferenceable(100) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.536", ptr %this1, i32 0, i32 2
@@ -114885,7 +114885,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5arrow8internal15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsENS0_9HashTableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hash_table_ = getelementptr inbounds %"class.arrow::internal::ScalarMemoTable.537", ptr %this1, i32 0, i32 1
   call void @_ZN5arrow8internal9HashTableINS0_15ScalarMemoTableINS_19DayTimeIntervalType15DayMillisecondsES1_E7PayloadEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %hash_table_) #18
   call void @_ZN5arrow8internal9MemoTableD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
@@ -116611,7 +116611,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.552", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -116650,7 +116650,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal128TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.552", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.552", ptr %this1, i32 0, i32 2
@@ -117759,7 +117759,7 @@ entry:
   store ptr %value_type, ptr %value_type.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow17DictionaryUnifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pool_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.553", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %pool.addr, align 8
   store ptr %0, ptr %pool_, align 8
@@ -117798,7 +117798,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5arrow12_GLOBAL__N_121DictionaryUnifierImplINS_14Decimal256TypeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %memo_table_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.553", ptr %this1, i32 0, i32 3
   call void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilderEED2Ev(ptr noundef nonnull align 8 dereferenceable(356) %memo_table_) #18
   %value_type_ = getelementptr inbounds %"class.arrow::(anonymous namespace)::DictionaryUnifierImpl.553", ptr %this1, i32 0, i32 2
@@ -119759,7 +119759,7 @@ entry:
   store ptr %__args1, ptr %__args.addr2, align 8
   %this3 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this3) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.558", ptr %this3, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(88) %_M_impl) #18
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow12ChunkedArrayESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(104) %this3) #18

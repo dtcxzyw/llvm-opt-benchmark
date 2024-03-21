@@ -46,7 +46,7 @@ entry:
   store ptr %io_thread_, ptr %io_thread_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3zmq13i_poll_eventsC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq11io_object_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq11io_object_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_poller = getelementptr inbounds %"class.zmq::io_object_t", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_poller, align 8
   %0 = load ptr, ptr %io_thread_.addr, align 8
@@ -88,7 +88,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq13i_poll_eventsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3zmq13i_poll_eventsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

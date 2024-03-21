@@ -595,7 +595,7 @@ define dso_local void @_ZN26GeneratorExpressionContentC2EPKcm(ptr noundef nonnul
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN30cmGeneratorExpressionEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV26GeneratorExpressionContent, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV26GeneratorExpressionContent, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %8) #3
   %9 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %7, i32 0, i32 2
@@ -614,7 +614,7 @@ define linkonce_odr dso_local void @_ZN30cmGeneratorExpressionEvaluatorC2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV30cmGeneratorExpressionEvaluator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV30cmGeneratorExpressionEvaluator, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -641,7 +641,7 @@ define dso_local void @_ZN26GeneratorExpressionContentD2Ev(ptr noundef nonnull a
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV26GeneratorExpressionContent, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV26GeneratorExpressionContent, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %struct.GeneratorExpressionContent, ptr %3, i32 0, i32 1

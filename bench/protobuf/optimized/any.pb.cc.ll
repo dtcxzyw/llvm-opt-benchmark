@@ -38,7 +38,7 @@ $_ZNK6google8protobuf3Any3NewEPNS0_5ArenaE = comdat any
 @__dso_handle = external hidden global i8
 @_ZTVN6google8protobuf3AnyE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf3AnyE, ptr @_ZN6google8protobuf3AnyD1Ev, ptr @_ZN6google8protobuf3AnyD0Ev, ptr @_ZNK6google8protobuf3Any3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf3Any5ClearEv, ptr @_ZNK6google8protobuf3Any13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf3Any12ByteSizeLongEv, ptr @_ZN6google8protobuf3Any14_InternalParseEPKcPNS0_8internal12ParseContextE, ptr @_ZNK6google8protobuf3Any12GetClassDataEv, ptr @_ZNK6google8protobuf3Any18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf3Any11GetMetadataEv] }, align 8
 @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E = external global %"class.google::protobuf::internal::ExplicitlyConstructed", align 8
-@_ZN6google8protobuf22_Any_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.0 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.0 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.0 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf3AnyE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.0 { %"struct.google::protobuf::Any::Impl_" { %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, %"class.google::protobuf::internal::CachedSize" zeroinitializer, %"class.google::protobuf::internal::AnyMetadata" { ptr getelementptr (i8, ptr @_ZN6google8protobuf22_Any_default_instance_E, i64 16), ptr getelementptr (i8, ptr @_ZN6google8protobuf22_Any_default_instance_E, i64 24) } } } } } }, align 8
+@_ZN6google8protobuf22_Any_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.0 } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.0 } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %union.anon.0 } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf3AnyE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %union.anon.0 { %"struct.google::protobuf::Any::Impl_" { %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, %"struct.google::protobuf::internal::ArenaStringPtr" { %"class.google::protobuf::internal::TaggedStringPtr" { ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E } }, %"class.google::protobuf::internal::CachedSize" zeroinitializer, %"class.google::protobuf::internal::AnyMetadata" { ptr getelementptr (i8, ptr @_ZN6google8protobuf22_Any_default_instance_E, i64 16), ptr getelementptr (i8, ptr @_ZN6google8protobuf22_Any_default_instance_E, i64 24) } } } } } }, align 8
 @_ZN43TableStruct_google_2fprotobuf_2fany_2eproto7offsetsE = constant [10 x i32] [i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 16, i32 24], section "protodesc_cold", align 16
 @_ZL57descriptor_table_protodef_google_2fprotobuf_2fany_2eproto = internal constant [213 x i8] c"\0A\19google/protobuf/any.proto\12\0Fgoogle.protobuf\22&\0A\03Any\12\10\0A\08type_url\18\01 \01(\09\12\0D\0A\05value\18\02 \01(\0CBv\0A\13com.google.protobufB\08AnyProtoP\01Z,google.golang.org/protobuf/types/known/anypb\A2\02\03GPB\AA\02\1EGoogle.Protobuf.WellKnownTypesb\06proto3\00", section "protodesc_cold", align 16
 @.str = private unnamed_addr constant [26 x i8] c"google/protobuf/any.proto\00", align 1
@@ -102,7 +102,7 @@ invoke.cont:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf3AnyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf3AnyE, i64 0, i32 0, i64 2), ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   store ptr @_ZN6google8protobuf8internal26fixed_address_empty_stringB5cxx11E, ptr %1, align 8
   %value_.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -124,7 +124,7 @@ entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = ptrtoint ptr %arena to i64
   store i64 %0, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf3AnyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf3AnyE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i22 = and i64 %1, 1

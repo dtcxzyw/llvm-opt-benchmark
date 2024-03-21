@@ -99,9 +99,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [29 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq22stream_listener_base_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq22stream_listener_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [29 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq22stream_listener_base_tE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq22stream_listener_base_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %_s = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this1, i32 0, i32 2
   store i32 -1, ptr %_s, align 8
   %_handle = getelementptr inbounds %"class.zmq::stream_listener_base_t", ptr %this1, i32 0, i32 3
@@ -149,9 +149,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [29 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq22stream_listener_base_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq22stream_listener_base_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1448
-  store ptr getelementptr inbounds ({ [29 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq22stream_listener_base_tE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq22stream_listener_base_tE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   br label %do.body
 
 do.body:                                          ; preds = %entry

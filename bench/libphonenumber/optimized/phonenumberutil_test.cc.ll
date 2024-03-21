@@ -177472,7 +177472,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -177490,7 +177490,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -177501,7 +177501,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_ContainsOnlyValidDigits_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_ContainsOnlyValidDigits_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -177575,7 +177575,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -177593,7 +177593,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -177604,7 +177604,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_InterchangeInvalidCodepoints_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_InterchangeInvalidCodepoints_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -177669,7 +177669,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -177687,7 +177687,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -177698,7 +177698,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_GetSupportedRegions_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_GetSupportedRegions_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -177752,7 +177752,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -177770,7 +177770,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -177781,7 +177781,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers62PhoneNumberUtilTest_GetSupportedGlobalNetworkCallingCodes_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers62PhoneNumberUtilTest_GetSupportedGlobalNetworkCallingCodes_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -177833,7 +177833,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -177851,7 +177851,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -177862,7 +177862,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers49PhoneNumberUtilTest_GetSupportedCallingCodes_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers49PhoneNumberUtilTest_GetSupportedCallingCodes_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -177894,7 +177894,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -177912,7 +177912,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -177923,7 +177923,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers51PhoneNumberUtilTest_GetSupportedTypesForRegion_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers51PhoneNumberUtilTest_GetSupportedTypesForRegion_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -177975,7 +177975,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -177993,7 +177993,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178004,7 +178004,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers57PhoneNumberUtilTest_GetSupportedTypesForNonGeoEntity_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers57PhoneNumberUtilTest_GetSupportedTypesForNonGeoEntity_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178036,7 +178036,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178054,7 +178054,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178065,7 +178065,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60PhoneNumberUtilTest_GetRegionCodesForCountryCallingCode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60PhoneNumberUtilTest_GetRegionCodesForCountryCallingCode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178097,7 +178097,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178115,7 +178115,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178126,7 +178126,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadUSMetadata_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadUSMetadata_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178164,7 +178164,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178182,7 +178182,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178193,7 +178193,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadDEMetadata_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadDEMetadata_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178229,7 +178229,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178247,7 +178247,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178258,7 +178258,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadARMetadata_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadARMetadata_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178290,7 +178290,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178308,7 +178308,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178319,7 +178319,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberUtilTest_GetInstanceLoadInternationalTollFreeMetadata_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberUtilTest_GetInstanceLoadInternationalTollFreeMetadata_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178353,7 +178353,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178371,7 +178371,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178382,7 +178382,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_GetNationalSignificantNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_GetNationalSignificantNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178414,7 +178414,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178432,7 +178432,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178443,7 +178443,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers70PhoneNumberUtilTest_GetNationalSignificantNumber_ManyLeadingZeros_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers70PhoneNumberUtilTest_GetNationalSignificantNumber_ManyLeadingZeros_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178475,7 +178475,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178493,7 +178493,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178504,7 +178504,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_GetExampleNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_GetExampleNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178536,7 +178536,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178554,7 +178554,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178565,7 +178565,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_GetInvalidExampleNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_GetInvalidExampleNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178597,7 +178597,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178615,7 +178615,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178626,7 +178626,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56PhoneNumberUtilTest_GetExampleNumberForNonGeoEntity_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56PhoneNumberUtilTest_GetExampleNumberForNonGeoEntity_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178658,7 +178658,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178676,7 +178676,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178687,7 +178687,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers54PhoneNumberUtilTest_GetExampleNumberWithoutRegion_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers54PhoneNumberUtilTest_GetExampleNumberWithoutRegion_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178719,7 +178719,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178737,7 +178737,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178748,7 +178748,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatUSNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatUSNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178841,7 +178841,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178859,7 +178859,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178870,7 +178870,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatBSNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatBSNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178902,7 +178902,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178920,7 +178920,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178931,7 +178931,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatGBNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatGBNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -178963,7 +178963,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -178981,7 +178981,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -178992,7 +178992,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatDENumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatDENumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179024,7 +179024,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179042,7 +179042,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179053,7 +179053,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatITNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatITNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179085,7 +179085,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179103,7 +179103,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179114,7 +179114,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatAUNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatAUNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179146,7 +179146,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179164,7 +179164,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179175,7 +179175,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatARNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatARNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179207,7 +179207,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179225,7 +179225,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179236,7 +179236,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatMXNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_FormatMXNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179268,7 +179268,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179286,7 +179286,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179297,7 +179297,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56PhoneNumberUtilTest_FormatOutOfCountryCallingNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56PhoneNumberUtilTest_FormatOutOfCountryCallingNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179329,7 +179329,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179347,7 +179347,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179358,7 +179358,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryWithInvalidRegion_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryWithInvalidRegion_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179390,7 +179390,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179408,7 +179408,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179419,7 +179419,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers66PhoneNumberUtilTest_FormatOutOfCountryWithPreferredIntlPrefix_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers66PhoneNumberUtilTest_FormatOutOfCountryWithPreferredIntlPrefix_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179451,7 +179451,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179469,7 +179469,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179480,7 +179480,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryKeepingAlphaChars_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryKeepingAlphaChars_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179512,7 +179512,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179530,7 +179530,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179541,7 +179541,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_FormatWithCarrierCode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_FormatWithCarrierCode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179573,7 +179573,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179591,7 +179591,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179602,7 +179602,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_FormatWithPreferredCarrierCode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_FormatWithPreferredCarrierCode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179634,7 +179634,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179652,7 +179652,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179663,7 +179663,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_FormatNumberForMobileDialing_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_FormatNumberForMobileDialing_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179695,7 +179695,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179713,7 +179713,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179724,7 +179724,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40PhoneNumberUtilTest_FormatByPattern_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40PhoneNumberUtilTest_FormatByPattern_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179756,7 +179756,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179774,7 +179774,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179785,7 +179785,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_FormatE164Number_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_FormatE164Number_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179817,7 +179817,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179835,7 +179835,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179846,7 +179846,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_FormatNumberWithExtension_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_FormatNumberWithExtension_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179878,7 +179878,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179896,7 +179896,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179907,7 +179907,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56PhoneNumberUtilTest_GetLengthOfGeographicalAreaCode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56PhoneNumberUtilTest_GetLengthOfGeographicalAreaCode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -179939,7 +179939,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -179957,7 +179957,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -179968,7 +179968,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers59PhoneNumberUtilTest_GetLengthOfNationalDestinationCode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers59PhoneNumberUtilTest_GetLengthOfNationalDestinationCode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180000,7 +180000,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180018,7 +180018,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180029,7 +180029,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_GetCountryMobileToken_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_GetCountryMobileToken_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180061,7 +180061,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180079,7 +180079,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180090,7 +180090,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_ExtractPossibleNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_ExtractPossibleNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180124,7 +180124,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180142,7 +180142,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180153,7 +180153,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_IsNANPACountry_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers39PhoneNumberUtilTest_IsNANPACountry_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180185,7 +180185,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180203,7 +180203,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180214,7 +180214,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38PhoneNumberUtilTest_IsValidNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38PhoneNumberUtilTest_IsValidNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180246,7 +180246,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180264,7 +180264,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180275,7 +180275,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_IsValidForRegion_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_IsValidForRegion_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180307,7 +180307,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180325,7 +180325,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180336,7 +180336,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_IsNotValidNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_IsNotValidNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180368,7 +180368,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180386,7 +180386,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180397,7 +180397,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers52PhoneNumberUtilTest_GetRegionCodeForCountryCode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers52PhoneNumberUtilTest_GetRegionCodeForCountryCode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180429,7 +180429,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180447,7 +180447,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180458,7 +180458,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers47PhoneNumberUtilTest_GetRegionCodeForNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers47PhoneNumberUtilTest_GetRegionCodeForNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180490,7 +180490,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180508,7 +180508,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180519,7 +180519,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_IsPossibleNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_IsPossibleNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180551,7 +180551,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180569,7 +180569,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180580,7 +180580,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberUtilTest_IsPossibleNumberForType_DifferentTypeLengths_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberUtilTest_IsPossibleNumberForType_DifferentTypeLengths_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180612,7 +180612,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180630,7 +180630,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180641,7 +180641,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers58PhoneNumberUtilTest_IsPossibleNumberForType_LocalOnly_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers58PhoneNumberUtilTest_IsPossibleNumberForType_LocalOnly_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180673,7 +180673,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180691,7 +180691,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180702,7 +180702,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers74PhoneNumberUtilTest_IsPossibleNumberForType_DataMissingForSizeReasons_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers74PhoneNumberUtilTest_IsPossibleNumberForType_DataMissingForSizeReasons_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180734,7 +180734,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180752,7 +180752,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180763,7 +180763,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers80PhoneNumberUtilTest_IsPossibleNumberForType_NumberTypeNotSupportedForRegion_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers80PhoneNumberUtilTest_IsPossibleNumberForType_NumberTypeNotSupportedForRegion_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180795,7 +180795,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180813,7 +180813,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180824,7 +180824,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers51PhoneNumberUtilTest_IsPossibleNumberWithReason_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers51PhoneNumberUtilTest_IsPossibleNumberWithReason_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180856,7 +180856,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180874,7 +180874,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180885,7 +180885,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers79PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DifferentTypeLengths_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers79PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DifferentTypeLengths_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180917,7 +180917,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180935,7 +180935,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -180946,7 +180946,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers68PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_LocalOnly_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers68PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_LocalOnly_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -180978,7 +180978,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -180996,7 +180996,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181007,7 +181007,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers84PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DataMissingForSizeReasons_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers84PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DataMissingForSizeReasons_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181039,7 +181039,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181057,7 +181057,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181068,7 +181068,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers90PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_NumberTypeNotSupportedForRegion_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers90PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_NumberTypeNotSupportedForRegion_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181100,7 +181100,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181118,7 +181118,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181129,7 +181129,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers76PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_FixedLineOrMobile_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers76PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_FixedLineOrMobile_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181161,7 +181161,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181179,7 +181179,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181190,7 +181190,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_IsNotPossibleNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_IsNotPossibleNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181222,7 +181222,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181240,7 +181240,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181251,7 +181251,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_TruncateTooLongNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_TruncateTooLongNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181283,7 +181283,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181301,7 +181301,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181312,7 +181312,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberGeographical_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberGeographical_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181344,7 +181344,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181362,7 +181362,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181373,7 +181373,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers47PhoneNumberUtilTest_FormatInOriginalFormat_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers47PhoneNumberUtilTest_FormatInOriginalFormat_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181405,7 +181405,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181423,7 +181423,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181434,7 +181434,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38PhoneNumberUtilTest_IsPremiumRate_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38PhoneNumberUtilTest_IsPremiumRate_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181466,7 +181466,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181484,7 +181484,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181495,7 +181495,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35PhoneNumberUtilTest_IsTollFree_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers35PhoneNumberUtilTest_IsTollFree_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181527,7 +181527,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181545,7 +181545,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181556,7 +181556,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers33PhoneNumberUtilTest_IsMobile_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers33PhoneNumberUtilTest_IsMobile_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181588,7 +181588,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181606,7 +181606,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181617,7 +181617,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers36PhoneNumberUtilTest_IsFixedLine_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers36PhoneNumberUtilTest_IsFixedLine_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181649,7 +181649,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181667,7 +181667,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181678,7 +181678,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_IsFixedLineAndMobile_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_IsFixedLineAndMobile_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181710,7 +181710,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181728,7 +181728,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181739,7 +181739,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers37PhoneNumberUtilTest_IsSharedCost_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers37PhoneNumberUtilTest_IsSharedCost_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181771,7 +181771,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181789,7 +181789,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181800,7 +181800,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers31PhoneNumberUtilTest_IsVoip_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers31PhoneNumberUtilTest_IsVoip_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181832,7 +181832,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181850,7 +181850,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181861,7 +181861,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_IsPersonalNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers41PhoneNumberUtilTest_IsPersonalNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181893,7 +181893,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181911,7 +181911,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181922,7 +181922,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34PhoneNumberUtilTest_IsUnknown_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers34PhoneNumberUtilTest_IsUnknown_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -181954,7 +181954,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -181972,7 +181972,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -181983,7 +181983,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_GetCountryCodeForRegion_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_GetCountryCodeForRegion_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182015,7 +182015,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182033,7 +182033,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182044,7 +182044,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers59PhoneNumberUtilTest_GetNationalDiallingPrefixForRegion_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers59PhoneNumberUtilTest_GetNationalDiallingPrefixForRegion_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182076,7 +182076,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182094,7 +182094,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182105,7 +182105,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_IsViablePhoneNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_IsViablePhoneNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182137,7 +182137,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182155,7 +182155,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182166,7 +182166,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers52PhoneNumberUtilTest_IsViablePhoneNumberNonAscii_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers52PhoneNumberUtilTest_IsViablePhoneNumberNonAscii_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182198,7 +182198,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182216,7 +182216,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182227,7 +182227,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_ConvertAlphaCharactersInNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_ConvertAlphaCharactersInNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182259,7 +182259,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182277,7 +182277,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182288,7 +182288,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers51PhoneNumberUtilTest_NormaliseRemovePunctuation_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers51PhoneNumberUtilTest_NormaliseRemovePunctuation_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182322,7 +182322,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182340,7 +182340,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182351,7 +182351,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56PhoneNumberUtilTest_NormaliseReplaceAlphaCharacters_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers56PhoneNumberUtilTest_NormaliseReplaceAlphaCharacters_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182383,7 +182383,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182401,7 +182401,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182412,7 +182412,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_NormaliseOtherDigits_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_NormaliseOtherDigits_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182444,7 +182444,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182462,7 +182462,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182473,7 +182473,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers54PhoneNumberUtilTest_NormaliseStripAlphaCharacters_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers54PhoneNumberUtilTest_NormaliseStripAlphaCharacters_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182505,7 +182505,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182523,7 +182523,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182534,7 +182534,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers61PhoneNumberUtilTest_NormaliseStripNonDiallableCharacters_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers61PhoneNumberUtilTest_NormaliseStripNonDiallableCharacters_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182566,7 +182566,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182584,7 +182584,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182595,7 +182595,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers54PhoneNumberUtilTest_MaybeStripInternationalPrefix_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers54PhoneNumberUtilTest_MaybeStripInternationalPrefix_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182629,7 +182629,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182647,7 +182647,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182658,7 +182658,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63PhoneNumberUtilTest_MaybeStripNationalPrefixAndCarrierCode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers63PhoneNumberUtilTest_MaybeStripNationalPrefixAndCarrierCode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182696,7 +182696,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182714,7 +182714,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182725,7 +182725,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_MaybeStripExtension_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_MaybeStripExtension_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182759,7 +182759,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182777,7 +182777,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182788,7 +182788,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_MaybeExtractCountryCode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_MaybeExtractCountryCode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182822,7 +182822,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182840,7 +182840,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182851,7 +182851,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_CountryWithNoNumberDesc_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_CountryWithNoNumberDesc_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182883,7 +182883,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182901,7 +182901,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182912,7 +182912,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_UnknownCountryCallingCode_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers50PhoneNumberUtilTest_UnknownCountryCallingCode_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -182944,7 +182944,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -182962,7 +182962,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -182973,7 +182973,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberMatchMatches_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberMatchMatches_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183005,7 +183005,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183023,7 +183023,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183034,7 +183034,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberUtilTest_IsNumberMatchShortMatchIfDiffNumLeadingZeros_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers69PhoneNumberUtilTest_IsNumberMatchShortMatchIfDiffNumLeadingZeros_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183066,7 +183066,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183084,7 +183084,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183095,7 +183095,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers65PhoneNumberUtilTest_IsNumberMatchAcceptsProtoDefaultsAsMatch_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers65PhoneNumberUtilTest_IsNumberMatchAcceptsProtoDefaultsAsMatch_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183127,7 +183127,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183145,7 +183145,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183156,7 +183156,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers86PhoneNumberUtilTest_IsNumberMatchMatchesDiffLeadingZerosIfItalianLeadingZeroFalse_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers86PhoneNumberUtilTest_IsNumberMatchMatchesDiffLeadingZerosIfItalianLeadingZeroFalse_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183188,7 +183188,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183206,7 +183206,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183217,7 +183217,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_IsNumberMatchIgnoresSomeFields_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_IsNumberMatchIgnoresSomeFields_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183249,7 +183249,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183267,7 +183267,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183278,7 +183278,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNonMatches_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNonMatches_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183310,7 +183310,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183328,7 +183328,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183339,7 +183339,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNsnMatches_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNsnMatches_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183371,7 +183371,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183389,7 +183389,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183400,7 +183400,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_IsNumberMatchShortNsnMatches_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_IsNumberMatchShortNsnMatches_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183432,7 +183432,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183450,7 +183450,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183461,7 +183461,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_ParseNationalNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers44PhoneNumberUtilTest_ParseNationalNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183493,7 +183493,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183511,7 +183511,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183522,7 +183522,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_ParseNumberWithAlphaCharacters_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_ParseNumberWithAlphaCharacters_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183554,7 +183554,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183572,7 +183572,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183583,7 +183583,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_ParseWithInternationalPrefixes_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers55PhoneNumberUtilTest_ParseWithInternationalPrefixes_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183615,7 +183615,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183633,7 +183633,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183644,7 +183644,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_ParseWithLeadingZero_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers45PhoneNumberUtilTest_ParseWithLeadingZero_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183676,7 +183676,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183694,7 +183694,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183705,7 +183705,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_ParseNationalNumberArgentina_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers53PhoneNumberUtilTest_ParseNationalNumberArgentina_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183737,7 +183737,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183755,7 +183755,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183766,7 +183766,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43PhoneNumberUtilTest_ParseWithXInNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43PhoneNumberUtilTest_ParseWithXInNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183798,7 +183798,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183816,7 +183816,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183827,7 +183827,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43PhoneNumberUtilTest_ParseNumbersMexico_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers43PhoneNumberUtilTest_ParseNumbersMexico_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183859,7 +183859,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183877,7 +183877,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183888,7 +183888,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers52PhoneNumberUtilTest_FailedParseOnInvalidNumbers_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers52PhoneNumberUtilTest_FailedParseOnInvalidNumbers_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183920,7 +183920,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183938,7 +183938,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -183949,7 +183949,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers57PhoneNumberUtilTest_ParseNumbersWithPlusWithNoRegion_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers57PhoneNumberUtilTest_ParseNumbersWithPlusWithNoRegion_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -183981,7 +183981,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -183999,7 +183999,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184010,7 +184010,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers68PhoneNumberUtilTest_ParseNumberTooShortIfNationalPrefixStripped_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers68PhoneNumberUtilTest_ParseNumberTooShortIfNationalPrefixStripped_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184042,7 +184042,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184060,7 +184060,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184071,7 +184071,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40PhoneNumberUtilTest_ParseExtensions_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40PhoneNumberUtilTest_ParseExtensions_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184103,7 +184103,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184121,7 +184121,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184132,7 +184132,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithExplicitLabels_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithExplicitLabels_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184164,7 +184164,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184182,7 +184182,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184193,7 +184193,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers77PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithAutoDiallingLabels_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers77PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithAutoDiallingLabels_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184225,7 +184225,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184243,7 +184243,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184254,7 +184254,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesShortExtensionsWithAmbiguousChar_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesShortExtensionsWithAmbiguousChar_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184286,7 +184286,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184304,7 +184304,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184315,7 +184315,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers74PhoneNumberUtilTest_TestParseHandlesShortExtensionsWhenNotSureOfLabel_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers74PhoneNumberUtilTest_TestParseHandlesShortExtensionsWhenNotSureOfLabel_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184347,7 +184347,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184365,7 +184365,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184376,7 +184376,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40PhoneNumberUtilTest_ParseAndKeepRaw_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers40PhoneNumberUtilTest_ParseAndKeepRaw_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184408,7 +184408,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184426,7 +184426,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184437,7 +184437,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers49PhoneNumberUtilTest_ParseItalianLeadingZeros_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers49PhoneNumberUtilTest_ParseItalianLeadingZeros_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184469,7 +184469,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184487,7 +184487,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184498,7 +184498,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_ParseWithPhoneContext_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers46PhoneNumberUtilTest_ParseWithPhoneContext_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184530,7 +184530,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184548,7 +184548,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184559,7 +184559,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers52PhoneNumberUtilTest_CanBeInternationallyDialled_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers52PhoneNumberUtilTest_CanBeInternationallyDialled_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -184591,7 +184591,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
           to label %.noexc unwind label %14
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers19PhoneNumberUtilTestE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = invoke noundef ptr @_ZN4i18n12phonenumbers15PhoneNumberUtil11GetInstanceEv()
           to label %4 unwind label %11
 
@@ -184609,7 +184609,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   %10 = getelementptr inbounds i8, ptr %8, i64 8
   store i32 2, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4i18n12phonenumbers12StdoutLoggerE, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_ZN4i18n12phonenumbers15PhoneNumberUtil9SetLoggerEPNS0_6LoggerE(ptr noundef nonnull align 8 dereferenceable(64) %6, ptr noundef nonnull %8)
           to label %13 unwind label %11
 
@@ -184620,7 +184620,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7testing8internal15TestFactoryImpl
   br label %.body
 
 13:                                               ; preds = %9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38PhoneNumberUtilTest_IsAlphaNumber_TestE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN4i18n12phonenumbers38PhoneNumberUtilTest_IsAlphaNumber_TestE, i64 0, i32 0, i64 2), ptr %2, align 8
   ret ptr %2
 
 14:                                               ; preds = %1
@@ -192757,7 +192757,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
           to label %354 unwind label %360
 
 354:                                              ; preds = %352
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_ContainsOnlyValidDigits_TestEEE, i64 0, inrange i32 0, i64 2), ptr %353, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_ContainsOnlyValidDigits_TestEEE, i64 0, i32 0, i64 2), ptr %353, align 8
   %355 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.2, ptr noundef null, ptr noundef null, ptr noundef nonnull %340, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %349, ptr noundef %351, ptr noundef nonnull %353)
           to label %__cxx_global_var_init.1.exit unwind label %360
 
@@ -192836,7 +192836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i4: ;
           to label %373 unwind label %379
 
 373:                                              ; preds = %371
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_InterchangeInvalidCodepoints_TestEEE, i64 0, inrange i32 0, i64 2), ptr %372, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_InterchangeInvalidCodepoints_TestEEE, i64 0, i32 0, i64 2), ptr %372, align 8
   %374 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.19, ptr noundef null, ptr noundef null, ptr noundef nonnull %337, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %368, ptr noundef %370, ptr noundef nonnull %372)
           to label %__cxx_global_var_init.18.exit unwind label %379
 
@@ -192909,7 +192909,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i9: ;
           to label %392 unwind label %398
 
 392:                                              ; preds = %390
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_GetSupportedRegions_TestEEE, i64 0, inrange i32 0, i64 2), ptr %391, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_GetSupportedRegions_TestEEE, i64 0, i32 0, i64 2), ptr %391, align 8
   %393 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.32, ptr noundef null, ptr noundef null, ptr noundef nonnull %334, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %387, ptr noundef %389, ptr noundef nonnull %391)
           to label %__cxx_global_var_init.31.exit unwind label %398
 
@@ -192982,7 +192982,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i15: 
           to label %411 unwind label %417
 
 411:                                              ; preds = %409
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers62PhoneNumberUtilTest_GetSupportedGlobalNetworkCallingCodes_TestEEE, i64 0, inrange i32 0, i64 2), ptr %410, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers62PhoneNumberUtilTest_GetSupportedGlobalNetworkCallingCodes_TestEEE, i64 0, i32 0, i64 2), ptr %410, align 8
   %412 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.36, ptr noundef null, ptr noundef null, ptr noundef nonnull %331, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %406, ptr noundef %408, ptr noundef nonnull %410)
           to label %__cxx_global_var_init.35.exit unwind label %417
 
@@ -193055,7 +193055,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i21: 
           to label %430 unwind label %436
 
 430:                                              ; preds = %428
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49PhoneNumberUtilTest_GetSupportedCallingCodes_TestEEE, i64 0, inrange i32 0, i64 2), ptr %429, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49PhoneNumberUtilTest_GetSupportedCallingCodes_TestEEE, i64 0, i32 0, i64 2), ptr %429, align 8
   %431 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.43, ptr noundef null, ptr noundef null, ptr noundef nonnull %328, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %425, ptr noundef %427, ptr noundef nonnull %429)
           to label %__cxx_global_var_init.42.exit unwind label %436
 
@@ -193128,7 +193128,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i27: 
           to label %449 unwind label %455
 
 449:                                              ; preds = %447
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers51PhoneNumberUtilTest_GetSupportedTypesForRegion_TestEEE, i64 0, inrange i32 0, i64 2), ptr %448, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers51PhoneNumberUtilTest_GetSupportedTypesForRegion_TestEEE, i64 0, i32 0, i64 2), ptr %448, align 8
   %450 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.49, ptr noundef null, ptr noundef null, ptr noundef nonnull %325, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %444, ptr noundef %446, ptr noundef nonnull %448)
           to label %__cxx_global_var_init.48.exit unwind label %455
 
@@ -193201,7 +193201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i33: 
           to label %468 unwind label %474
 
 468:                                              ; preds = %466
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers57PhoneNumberUtilTest_GetSupportedTypesForNonGeoEntity_TestEEE, i64 0, inrange i32 0, i64 2), ptr %467, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers57PhoneNumberUtilTest_GetSupportedTypesForNonGeoEntity_TestEEE, i64 0, i32 0, i64 2), ptr %467, align 8
   %469 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.58, ptr noundef null, ptr noundef null, ptr noundef nonnull %322, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %463, ptr noundef %465, ptr noundef nonnull %467)
           to label %__cxx_global_var_init.57.exit unwind label %474
 
@@ -193274,7 +193274,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i39: 
           to label %487 unwind label %493
 
 487:                                              ; preds = %485
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60PhoneNumberUtilTest_GetRegionCodesForCountryCallingCode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %486, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60PhoneNumberUtilTest_GetRegionCodesForCountryCallingCode_TestEEE, i64 0, i32 0, i64 2), ptr %486, align 8
   %488 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.61, ptr noundef null, ptr noundef null, ptr noundef nonnull %319, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %482, ptr noundef %484, ptr noundef nonnull %486)
           to label %__cxx_global_var_init.60.exit unwind label %493
 
@@ -193347,7 +193347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i45: 
           to label %506 unwind label %512
 
 506:                                              ; preds = %504
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadUSMetadata_TestEEE, i64 0, inrange i32 0, i64 2), ptr %505, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadUSMetadata_TestEEE, i64 0, i32 0, i64 2), ptr %505, align 8
   %507 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.69, ptr noundef null, ptr noundef null, ptr noundef nonnull %316, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %501, ptr noundef %503, ptr noundef nonnull %505)
           to label %__cxx_global_var_init.68.exit unwind label %512
 
@@ -193420,7 +193420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i51: 
           to label %525 unwind label %531
 
 525:                                              ; preds = %523
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadDEMetadata_TestEEE, i64 0, inrange i32 0, i64 2), ptr %524, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadDEMetadata_TestEEE, i64 0, i32 0, i64 2), ptr %524, align 8
   %526 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.99, ptr noundef null, ptr noundef null, ptr noundef nonnull %313, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %520, ptr noundef %522, ptr noundef nonnull %524)
           to label %__cxx_global_var_init.98.exit unwind label %531
 
@@ -193493,7 +193493,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i57: 
           to label %544 unwind label %550
 
 544:                                              ; preds = %542
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadARMetadata_TestEEE, i64 0, inrange i32 0, i64 2), ptr %543, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_GetInstanceLoadARMetadata_TestEEE, i64 0, i32 0, i64 2), ptr %543, align 8
   %545 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.129, ptr noundef null, ptr noundef null, ptr noundef nonnull %310, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %539, ptr noundef %541, ptr noundef nonnull %543)
           to label %__cxx_global_var_init.128.exit unwind label %550
 
@@ -193566,7 +193566,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i63: 
           to label %563 unwind label %569
 
 563:                                              ; preds = %561
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberUtilTest_GetInstanceLoadInternationalTollFreeMetadata_TestEEE, i64 0, inrange i32 0, i64 2), ptr %562, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberUtilTest_GetInstanceLoadInternationalTollFreeMetadata_TestEEE, i64 0, i32 0, i64 2), ptr %562, align 8
   %564 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.151, ptr noundef null, ptr noundef null, ptr noundef nonnull %307, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %558, ptr noundef %560, ptr noundef nonnull %562)
           to label %__cxx_global_var_init.150.exit unwind label %569
 
@@ -193639,7 +193639,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i69: 
           to label %582 unwind label %588
 
 582:                                              ; preds = %580
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_GetNationalSignificantNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %581, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_GetNationalSignificantNumber_TestEEE, i64 0, i32 0, i64 2), ptr %581, align 8
   %583 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.166, ptr noundef null, ptr noundef null, ptr noundef nonnull %304, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %577, ptr noundef %579, ptr noundef nonnull %581)
           to label %__cxx_global_var_init.165.exit unwind label %588
 
@@ -193712,7 +193712,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i75: 
           to label %601 unwind label %607
 
 601:                                              ; preds = %599
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers70PhoneNumberUtilTest_GetNationalSignificantNumber_ManyLeadingZeros_TestEEE, i64 0, inrange i32 0, i64 2), ptr %600, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers70PhoneNumberUtilTest_GetNationalSignificantNumber_ManyLeadingZeros_TestEEE, i64 0, i32 0, i64 2), ptr %600, align 8
   %602 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.175, ptr noundef null, ptr noundef null, ptr noundef nonnull %301, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %596, ptr noundef %598, ptr noundef nonnull %600)
           to label %__cxx_global_var_init.174.exit unwind label %607
 
@@ -193785,7 +193785,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i81: 
           to label %620 unwind label %626
 
 620:                                              ; preds = %618
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_GetExampleNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %619, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_GetExampleNumber_TestEEE, i64 0, i32 0, i64 2), ptr %619, align 8
   %621 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.181, ptr noundef null, ptr noundef null, ptr noundef nonnull %298, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %615, ptr noundef %617, ptr noundef nonnull %619)
           to label %__cxx_global_var_init.180.exit unwind label %626
 
@@ -193858,7 +193858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i87: 
           to label %639 unwind label %645
 
 639:                                              ; preds = %637
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_GetInvalidExampleNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %638, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_GetInvalidExampleNumber_TestEEE, i64 0, i32 0, i64 2), ptr %638, align 8
   %640 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.189, ptr noundef null, ptr noundef null, ptr noundef nonnull %295, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %634, ptr noundef %636, ptr noundef nonnull %638)
           to label %__cxx_global_var_init.188.exit unwind label %645
 
@@ -193931,7 +193931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i93: 
           to label %658 unwind label %664
 
 658:                                              ; preds = %656
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56PhoneNumberUtilTest_GetExampleNumberForNonGeoEntity_TestEEE, i64 0, inrange i32 0, i64 2), ptr %657, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56PhoneNumberUtilTest_GetExampleNumberForNonGeoEntity_TestEEE, i64 0, i32 0, i64 2), ptr %657, align 8
   %659 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.196, ptr noundef null, ptr noundef null, ptr noundef nonnull %292, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %653, ptr noundef %655, ptr noundef nonnull %657)
           to label %__cxx_global_var_init.195.exit unwind label %664
 
@@ -194004,7 +194004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i99: 
           to label %677 unwind label %683
 
 677:                                              ; preds = %675
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54PhoneNumberUtilTest_GetExampleNumberWithoutRegion_TestEEE, i64 0, inrange i32 0, i64 2), ptr %676, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54PhoneNumberUtilTest_GetExampleNumberWithoutRegion_TestEEE, i64 0, i32 0, i64 2), ptr %676, align 8
   %678 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.200, ptr noundef null, ptr noundef null, ptr noundef nonnull %289, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %672, ptr noundef %674, ptr noundef nonnull %676)
           to label %__cxx_global_var_init.199.exit unwind label %683
 
@@ -194077,7 +194077,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i105:
           to label %696 unwind label %702
 
 696:                                              ; preds = %694
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatUSNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %695, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatUSNumber_TestEEE, i64 0, i32 0, i64 2), ptr %695, align 8
   %697 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.202, ptr noundef null, ptr noundef null, ptr noundef nonnull %286, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %691, ptr noundef %693, ptr noundef nonnull %695)
           to label %__cxx_global_var_init.201.exit unwind label %702
 
@@ -194150,7 +194150,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i111:
           to label %715 unwind label %721
 
 715:                                              ; preds = %713
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatBSNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %714, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatBSNumber_TestEEE, i64 0, i32 0, i64 2), ptr %714, align 8
   %716 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.221, ptr noundef null, ptr noundef null, ptr noundef nonnull %283, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %710, ptr noundef %712, ptr noundef nonnull %714)
           to label %__cxx_global_var_init.220.exit unwind label %721
 
@@ -194223,7 +194223,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i117:
           to label %734 unwind label %740
 
 734:                                              ; preds = %732
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatGBNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %733, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatGBNumber_TestEEE, i64 0, i32 0, i64 2), ptr %733, align 8
   %735 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.227, ptr noundef null, ptr noundef null, ptr noundef nonnull %280, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %729, ptr noundef %731, ptr noundef nonnull %733)
           to label %__cxx_global_var_init.226.exit unwind label %740
 
@@ -194296,7 +194296,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i123:
           to label %753 unwind label %759
 
 753:                                              ; preds = %751
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatDENumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %752, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatDENumber_TestEEE, i64 0, i32 0, i64 2), ptr %752, align 8
   %754 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.237, ptr noundef null, ptr noundef null, ptr noundef nonnull %277, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %748, ptr noundef %750, ptr noundef nonnull %752)
           to label %__cxx_global_var_init.236.exit unwind label %759
 
@@ -194369,7 +194369,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i129:
           to label %772 unwind label %778
 
 772:                                              ; preds = %770
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatITNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %771, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatITNumber_TestEEE, i64 0, i32 0, i64 2), ptr %771, align 8
   %773 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.265, ptr noundef null, ptr noundef null, ptr noundef nonnull %274, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %767, ptr noundef %769, ptr noundef nonnull %771)
           to label %__cxx_global_var_init.264.exit unwind label %778
 
@@ -194442,7 +194442,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i135:
           to label %791 unwind label %797
 
 791:                                              ; preds = %789
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatAUNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %790, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatAUNumber_TestEEE, i64 0, i32 0, i64 2), ptr %790, align 8
   %792 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.279, ptr noundef null, ptr noundef null, ptr noundef nonnull %271, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %786, ptr noundef %788, ptr noundef nonnull %790)
           to label %__cxx_global_var_init.278.exit unwind label %797
 
@@ -194515,7 +194515,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i141:
           to label %810 unwind label %816
 
 810:                                              ; preds = %808
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatARNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %809, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatARNumber_TestEEE, i64 0, i32 0, i64 2), ptr %809, align 8
   %811 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.291, ptr noundef null, ptr noundef null, ptr noundef nonnull %268, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %805, ptr noundef %807, ptr noundef nonnull %809)
           to label %__cxx_global_var_init.290.exit unwind label %816
 
@@ -194588,7 +194588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i147:
           to label %829 unwind label %835
 
 829:                                              ; preds = %827
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatMXNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %828, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_FormatMXNumber_TestEEE, i64 0, i32 0, i64 2), ptr %828, align 8
   %830 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.305, ptr noundef null, ptr noundef null, ptr noundef nonnull %265, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %824, ptr noundef %826, ptr noundef nonnull %828)
           to label %__cxx_global_var_init.304.exit unwind label %835
 
@@ -194661,7 +194661,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i153:
           to label %848 unwind label %854
 
 848:                                              ; preds = %846
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56PhoneNumberUtilTest_FormatOutOfCountryCallingNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %847, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56PhoneNumberUtilTest_FormatOutOfCountryCallingNumber_TestEEE, i64 0, i32 0, i64 2), ptr %847, align 8
   %849 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.331, ptr noundef null, ptr noundef null, ptr noundef nonnull %262, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %843, ptr noundef %845, ptr noundef nonnull %847)
           to label %__cxx_global_var_init.330.exit unwind label %854
 
@@ -194734,7 +194734,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i159:
           to label %867 unwind label %873
 
 867:                                              ; preds = %865
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryWithInvalidRegion_TestEEE, i64 0, inrange i32 0, i64 2), ptr %866, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryWithInvalidRegion_TestEEE, i64 0, i32 0, i64 2), ptr %866, align 8
   %868 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.357, ptr noundef null, ptr noundef null, ptr noundef nonnull %259, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %862, ptr noundef %864, ptr noundef nonnull %866)
           to label %__cxx_global_var_init.356.exit unwind label %873
 
@@ -194807,7 +194807,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i165:
           to label %886 unwind label %892
 
 886:                                              ; preds = %884
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers66PhoneNumberUtilTest_FormatOutOfCountryWithPreferredIntlPrefix_TestEEE, i64 0, inrange i32 0, i64 2), ptr %885, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers66PhoneNumberUtilTest_FormatOutOfCountryWithPreferredIntlPrefix_TestEEE, i64 0, i32 0, i64 2), ptr %885, align 8
   %887 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.359, ptr noundef null, ptr noundef null, ptr noundef nonnull %256, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %881, ptr noundef %883, ptr noundef nonnull %885)
           to label %__cxx_global_var_init.358.exit unwind label %892
 
@@ -194880,7 +194880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i171:
           to label %905 unwind label %911
 
 905:                                              ; preds = %903
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryKeepingAlphaChars_TestEEE, i64 0, inrange i32 0, i64 2), ptr %904, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers60PhoneNumberUtilTest_FormatOutOfCountryKeepingAlphaChars_TestEEE, i64 0, i32 0, i64 2), ptr %904, align 8
   %906 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.365, ptr noundef null, ptr noundef null, ptr noundef nonnull %253, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %900, ptr noundef %902, ptr noundef nonnull %904)
           to label %__cxx_global_var_init.364.exit unwind label %911
 
@@ -194953,7 +194953,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i177:
           to label %924 unwind label %930
 
 924:                                              ; preds = %922
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_FormatWithCarrierCode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %923, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_FormatWithCarrierCode_TestEEE, i64 0, i32 0, i64 2), ptr %923, align 8
   %925 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.394, ptr noundef null, ptr noundef null, ptr noundef nonnull %250, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %919, ptr noundef %921, ptr noundef nonnull %923)
           to label %__cxx_global_var_init.393.exit unwind label %930
 
@@ -195026,7 +195026,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i183:
           to label %943 unwind label %949
 
 943:                                              ; preds = %941
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_FormatWithPreferredCarrierCode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %942, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_FormatWithPreferredCarrierCode_TestEEE, i64 0, i32 0, i64 2), ptr %942, align 8
   %944 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.408, ptr noundef null, ptr noundef null, ptr noundef nonnull %247, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %938, ptr noundef %940, ptr noundef nonnull %942)
           to label %__cxx_global_var_init.407.exit unwind label %949
 
@@ -195099,7 +195099,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i189:
           to label %962 unwind label %968
 
 962:                                              ; preds = %960
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_FormatNumberForMobileDialing_TestEEE, i64 0, inrange i32 0, i64 2), ptr %961, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_FormatNumberForMobileDialing_TestEEE, i64 0, i32 0, i64 2), ptr %961, align 8
   %963 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.417, ptr noundef null, ptr noundef null, ptr noundef nonnull %244, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %957, ptr noundef %959, ptr noundef nonnull %961)
           to label %__cxx_global_var_init.416.exit unwind label %968
 
@@ -195172,7 +195172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i195:
           to label %981 unwind label %987
 
 981:                                              ; preds = %979
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40PhoneNumberUtilTest_FormatByPattern_TestEEE, i64 0, inrange i32 0, i64 2), ptr %980, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40PhoneNumberUtilTest_FormatByPattern_TestEEE, i64 0, i32 0, i64 2), ptr %980, align 8
   %982 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.454, ptr noundef null, ptr noundef null, ptr noundef nonnull %241, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %976, ptr noundef %978, ptr noundef nonnull %980)
           to label %__cxx_global_var_init.453.exit unwind label %987
 
@@ -195245,7 +195245,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i201:
           to label %1000 unwind label %1006
 
 1000:                                             ; preds = %998
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_FormatE164Number_TestEEE, i64 0, inrange i32 0, i64 2), ptr %999, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_FormatE164Number_TestEEE, i64 0, i32 0, i64 2), ptr %999, align 8
   %1001 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.486, ptr noundef null, ptr noundef null, ptr noundef nonnull %238, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %995, ptr noundef %997, ptr noundef nonnull %999)
           to label %__cxx_global_var_init.485.exit unwind label %1006
 
@@ -195318,7 +195318,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i207:
           to label %1019 unwind label %1025
 
 1019:                                             ; preds = %1017
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_FormatNumberWithExtension_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1018, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_FormatNumberWithExtension_TestEEE, i64 0, i32 0, i64 2), ptr %1018, align 8
   %1020 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.490, ptr noundef null, ptr noundef null, ptr noundef nonnull %235, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1014, ptr noundef %1016, ptr noundef nonnull %1018)
           to label %__cxx_global_var_init.489.exit unwind label %1025
 
@@ -195391,7 +195391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i213:
           to label %1038 unwind label %1044
 
 1038:                                             ; preds = %1036
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56PhoneNumberUtilTest_GetLengthOfGeographicalAreaCode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1037, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56PhoneNumberUtilTest_GetLengthOfGeographicalAreaCode_TestEEE, i64 0, i32 0, i64 2), ptr %1037, align 8
   %1039 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.499, ptr noundef null, ptr noundef null, ptr noundef nonnull %232, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1033, ptr noundef %1035, ptr noundef nonnull %1037)
           to label %__cxx_global_var_init.498.exit unwind label %1044
 
@@ -195464,7 +195464,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i219:
           to label %1057 unwind label %1063
 
 1057:                                             ; preds = %1055
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59PhoneNumberUtilTest_GetLengthOfNationalDestinationCode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1056, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59PhoneNumberUtilTest_GetLengthOfNationalDestinationCode_TestEEE, i64 0, i32 0, i64 2), ptr %1056, align 8
   %1058 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.504, ptr noundef null, ptr noundef null, ptr noundef nonnull %229, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1052, ptr noundef %1054, ptr noundef nonnull %1056)
           to label %__cxx_global_var_init.503.exit unwind label %1063
 
@@ -195537,7 +195537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i225:
           to label %1076 unwind label %1082
 
 1076:                                             ; preds = %1074
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_GetCountryMobileToken_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1075, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_GetCountryMobileToken_TestEEE, i64 0, i32 0, i64 2), ptr %1075, align 8
   %1077 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.510, ptr noundef null, ptr noundef null, ptr noundef nonnull %226, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1071, ptr noundef %1073, ptr noundef nonnull %1075)
           to label %__cxx_global_var_init.509.exit unwind label %1082
 
@@ -195610,7 +195610,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i231:
           to label %1095 unwind label %1101
 
 1095:                                             ; preds = %1093
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_ExtractPossibleNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1094, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_ExtractPossibleNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1094, align 8
   %1096 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.515, ptr noundef null, ptr noundef null, ptr noundef nonnull %223, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1090, ptr noundef %1092, ptr noundef nonnull %1094)
           to label %__cxx_global_var_init.514.exit unwind label %1101
 
@@ -195683,7 +195683,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i237:
           to label %1114 unwind label %1120
 
 1114:                                             ; preds = %1112
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_IsNANPACountry_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1113, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers39PhoneNumberUtilTest_IsNANPACountry_TestEEE, i64 0, i32 0, i64 2), ptr %1113, align 8
   %1115 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.538, ptr noundef null, ptr noundef null, ptr noundef nonnull %220, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1109, ptr noundef %1111, ptr noundef nonnull %1113)
           to label %__cxx_global_var_init.537.exit unwind label %1120
 
@@ -195756,7 +195756,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i243:
           to label %1133 unwind label %1139
 
 1133:                                             ; preds = %1131
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38PhoneNumberUtilTest_IsValidNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1132, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38PhoneNumberUtilTest_IsValidNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1132, align 8
   %1134 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.545, ptr noundef null, ptr noundef null, ptr noundef nonnull %217, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1128, ptr noundef %1130, ptr noundef nonnull %1132)
           to label %__cxx_global_var_init.544.exit unwind label %1139
 
@@ -195829,7 +195829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i249:
           to label %1152 unwind label %1158
 
 1152:                                             ; preds = %1150
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_IsValidForRegion_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1151, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_IsValidForRegion_TestEEE, i64 0, i32 0, i64 2), ptr %1151, align 8
   %1153 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.553, ptr noundef null, ptr noundef null, ptr noundef nonnull %214, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1147, ptr noundef %1149, ptr noundef nonnull %1151)
           to label %__cxx_global_var_init.552.exit unwind label %1158
 
@@ -195902,7 +195902,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i255:
           to label %1171 unwind label %1177
 
 1171:                                             ; preds = %1169
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_IsNotValidNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1170, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_IsNotValidNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1170, align 8
   %1172 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.567, ptr noundef null, ptr noundef null, ptr noundef nonnull %211, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1166, ptr noundef %1168, ptr noundef nonnull %1170)
           to label %__cxx_global_var_init.566.exit unwind label %1177
 
@@ -195975,7 +195975,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i261:
           to label %1190 unwind label %1196
 
 1190:                                             ; preds = %1188
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers52PhoneNumberUtilTest_GetRegionCodeForCountryCode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1189, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers52PhoneNumberUtilTest_GetRegionCodeForCountryCode_TestEEE, i64 0, i32 0, i64 2), ptr %1189, align 8
   %1191 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.572, ptr noundef null, ptr noundef null, ptr noundef nonnull %208, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1185, ptr noundef %1187, ptr noundef nonnull %1189)
           to label %__cxx_global_var_init.571.exit unwind label %1196
 
@@ -196048,7 +196048,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i267:
           to label %1209 unwind label %1215
 
 1209:                                             ; preds = %1207
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47PhoneNumberUtilTest_GetRegionCodeForNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1208, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47PhoneNumberUtilTest_GetRegionCodeForNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1208, align 8
   %1210 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.577, ptr noundef null, ptr noundef null, ptr noundef nonnull %205, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1204, ptr noundef %1206, ptr noundef nonnull %1208)
           to label %__cxx_global_var_init.576.exit unwind label %1215
 
@@ -196121,7 +196121,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i273:
           to label %1228 unwind label %1234
 
 1228:                                             ; preds = %1226
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_IsPossibleNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1227, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_IsPossibleNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1227, align 8
   %1229 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.580, ptr noundef null, ptr noundef null, ptr noundef nonnull %202, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1223, ptr noundef %1225, ptr noundef nonnull %1227)
           to label %__cxx_global_var_init.579.exit unwind label %1234
 
@@ -196194,7 +196194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i279:
           to label %1247 unwind label %1253
 
 1247:                                             ; preds = %1245
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberUtilTest_IsPossibleNumberForType_DifferentTypeLengths_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1246, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberUtilTest_IsPossibleNumberForType_DifferentTypeLengths_TestEEE, i64 0, i32 0, i64 2), ptr %1246, align 8
   %1248 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.599, ptr noundef null, ptr noundef null, ptr noundef nonnull %199, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1242, ptr noundef %1244, ptr noundef nonnull %1246)
           to label %__cxx_global_var_init.598.exit unwind label %1253
 
@@ -196267,7 +196267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i285:
           to label %1266 unwind label %1272
 
 1266:                                             ; preds = %1264
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers58PhoneNumberUtilTest_IsPossibleNumberForType_LocalOnly_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1265, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers58PhoneNumberUtilTest_IsPossibleNumberForType_LocalOnly_TestEEE, i64 0, i32 0, i64 2), ptr %1265, align 8
   %1267 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.605, ptr noundef null, ptr noundef null, ptr noundef nonnull %196, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1261, ptr noundef %1263, ptr noundef nonnull %1265)
           to label %__cxx_global_var_init.604.exit unwind label %1272
 
@@ -196340,7 +196340,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i291:
           to label %1285 unwind label %1291
 
 1285:                                             ; preds = %1283
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers74PhoneNumberUtilTest_IsPossibleNumberForType_DataMissingForSizeReasons_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1284, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers74PhoneNumberUtilTest_IsPossibleNumberForType_DataMissingForSizeReasons_TestEEE, i64 0, i32 0, i64 2), ptr %1284, align 8
   %1286 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.607, ptr noundef null, ptr noundef null, ptr noundef nonnull %193, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1280, ptr noundef %1282, ptr noundef nonnull %1284)
           to label %__cxx_global_var_init.606.exit unwind label %1291
 
@@ -196413,7 +196413,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i297:
           to label %1304 unwind label %1310
 
 1304:                                             ; preds = %1302
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers80PhoneNumberUtilTest_IsPossibleNumberForType_NumberTypeNotSupportedForRegion_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1303, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers80PhoneNumberUtilTest_IsPossibleNumberForType_NumberTypeNotSupportedForRegion_TestEEE, i64 0, i32 0, i64 2), ptr %1303, align 8
   %1305 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.609, ptr noundef null, ptr noundef null, ptr noundef nonnull %190, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1299, ptr noundef %1301, ptr noundef nonnull %1303)
           to label %__cxx_global_var_init.608.exit unwind label %1310
 
@@ -196486,7 +196486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i303:
           to label %1323 unwind label %1329
 
 1323:                                             ; preds = %1321
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers51PhoneNumberUtilTest_IsPossibleNumberWithReason_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1322, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers51PhoneNumberUtilTest_IsPossibleNumberWithReason_TestEEE, i64 0, i32 0, i64 2), ptr %1322, align 8
   %1324 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.613, ptr noundef null, ptr noundef null, ptr noundef nonnull %187, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1318, ptr noundef %1320, ptr noundef nonnull %1322)
           to label %__cxx_global_var_init.612.exit unwind label %1329
 
@@ -196559,7 +196559,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i309:
           to label %1342 unwind label %1348
 
 1342:                                             ; preds = %1340
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers79PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DifferentTypeLengths_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1341, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers79PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DifferentTypeLengths_TestEEE, i64 0, i32 0, i64 2), ptr %1341, align 8
   %1343 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.621, ptr noundef null, ptr noundef null, ptr noundef nonnull %184, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1337, ptr noundef %1339, ptr noundef nonnull %1341)
           to label %__cxx_global_var_init.620.exit unwind label %1348
 
@@ -196632,7 +196632,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i315:
           to label %1361 unwind label %1367
 
 1361:                                             ; preds = %1359
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers68PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_LocalOnly_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1360, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers68PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_LocalOnly_TestEEE, i64 0, i32 0, i64 2), ptr %1360, align 8
   %1362 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.627, ptr noundef null, ptr noundef null, ptr noundef nonnull %181, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1356, ptr noundef %1358, ptr noundef nonnull %1360)
           to label %__cxx_global_var_init.626.exit unwind label %1367
 
@@ -196705,7 +196705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i321:
           to label %1380 unwind label %1386
 
 1380:                                             ; preds = %1378
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers84PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DataMissingForSizeReasons_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1379, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers84PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_DataMissingForSizeReasons_TestEEE, i64 0, i32 0, i64 2), ptr %1379, align 8
   %1381 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.629, ptr noundef null, ptr noundef null, ptr noundef nonnull %178, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1375, ptr noundef %1377, ptr noundef nonnull %1379)
           to label %__cxx_global_var_init.628.exit unwind label %1386
 
@@ -196778,7 +196778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i327:
           to label %1399 unwind label %1405
 
 1399:                                             ; preds = %1397
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers90PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_NumberTypeNotSupportedForRegion_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1398, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers90PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_NumberTypeNotSupportedForRegion_TestEEE, i64 0, i32 0, i64 2), ptr %1398, align 8
   %1400 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.631, ptr noundef null, ptr noundef null, ptr noundef nonnull %175, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1394, ptr noundef %1396, ptr noundef nonnull %1398)
           to label %__cxx_global_var_init.630.exit unwind label %1405
 
@@ -196851,7 +196851,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i333:
           to label %1418 unwind label %1424
 
 1418:                                             ; preds = %1416
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers76PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_FixedLineOrMobile_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1417, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers76PhoneNumberUtilTest_IsPossibleNumberForTypeWithReason_FixedLineOrMobile_TestEEE, i64 0, i32 0, i64 2), ptr %1417, align 8
   %1419 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.636, ptr noundef null, ptr noundef null, ptr noundef nonnull %172, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1413, ptr noundef %1415, ptr noundef nonnull %1417)
           to label %__cxx_global_var_init.635.exit unwind label %1424
 
@@ -196924,7 +196924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i339:
           to label %1437 unwind label %1443
 
 1437:                                             ; preds = %1435
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_IsNotPossibleNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1436, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_IsNotPossibleNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1436, align 8
   %1438 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.638, ptr noundef null, ptr noundef null, ptr noundef nonnull %169, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1432, ptr noundef %1434, ptr noundef nonnull %1436)
           to label %__cxx_global_var_init.637.exit unwind label %1443
 
@@ -196997,7 +196997,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i345:
           to label %1456 unwind label %1462
 
 1456:                                             ; preds = %1454
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_TruncateTooLongNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1455, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_TruncateTooLongNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1455, align 8
   %1457 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.654, ptr noundef null, ptr noundef null, ptr noundef nonnull %166, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1451, ptr noundef %1453, ptr noundef nonnull %1455)
           to label %__cxx_global_var_init.653.exit unwind label %1462
 
@@ -197070,7 +197070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i351:
           to label %1475 unwind label %1481
 
 1475:                                             ; preds = %1473
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberGeographical_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1474, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberGeographical_TestEEE, i64 0, i32 0, i64 2), ptr %1474, align 8
   %1476 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.667, ptr noundef null, ptr noundef null, ptr noundef nonnull %163, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1470, ptr noundef %1472, ptr noundef nonnull %1474)
           to label %__cxx_global_var_init.666.exit unwind label %1481
 
@@ -197143,7 +197143,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i357:
           to label %1494 unwind label %1500
 
 1494:                                             ; preds = %1492
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47PhoneNumberUtilTest_FormatInOriginalFormat_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1493, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers47PhoneNumberUtilTest_FormatInOriginalFormat_TestEEE, i64 0, i32 0, i64 2), ptr %1493, align 8
   %1495 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.670, ptr noundef null, ptr noundef null, ptr noundef nonnull %160, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1489, ptr noundef %1491, ptr noundef nonnull %1493)
           to label %__cxx_global_var_init.669.exit unwind label %1500
 
@@ -197216,7 +197216,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i363:
           to label %1513 unwind label %1519
 
 1513:                                             ; preds = %1511
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38PhoneNumberUtilTest_IsPremiumRate_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1512, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38PhoneNumberUtilTest_IsPremiumRate_TestEEE, i64 0, i32 0, i64 2), ptr %1512, align 8
   %1514 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.754, ptr noundef null, ptr noundef null, ptr noundef nonnull %157, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1508, ptr noundef %1510, ptr noundef nonnull %1512)
           to label %__cxx_global_var_init.753.exit unwind label %1519
 
@@ -197289,7 +197289,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i369:
           to label %1532 unwind label %1538
 
 1532:                                             ; preds = %1530
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35PhoneNumberUtilTest_IsTollFree_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1531, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers35PhoneNumberUtilTest_IsTollFree_TestEEE, i64 0, i32 0, i64 2), ptr %1531, align 8
   %1533 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.758, ptr noundef null, ptr noundef null, ptr noundef nonnull %154, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1527, ptr noundef %1529, ptr noundef nonnull %1531)
           to label %__cxx_global_var_init.757.exit unwind label %1538
 
@@ -197362,7 +197362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i375:
           to label %1551 unwind label %1557
 
 1551:                                             ; preds = %1549
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers33PhoneNumberUtilTest_IsMobile_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1550, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers33PhoneNumberUtilTest_IsMobile_TestEEE, i64 0, i32 0, i64 2), ptr %1550, align 8
   %1552 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.761, ptr noundef null, ptr noundef null, ptr noundef nonnull %151, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1546, ptr noundef %1548, ptr noundef nonnull %1550)
           to label %__cxx_global_var_init.760.exit unwind label %1557
 
@@ -197435,7 +197435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i381:
           to label %1570 unwind label %1576
 
 1570:                                             ; preds = %1568
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers36PhoneNumberUtilTest_IsFixedLine_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1569, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers36PhoneNumberUtilTest_IsFixedLine_TestEEE, i64 0, i32 0, i64 2), ptr %1569, align 8
   %1571 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.764, ptr noundef null, ptr noundef null, ptr noundef nonnull %148, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1565, ptr noundef %1567, ptr noundef nonnull %1569)
           to label %__cxx_global_var_init.763.exit unwind label %1576
 
@@ -197508,7 +197508,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i387:
           to label %1589 unwind label %1595
 
 1589:                                             ; preds = %1587
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_IsFixedLineAndMobile_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1588, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_IsFixedLineAndMobile_TestEEE, i64 0, i32 0, i64 2), ptr %1588, align 8
   %1590 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.767, ptr noundef null, ptr noundef null, ptr noundef nonnull %145, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1584, ptr noundef %1586, ptr noundef nonnull %1588)
           to label %__cxx_global_var_init.766.exit unwind label %1595
 
@@ -197581,7 +197581,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i393:
           to label %1608 unwind label %1614
 
 1608:                                             ; preds = %1606
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers37PhoneNumberUtilTest_IsSharedCost_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1607, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers37PhoneNumberUtilTest_IsSharedCost_TestEEE, i64 0, i32 0, i64 2), ptr %1607, align 8
   %1609 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.770, ptr noundef null, ptr noundef null, ptr noundef nonnull %142, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1603, ptr noundef %1605, ptr noundef nonnull %1607)
           to label %__cxx_global_var_init.769.exit unwind label %1614
 
@@ -197654,7 +197654,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i399:
           to label %1627 unwind label %1633
 
 1627:                                             ; preds = %1625
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31PhoneNumberUtilTest_IsVoip_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1626, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers31PhoneNumberUtilTest_IsVoip_TestEEE, i64 0, i32 0, i64 2), ptr %1626, align 8
   %1628 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.773, ptr noundef null, ptr noundef null, ptr noundef nonnull %139, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1622, ptr noundef %1624, ptr noundef nonnull %1626)
           to label %__cxx_global_var_init.772.exit unwind label %1633
 
@@ -197727,7 +197727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i405:
           to label %1646 unwind label %1652
 
 1646:                                             ; preds = %1644
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_IsPersonalNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1645, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers41PhoneNumberUtilTest_IsPersonalNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1645, align 8
   %1647 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.776, ptr noundef null, ptr noundef null, ptr noundef nonnull %136, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1641, ptr noundef %1643, ptr noundef nonnull %1645)
           to label %__cxx_global_var_init.775.exit unwind label %1652
 
@@ -197800,7 +197800,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i411:
           to label %1665 unwind label %1671
 
 1665:                                             ; preds = %1663
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34PhoneNumberUtilTest_IsUnknown_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1664, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers34PhoneNumberUtilTest_IsUnknown_TestEEE, i64 0, i32 0, i64 2), ptr %1664, align 8
   %1666 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.779, ptr noundef null, ptr noundef null, ptr noundef nonnull %133, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1660, ptr noundef %1662, ptr noundef nonnull %1664)
           to label %__cxx_global_var_init.778.exit unwind label %1671
 
@@ -197873,7 +197873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i417:
           to label %1684 unwind label %1690
 
 1684:                                             ; preds = %1682
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_GetCountryCodeForRegion_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1683, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_GetCountryCodeForRegion_TestEEE, i64 0, i32 0, i64 2), ptr %1683, align 8
   %1685 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.782, ptr noundef null, ptr noundef null, ptr noundef nonnull %130, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1679, ptr noundef %1681, ptr noundef nonnull %1683)
           to label %__cxx_global_var_init.781.exit unwind label %1690
 
@@ -197946,7 +197946,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i423:
           to label %1703 unwind label %1709
 
 1703:                                             ; preds = %1701
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59PhoneNumberUtilTest_GetNationalDiallingPrefixForRegion_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1702, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers59PhoneNumberUtilTest_GetNationalDiallingPrefixForRegion_TestEEE, i64 0, i32 0, i64 2), ptr %1702, align 8
   %1704 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.790, ptr noundef null, ptr noundef null, ptr noundef nonnull %127, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1698, ptr noundef %1700, ptr noundef nonnull %1702)
           to label %__cxx_global_var_init.789.exit unwind label %1709
 
@@ -198019,7 +198019,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i429:
           to label %1722 unwind label %1728
 
 1722:                                             ; preds = %1720
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_IsViablePhoneNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1721, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_IsViablePhoneNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1721, align 8
   %1723 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.796, ptr noundef null, ptr noundef null, ptr noundef nonnull %124, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1717, ptr noundef %1719, ptr noundef nonnull %1721)
           to label %__cxx_global_var_init.795.exit unwind label %1728
 
@@ -198092,7 +198092,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i435:
           to label %1741 unwind label %1747
 
 1741:                                             ; preds = %1739
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers52PhoneNumberUtilTest_IsViablePhoneNumberNonAscii_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1740, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers52PhoneNumberUtilTest_IsViablePhoneNumberNonAscii_TestEEE, i64 0, i32 0, i64 2), ptr %1740, align 8
   %1742 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.816, ptr noundef null, ptr noundef null, ptr noundef nonnull %121, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1736, ptr noundef %1738, ptr noundef nonnull %1740)
           to label %__cxx_global_var_init.815.exit unwind label %1747
 
@@ -198165,7 +198165,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i441:
           to label %1760 unwind label %1766
 
 1760:                                             ; preds = %1758
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_ConvertAlphaCharactersInNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1759, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_ConvertAlphaCharactersInNumber_TestEEE, i64 0, i32 0, i64 2), ptr %1759, align 8
   %1761 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.826, ptr noundef null, ptr noundef null, ptr noundef nonnull %118, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1755, ptr noundef %1757, ptr noundef nonnull %1759)
           to label %__cxx_global_var_init.825.exit unwind label %1766
 
@@ -198238,7 +198238,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i447:
           to label %1779 unwind label %1785
 
 1779:                                             ; preds = %1777
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers51PhoneNumberUtilTest_NormaliseRemovePunctuation_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1778, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers51PhoneNumberUtilTest_NormaliseRemovePunctuation_TestEEE, i64 0, i32 0, i64 2), ptr %1778, align 8
   %1780 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.834, ptr noundef null, ptr noundef null, ptr noundef nonnull %115, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1774, ptr noundef %1776, ptr noundef nonnull %1778)
           to label %__cxx_global_var_init.833.exit unwind label %1785
 
@@ -198311,7 +198311,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i453:
           to label %1798 unwind label %1804
 
 1798:                                             ; preds = %1796
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56PhoneNumberUtilTest_NormaliseReplaceAlphaCharacters_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1797, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers56PhoneNumberUtilTest_NormaliseReplaceAlphaCharacters_TestEEE, i64 0, i32 0, i64 2), ptr %1797, align 8
   %1799 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.840, ptr noundef null, ptr noundef null, ptr noundef nonnull %112, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1793, ptr noundef %1795, ptr noundef nonnull %1797)
           to label %__cxx_global_var_init.839.exit unwind label %1804
 
@@ -198384,7 +198384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i459:
           to label %1817 unwind label %1823
 
 1817:                                             ; preds = %1815
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_NormaliseOtherDigits_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1816, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_NormaliseOtherDigits_TestEEE, i64 0, i32 0, i64 2), ptr %1816, align 8
   %1818 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.845, ptr noundef null, ptr noundef null, ptr noundef nonnull %109, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1812, ptr noundef %1814, ptr noundef nonnull %1816)
           to label %__cxx_global_var_init.844.exit unwind label %1823
 
@@ -198457,7 +198457,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i465:
           to label %1836 unwind label %1842
 
 1836:                                             ; preds = %1834
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54PhoneNumberUtilTest_NormaliseStripAlphaCharacters_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1835, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54PhoneNumberUtilTest_NormaliseStripAlphaCharacters_TestEEE, i64 0, i32 0, i64 2), ptr %1835, align 8
   %1837 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.854, ptr noundef null, ptr noundef null, ptr noundef nonnull %106, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1831, ptr noundef %1833, ptr noundef nonnull %1835)
           to label %__cxx_global_var_init.853.exit unwind label %1842
 
@@ -198530,7 +198530,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i471:
           to label %1855 unwind label %1861
 
 1855:                                             ; preds = %1853
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers61PhoneNumberUtilTest_NormaliseStripNonDiallableCharacters_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1854, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers61PhoneNumberUtilTest_NormaliseStripNonDiallableCharacters_TestEEE, i64 0, i32 0, i64 2), ptr %1854, align 8
   %1856 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.858, ptr noundef null, ptr noundef null, ptr noundef nonnull %103, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1850, ptr noundef %1852, ptr noundef nonnull %1854)
           to label %__cxx_global_var_init.857.exit unwind label %1861
 
@@ -198603,7 +198603,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i477:
           to label %1874 unwind label %1880
 
 1874:                                             ; preds = %1872
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54PhoneNumberUtilTest_MaybeStripInternationalPrefix_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1873, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers54PhoneNumberUtilTest_MaybeStripInternationalPrefix_TestEEE, i64 0, i32 0, i64 2), ptr %1873, align 8
   %1875 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.863, ptr noundef null, ptr noundef null, ptr noundef nonnull %100, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1869, ptr noundef %1871, ptr noundef nonnull %1873)
           to label %__cxx_global_var_init.862.exit unwind label %1880
 
@@ -198676,7 +198676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i483:
           to label %1893 unwind label %1899
 
 1893:                                             ; preds = %1891
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63PhoneNumberUtilTest_MaybeStripNationalPrefixAndCarrierCode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1892, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers63PhoneNumberUtilTest_MaybeStripNationalPrefixAndCarrierCode_TestEEE, i64 0, i32 0, i64 2), ptr %1892, align 8
   %1894 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.883, ptr noundef null, ptr noundef null, ptr noundef nonnull %97, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1888, ptr noundef %1890, ptr noundef nonnull %1892)
           to label %__cxx_global_var_init.882.exit unwind label %1899
 
@@ -198749,7 +198749,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i489:
           to label %1912 unwind label %1918
 
 1912:                                             ; preds = %1910
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_MaybeStripExtension_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1911, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_MaybeStripExtension_TestEEE, i64 0, i32 0, i64 2), ptr %1911, align 8
   %1913 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.910, ptr noundef null, ptr noundef null, ptr noundef nonnull %94, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1907, ptr noundef %1909, ptr noundef nonnull %1911)
           to label %__cxx_global_var_init.909.exit unwind label %1918
 
@@ -198822,7 +198822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i495:
           to label %1931 unwind label %1937
 
 1931:                                             ; preds = %1929
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_MaybeExtractCountryCode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1930, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_MaybeExtractCountryCode_TestEEE, i64 0, i32 0, i64 2), ptr %1930, align 8
   %1932 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.922, ptr noundef null, ptr noundef null, ptr noundef nonnull %91, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1926, ptr noundef %1928, ptr noundef nonnull %1930)
           to label %__cxx_global_var_init.921.exit unwind label %1937
 
@@ -198895,7 +198895,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i501:
           to label %1950 unwind label %1956
 
 1950:                                             ; preds = %1948
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_CountryWithNoNumberDesc_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1949, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_CountryWithNoNumberDesc_TestEEE, i64 0, i32 0, i64 2), ptr %1949, align 8
   %1951 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.945, ptr noundef null, ptr noundef null, ptr noundef nonnull %88, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1945, ptr noundef %1947, ptr noundef nonnull %1949)
           to label %__cxx_global_var_init.944.exit unwind label %1956
 
@@ -198968,7 +198968,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i507:
           to label %1969 unwind label %1975
 
 1969:                                             ; preds = %1967
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_UnknownCountryCallingCode_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1968, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers50PhoneNumberUtilTest_UnknownCountryCallingCode_TestEEE, i64 0, i32 0, i64 2), ptr %1968, align 8
   %1970 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.953, ptr noundef null, ptr noundef null, ptr noundef nonnull %85, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1964, ptr noundef %1966, ptr noundef nonnull %1968)
           to label %__cxx_global_var_init.952.exit unwind label %1975
 
@@ -199041,7 +199041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i513:
           to label %1988 unwind label %1994
 
 1988:                                             ; preds = %1986
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberMatchMatches_TestEEE, i64 0, inrange i32 0, i64 2), ptr %1987, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_IsNumberMatchMatches_TestEEE, i64 0, i32 0, i64 2), ptr %1987, align 8
   %1989 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.957, ptr noundef null, ptr noundef null, ptr noundef nonnull %82, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %1983, ptr noundef %1985, ptr noundef nonnull %1987)
           to label %__cxx_global_var_init.956.exit unwind label %1994
 
@@ -199114,7 +199114,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i519:
           to label %2007 unwind label %2013
 
 2007:                                             ; preds = %2005
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberUtilTest_IsNumberMatchShortMatchIfDiffNumLeadingZeros_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2006, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers69PhoneNumberUtilTest_IsNumberMatchShortMatchIfDiffNumLeadingZeros_TestEEE, i64 0, i32 0, i64 2), ptr %2006, align 8
   %2008 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.993, ptr noundef null, ptr noundef null, ptr noundef nonnull %79, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2002, ptr noundef %2004, ptr noundef nonnull %2006)
           to label %__cxx_global_var_init.992.exit unwind label %2013
 
@@ -199187,7 +199187,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i525:
           to label %2026 unwind label %2032
 
 2026:                                             ; preds = %2024
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers65PhoneNumberUtilTest_IsNumberMatchAcceptsProtoDefaultsAsMatch_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2025, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers65PhoneNumberUtilTest_IsNumberMatchAcceptsProtoDefaultsAsMatch_TestEEE, i64 0, i32 0, i64 2), ptr %2025, align 8
   %2027 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.997, ptr noundef null, ptr noundef null, ptr noundef nonnull %76, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2021, ptr noundef %2023, ptr noundef nonnull %2025)
           to label %__cxx_global_var_init.996.exit unwind label %2032
 
@@ -199260,7 +199260,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i531:
           to label %2045 unwind label %2051
 
 2045:                                             ; preds = %2043
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers86PhoneNumberUtilTest_IsNumberMatchMatchesDiffLeadingZerosIfItalianLeadingZeroFalse_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2044, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers86PhoneNumberUtilTest_IsNumberMatchMatchesDiffLeadingZerosIfItalianLeadingZeroFalse_TestEEE, i64 0, i32 0, i64 2), ptr %2044, align 8
   %2046 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.999, ptr noundef null, ptr noundef null, ptr noundef nonnull %73, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2040, ptr noundef %2042, ptr noundef nonnull %2044)
           to label %__cxx_global_var_init.998.exit unwind label %2051
 
@@ -199333,7 +199333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i537:
           to label %2064 unwind label %2070
 
 2064:                                             ; preds = %2062
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_IsNumberMatchIgnoresSomeFields_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2063, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_IsNumberMatchIgnoresSomeFields_TestEEE, i64 0, i32 0, i64 2), ptr %2063, align 8
   %2065 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1001, ptr noundef null, ptr noundef null, ptr noundef nonnull %70, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2059, ptr noundef %2061, ptr noundef nonnull %2063)
           to label %__cxx_global_var_init.1000.exit unwind label %2070
 
@@ -199406,7 +199406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i543:
           to label %2083 unwind label %2089
 
 2083:                                             ; preds = %2081
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNonMatches_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2082, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNonMatches_TestEEE, i64 0, i32 0, i64 2), ptr %2082, align 8
   %2084 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1007, ptr noundef null, ptr noundef null, ptr noundef nonnull %67, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2078, ptr noundef %2080, ptr noundef nonnull %2082)
           to label %__cxx_global_var_init.1006.exit unwind label %2089
 
@@ -199479,7 +199479,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i549:
           to label %2102 unwind label %2108
 
 2102:                                             ; preds = %2100
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNsnMatches_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2101, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers48PhoneNumberUtilTest_IsNumberMatchNsnMatches_TestEEE, i64 0, i32 0, i64 2), ptr %2101, align 8
   %2103 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1035, ptr noundef null, ptr noundef null, ptr noundef nonnull %64, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2097, ptr noundef %2099, ptr noundef nonnull %2101)
           to label %__cxx_global_var_init.1034.exit unwind label %2108
 
@@ -199552,7 +199552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i555:
           to label %2121 unwind label %2127
 
 2121:                                             ; preds = %2119
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_IsNumberMatchShortNsnMatches_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2120, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_IsNumberMatchShortNsnMatches_TestEEE, i64 0, i32 0, i64 2), ptr %2120, align 8
   %2122 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1056, ptr noundef null, ptr noundef null, ptr noundef nonnull %61, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2116, ptr noundef %2118, ptr noundef nonnull %2120)
           to label %__cxx_global_var_init.1055.exit unwind label %2127
 
@@ -199625,7 +199625,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i561:
           to label %2140 unwind label %2146
 
 2140:                                             ; preds = %2138
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_ParseNationalNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2139, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers44PhoneNumberUtilTest_ParseNationalNumber_TestEEE, i64 0, i32 0, i64 2), ptr %2139, align 8
   %2141 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1081, ptr noundef null, ptr noundef null, ptr noundef nonnull %58, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2135, ptr noundef %2137, ptr noundef nonnull %2139)
           to label %__cxx_global_var_init.1080.exit unwind label %2146
 
@@ -199698,7 +199698,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i567:
           to label %2159 unwind label %2165
 
 2159:                                             ; preds = %2157
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_ParseNumberWithAlphaCharacters_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2158, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_ParseNumberWithAlphaCharacters_TestEEE, i64 0, i32 0, i64 2), ptr %2158, align 8
   %2160 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1141, ptr noundef null, ptr noundef null, ptr noundef nonnull %55, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2154, ptr noundef %2156, ptr noundef nonnull %2158)
           to label %__cxx_global_var_init.1140.exit unwind label %2165
 
@@ -199771,7 +199771,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i573:
           to label %2178 unwind label %2184
 
 2178:                                             ; preds = %2176
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_ParseWithInternationalPrefixes_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2177, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers55PhoneNumberUtilTest_ParseWithInternationalPrefixes_TestEEE, i64 0, i32 0, i64 2), ptr %2177, align 8
   %2179 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1157, ptr noundef null, ptr noundef null, ptr noundef nonnull %52, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2173, ptr noundef %2175, ptr noundef nonnull %2177)
           to label %__cxx_global_var_init.1156.exit unwind label %2184
 
@@ -199844,7 +199844,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i579:
           to label %2197 unwind label %2203
 
 2197:                                             ; preds = %2195
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_ParseWithLeadingZero_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2196, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers45PhoneNumberUtilTest_ParseWithLeadingZero_TestEEE, i64 0, i32 0, i64 2), ptr %2196, align 8
   %2198 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1182, ptr noundef null, ptr noundef null, ptr noundef nonnull %49, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2192, ptr noundef %2194, ptr noundef nonnull %2196)
           to label %__cxx_global_var_init.1181.exit unwind label %2203
 
@@ -199917,7 +199917,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i585:
           to label %2216 unwind label %2222
 
 2216:                                             ; preds = %2214
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_ParseNationalNumberArgentina_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2215, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers53PhoneNumberUtilTest_ParseNationalNumberArgentina_TestEEE, i64 0, i32 0, i64 2), ptr %2215, align 8
   %2217 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1189, ptr noundef null, ptr noundef null, ptr noundef nonnull %46, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2211, ptr noundef %2213, ptr noundef nonnull %2215)
           to label %__cxx_global_var_init.1188.exit unwind label %2222
 
@@ -199990,7 +199990,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i591:
           to label %2235 unwind label %2241
 
 2235:                                             ; preds = %2233
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43PhoneNumberUtilTest_ParseWithXInNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2234, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43PhoneNumberUtilTest_ParseWithXInNumber_TestEEE, i64 0, i32 0, i64 2), ptr %2234, align 8
   %2236 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1212, ptr noundef null, ptr noundef null, ptr noundef nonnull %43, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2230, ptr noundef %2232, ptr noundef nonnull %2234)
           to label %__cxx_global_var_init.1211.exit unwind label %2241
 
@@ -200063,7 +200063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i597:
           to label %2254 unwind label %2260
 
 2254:                                             ; preds = %2252
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43PhoneNumberUtilTest_ParseNumbersMexico_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2253, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers43PhoneNumberUtilTest_ParseNumbersMexico_TestEEE, i64 0, i32 0, i64 2), ptr %2253, align 8
   %2255 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1225, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2249, ptr noundef %2251, ptr noundef nonnull %2253)
           to label %__cxx_global_var_init.1224.exit unwind label %2260
 
@@ -200136,7 +200136,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i603:
           to label %2273 unwind label %2279
 
 2273:                                             ; preds = %2271
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers52PhoneNumberUtilTest_FailedParseOnInvalidNumbers_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2272, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers52PhoneNumberUtilTest_FailedParseOnInvalidNumbers_TestEEE, i64 0, i32 0, i64 2), ptr %2272, align 8
   %2274 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1240, ptr noundef null, ptr noundef null, ptr noundef nonnull %37, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2268, ptr noundef %2270, ptr noundef nonnull %2272)
           to label %__cxx_global_var_init.1239.exit unwind label %2279
 
@@ -200209,7 +200209,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i609:
           to label %2292 unwind label %2298
 
 2292:                                             ; preds = %2290
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers57PhoneNumberUtilTest_ParseNumbersWithPlusWithNoRegion_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2291, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers57PhoneNumberUtilTest_ParseNumbersWithPlusWithNoRegion_TestEEE, i64 0, i32 0, i64 2), ptr %2291, align 8
   %2293 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1283, ptr noundef null, ptr noundef null, ptr noundef nonnull %34, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2287, ptr noundef %2289, ptr noundef nonnull %2291)
           to label %__cxx_global_var_init.1282.exit unwind label %2298
 
@@ -200282,7 +200282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i615:
           to label %2311 unwind label %2317
 
 2311:                                             ; preds = %2309
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers68PhoneNumberUtilTest_ParseNumberTooShortIfNationalPrefixStripped_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2310, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers68PhoneNumberUtilTest_ParseNumberTooShortIfNationalPrefixStripped_TestEEE, i64 0, i32 0, i64 2), ptr %2310, align 8
   %2312 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1299, ptr noundef null, ptr noundef null, ptr noundef nonnull %31, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2306, ptr noundef %2308, ptr noundef nonnull %2310)
           to label %__cxx_global_var_init.1298.exit unwind label %2317
 
@@ -200355,7 +200355,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i621:
           to label %2330 unwind label %2336
 
 2330:                                             ; preds = %2328
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40PhoneNumberUtilTest_ParseExtensions_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2329, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40PhoneNumberUtilTest_ParseExtensions_TestEEE, i64 0, i32 0, i64 2), ptr %2329, align 8
   %2331 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1310, ptr noundef null, ptr noundef null, ptr noundef nonnull %28, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2325, ptr noundef %2327, ptr noundef nonnull %2329)
           to label %__cxx_global_var_init.1309.exit unwind label %2336
 
@@ -200428,7 +200428,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i627:
           to label %2349 unwind label %2355
 
 2349:                                             ; preds = %2347
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithExplicitLabels_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2348, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithExplicitLabels_TestEEE, i64 0, i32 0, i64 2), ptr %2348, align 8
   %2350 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1404, ptr noundef null, ptr noundef null, ptr noundef nonnull %25, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2344, ptr noundef %2346, ptr noundef nonnull %2348)
           to label %__cxx_global_var_init.1403.exit unwind label %2355
 
@@ -200501,7 +200501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i633:
           to label %2368 unwind label %2374
 
 2368:                                             ; preds = %2366
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers77PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithAutoDiallingLabels_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2367, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers77PhoneNumberUtilTest_TestParseHandlesLongExtensionsWithAutoDiallingLabels_TestEEE, i64 0, i32 0, i64 2), ptr %2367, align 8
   %2369 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1430, ptr noundef null, ptr noundef null, ptr noundef nonnull %22, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2363, ptr noundef %2365, ptr noundef nonnull %2367)
           to label %__cxx_global_var_init.1429.exit unwind label %2374
 
@@ -200574,7 +200574,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i639:
           to label %2387 unwind label %2393
 
 2387:                                             ; preds = %2385
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesShortExtensionsWithAmbiguousChar_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2386, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers73PhoneNumberUtilTest_TestParseHandlesShortExtensionsWithAmbiguousChar_TestEEE, i64 0, i32 0, i64 2), ptr %2386, align 8
   %2388 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1442, ptr noundef null, ptr noundef null, ptr noundef nonnull %19, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2382, ptr noundef %2384, ptr noundef nonnull %2386)
           to label %__cxx_global_var_init.1441.exit unwind label %2393
 
@@ -200647,7 +200647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i645:
           to label %2406 unwind label %2412
 
 2406:                                             ; preds = %2404
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers74PhoneNumberUtilTest_TestParseHandlesShortExtensionsWhenNotSureOfLabel_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2405, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers74PhoneNumberUtilTest_TestParseHandlesShortExtensionsWhenNotSureOfLabel_TestEEE, i64 0, i32 0, i64 2), ptr %2405, align 8
   %2407 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1454, ptr noundef null, ptr noundef null, ptr noundef nonnull %16, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2401, ptr noundef %2403, ptr noundef nonnull %2405)
           to label %__cxx_global_var_init.1453.exit unwind label %2412
 
@@ -200720,7 +200720,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i651:
           to label %2425 unwind label %2431
 
 2425:                                             ; preds = %2423
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40PhoneNumberUtilTest_ParseAndKeepRaw_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2424, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers40PhoneNumberUtilTest_ParseAndKeepRaw_TestEEE, i64 0, i32 0, i64 2), ptr %2424, align 8
   %2426 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1463, ptr noundef null, ptr noundef null, ptr noundef nonnull %13, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2420, ptr noundef %2422, ptr noundef nonnull %2424)
           to label %__cxx_global_var_init.1462.exit unwind label %2431
 
@@ -200793,7 +200793,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i657:
           to label %2444 unwind label %2450
 
 2444:                                             ; preds = %2442
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49PhoneNumberUtilTest_ParseItalianLeadingZeros_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2443, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers49PhoneNumberUtilTest_ParseItalianLeadingZeros_TestEEE, i64 0, i32 0, i64 2), ptr %2443, align 8
   %2445 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1475, ptr noundef null, ptr noundef null, ptr noundef nonnull %10, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2439, ptr noundef %2441, ptr noundef nonnull %2443)
           to label %__cxx_global_var_init.1474.exit unwind label %2450
 
@@ -200866,7 +200866,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i663:
           to label %2463 unwind label %2469
 
 2463:                                             ; preds = %2461
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_ParseWithPhoneContext_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2462, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers46PhoneNumberUtilTest_ParseWithPhoneContext_TestEEE, i64 0, i32 0, i64 2), ptr %2462, align 8
   %2464 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1483, ptr noundef null, ptr noundef null, ptr noundef nonnull %7, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2458, ptr noundef %2460, ptr noundef nonnull %2462)
           to label %__cxx_global_var_init.1482.exit unwind label %2469
 
@@ -200939,7 +200939,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i669:
           to label %2482 unwind label %2488
 
 2482:                                             ; preds = %2480
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers52PhoneNumberUtilTest_CanBeInternationallyDialled_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2481, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers52PhoneNumberUtilTest_CanBeInternationallyDialled_TestEEE, i64 0, i32 0, i64 2), ptr %2481, align 8
   %2483 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1516, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2477, ptr noundef %2479, ptr noundef nonnull %2481)
           to label %__cxx_global_var_init.1515.exit unwind label %2488
 
@@ -201012,7 +201012,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i675:
           to label %2501 unwind label %2507
 
 2501:                                             ; preds = %2499
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38PhoneNumberUtilTest_IsAlphaNumber_TestEEE, i64 0, inrange i32 0, i64 2), ptr %2500, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplIN4i18n12phonenumbers38PhoneNumberUtilTest_IsAlphaNumber_TestEEE, i64 0, i32 0, i64 2), ptr %2500, align 8
   %2502 = invoke noundef ptr @_ZN7testing8internal23MakeAndRegisterTestInfoEPKcS2_S2_S2_NS0_12CodeLocationEPKvPFvvES7_PNS0_15TestFactoryBaseE(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1519, ptr noundef null, ptr noundef null, ptr noundef nonnull %1, ptr noundef nonnull @_ZN7testing8internal12TypeIdHelperIN4i18n12phonenumbers19PhoneNumberUtilTestEE6dummy_E, ptr noundef %2496, ptr noundef %2498, ptr noundef nonnull %2500)
           to label %__cxx_global_var_init.1518.exit unwind label %2507
 

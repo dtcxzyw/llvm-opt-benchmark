@@ -705,9 +705,9 @@ define void @_ZN10MainWindowC2EP7QWidget(ptr noundef nonnull align 8 dereference
   %11 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %12 = load i32, ptr %11, align 4
   call void @_ZN11QMainWindowC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %9, ptr noundef %10, i32 %12)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 1
   call void @_ZN5QListI21register_stat_group_eEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %14) #2
   %15 = getelementptr inbounds %class.MainWindow, ptr %9, i32 0, i32 2
@@ -856,9 +856,9 @@ define void @_ZN10MainWindowD2Ev(ptr noundef nonnull align 8 dereferenceable(272
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV10MainWindow, i32 0, i32 1, i32 2), ptr %4, align 8
   invoke void @_ZN10MainWindow21clearAddedPacketMenusEv(ptr noundef nonnull align 8 dereferenceable(272) %3)
           to label %5 unwind label %11
 

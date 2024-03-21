@@ -502,8 +502,8 @@ define dso_local void @_ZN17MainMenuScriptingC1EP9GUIEngine(ptr noundef nonnull 
   %3 = alloca %class.StackUnroller, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 416
   tail call void @_ZN13ScriptApiBaseC2E13ScriptingType(ptr noundef nonnull align 8 dereferenceable(137) %4, i8 noundef zeroext 2)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 1, i64 3), ptr %4, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 1, i64 3), ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   invoke void @_ZN11AsyncEngineC2Ev(ptr noundef nonnull align 8 dereferenceable(408) %5)
           to label %6 unwind label %106
@@ -863,9 +863,9 @@ declare noundef i32 @_ZN11AsyncEngine13queueAsyncJobEONSt7__cxx1112basic_stringI
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17MainMenuScriptingD1Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %3) #18
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %2) #18
@@ -874,9 +874,9 @@ define linkonce_odr dso_local void @_ZN17MainMenuScriptingD1Ev(ptr noundef nonnu
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN17MainMenuScriptingD0Ev(ptr noundef nonnull align 8 dereferenceable(416) %0) unnamed_addr #7 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 416
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %3) #18
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %2) #18
@@ -890,9 +890,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N17MainMenuScriptingD1Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds i8, ptr %5, i64 416
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #18
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %6) #18
@@ -905,9 +905,9 @@ define linkonce_odr dso_local void @_ZTv0_n24_N17MainMenuScriptingD0Ev(ptr nound
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !4
   %6 = getelementptr inbounds i8, ptr %5, i64 416
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTV17MainMenuScripting, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !4
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   tail call void @_ZN11AsyncEngineD1Ev(ptr noundef nonnull align 8 dereferenceable(408) %7) #18
   tail call void @_ZN13ScriptApiBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(137) %6) #18

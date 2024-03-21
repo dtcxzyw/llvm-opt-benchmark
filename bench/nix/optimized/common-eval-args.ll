@@ -453,7 +453,7 @@ $_ZTIPFvRN3nix14AddCompletionsEmSt17basic_string_viewIcSt11char_traitsIcEEE = co
 @.str.28 = private unnamed_addr constant [207 x i8] c"\0A            The [URL of the Nix store](@docroot@/store/types/index.md#store-url-format)\0A            to use for evaluation, i.e. to store derivations (`.drv` files) and inputs referenced by them.\0A          \00", align 1
 @.str.29 = private unnamed_addr constant [10 x i8] c"store-url\00", align 1
 @_ZTVN3nix11MixEvalArgsE = linkonce_odr unnamed_addr constant { [4 x ptr], [20 x ptr], [3 x ptr] } { [4 x ptr] [ptr inttoptr (i64 328 to ptr), ptr inttoptr (i64 120 to ptr), ptr null, ptr @_ZTIN3nix11MixEvalArgsE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -120 to ptr), ptr @_ZTIN3nix11MixEvalArgsE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [3 x ptr] [ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -328 to ptr), ptr @_ZTIN3nix11MixEvalArgsE] }, comdat, align 8
-@_ZTTN3nix11MixEvalArgsE = linkonce_odr unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTCN3nix11MixEvalArgsE328_NS_9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTCN3nix11MixEvalArgsE328_NS_9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTTN3nix11MixEvalArgsE = linkonce_odr unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTCN3nix11MixEvalArgsE328_NS_9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTCN3nix11MixEvalArgsE328_NS_9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @_ZN3nix9CanonPath4rootE = external global %"class.nix::CanonPath", align 8
 @.str.30 = private unnamed_addr constant [7 x i8] c"source\00", align 1
 @.str.31 = private unnamed_addr constant [7 x i8] c"flake:\00", align 1
@@ -3011,7 +3011,7 @@ define void @_ZN3nix11MixEvalArgsC1Ev(ptr noundef nonnull align 8 dereferenceabl
   %57 = alloca [1 x %"class.std::__cxx11::basic_string"], align 8
   %58 = alloca %"class.std::allocator", align 1
   %59 = getelementptr inbounds i8, ptr %0, i64 120
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i64 0, inrange i32 0, i64 2), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i64 0, i32 0, i64 2), ptr %59, align 8
   %60 = getelementptr inbounds i8, ptr %0, i64 136
   store i32 0, ptr %60, align 8
   %61 = getelementptr inbounds i8, ptr %0, i64 144
@@ -3059,9 +3059,9 @@ define void @_ZN3nix11MixEvalArgsC1Ev(ptr noundef nonnull align 8 dereferenceabl
           to label %82 unwind label %502
 
 82:                                               ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, inrange i32 0, i64 4), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, inrange i32 1, i64 11), ptr %59, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, inrange i32 2, i64 3), ptr %81, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, i32 0, i64 4), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, i32 1, i64 11), ptr %59, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i64 0, i32 2, i64 3), ptr %81, align 8
   %83 = getelementptr inbounds i8, ptr %0, i64 8
   %84 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %83, ptr %84, align 8
@@ -5058,7 +5058,7 @@ define linkonce_odr void @_ZN3nix9MixRepairC2Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3nix4ArgsD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 152
   %3 = getelementptr inbounds i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
@@ -5164,7 +5164,7 @@ define noundef ptr @_ZN3nix11MixEvalArgs11getAutoArgsERNS_9EvalStateE(ptr nounde
 
 42:                                               ; preds = %37
   %43 = call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %43, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %43, align 8
   call void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #24
   unreachable
 
@@ -5189,7 +5189,7 @@ define noundef ptr @_ZN3nix11MixEvalArgs11getAutoArgsERNS_9EvalStateE(ptr nounde
 
 52:                                               ; preds = %44
   %53 = call ptr @__cxa_allocate_exception(i64 16) #23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %53, align 8
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   store ptr @.str.37, ptr %54, align 8
   call void @__cxa_throw(ptr nonnull %53, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #24

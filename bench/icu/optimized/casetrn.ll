@@ -139,7 +139,7 @@ entry:
 define void @_ZN6icu_7521CaseMapTransliteratorC2ERKNS_13UnicodeStringEPFiiPFiPvaES4_PPKDsiE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef %map) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(64) %id, ptr noundef null)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7521CaseMapTransliteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7521CaseMapTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fMap = getelementptr inbounds i8, ptr %this, i64 88
   store ptr %map, ptr %fMap, align 8
   ret void
@@ -171,7 +171,7 @@ declare void @llvm.trap() #6
 define void @_ZN6icu_7521CaseMapTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(96) %o) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %o)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7521CaseMapTransliteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7521CaseMapTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fMap = getelementptr inbounds i8, ptr %this, i64 88
   %fMap2 = getelementptr inbounds i8, ptr %o, i64 88
   %0 = load ptr, ptr %fMap2, align 8
@@ -206,7 +206,7 @@ for.body.lr.ph:                                   ; preds = %entry
   %4 = load i32, ptr %contextLimit, align 4
   %limit3 = getelementptr inbounds i8, ptr %csc, i64 16
   store i32 %4, ptr %limit3, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tmp, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tmp, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tmp, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %cpStart = getelementptr inbounds i8, ptr %csc, i64 20

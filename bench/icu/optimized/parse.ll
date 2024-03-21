@@ -3719,7 +3719,7 @@ entry:
   %postBuffer = alloca [100 x i8], align 16
   %buffer = alloca %"class.icu_75::LocalMemory.2", align 8
   %indexes = alloca [20 x i32], align 16
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %rules, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %rules, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %rules, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %lookaheadPosition.i = getelementptr inbounds i8, ptr %state, i64 192
@@ -3966,7 +3966,7 @@ if.end111:                                        ; preds = %if.end100
   %18 = load ptr, ptr %inputdir, align 8
   %outputdir = getelementptr inbounds i8, ptr %state, i64 232
   %19 = load ptr, ptr %outputdir, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113GenrbImporterE, i64 0, inrange i32 0, i64 2), ptr %importer, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_113GenrbImporterE, i64 0, i32 0, i64 2), ptr %importer, align 8
   %inputDir.i = getelementptr inbounds i8, ptr %importer, i64 8
   store ptr %18, ptr %inputDir.i, align 8
   %outputDir.i = getelementptr inbounds i8, ptr %importer, i64 16
@@ -6136,7 +6136,7 @@ entry:
 if.end:                                           ; preds = %entry
   %errorCode.i.i = getelementptr inbounds i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %status, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7516IcuToolErrorCodeE, i64 0, i32 0, i64 2), ptr %status, align 8
   %location.i = getelementptr inbounds i8, ptr %status, i64 16
   store ptr @.str.92, ptr %location.i, align 8
   invoke void @umutablecptrie_setRange_75(ptr noundef %context, i32 noundef %start, i32 noundef %end, i32 noundef %value, ptr noundef nonnull %errorCode.i.i)

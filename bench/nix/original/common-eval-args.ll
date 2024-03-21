@@ -3061,7 +3061,7 @@ $_ZTIPFvRN3nix14AddCompletionsEmSt17basic_string_viewIcSt11char_traitsIcEEE = co
 @.str.28 = private unnamed_addr constant [207 x i8] c"\0A            The [URL of the Nix store](@docroot@/store/types/index.md#store-url-format)\0A            to use for evaluation, i.e. to store derivations (`.drv` files) and inputs referenced by them.\0A          \00", align 1
 @.str.29 = private unnamed_addr constant [10 x i8] c"store-url\00", align 1
 @_ZTVN3nix11MixEvalArgsE = linkonce_odr unnamed_addr constant { [4 x ptr], [20 x ptr], [3 x ptr] } { [4 x ptr] [ptr inttoptr (i64 328 to ptr), ptr inttoptr (i64 120 to ptr), ptr null, ptr @_ZTIN3nix11MixEvalArgsE], [20 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -120 to ptr), ptr @_ZTIN3nix11MixEvalArgsE, ptr @_ZN3nix4Args11descriptionB5cxx11Ev, ptr @_ZN3nix4Args20forceImpureByDefaultEv, ptr @_ZN3nix4Args3docB5cxx11Ev, ptr @_ZNK3nix4Args17getCommandBaseDirB5cxx11Ev, ptr @_ZN3nix4Args11processFlagERSt14_List_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEES8_, ptr @_ZN3nix4Args11processArgsERKNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEEb, ptr @_ZN3nix4Args11rewriteArgsERNSt7__cxx114listINS1_12basic_stringIcSt11char_traitsIcESaIcEEESaIS7_EEESt14_List_iteratorIS7_E, ptr @_ZN3nix4Args21initialFlagsProcessedEv, ptr @_ZN3nix4Args6toJSONB5cxx11Ev], [3 x ptr] [ptr inttoptr (i64 -208 to ptr), ptr inttoptr (i64 -328 to ptr), ptr @_ZTIN3nix11MixEvalArgsE] }, comdat, align 8
-@_ZTTN3nix11MixEvalArgsE = linkonce_odr unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTCN3nix11MixEvalArgsE328_NS_9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTCN3nix11MixEvalArgsE328_NS_9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
+@_ZTTN3nix11MixEvalArgsE = linkonce_odr unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, i32 0, i32 4), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTCN3nix11MixEvalArgsE328_NS_9MixRepairE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr], [20 x ptr] }, ptr @_ZTCN3nix11MixEvalArgsE328_NS_9MixRepairE, i32 0, inrange i32 1, i32 11)], comdat, align 8
 @_ZN3nix9CanonPath4rootE = external global %"class.nix::CanonPath", align 8
 @.str.30 = private unnamed_addr constant [7 x i8] c"source\00", align 1
 @.str.31 = private unnamed_addr constant [7 x i8] c"flake:\00", align 1
@@ -6414,11 +6414,11 @@ define void @_ZN3nix11MixEvalArgsC1Ev(ptr noundef nonnull align 8 dereferenceabl
           to label %140 unwind label %423
 
 140:                                              ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 0, i32 4), ptr %137, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, i32 0, i32 4), ptr %137, align 8
   %141 = getelementptr inbounds i8, ptr %137, i64 120
-  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 1, i32 11), ptr %141, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, i32 1, i32 11), ptr %141, align 8
   %142 = getelementptr inbounds i8, ptr %137, i64 328
-  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, inrange i32 2, i32 3), ptr %142, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [20 x ptr], [3 x ptr] }, ptr @_ZTVN3nix11MixEvalArgsE, i32 0, i32 2, i32 3), ptr %142, align 8
   %143 = getelementptr inbounds %"struct.nix::MixEvalArgs", ptr %137, i32 0, i32 1
   call void @_ZN3nix10SearchPathC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %143) #1
   %144 = getelementptr inbounds %"struct.nix::MixEvalArgs", ptr %137, i32 0, i32 2
@@ -8474,7 +8474,7 @@ define linkonce_odr void @_ZN3nix4ArgsC2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nix::Args", ptr %3, i32 0, i32 1
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN3nix4Args4FlagEESt4lessIS5_ESaISt4pairIKS5_SA_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #1
   %5 = getelementptr inbounds %"class.nix::Args", ptr %3, i32 0, i32 2
@@ -8682,7 +8682,7 @@ define linkonce_odr void @_ZN3nix4ArgsD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN3nix4ArgsE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.nix::Args", ptr %3, i32 0, i32 5
   call void @_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #1
   %5 = getelementptr inbounds %"class.nix::Args", ptr %3, i32 0, i32 4
@@ -17871,7 +17871,7 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17904,7 +17904,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -18032,7 +18032,7 @@ define linkonce_odr void @_ZNSt18bad_variant_accessC2EPKc(ptr noundef nonnull al
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::bad_variant_access", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8

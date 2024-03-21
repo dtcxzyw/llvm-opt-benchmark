@@ -180,7 +180,7 @@ entry:
   store ptr %s, ptr %d_state.i, align 8
   %d_im.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr %inferMgr, ptr %d_im.i, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv24BVSolverBitblastInternalE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv24BVSolverBitblastInternalE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_bitblaster = getelementptr inbounds i8, ptr %this, i64 32
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #15
   invoke void @_ZN4cvc58internal6theory2bv7BBProofC1ERNS0_3EnvEPNS1_11TheoryStateEb(ptr noundef nonnull align 8 dereferenceable(105) %call, ptr noundef nonnull align 8 dereferenceable(576) %env, ptr noundef nonnull %s, i1 noundef zeroext false)
@@ -189,7 +189,7 @@ entry:
 invoke.cont5:                                     ; preds = %entry
   store ptr %call, ptr %d_bitblaster, align 8
   %d_checker = getelementptr inbounds i8, ptr %this, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv18BVProofRuleCheckerE, i64 0, inrange i32 0, i64 2), ptr %d_checker, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv18BVProofRuleCheckerE, i64 0, i32 0, i64 2), ptr %d_checker, align 8
   %call8 = invoke noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #15
           to label %invoke.cont7 unwind label %ehcleanup15.thread
 
@@ -2486,7 +2486,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv24BVSolverBitblastInternalD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv24BVSolverBitblastInternalE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv24BVSolverBitblastInternalE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_epg = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %d_epg, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -2521,7 +2521,7 @@ _ZNSt10unique_ptrIN4cvc58internal6theory2bv7BBProofESt14default_deleteIS4_EED2Ev
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc58internal6theory2bv24BVSolverBitblastInternalD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv24BVSolverBitblastInternalE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv24BVSolverBitblastInternalE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_epg.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %d_epg.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

@@ -309,7 +309,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
 define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseC2EPcS2_S2_PKtii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(136) %this, ptr noundef %packedAc, ptr noundef %packedAcEnd, ptr noundef %packedDc, ptr noundef %toLinear, i32 noundef %width, i32 noundef %height) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_packedAcCount = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %_packedAcCount, align 4
   %_packedDcCount = getelementptr inbounds i8, ptr %this, i64 16
@@ -346,7 +346,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctDecoderBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_dctData = getelementptr inbounds i8, ptr %this, i64 112
   %0 = load ptr, ptr %_dctData, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 120
@@ -2213,7 +2213,7 @@ declare void @_ZN7Iex_3_28InputExcD1Ev(ptr noundef nonnull align 8 dereferenceab
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
 define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseC2EfPcS2_PKtii(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(640) %this, float noundef %quantBaseError, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height) unnamed_addr #12 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_quantBaseError = getelementptr inbounds i8, ptr %this, i64 8
   store float %quantBaseError, ptr %_quantBaseError, align 8
   %_width = getelementptr inbounds i8, ptr %this, i64 12
@@ -2257,7 +2257,7 @@ for.end:                                          ; preds = %for.body
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_213DwaCompressor19LossyDctEncoderBaseD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(640) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_dctData = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %_dctData, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 96
@@ -3779,7 +3779,7 @@ define hidden void @_ZN7Imf_3_213DwaCompressorC2ERKNS_6HeaderEiiNS0_13AcCompress
 entry:
   %__an.i.i.i.i = alloca %"struct.std::_Rb_tree<Imf_3_2::Name, std::pair<const Imf_3_2::Name, Imf_3_2::Channel>, std::_Select1st<std::pair<const Imf_3_2::Name, Imf_3_2::Channel>>, std::less<Imf_3_2::Name>>::_Alloc_node", align 8
   tail call void @_ZN7Imf_3_210CompressorC2ERKNS_6HeaderE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(49) %hdr)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_acCompression = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %acCompression, ptr %_acCompression, align 8
   %_maxScanLineSize = getelementptr inbounds i8, ptr %this, i64 20
@@ -4022,7 +4022,7 @@ declare void @_ZN7Imf_3_210CompressorD2Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_213DwaCompressorD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_packedAcBuffer = getelementptr inbounds i8, ptr %this, i64 168
   %0 = load ptr, ptr %_packedAcBuffer, align 8
   %isnull = icmp eq ptr %0, null
@@ -4860,7 +4860,7 @@ invoke.cont258:                                   ; preds = %invoke.cont210
   %100 = load i64, ptr %storemerge.i.i.i.i.i213, align 8
   %or.i220 = or i64 %shl.i.i.i215, %100
   store i64 %or.i220, ptr %storemerge.i.i.i.i.i213, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, inrange i32 0, i64 2), ptr %encoder, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, i32 0, i64 2), ptr %encoder, align 8
   %101 = load ptr, ptr %_dctData.i, align 8
   %102 = load ptr, ptr %_M_finish.i.i, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %101, %102
@@ -5035,7 +5035,7 @@ invoke.cont295:                                   ; preds = %invoke.cont293
   %add.ptr308 = getelementptr inbounds i8, ptr %packedAcEnd.2525, i64 %mul307
   %mul312 = shl nsw i64 %conv302, 1
   %add.ptr313 = getelementptr inbounds i8, ptr %packedDcEnd.2524, i64 %mul312
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, inrange i32 0, i64 2), ptr %encoder285, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, i32 0, i64 2), ptr %encoder285, align 8
   %129 = load ptr, ptr %_dctData.i344, align 8
   %130 = load ptr, ptr %_M_finish.i.i345, align 8
   %cmp.not3.i.i.i.i.i346 = icmp eq ptr %129, %130
@@ -10140,7 +10140,7 @@ declare noundef i32 @_ZN7Imf_3_213pixelTypeSizeENS_9PixelTypeE(i32 noundef) loca
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_213DwaCompressor18LossyDctEncoderCscC2EfRSt6vectorIPKcSaIS4_EES7_S7_PcS8_PKtiiNS_9PixelTypeESB_SB_(ptr noundef nonnull align 8 dereferenceable(640) %this, float noundef %quantBaseError, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrsR, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrsG, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrsB, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height, i32 noundef %typeR, i32 noundef %typeG, i32 noundef %typeB) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_quantBaseError.i = getelementptr inbounds i8, ptr %this, i64 8
   store float %quantBaseError, ptr %_quantBaseError.i, align 8
   %_width.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -10178,7 +10178,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %cond.true.i.i.i, label %for.body.i, !llvm.loop !35
 
 cond.true.i.i.i:                                  ; preds = %for.body.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctEncoderCscE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctEncoderCscE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_type = getelementptr inbounds i8, ptr %this, i64 64
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 80
@@ -10430,7 +10430,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_213DwaCompressor15LossyDctEncoderC2EfRSt6vectorIPKcSaIS4_EEPcS8_PKtiiNS_9PixelTypeE(ptr noundef nonnull align 8 dereferenceable(640) %this, float noundef %quantBaseError, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrs, ptr noundef %packedAc, ptr noundef %packedDc, ptr noundef %toNonlinear, i32 noundef %width, i32 noundef %height, i32 noundef %type) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctEncoderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_quantBaseError.i = getelementptr inbounds i8, ptr %this, i64 8
   store float %quantBaseError, ptr %_quantBaseError.i, align 8
   %_width.i = getelementptr inbounds i8, ptr %this, i64 12
@@ -10468,7 +10468,7 @@ for.body.i:                                       ; preds = %for.body.i, %entry
   br i1 %exitcond.not.i, label %if.else.i, label %for.body.i, !llvm.loop !35
 
 if.else.i:                                        ; preds = %for.body.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctEncoderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctEncoderE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_rowPtrs = getelementptr inbounds i8, ptr %this, i64 40
   invoke void @_ZNSt6vectorIS_IPKcSaIS1_EESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrs)
           to label %invoke.cont unwind label %lpad
@@ -11706,7 +11706,7 @@ invoke.cont412:                                   ; preds = %invoke.cont387
   %136 = load i64, ptr %storemerge.i.i.i.i.i268, align 8
   %or.i275 = or i64 %136, %shl.i.i.i270
   store i64 %or.i275, ptr %storemerge.i.i.i.i.i268, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, inrange i32 0, i64 2), ptr %decoder, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, i32 0, i64 2), ptr %decoder, align 8
   %137 = load ptr, ptr %_dctData.i, align 8
   %138 = load ptr, ptr %_M_finish.i.i385, align 8
   %cmp.not3.i.i.i.i.i = icmp eq ptr %137, %138
@@ -11879,7 +11879,7 @@ invoke.cont454:                                   ; preds = %invoke.cont452
   %conv462 = sext i32 %161 to i64
   %mul463 = shl nsw i64 %conv462, 1
   %add.ptr464 = getelementptr inbounds i8, ptr %packedDcBufferEnd.2546, i64 %mul463
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, inrange i32 0, i64 2), ptr %decoder444, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, i32 0, i64 2), ptr %decoder444, align 8
   %162 = load ptr, ptr %_dctData.i391, align 8
   %163 = load ptr, ptr %_M_finish.i.i392, align 8
   %cmp.not3.i.i.i.i.i393 = icmp eq ptr %162, %163
@@ -12718,7 +12718,7 @@ declare noundef i32 @_ZN7Imf_3_213rleUncompressEiiPKaPc(i32 noundef, i32 noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_213DwaCompressor18LossyDctDecoderCscC2ERSt6vectorIPcSaIS3_EES6_S6_S3_S3_S3_PKtiiNS_9PixelTypeES9_S9_(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrsR, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrsG, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrsB, ptr noundef %packedAc, ptr noundef %packedAcEnd, ptr noundef %packedDc, ptr noundef %toLinear, i32 noundef %width, i32 noundef %height, i32 noundef %typeR, i32 noundef %typeG, i32 noundef %typeB) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_packedAcCount.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %_packedAcCount.i, align 4
   %_packedDcCount.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -12749,7 +12749,7 @@ if.else.i:                                        ; preds = %if.then.i, %entry
   %.b = load i1, ptr @_ZN7Imf_3_2L27GLOBAL_SYSTEM_LITTLE_ENDIANE, align 1
   %0 = zext i1 %.b to i8
   store i8 %0, ptr %_isNativeXdr.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctDecoderCscE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor18LossyDctDecoderCscE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 72
   %_M_end_of_storage.i = getelementptr inbounds i8, ptr %this, i64 80
   invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs.i, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrsR)
@@ -13106,7 +13106,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7Imf_3_213DwaCompressor15LossyDctDecoderC2ERSt6vectorIPcSaIS3_EES3_S3_S3_PKtiiNS_9PixelTypeE(ptr noundef nonnull align 8 dereferenceable(136) %this, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrs, ptr noundef %packedAc, ptr noundef %packedAcEnd, ptr noundef %packedDc, ptr noundef %toLinear, i32 noundef %width, i32 noundef %height, i32 noundef %type) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor19LossyDctDecoderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_packedAcCount.i = getelementptr inbounds i8, ptr %this, i64 12
   store i32 0, ptr %_packedAcCount.i, align 4
   %_packedDcCount.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -13137,7 +13137,7 @@ if.else.i:                                        ; preds = %if.then.i, %entry
   %.b = load i1, ptr @_ZN7Imf_3_2L27GLOBAL_SYSTEM_LITTLE_ENDIANE, align 1
   %0 = zext i1 %.b to i8
   store i8 %0, ptr %_isNativeXdr.i, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctDecoderE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Imf_3_213DwaCompressor15LossyDctDecoderE, i64 0, i32 0, i64 2), ptr %this, align 8
   invoke void @_ZNSt6vectorIS_IPcSaIS0_EESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %_rowPtrs.i, ptr null, ptr noundef nonnull align 8 dereferenceable(24) %rowPtrs)
           to label %invoke.cont unwind label %lpad
 

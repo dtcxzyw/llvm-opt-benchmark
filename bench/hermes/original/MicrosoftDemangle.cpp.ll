@@ -874,7 +874,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Error = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this1, i32 0, i32 1
   store i8 0, ptr %Error, align 8
   %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this1, i32 0, i32 2
@@ -1275,7 +1275,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_19DemanglerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Arena = getelementptr inbounds %"class.(anonymous namespace)::Demangler", ptr %this1, i32 0, i32 2
   call void @_ZN4llvh11ms_demangle14ArenaAllocatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %Arena) #13
   ret void
@@ -2093,7 +2093,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %K.addr, align 4
   call void @_ZN4llvh11ms_demangle4NodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle10SymbolNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle10SymbolNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Name = getelementptr inbounds %"struct.llvh::ms_demangle::SymbolNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %Name, align 8
   ret void
@@ -2107,7 +2107,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %K, ptr %K.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Kind = getelementptr inbounds %"struct.llvh::ms_demangle::Node", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %K.addr, align 4
   store i32 %0, ptr %Kind, align 8
@@ -2286,7 +2286,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle14IdentifierNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 5)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle19NamedIdentifierNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Name = getelementptr inbounds %"struct.llvh::ms_demangle::NamedIdentifierNode", ptr %this1, i32 0, i32 1
   call void @_ZN10StringViewC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Name)
   ret void
@@ -2302,7 +2302,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %K.addr, align 4
   call void @_ZN4llvh11ms_demangle4NodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle14IdentifierNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle14IdentifierNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %TemplateParams = getelementptr inbounds %"struct.llvh::ms_demangle::IdentifierNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %TemplateParams, align 8
   ret void
@@ -2607,7 +2607,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle4NodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 20)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle17QualifiedNameNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle17QualifiedNameNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Components = getelementptr inbounds %"struct.llvh::ms_demangle::QualifiedNameNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %Components, align 8
   ret void
@@ -2620,7 +2620,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle4NodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 19)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle13NodeArrayNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle13NodeArrayNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Nodes = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %Nodes, align 8
   %Count = getelementptr inbounds %"struct.llvh::ms_demangle::NodeArrayNode", ptr %this1, i32 0, i32 2
@@ -5227,7 +5227,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle10SymbolNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 22)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle24EncodedStringLiteralNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle24EncodedStringLiteralNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %DecodedString = getelementptr inbounds %"struct.llvh::ms_demangle::EncodedStringLiteralNode", ptr %this1, i32 0, i32 1
   call void @_ZN10StringViewC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %DecodedString)
   %IsTruncated = getelementptr inbounds %"struct.llvh::ms_demangle::EncodedStringLiteralNode", ptr %this1, i32 0, i32 2
@@ -8225,7 +8225,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle14IdentifierNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 11)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle22StructorIdentifierNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle22StructorIdentifierNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Class = getelementptr inbounds %"struct.llvh::ms_demangle::StructorIdentifierNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %Class, align 8
   %IsDestructor = getelementptr inbounds %"struct.llvh::ms_demangle::StructorIdentifierNode", ptr %this1, i32 0, i32 2
@@ -8322,7 +8322,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle14IdentifierNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle32ConversionOperatorIdentifierNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle32ConversionOperatorIdentifierNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %TargetType = getelementptr inbounds %"struct.llvh::ms_demangle::ConversionOperatorIdentifierNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %TargetType, align 8
   ret void
@@ -8337,7 +8337,7 @@ entry:
   store i8 %Operator, ptr %Operator.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle14IdentifierNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle31IntrinsicFunctionIdentifierNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Operator2 = getelementptr inbounds %"struct.llvh::ms_demangle::IntrinsicFunctionIdentifierNode", ptr %this1, i32 0, i32 1
   %0 = load i8, ptr %Operator.addr, align 1
   store i8 %0, ptr %Operator2, align 8
@@ -8530,7 +8530,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle14IdentifierNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 12)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle29LiteralOperatorIdentifierNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle29LiteralOperatorIdentifierNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Name = getelementptr inbounds %"struct.llvh::ms_demangle::LiteralOperatorIdentifierNode", ptr %this1, i32 0, i32 1
   call void @_ZN10StringViewC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %Name)
   ret void
@@ -8921,7 +8921,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle4NodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 21)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle30TemplateParameterReferenceNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Symbol = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %this1, i32 0, i32 2
   store ptr null, ptr %Symbol, align 8
   %ThunkOffsetCount = getelementptr inbounds %"struct.llvh::ms_demangle::TemplateParameterReferenceNode", ptr %this1, i32 0, i32 3
@@ -8958,7 +8958,7 @@ entry:
   store i8 %frombool, ptr %IsNegative.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle4NodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef 23)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18IntegerLiteralNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18IntegerLiteralNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Value2 = getelementptr inbounds %"struct.llvh::ms_demangle::IntegerLiteralNode", ptr %this1, i32 0, i32 2
   %0 = load i64, ptr %Value.addr, align 8
   store i64 %0, ptr %Value2, align 8
@@ -9153,7 +9153,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle10SymbolNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 28)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle22SpecialTableSymbolNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle22SpecialTableSymbolNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %TargetName = getelementptr inbounds %"struct.llvh::ms_demangle::SpecialTableSymbolNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %TargetName, align 8
   ret void
@@ -9695,7 +9695,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle10SymbolNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 26)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18FunctionSymbolNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18FunctionSymbolNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Signature = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSymbolNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %Signature, align 8
   ret void
@@ -9708,7 +9708,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle14IdentifierNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle24VcallThunkIdentifierNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle24VcallThunkIdentifierNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %OffsetInVTable = getelementptr inbounds %"struct.llvh::ms_demangle::VcallThunkIdentifierNode", ptr %this1, i32 0, i32 1
   store i64 0, ptr %OffsetInVTable, align 8
   ret void
@@ -9721,7 +9721,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle21FunctionSignatureNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(56) %this1, i32 noundef 13)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18ThunkSignatureNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ThisAdjust = getelementptr inbounds %"struct.llvh::ms_demangle::ThunkSignatureNode", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh11ms_demangle18ThunkSignatureNode12ThisAdjustorC2Ev(ptr noundef nonnull align 4 dereferenceable(16) %ThisAdjust) #13
   ret void
@@ -9737,7 +9737,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %K.addr, align 4
   call void @_ZN4llvh11ms_demangle8TypeNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Affinity = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %Affinity, align 8
   %CallConvention = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %this1, i32 0, i32 2
@@ -9782,7 +9782,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %K.addr, align 4
   call void @_ZN4llvh11ms_demangle4NodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(12) %this1, i32 noundef %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle8TypeNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle8TypeNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Quals = getelementptr inbounds %"struct.llvh::ms_demangle::TypeNode", ptr %this1, i32 0, i32 1
   store i8 0, ptr %Quals, align 4
   ret void
@@ -10003,7 +10003,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle14IdentifierNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 7)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle30LocalStaticGuardIdentifierNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle30LocalStaticGuardIdentifierNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ScopeIndex = getelementptr inbounds %"struct.llvh::ms_demangle::LocalStaticGuardIdentifierNode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %ScopeIndex, align 8
   ret void
@@ -10016,7 +10016,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle10SymbolNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 25)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle28LocalStaticGuardVariableNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle28LocalStaticGuardVariableNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %IsVisible = getelementptr inbounds %"struct.llvh::ms_demangle::LocalStaticGuardVariableNode", ptr %this1, i32 0, i32 1
   store i8 0, ptr %IsVisible, align 8
   ret void
@@ -11151,7 +11151,7 @@ entry:
   store i32 %Tag, ptr %Tag.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle8TypeNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 15)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle11TagTypeNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle11TagTypeNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %QualifiedName = getelementptr inbounds %"struct.llvh::ms_demangle::TagTypeNode", ptr %this1, i32 0, i32 2
   store ptr null, ptr %QualifiedName, align 8
   %Tag2 = getelementptr inbounds %"struct.llvh::ms_demangle::TagTypeNode", ptr %this1, i32 0, i32 3
@@ -11437,7 +11437,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle8TypeNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 14)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle15PointerTypeNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle15PointerTypeNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Affinity = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %Affinity, align 8
   %ClassParent = getelementptr inbounds %"struct.llvh::ms_demangle::PointerTypeNode", ptr %this1, i32 0, i32 2
@@ -11674,7 +11674,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle8TypeNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 16)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle13ArrayTypeNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle13ArrayTypeNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Dimensions = getelementptr inbounds %"struct.llvh::ms_demangle::ArrayTypeNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %Dimensions, align 8
   %ElementType = getelementptr inbounds %"struct.llvh::ms_demangle::ArrayTypeNode", ptr %this1, i32 0, i32 2
@@ -12048,7 +12048,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle8TypeNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle21FunctionSignatureNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Affinity = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %Affinity, align 8
   %CallConvention = getelementptr inbounds %"struct.llvh::ms_demangle::FunctionSignatureNode", ptr %this1, i32 0, i32 2
@@ -12155,7 +12155,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle8TypeNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 17)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle14CustomTypeNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle14CustomTypeNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -12256,7 +12256,7 @@ entry:
   store i32 %K, ptr %K.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle8TypeNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(13) %this1, i32 noundef 2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle17PrimitiveTypeNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4llvh11ms_demangle17PrimitiveTypeNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %PrimKind = getelementptr inbounds %"struct.llvh::ms_demangle::PrimitiveTypeNode", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %K.addr, align 4
   store i32 %0, ptr %PrimKind, align 8
@@ -12352,7 +12352,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle10SymbolNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 27)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle18VariableSymbolNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %SC = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %this1, i32 0, i32 1
   store i8 0, ptr %SC, align 8
   %Type = getelementptr inbounds %"struct.llvh::ms_demangle::VariableSymbolNode", ptr %this1, i32 0, i32 2
@@ -12449,7 +12449,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle14IdentifierNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 24)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle27RttiBaseClassDescriptorNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle27RttiBaseClassDescriptorNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %NVOffset = getelementptr inbounds %"struct.llvh::ms_demangle::RttiBaseClassDescriptorNode", ptr %this1, i32 0, i32 1
   store i32 0, ptr %NVOffset, align 8
   %VBPtrOffset = getelementptr inbounds %"struct.llvh::ms_demangle::RttiBaseClassDescriptorNode", ptr %this1, i32 0, i32 2
@@ -12733,7 +12733,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh11ms_demangle14IdentifierNodeC2ENS0_8NodeKindE(ptr noundef nonnull align 8 dereferenceable(24) %this1, i32 noundef 10)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle29DynamicStructorIdentifierNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4llvh11ms_demangle29DynamicStructorIdentifierNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %Variable = getelementptr inbounds %"struct.llvh::ms_demangle::DynamicStructorIdentifierNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %Variable, align 8
   %Name = getelementptr inbounds %"struct.llvh::ms_demangle::DynamicStructorIdentifierNode", ptr %this1, i32 0, i32 2

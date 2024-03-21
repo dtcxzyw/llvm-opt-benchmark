@@ -335,7 +335,7 @@ define linkonce_odr dso_local void @_ZN12SmokePuffCSOC2EPN3irr5scene13ISceneMana
   %11 = alloca %"class.irr::video::SColor", align 4
   %12 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %12, align 8, !tbaa !12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12SmokePuffCSO, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12SmokePuffCSO, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   %13 = getelementptr inbounds i8, ptr %0, i64 12
   store float 0.000000e+00, ptr %13, align 4, !tbaa !17
   %14 = getelementptr inbounds i8, ptr %0, i64 16
@@ -704,7 +704,7 @@ declare noundef i32 @_ZN11Environment16getDayNightRatioEv(ptr noundef nonnull al
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr dso_local void @_ZN12SmokePuffCSOD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #12 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12SmokePuffCSO, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12SmokePuffCSO, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !15
   br i1 icmp ne (ptr @_ZTH10infostream, ptr null), label %2, label %3
 
 2:                                                ; preds = %1

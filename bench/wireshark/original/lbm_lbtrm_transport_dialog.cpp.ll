@@ -3153,7 +3153,7 @@ define void @_ZN18LBMLBTRMFrameEntryC2Ej(ptr noundef nonnull align 8 dereference
   store i32 %1, ptr %4, align 4
   %13 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %13, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18LBMLBTRMFrameEntry, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18LBMLBTRMFrameEntry, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.LBMLBTRMFrameEntry, ptr %13, i32 0, i32 1
   %15 = load i32, ptr %4, align 4
   store i32 %15, ptr %14, align 4
@@ -3417,7 +3417,7 @@ define void @_ZN16LBMLBTRMSQNEntryC2Ej(ptr noundef nonnull align 8 dereferenceab
   store i32 %1, ptr %4, align 4
   %16 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %16, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16LBMLBTRMSQNEntry, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16LBMLBTRMSQNEntry, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.LBMLBTRMSQNEntry, ptr %16, i32 0, i32 1
   %18 = load i32, ptr %4, align 4
   store i32 %18, ptr %17, align 4
@@ -3640,7 +3640,7 @@ define void @_ZN16LBMLBTRMSQNEntryD2Ev(ptr noundef nonnull align 8 dereferenceab
   %4 = alloca %"class.QMap<unsigned int, LBMLBTRMFrameEntry *>::iterator", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16LBMLBTRMSQNEntry, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV16LBMLBTRMSQNEntry, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.LBMLBTRMSQNEntry, ptr %5, i32 0, i32 3
   %7 = invoke ptr @_ZN4QMapIjP18LBMLBTRMFrameEntryE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %8 unwind label %36
@@ -4096,7 +4096,7 @@ define void @_ZN22LBMLBTRMNCFReasonEntryC2Eh(ptr noundef nonnull align 8 derefer
   store i8 %1, ptr %4, align 1
   %16 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %16, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22LBMLBTRMNCFReasonEntry, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22LBMLBTRMNCFReasonEntry, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.LBMLBTRMNCFReasonEntry, ptr %16, i32 0, i32 1
   %18 = load i8, ptr %4, align 1
   store i8 %18, ptr %17, align 4
@@ -4359,7 +4359,7 @@ define void @_ZN22LBMLBTRMNCFReasonEntryD2Ev(ptr noundef nonnull align 8 derefer
   %4 = alloca %"class.QMap<unsigned int, LBMLBTRMFrameEntry *>::iterator", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22LBMLBTRMNCFReasonEntry, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV22LBMLBTRMNCFReasonEntry, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.LBMLBTRMNCFReasonEntry, ptr %5, i32 0, i32 4
   %7 = invoke ptr @_ZN4QMapIjP18LBMLBTRMFrameEntryE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %8 unwind label %37
@@ -4580,7 +4580,7 @@ define void @_ZN19LBMLBTRMNCFSQNEntryC2Ej(ptr noundef nonnull align 8 dereferenc
   store i32 %1, ptr %4, align 4
   %16 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %16, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19LBMLBTRMNCFSQNEntry, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19LBMLBTRMNCFSQNEntry, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = getelementptr inbounds %class.LBMLBTRMNCFSQNEntry, ptr %16, i32 0, i32 1
   %18 = load i32, ptr %4, align 4
   store i32 %18, ptr %17, align 4
@@ -4757,7 +4757,7 @@ define void @_ZN19LBMLBTRMNCFSQNEntryD2Ev(ptr noundef nonnull align 8 dereferenc
   %4 = alloca %"class.QMap<unsigned int, LBMLBTRMNCFReasonEntry *>::iterator", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19LBMLBTRMNCFSQNEntry, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19LBMLBTRMNCFSQNEntry, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.LBMLBTRMNCFSQNEntry, ptr %5, i32 0, i32 3
   %7 = invoke ptr @_ZN4QMapIjP22LBMLBTRMNCFReasonEntryE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %8 unwind label %36
@@ -5198,7 +5198,7 @@ define void @_ZN28LBMLBTRMSourceTransportEntryC2ERK7QString(ptr noundef nonnull 
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %7, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28LBMLBTRMSourceTransportEntry, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28LBMLBTRMSourceTransportEntry, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.LBMLBTRMSourceTransportEntry, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #15
@@ -5343,7 +5343,7 @@ define void @_ZN28LBMLBTRMSourceTransportEntryD2Ev(ptr noundef nonnull align 8 d
   %10 = alloca %"class.QMap<unsigned int, LBMLBTRMSQNEntry *>::iterator", align 8
   store ptr %0, ptr %2, align 8
   %11 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28LBMLBTRMSourceTransportEntry, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV28LBMLBTRMSourceTransportEntry, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %class.LBMLBTRMSourceTransportEntry, ptr %11, i32 0, i32 14
   %13 = invoke ptr @_ZN4QMapIjP16LBMLBTRMSQNEntryE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
           to label %14 unwind label %133
@@ -7889,7 +7889,7 @@ define void @_ZN19LBMLBTRMSourceEntryC2ERK7QString(ptr noundef nonnull align 8 d
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %7, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19LBMLBTRMSourceEntry, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19LBMLBTRMSourceEntry, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.LBMLBTRMSourceEntry, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #15
@@ -7985,7 +7985,7 @@ define void @_ZN19LBMLBTRMSourceEntryD2Ev(ptr noundef nonnull align 8 dereferenc
   %4 = alloca %"class.QMap<QString, LBMLBTRMSourceTransportEntry *>::iterator", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19LBMLBTRMSourceEntry, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19LBMLBTRMSourceEntry, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.LBMLBTRMSourceEntry, ptr %5, i32 0, i32 15
   %7 = invoke ptr @_ZN4QMapI7QStringP28LBMLBTRMSourceTransportEntryE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %8 unwind label %38
@@ -9691,7 +9691,7 @@ define void @_ZN30LBMLBTRMReceiverTransportEntryC2ERK7QString(ptr noundef nonnul
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %7, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV30LBMLBTRMReceiverTransportEntry, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV30LBMLBTRMReceiverTransportEntry, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.LBMLBTRMReceiverTransportEntry, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #15
@@ -9752,7 +9752,7 @@ define void @_ZN30LBMLBTRMReceiverTransportEntryD2Ev(ptr noundef nonnull align 8
   %4 = alloca %"class.QMap<unsigned int, LBMLBTRMSQNEntry *>::iterator", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV30LBMLBTRMReceiverTransportEntry, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV30LBMLBTRMReceiverTransportEntry, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.LBMLBTRMReceiverTransportEntry, ptr %5, i32 0, i32 8
   %7 = invoke ptr @_ZN4QMapIjP16LBMLBTRMSQNEntryE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %8 unwind label %37
@@ -10236,7 +10236,7 @@ define void @_ZN21LBMLBTRMReceiverEntryC2ERK7QString(ptr noundef nonnull align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %7, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21LBMLBTRMReceiverEntry, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21LBMLBTRMReceiverEntry, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.LBMLBTRMReceiverEntry, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #15
@@ -10320,7 +10320,7 @@ define void @_ZN21LBMLBTRMReceiverEntryD2Ev(ptr noundef nonnull align 8 derefere
   %4 = alloca %"class.QMap<QString, LBMLBTRMReceiverTransportEntry *>::iterator", align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21LBMLBTRMReceiverEntry, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV21LBMLBTRMReceiverEntry, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.LBMLBTRMReceiverEntry, ptr %5, i32 0, i32 9
   %7 = invoke ptr @_ZN4QMapI7QStringP30LBMLBTRMReceiverTransportEntryE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %8 unwind label %38
@@ -12015,9 +12015,9 @@ define void @_ZN23LBMLBTRMTransportDialogC2EP7QWidgetP13_capture_file(ptr nounde
   %36 = getelementptr inbounds %class.QFlags.26, ptr %7, i32 0, i32 0
   %37 = load i32, ptr %36, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %34, ptr noundef %35, i32 %37)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV23LBMLBTRMTransportDialog, i32 0, inrange i32 0, i32 2), ptr %34, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV23LBMLBTRMTransportDialog, i32 0, i32 0, i32 2), ptr %34, align 8
   %38 = getelementptr inbounds i8, ptr %34, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV23LBMLBTRMTransportDialog, i32 0, inrange i32 1, i32 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV23LBMLBTRMTransportDialog, i32 0, i32 1, i32 2), ptr %38, align 8
   %39 = getelementptr inbounds %class.LBMLBTRMTransportDialog, ptr %34, i32 0, i32 1
   %40 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 480) #18
           to label %41 unwind label %495
@@ -16363,9 +16363,9 @@ define void @_ZN23LBMLBTRMTransportDialogD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV23LBMLBTRMTransportDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV23LBMLBTRMTransportDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV23LBMLBTRMTransportDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV23LBMLBTRMTransportDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   invoke void @_ZN23LBMLBTRMTransportDialog18resetSourcesDetailEv(ptr noundef nonnull align 8 dereferenceable(96) %3)
           to label %5 unwind label %36
 
@@ -21775,7 +21775,7 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.103, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %15, align 4
@@ -24295,7 +24295,7 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
   ret void

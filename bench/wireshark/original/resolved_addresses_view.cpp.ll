@@ -1046,9 +1046,9 @@ define void @_ZN21ResolvedAddressesViewC2EP7QWidget(ptr noundef nonnull align 8 
   %16 = load ptr, ptr %3, align 8
   %17 = load ptr, ptr %4, align 8
   call void @_ZN10QTableViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef %17)
-  store ptr getelementptr inbounds ({ [98 x ptr], [10 x ptr] }, ptr @_ZTV21ResolvedAddressesView, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [98 x ptr], [10 x ptr] }, ptr @_ZTV21ResolvedAddressesView, i32 0, i32 0, i32 2), ptr %16, align 8
   %18 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr getelementptr inbounds ({ [98 x ptr], [10 x ptr] }, ptr @_ZTV21ResolvedAddressesView, i32 0, inrange i32 1, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [98 x ptr], [10 x ptr] }, ptr @_ZTV21ResolvedAddressesView, i32 0, i32 1, i32 2), ptr %18, align 8
   call void @_ZN6QFlagsIN17QAbstractItemView11EditTriggerEEC2ES1_(ptr noundef nonnull align 4 dereferenceable(4) %5, i32 noundef 0) #14
   %19 = getelementptr inbounds %class.QFlags, ptr %5, i32 0, i32 0
   %20 = load i32, ptr %19, align 4

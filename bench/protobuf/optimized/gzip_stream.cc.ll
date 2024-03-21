@@ -54,7 +54,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io15GzipInputStreamC2EPNS1_19ZeroCopyInputStreamENS2_6FormatEi(ptr nocapture noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %sub_stream, i32 noundef %format, i32 noundef %buffer_size) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io15GzipInputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6google8protobuf2io15GzipInputStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %format_ = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %format, ptr %format_, align 8
   %sub_stream_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -433,7 +433,7 @@ entry:
 define void @_ZN6google8protobuf2io16GzipOutputStreamC2EPNS1_20ZeroCopyOutputStreamE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %sub_stream) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.google::protobuf::io::GzipOutputStream::Options", align 4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   call void @_ZN6google8protobuf2io16GzipOutputStream7OptionsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %ref.tmp)
   %sub_stream_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %sub_stream, ptr %sub_stream_.i, align 8
@@ -515,7 +515,7 @@ entry:
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf2io16GzipOutputStreamC2EPNS1_20ZeroCopyOutputStreamERKNS2_7OptionsE(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef %sub_stream, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %options) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io16GzipOutputStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %sub_stream_.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %sub_stream, ptr %sub_stream_.i, align 8
   %sub_data_.i = getelementptr inbounds i8, ptr %this, i64 16

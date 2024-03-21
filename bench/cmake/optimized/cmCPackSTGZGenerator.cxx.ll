@@ -130,7 +130,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit11: ; 
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %5) #11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #11
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #11
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV20cmCPackSTGZGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV20cmCPackSTGZGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 
 13:                                               ; preds = %.noexc, %1

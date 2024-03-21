@@ -3839,7 +3839,7 @@ entry:
   store ptr %parent, ptr %parent.indirect_addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockListE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockListE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %parent_ = getelementptr inbounds %"class.node::SocketAddressBlockList", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node22SocketAddressBlockListEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %parent_, ptr noundef nonnull align 8 dereferenceable(16) %parent) #3
   %rules_ = getelementptr inbounds %"class.node::SocketAddressBlockList", ptr %this1, i32 0, i32 2
@@ -3857,7 +3857,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14MemoryRetainerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4705,7 +4705,7 @@ entry:
   store ptr %address_, ptr %address_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node22SocketAddressBlockList4RuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockList17SocketAddressRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockList17SocketAddressRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %address = getelementptr inbounds %"struct.node::SocketAddressBlockList::SocketAddressRule", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %address_.addr, align 8
   call void @_ZNSt10shared_ptrIN4node13SocketAddressEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %address, ptr noundef nonnull align 8 dereferenceable(16) %0) #3
@@ -4719,7 +4719,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockList4RuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockList4RuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4747,7 +4747,7 @@ entry:
   store ptr %end_, ptr %end_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node22SocketAddressBlockList4RuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockList22SocketAddressRangeRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockList22SocketAddressRangeRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %start = getelementptr inbounds %"struct.node::SocketAddressBlockList::SocketAddressRangeRule", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %start_.addr, align 8
   call void @_ZNSt10shared_ptrIN4node13SocketAddressEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %start, ptr noundef nonnull align 8 dereferenceable(16) %0) #3
@@ -4768,7 +4768,7 @@ entry:
   store i32 %prefix_, ptr %prefix_.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node22SocketAddressBlockList4RuleC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockList21SocketAddressMaskRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockList21SocketAddressMaskRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %network = getelementptr inbounds %"struct.node::SocketAddressBlockList::SocketAddressMaskRule", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %network_.addr, align 8
   call void @_ZNSt10shared_ptrIN4node13SocketAddressEEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %network, ptr noundef nonnull align 8 dereferenceable(16) %0) #3
@@ -5759,7 +5759,7 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %blocklist_ = getelementptr inbounds %"class.node::SocketAddressBlockListWrap", ptr %this3, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node22SocketAddressBlockListEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %blocklist_, ptr noundef nonnull align 8 dereferenceable(16) %blocklist) #3
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
@@ -15339,7 +15339,7 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node17SocketAddressBaseE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node17SocketAddressBaseE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %address_ = getelementptr inbounds %"class.node::SocketAddressBase", ptr %this3, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node13SocketAddressEEC2EOS2_(ptr noundef nonnull align 8 dereferenceable(16) %address_, ptr noundef nonnull align 8 dereferenceable(16) %address) #3
   call void @_ZN4node10BaseObject8MakeWeakEv(ptr noundef nonnull align 8 dereferenceable(32) %this3)
@@ -15528,7 +15528,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node17SocketAddressBase12TransferDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node17SocketAddressBase12TransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %address_ = getelementptr inbounds %"class.node::SocketAddressBase::TransferData", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node13SocketAddressEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %address_) #3
   call void @_ZN4node6worker12TransferDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -15610,7 +15610,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node26SocketAddressBlockListWrap12TransferDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node26SocketAddressBlockListWrap12TransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %blocklist_ = getelementptr inbounds %"class.node::SocketAddressBlockListWrap::TransferData", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node22SocketAddressBlockListEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %blocklist_) #3
   call void @_ZN4node6worker12TransferDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -15650,7 +15650,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockListE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node22SocketAddressBlockListE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mutex_ = getelementptr inbounds %"class.node::SocketAddressBlockList", ptr %this1, i32 0, i32 4
   call void @_ZN4node9MutexBaseINS_16LibuvMutexTraitsEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %mutex_) #3
   %address_rules_ = getelementptr inbounds %"class.node::SocketAddressBlockList", ptr %this1, i32 0, i32 3
@@ -15815,7 +15815,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node26SocketAddressBlockListWrapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %blocklist_ = getelementptr inbounds %"class.node::SocketAddressBlockListWrap", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node22SocketAddressBlockListEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %blocklist_) #3
   call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -15916,7 +15916,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node17SocketAddressBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node17SocketAddressBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %address_ = getelementptr inbounds %"class.node::SocketAddressBase", ptr %this1, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN4node13SocketAddressEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %address_) #3
   call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -19636,7 +19636,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -21451,7 +21451,7 @@ entry:
   store ptr %addr, ptr %addr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node13SocketAddressE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %address_2 = getelementptr inbounds %"class.node::SocketAddress", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %addr.addr, align 8
   %address_3 = getelementptr inbounds %"class.node::SocketAddress", ptr %0, i32 0, i32 1
@@ -24483,7 +24483,7 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -24556,7 +24556,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -26985,7 +26985,7 @@ entry:
   store ptr %retainer, ptr %retainer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %retainer.addr, align 8
   store ptr %0, ptr %retainer_, align 8
@@ -28560,7 +28560,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node22SocketAddressBlockListESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node22SocketAddressBlockListESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node22SocketAddressBlockListESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(144) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node22SocketAddressBlockListESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(160) %this1) #3
@@ -28724,7 +28724,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -29046,7 +29046,7 @@ entry:
   store ptr %wrap, ptr %wrap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node6worker12TransferDataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node26SocketAddressBlockListWrap12TransferDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node26SocketAddressBlockListWrap12TransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %blocklist_ = getelementptr inbounds %"class.node::SocketAddressBlockListWrap::TransferData", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %wrap.addr, align 8
   %blocklist_2 = getelementptr inbounds %"class.node::SocketAddressBlockListWrap", ptr %0, i32 0, i32 1
@@ -29075,7 +29075,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node14MemoryRetainerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node6worker12TransferDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node6worker12TransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -29780,7 +29780,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node13SocketAddressESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4node13SocketAddressESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.533", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4node13SocketAddressESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(136) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4node13SocketAddressESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(152) %this1) #3
@@ -30164,7 +30164,7 @@ entry:
   store ptr %wrap, ptr %wrap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4node6worker12TransferDataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node17SocketAddressBase12TransferDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4node17SocketAddressBase12TransferDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %address_ = getelementptr inbounds %"class.node::SocketAddressBase::TransferData", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %wrap.addr, align 8
   %address_2 = getelementptr inbounds %"class.node::SocketAddressBase", ptr %0, i32 0, i32 1

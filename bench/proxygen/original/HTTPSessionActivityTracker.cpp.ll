@@ -97,7 +97,7 @@ entry:
   store i64 %ingressThreshold, ptr %ingressThreshold.addr, align 8
   store i64 %egressThreshold, ptr %egressThreshold.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen26HTTPSessionActivityTrackerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen26HTTPSessionActivityTrackerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %managedConnection_ = getelementptr inbounds %"class.proxygen::HTTPSessionActivityTracker", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %managedConnection.addr, align 8
   store ptr %0, ptr %managedConnection_, align 8

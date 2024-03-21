@@ -510,7 +510,7 @@ $_ZTVSt18bad_variant_access = comdat any
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallbackD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %writeTagToFds_ = getelementptr inbounds %"class.folly::AsyncFdSocket::FdSendMsgParamsCallback", ptr %this, i64 0, i32 1
   %_M_before_begin.i.i.i.i = getelementptr inbounds %"class.folly::AsyncFdSocket::FdSendMsgParamsCallback", ptr %this, i64 0, i32 1, i32 0, i32 2
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i, align 8, !tbaa !10
@@ -547,7 +547,7 @@ _ZNSt13unordered_mapIN5folly11AsyncSocket15WriteRequestTagESt6vectorISt10shared_
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13AsyncFdSocket23FdSendMsgParamsCallbackD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %writeTagToFds_.i = getelementptr inbounds %"class.folly::AsyncFdSocket::FdSendMsgParamsCallback", ptr %this, i64 0, i32 1
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncFdSocket::FdSendMsgParamsCallback", ptr %this, i64 0, i32 1, i32 0, i32 2
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8, !tbaa !10
@@ -1204,17 +1204,17 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13AsyncFdSocketD2Ev(ptr noundef nonnull align 8 dereferenceable(2352) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !7
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !7
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %add.ptr3, align 8, !tbaa !7
   %fdsQueue_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 2
   tail call void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fdsQueue_) #24
   %sendMsgCob_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_, align 8, !tbaa !7
   %writeTagToFds_.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1
   %_M_before_begin.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 2
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i, align 8, !tbaa !10
@@ -1252,17 +1252,17 @@ _ZN5folly13AsyncFdSocket23FdSendMsgParamsCallbackD2Ev.exit: ; preds = %if.end.i.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly13AsyncFdSocketD0Ev(ptr noundef nonnull align 8 dereferenceable(2352) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8, !tbaa !7
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %add.ptr2.i, align 8, !tbaa !7
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %add.ptr3.i, align 8, !tbaa !7
   %fdsQueue_.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 2
   tail call void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fdsQueue_.i) #24
   %sendMsgCob_.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_.i, align 8, !tbaa !7
   %writeTagToFds_.i.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 2
   %0 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !tbaa !10
@@ -2367,7 +2367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont21:                                    ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i178) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ex, align 8, !tbaa !7
   %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 1
   store i32 6, ptr %type_.i, align 8, !tbaa !195
   %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 2
@@ -2537,7 +2537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i199: ; preds =
 
 invoke.cont40:                                    ; preds = %if.then.i.i.i205, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i208
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i195) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex33, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ex33, align 8, !tbaa !7
   %type_.i206 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex33, i64 0, i32 1
   store i32 6, ptr %type_.i206, align 8, !tbaa !195
   %errno_.i207 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex33, i64 0, i32 2
@@ -2705,7 +2705,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i248: ; preds =
 
 invoke.cont63:                                    ; preds = %if.then.i.i.i254, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i257
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i244) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex56, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ex56, align 8, !tbaa !7
   %type_.i255 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex56, i64 0, i32 1
   store i32 6, ptr %type_.i255, align 8, !tbaa !195
   %errno_.i256 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex56, i64 0, i32 2
@@ -2887,7 +2887,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i297: ; preds =
 
 invoke.cont91:                                    ; preds = %if.then.i.i.i303, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i306
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i293) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex78, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ex78, align 8, !tbaa !7
   %type_.i304 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex78, i64 0, i32 1
   store i32 6, ptr %type_.i304, align 8, !tbaa !195
   %errno_.i305 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex78, i64 0, i32 2
@@ -3256,16 +3256,16 @@ entry:
 define linkonce_odr void @_ZThn16_N5folly13AsyncFdSocketD1Ev(ptr noundef %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !7
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %this, align 8, !tbaa !7
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %add.ptr2.i, align 8, !tbaa !7
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %add.ptr3.i, align 8, !tbaa !7
   %fdsQueue_.i = getelementptr inbounds i8, ptr %this, i64 1184
   tail call void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fdsQueue_.i) #24
   %sendMsgCob_.i = getelementptr inbounds i8, ptr %this, i64 1120
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_.i, align 8, !tbaa !7
   %writeTagToFds_.i.i = getelementptr inbounds i8, ptr %this, i64 1128
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1144
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !tbaa !10
@@ -3304,16 +3304,16 @@ _ZN5folly13AsyncFdSocketD2Ev.exit:                ; preds = %if.end.i.i.i.i.i.i,
 define linkonce_odr void @_ZThn16_N5folly13AsyncFdSocketD0Ev(ptr noundef %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !7
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %this, align 8, !tbaa !7
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %add.ptr2.i.i, align 8, !tbaa !7
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %add.ptr3.i.i, align 8, !tbaa !7
   %fdsQueue_.i.i = getelementptr inbounds i8, ptr %this, i64 1184
   tail call void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fdsQueue_.i.i) #24
   %sendMsgCob_.i.i = getelementptr inbounds i8, ptr %this, i64 1120
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_.i.i, align 8, !tbaa !7
   %writeTagToFds_.i.i.i = getelementptr inbounds i8, ptr %this, i64 1128
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1144
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !10
@@ -3399,16 +3399,16 @@ entry:
 define linkonce_odr void @_ZThn24_N5folly13AsyncFdSocketD1Ev(ptr noundef %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !7
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8, !tbaa !7
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %this, align 8, !tbaa !7
   %add.ptr3.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %add.ptr3.i, align 8, !tbaa !7
   %fdsQueue_.i = getelementptr inbounds i8, ptr %this, i64 1176
   tail call void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fdsQueue_.i) #24
   %sendMsgCob_.i = getelementptr inbounds i8, ptr %this, i64 1112
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_.i, align 8, !tbaa !7
   %writeTagToFds_.i.i = getelementptr inbounds i8, ptr %this, i64 1120
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1136
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !tbaa !10
@@ -3447,16 +3447,16 @@ _ZN5folly13AsyncFdSocketD2Ev.exit:                ; preds = %if.end.i.i.i.i.i.i,
 define linkonce_odr void @_ZThn24_N5folly13AsyncFdSocketD0Ev(ptr noundef %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -24
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i.i, align 8, !tbaa !7
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %add.ptr.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %this, align 8, !tbaa !7
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %add.ptr3.i.i, align 8, !tbaa !7
   %fdsQueue_.i.i = getelementptr inbounds i8, ptr %this, i64 1176
   tail call void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fdsQueue_.i.i) #24
   %sendMsgCob_.i.i = getelementptr inbounds i8, ptr %this, i64 1112
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_.i.i, align 8, !tbaa !7
   %writeTagToFds_.i.i.i = getelementptr inbounds i8, ptr %this, i64 1120
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1136
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !10
@@ -3532,16 +3532,16 @@ declare void @_ZThn32_N5folly11AsyncSocket21setZeroCopyEnableFuncESt8functionIFb
 define linkonce_odr void @_ZThn32_N5folly13AsyncFdSocketD1Ev(ptr noundef %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !7
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %add.ptr.i, align 8, !tbaa !7
   %add.ptr2.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2.i, align 8, !tbaa !7
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %add.ptr2.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %this, align 8, !tbaa !7
   %fdsQueue_.i = getelementptr inbounds i8, ptr %this, i64 1168
   tail call void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fdsQueue_.i) #24
   %sendMsgCob_.i = getelementptr inbounds i8, ptr %this, i64 1104
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_.i, align 8, !tbaa !7
   %writeTagToFds_.i.i = getelementptr inbounds i8, ptr %this, i64 1112
   %_M_before_begin.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1128
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i, align 8, !tbaa !10
@@ -3580,16 +3580,16 @@ _ZN5folly13AsyncFdSocketD2Ev.exit:                ; preds = %if.end.i.i.i.i.i.i,
 define linkonce_odr void @_ZThn32_N5folly13AsyncFdSocketD0Ev(ptr noundef %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -32
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !7
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 -16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %add.ptr.i.i, align 8, !tbaa !7
   %add.ptr2.i.i = getelementptr inbounds i8, ptr %this, i64 -8
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2.i.i, align 8, !tbaa !7
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %add.ptr2.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %this, align 8, !tbaa !7
   %fdsQueue_.i.i = getelementptr inbounds i8, ptr %this, i64 1168
   tail call void @_ZNSt5dequeIN5folly9SocketFdsESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %fdsQueue_.i.i) #24
   %sendMsgCob_.i.i = getelementptr inbounds i8, ptr %this, i64 1104
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_.i.i, align 8, !tbaa !7
   %writeTagToFds_.i.i.i = getelementptr inbounds i8, ptr %this, i64 1112
   %_M_before_begin.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 1128
   %1 = load ptr, ptr %_M_before_begin.i.i.i.i.i.i.i, align 8, !tbaa !10
@@ -3629,15 +3629,15 @@ _ZN5folly13AsyncFdSocketD0Ev.exit:                ; preds = %if.end.i.i.i.i.i.i.
 define void @_ZN5folly13AsyncFdSocketC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(2352) %this, ptr noundef %evb) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN5folly11AsyncSocketC2EPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(1129) %this, ptr noundef %evb)
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !7
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !7
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %add.ptr3, align 8, !tbaa !7
   %sendMsgCob_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_, align 8, !tbaa !7
   %writeTagToFds_.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1
   %_M_single_bucket.i.i.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 5
   store ptr %_M_single_bucket.i.i.i, ptr %writeTagToFds_.i, align 8, !tbaa !18
@@ -3655,7 +3655,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %readAncillaryDataCob_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket27FdReadAncillaryDataCallbackE, i64 0, inrange i32 0, i64 2), ptr %readAncillaryDataCob_, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket27FdReadAncillaryDataCallbackE, i64 0, i32 0, i64 2), ptr %readAncillaryDataCob_, align 8, !tbaa !7
   %socket_.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 3, i32 1
   store ptr %this, ptr %socket_.i, align 8, !tbaa !245
   %allocatedToSendFdsSeqNum_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 4
@@ -4001,7 +4001,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i: ; preds = %i
 
 invoke.cont4:                                     ; preds = %if.then.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ex, align 8, !tbaa !7
   %type_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 1
   store i32 8, ptr %type_.i, align 8, !tbaa !195
   %errno_.i = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex, i64 0, i32 2
@@ -4317,7 +4317,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10.i93: ; preds = 
 
 invoke.cont12:                                    ; preds = %if.then.i.i.i99, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i102
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp.i89) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %ex8, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %ex8, align 8, !tbaa !7
   %type_.i100 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex8, i64 0, i32 1
   store i32 8, ptr %type_.i100, align 8, !tbaa !195
   %errno_.i101 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %ex8, i64 0, i32 2
@@ -4454,7 +4454,7 @@ if.end.i:                                         ; preds = %invoke.cont40
 
 if.then.i.i129:                                   ; preds = %if.end.i
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8, !tbaa !7
   %_M_reason.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i, i64 0, i32 1
   store ptr @.str.33, ptr %_M_reason.i.i.i.i, align 8, !tbaa !269
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #26
@@ -5343,15 +5343,15 @@ entry:
   %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<std::chrono::time_point<std::chrono::_V2::steady_clock, std::chrono::duration<long, std::ratio<1, 1000000000>>>>::StorageTriviallyDestructible", ptr %agg.tmp2, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i, align 8, !tbaa !293
   call void @_ZN5folly11AsyncSocketC2EPNS_9EventBaseENS_13NetworkSocketEjPKNS_13SocketAddressENS_8OptionalINSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEEE(ptr noundef nonnull align 8 dereferenceable(1129) %this, ptr noundef %evb, i32 %fd.coerce, i32 noundef 0, ptr noundef %peerAddress, ptr noundef nonnull %agg.tmp2)
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !7
   %add.ptr4 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %add.ptr4, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %add.ptr4, align 8, !tbaa !7
   %add.ptr5 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %add.ptr5, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %add.ptr5, align 8, !tbaa !7
   %sendMsgCob_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_, align 8, !tbaa !7
   %writeTagToFds_.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1
   %_M_single_bucket.i.i.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 5
   store ptr %_M_single_bucket.i.i.i, ptr %writeTagToFds_.i, align 8, !tbaa !18
@@ -5369,7 +5369,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %readAncillaryDataCob_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket27FdReadAncillaryDataCallbackE, i64 0, inrange i32 0, i64 2), ptr %readAncillaryDataCob_, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket27FdReadAncillaryDataCallbackE, i64 0, i32 0, i64 2), ptr %readAncillaryDataCob_, align 8, !tbaa !7
   %socket_.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 3, i32 1
   store ptr %this, ptr %socket_.i, align 8, !tbaa !245
   %allocatedToSendFdsSeqNum_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 4
@@ -5405,15 +5405,15 @@ declare void @_ZN5folly11AsyncSocketC2EPNS_9EventBaseENS_13NetworkSocketEjPKNS_1
 define void @_ZN5folly13AsyncFdSocketC2ENS0_24DoesNotMoveFdSocketStateEPNS_11AsyncSocketE(ptr noundef nonnull align 8 dereferenceable(2352) %this, ptr noundef %sock) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN5folly11AsyncSocketC2EPS0_(ptr noundef nonnull align 8 dereferenceable(1129) %this, ptr noundef %sock)
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8, !tbaa !7
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8, !tbaa !7
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 32
-  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [111 x ptr], [6 x ptr], [8 x ptr], [12 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocketE, i64 0, i32 3, i64 2), ptr %add.ptr3, align 8, !tbaa !7
   %sendMsgCob_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, inrange i32 0, i64 2), ptr %sendMsgCob_, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket23FdSendMsgParamsCallbackE, i64 0, i32 0, i64 2), ptr %sendMsgCob_, align 8, !tbaa !7
   %writeTagToFds_.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1
   %_M_single_bucket.i.i.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 1, i32 1, i32 0, i32 5
   store ptr %_M_single_bucket.i.i.i, ptr %writeTagToFds_.i, align 8, !tbaa !18
@@ -5431,7 +5431,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   %readAncillaryDataCob_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket27FdReadAncillaryDataCallbackE, i64 0, inrange i32 0, i64 2), ptr %readAncillaryDataCob_, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly13AsyncFdSocket27FdReadAncillaryDataCallbackE, i64 0, i32 0, i64 2), ptr %readAncillaryDataCob_, align 8, !tbaa !7
   %socket_.i = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 3, i32 1
   store ptr %this, ptr %socket_.i, align 8, !tbaa !245
   %allocatedToSendFdsSeqNum_ = getelementptr inbounds %"class.folly::AsyncFdSocket", ptr %this, i64 0, i32 4
@@ -5510,7 +5510,7 @@ if.then.i.i:                                      ; preds = %invoke.cont
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %type_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 1
   store i32 %type, ptr %type_, align 8, !tbaa !195
   %errno_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this, i64 0, i32 2
@@ -7639,7 +7639,7 @@ if.end.i:                                         ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %if.end.i
   %exception.i.i.i = tail call ptr @__cxa_allocate_exception(i64 16) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8, !tbaa !7
   %_M_reason.i.i.i.i = getelementptr inbounds %"class.std::bad_variant_access", ptr %exception.i.i.i, i64 0, i32 1
   store ptr @.str.33, ptr %_M_reason.i.i.i.i, align 8, !tbaa !269
   tail call void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt9exceptionD2Ev) #26

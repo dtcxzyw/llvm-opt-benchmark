@@ -267,7 +267,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN20cmCTestScriptHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(824) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN21cmCTestGenericHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20cmCTestScriptHandler, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20cmCTestScriptHandler, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 288
   %3 = getelementptr inbounds i8, ptr %0, i64 328
   store ptr null, ptr %3, align 8
@@ -463,7 +463,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN20cmCTestScriptHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(824) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20cmCTestScriptHandler, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV20cmCTestScriptHandler, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 816
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -2543,7 +2543,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113: ;
 
 148:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(376) %147, i8 0, i64 376, i1 false), !noalias !25
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, inrange i32 0, i64 2), ptr %147, align 8, !noalias !25
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, i32 0, i64 2), ptr %147, align 8, !noalias !25
   %149 = getelementptr inbounds i8, ptr %147, i64 152
   %150 = getelementptr inbounds i8, ptr %147, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %149, i8 0, i64 26, i1 false), !noalias !25
@@ -2556,7 +2556,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit113: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %153) #20, !noalias !25
   %154 = getelementptr inbounds i8, ptr %147, i64 312
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %154) #20, !noalias !25
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV23cmCTestConfigureCommand, i64 0, inrange i32 0, i64 2), ptr %147, align 8, !noalias !25
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV23cmCTestConfigureCommand, i64 0, i32 0, i64 2), ptr %147, align 8, !noalias !25
   %155 = getelementptr inbounds i8, ptr %147, i64 344
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %155) #20, !noalias !25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
@@ -2626,7 +2626,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
 
 177:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(376) %176, i8 0, i64 376, i1 false), !noalias !28
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, inrange i32 0, i64 2), ptr %176, align 8, !noalias !28
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, i32 0, i64 2), ptr %176, align 8, !noalias !28
   %178 = getelementptr inbounds i8, ptr %176, i64 152
   %179 = getelementptr inbounds i8, ptr %176, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %178, i8 0, i64 26, i1 false), !noalias !28
@@ -2639,7 +2639,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit131: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #20, !noalias !28
   %183 = getelementptr inbounds i8, ptr %176, i64 312
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %183) #20, !noalias !28
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22cmCTestCoverageCommand, i64 0, inrange i32 0, i64 2), ptr %176, align 8, !noalias !28
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV22cmCTestCoverageCommand, i64 0, i32 0, i64 2), ptr %176, align 8, !noalias !28
   %184 = getelementptr inbounds i8, ptr %176, i64 368
   store i8 0, ptr %184, align 8, !noalias !28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12)
@@ -2710,7 +2710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit149: ;
 206:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit149
   %207 = getelementptr inbounds i8, ptr %205, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %207, i8 0, i64 16, i1 false), !noalias !31
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV34cmCTestEmptyBinaryDirectoryCommand, i64 0, inrange i32 0, i64 2), ptr %205, align 8, !noalias !31
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV34cmCTestEmptyBinaryDirectoryCommand, i64 0, i32 0, i64 2), ptr %205, align 8, !noalias !31
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   %208 = load ptr, ptr %126, align 8
   %209 = getelementptr inbounds i8, ptr %205, i64 24
@@ -2788,7 +2788,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit167: ;
   br label %.body169
 
 231:                                              ; preds = %.noexc168
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22cmCTestMemCheckCommand, i64 0, inrange i32 0, i64 2), ptr %228, align 8, !noalias !34
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV22cmCTestMemCheckCommand, i64 0, i32 0, i64 2), ptr %228, align 8, !noalias !34
   %232 = getelementptr inbounds i8, ptr %228, i64 960
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %232) #20, !noalias !34
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
@@ -2859,7 +2859,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit187: ;
 254:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit187
   %255 = getelementptr inbounds i8, ptr %253, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %255, i8 0, i64 16, i1 false), !noalias !37
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV29cmCTestReadCustomFilesCommand, i64 0, inrange i32 0, i64 2), ptr %253, align 8, !noalias !37
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV29cmCTestReadCustomFilesCommand, i64 0, i32 0, i64 2), ptr %253, align 8, !noalias !37
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   %256 = load ptr, ptr %126, align 8
   %257 = getelementptr inbounds i8, ptr %253, i64 24
@@ -2928,7 +2928,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit205: ;
 277:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit205
   %278 = getelementptr inbounds i8, ptr %276, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %278, i8 0, i64 16, i1 false), !noalias !40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23cmCTestRunScriptCommand, i64 0, inrange i32 0, i64 2), ptr %276, align 8, !noalias !40
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV23cmCTestRunScriptCommand, i64 0, i32 0, i64 2), ptr %276, align 8, !noalias !40
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8)
   %279 = load ptr, ptr %126, align 8
   %280 = getelementptr inbounds i8, ptr %276, i64 24
@@ -2997,7 +2997,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit223: ;
 300:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit223
   %301 = getelementptr inbounds i8, ptr %299, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %301, i8 0, i64 16, i1 false), !noalias !43
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19cmCTestSleepCommand, i64 0, inrange i32 0, i64 2), ptr %299, align 8, !noalias !43
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV19cmCTestSleepCommand, i64 0, i32 0, i64 2), ptr %299, align 8, !noalias !43
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %302 = load ptr, ptr %126, align 8
   %303 = getelementptr inbounds i8, ptr %299, i64 24
@@ -3295,7 +3295,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301: ;
 
 392:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(344) %391, i8 0, i64 344, i1 false), !noalias !55
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, inrange i32 0, i64 2), ptr %391, align 8, !noalias !55
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, i32 0, i64 2), ptr %391, align 8, !noalias !55
   %393 = getelementptr inbounds i8, ptr %391, i64 152
   %394 = getelementptr inbounds i8, ptr %391, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %393, i8 0, i64 26, i1 false), !noalias !55
@@ -3308,7 +3308,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit301: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %397) #20, !noalias !55
   %398 = getelementptr inbounds i8, ptr %391, i64 312
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %398) #20, !noalias !55
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV20cmCTestUpdateCommand, i64 0, inrange i32 0, i64 2), ptr %391, align 8, !noalias !55
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV20cmCTestUpdateCommand, i64 0, i32 0, i64 2), ptr %391, align 8, !noalias !55
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %399 = load ptr, ptr %126, align 8
   %400 = getelementptr inbounds i8, ptr %391, i64 24
@@ -3376,7 +3376,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit319: ;
 
 420:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit319
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(368) %419, i8 0, i64 368, i1 false), !noalias !58
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, inrange i32 0, i64 2), ptr %419, align 8, !noalias !58
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, i32 0, i64 2), ptr %419, align 8, !noalias !58
   %421 = getelementptr inbounds i8, ptr %419, i64 152
   %422 = getelementptr inbounds i8, ptr %419, i64 184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %421, i8 0, i64 26, i1 false), !noalias !58
@@ -3389,7 +3389,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit319: ;
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %425) #20, !noalias !58
   %426 = getelementptr inbounds i8, ptr %419, i64 312
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %426) #20, !noalias !58
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV20cmCTestUploadCommand, i64 0, inrange i32 0, i64 2), ptr %419, align 8, !noalias !58
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV20cmCTestUploadCommand, i64 0, i32 0, i64 2), ptr %419, align 8, !noalias !58
   %427 = getelementptr inbounds i8, ptr %419, i64 344
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %427, i8 0, i64 24, i1 false), !noalias !58
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
@@ -8441,7 +8441,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_disposeE
 define linkonce_odr dso_local void @_ZN18cmCTestTestCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(953) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %3, i8 0, i64 26, i1 false)
@@ -8454,7 +8454,7 @@ define linkonce_odr dso_local void @_ZN18cmCTestTestCommandC2Ev(ptr noundef nonn
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   %8 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestCommand, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV18cmCTestTestCommand, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 344
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #20
   %10 = getelementptr inbounds i8, ptr %0, i64 376
@@ -8907,7 +8907,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvRKNSt7__cxx1112b
 define linkonce_odr dso_local void @_ZN19cmCTestBuildCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(584) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %3, i8 0, i64 26, i1 false)
@@ -8920,7 +8920,7 @@ define linkonce_odr dso_local void @_ZN19cmCTestBuildCommandC2Ev(ptr noundef non
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   %8 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19cmCTestBuildCommand, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV19cmCTestBuildCommand, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 344
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 360
@@ -8944,7 +8944,7 @@ define linkonce_odr dso_local void @_ZN19cmCTestBuildCommandC2Ev(ptr noundef non
 define linkonce_odr dso_local void @_ZN20cmCTestSubmitCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(632) %0) unnamed_addr #3 comdat align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %2, i8 0, i64 144, i1 false)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV21cmCTestHandlerCommand, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = getelementptr inbounds i8, ptr %0, i64 184
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(26) %3, i8 0, i64 26, i1 false)
@@ -8957,7 +8957,7 @@ define linkonce_odr dso_local void @_ZN20cmCTestSubmitCommandC2Ev(ptr noundef no
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #20
   %8 = getelementptr inbounds i8, ptr %0, i64 312
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #20
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV20cmCTestSubmitCommand, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV20cmCTestSubmitCommand, i64 0, i32 0, i64 2), ptr %0, align 8
   %9 = getelementptr inbounds i8, ptr %0, i64 344
   store i8 0, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 345

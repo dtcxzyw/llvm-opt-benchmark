@@ -123,7 +123,7 @@ entry:
   %1 = load ptr, ptr %aLocale.addr, align 8
   %2 = load ptr, ptr %success.addr, align 8
   call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [57 x ptr] }, ptr @_ZTVN6icu_7514IndianCalendarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr] }, ptr @_ZTVN6icu_7514IndianCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call2 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
 
@@ -174,7 +174,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this1, ptr noundef nonnull align 8 dereferenceable(618) %0)
-  store ptr getelementptr inbounds ({ [57 x ptr] }, ptr @_ZTVN6icu_7514IndianCalendarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr] }, ptr @_ZTVN6icu_7514IndianCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

@@ -99,7 +99,7 @@ entry:
   store ptr %_pos, ptr %_pos.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7520FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7524FieldPositionOnlyHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7524FieldPositionOnlyHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pos = getelementptr inbounds %"class.icu_75::FieldPositionOnlyHandler", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %_pos.addr, align 8
   store ptr %0, ptr %pos, align 8
@@ -116,7 +116,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7520FieldPositionHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7520FieldPositionHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fShift = getelementptr inbounds %"class.icu_75::FieldPositionHandler", ptr %this1, i32 0, i32 1
   store i32 0, ptr %fShift, align 8
   ret void
@@ -353,7 +353,7 @@ entry:
   store ptr %_status, ptr %_status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7520FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %iter = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %posIter.addr, align 8
   store ptr %0, ptr %iter, align 8
@@ -473,7 +473,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7520FieldPositionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #7
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %iter = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 1
   store ptr null, ptr %iter, align 8
   %vec2 = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 2
@@ -494,7 +494,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7528FieldPositionIteratorHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %iter = getelementptr inbounds %"class.icu_75::FieldPositionIteratorHandler", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %iter, align 8
   %tobool = icmp ne ptr %0, null

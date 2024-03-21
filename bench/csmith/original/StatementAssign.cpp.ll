@@ -2993,7 +2993,7 @@ define dso_local void @_ZN15StatementAssignC2EP5BlockRK3LhsRK10Expression10eAssi
   %13 = load ptr, ptr %7, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef 0, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15StatementAssign, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15StatementAssign, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.StatementAssign, ptr %13, i32 0, i32 1
   %16 = load i32, ptr %11, align 4
   store i32 %16, ptr %15, align 8
@@ -3044,7 +3044,7 @@ define dso_local void @_ZN15StatementAssignC2EP5BlockRK3Lhs10eAssignOpsRK10Expre
   %21 = load ptr, ptr %10, align 8
   %22 = load ptr, ptr %11, align 8
   call void @_ZN9StatementC2E14eStatementTypeP5Block(ptr noundef nonnull align 8 dereferenceable(32) %21, i32 noundef 0, ptr noundef %22)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15StatementAssign, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15StatementAssign, i32 0, i32 0, i32 2), ptr %21, align 8
   %23 = getelementptr inbounds %class.StatementAssign, ptr %21, i32 0, i32 1
   %24 = load i32, ptr %13, align 4
   store i32 %24, ptr %23, align 8
@@ -3115,7 +3115,7 @@ define dso_local void @_ZN15StatementAssignD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15StatementAssign, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV15StatementAssign, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.StatementAssign, ptr %3, i32 0, i32 4
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds %class.StatementAssign, ptr %3, i32 0, i32 3

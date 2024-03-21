@@ -539,9 +539,9 @@ define void @_ZN8PaintboxC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonn
   %23 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %24 = load i32, ptr %23, align 4
   call void @_ZN7QWidgetC2EPS_6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %21, ptr noundef %22, i32 %24)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV8Paintbox, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV8Paintbox, i32 0, i32 0, i32 2), ptr %21, align 8
   %25 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV8Paintbox, i32 0, inrange i32 1, i32 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV8Paintbox, i32 0, i32 1, i32 2), ptr %25, align 8
   %26 = getelementptr inbounds %class.Paintbox, ptr %21, i32 0, i32 4
   call void @_ZN5QHashIP7QWidgetP10QUndoStackEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #12
   %27 = getelementptr inbounds %class.Paintbox, ptr %21, i32 0, i32 11
@@ -9169,7 +9169,7 @@ define linkonce_odr void @_ZN11QSpacerItemC2EiiN11QSizePolicy6PolicyES1_(ptr nou
   %13 = getelementptr inbounds %class.QFlags.0, ptr %11, i32 0, i32 0
   %14 = load i32, ptr %13, align 4
   call void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr noundef nonnull align 8 dereferenceable(12) %12, i32 %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QSpacerItem, i32 0, i32 0, i32 2), ptr %12, align 8
   %15 = getelementptr inbounds %class.QSpacerItem, ptr %12, i32 0, i32 1
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %15, align 4
@@ -9799,9 +9799,9 @@ define linkonce_odr void @_ZN10ColorframeC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(
   %11 = getelementptr inbounds %class.QFlags, ptr %7, i32 0, i32 0
   %12 = load i32, ptr %11, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef %10, i32 %12)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds i8, ptr %9, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV10Colorframe, i32 0, i32 1, i32 2), ptr %13, align 8
   ret void
 }
 
@@ -9920,9 +9920,9 @@ define linkonce_odr void @_ZN9CloneViewC2EP7QWidget(ptr noundef nonnull align 8 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN13QGraphicsViewC2EP7QWidget(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV9CloneView, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV9CloneView, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 16
-  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV9CloneView, i32 0, inrange i32 1, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [62 x ptr], [10 x ptr] }, ptr @_ZTV9CloneView, i32 0, i32 1, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.CloneView, ptr %7, i32 0, i32 1
   invoke void @_ZN7QPointFC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10)
           to label %11 unwind label %16
@@ -11776,7 +11776,7 @@ define linkonce_odr void @_ZN11QLayoutItemC2E6QFlagsIN2Qt13AlignmentFlagEE(ptr n
   store i32 %1, ptr %5, align 4
   store ptr %0, ptr %4, align 8
   %6 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV11QLayoutItem, i32 0, i32 0, i32 2), ptr %6, align 8
   %7 = getelementptr inbounds %class.QLayoutItem, ptr %6, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 4 %3, i64 4, i1 false)
   ret void

@@ -284,7 +284,7 @@ define dso_local void @_ZN8ConstantC2EPK4TypeRKNSt7__cxx1112basic_stringIcSt11ch
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.Constant, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   store ptr %11, ptr %10, align 8
@@ -333,7 +333,7 @@ define dso_local void @_ZN8ConstantC2ERKS_(ptr noundef nonnull align 8 dereferen
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN10ExpressionC2E9eTermType(ptr noundef nonnull align 8 dereferenceable(24) %7, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.Constant, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds %class.Constant, ptr %9, i32 0, i32 1
@@ -371,7 +371,7 @@ define dso_local void @_ZN8ConstantD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTV8Constant, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.Constant, ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN10ExpressionD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3

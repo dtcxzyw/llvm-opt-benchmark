@@ -5135,7 +5135,7 @@ define dso_local void @_ZN22cmGlobalNinjaGenerator12WriteDefaultERSoRKSt6vectorI
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN22cmGlobalNinjaGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(2808) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN23cmGlobalCommonGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(1880) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV22cmGlobalNinjaGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV22cmGlobalNinjaGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 1888
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 1896
@@ -31209,7 +31209,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN27cmGlobalNinjaMultiGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(2920) %0, ptr noundef %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN22cmGlobalNinjaGeneratorC2EP5cmake(ptr noundef nonnull align 8 dereferenceable(2808) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV27cmGlobalNinjaMultiGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV27cmGlobalNinjaMultiGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 2816
   store i32 0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2824
@@ -34260,7 +34260,7 @@ declare void @_ZN5cmsys11SystemTools9UpperCaseERKNSt7__cxx1112basic_stringIcSt11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22cmGlobalNinjaGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(2808) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV22cmGlobalNinjaGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV22cmGlobalNinjaGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 2784
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 2792
@@ -35102,7 +35102,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN27cmGlobalNinjaMultiGeneratorD2Ev(ptr noundef nonnull align 8 dereferenceable(2920) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV27cmGlobalNinjaMultiGenerator, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [82 x ptr] }, ptr @_ZTV27cmGlobalNinjaMultiGenerator, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 2912
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

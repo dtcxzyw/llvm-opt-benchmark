@@ -82,8 +82,8 @@ define dso_local void @_ZN3net21QuicClientSessionBaseC2EPNS_14QuicConnectionEPNS
 entry:
   tail call void @_ZN3net15QuicSpdySessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE(ptr noundef nonnull align 8 dereferenceable(2057) %this, ptr noundef %connection, ptr noundef nonnull align 8 dereferenceable(600) %config)
   %0 = getelementptr inbounds i8, ptr %this, i64 2064
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i64 0, i32 1, i64 2), ptr %0, align 8
   %push_promise_index_ = getelementptr inbounds i8, ptr %this, i64 2072
   store ptr %push_promise_index, ptr %push_promise_index_, align 8
   %promised_by_id_ = getelementptr inbounds i8, ptr %this, i64 2080
@@ -106,9 +106,9 @@ declare void @_ZN3net15QuicSpdySessionC2EPNS_14QuicConnectionERKNS_10QuicConfigE
 define dso_local void @_ZN3net21QuicClientSessionBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(2140) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 2064
-  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [58 x ptr], [6 x ptr] }, ptr @_ZTVN3net21QuicClientSessionBaseE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %promised_by_id_ = getelementptr inbounds i8, ptr %this, i64 2080
   %_M_before_begin.i.i.i = getelementptr inbounds i8, ptr %this, i64 2096
   %__begin1.sroa.0.05 = load ptr, ptr %_M_before_begin.i.i.i, align 8

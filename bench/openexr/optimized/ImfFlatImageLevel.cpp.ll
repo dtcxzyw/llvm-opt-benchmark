@@ -73,7 +73,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define hidden void @_ZN7Imf_3_214FlatImageLevelC2ERNS_9FlatImageEiiRKN9Imath_3_23BoxINS3_4Vec2IiEEEE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef nonnull align 8 dereferenceable(104) %image, i32 noundef %xLevelNumber, i32 noundef %yLevelNumber, ptr noundef nonnull align 4 dereferenceable(16) %dataWindow) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN7Imf_3_210ImageLevelC2ERNS_5ImageEii(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(104) %image, i32 noundef %xLevelNumber, i32 noundef %yLevelNumber)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_214FlatImageLevelE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_214FlatImageLevelE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 48
   store i32 0, ptr %0, align 8
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 56
@@ -173,7 +173,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN7Imf_3_214FlatImageLevelD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_214FlatImageLevelE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN7Imf_3_214FlatImageLevelE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_channels.i = getelementptr inbounds i8, ptr %this, i64 40
   %_M_left.i.i.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %_M_left.i.i.i, align 8

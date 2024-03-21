@@ -221,7 +221,7 @@ entry:
   %this3 = load ptr, ptr %this.addr, align 8
   %3 = load ptr, ptr %ci.addr, align 8
   call void @_ZN20btCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfo(ptr noundef nonnull align 8 dereferenceable(16) %this3, ptr noundef nonnull align 8 dereferenceable(16) %3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV28btSoftSoftCollisionAlgorithm, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV28btSoftSoftCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this3, align 8
   ret void
 }
 

@@ -181,7 +181,7 @@ entry:
   %1 = load ptr, ptr %aLocale.addr, align 8
   %2 = load ptr, ptr %success.addr, align 8
   call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 1
   store i8 0, ptr %hasLeapMonthBetweenWinterSolstices, align 2
   %fEpochYear = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 2
@@ -263,7 +263,7 @@ entry:
   %1 = load ptr, ptr %aLocale.addr, align 8
   %2 = load ptr, ptr %success.addr, align 8
   call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this1, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 1
   store i8 0, ptr %hasLeapMonthBetweenWinterSolstices, align 2
   %fEpochYear = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %this1, i32 0, i32 2
@@ -311,7 +311,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this1, ptr noundef nonnull align 8 dereferenceable(618) %0)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load ptr, ptr %other.addr, align 8
   %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds %"class.icu_75::ChineseCalendar", ptr %1, i32 0, i32 1
   %2 = load i8, ptr %hasLeapMonthBetweenWinterSolstices, align 2

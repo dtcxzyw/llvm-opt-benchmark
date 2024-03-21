@@ -724,7 +724,7 @@ $_ZTIZN15register_cflushC1EvEUlvE_ = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @"_ZTV3$_0" = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @"_ZTI3$_0", ptr @"_ZNK3$_09to_stringB5cxx11E6insn_t", ptr @"_ZN3$_0D2Ev", ptr @"_ZN3$_0D0Ev"] }, align 8
-@xrs1 = internal global { ptr } { ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTV3$_0", i32 0, inrange i32 0, i32 2) }, align 8
+@xrs1 = internal global { ptr } { ptr getelementptr inbounds ({ [5 x ptr] }, ptr @"_ZTV3$_0", i32 0, i32 0, i32 2) }, align 8
 @_ZL12dummy_cflush = internal global %class.register_cflush zeroinitializer, align 1
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @"_ZTS3$_0" = internal constant [5 x i8] c"3$_0\00", align 1
@@ -1131,7 +1131,7 @@ define linkonce_odr void @_ZN8cflush_tC2Ev(ptr noundef nonnull align 8 dereferen
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11extension_tC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV8cflush_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV8cflush_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1143,7 +1143,7 @@ define linkonce_odr void @_ZN11extension_tC2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11extension_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11extension_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2473,7 +2473,7 @@ define linkonce_odr void @_ZN24trap_illegal_instructionC2Em(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load i64, ptr %4, align 8
   call void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 dereferenceable(32) %5, i64 noundef 2, i1 noundef zeroext false, i64 noundef %6)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV24trap_illegal_instruction, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2504,7 +2504,7 @@ define linkonce_odr void @_ZN11insn_trap_tC2Embm(ptr noundef nonnull align 8 der
   %10 = load ptr, ptr %5, align 8
   %11 = load i64, ptr %6, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %10, i64 noundef %11)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV11insn_trap_t, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.insn_trap_t, ptr %10, i32 0, i32 1
   %13 = load i8, ptr %7, align 1
   %14 = trunc i8 %13 to i1
@@ -2624,7 +2624,7 @@ define linkonce_odr void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
   %7 = load i64, ptr %4, align 8
   store i64 %7, ptr %6, align 8

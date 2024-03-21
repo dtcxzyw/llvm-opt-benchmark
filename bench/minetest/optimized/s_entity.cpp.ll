@@ -1750,7 +1750,7 @@ define dso_local void @_ZN15ScriptApiEntity35logDeprecationForExistingProperties
   %129 = getelementptr inbounds i8, ptr %6, i64 %128
   store ptr %126, ptr %129, align 8, !tbaa !12
   %130 = getelementptr inbounds i8, ptr %6, i64 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %130, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %130, align 8, !tbaa !12
   %131 = getelementptr inbounds i8, ptr %6, i64 80
   %132 = load ptr, ptr %131, align 8, !tbaa !4
   %133 = getelementptr inbounds i8, ptr %6, i64 96
@@ -1769,7 +1769,7 @@ define dso_local void @_ZN15ScriptApiEntity35logDeprecationForExistingProperties
   br label %140
 
 140:                                              ; preds = %139, %135
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %130, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %130, align 8, !tbaa !12
   %141 = getelementptr inbounds i8, ptr %6, i64 64
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %141) #24
   %142 = getelementptr inbounds i8, ptr %6, i64 112

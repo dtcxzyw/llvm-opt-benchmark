@@ -2535,9 +2535,9 @@ $_ZSt19piecewise_construct = comdat any
 @_ZGVN5boost4asio6detail12service_baseINS1_14strand_serviceEE2idE = linkonce_odr global i64 0, comdat($_ZN5boost4asio6detail12service_baseINS1_14strand_serviceEE2idE), align 8
 @_ZN5boost4asio6detail10call_stackINS1_23strand_executor_service11strand_implEhE4top_E = linkonce_odr global %"class.boost::asio::detail::tss_ptr.238" zeroinitializer, comdat, align 1
 @_ZGVN5boost4asio6detail10call_stackINS1_23strand_executor_service11strand_implEhE4top_E = linkonce_odr global i64 0, comdat($_ZN5boost4asio6detail10call_stackINS1_23strand_executor_service11strand_implEhE4top_E), align 8
-@_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE = linkonce_odr constant { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6system6detail21system_error_categoryE, i32 0, inrange i32 0, i32 2), i64 -8093018978436915045 }, comdat, align 8
+@_ZN5boost6system6detail10cat_holderIvE24system_category_instanceE = linkonce_odr constant { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6system6detail21system_error_categoryE, i32 0, i32 0, i32 2), i64 -8093018978436915045 }, comdat, align 8
 @_ZZN5boost6system6detail16is_generic_valueEiE3gen = linkonce_odr constant [79 x i32] [i32 0, i32 97, i32 98, i32 99, i32 106, i32 7, i32 33, i32 14, i32 9, i32 74, i32 32, i32 103, i32 114, i32 111, i32 104, i32 18, i32 89, i32 16, i32 39, i32 8, i32 17, i32 27, i32 36, i32 38, i32 113, i32 43, i32 84, i32 25, i32 4, i32 22, i32 29, i32 5, i32 21, i32 90, i32 100, i32 102, i32 101, i32 105, i32 10, i32 67, i32 37, i32 61, i32 42, i32 92, i32 28, i32 63, i32 6, i32 19, i32 2, i32 3, i32 20, i32 88, i32 60, i32 107, i32 12, i32 95, i32 125, i32 115, i32 1, i32 95, i32 11, i32 130, i32 13, i32 71, i32 93, i32 30, i32 35, i32 11, i32 34, i32 131, i32 62, i32 26, i32 110, i32 23, i32 24, i32 31, i32 40, i32 75, i32 91], comdat, align 16
-@_ZN5boost6system6detail10cat_holderIvE25generic_category_instanceE = linkonce_odr constant { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6system6detail22generic_error_categoryE, i32 0, inrange i32 0, i32 2), i64 -5572340897628102899 }, comdat, align 8
+@_ZN5boost6system6detail10cat_holderIvE25generic_category_instanceE = linkonce_odr constant { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6system6detail22generic_error_categoryE, i32 0, i32 0, i32 2), i64 -5572340897628102899 }, comdat, align 8
 @_ZZN5boost6system6detail15to_std_categoryERKNS0_14error_categoryEE15system_instance = linkonce_odr global %"class.boost::system::detail::std_category" zeroinitializer, comdat, align 8
 @_ZGVZN5boost6system6detail15to_std_categoryERKNS0_14error_categoryEE15system_instance = linkonce_odr global i64 0, comdat, align 8
 @_ZZN5boost6system6detail15to_std_categoryERKNS0_14error_categoryEE16generic_instance = linkonce_odr global %"class.boost::system::detail::std_category" zeroinitializer, comdat, align 8
@@ -2549,7 +2549,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.503 = private unnamed_addr constant [25 x i8] c"basic_string::_M_replace\00", align 1
 @.str.504 = private unnamed_addr constant [24 x i8] c"basic_string::_M_create\00", align 1
 @.str.505 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
-@_ZZN5boost4asio5error18get_netdb_categoryEvE8instance = linkonce_odr global { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost4asio5error6detail14netdb_categoryE, i32 0, inrange i32 0, i32 2), i64 0 }, comdat, align 8
+@_ZZN5boost4asio5error18get_netdb_categoryEvE8instance = linkonce_odr global { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost4asio5error6detail14netdb_categoryE, i32 0, i32 0, i32 2), i64 0 }, comdat, align 8
 @_ZTVN5boost4asio5error6detail14netdb_categoryE = linkonce_odr unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN5boost4asio5error6detail14netdb_categoryE, ptr @_ZNK5boost4asio5error6detail14netdb_category4nameEv, ptr @_ZNK5boost6system14error_category23default_error_conditionEi, ptr @_ZNK5boost6system14error_category10equivalentEiRKNS0_15error_conditionE, ptr @_ZNK5boost6system14error_category10equivalentERKNS0_10error_codeEi, ptr @_ZNK5boost4asio5error6detail14netdb_category7messageB5cxx11Ei, ptr @_ZNK5boost6system14error_category7messageEiPcm, ptr @_ZNK5boost6system14error_category6failedEi] }, comdat, align 8
 @_ZTSN5boost4asio5error6detail14netdb_categoryE = linkonce_odr constant [43 x i8] c"N5boost4asio5error6detail14netdb_categoryE\00", comdat, align 1
 @_ZTIN5boost4asio5error6detail14netdb_categoryE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5boost4asio5error6detail14netdb_categoryE, ptr @_ZTIN5boost6system14error_categoryE }, comdat, align 8
@@ -2559,7 +2559,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.509 = private unnamed_addr constant [57 x i8] c"The query is valid, but it does not have associated data\00", align 1
 @.str.510 = private unnamed_addr constant [56 x i8] c"A non-recoverable error occurred during database lookup\00", align 1
 @.str.511 = private unnamed_addr constant [17 x i8] c"asio.netdb error\00", align 1
-@_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance = linkonce_odr global { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost4asio5error6detail17addrinfo_categoryE, i32 0, inrange i32 0, i32 2), i64 0 }, comdat, align 8
+@_ZZN5boost4asio5error21get_addrinfo_categoryEvE8instance = linkonce_odr global { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost4asio5error6detail17addrinfo_categoryE, i32 0, i32 0, i32 2), i64 0 }, comdat, align 8
 @_ZTVN5boost4asio5error6detail17addrinfo_categoryE = linkonce_odr unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN5boost4asio5error6detail17addrinfo_categoryE, ptr @_ZNK5boost4asio5error6detail17addrinfo_category4nameEv, ptr @_ZNK5boost6system14error_category23default_error_conditionEi, ptr @_ZNK5boost6system14error_category10equivalentEiRKNS0_15error_conditionE, ptr @_ZNK5boost6system14error_category10equivalentERKNS0_10error_codeEi, ptr @_ZNK5boost4asio5error6detail17addrinfo_category7messageB5cxx11Ei, ptr @_ZNK5boost6system14error_category7messageEiPcm, ptr @_ZNK5boost6system14error_category6failedEi] }, comdat, align 8
 @_ZTSN5boost4asio5error6detail17addrinfo_categoryE = linkonce_odr constant [46 x i8] c"N5boost4asio5error6detail17addrinfo_categoryE\00", comdat, align 1
 @_ZTIN5boost4asio5error6detail17addrinfo_categoryE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5boost4asio5error6detail17addrinfo_categoryE, ptr @_ZTIN5boost6system14error_categoryE }, comdat, align 8
@@ -2567,7 +2567,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.513 = private unnamed_addr constant [18 x i8] c"Service not found\00", align 1
 @.str.514 = private unnamed_addr constant [26 x i8] c"Socket type not supported\00", align 1
 @.str.515 = private unnamed_addr constant [20 x i8] c"asio.addrinfo error\00", align 1
-@_ZZN5boost4asio5error17get_misc_categoryEvE8instance = linkonce_odr global { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost4asio5error6detail13misc_categoryE, i32 0, inrange i32 0, i32 2), i64 0 }, comdat, align 8
+@_ZZN5boost4asio5error17get_misc_categoryEvE8instance = linkonce_odr global { ptr, i64 } { ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost4asio5error6detail13misc_categoryE, i32 0, i32 0, i32 2), i64 0 }, comdat, align 8
 @_ZTVN5boost4asio5error6detail13misc_categoryE = linkonce_odr unnamed_addr constant { [9 x ptr] } { [9 x ptr] [ptr null, ptr @_ZTIN5boost4asio5error6detail13misc_categoryE, ptr @_ZNK5boost4asio5error6detail13misc_category4nameEv, ptr @_ZNK5boost6system14error_category23default_error_conditionEi, ptr @_ZNK5boost6system14error_category10equivalentEiRKNS0_15error_conditionE, ptr @_ZNK5boost6system14error_category10equivalentERKNS0_10error_codeEi, ptr @_ZNK5boost4asio5error6detail13misc_category7messageB5cxx11Ei, ptr @_ZNK5boost6system14error_category7messageEiPcm, ptr @_ZNK5boost6system14error_category6failedEi] }, comdat, align 8
 @_ZTSN5boost4asio5error6detail13misc_categoryE = linkonce_odr constant [42 x i8] c"N5boost4asio5error6detail13misc_categoryE\00", comdat, align 1
 @_ZTIN5boost4asio5error6detail13misc_categoryE = linkonce_odr constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5boost4asio5error6detail13misc_categoryE, ptr @_ZTIN5boost6system14error_categoryE }, comdat, align 8
@@ -3364,7 +3364,7 @@ define linkonce_odr void @_ZN16trap_interactiveC2Ev(ptr noundef nonnull align 8 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef -1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16trap_interactive, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV16trap_interactive, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -17073,7 +17073,7 @@ define linkonce_odr void @_ZN5boost6system12system_errorD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost6system12system_errorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost6system12system_errorE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.boost::system::system_error", ptr %3, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -17670,7 +17670,7 @@ define linkonce_odr void @_ZN5boost6system6detail12std_categoryC2EPKNS0_14error_
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
   call void @_ZNSt3_V214error_categoryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5boost6system6detail12std_categoryE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5boost6system6detail12std_categoryE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.boost::system::detail::std_category", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -17947,7 +17947,7 @@ define linkonce_odr void @_ZNSt3_V214error_categoryC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVNSt3_V214error_categoryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVNSt3_V214error_categoryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21244,7 +21244,7 @@ define linkonce_odr void @_ZN6trap_tC2Em(ptr noundef nonnull align 8 dereference
   store ptr %0, ptr %3, align 8
   store i64 %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTV6trap_t, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.trap_t, ptr %5, i32 0, i32 1
   %7 = load i64, ptr %4, align 8
   store i64 %7, ptr %6, align 8
@@ -22230,7 +22230,7 @@ define linkonce_odr void @_ZNSt19bad_optional_accessC2Ev(ptr noundef nonnull ali
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt19bad_optional_access, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -22248,7 +22248,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

@@ -2309,7 +2309,7 @@ _ZN5vcpkgL16serialize_stringENS_10StringViewERKNSt7__cxx1112basic_stringIcSt11ch
   store i64 %39, ptr %40, align 8, !alias.scope !40
   %41 = getelementptr inbounds i8, ptr %4, i64 24
   store i64 %39, ptr %41, align 8, !alias.scope !40
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !40
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !40
   %42 = getelementptr inbounds i8, ptr %4, i64 32
   store ptr %1, ptr %42, align 8, !alias.scope !40
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr nonnull @.str.7, i64 7, i64 31, ptr nonnull %5, ptr null)

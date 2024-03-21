@@ -70,7 +70,7 @@ define dso_local void @_ZN18cmCursesBoolWidgetC2Eiiii(ptr noundef nonnull align 
   %16 = load i32, ptr %9, align 4
   %17 = load i32, ptr %10, align 4
   call void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 dereferenceable(60) %13, i32 noundef %14, i32 noundef %15, i32 noundef %16, i32 noundef %17)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV18cmCursesBoolWidget, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV18cmCursesBoolWidget, i32 0, i32 0, i32 2), ptr %13, align 8
   %18 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 1
   store i32 0, ptr %18, align 8
   %19 = invoke noundef zeroext i1 @_ZN13cmCursesColor9HasColorsEv()

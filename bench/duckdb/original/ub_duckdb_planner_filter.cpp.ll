@@ -151,7 +151,7 @@ entry:
   store i8 3, ptr %filter_type.i.i, align 8, !tbaa !3
   %child_filters.i = getelementptr inbounds %"class.duckdb::ConjunctionFilter", ptr %this, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %child_filters.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb19ConjunctionOrFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb19ConjunctionOrFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   ret void
 }
 
@@ -872,7 +872,7 @@ entry:
   store i8 4, ptr %filter_type.i.i, align 8, !tbaa !3
   %child_filters.i = getelementptr inbounds %"class.duckdb::ConjunctionFilter", ptr %this, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %child_filters.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb20ConjunctionAndFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb20ConjunctionAndFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   ret void
 }
 
@@ -1277,7 +1277,7 @@ define void @_ZN6duckdb14ConstantFilterC2ENS_14ExpressionTypeENS_5ValueE(ptr nou
 entry:
   %filter_type.i = getelementptr inbounds %"class.duckdb::TableFilter", ptr %this, i64 0, i32 1
   store i8 0, ptr %filter_type.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14ConstantFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14ConstantFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   %comparison_type = getelementptr inbounds %"class.duckdb::ConstantFilter", ptr %this, i64 0, i32 1
   store i8 %comparison_type_p, ptr %comparison_type, align 1, !tbaa !30
   %constant = getelementptr inbounds %"class.duckdb::ConstantFilter", ptr %this, i64 0, i32 2
@@ -1765,7 +1765,7 @@ define void @_ZN6duckdb12IsNullFilterC2Ev(ptr nocapture noundef nonnull writeonl
 entry:
   %filter_type.i = getelementptr inbounds %"class.duckdb::TableFilter", ptr %this, i64 0, i32 1
   store i8 1, ptr %filter_type.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12IsNullFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb12IsNullFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   ret void
 }
 
@@ -1881,7 +1881,7 @@ define void @_ZN6duckdb15IsNotNullFilterC2Ev(ptr nocapture noundef nonnull write
 entry:
   %filter_type.i = getelementptr inbounds %"class.duckdb::TableFilter", ptr %this, i64 0, i32 1
   store i8 2, ptr %filter_type.i, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb15IsNotNullFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb15IsNotNullFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   ret void
 }
 
@@ -1991,7 +1991,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb19ConjunctionOrFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17ConjunctionFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17ConjunctionFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   %child_filters.i = getelementptr inbounds %"class.duckdb::ConjunctionFilter", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %child_filters.i, align 8, !tbaa !22
   %_M_finish.i.i = getelementptr inbounds %"class.duckdb::ConjunctionFilter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -2041,7 +2041,7 @@ declare void @_ZNK6duckdb19ConjunctionOrFilter9SerializeERNS_10SerializerE(ptr n
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb17ConjunctionFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17ConjunctionFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17ConjunctionFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   %child_filters = getelementptr inbounds %"class.duckdb::ConjunctionFilter", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %child_filters, align 8, !tbaa !22
   %_M_finish.i = getelementptr inbounds %"class.duckdb::ConjunctionFilter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -2088,7 +2088,7 @@ _ZNSt6vectorIN6duckdb10unique_ptrINS0_11TableFilterESt14default_deleteIS2_ELb1EE
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb20ConjunctionAndFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17ConjunctionFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb17ConjunctionFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   %child_filters.i = getelementptr inbounds %"class.duckdb::ConjunctionFilter", ptr %this, i64 0, i32 1
   %0 = load ptr, ptr %child_filters.i, align 8, !tbaa !22
   %_M_finish.i.i = getelementptr inbounds %"class.duckdb::ConjunctionFilter", ptr %this, i64 0, i32 1, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -2138,7 +2138,7 @@ declare void @_ZNK6duckdb20ConjunctionAndFilter9SerializeERNS_10SerializerE(ptr 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ConstantFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14ConstantFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14ConstantFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   %constant = getelementptr inbounds %"class.duckdb::ConstantFilter", ptr %this, i64 0, i32 2
   tail call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %constant) #18
   ret void
@@ -2147,7 +2147,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb14ConstantFilterD0Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14ConstantFilterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6duckdb14ConstantFilterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   %constant.i = getelementptr inbounds %"class.duckdb::ConstantFilter", ptr %this, i64 0, i32 2
   tail call void @_ZN6duckdb5ValueD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %constant.i) #18
   tail call void @_ZdlPv(ptr noundef nonnull %this) #20
@@ -2222,7 +2222,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !8
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !13
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2

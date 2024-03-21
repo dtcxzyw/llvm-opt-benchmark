@@ -184,7 +184,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8proxygen25HTTPDirectResponseHandlerC2EjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS_13HTTPErrorPageE(ptr noundef nonnull align 8 dereferenceable(61) %this, i32 noundef %statusCode, ptr noundef nonnull align 8 dereferenceable(32) %statusMsg, ptr noundef %errorPage) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %txn_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %txn_, align 8
   %errorPage_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -208,7 +208,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen25HTTPDirectResponseHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(61) %this) unnamed_addr #4 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %statusMessage_ = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMessage_) #16
   ret void

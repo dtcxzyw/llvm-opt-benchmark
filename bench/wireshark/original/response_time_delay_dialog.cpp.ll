@@ -1298,9 +1298,9 @@ define void @_ZN23ResponseTimeDelayDialogC2ER7QWidgetR11CaptureFileP12register_r
   %37 = load ptr, ptr %9, align 8
   %38 = load i32, ptr %12, align 4
   call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %35, ptr noundef nonnull align 8 dereferenceable(40) %36, ptr noundef nonnull align 8 dereferenceable(48) %37, i32 noundef %38)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV23ResponseTimeDelayDialog, i32 0, inrange i32 0, i32 2), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV23ResponseTimeDelayDialog, i32 0, i32 0, i32 2), ptr %35, align 8
   %39 = getelementptr inbounds i8, ptr %35, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV23ResponseTimeDelayDialog, i32 0, inrange i32 1, i32 2), ptr %39, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV23ResponseTimeDelayDialog, i32 0, i32 1, i32 2), ptr %39, align 8
   %40 = getelementptr inbounds %class.ResponseTimeDelayDialog, ptr %35, i32 0, i32 1
   %41 = load ptr, ptr %10, align 8
   store ptr %41, ptr %40, align 8
@@ -2110,7 +2110,7 @@ define linkonce_odr void @_ZN25RtdTimeStatTreeWidgetItemC2EP11QTreeWidget7QStrin
   %11 = load ptr, ptr %5, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN15QTreeWidgetItemC2EP11QTreeWidgeti(ptr noundef nonnull align 8 dereferenceable(92) %11, ptr noundef %12, i32 noundef 1001)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25RtdTimeStatTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25RtdTimeStatTreeWidgetItem, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.RtdTimeStatTreeWidgetItem, ptr %11, i32 0, i32 1
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(24) %2) #2
   %14 = getelementptr inbounds %class.RtdTimeStatTreeWidgetItem, ptr %11, i32 0, i32 2
@@ -5925,7 +5925,7 @@ define linkonce_odr void @_ZN25RtdTimeStatTreeWidgetItemD2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25RtdTimeStatTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV25RtdTimeStatTreeWidgetItem, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.RtdTimeStatTreeWidgetItem, ptr %3, i32 0, i32 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #2
   call void @_ZN15QTreeWidgetItemD2Ev(ptr noundef nonnull align 8 dereferenceable(92) %3) #2

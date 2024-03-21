@@ -249,7 +249,7 @@ define dso_local void @_ZN15Sample_TileMeshC2Ev(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN6SampleC2Ev(ptr noundef nonnull align 8 dereferenceable(200) %5)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 1
   store i8 0, ptr %6, align 8
   %7 = getelementptr inbounds %class.Sample_TileMesh, ptr %5, i32 0, i32 2
@@ -386,7 +386,7 @@ define linkonce_odr dso_local void @_ZN15NavMeshTileToolC2Ev(ptr noundef nonnull
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN10SampleToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #9
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15NavMeshTileTool, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV15NavMeshTileTool, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 1
   store ptr null, ptr %4, align 8
   %5 = getelementptr inbounds %class.NavMeshTileTool, ptr %3, i32 0, i32 3
@@ -411,7 +411,7 @@ define dso_local void @_ZN15Sample_TileMeshD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV15Sample_TileMesh, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN15Sample_TileMesh7cleanupEv(ptr noundef nonnull align 8 dereferenceable(404) %3)
           to label %4 unwind label %9
 
@@ -5506,7 +5506,7 @@ define linkonce_odr dso_local void @_ZN10SampleToolC2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV10SampleTool, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

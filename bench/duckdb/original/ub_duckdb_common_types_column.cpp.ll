@@ -2959,7 +2959,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %_ZN6duckdb6vectorIN
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !121
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i5, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !121
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i5, align 8, !tbaa !40, !noalias !121
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i5, align 8, !tbaa !40, !noalias !121
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.567", ptr %call5.i.i.i17.i.i.i.i5, i64 0, i32 1
   invoke void @_ZN6duckdb19ColumnDataAllocatorC1ERNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(112) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocator_p)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !121
@@ -3166,7 +3166,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %_ZNSt6vectorIN6duck
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !137
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i10, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !137
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i10, align 8, !tbaa !40, !noalias !137
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i10, align 8, !tbaa !40, !noalias !137
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.567", ptr %call5.i.i.i17.i.i.i.i10, i64 0, i32 1
   invoke void @_ZN6duckdb19ColumnDataAllocatorC1ERNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(112) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %allocator_p)
           to label %invoke.cont3 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !137
@@ -3496,7 +3496,7 @@ call5.i.i.i13.i.i.i.i.noexc:                      ; preds = %_ZNSt6vectorIN6duck
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !164
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i10, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !164
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i10, align 8, !tbaa !40, !noalias !164
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i10, align 8, !tbaa !40, !noalias !164
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.567", ptr %call5.i.i.i13.i.i.i.i10, i64 0, i32 1
   invoke void @_ZN6duckdb19ColumnDataAllocatorC1ERNS_13BufferManagerE(ptr noundef nonnull align 8 dereferenceable(112) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %buffer_manager)
           to label %invoke.cont3 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit19.i.i.i.i, !noalias !164
@@ -3703,7 +3703,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !167
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i15.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !167
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i15.i.i.i.i, align 8, !tbaa !40, !noalias !167
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i15.i.i.i.i, align 8, !tbaa !40, !noalias !167
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.567", ptr %call5.i.i.i15.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb19ColumnDataAllocatorC1ERNS_13ClientContextENS_23ColumnDataAllocatorTypeE(ptr noundef nonnull align 8 dereferenceable(112) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(592) %context, i8 noundef zeroext %type)
           to label %_ZSt11make_sharedIN6duckdb19ColumnDataAllocatorEJRNS0_13ClientContextERNS0_23ColumnDataAllocatorTypeEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES8_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit21.i.i.i.i, !noalias !167
@@ -6738,7 +6738,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !265
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i21, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !265
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb9DataChunkESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i21, align 8, !tbaa !40, !noalias !265
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb9DataChunkESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i21, align 8, !tbaa !40, !noalias !265
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.578", ptr %call5.i.i.i17.i.i.i.i21, i64 0, i32 1
   invoke void @_ZN6duckdb9DataChunkC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb9DataChunkESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !265
@@ -7228,7 +7228,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !273
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i21, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !273
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb9DataChunkESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i21, align 8, !tbaa !40, !noalias !273
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb9DataChunkESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i21, align 8, !tbaa !40, !noalias !273
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.578", ptr %call5.i.i.i17.i.i.i.i21, i64 0, i32 1
   invoke void @_ZN6duckdb9DataChunkC1Ev(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i)
           to label %invoke.cont unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb9DataChunkESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !273
@@ -8062,7 +8062,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc:                  ; preds = %if.then.i.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !314
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i37, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !314
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i37, align 8, !tbaa !40, !noalias !314
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i37, align 8, !tbaa !40, !noalias !314
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i37, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !319, !noalias !314
   %call.i15.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znam(i64 noundef 256) #28
@@ -8154,7 +8154,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc72:                ; preds = %if.then.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i39, align 8, !tbaa !36, !noalias !327
   %_M_weak_count.i.i.i.i.i.i.i.i40 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i73, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i40, align 4, !tbaa !39, !noalias !327
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i73, align 8, !tbaa !40, !noalias !327
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i73, align 8, !tbaa !40, !noalias !327
   %_M_impl.i.i.i.i.i.i.i.i41 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i73, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i41, align 8, !tbaa !319, !noalias !327
   %add.i.i.i.i.i.i.i.i.i.i.i42 = add i64 %12, 63
@@ -8674,7 +8674,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc:                  ; preds = %if.then.i.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !359
   %_M_weak_count.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i118, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !359
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i118, align 8, !tbaa !40, !noalias !359
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i118, align 8, !tbaa !40, !noalias !359
   %_M_impl.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i118, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i, align 8, !tbaa !319, !noalias !359
   %call.i15.i.i.i.i.i.i.i.i.i.i = invoke noalias noundef nonnull dereferenceable(256) ptr @_Znam(i64 noundef 256) #28
@@ -8776,7 +8776,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc153:               ; preds = %if.then.i107
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i120, align 8, !tbaa !36, !noalias !364
   %_M_weak_count.i.i.i.i.i.i.i.i121 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i154, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i121, align 4, !tbaa !39, !noalias !364
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i154, align 8, !tbaa !40, !noalias !364
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i154, align 8, !tbaa !40, !noalias !364
   %_M_impl.i.i.i.i.i.i.i.i122 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i154, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i122, align 8, !tbaa !319, !noalias !364
   %add.i.i.i.i.i.i.i.i.i.i.i123 = add i64 %24, 63
@@ -9666,7 +9666,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc.us:               ; preds = %if.then.i.us
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i.us, align 8, !tbaa !36, !noalias !387
   %_M_weak_count.i.i.i.i.i.i.i.i.us = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i135.us, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i.us, align 4, !tbaa !39, !noalias !387
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i135.us, align 8, !tbaa !40, !noalias !387
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i135.us, align 8, !tbaa !40, !noalias !387
   %_M_impl.i.i.i.i.i.i.i.i.us = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i135.us, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i.us, align 8, !tbaa !319, !noalias !387
   %add.i.i.i.i.i.i.i.i.i.i.i.us = add i64 %37, 63
@@ -10267,7 +10267,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !408
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !408
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !408
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !408
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !408
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -10629,7 +10629,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !418
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !418
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !418
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !418
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !418
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -10991,7 +10991,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !429
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !429
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !429
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !429
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !429
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -11353,7 +11353,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !439
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !439
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !439
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !439
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !439
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -11715,7 +11715,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !449
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !449
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !449
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !449
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !449
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -12077,7 +12077,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !459
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !459
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !459
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !459
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !459
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -12439,7 +12439,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !469
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !469
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !469
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !469
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !469
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -12801,7 +12801,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !479
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !479
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !479
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !479
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !479
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -13163,7 +13163,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !489
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !489
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !489
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !489
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !489
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -13525,7 +13525,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !499
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !499
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !499
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !499
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !499
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -13887,7 +13887,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !509
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !509
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !509
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !509
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !509
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -14249,7 +14249,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !521
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !521
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !521
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !521
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !521
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -14611,7 +14611,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc155.i:             ; preds = %if.then.i109.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i122.i, align 8, !tbaa !36, !noalias !531
   %_M_weak_count.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i123.i, align 4, !tbaa !39, !noalias !531
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !531
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i156.i, align 8, !tbaa !40, !noalias !531
   %_M_impl.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i156.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i124.i, align 8, !tbaa !319, !noalias !531
   %add.i.i.i.i.i.i.i.i.i.i.i125.i = add i64 %24, 63
@@ -15013,7 +15013,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc156.i:             ; preds = %if.then.i110.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i123.i, align 8, !tbaa !36, !noalias !543
   %_M_weak_count.i.i.i.i.i.i.i.i124.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i157.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i124.i, align 4, !tbaa !39, !noalias !543
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i157.i, align 8, !tbaa !40, !noalias !543
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i157.i, align 8, !tbaa !40, !noalias !543
   %_M_impl.i.i.i.i.i.i.i.i125.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i157.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i125.i, align 8, !tbaa !319, !noalias !543
   %add.i.i.i.i.i.i.i.i.i.i.i126.i = add i64 %31, 63
@@ -15642,7 +15642,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc460:               ; preds = %if.then.i392
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i427, align 8, !tbaa !36, !noalias !562
   %_M_weak_count.i.i.i.i.i.i.i.i428 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i461, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i428, align 4, !tbaa !39, !noalias !562
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i461, align 8, !tbaa !40, !noalias !562
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i461, align 8, !tbaa !40, !noalias !562
   %_M_impl.i.i.i.i.i.i.i.i429 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i461, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i429, align 8, !tbaa !319, !noalias !562
   %add.i.i.i.i.i.i.i.i.i.i.i430 = add i64 %114, 63
@@ -16567,7 +16567,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc154.i:             ; preds = %if.then.i108.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i121.i, align 8, !tbaa !36, !noalias !600
   %_M_weak_count.i.i.i.i.i.i.i.i122.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i155.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i122.i, align 4, !tbaa !39, !noalias !600
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i155.i, align 8, !tbaa !40, !noalias !600
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i155.i, align 8, !tbaa !40, !noalias !600
   %_M_impl.i.i.i.i.i.i.i.i123.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i155.i, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i123.i, align 8, !tbaa !319, !noalias !600
   %add.i.i.i.i.i.i.i.i.i.i.i124.i = add i64 %78, 63
@@ -16925,7 +16925,7 @@ call5.i.i.i17.i.i.i.i.i.i.noexc154.i279:          ; preds = %if.then.i108.i276
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i.i121.i280, align 8, !tbaa !36, !noalias !610
   %_M_weak_count.i.i.i.i.i.i.i.i122.i281 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i.i.i155.i277, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i.i122.i281, align 4, !tbaa !39, !noalias !610
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i155.i277, align 8, !tbaa !40, !noalias !610
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i.i155.i277, align 8, !tbaa !40, !noalias !610
   %_M_impl.i.i.i.i.i.i.i.i123.i282 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.594", ptr %call5.i.i.i17.i.i.i.i.i.i155.i277, i64 0, i32 1
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i.i123.i282, align 8, !tbaa !319, !noalias !610
   %add.i.i.i.i.i.i.i.i.i.i.i124.i283 = add i64 %125, 63
@@ -18998,7 +18998,7 @@ _ZN6duckdb6vectorINS_10unique_ptrINS_27ColumnDataCollectionSegmentESt14default_d
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !654
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !654
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i, align 8, !tbaa !40, !noalias !654
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i, align 8, !tbaa !40, !noalias !654
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.567", ptr %call5.i.i.i13.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb19ColumnDataAllocatorC1ERS0_(ptr noundef nonnull align 8 dereferenceable(112) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(112) %3)
           to label %_ZSt11make_sharedIN6duckdb19ColumnDataAllocatorEJRS1_EESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit19.i.i.i.i, !noalias !654
@@ -23675,7 +23675,7 @@ call5.i.i.i17.i.i.i.i.noexc:                      ; preds = %invoke.cont
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !752
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i7, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !752
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb10StringHeapESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i7, align 8, !tbaa !40, !noalias !752
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb10StringHeapESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i7, align 8, !tbaa !40, !noalias !752
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.612", ptr %call5.i.i.i17.i.i.i.i7, i64 0, i32 1
   invoke void @_ZN6duckdb10StringHeapC1ERNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %cond-lvalue.i)
           to label %invoke.cont4 unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb10StringHeapESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !752
@@ -26400,7 +26400,7 @@ _ZN6duckdb6vectorINS_18ColumnDataConsumer14ChunkReferenceELb1EE3getILb1EEERS2_m.
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb21PartitionedColumnDataC2ENS_25PartitionedColumnDataTypeERNS_13ClientContextENS_6vectorINS_11LogicalTypeELb1EEE(ptr noundef nonnull align 8 dereferenceable(128) %this, i8 noundef zeroext %type_p, ptr noundef nonnull align 8 dereferenceable(592) %context_p, ptr nocapture noundef %types_p) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21PartitionedColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !40
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21PartitionedColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !40
   %type = getelementptr inbounds %"class.duckdb::PartitionedColumnData", ptr %this, i64 0, i32 1
   store i8 %type_p, ptr %type, align 8, !tbaa !818
   %context = getelementptr inbounds %"class.duckdb::PartitionedColumnData", ptr %this, i64 0, i32 2
@@ -26426,7 +26426,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !828
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i16.i.i.i.i3, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !828
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb29PartitionColumnDataAllocatorsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i3, align 8, !tbaa !40, !noalias !828
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb29PartitionColumnDataAllocatorsESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i3, align 8, !tbaa !40, !noalias !828
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.628", ptr %call5.i.i.i16.i.i.i.i3, i64 0, i32 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %_M_impl.i.i.i.i.i.i, i8 0, i64 64, i1 false), !noalias !828
   store ptr %call5.i.i.i16.i.i.i.i3, ptr %_M_refcount.i.i.i, align 8, !tbaa !34, !alias.scope !828
@@ -26445,7 +26445,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6duckdb21PartitionedColumnDataC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef nonnull align 8 dereferenceable(128) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21PartitionedColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !40
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21PartitionedColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !40
   %type = getelementptr inbounds %"class.duckdb::PartitionedColumnData", ptr %this, i64 0, i32 1
   %type2 = getelementptr inbounds %"class.duckdb::PartitionedColumnData", ptr %other, i64 0, i32 1
   %0 = load i8, ptr %type2, align 8, !tbaa !818
@@ -26595,7 +26595,7 @@ declare void @_ZN6duckdb23NotImplementedExceptionC1ERKNSt7__cxx1112basic_stringI
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !40
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !40
   %raw_message_ = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !23
   %1 = getelementptr inbounds %"class.duckdb::Exception", ptr %this, i64 0, i32 3, i32 2
@@ -26639,7 +26639,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit7: ; preds = %if.t
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb21PartitionedColumnDataD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21PartitionedColumnDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !40
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb21PartitionedColumnDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !40
   %partitions = getelementptr inbounds %"class.duckdb::PartitionedColumnData", ptr %this, i64 0, i32 6
   %0 = load ptr, ptr %partitions, align 8, !tbaa !841
   %_M_finish.i = getelementptr inbounds %"class.duckdb::PartitionedColumnData", ptr %this, i64 0, i32 6, i32 0, i32 0, i32 0, i32 0, i32 1
@@ -26796,7 +26796,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !844
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !844
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !40, !noalias !844
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !40, !noalias !844
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb13SelectionDataC1Em(ptr noundef nonnull align 8 dereferenceable(8) %_M_impl.i.i.i.i.i.i, i64 noundef %count)
           to label %_ZSt11make_sharedIN6duckdb13SelectionDataEJRmEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES5_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb13SelectionDataESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit23.i.i.i.i, !noalias !844
@@ -28205,7 +28205,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !36, !noalias !874
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i13.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !39, !noalias !874
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i, align 8, !tbaa !40, !noalias !874
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i13.i.i.i.i, align 8, !tbaa !40, !noalias !874
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.567", ptr %call5.i.i.i13.i.i.i.i, i64 0, i32 1
   invoke void @_ZN6duckdb19ColumnDataAllocatorC1ERNS_13BufferManagerE(ptr noundef nonnull align 8 dereferenceable(112) %_M_impl.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %call3)
           to label %_ZSt11make_sharedIN6duckdb19ColumnDataAllocatorEJRNS0_13BufferManagerEEESt10shared_ptrINSt9enable_ifIXntsr8is_arrayIT_EE5valueES6_E4typeEEDpOT0_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN6duckdb19ColumnDataAllocatorESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit19.i.i.i.i, !noalias !874

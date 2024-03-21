@@ -424,9 +424,9 @@ define void @_ZN16OverlayScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef non
   %22 = load i32, ptr %5, align 4
   %23 = load ptr, ptr %6, align 8
   call void @_ZN10QScrollBarC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %21, i32 noundef %22, ptr noundef %23)
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, inrange i32 0, i32 2), ptr %21, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 0, i32 2), ptr %21, align 8
   %24 = getelementptr inbounds i8, ptr %21, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, inrange i32 1, i32 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 1, i32 2), ptr %24, align 8
   %25 = getelementptr inbounds %class.OverlayScrollBar, ptr %21, i32 0, i32 3
   %26 = load i32, ptr %5, align 4
   invoke void @_ZN10QScrollBarC1EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %25, i32 noundef %26, ptr noundef %21)
@@ -629,7 +629,7 @@ define linkonce_odr void @_ZN13OsbProxyStyleC2Ev(ptr noundef nonnull align 8 der
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN11QProxyStyleC2EP6QStyle(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
-  store ptr getelementptr inbounds ({ [37 x ptr] }, ptr @_ZTV13OsbProxyStyle, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [37 x ptr] }, ptr @_ZTV13OsbProxyStyle, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -893,9 +893,9 @@ define void @_ZN16OverlayScrollBarD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [57 x ptr], [10 x ptr] }, ptr @_ZTV16OverlayScrollBar, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.OverlayScrollBar, ptr %3, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

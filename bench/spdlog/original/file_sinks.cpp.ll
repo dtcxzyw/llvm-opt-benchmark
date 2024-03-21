@@ -2024,7 +2024,7 @@ entry:
   store ptr %event_handlers, ptr %event_handlers.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks9base_sinkISt5mutexEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks15basic_file_sinkISt5mutexEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks15basic_file_sinkISt5mutexEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %file_helper_ = getelementptr inbounds %"class.spdlog::sinks::basic_file_sink", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %event_handlers.addr, align 8
   invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %0)
@@ -2082,7 +2082,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks4sinkC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::base_sink", ptr %this1, i32 0, i32 1
   invoke void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr sret(%"class.std::unique_ptr.18") align 8 %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2196,7 +2196,7 @@ entry:
   store ptr %alloc, ptr %alloc.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3fmt2v96detail6bufferIcEC2EPcmm(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef null, i64 noundef 0, i64 noundef 0) #13
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %alloc_ = getelementptr inbounds %"class.fmt::v9::basic_memory_buffer", ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %alloc.addr, align 8
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %alloc_, ptr noundef nonnull align 1 dereferenceable(1) %0) #13
@@ -2265,7 +2265,7 @@ entry:
   store ptr %event_handlers, ptr %event_handlers.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks9base_sinkINS_7details10null_mutexEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks15basic_file_sinkINS_7details10null_mutexEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks15basic_file_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %file_helper_ = getelementptr inbounds %"class.spdlog::sinks::basic_file_sink.9", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %event_handlers.addr, align 8
   invoke void @_ZN6spdlog7details11file_helperC1ERKNS_19file_event_handlersE(ptr noundef nonnull align 8 dereferenceable(176) %file_helper_, ptr noundef nonnull align 8 dereferenceable(128) %0)
@@ -2323,7 +2323,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks4sinkC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::base_sink.10", ptr %this1, i32 0, i32 2
   invoke void @_ZN6spdlog7details11make_uniqueINS_17pattern_formatterEJEEESt10unique_ptrIT_St14default_deleteIS4_EEDpOT0_(ptr sret(%"class.std::unique_ptr.18") align 8 %ref.tmp)
           to label %invoke.cont unwind label %lpad
@@ -2462,7 +2462,7 @@ entry:
   store ptr %event_handlers, ptr %event_handlers.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks9base_sinkISt5mutexEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkISt5mutexEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkISt5mutexEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %base_filename_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_, ptr noundef nonnull align 8 dereferenceable(32) %base_filename) #13
   %max_size_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink", ptr %this1, i32 0, i32 2
@@ -3391,7 +3391,7 @@ entry:
   store ptr %event_handlers, ptr %event_handlers.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6spdlog5sinks9base_sinkINS_7details10null_mutexEEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %this1)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkINS_7details10null_mutexEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks18rotating_file_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %base_filename_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink.16", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %base_filename_, ptr noundef nonnull align 8 dereferenceable(32) %base_filename) #13
   %max_size_ = getelementptr inbounds %"class.spdlog::sinks::rotating_file_sink.16", ptr %this1, i32 0, i32 2
@@ -5160,7 +5160,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkISt5mutexEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::base_sink", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN6spdlog9formatterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %formatter_) #13
   call void @_ZN6spdlog5sinks4sinkD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
@@ -5321,7 +5321,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN6spdlog5sinks9base_sinkINS_7details10null_mutexEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %formatter_ = getelementptr inbounds %"class.spdlog::sinks::base_sink.10", ptr %this1, i32 0, i32 2
   call void @_ZNSt10unique_ptrIN6spdlog9formatterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %formatter_) #13
   call void @_ZN6spdlog5sinks4sinkD2Ev(ptr noundef nonnull align 8 dereferenceable(12) %this1) #13
@@ -5580,7 +5580,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks4sinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6spdlog5sinks4sinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %level_ = getelementptr inbounds %"class.spdlog::sinks::sink", ptr %this1, i32 0, i32 1
   call void @_ZNSt6atomicIiEC2Ei(ptr noundef nonnull align 4 dereferenceable(4) %level_, i32 noundef 0) #13
   ret void
@@ -7291,7 +7291,7 @@ entry:
   store i64 %sz, ptr %sz.addr, align 8
   store i64 %cap, ptr %cap.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v96detail6bufferIcEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ptr_ = getelementptr inbounds %"class.fmt::v9::detail::buffer", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %p.addr, align 8
   store ptr %0, ptr %ptr_, align 8

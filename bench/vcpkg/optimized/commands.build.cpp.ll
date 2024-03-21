@@ -1129,7 +1129,7 @@ $_ZTIN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112bas
 @.str.288 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 @_ZN5vcpkg24msgUnknownBooleanSettingE = external local_unnamed_addr global %"struct.vcpkg::msg::MessageT.675", align 8
 @_ZTVN12_GLOBAL__N_121NullBuildLogsRecorderE = internal unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_121NullBuildLogsRecorderE, ptr @_ZNK12_GLOBAL__N_121NullBuildLogsRecorder19record_build_resultERKN5vcpkg10VcpkgPathsERKNS1_11PackageSpecENS1_11BuildResultE] }, align 8
-@_ZN12_GLOBAL__N_133null_build_logs_recorder_instanceE = internal constant { ptr } { ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121NullBuildLogsRecorderE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN12_GLOBAL__N_133null_build_logs_recorder_instanceE = internal constant { ptr } { ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121NullBuildLogsRecorderE, i32 0, i32 0, i32 2) }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
 @_ZTSN12_GLOBAL__N_121NullBuildLogsRecorderE = internal constant [40 x i8] c"N12_GLOBAL__N_121NullBuildLogsRecorderE\00", align 1
 @_ZTSN5vcpkg18IBuildLogsRecorderE = linkonce_odr dso_local constant [29 x i8] c"N5vcpkg18IBuildLogsRecorderE\00", comdat, align 1
@@ -2133,7 +2133,7 @@ define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN5vcpkg24null
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN5vcpkg21PathsPortFileProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg21PathsPortFileProviderE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null
@@ -8945,7 +8945,7 @@ define dso_local void @_ZN5vcpkg10append_logERKNS_4PathERKNSt7__cxx1112basic_str
   store i64 %22, ptr %23, align 8, !alias.scope !146
   %24 = getelementptr inbounds i8, ptr %6, i64 24
   store i64 %22, ptr %24, align 8, !alias.scope !146
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !146
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !146
   %25 = getelementptr inbounds i8, ptr %6, i64 32
   store ptr %3, ptr %25, align 8, !alias.scope !146
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr nonnull @.str.37, i64 36, i64 13, ptr nonnull %8, ptr null)
@@ -9005,7 +9005,7 @@ _ZSt5countIN9__gnu_cxx17__normal_iteratorIPKcNSt7__cxx1112basic_stringIcSt11char
   store i64 %53, ptr %54, align 8, !alias.scope !150
   %55 = getelementptr inbounds i8, ptr %5, i64 24
   store i64 %53, ptr %55, align 8, !alias.scope !150
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !150
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !150
   %56 = getelementptr inbounds i8, ptr %5, i64 32
   store ptr %3, ptr %56, align 8, !alias.scope !150
   call void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr nonnull @.str.38, i64 25, i64 3, ptr nonnull %7, ptr null)
@@ -9213,7 +9213,7 @@ define dso_local void @_ZN5vcpkg19create_github_issueB5cxx11ERKNS_17VcpkgCmdArgu
   store i64 %51, ptr %52, align 8, !alias.scope !158
   %53 = getelementptr inbounds i8, ptr %15, i64 24
   store i64 %51, ptr %53, align 8, !alias.scope !158
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %15, align 8, !alias.scope !158
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %15, align 8, !alias.scope !158
   %54 = getelementptr inbounds i8, ptr %15, i64 32
   store ptr %0, ptr %54, align 8, !alias.scope !158
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr nonnull @.str.40, i64 49, i64 3581, ptr nonnull %21, ptr null)
@@ -9258,7 +9258,7 @@ define dso_local void @_ZN5vcpkg19create_github_issueB5cxx11ERKNS_17VcpkgCmdArgu
   store i64 %71, ptr %72, align 8, !alias.scope !164
   %73 = getelementptr inbounds i8, ptr %14, i64 24
   store i64 %71, ptr %73, align 8, !alias.scope !164
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %14, align 8, !alias.scope !164
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %14, align 8, !alias.scope !164
   %74 = getelementptr inbounds i8, ptr %14, i64 32
   store ptr %0, ptr %74, align 8, !alias.scope !164
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr nonnull @.str.41, i64 18, i64 221, ptr nonnull %20, ptr null)
@@ -9307,7 +9307,7 @@ _ZN3fmt3v1010vformat_toISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11
   store i64 %88, ptr %89, align 8, !alias.scope !167
   %90 = getelementptr inbounds i8, ptr %13, i64 24
   store i64 %88, ptr %90, align 8, !alias.scope !167
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %13, align 8, !alias.scope !167
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %13, align 8, !alias.scope !167
   %91 = getelementptr inbounds i8, ptr %13, i64 32
   store ptr %0, ptr %91, align 8, !alias.scope !167
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr nonnull @.str.42, i64 4, i64 13, ptr nonnull %17, ptr null)
@@ -9367,7 +9367,7 @@ _ZN5vcpkg7Strings6appendIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
   store i64 %112, ptr %113, align 8, !alias.scope !176
   %114 = getelementptr inbounds i8, ptr %12, i64 24
   store i64 %112, ptr %114, align 8, !alias.scope !176
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %12, align 8, !alias.scope !176
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %12, align 8, !alias.scope !176
   %115 = getelementptr inbounds i8, ptr %12, i64 32
   store ptr %0, ptr %115, align 8, !alias.scope !176
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr nonnull @.str.43, i64 32, i64 221, ptr nonnull %16, ptr null)
@@ -9416,7 +9416,7 @@ _ZNKR5vcpkg8OptionalINS_4PathEE13value_or_exitERKNS_8LineInfoE.exit: ; preds = %
   store i64 %133, ptr %134, align 8, !alias.scope !179
   %135 = getelementptr inbounds i8, ptr %11, i64 24
   store i64 %133, ptr %135, align 8, !alias.scope !179
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8, !alias.scope !179
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %11, align 8, !alias.scope !179
   %136 = getelementptr inbounds i8, ptr %11, i64 32
   store ptr %0, ptr %136, align 8, !alias.scope !179
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr nonnull @.str.45, i64 29, i64 13, ptr nonnull %18, ptr null)
@@ -9459,7 +9459,7 @@ _ZNKR5vcpkg8OptionalINS_4PathEE13value_or_exitERKNS_8LineInfoE.exit: ; preds = %
   store i64 %149, ptr %150, align 8, !alias.scope !182
   %151 = getelementptr inbounds i8, ptr %10, i64 24
   store i64 %149, ptr %151, align 8, !alias.scope !182
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, inrange i32 0, i64 2), ptr %10, align 8, !alias.scope !182
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt3v106detail15iterator_bufferISt20back_insert_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEcNS1_13buffer_traitsEEE, i64 0, i32 0, i64 2), ptr %10, align 8, !alias.scope !182
   %152 = getelementptr inbounds i8, ptr %10, i64 32
   store ptr %29, ptr %152, align 8, !alias.scope !182
   invoke void @_ZN3fmt3v106detail10vformat_toIcEEvRNS1_6bufferIT_EENS0_17basic_string_viewIS4_EENS1_12vformat_argsIS4_E4typeENS1_10locale_refE(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr nonnull @.str.47, i64 86, i64 13, ptr nonnull %19, ptr null)
@@ -22288,7 +22288,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %816 = call { ptr, i64 } @_ZNK5vcpkg4PathcvNS_10StringViewEEv(ptr noundef nonnull align 8 dereferenceable(32) %74) #25
   %817 = extractvalue { ptr, i64 } %816, 0
   %818 = extractvalue { ptr, i64 } %816, 1
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i64 0, inrange i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i64 0, i32 0, i64 2), ptr %103, align 8
   %819 = getelementptr inbounds i8, ptr %103, i64 8
   invoke void @_ZN5vcpkg4PathC1ENS_10StringViewE(ptr noundef nonnull align 8 dereferenceable(32) %819, ptr %817, i64 %818)
           to label %.noexc196 unwind label %839
@@ -22306,7 +22306,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 _ZN5vcpkg8FileSinkC2ERKNS_10FilesystemENS_10StringViewENS_6AppendE.exit: ; preds = %.noexc196
   %823 = load ptr, ptr @_ZN5vcpkg8out_sinkE, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg13CombiningSinkE, i64 0, inrange i32 0, i64 2), ptr %104, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg13CombiningSinkE, i64 0, i32 0, i64 2), ptr %104, align 8
   %824 = getelementptr inbounds i8, ptr %104, i64 8
   store ptr %823, ptr %824, align 8
   %825 = getelementptr inbounds i8, ptr %104, i64 16
@@ -22326,7 +22326,7 @@ _ZNK5vcpkg28SourceControlFileAndLocation14port_directoryEv.exit201: ; preds = %.
 
 830:                                              ; preds = %_ZNK5vcpkg28SourceControlFileAndLocation14port_directoryEv.exit201
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %105) #25
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i64 0, inrange i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i64 0, i32 0, i64 2), ptr %103, align 8
   call void @_ZN5vcpkg11FilePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %820) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %819) #25
   %.not = icmp ne i64 %829, 0
@@ -22369,7 +22369,7 @@ _ZNK5vcpkg28SourceControlFileAndLocation14port_directoryEv.exit201: ; preds = %.
 
 845:                                              ; preds = %843, %841
   %.pn123 = phi { ptr, i32 } [ %844, %843 ], [ %842, %841 ]
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i64 0, inrange i32 0, i64 2), ptr %103, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5vcpkg8FileSinkE, i64 0, i32 0, i64 2), ptr %103, align 8
   call void @_ZN5vcpkg11FilePointerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %820) #25
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %819) #25
   br label %.body197

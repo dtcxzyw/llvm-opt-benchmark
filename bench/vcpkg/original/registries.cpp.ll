@@ -4705,12 +4705,12 @@ $_ZTVN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEEE = comdat any
 $_ZN5vcpkg10JsonIdPathE = comdat any
 
 @_ZTVN12_GLOBAL__N_125GitTreeStringDeserializerE = internal unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_125GitTreeStringDeserializerE, ptr @_ZNK12_GLOBAL__N_125GitTreeStringDeserializer9type_nameEv, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10visit_nullERNS0_6ReaderE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13visit_booleanERNS0_6ReaderEb, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13visit_integerERNS0_6ReaderEl, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12visit_numberERNS0_6ReaderEd, ptr @_ZNK5vcpkg4Json18StringDeserializer12visit_stringB5cxx11ERNS0_6ReaderENS_10StringViewE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11visit_arrayERNS0_6ReaderERKNS0_5ArrayE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12visit_objectERNS0_6ReaderERKNS0_6ObjectE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12valid_fieldsEv, ptr @_ZN12_GLOBAL__N_125GitTreeStringDeserializerD2Ev, ptr @_ZN12_GLOBAL__N_125GitTreeStringDeserializerD0Ev] }, align 8
-@_ZN12_GLOBAL__N_125GitTreeStringDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125GitTreeStringDeserializerE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN12_GLOBAL__N_125GitTreeStringDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125GitTreeStringDeserializerE, i32 0, i32 0, i32 2) }, align 8
 @__dso_handle = external hidden global i8
 @_ZTVN12_GLOBAL__N_130RegistryPathStringDeserializerE = internal unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_130RegistryPathStringDeserializerE, ptr @_ZNK12_GLOBAL__N_130RegistryPathStringDeserializer9type_nameEv, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE10visit_nullERNS0_6ReaderE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13visit_booleanERNS0_6ReaderEb, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE13visit_integerERNS0_6ReaderEl, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12visit_numberERNS0_6ReaderEd, ptr @_ZNK5vcpkg4Json18StringDeserializer12visit_stringB5cxx11ERNS0_6ReaderENS_10StringViewE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE11visit_arrayERNS0_6ReaderERKNS0_5ArrayE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12visit_objectERNS0_6ReaderERKNS0_6ObjectE, ptr @_ZNK5vcpkg4Json13IDeserializerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE12valid_fieldsEv, ptr @_ZN12_GLOBAL__N_130RegistryPathStringDeserializerD2Ev, ptr @_ZN12_GLOBAL__N_130RegistryPathStringDeserializerD0Ev] }, align 8
-@_ZN12_GLOBAL__N_130RegistryPathStringDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_130RegistryPathStringDeserializerE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN12_GLOBAL__N_130RegistryPathStringDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_130RegistryPathStringDeserializerE, i32 0, i32 0, i32 2) }, align 8
 @_ZTVN12_GLOBAL__N_120BaselineDeserializerE = internal unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_120BaselineDeserializerE, ptr @_ZNK12_GLOBAL__N_120BaselineDeserializer9type_nameEv, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE10visit_nullERNS0_6ReaderE, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE13visit_booleanERNS0_6ReaderEb, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE13visit_integerERNS0_6ReaderEl, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE12visit_numberERNS0_6ReaderEd, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE12visit_stringERNS0_6ReaderENS_10StringViewE, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE11visit_arrayERNS0_6ReaderERKNS0_5ArrayE, ptr @_ZNK12_GLOBAL__N_120BaselineDeserializer12visit_objectB5cxx11ERN5vcpkg4Json6ReaderERKNS2_6ObjectE, ptr @_ZNK5vcpkg4Json13IDeserializerISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS8_S9_EEEE12valid_fieldsEv, ptr @_ZN12_GLOBAL__N_120BaselineDeserializerD2Ev, ptr @_ZN12_GLOBAL__N_120BaselineDeserializerD0Ev] }, align 8
-@_ZN12_GLOBAL__N_120BaselineDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BaselineDeserializerE, i32 0, inrange i32 0, i32 2) }, align 8
+@_ZN12_GLOBAL__N_120BaselineDeserializer8instanceE = internal global { ptr } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BaselineDeserializerE, i32 0, i32 0, i32 2) }, align 8
 @_ZN5vcpkg23msgFetchingRegistryInfoE = external global %"struct.vcpkg::msg::MessageT", align 8
 @_ZN5vcpkg3msgL3urlE = internal constant %"struct.vcpkg::msg::url_t" undef, align 1
 @_ZN5vcpkg3msgL5valueE = internal constant %"struct.vcpkg::msg::value_t" undef, align 1
@@ -11987,7 +11987,7 @@ define internal void @_ZN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_17GitVersionDbEntryESaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_134GitVersionDbEntryArrayDeserializerE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::GitVersionDbEntryArrayDeserializer", ptr %3, i32 0, i32 1
   call void @_ZN12_GLOBAL__N_129GitVersionDbEntryDeserializerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #2
   ret void
@@ -20173,7 +20173,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_1
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerISt6vectorINS_17GitVersionDbEntryESaIS3_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerISt6vectorINS_17GitVersionDbEntryESaIS3_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20183,7 +20183,7 @@ define internal void @_ZN12_GLOBAL__N_129GitVersionDbEntryDeserializerC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg4Json13IDeserializerINS_17GitVersionDbEntryEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129GitVersionDbEntryDeserializerE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_129GitVersionDbEntryDeserializerE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -20380,7 +20380,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Json13IDeserializerINS_17GitVersio
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerINS_17GitVersionDbEntryEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerINS_17GitVersionDbEntryEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -30606,7 +30606,7 @@ define internal void @_ZN12_GLOBAL__N_120BuiltinFilesRegistryC2ERKN5vcpkg10Vcpkg
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinFilesRegistryE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinFilesRegistryE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinFilesRegistry", ptr %7, i32 0, i32 1
   invoke void @_ZN5vcpkg11DelayedInitISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_7VersionESt4lessIvESaISt4pairIKS7_S8_EEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8)
           to label %9 unwind label %20
@@ -30692,7 +30692,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr no
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5vcpkg22RegistryImplementationE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5vcpkg22RegistryImplementationE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -35877,7 +35877,7 @@ define internal void @_ZN12_GLOBAL__N_128BuiltinPortTreeRegistryEntryC2EN5vcpkg1
   store ptr %4, ptr %9, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #2
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128BuiltinPortTreeRegistryEntryE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_128BuiltinPortTreeRegistryEntryE, i32 0, i32 0, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinPortTreeRegistryEntry", ptr %14, i32 0, i32 1
   invoke void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull align 8 dereferenceable(16) %6)
           to label %16 unwind label %21
@@ -35967,7 +35967,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef non
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg13RegistryEntryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5vcpkg13RegistryEntryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -48640,7 +48640,7 @@ define internal void @_ZN12_GLOBAL__N_120BuiltinErrorRegistryC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinErrorRegistryE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120BuiltinErrorRegistryE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -49395,7 +49395,7 @@ define internal void @_ZN12_GLOBAL__N_111GitRegistryC2ERKN5vcpkg10VcpkgPathsEONS
   store ptr %4, ptr %10, align 8
   %13 = load ptr, ptr %6, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111GitRegistryE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111GitRegistryE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistry", ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %7, align 8
   store ptr %15, ptr %14, align 8
@@ -53006,7 +53006,7 @@ define internal void @_ZN12_GLOBAL__N_116GitRegistryEntryC2EN5vcpkg10StringViewE
   store ptr %5, ptr %11, align 8
   %18 = load ptr, ptr %8, align 8
   call void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #2
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116GitRegistryEntryE, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_116GitRegistryEntryE, i32 0, i32 0, i32 2), ptr %18, align 8
   %19 = getelementptr inbounds %"struct.(anonymous namespace)::GitRegistryEntry", ptr %18, i32 0, i32 1
   %20 = call noundef ptr @_ZNK5vcpkg10StringView4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #2
   %21 = call noundef i64 @_ZNK5vcpkg10StringView4sizeEv(ptr noundef nonnull align 8 dereferenceable(16) %7) #2
@@ -61375,7 +61375,7 @@ define internal void @_ZN12_GLOBAL__N_118BuiltinGitRegistryC2ERKN5vcpkg10VcpkgPa
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118BuiltinGitRegistryE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118BuiltinGitRegistryE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistry", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11) #2
@@ -62006,7 +62006,7 @@ define internal void @_ZN12_GLOBAL__N_123BuiltinGitRegistryEntryC2ERKN5vcpkg10Vc
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #2
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123BuiltinGitRegistryEntryE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123BuiltinGitRegistryEntryE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.(anonymous namespace)::BuiltinGitRegistryEntry", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -64703,7 +64703,7 @@ define internal void @_ZN12_GLOBAL__N_118FilesystemRegistryC2ERKN5vcpkg18ReadOnl
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5vcpkg22RegistryImplementationC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #2
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118FilesystemRegistryE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118FilesystemRegistryE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistry", ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %6, align 8
   store ptr %13, ptr %12, align 8
@@ -65903,7 +65903,7 @@ define internal void @_ZN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializ
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_141FilesystemVersionDbEntryArrayDeserializerE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemVersionDbEntryArrayDeserializer", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerC2ERKN5vcpkg4PathE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -66318,7 +66318,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Json13IDeserializerISt6vectorINS_2
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerISt6vectorINS_24FilesystemVersionDbEntryESaIS3_EEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -66332,7 +66332,7 @@ define internal void @_ZN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerC2E
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN12_GLOBAL__N_136FilesystemVersionDbEntryDeserializerE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemVersionDbEntryDeserializer", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)
@@ -66547,7 +66547,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg4Json13IDeserializerINS_24Filesyste
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN5vcpkg4Json13IDeserializerINS_24FilesystemVersionDbEntryEEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -69597,7 +69597,7 @@ define internal void @_ZN12_GLOBAL__N_123FilesystemRegistryEntryC2EONSt7__cxx111
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg13RegistryEntryC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #2
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesystemRegistryEntryE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesystemRegistryEntryE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.(anonymous namespace)::FilesystemRegistryEntry", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %9)

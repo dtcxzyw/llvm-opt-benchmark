@@ -44,7 +44,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_757UVectorC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -63,7 +63,7 @@ entry:
   %0 = load i32, ptr %initialCapacity.addr, align 4
   %1 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_757UVectorC2EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this1, i32 noundef %0, ptr noundef nonnull align 4 dereferenceable(4) %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -85,7 +85,7 @@ entry:
   %1 = load ptr, ptr %c.addr, align 8
   %2 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -110,7 +110,7 @@ entry:
   %2 = load i32, ptr %initialCapacity.addr, align 4
   %3 = load ptr, ptr %status.addr, align 8
   call void @_ZN6icu_757UVectorC2EPFvPvEPFa8UElementS4_EiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756UStackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

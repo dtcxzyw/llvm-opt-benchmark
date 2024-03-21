@@ -166,7 +166,7 @@ declare void @llvm.trap() #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp13FileLogStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_pStream.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_pStream.i, align 8
   %isnull.i = icmp eq ptr %0, null
@@ -187,7 +187,7 @@ _ZN6Assimp13FileLogStreamD2Ev.exit:               ; preds = %entry, %delete.notn
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6Assimp13FileLogStreamD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_pStream = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_pStream, align 8
   %isnull = icmp eq ptr %0, null
@@ -269,7 +269,7 @@ lpad9:                                            ; preds = %cond.true
 return.sink.split:                                ; preds = %entry, %sw.bb2
   %_ZSt4cout.sink = phi ptr [ @_ZSt4cout, %sw.bb2 ], [ @_ZSt4cerr, %entry ]
   %call = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 16)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 0, i32 0, i64 2), ptr %call, align 8
   %mOstream.i3 = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %_ZSt4cout.sink, ptr %mOstream.i3, align 8
   br label %return
@@ -287,7 +287,7 @@ declare i32 @__gxx_personality_v0(...)
 define linkonce_odr hidden void @_ZN6Assimp13FileLogStreamC2EPKcPNS_8IOSystemE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef %file, ptr noundef %io) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %FileSystem = alloca %"class.Assimp::DefaultIOSystem", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp13FileLogStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_pStream = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %m_pStream, align 8
   %tobool.not = icmp eq ptr %file, null
@@ -305,13 +305,13 @@ if.end:                                           ; preds = %lor.lhs.false
 if.then3:                                         ; preds = %if.end
   %m_pathStack.i.i = getelementptr inbounds i8, ptr %FileSystem, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp15DefaultIOSystemE, i64 0, inrange i32 0, i64 2), ptr %FileSystem, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp15DefaultIOSystemE, i64 0, i32 0, i64 2), ptr %FileSystem, align 8
   %call = invoke noundef ptr @_ZN6Assimp15DefaultIOSystem4OpenEPKcS2_(ptr noundef nonnull align 8 dereferenceable(32) %FileSystem, ptr noundef nonnull %file, ptr noundef nonnull @.str.9)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %if.then3
   store ptr %call, ptr %m_pStream, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i64 0, inrange i32 0, i64 2), ptr %FileSystem, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i64 0, i32 0, i64 2), ptr %FileSystem, align 8
   %1 = load ptr, ptr %m_pathStack.i.i, align 8
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %FileSystem, i64 16
   %2 = load ptr, ptr %_M_finish.i.i.i, align 8
@@ -409,7 +409,7 @@ if.end8:                                          ; preds = %if.then3, %invoke.c
 if.then11:                                        ; preds = %if.end8
   %4 = load ptr, ptr @_ZN6Assimp13DefaultLogger9m_pLoggerE, align 8
   %call3.i = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 16)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 0, inrange i32 0, i64 2), ptr %call3.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 0, i32 0, i64 2), ptr %call3.i, align 8
   %mOstream.i3.i = getelementptr inbounds i8, ptr %call3.i, i64 8
   store ptr @_ZSt4cout, ptr %mOstream.i3.i, align 8
   %vtable13 = load ptr, ptr %4, align 8
@@ -426,7 +426,7 @@ if.end16:                                         ; preds = %if.then11, %if.end8
 if.then19:                                        ; preds = %if.end16
   %6 = load ptr, ptr @_ZN6Assimp13DefaultLogger9m_pLoggerE, align 8
   %call.i = tail call noundef ptr @_ZN6Assimp6Intern22AllocateFromAssimpHeapnwEm(i64 noundef 16)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6Assimp19StdOStreamLogStreamE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %mOstream.i3.i6 = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @_ZSt4cerr, ptr %mOstream.i3.i6, align 8
   %vtable21 = load ptr, ptr %6, align 8
@@ -1011,7 +1011,7 @@ define void @_ZN6Assimp13DefaultLoggerC2ENS_6Logger11LogSeverityE(ptr nocapture 
 entry:
   %m_Severity.i = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %severity, ptr %m_Severity.i, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_StreamArray = getelementptr inbounds i8, ptr %this, i64 16
   %lastLen = getelementptr inbounds i8, ptr %this, i64 2096
   store i64 0, ptr %lastLen, align 8
@@ -1022,7 +1022,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6Assimp13DefaultLoggerD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(2104) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp13DefaultLoggerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_StreamArray = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_StreamArray, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -1095,7 +1095,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Assimp8IOSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_pathStack = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_pathStack, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1339,7 +1339,7 @@ declare noundef ptr @_ZN6Assimp15DefaultIOSystem4OpenEPKcS2_(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6Assimp15DefaultIOSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_pathStack.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %m_pathStack.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -1552,7 +1552,7 @@ entry:
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
   %0 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #20
   store i32 0, ptr getelementptr inbounds (%"class.Assimp::NullLogger", ptr @_ZN6Assimp13DefaultLogger13s_pNullLoggerE, i64 0, i32 0, i32 1), align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp10NullLoggerE, i64 0, inrange i32 0, i64 2), ptr @_ZN6Assimp13DefaultLogger13s_pNullLoggerE, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6Assimp10NullLoggerE, i64 0, i32 0, i64 2), ptr @_ZN6Assimp13DefaultLogger13s_pNullLoggerE, align 8
   ret void
 }
 

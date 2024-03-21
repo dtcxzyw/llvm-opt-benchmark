@@ -341,7 +341,7 @@ define dso_local void @_ZN10Pathfinder7getPathEN3irr4core8vector3dIsEES3_jjj13Pa
 
 81:                                               ; preds = %70
   %82 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #24
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20MapGridNodeContainer, i64 0, inrange i32 0, i64 2), ptr %82, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20MapGridNodeContainer, i64 0, i32 0, i64 2), ptr %82, align 8, !tbaa !20
   %83 = getelementptr inbounds i8, ptr %82, i64 24
   store i32 0, ptr %83, align 8, !tbaa !35
   %84 = getelementptr inbounds i8, ptr %82, i64 32
@@ -2663,7 +2663,7 @@ define dso_local void @_ZN10Pathfinder8calcCostEN3irr4core8vector3dIsEES3_(ptr d
 ; Function Attrs: uwtable
 define dso_local void @_ZN22ArrayGridNodeContainerC2EP10PathfinderN3irr4core8vector3dIsEE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, i48 %2) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %4 = trunc i48 %2 to i32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ArrayGridNodeContainer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ArrayGridNodeContainer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = ashr i32 %4, 16
   %7 = lshr i48 %2, 16
@@ -2902,7 +2902,7 @@ define dso_local noundef nonnull align 4 dereferenceable(92) ptr @_ZN22ArrayGrid
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN20MapGridNodeContainerC2EP10Pathfinder(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %1) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20MapGridNodeContainer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20MapGridNodeContainer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   store i32 0, ptr %3, align 8, !tbaa !35
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -4870,7 +4870,7 @@ define linkonce_odr dso_local void @_ZNSt14priority_queueIN3irr4core8vector3dIsE
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22ArrayGridNodeContainerD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ArrayGridNodeContainer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ArrayGridNodeContainer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = icmp eq ptr %3, null
@@ -4886,7 +4886,7 @@ define linkonce_odr dso_local void @_ZN22ArrayGridNodeContainerD2Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN22ArrayGridNodeContainerD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ArrayGridNodeContainer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV22ArrayGridNodeContainer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !153
   %4 = icmp eq ptr %3, null
@@ -4903,7 +4903,7 @@ define linkonce_odr dso_local void @_ZN22ArrayGridNodeContainerD0Ev(ptr noundef 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20MapGridNodeContainerD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20MapGridNodeContainer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20MapGridNodeContainer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !40
@@ -4923,7 +4923,7 @@ define linkonce_odr dso_local void @_ZN20MapGridNodeContainerD2Ev(ptr noundef no
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN20MapGridNodeContainerD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20MapGridNodeContainer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !20
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV20MapGridNodeContainer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !20
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8, !tbaa !40

@@ -1979,7 +1979,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core36XdsRouteLookupClusterSpecifierPluginE, i64 0, inrange i32 0, i64 2), ptr %call.i2, align 8, !noalias !25
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9grpc_core36XdsRouteLookupClusterSpecifierPluginE, i64 0, i32 0, i64 2), ptr %call.i2, align 8, !noalias !25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %name.i)
   store i64 42, ptr %name.i, align 8
   %1 = getelementptr inbounds i8, ptr %name.i, i64 8

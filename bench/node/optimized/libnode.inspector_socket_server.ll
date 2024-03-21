@@ -2817,7 +2817,7 @@ entry:
   %server_port_.i = getelementptr inbounds i8, ptr %call, i64 16
   store i32 %server_port, ptr %server_port_.i, align 8
   %call2 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #23
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i64 0, inrange i32 0, i64 2), ptr %call2, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i64 0, i32 0, i64 2), ptr %call2, align 8
   %server_.i = getelementptr inbounds i8, ptr %call2, i64 8
   store ptr %this, ptr %server_.i, align 8
   %session_id_.i = getelementptr inbounds i8, ptr %call2, i64 16
@@ -3179,7 +3179,7 @@ if.end:                                           ; preds = %if.then, %entry
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9inspector13SocketSession8DelegateD2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i64 0, i32 0, i64 2), ptr %this, align 8
   %server_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %server_, align 8
   %session_id_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -3191,7 +3191,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4node9inspector13SocketSession8DelegateD0Ev(ptr noundef nonnull align 8 dereferenceable(20) %this) unnamed_addr #0 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN4node9inspector13SocketSession8DelegateE, i64 0, i32 0, i64 2), ptr %this, align 8
   %server_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %server_.i, align 8
   %session_id_.i = getelementptr inbounds i8, ptr %this, i64 16

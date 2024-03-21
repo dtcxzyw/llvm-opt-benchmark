@@ -1560,7 +1560,7 @@ define void @_ZN6htif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0)
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN15chunked_memif_tC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV6htif_t, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV6htif_t, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.htif_t, ptr %5, i32 0, i32 1
   store i32 0, ptr %6, align 8
   %7 = getelementptr inbounds %class.htif_t, ptr %5, i32 0, i32 2
@@ -1681,7 +1681,7 @@ define linkonce_odr void @_ZN15chunked_memif_tC2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15chunked_memif_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV15chunked_memif_t, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1692,7 +1692,7 @@ define linkonce_odr void @_ZN7memif_tC2EP15chunked_memif_t(ptr noundef nonnull a
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV7memif_t, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTV7memif_t, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.memif_t, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -2671,7 +2671,7 @@ define void @_ZN6htif_tD2Ev(ptr noundef nonnull align 8 dereferenceable(696) %0)
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV6htif_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTV6htif_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.htif_t, ptr %7, i32 0, i32 18
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr %3, align 8
@@ -2985,7 +2985,7 @@ define linkonce_odr void @_ZN5bcd_tD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5bcd_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5bcd_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.bcd_t, ptr %3, i32 0, i32 1
   call void @_ZNSt5queueI9command_tSt5dequeIS0_SaIS0_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4) #3
   call void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %3) #3
@@ -3755,7 +3755,7 @@ define internal void @_ZZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt1
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7memif_tC2EP15chunked_memif_t(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmE21preload_aware_memif_t, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmE21preload_aware_memif_t, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.preload_aware_memif_t, ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %7, align 8
@@ -4753,7 +4753,7 @@ define internal void @_ZZN6htif_t12load_programEvEN11nop_memif_tC2EPS_(ptr nound
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7memif_tC2EP15chunked_memif_t(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVZN6htif_t12load_programEvE11nop_memif_t, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVZN6htif_t12load_programEvE11nop_memif_t, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.nop_memif_t, ptr %5, i32 0, i32 1
   %8 = load ptr, ptr %4, align 8
   store ptr %8, ptr %7, align 8
@@ -7016,7 +7016,7 @@ define linkonce_odr void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 1

@@ -27,7 +27,7 @@ $_ZTIN3net11KeyExchangeE = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN3net21Curve25519KeyExchangeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(72) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net21Curve25519KeyExchangeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net21Curve25519KeyExchangeE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -60,7 +60,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %call1 = call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #11
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net21Curve25519KeyExchangeE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net21Curve25519KeyExchangeE, i64 0, i32 0, i64 2), ptr %call1, align 8
   %private_key_ = getelementptr inbounds i8, ptr %call1, i64 8
   %call2 = call noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %private_key)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %private_key_, ptr noundef nonnull align 1 dereferenceable(32) %call2, i64 32, i1 false)
@@ -190,7 +190,7 @@ if.end.i:                                         ; preds = %call.i.noexc
           to label %call1.i.noexc unwind label %lpad
 
 call1.i.noexc:                                    ; preds = %if.end.i
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net21Curve25519KeyExchangeE, i64 0, inrange i32 0, i64 2), ptr %call1.i3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN3net21Curve25519KeyExchangeE, i64 0, i32 0, i64 2), ptr %call1.i3, align 8
   %call2.i4 = invoke noundef ptr @_ZNK4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE4dataEv(ptr noundef nonnull align 8 dereferenceable(16) %private_key.i1)
           to label %call2.i.noexc unwind label %lpad
 

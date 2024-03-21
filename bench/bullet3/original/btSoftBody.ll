@@ -2913,7 +2913,7 @@ entry:
   store ptr %m, ptr %m.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10btSoftBody, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10btSoftBody, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_collisionDisabledObjects = getelementptr inbounds %class.btSoftBody, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayIPK17btCollisionObjectEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionDisabledObjects)
           to label %invoke.cont unwind label %lpad
@@ -5591,7 +5591,7 @@ entry:
   store ptr %worldInfo, ptr %worldInfo.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN17btCollisionObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(372) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10btSoftBody, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10btSoftBody, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_collisionDisabledObjects = getelementptr inbounds %class.btSoftBody, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayIPK17btCollisionObjectEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_collisionDisabledObjects)
           to label %invoke.cont unwind label %lpad
@@ -6383,7 +6383,7 @@ entry:
   store ptr %backptr, ptr %backptr.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN14btConcaveShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %this1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV24btSoftBodyCollisionShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV24btSoftBodyCollisionShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_shapeType = getelementptr inbounds %class.btCollisionShape, ptr %this1, i32 0, i32 1
   store i32 32, ptr %m_shapeType, align 8
   %0 = load ptr, ptr %backptr.addr, align 8
@@ -6419,7 +6419,7 @@ entry:
   %i = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10btSoftBody, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10btSoftBody, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_collisionShape = getelementptr inbounds %class.btCollisionObject, ptr %this1, i32 0, i32 9
   %0 = load ptr, ptr %m_collisionShape, align 8
   %isnull = icmp eq ptr %0, null
@@ -12592,7 +12592,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10btSoftBody5JointC2Ev(ptr noundef nonnull align 8 dereferenceable(181) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6LJointE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6LJointE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rpos = getelementptr inbounds %"struct.btSoftBody::LJoint", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [2 x %class.btVector3], ptr %m_rpos, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 2
@@ -12937,7 +12937,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10btSoftBody5JointC2Ev(ptr noundef nonnull align 8 dereferenceable(181) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6AJointE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6AJointE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_axis = getelementptr inbounds %"struct.btSoftBody::AJoint", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [2 x %class.btVector3], ptr %m_axis, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 2
@@ -31690,7 +31690,7 @@ entry:
   store float %mxt, ptr %mxt.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN10btSoftBody15RayFromToCasterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rayFrom = getelementptr inbounds %"struct.btSoftBody::RayFromToCaster", ptr %this1, i32 0, i32 1
   invoke void @_ZN9btVector3C2Ev(ptr noundef nonnull align 4 dereferenceable(16) %m_rayFrom)
           to label %invoke.cont unwind label %lpad
@@ -31760,7 +31760,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6btDbvt8ICollideE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6btDbvt8ICollideE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -34999,7 +34999,7 @@ entry:
   store ptr %p2, ptr %p2.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN23btPolyhedralConvexShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this1)
-  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV15btTriangleShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [35 x ptr] }, ptr @_ZTV15btTriangleShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_vertices1 = getelementptr inbounds %class.btTriangleShape, ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [3 x %class.btVector3], ptr %m_vertices1, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 3
@@ -41782,7 +41782,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders13CollideSDF_RSE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders13CollideSDF_RSE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -41963,7 +41963,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN15btSoftColliders11ClusterBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideCL_RSE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideCL_RSE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -42108,7 +42108,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders13CollideSDF_RDE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders13CollideSDF_RDE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -42129,7 +42129,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders14CollideSDF_RDFE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders14CollideSDF_RDFE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -42617,7 +42617,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN15btSoftColliders11ClusterBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideCL_SSE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideCL_SSE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -42701,7 +42701,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideVF_SSE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideVF_SSE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -43182,7 +43182,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideVF_DDE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideVF_DDE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -43203,7 +43203,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideFF_DDE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders12CollideFF_DDE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -44051,7 +44051,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders10CollideCCDE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders10CollideCCDE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -50524,7 +50524,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody5JointE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody5JointE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_bodies = getelementptr inbounds %"struct.btSoftBody::Joint", ptr %this1, i32 0, i32 1
   %array.begin = getelementptr inbounds [2 x %"struct.btSoftBody::Body"], ptr %m_bodies, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"struct.btSoftBody::Body", ptr %array.begin, i64 2
@@ -58738,7 +58738,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #4
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders11ClusterBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN15btSoftColliders11ClusterBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %erp = getelementptr inbounds %"struct.btSoftColliders::ClusterBase", ptr %this1, i32 0, i32 1
   store float 1.000000e+00, ptr %erp, align 8
   %idt = getelementptr inbounds %"struct.btSoftColliders::ClusterBase", ptr %this1, i32 0, i32 2
@@ -59028,7 +59028,7 @@ entry:
   store ptr %cluster, ptr %cluster.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btConvexInternalShapeC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this1)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27btSoftClusterCollisionShape, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTV27btSoftClusterCollisionShape, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_cluster = getelementptr inbounds %class.btSoftClusterCollisionShape, ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %cluster.addr, align 8
   store ptr %0, ptr %m_cluster, align 8
@@ -59068,7 +59068,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN10btSoftBody5JointC2Ev(ptr noundef nonnull align 8 dereferenceable(181) %this1)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6CJointE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10btSoftBody6CJointE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_rpos = getelementptr inbounds %"struct.btSoftBody::CJoint", ptr %this1, i32 0, i32 3
   %array.begin = getelementptr inbounds [2 x %class.btVector3], ptr %m_rpos, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %class.btVector3, ptr %array.begin, i64 2

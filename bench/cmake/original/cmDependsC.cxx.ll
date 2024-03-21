@@ -1402,7 +1402,7 @@ define dso_local void @_ZN10cmDependsCC2Ev(ptr noundef nonnull align 8 dereferen
 9:                                                ; preds = %8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %4) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10cmDependsC, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10cmDependsC, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %class.cmDependsC, ptr %7, i32 0, i32 1
   invoke void @_ZN5cmsys17RegularExpressionC2Ev(ptr noundef nonnull align 8 dereferenceable(556) %10)
           to label %11 unwind label %39
@@ -1766,7 +1766,7 @@ define dso_local void @_ZN10cmDependsCC2EP29cmLocalUnixMakefileGenerator3RKNSt7_
 
 30:                                               ; preds = %5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %11) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10cmDependsC, i32 0, inrange i32 0, i32 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10cmDependsC, i32 0, i32 0, i32 2), ptr %27, align 8
   %31 = getelementptr inbounds %class.cmDependsC, ptr %27, i32 0, i32 1
   invoke void @_ZN5cmsys17RegularExpressionC2Ev(ptr noundef nonnull align 8 dereferenceable(556) %31)
           to label %32 unwind label %74
@@ -3070,7 +3070,7 @@ define dso_local void @_ZN10cmDependsCD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10cmDependsC, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV10cmDependsC, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZNK10cmDependsC14WriteCacheFileEv(ptr noundef nonnull align 8 dereferenceable(2800) %3)
           to label %4 unwind label %19
 

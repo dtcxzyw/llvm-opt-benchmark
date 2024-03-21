@@ -820,7 +820,7 @@ entry:
   %ref.tmp = alloca %"class.icu_75::UnicodeString", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16IcuTestErrorCode, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV16IcuTestErrorCode, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = invoke noundef signext i8 @_ZNK6icu_759ErrorCode9isFailureEv(ptr noundef nonnull align 8 dereferenceable(12) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1855,7 +1855,7 @@ entry:
   store ptr %log, ptr %log.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14TestDataModule, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14TestDataModule, i32 0, i32 0, i32 2), ptr %this1, align 8
   %testName = getelementptr inbounds %class.TestDataModule, ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %name.addr, align 8
   store ptr %1, ptr %testName, align 8
@@ -1873,7 +1873,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14TestDataModule, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV14TestDataModule, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fInfo = getelementptr inbounds %class.TestDataModule, ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %fInfo, align 8
   %cmp = icmp ne ptr %0, null
@@ -1925,7 +1925,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16RBTestDataModule, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16RBTestDataModule, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fTestData = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 2
   %0 = load ptr, ptr %fTestData, align 8
   invoke void @ures_close_75(ptr noundef %0)
@@ -1994,7 +1994,7 @@ entry:
   %1 = load ptr, ptr %log.addr, align 8
   %2 = load ptr, ptr %status.addr, align 8
   call void @_ZN14TestDataModuleC2EPKcR7TestLogR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(4) %2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16RBTestDataModule, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16RBTestDataModule, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fModuleBundle = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 1
   store ptr null, ptr %fModuleBundle, align 8
   %fTestData = getelementptr inbounds %class.RBTestDataModule, ptr %this1, i32 0, i32 2

@@ -2855,7 +2855,7 @@ invoke.cont:                                      ; preds = %entry
 invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp2) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing6passes6HoElimE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing6passes6HoElimE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_visited = getelementptr inbounds %"class.cvc5::internal::preprocessing::passes::HoElim", ptr %this1, i32 0, i32 1
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_visited) #3
   %d_visited_op = getelementptr inbounds %"class.cvc5::internal::preprocessing::passes::HoElim", ptr %this1, i32 0, i32 2
@@ -16630,7 +16630,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing6passes6HoElimE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal13preprocessing6passes6HoElimE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_hoElimSc = getelementptr inbounds %"class.cvc5::internal::preprocessing::passes::HoElim", ptr %this1, i32 0, i32 6
   call void @_ZN4cvc58internal8TypeNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_hoElimSc) #3
   %d_ftypeMap = getelementptr inbounds %"class.cvc5::internal::preprocessing::passes::HoElim", ptr %this1, i32 0, i32 5

@@ -172,7 +172,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %dimension, ptr %dimension.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_dimension = getelementptr inbounds %"class.OpenColorIO_v2_4dev::IndexMapping", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %dimension.addr, align 8
   store i64 %0, ptr %m_dimension, align 8
@@ -290,7 +290,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev12IndexMappingE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_indices = getelementptr inbounds %"class.OpenColorIO_v2_4dev::IndexMapping", ptr %this1, i32 0, i32 2
   %array.begin = getelementptr inbounds [3 x %"class.std::vector"], ptr %m_indices, i32 0, i32 0
   %0 = getelementptr inbounds %"class.std::vector", ptr %array.begin, i64 3

@@ -654,7 +654,7 @@ entry:
   store i8 %frombool, ptr %RequiresNullTerminator.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh12MemoryBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh12MemoryBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef ptr @_ZNK4llvh9StringRef5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %InputData)
   %call2 = call noundef ptr @_ZNK4llvh9StringRef3endEv(ptr noundef nonnull align 8 dereferenceable(16) %InputData)
   %2 = load i8, ptr %RequiresNullTerminator.addr, align 1
@@ -1595,7 +1595,7 @@ entry:
   store i8 %frombool, ptr %RequiresNullTerminator.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh20WritableMemoryBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115MemoryBufferMemIN4llvh20WritableMemoryBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef ptr @_ZNK4llvh9StringRef5beginEv(ptr noundef nonnull align 8 dereferenceable(16) %InputData)
   %call2 = call noundef ptr @_ZNK4llvh9StringRef3endEv(ptr noundef nonnull align 8 dereferenceable(16) %InputData)
   %2 = load i8, ptr %RequiresNullTerminator.addr, align 1
@@ -2586,7 +2586,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh23SmallVectorMemoryBufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh23SmallVectorMemoryBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %BufferName = getelementptr inbounds %"class.llvh::SmallVectorMemoryBuffer", ptr %this1, i32 0, i32 2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %BufferName) #11
   %SV = getelementptr inbounds %"class.llvh::SmallVectorMemoryBuffer", ptr %this1, i32 0, i32 1
@@ -3574,7 +3574,7 @@ entry:
   store ptr %EC, ptr %EC.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh24WriteThroughMemoryBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %MFR = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %FD.addr, align 4
   %1 = load i64, ptr %Len.addr, align 8
@@ -3726,7 +3726,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh12MemoryBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh24WriteThroughMemoryBufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh24WriteThroughMemoryBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3788,7 +3788,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh24WriteThroughMemoryBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %MFR = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR) #11
   call void @_ZN4llvh24WriteThroughMemoryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
@@ -3855,7 +3855,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh12MemoryBufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh12MemoryBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5471,7 +5471,7 @@ entry:
   store ptr %EC, ptr %EC.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh20WritableMemoryBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %MFR = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.41", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %FD.addr, align 4
   %1 = load i64, ptr %Len.addr, align 8
@@ -5572,7 +5572,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh12MemoryBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh20WritableMemoryBufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4llvh20WritableMemoryBufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -5632,7 +5632,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh20WritableMemoryBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %MFR = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.41", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR) #11
   call void @_ZN4llvh20WritableMemoryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
@@ -5844,7 +5844,7 @@ entry:
   store ptr %EC, ptr %EC.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4llvh12MemoryBufferC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %MFR = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.42", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %FD.addr, align 4
   %1 = load i64, ptr %Len.addr, align 8
@@ -5974,7 +5974,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN12_GLOBAL__N_120MemoryBufferMMapFileIN4llvh12MemoryBufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %MFR = getelementptr inbounds %"class.(anonymous namespace)::MemoryBufferMMapFile.42", ptr %this1, i32 0, i32 1
   call void @_ZN4llvh3sys2fs18mapped_file_regionD1Ev(ptr noundef nonnull align 8 dereferenceable(20) %MFR) #11
   call void @_ZN4llvh12MemoryBufferD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1) #11

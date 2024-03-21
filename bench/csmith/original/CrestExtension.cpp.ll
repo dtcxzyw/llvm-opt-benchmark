@@ -197,7 +197,7 @@ define dso_local void @_ZN14CrestExtensionC2Ev(ptr noundef nonnull align 8 deref
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12AbsExtensionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CrestExtension, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CrestExtension, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.CrestExtension, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIP14ExtensionValueSaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   ret void
@@ -219,7 +219,7 @@ define dso_local void @_ZN14CrestExtensionD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CrestExtension, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14CrestExtension, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.CrestExtension, ptr %3, i32 0, i32 1
   call void @_ZNSt6vectorIP14ExtensionValueSaIS1_EE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.CrestExtension, ptr %3, i32 0, i32 1

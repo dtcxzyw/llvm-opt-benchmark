@@ -1089,7 +1089,7 @@ define void @_ZN9syscall_tC2EP6htif_t(ptr noundef nonnull align 8 dereferenceabl
   store ptr %1, ptr %4, align 8
   %18 = load ptr, ptr %3, align 8
   call void @_ZN8device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %18)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV9syscall_t, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV9syscall_t, i32 0, i32 0, i32 2), ptr %18, align 8
   %19 = getelementptr inbounds %class.syscall_t, ptr %18, i32 0, i32 1
   %20 = load ptr, ptr %4, align 8
   store ptr %20, ptr %19, align 8
@@ -4423,7 +4423,7 @@ define void @_ZN9syscall_tD2Ev(ptr noundef nonnull align 8 dereferenceable(176) 
   %6 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV9syscall_t, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV9syscall_t, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.syscall_t, ptr %7, i32 0, i32 5
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr %3, align 8
@@ -8621,7 +8621,7 @@ define linkonce_odr void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #3
   %5 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 1

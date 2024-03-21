@@ -472,7 +472,7 @@ define dso_local void @_ZN18cmLinkLineComputerC2EP17cmOutputConverterRK16cmState
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV18cmLinkLineComputer, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV18cmLinkLineComputer, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.cmLinkLineComputer, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %8, ptr align 8 %9, i64 40, i1 false)

@@ -2418,7 +2418,7 @@ invoke.cont:                                      ; preds = %lor.lhs.false
   %buffer_.i.i = getelementptr inbounds i8, ptr %ignored_output, i64 8
   %2 = getelementptr inbounds i8, ptr %ignored_output, i64 16
   store i64 128, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, inrange i32 0, i64 2), ptr %ignored_output, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, i32 0, i64 2), ptr %ignored_output, align 8
   %fixed_buffer_.i = getelementptr inbounds i8, ptr %ignored_output, i64 24
   store ptr %fixed_buffer_.i, ptr %buffer_.i.i, align 8
   store <4 x i32> <i32 0, i32 0, i32 0, i32 -1>, ptr %host_info, align 16
@@ -2431,7 +2431,7 @@ invoke.cont4:                                     ; preds = %invoke.cont
   %3 = load i32, ptr %host_info, align 16
   %4 = and i32 %3, -2
   %spec.select.i = icmp eq i32 %4, 2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, inrange i32 0, i64 2), ptr %ignored_output, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, i32 0, i64 2), ptr %ignored_output, align 8
   %5 = load ptr, ptr %buffer_.i.i, align 8
   %cmp.not.i = icmp eq ptr %5, %fixed_buffer_.i
   %isnull.i = icmp eq ptr %5, null
@@ -2445,7 +2445,7 @@ delete.notnull.i:                                 ; preds = %invoke.cont4
 lpad:                                             ; preds = %invoke.cont
   %6 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, inrange i32 0, i64 2), ptr %ignored_output, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, i32 0, i64 2), ptr %ignored_output, align 8
   %7 = load ptr, ptr %buffer_.i.i, align 8
   %cmp.not.i4 = icmp eq ptr %7, %fixed_buffer_.i
   %isnull.i5 = icmp eq ptr %7, null
@@ -2472,7 +2472,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi128EED2Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_, align 8
   %fixed_buffer_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -2644,7 +2644,7 @@ declare noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7comp
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN3url15RawCanonOutputTIcLi128EED0Ev(ptr noundef nonnull align 8 dereferenceable(152) %this) unnamed_addr #5 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3url15RawCanonOutputTIcLi128EEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %buffer_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %buffer_.i, align 8
   %fixed_buffer_.i = getelementptr inbounds i8, ptr %this, i64 24

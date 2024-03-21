@@ -529,7 +529,7 @@ invoke.cont7:                                     ; preds = %invoke.cont
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %ref.tmp) #12
   %0 = load ptr, ptr %agg.tmp, align 8
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %0) #12, !srcloc !4
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7519BreakTransliteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7519BreakTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cachedBI = getelementptr inbounds i8, ptr %this, i64 88
   %fInsertion = getelementptr inbounds i8, ptr %this, i64 104
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %cachedBI, i8 0, i64 16, i1 false)
@@ -607,7 +607,7 @@ declare void @_ZN6icu_7514TransliteratorD2Ev(ptr noundef nonnull align 8 derefer
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7519BreakTransliteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7519BreakTransliteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7519BreakTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fInsertion = getelementptr inbounds i8, ptr %this, i64 104
   tail call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fInsertion) #12
   %cachedBoundaries = getelementptr inbounds i8, ptr %this, i64 96
@@ -655,7 +655,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 define void @_ZN6icu_7519BreakTransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(168) %this, ptr noundef nonnull align 8 dereferenceable(168) %o) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont3:
   tail call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this, ptr noundef nonnull align 8 dereferenceable(84) %o)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7519BreakTransliteratorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN6icu_7519BreakTransliteratorE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cachedBI = getelementptr inbounds i8, ptr %this, i64 88
   %fInsertion = getelementptr inbounds i8, ptr %this, i64 104
   %fInsertion4 = getelementptr inbounds i8, ptr %o, i64 104
@@ -805,7 +805,7 @@ if.end32:                                         ; preds = %if.end20
 
 invoke.cont35:                                    ; preds = %if.end32
   call void @llvm.experimental.noalias.scope.decl(metadata !5)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %sText, align 8, !alias.scope !5
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %sText, align 8, !alias.scope !5
   %fUnion2.i.i = getelementptr inbounds i8, ptr %sText, i64 8
   store i16 2, ptr %fUnion2.i.i, align 8, !alias.scope !5
   %7 = call ptr @__dynamic_cast(ptr nonnull %text, ptr nonnull @_ZTIN6icu_7511ReplaceableE, ptr nonnull @_ZTIN6icu_7513UnicodeStringE, i64 0) #12, !noalias !5
@@ -1143,7 +1143,7 @@ declare void @_ZN6icu_759UVector3217removeAllElementsEv(ptr noundef nonnull alig
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6icu_7519BreakTransliterator19replaceableAsStringERNS_11ReplaceableE(ptr noalias sret(%"class.icu_75::UnicodeString") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(8) %r) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %agg.result, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %agg.result, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %0 = tail call ptr @__dynamic_cast(ptr nonnull %r, ptr nonnull @_ZTIN6icu_7511ReplaceableE, ptr nonnull @_ZTIN6icu_7513UnicodeStringE, i64 0) #12

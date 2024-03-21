@@ -2420,7 +2420,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %baseName = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 10
   %0 = load ptr, ptr %baseName, align 8
   %fullName = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 7
@@ -2503,7 +2503,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fullName = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 7
   %fullNameBuffer = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 8
   %arraydecay = getelementptr inbounds [157 x i8], ptr %fullNameBuffer, i64 0, i64 0
@@ -2543,7 +2543,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2560,7 +2560,7 @@ entry:
   %1 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %1, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fullName = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 7
   %fullNameBuffer = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 8
   %arraydecay = getelementptr inbounds [157 x i8], ptr %fullNameBuffer, i64 0, i64 0
@@ -2686,7 +2686,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fullName = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 7
   %fullNameBuffer = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 8
   %arraydecay = getelementptr inbounds [157 x i8], ptr %fullNameBuffer, i64 0, i64 0
@@ -3168,7 +3168,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fullName = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 7
   %fullNameBuffer = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 8
   %arraydecay = getelementptr inbounds [157 x i8], ptr %fullNameBuffer, i64 0, i64 0
@@ -3208,7 +3208,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3376,7 +3376,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_756LocaleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fullName = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 7
   %fullNameBuffer = getelementptr inbounds %"class.icu_75::Locale", ptr %this1, i32 0, i32 8
   %arraydecay = getelementptr inbounds [157 x i8], ptr %fullNameBuffer, i64 0, i64 0
@@ -5362,7 +5362,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518KeywordEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518KeywordEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %keywords = getelementptr inbounds %"class.icu_75::KeywordEnumeration", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %keywords, align 8
   invoke void @uprv_free_75(ptr noundef %0)
@@ -5655,7 +5655,7 @@ entry:
   store ptr %status, ptr %status.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518KeywordEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518KeywordEnumerationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %keywords = getelementptr inbounds %"class.icu_75::KeywordEnumeration", ptr %this1, i32 0, i32 1
   store ptr @_ZN6icu_7518KeywordEnumeration9fgClassIDE, ptr %keywords, align 8
   %current = getelementptr inbounds %"class.icu_75::KeywordEnumeration", ptr %this1, i32 0, i32 2
@@ -5998,7 +5998,7 @@ entry:
   %6 = load i32, ptr %.addr2, align 4
   %7 = load ptr, ptr %.addr3, align 8
   call void @_ZN6icu_7518KeywordEnumerationC2EPKciiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(208) %this4, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef nonnull align 4 dereferenceable(4) %7)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7525UnicodeKeywordEnumerationE, i32 0, inrange i32 0, i32 2), ptr %this4, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7525UnicodeKeywordEnumerationE, i32 0, i32 0, i32 2), ptr %this4, align 8
   ret void
 }
 
@@ -14191,7 +14191,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -14205,7 +14205,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

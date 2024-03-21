@@ -195,7 +195,7 @@ define dso_local noundef zeroext i1 @_ZN21cmParseDelphiCoverage16LoadCoverageDat
 41:                                               ; preds = %38
   %42 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %4) #17
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 0, i32 0, i64 2), ptr %3, align 8
   %43 = load <2 x ptr>, ptr %0, align 8
   %44 = shufflevector <2 x ptr> %43, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>
   store <2 x ptr> %44, ptr %16, align 8
@@ -277,7 +277,7 @@ declare void @_ZN5cmsys11SystemTools24GetFilenameLastExtensionERKNSt7__cxx1112ba
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef zeroext i1 @_ZN21cmParseDelphiCoverage14ReadDelphiHTMLEPKc(ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cmParseDelphiCoverage::HTMLParser", align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN21cmParseDelphiCoverage10HTMLParserE, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   %5 = load <2 x ptr>, ptr %0, align 8
   %6 = shufflevector <2 x ptr> %5, <2 x ptr> poison, <2 x i32> <i32 1, i32 0>

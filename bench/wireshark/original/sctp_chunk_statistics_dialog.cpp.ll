@@ -893,9 +893,9 @@ define void @_ZN25SCTPChunkStatisticsDialogC2EP7QWidgetPK16_sctp_assoc_infoP13_c
   %30 = getelementptr inbounds %class.QFlags, ptr %9, i32 0, i32 0
   %31 = load i32, ptr %30, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %28, ptr noundef %29, i32 %31)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 0, i32 2), ptr %28, align 8
   %32 = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 1, i32 2), ptr %32, align 8
   %33 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %28, i32 0, i32 1
   %34 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 48) #17
           to label %35 unwind label %141
@@ -4166,9 +4166,9 @@ define void @_ZN25SCTPChunkStatisticsDialogD2Ev(ptr noundef nonnull align 8 dere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV25SCTPChunkStatisticsDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.SCTPChunkStatisticsDialog, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

@@ -5412,7 +5412,7 @@ entry:
   store ptr %message_differencer, ptr %message_differencer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf4util18MessageDifferencer16MapKeyComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer21MapEntryKeyComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer21MapEntryKeyComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %message_differencer_ = getelementptr inbounds %"class.google::protobuf::util::MessageDifferencer::MapEntryKeyComparator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %message_differencer.addr, align 8
   store ptr %0, ptr %message_differencer_, align 8
@@ -5425,7 +5425,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer16MapKeyComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer16MapKeyComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6695,7 +6695,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf4util21SimpleFieldComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util22DefaultFieldComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util22DefaultFieldComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8611,7 +8611,7 @@ entry:
   store ptr %key, ptr %key.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf4util18MessageDifferencer16MapKeyComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %message_differencer_ = getelementptr inbounds %"class.google::protobuf::util::MessageDifferencer::MultipleFieldsMapKeyComparator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %message_differencer.addr, align 8
   store ptr %0, ptr %message_differencer_, align 8
@@ -9817,7 +9817,7 @@ entry:
   store ptr %key_field_paths, ptr %key_field_paths.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf4util18MessageDifferencer16MapKeyComparatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %message_differencer_ = getelementptr inbounds %"class.google::protobuf::util::MessageDifferencer::MultipleFieldsMapKeyComparator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %message_differencer.addr, align 8
   store ptr %0, ptr %message_differencer_, align 8
@@ -20012,7 +20012,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf4util18MessageDifferencer8ReporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf4util16NumDiffsReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf4util16NumDiffsReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %num_diffs_ = getelementptr inbounds %"class.google::protobuf::util::NumDiffsReporter", ptr %this1, i32 0, i32 1
   store i32 0, ptr %num_diffs_, align 8
   ret void
@@ -20454,7 +20454,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer8ReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer8ReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -20502,7 +20502,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14IgnoreCriteriaE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14IgnoreCriteriaE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -20537,7 +20537,7 @@ entry:
   store ptr %output, ptr %output.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf4util18MessageDifferencer8ReporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %printer_ = getelementptr inbounds %"class.google::protobuf::util::MessageDifferencer::StreamReporter", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 256) #25
           to label %invoke.cont unwind label %lpad
@@ -20603,7 +20603,7 @@ entry:
   store ptr %printer, ptr %printer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf4util18MessageDifferencer8ReporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %printer_ = getelementptr inbounds %"class.google::protobuf::util::MessageDifferencer::StreamReporter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %printer.addr, align 8
   store ptr %0, ptr %printer_, align 8
@@ -20626,7 +20626,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer14StreamReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %delete_printer_ = getelementptr inbounds %"class.google::protobuf::util::MessageDifferencer::StreamReporter", ptr %this1, i32 0, i32 2
   %0 = load i8, ptr %delete_printer_, align 8
   %tobool = trunc i8 %0 to i1
@@ -27622,7 +27622,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf4util18MessageDifferencer30MultipleFieldsMapKeyComparatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_field_paths_ = getelementptr inbounds %"class.google::protobuf::util::MessageDifferencer::MultipleFieldsMapKeyComparator", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIS_IPKN6google8protobuf15FieldDescriptorESaIS4_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %key_field_paths_) #3
   call void @_ZN6google8protobuf4util18MessageDifferencer16MapKeyComparatorD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

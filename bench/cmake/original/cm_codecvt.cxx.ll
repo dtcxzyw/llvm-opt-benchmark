@@ -23,7 +23,7 @@ define dso_local void @_ZN7codecvtC2E16codecvt_Encoding(ptr noundef nonnull alig
   store i32 %1, ptr %4, align 4
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt7codecvtIcc11__mbstate_tEC2Em(ptr noundef nonnull align 8 dereferenceable(24) %5, i64 noundef 0)
-  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV7codecvt, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [11 x ptr] }, ptr @_ZTV7codecvt, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = load i32, ptr %4, align 4
   switch i32 %6, label %8 [
     i32 4, label %7

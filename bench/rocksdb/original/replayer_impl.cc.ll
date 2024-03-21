@@ -645,7 +645,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN7rocksdb8ReplayerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #13
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb12ReplayerImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb12ReplayerImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trace_reader_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %reader.addr, align 8
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceReaderESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %trace_reader_, ptr noundef nonnull align 8 dereferenceable(8) %1) #13
@@ -720,7 +720,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb8ReplayerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb8ReplayerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -875,7 +875,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb12ReplayerImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb12ReplayerImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %exec_handler_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 7
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceRecord7HandlerESt14default_deleteIS2_EE5resetEPS2_(ptr noundef nonnull align 8 dereferenceable(8) %exec_handler_, ptr noundef null) #13
   %trace_reader_ = getelementptr inbounds %"class.rocksdb::ReplayerImpl", ptr %this1, i32 0, i32 1

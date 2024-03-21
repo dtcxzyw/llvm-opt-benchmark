@@ -13940,7 +13940,7 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %parser_buffer = getelementptr inbounds %"class.node::(anonymous namespace)::BindingData", ptr %this3, i32 0, i32 1
   call void @_ZNSt6vectorIcSaIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %parser_buffer) #3
   %parser_buffer_in_use = getelementptr inbounds %"class.node::(anonymous namespace)::BindingData", ptr %this3, i32 0, i32 2
@@ -14025,7 +14025,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %parser_buffer = getelementptr inbounds %"class.node::(anonymous namespace)::BindingData", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIcSaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %parser_buffer) #3
   call void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #3
@@ -14942,7 +14942,7 @@ entry:
   store i8 %frombool, ptr %is_root_node.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN2v813EmbedderGraph4NodeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %retainer_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 1
   store ptr null, ptr %retainer_, align 8
   %wrapper_node_ = getelementptr inbounds %"class.node::MemoryRetainerNode", ptr %this1, i32 0, i32 2
@@ -15015,7 +15015,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN2v813EmbedderGraph4NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -17019,9 +17019,9 @@ entry:
   call void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(56) %this3, ptr noundef %call, ptr %1)
   %2 = getelementptr inbounds i8, ptr %this3, i64 56
   call void @_ZN4node14StreamListenerC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #3
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this3, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %fields_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this3, i32 0, i32 3
   %array.begin = getelementptr inbounds [32 x %"struct.node::(anonymous namespace)::StringPtr"], ptr %fields_, i32 0, i32 0
   %arrayctor.end = getelementptr inbounds %"struct.node::(anonymous namespace)::StringPtr", ptr %array.begin, i64 32
@@ -17166,7 +17166,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4node14StreamListenerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 1
   store ptr null, ptr %stream_, align 8
   %previous_listener_ = getelementptr inbounds %"class.node::StreamListener", ptr %this1, i32 0, i32 2
@@ -17245,9 +17245,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %binding_data_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this1, i32 0, i32 19
   call void @_ZN4node17BaseObjectPtrImplINS_12_GLOBAL__N_111BindingDataELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %binding_data_) #3
   %status_message_ = getelementptr inbounds %"class.node::(anonymous namespace)::Parser", ptr %this1, i32 0, i32 6
@@ -27514,7 +27514,7 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10BaseObjectC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %this3, ptr noundef %0, ptr %1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %all_connections_ = getelementptr inbounds %"class.node::(anonymous namespace)::ConnectionsList", ptr %this3, i32 0, i32 1
   call void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %all_connections_) #3
   %active_connections_ = getelementptr inbounds %"class.node::(anonymous namespace)::ConnectionsList", ptr %this3, i32 0, i32 2
@@ -27565,7 +27565,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %active_connections_ = getelementptr inbounds %"class.node::(anonymous namespace)::ConnectionsList", ptr %this1, i32 0, i32 2
   call void @_ZNSt3setIPN4node12_GLOBAL__N_16ParserENS1_16ParserComparatorESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %active_connections_) #3
   %all_connections_ = getelementptr inbounds %"class.node::(anonymous namespace)::ConnectionsList", ptr %this1, i32 0, i32 1

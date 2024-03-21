@@ -4923,7 +4923,7 @@ define dso_local void @_ZN25cmMakefileTargetGeneratorC2EP17cmGeneratorTarget(ptr
   %14 = load ptr, ptr %3, align 8
   %15 = load ptr, ptr %4, align 8
   call void @_ZN23cmCommonTargetGeneratorC2EP17cmGeneratorTarget(ptr noundef nonnull align 8 dereferenceable(120) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV25cmMakefileTargetGenerator, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV25cmMakefileTargetGenerator, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.cmMakefileTargetGenerator, ptr %14, i32 0, i32 4
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #3
   %17 = getelementptr inbounds %class.cmMakefileTargetGenerator, ptr %14, i32 0, i32 5
@@ -5637,7 +5637,7 @@ define dso_local void @_ZN25cmMakefileTargetGeneratorD2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV25cmMakefileTargetGenerator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV25cmMakefileTargetGenerator, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmMakefileTargetGenerator, ptr %3, i32 0, i32 28
   call void @_ZNSt10unique_ptrIN25cmMakefileTargetGenerator26MacOSXContentGeneratorTypeESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.cmMakefileTargetGenerator, ptr %3, i32 0, i32 27
@@ -45842,7 +45842,7 @@ define linkonce_odr dso_local void @_ZN25cmMakefileTargetGenerator26MacOSXConten
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN20cmOSXBundleGenerator26MacOSXContentGeneratorTypeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25cmMakefileTargetGenerator26MacOSXContentGeneratorTypeE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN25cmMakefileTargetGenerator26MacOSXContentGeneratorTypeE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.cmMakefileTargetGenerator::MacOSXContentGeneratorType", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -45877,7 +45877,7 @@ define linkonce_odr dso_local void @_ZN20cmOSXBundleGenerator26MacOSXContentGene
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN20cmOSXBundleGenerator26MacOSXContentGeneratorTypeE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN20cmOSXBundleGenerator26MacOSXContentGeneratorTypeE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

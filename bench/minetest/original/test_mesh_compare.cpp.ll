@@ -137,7 +137,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -2935,14 +2935,14 @@ define internal void @_GLOBAL__sub_I_test_mesh_compare.cpp() #14 section ".text.
   store ptr getelementptr inbounds (%class.TestMeshCompare, ptr @_ZL17mesh_compare_test, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestMeshCompare, ptr @_ZL17mesh_compare_test, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !38
   store i64 0, ptr getelementptr inbounds (%class.TestMeshCompare, ptr @_ZL17mesh_compare_test, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestMeshCompare, ptr @_ZL17mesh_compare_test, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !40
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15TestMeshCompare, i64 0, inrange i32 0, i64 2), ptr @_ZL17mesh_compare_test, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV15TestMeshCompare, i64 0, i32 0, i64 2), ptr @_ZL17mesh_compare_test, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL17mesh_compare_test)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL17mesh_compare_test, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL17mesh_compare_test, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%class.TestMeshCompare, ptr @_ZL17mesh_compare_test, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestMeshCompare, ptr @_ZL17mesh_compare_test, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

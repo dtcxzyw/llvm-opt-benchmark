@@ -185,11 +185,11 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 define void @_ZN8proxygen21RequestHandlerAdaptorC2EPNS_14RequestHandlerE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(36) %this, ptr noundef %requestHandler) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %upstream.addr.i = alloca ptr, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen22HTTPTransactionHandlerE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen22HTTPTransactionHandlerE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %upstream.addr.i)
   store ptr %requestHandler, ptr %upstream.addr.i, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8proxygen15ResponseHandlerE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN8proxygen15ResponseHandlerE, i64 0, i32 0, i64 2), ptr %0, align 8
   %upstream_.i = getelementptr inbounds i8, ptr %this, i64 16
   %call.i1 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6google12CheckNotNullIRPN8proxygen14RequestHandlerEEET_PKciS7_OS5_(ptr noundef nonnull @.str.8, i32 noundef 47, ptr noundef nonnull @.str.9, ptr noundef nonnull align 8 dereferenceable(8) %upstream.addr.i)
   %1 = load ptr, ptr %call.i1, align 8
@@ -197,8 +197,8 @@ entry:
   %txn_.i = getelementptr inbounds i8, ptr %this, i64 24
   store ptr null, ptr %txn_.i, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %upstream.addr.i)
-  store ptr getelementptr inbounds ({ [40 x ptr], [17 x ptr] }, ptr @_ZTVN8proxygen21RequestHandlerAdaptorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [40 x ptr], [17 x ptr] }, ptr @_ZTVN8proxygen21RequestHandlerAdaptorE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [40 x ptr], [17 x ptr] }, ptr @_ZTVN8proxygen21RequestHandlerAdaptorE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [40 x ptr], [17 x ptr] }, ptr @_ZTVN8proxygen21RequestHandlerAdaptorE, i64 0, i32 1, i64 2), ptr %0, align 8
   %err_ = getelementptr inbounds i8, ptr %this, i64 32
   store i32 0, ptr %err_, align 8
   ret void

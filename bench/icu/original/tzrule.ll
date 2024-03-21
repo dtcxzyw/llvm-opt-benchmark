@@ -87,7 +87,7 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this1, i64 0
   call void @llvm.memset.p0.i64(ptr align 8 %0, i8 0, i64 8, i1 false)
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7512TimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7512TimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fName = getelementptr inbounds %"class.icu_75::TimeZoneRule", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %name.addr, align 8
   invoke void @_ZN6icu_7513UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %fName, ptr noundef nonnull align 8 dereferenceable(64) %1)
@@ -129,7 +129,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -152,7 +152,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_757UObjectC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7512TimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7512TimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fName = getelementptr inbounds %"class.icu_75::TimeZoneRule", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %source.addr, align 8
   %fName2 = getelementptr inbounds %"class.icu_75::TimeZoneRule", ptr %1, i32 0, i32 1
@@ -198,7 +198,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -208,7 +208,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7512TimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7512TimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fName = getelementptr inbounds %"class.icu_75::TimeZoneRule", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %fName) #10
   call void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
@@ -581,7 +581,7 @@ entry:
   %1 = load i32, ptr %rawOffset.addr, align 4
   %2 = load i32, ptr %dstSavings.addr, align 4
   call void @_ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7519InitialTimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7519InitialTimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -595,7 +595,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_7512TimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(80) %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7519InitialTimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7519InitialTimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -934,7 +934,7 @@ entry:
   %1 = load i32, ptr %rawOffset.addr, align 4
   %2 = load i32, ptr %dstSavings.addr, align 4
   call void @_ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518AnnualTimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518AnnualTimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fDateTimeRule = getelementptr inbounds %"class.icu_75::AnnualTimeZoneRule", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #10
   %new.isnull = icmp eq ptr %call, null
@@ -1011,7 +1011,7 @@ entry:
   %1 = load i32, ptr %rawOffset.addr, align 4
   %2 = load i32, ptr %dstSavings.addr, align 4
   call void @_ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518AnnualTimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518AnnualTimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fDateTimeRule = getelementptr inbounds %"class.icu_75::AnnualTimeZoneRule", ptr %this1, i32 0, i32 1
   %3 = load ptr, ptr %dateTimeRule.addr, align 8
   store ptr %3, ptr %fDateTimeRule, align 8
@@ -1037,7 +1037,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_7512TimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(80) %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518AnnualTimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518AnnualTimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fDateTimeRule = getelementptr inbounds %"class.icu_75::AnnualTimeZoneRule", ptr %this1, i32 0, i32 1
   %call = call noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef 40) #10
   %new.isnull = icmp eq ptr %call, null
@@ -1102,7 +1102,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518AnnualTimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518AnnualTimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fDateTimeRule = getelementptr inbounds %"class.icu_75::AnnualTimeZoneRule", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %fDateTimeRule, align 8
   %isnull = icmp eq ptr %0, null
@@ -2089,7 +2089,7 @@ entry:
   %1 = load i32, ptr %rawOffset.addr, align 4
   %2 = load i32, ptr %dstSavings.addr, align 4
   call void @_ZN6icu_7512TimeZoneRuleC2ERKNS_13UnicodeStringEii(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, i32 noundef %1, i32 noundef %2)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521TimeArrayTimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521TimeArrayTimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fTimeRuleType = getelementptr inbounds %"class.icu_75::TimeArrayTimeZoneRule", ptr %this1, i32 0, i32 1
   %3 = load i32, ptr %timeRuleType.addr, align 4
   store i32 %3, ptr %fTimeRuleType, align 8
@@ -2266,7 +2266,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %source.addr, align 8
   call void @_ZN6icu_7512TimeZoneRuleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(80) %this1, ptr noundef nonnull align 8 dereferenceable(80) %0)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521TimeArrayTimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521TimeArrayTimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fTimeRuleType = getelementptr inbounds %"class.icu_75::TimeArrayTimeZoneRule", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %source.addr, align 8
   %fTimeRuleType2 = getelementptr inbounds %"class.icu_75::TimeArrayTimeZoneRule", ptr %1, i32 0, i32 1
@@ -2311,7 +2311,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521TimeArrayTimeZoneRuleE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7521TimeArrayTimeZoneRuleE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fStartTimes = getelementptr inbounds %"class.icu_75::TimeArrayTimeZoneRule", ptr %this1, i32 0, i32 3
   %0 = load ptr, ptr %fStartTimes, align 8
   %cmp = icmp ne ptr %0, null

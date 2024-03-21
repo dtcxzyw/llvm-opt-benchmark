@@ -330,7 +330,7 @@ _ZN4node5Realm10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %entry, %i
   %11 = load ptr, ptr %isolate_.i, align 8
   %call.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #21, !noalias !5
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call.i.i, ptr noundef nonnull %retval.0.i, ptr %target.coerce) #20, !noalias !5
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !noalias !5
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !noalias !5
   %parser_buffer.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 32
   tail call void @_ZNSaIcEC2Ev(ptr noundef nonnull align 1 dereferenceable(1) %parser_buffer.i.i.i) #20, !noalias !5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(25) %parser_buffer.i.i.i, i8 0, i64 25, i1 false), !noalias !5
@@ -1709,8 +1709,8 @@ _ZN4node5Realm14GetBindingDataINS_12_GLOBAL__N_111BindingDataEEEPT_RKN2v820Funct
   %18 = getelementptr inbounds i8, ptr %call1, i64 56
   %stream_.i.i = getelementptr inbounds i8, ptr %call1, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %stream_.i.i, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i64 0, inrange i32 1, i64 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i64 0, i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i64 0, i32 1, i64 2), ptr %18, align 8
   br label %arrayctor.loop.i
 
 arrayctor.loop.i:                                 ; preds = %arrayctor.loop.i, %_ZN4node5Realm14GetBindingDataINS_12_GLOBAL__N_111BindingDataEEEPT_RKN2v820FunctionCallbackInfoINS6_5ValueEEE.exit
@@ -3378,7 +3378,7 @@ _ZN4node11Environment10GetCurrentEN2v85LocalINS1_7ContextEEE.exit: ; preds = %en
   %13 = getelementptr i8, ptr %retval.0.i, i64 2728
   %call7.val = load ptr, ptr %13, align 8
   tail call void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr noundef nonnull align 8 dereferenceable(32) %call8, ptr noundef %call7.val, ptr nonnull %add.ptr.i) #20
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i64 0, inrange i32 0, i64 2), ptr %call8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i64 0, i32 0, i64 2), ptr %call8, align 8
   %14 = getelementptr inbounds i8, ptr %call8, i64 40
   store i32 0, ptr %14, align 8
   %_M_parent.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call8, i64 48
@@ -4468,7 +4468,7 @@ declare void @_ZN4node10BaseObjectC2EPNS_5RealmEN2v85LocalINS3_6ObjectEEE(ptr no
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_111BindingDataD2Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %parser_buffer = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %parser_buffer, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -4487,7 +4487,7 @@ _ZNSt6vectorIcSaIcEED2Ev.exit:                    ; preds = %entry, %if.then.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_111BindingDataD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_111BindingDataE, i64 0, i32 0, i64 2), ptr %this, align 8
   %parser_buffer.i = getelementptr inbounds i8, ptr %this, i64 32
   %0 = load ptr, ptr %parser_buffer.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -4761,7 +4761,7 @@ entry:
   %n = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i)
   %call.i = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #21
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4node18MemoryRetainerNodeE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %retainer_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   %is_root_node_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -5168,9 +5168,9 @@ declare void @_ZN4node9AsyncWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEE(p
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_16ParserD2Ev(ptr noundef nonnull align 8 dereferenceable(1848) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 56
-  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr], [10 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_16ParserE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %binding_data_ = getelementptr inbounds i8, ptr %this, i64 1840
   %binding_data_.val = load ptr, ptr %binding_data_, align 8
   %cmp.not.i = icmp eq ptr %binding_data_.val, null
@@ -8306,7 +8306,7 @@ declare ptr @_ZN2v86Number3NewEPNS_7IsolateEd(ptr noundef, double noundef) local
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_115ConnectionsListD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96
   %this.val.i.i = load ptr, ptr %0, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef %this.val.i.i)
@@ -8320,7 +8320,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN4node12_GLOBAL__N_115ConnectionsListD0Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node12_GLOBAL__N_115ConnectionsListE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = getelementptr inbounds i8, ptr %this, i64 96
   %this.val.i.i.i = load ptr, ptr %0, align 8
   tail call fastcc void @_ZNSt8_Rb_treeIPN4node12_GLOBAL__N_16ParserES3_St9_IdentityIS3_ENS1_16ParserComparatorESaIS3_EE8_M_eraseEPSt13_Rb_tree_nodeIS3_E(ptr noundef %this.val.i.i.i)

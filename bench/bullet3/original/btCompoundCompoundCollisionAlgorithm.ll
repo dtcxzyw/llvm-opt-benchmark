@@ -407,7 +407,7 @@ entry:
   %3 = load i8, ptr %isSwapped.addr, align 1
   %tobool = trunc i8 %3 to i1
   call void @_ZN28btCompoundCollisionAlgorithmC2ERK36btCollisionAlgorithmConstructionInfoPK24btCollisionObjectWrapperS5_b(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %tobool)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36btCompoundCompoundCollisionAlgorithm, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36btCompoundCompoundCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_removePairs = getelementptr inbounds %class.btCompoundCompoundCollisionAlgorithm, ptr %this1, i32 0, i32 2
   invoke void @_ZN20btAlignedObjectArrayI12btSimplePairEC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %m_removePairs)
           to label %invoke.cont unwind label %lpad
@@ -559,7 +559,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36btCompoundCompoundCollisionAlgorithm, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV36btCompoundCompoundCollisionAlgorithm, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN36btCompoundCompoundCollisionAlgorithm21removeChildAlgorithmsEv(ptr noundef nonnull align 8 dereferenceable(184) %this1)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -1751,7 +1751,7 @@ entry:
   store ptr %sharedManifold, ptr %sharedManifold.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6btDbvt8ICollideC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV30btCompoundCompoundLeafCallback, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV30btCompoundCompoundLeafCallback, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_numOverlapPairs = getelementptr inbounds %struct.btCompoundCompoundLeafCallback, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numOverlapPairs, align 8
   %m_compound0ColObjWrap = getelementptr inbounds %struct.btCompoundCompoundLeafCallback, ptr %this1, i32 0, i32 2
@@ -2665,7 +2665,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6btDbvt8ICollideE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6btDbvt8ICollideE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

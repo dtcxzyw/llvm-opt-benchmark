@@ -4001,7 +4001,7 @@ define void @_ZN19FilterMeshAlphaWrapC1Ev(ptr noundef nonnull align 8 dereferenc
   %2 = alloca [1 x i32], align 4
   %3 = alloca %class.QString, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 88
   store i8 1, ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 96
@@ -4043,10 +4043,10 @@ define void @_ZN19FilterMeshAlphaWrapC1Ev(ptr noundef nonnull align 8 dereferenc
   store ptr %24, ptr %24, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 72
   store i64 0, ptr %26, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV19FilterMeshAlphaWrap, i64 0, inrange i32 0, i64 4), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV19FilterMeshAlphaWrap, i64 0, inrange i32 1, i64 4), ptr %9, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV19FilterMeshAlphaWrap, i64 0, inrange i32 2, i64 6), ptr %4, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV19FilterMeshAlphaWrap, i64 0, inrange i32 3, i64 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV19FilterMeshAlphaWrap, i64 0, i32 0, i64 4), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV19FilterMeshAlphaWrap, i64 0, i32 1, i64 4), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV19FilterMeshAlphaWrap, i64 0, i32 2, i64 6), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr], [27 x ptr], [11 x ptr], [5 x ptr] }, ptr @_ZTV19FilterMeshAlphaWrap, i64 0, i32 3, i64 3), ptr %7, align 8
   store i32 0, ptr %2, align 4
   %27 = getelementptr inbounds i8, ptr %2, i64 4
   %28 = invoke ptr @_ZNSt7__cxx114listIiSaIiEE6insertIPKivEESt14_List_iteratorIiESt20_List_const_iteratorIiET_SA_(ptr noundef nonnull align 8 dereferenceable(24) %24, ptr nonnull %24, ptr noundef nonnull %2, ptr noundef nonnull %27)
@@ -4165,7 +4165,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %40, %_ZN9QtPrivate8
 
 57:                                               ; preds = %50, %56, %48
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %49, %48 ], [ %.pn.pn, %56 ], [ %51, %50 ]
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %4, align 8
   call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #22
   resume { ptr, i32 } %.pn.pn.pn.pn
 }
@@ -4176,7 +4176,7 @@ declare void @_ZN9QFileInfoC1Ev(ptr noundef nonnull align 8 dereferenceable(8)) 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN13MeshLabPluginD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV13MeshLabPlugin, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   tail call void @_ZN9QFileInfoD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   ret void
@@ -5240,7 +5240,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i84:  ; preds = %_ZN9QtPrivate8RefCo
 
 .invoke:                                          ; preds = %237, %227
   %241 = call ptr @__cxa_allocate_exception(i64 8) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %241, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %241, align 8
   invoke void @__cxa_throw(ptr nonnull %241, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #40
           to label %.cont unwind label %313
 
@@ -5712,19 +5712,19 @@ define linkonce_odr void @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEEC2Ev(p
   %21 = alloca %"struct.std::pair.325", align 8
   %22 = alloca %"class.std::__cxx11::basic_string", align 8
   %23 = alloca %"class.std::allocator.306", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %24 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %24, i8 0, i64 40, i1 false)
   %25 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEEE, i64 0, inrange i32 0, i64 2), ptr %25, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEEE, i64 0, i32 0, i64 2), ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %0, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %26, i8 0, i64 40, i1 false)
   %27 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEEE, i64 0, inrange i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEEE, i64 0, i32 0, i64 2), ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %0, i64 104
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %28, i8 0, i64 40, i1 false)
   %29 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEEE, i64 0, inrange i32 0, i64 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEEE, i64 0, i32 0, i64 2), ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %0, i64 152
   %31 = getelementptr inbounds i8, ptr %0, i64 192
   %32 = getelementptr inbounds i8, ptr %0, i64 200
@@ -6101,7 +6101,7 @@ declare void @_ZN12FilterPlugin17wrongActionCalledEPK7QAction(ptr noundef) local
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(280) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 152
   %4 = getelementptr inbounds i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8
@@ -6159,7 +6159,7 @@ _ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5Epick
 
 _ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEED2Ev.exit: ; preds = %_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEE5clearEv.exit.i, %27
   %28 = getelementptr inbounds i8, ptr %0, i64 96
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEEE, i64 0, inrange i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEEE, i64 0, i32 0, i64 2), ptr %28, align 8
   %29 = getelementptr inbounds i8, ptr %0, i64 104
   %30 = getelementptr inbounds i8, ptr %0, i64 112
   %31 = load ptr, ptr %30, align 8
@@ -6217,7 +6217,7 @@ _ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5Epick
 
 _ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEED2Ev.exit: ; preds = %_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEE5clearEv.exit.i, %53
   %54 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEEE, i64 0, inrange i32 0, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEEE, i64 0, i32 0, i64 2), ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %0, i64 56
   %56 = getelementptr inbounds i8, ptr %0, i64 64
   %57 = load ptr, ptr %56, align 8
@@ -6274,7 +6274,7 @@ _ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5Epick
   br label %_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEED2Ev.exit
 
 _ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEED2Ev.exit: ; preds = %_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEE5clearEv.exit.i, %79
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 8
   %81 = getelementptr inbounds i8, ptr %0, i64 16
   %82 = load ptr, ptr %81, align 8
@@ -6645,7 +6645,7 @@ define linkonce_odr void @_ZN4CGAL12Surface_meshINS_7Point_3INS_5EpickEEEE16add_
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -6707,7 +6707,7 @@ _ZNSt6vectorIPN4CGAL10Properties19Base_property_arrayESaIS3_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -6769,7 +6769,7 @@ _ZNSt6vectorIPN4CGAL10Properties19Base_property_arrayESaIS3_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -6831,7 +6831,7 @@ _ZNSt6vectorIPN4CGAL10Properties19Base_property_arrayESaIS3_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -6893,7 +6893,7 @@ _ZNSt6vectorIPN4CGAL10Properties19Base_property_arrayESaIS3_EED2Ev.exit: ; preds
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_15SM_Vertex_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -6956,7 +6956,7 @@ _ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5Epick
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_17SM_Halfedge_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -7019,7 +7019,7 @@ _ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5Epick
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Edge_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -7082,7 +7082,7 @@ _ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5Epick
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEED0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4CGAL10Properties18Property_containerINS_12Surface_meshINS_7Point_3INS_5EpickEEEEENS_13SM_Face_indexEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
@@ -7198,13 +7198,13 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
 
 ._crit_edge:                                      ; preds = %10, %4
   %23 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #39
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %25 unwind label %72
 
 25:                                               ; preds = %._crit_edge
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, i32 0, i64 2), ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %23, i64 64
@@ -7388,7 +7388,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4data
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -7399,7 +7399,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_mesh
   br label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EED2Ev.exit
 
 _ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivityESaIS6_EED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   ret void
@@ -7407,7 +7407,7 @@ _ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE19Vertex_connectivi
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -7418,7 +7418,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_mesh
   br label %_ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEED2Ev.exit
 
 _ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -7747,13 +7747,13 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayINS_12Surf
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.0.0.copyload = load i32, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %6 unwind label %11
 
 6:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %2, i64 64
@@ -7775,13 +7775,13 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayINS_12Surf
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.0.0.copyload = load i32, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %6 unwind label %9
 
 6:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE19Vertex_connectivityEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %2, i64 64
@@ -7804,7 +7804,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr 
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties19Base_property_arrayD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   ret void
@@ -8181,13 +8181,13 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
 
 ._crit_edge:                                      ; preds = %11, %5
   %24 = tail call noalias noundef nonnull dereferenceable(80) ptr @_Znwm(i64 noundef 80) #39
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %24, align 8
   %25 = getelementptr inbounds i8, ptr %24, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %25, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %26 unwind label %73
 
 26:                                               ; preds = %._crit_edge
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, i32 0, i64 2), ptr %24, align 8
   %27 = getelementptr inbounds i8, ptr %24, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %27, i8 0, i64 24, i1 false)
   %28 = getelementptr inbounds i8, ptr %24, i64 64
@@ -8364,7 +8364,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -8375,7 +8375,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_mesh
   br label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EED2Ev.exit
 
 _ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connectivityESaIS6_EED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   ret void
@@ -8383,7 +8383,7 @@ _ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE21Halfedge_connecti
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEED0Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -8394,7 +8394,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_mesh
   br label %_ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEED2Ev.exit
 
 _ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -8712,13 +8712,13 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayINS_12Surf
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load <2 x i64>, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %7 unwind label %12
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %2, i64 64
@@ -8740,13 +8740,13 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayINS_12Surf
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %5 = load <2 x i64>, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %7 unwind label %10
 
 7:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE21Halfedge_connectivityEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %8 = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false)
   %9 = getelementptr inbounds i8, ptr %2, i64 64
@@ -9133,13 +9133,13 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
 
 ._crit_edge:                                      ; preds = %10, %4
   %23 = tail call noalias noundef nonnull dereferenceable(72) ptr @_Znwm(i64 noundef 72) #39
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %25 unwind label %72
 
 25:                                               ; preds = %._crit_edge
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, i32 0, i64 2), ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %23, i64 64
@@ -9314,7 +9314,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEED2Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -9325,7 +9325,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_mesh
   br label %_ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EED2Ev.exit
 
 _ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivityESaIS6_EED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   ret void
@@ -9333,7 +9333,7 @@ _ZNSt6vectorIN4CGAL12Surface_meshINS0_7Point_3INS0_5EpickEEEE17Face_connectivity
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEED0Ev(ptr noundef nonnull align 8 dereferenceable(68) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -9344,7 +9344,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_12Surface_mesh
   br label %_ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEED2Ev.exit
 
 _ZN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -9673,13 +9673,13 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayINS_12Surf
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.0.0.copyload = load i32, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %6 unwind label %11
 
 6:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %2, i64 64
@@ -9701,13 +9701,13 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayINS_12Surf
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   %.sroa.0.0.copyload = load i32, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %6 unwind label %9
 
 6:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_12Surface_meshINS_7Point_3INS_5EpickEEEE17Face_connectivityEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %2, i64 64
@@ -10091,13 +10091,13 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
 
 ._crit_edge:                                      ; preds = %10, %4
   %23 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #39
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %25 unwind label %72
 
 25:                                               ; preds = %._crit_edge
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, i32 0, i64 2), ptr %23, align 8
   %26 = getelementptr inbounds i8, ptr %23, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %26, i8 0, i64 24, i1 false)
   %27 = getelementptr inbounds i8, ptr %23, i64 64
@@ -10272,7 +10272,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -10283,7 +10283,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_7Point_3INS_5E
   br label %_ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit
 
 _ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   ret void
@@ -10291,7 +10291,7 @@ _ZNSt6vectorIN4CGAL7Point_3INS0_5EpickEEESaIS3_EED2Ev.exit: ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEED0Ev(ptr noundef nonnull align 8 dereferenceable(88) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -10302,7 +10302,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayINS_7Point_3INS_5E
   br label %_ZN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEED2Ev.exit
 
 _ZN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -10622,13 +10622,13 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayINS_7Point
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.04)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.04, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %6 unwind label %11
 
 6:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %2, i64 64
@@ -10653,13 +10653,13 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayINS_7Point
   %4 = getelementptr inbounds i8, ptr %0, i64 64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.03)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.03, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %6 unwind label %9
 
 6:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayINS_7Point_3INS_5EpickEEEEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, i8 0, i64 24, i1 false)
   %8 = getelementptr inbounds i8, ptr %2, i64 64
@@ -11055,14 +11055,14 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
 
 ._crit_edge:                                      ; preds = %10, %4
   %23 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #39
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %25 unwind label %74
 
 25:                                               ; preds = %._crit_edge
   %26 = zext i1 %3 to i8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), ptr %23, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 40
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 48
@@ -11094,7 +11094,7 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
   br label %_ZN4CGAL10Properties14Property_arrayIbE7reserveEm.exit
 
 _ZN4CGAL10Properties14Property_arrayIbE7reserveEm.exit: ; preds = %37, %38
-  %39 = phi ptr [ getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), %37 ], [ %.pre, %38 ]
+  %39 = phi ptr [ getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), %37 ], [ %.pre, %38 ]
   %40 = getelementptr inbounds i8, ptr %1, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 24
@@ -11234,7 +11234,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayIbED2Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -11261,7 +11261,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayIbED2Ev(ptr nounde
   br label %_ZNSt6vectorIbSaIbEED2Ev.exit
 
 _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
   ret void
@@ -11269,7 +11269,7 @@ _ZNSt6vectorIbSaIbEED2Ev.exit:                    ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayIbED0Ev(ptr noundef nonnull align 8 dereferenceable(81) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -11296,7 +11296,7 @@ define linkonce_odr void @_ZN4CGAL10Properties14Property_arrayIbED0Ev(ptr nounde
   br label %_ZN4CGAL10Properties14Property_arrayIbED2Ev.exit
 
 _ZN4CGAL10Properties14Property_arrayIbED2Ev.exit: ; preds = %1, %4
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %0, align 8
   %13 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %13) #22
   tail call void @_ZdlPv(ptr noundef nonnull %0) #36
@@ -11693,14 +11693,14 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayIbE5cloneE
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i8, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %7 unwind label %17
 
 7:                                                ; preds = %1
   %8 = and i8 %5, 1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 48
@@ -11730,14 +11730,14 @@ define linkonce_odr noundef ptr @_ZNK4CGAL10Properties14Property_arrayIbE11empty
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 80
   %5 = load i8, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %7 unwind label %15
 
 7:                                                ; preds = %1
   %8 = and i8 %5, 1
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), ptr %2, align 8
   %9 = getelementptr inbounds i8, ptr %2, i64 40
   store ptr null, ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %2, i64 48
@@ -13019,14 +13019,14 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
 
 ._crit_edge:                                      ; preds = %10, %4
   %23 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #39
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %25 unwind label %74
 
 25:                                               ; preds = %._crit_edge
   %26 = zext i1 %3 to i8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), ptr %23, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 40
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 48
@@ -13058,7 +13058,7 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
   br label %_ZN4CGAL10Properties14Property_arrayIbE7reserveEm.exit
 
 _ZN4CGAL10Properties14Property_arrayIbE7reserveEm.exit: ; preds = %37, %38
-  %39 = phi ptr [ getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), %37 ], [ %.pre, %38 ]
+  %39 = phi ptr [ getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), %37 ], [ %.pre, %38 ]
   %40 = getelementptr inbounds i8, ptr %1, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 24
@@ -13234,14 +13234,14 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
 
 ._crit_edge:                                      ; preds = %10, %4
   %23 = tail call noalias noundef nonnull dereferenceable(88) ptr @_Znwm(i64 noundef 88) #39
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties19Base_property_arrayE, i64 0, i32 0, i64 2), ptr %23, align 8
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %2)
           to label %25 unwind label %74
 
 25:                                               ; preds = %._crit_edge
   %26 = zext i1 %3 to i8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), ptr %23, align 8
   %27 = getelementptr inbounds i8, ptr %23, i64 40
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds i8, ptr %23, i64 48
@@ -13273,7 +13273,7 @@ define linkonce_odr void @_ZN4CGAL10Properties18Property_containerINS_12Surface_
   br label %_ZN4CGAL10Properties14Property_arrayIbE7reserveEm.exit
 
 _ZN4CGAL10Properties14Property_arrayIbE7reserveEm.exit: ; preds = %37, %38
-  %39 = phi ptr [ getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, inrange i32 0, i64 2), %37 ], [ %.pre, %38 ]
+  %39 = phi ptr [ getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4CGAL10Properties14Property_arrayIbEE, i64 0, i32 0, i64 2), %37 ], [ %.pre, %38 ]
   %40 = getelementptr inbounds i8, ptr %1, i64 32
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds i8, ptr %39, i64 24
@@ -14019,7 +14019,7 @@ define linkonce_odr void @_ZN5boost9container18throw_length_errorEPKc(ptr nounde
   %2 = tail call ptr @__cxa_allocate_exception(i64 16) #22
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   store ptr %0, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost9container12length_errorE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost9container12length_errorE, i64 0, i32 0, i64 2), ptr %2, align 8
   tail call void @__cxa_throw(ptr nonnull %2, ptr nonnull @_ZTIN5boost9container12length_errorE, ptr nonnull @_ZN5boost9container12length_errorD2Ev) #40
   unreachable
 }
@@ -14060,7 +14060,7 @@ define linkonce_odr void @_ZN5boost9container15throw_bad_allocEv() local_unnamed
   %1 = tail call ptr @__cxa_allocate_exception(i64 16) #22
   %2 = getelementptr inbounds i8, ptr %1, i64 8
   store ptr @.str.42, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost9container9bad_allocE, i64 0, inrange i32 0, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5boost9container9bad_allocE, i64 0, i32 0, i64 2), ptr %1, align 8
   tail call void @__cxa_throw(ptr nonnull %1, ptr nonnull @_ZTIN5boost9container9bad_allocE, ptr nonnull @_ZN5boost9container9bad_allocD2Ev) #40
   unreachable
 }
@@ -16144,7 +16144,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK4CGAL9UncertainIbE12make_certainEv(p
           to label %16 unwind label %18
 
 16:                                               ; preds = %15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, inrange i32 0, i64 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, i32 0, i64 2), ptr %14, align 8
   invoke void @__cxa_throw(ptr nonnull %14, ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE, ptr nonnull @_ZN4CGAL30Uncertain_conversion_exceptionD2Ev) #40
           to label %22 unwind label %18
 
@@ -19746,7 +19746,7 @@ define linkonce_odr noundef i32 @_ZNK4CGAL9UncertainINS_4SignEE12make_certainEv(
           to label %12 unwind label %14
 
 12:                                               ; preds = %11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, inrange i32 0, i64 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, i32 0, i64 2), ptr %10, align 8
   invoke void @__cxa_throw(ptr nonnull %10, ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE, ptr nonnull @_ZN4CGAL30Uncertain_conversion_exceptionD2Ev) #40
           to label %18 unwind label %14
 
@@ -23223,7 +23223,7 @@ define linkonce_odr void @_ZN4CGAL19Assertion_exceptionC2ENSt7__cxx1112basic_str
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %9) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL19Assertion_exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL19Assertion_exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 
 18:                                               ; preds = %6
@@ -23276,7 +23276,7 @@ define linkonce_odr void @_ZN4CGAL19Assertion_exceptionC2ENSt7__cxx1112basic_str
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL19Assertion_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -23606,7 +23606,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_.ex
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %16) #22
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %17) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %18) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %129 = getelementptr inbounds i8, ptr %0, i64 16
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %129, ptr noundef nonnull align 8 dereferenceable(32) %1)
           to label %130 unwind label %189
@@ -23868,7 +23868,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_.ex
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL19Assertion_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -24014,7 +24014,7 @@ declare void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL17Failure_exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -24029,7 +24029,7 @@ define linkonce_odr void @_ZN4CGAL17Failure_exceptionD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL17Failure_exceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(152) %0) unnamed_addr #4 comdat align 2 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL17Failure_exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 120
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #22
   %3 = getelementptr inbounds i8, ptr %0, i64 80
@@ -35363,7 +35363,7 @@ define linkonce_odr void @_ZN4CGAL13Alpha_wraps_38internal20Triangle_mesh_oracle
   store i32 1, ptr %7, align 8, !noalias !673
   %8 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !673
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4CGAL9AABB_treeINS0_11AABB_traitsINS0_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS0_5EpickEEENS0_14AABB_primitiveISt4pairImmENS0_20Compose_property_mapINSB_INS0_26First_of_pair_property_mapISA_EENS4_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS0_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS0_7Point_3IS6_EEEESH_EENS0_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS0_6Bbox_3EEESH_EEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !noalias !673
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4CGAL9AABB_treeINS0_11AABB_traitsINS0_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS0_5EpickEEENS0_14AABB_primitiveISt4pairImmENS0_20Compose_property_mapINSB_INS0_26First_of_pair_property_mapISA_EENS4_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS0_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS0_7Point_3IS6_EEEESH_EENS0_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS0_6Bbox_3EEESH_EEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !673
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   invoke void @_ZSt10_ConstructIN4CGAL9AABB_treeINS0_11AABB_traitsINS0_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS0_5EpickEEENS0_14AABB_primitiveISt4pairImmENS0_20Compose_property_mapINSB_INS0_26First_of_pair_property_mapISA_EENS4_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS0_10Triangle_3IS6_EEEESH_EENSB_ISD_NSE_INS0_7Point_3IS6_EEEESH_EENS0_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS0_6Bbox_3EEESH_EEEEEEJEEvPT_DpOT0_(ptr noundef nonnull %9)
           to label %_ZN4CGAL13Alpha_wraps_38internal16AABB_tree_oracleINS1_27Alpha_wrap_AABB_geom_traitsINS_5EpickEEENS_9AABB_treeINS_11AABB_traitsIS5_NS_14AABB_primitiveISt4pairImmENS_20Compose_property_mapINSB_INS_26First_of_pair_property_mapISA_EENS1_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSE_INS_10Triangle_3IS4_EEEESH_EENSB_ISD_NSE_INS_7Point_3IS4_EEEESH_EENS_11Boolean_tagILb1EEENSR_ILb0EEEEENSB_ISD_NSE_INS_6Bbox_3EEESH_EEEEEENS1_25Splitter_traversal_traitsISY_EEiEC2EiRKS5_.exit unwind label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN4CGAL9AABB_treeINS1_11AABB_traitsINS1_13Alpha_wraps_38internal27Alpha_wrap_AABB_geom_traitsINS1_5EpickEEENS1_14AABB_primitiveISt4pairImmENS1_20Compose_property_mapINSC_INS1_26First_of_pair_property_mapISB_EENS5_19Vector_property_mapImEEN5boost27read_write_property_map_tagEEENSF_INS1_10Triangle_3IS7_EEEESI_EENSC_ISE_NSF_INS1_7Point_3IS7_EEEESI_EENS1_11Boolean_tagILb1EEENSS_ILb0EEEEENSC_ISE_NSF_INS1_6Bbox_3EEESI_EEEEEESaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit9.i.i.i.i.i, !noalias !673
@@ -35423,7 +35423,7 @@ define linkonce_odr void @_ZN4CGAL13Alpha_wraps_38internal25AABB_tree_oracle_spl
   store i32 1, ptr %7, align 8, !noalias !676
   %8 = getelementptr inbounds i8, ptr %6, i64 12
   store i32 1, ptr %8, align 4, !noalias !676
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !noalias !676
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %6, align 8, !noalias !676
   %9 = getelementptr inbounds i8, ptr %6, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false), !noalias !676
   store ptr %6, ptr %5, align 8, !alias.scope !676
@@ -35437,7 +35437,7 @@ define linkonce_odr void @_ZN4CGAL13Alpha_wraps_38internal25AABB_tree_oracle_spl
   store i32 1, ptr %13, align 8, !noalias !679
   %14 = getelementptr inbounds i8, ptr %11, i64 12
   store i32 1, ptr %14, align 4, !noalias !679
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL6Bbox_3ESaIS2_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %11, align 8, !noalias !679
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL6Bbox_3ESaIS2_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %11, align 8, !noalias !679
   %15 = getelementptr inbounds i8, ptr %11, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false), !noalias !679
   %16 = getelementptr inbounds i8, ptr %0, i64 32
@@ -35531,7 +35531,7 @@ _ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_6Bbox_3EED2Ev.exit: ; p
   store i32 1, ptr %55, align 8, !noalias !682
   %56 = getelementptr inbounds i8, ptr %53, i64 12
   store i32 1, ptr %56, align 4, !noalias !682
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %53, align 8, !noalias !682
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %53, align 8, !noalias !682
   %57 = getelementptr inbounds i8, ptr %53, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, i8 0, i64 24, i1 false), !noalias !682
   %58 = getelementptr inbounds i8, ptr %0, i64 56
@@ -35627,7 +35627,7 @@ _ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapINS_7Point_3INS_5EpickEEEED
   store i32 1, ptr %98, align 8, !noalias !685
   %99 = getelementptr inbounds i8, ptr %96, i64 12
   store i32 1, ptr %99, align 4, !noalias !685
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %96, align 8, !noalias !685
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %96, align 8, !noalias !685
   %100 = getelementptr inbounds i8, ptr %96, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %100, i8 0, i64 24, i1 false), !noalias !685
   store ptr %96, ptr %95, align 8, !alias.scope !685
@@ -36693,7 +36693,7 @@ define linkonce_odr void @_ZN4CGAL11AABB_traitsINS_13Alpha_wraps_38internal27Alp
   store i32 1, ptr %4, align 8, !noalias !688
   %5 = getelementptr inbounds i8, ptr %2, i64 12
   store i32 1, ptr %5, align 4, !noalias !688
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL6Bbox_3ESaIS2_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !noalias !688
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL6Bbox_3ESaIS2_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %2, align 8, !noalias !688
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false), !noalias !688
   %7 = getelementptr inbounds i8, ptr %0, i64 72
@@ -37032,7 +37032,7 @@ define linkonce_odr void @_ZNSt4pairIN4CGAL20Compose_property_mapINS1_INS0_26Fir
   store i32 1, ptr %6, align 8, !noalias !691
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4, !noalias !691
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !noalias !691
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %5, align 8, !noalias !691
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, i8 0, i64 24, i1 false), !noalias !691
   store ptr %5, ptr %4, align 8, !alias.scope !691
@@ -37062,7 +37062,7 @@ _ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_1
   store i32 1, ptr %17, align 8, !noalias !694
   %18 = getelementptr inbounds i8, ptr %15, i64 12
   store i32 1, ptr %18, align 4, !noalias !694
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %15, align 8, !noalias !694
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %15, align 8, !noalias !694
   %19 = getelementptr inbounds i8, ptr %15, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, i8 0, i64 24, i1 false), !noalias !694
   %20 = getelementptr inbounds i8, ptr %0, i64 8
@@ -37334,7 +37334,7 @@ _ZN4CGAL13Alpha_wraps_38internal19Vector_property_mapImED2Ev.exit: ; preds = %_Z
   store i32 1, ptr %143, align 8, !noalias !697
   %144 = getelementptr inbounds i8, ptr %141, i64 12
   store i32 1, ptr %144, align 4, !noalias !697
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %141, align 8, !noalias !697
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %141, align 8, !noalias !697
   %145 = getelementptr inbounds i8, ptr %141, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %145, i8 0, i64 24, i1 false), !noalias !697
   %146 = getelementptr inbounds i8, ptr %0, i64 48
@@ -39697,7 +39697,7 @@ _ZN4CGAL3putERKNS_20Compose_property_mapINS_26First_of_pair_property_mapISt4pair
   store i32 1, ptr %392, align 8, !noalias !730
   %393 = getelementptr inbounds i8, ptr %391, i64 12
   store i32 1, ptr %393, align 4, !noalias !730
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %391, align 8, !noalias !730
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %391, align 8, !noalias !730
   %394 = getelementptr inbounds i8, ptr %391, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %394, i8 0, i64 24, i1 false), !noalias !730
   store ptr %391, ptr %390, align 8, !alias.scope !730
@@ -39729,7 +39729,7 @@ _ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_1
   store i32 1, ptr %404, align 8, !noalias !733
   %405 = getelementptr inbounds i8, ptr %402, i64 12
   store i32 1, ptr %405, align 4, !noalias !733
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %402, align 8, !noalias !733
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %402, align 8, !noalias !733
   %406 = getelementptr inbounds i8, ptr %402, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %406, i8 0, i64 24, i1 false), !noalias !733
   store ptr %402, ptr %401, align 8, !alias.scope !733
@@ -39799,7 +39799,7 @@ _ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEE
   store i32 1, ptr %433, align 8, !noalias !736
   %434 = getelementptr inbounds i8, ptr %431, i64 12
   store i32 1, ptr %434, align 4, !noalias !736
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %431, align 8, !noalias !736
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %431, align 8, !noalias !736
   %435 = getelementptr inbounds i8, ptr %431, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %435, i8 0, i64 24, i1 false), !noalias !736
   %436 = load i8, ptr @__libc_single_threaded, align 1
@@ -42396,7 +42396,7 @@ _ZNSt5queueISt5arrayISt4pairIN4CGAL7Point_3INS2_16Simple_cartesianINS2_11Interva
   store i32 1, ptr %1522, align 8, !noalias !937
   %1523 = getelementptr inbounds i8, ptr %1520, i64 12
   store i32 1, ptr %1523, align 4, !noalias !937
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %1520, align 8, !noalias !937
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorImSaImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %1520, align 8, !noalias !937
   %1524 = getelementptr inbounds i8, ptr %1520, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1524, i8 0, i64 24, i1 false), !noalias !937
   store ptr %1520, ptr %815, align 8, !alias.scope !937
@@ -42425,7 +42425,7 @@ _ZN4CGAL20Compose_property_mapINS_26First_of_pair_property_mapISt4pairImmEEENS_1
   store i32 1, ptr %1531, align 8, !noalias !940
   %1532 = getelementptr inbounds i8, ptr %1529, i64 12
   store i32 1, ptr %1532, align 4, !noalias !940
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %1529, align 8, !noalias !940
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL10Triangle_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %1529, align 8, !noalias !940
   %1533 = getelementptr inbounds i8, ptr %1529, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1533, i8 0, i64 24, i1 false), !noalias !940
   store ptr %1529, ptr %818, align 8, !alias.scope !940
@@ -42489,7 +42489,7 @@ _ZN4CGAL20Compose_property_mapINS0_INS_26First_of_pair_property_mapISt4pairImmEE
   store i32 1, ptr %1554, align 8, !noalias !943
   %1555 = getelementptr inbounds i8, ptr %1552, i64 12
   store i32 1, ptr %1555, align 4, !noalias !943
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %1552, align 8, !noalias !943
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6vectorIN4CGAL7Point_3INS1_5EpickEEESaIS4_EESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %1552, align 8, !noalias !943
   %1556 = getelementptr inbounds i8, ptr %1552, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1556, i8 0, i64 24, i1 false), !noalias !943
   %1557 = load i8, ptr @__libc_single_threaded, align 1
@@ -50390,7 +50390,7 @@ _ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKN
           to label %166 unwind label %168
 
 166:                                              ; preds = %165
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, inrange i32 0, i64 2), ptr %164, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, i32 0, i64 2), ptr %164, align 8
   invoke void @__cxa_throw(ptr nonnull %164, ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE, ptr nonnull @_ZN4CGAL30Uncertain_conversion_exceptionD2Ev) #40
           to label %170 unwind label %168
 
@@ -50484,7 +50484,7 @@ _ZN4CGAL16strict_dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKN
           to label %189 unwind label %191
 
 189:                                              ; preds = %188
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, inrange i32 0, i64 2), ptr %187, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, i32 0, i64 2), ptr %187, align 8
   invoke void @__cxa_throw(ptr nonnull %187, ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE, ptr nonnull @_ZN4CGAL30Uncertain_conversion_exceptionD2Ev) #40
           to label %193 unwind label %191
 
@@ -50595,7 +50595,7 @@ _ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7Point
           to label %221 unwind label %223
 
 221:                                              ; preds = %220
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, inrange i32 0, i64 2), ptr %219, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, i32 0, i64 2), ptr %219, align 8
   invoke void @__cxa_throw(ptr nonnull %219, ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE, ptr nonnull @_ZN4CGAL30Uncertain_conversion_exceptionD2Ev) #40
           to label %225 unwind label %223
 
@@ -50707,7 +50707,7 @@ _ZN4CGAL9dominanceINS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEbRKNS_7Point
           to label %254 unwind label %256
 
 254:                                              ; preds = %253
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, inrange i32 0, i64 2), ptr %252, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL30Uncertain_conversion_exceptionE, i64 0, i32 0, i64 2), ptr %252, align 8
   invoke void @__cxa_throw(ptr nonnull %252, ptr nonnull @_ZTIN4CGAL30Uncertain_conversion_exceptionE, ptr nonnull @_ZN4CGAL30Uncertain_conversion_exceptionD2Ev) #40
           to label %258 unwind label %256
 
@@ -51272,7 +51272,7 @@ _ZN4CGAL20Aff_transformation_3INS_16Simple_cartesianIdEEED2Ev.exit61:
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds i8, ptr %0, i64 40
   %13 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #39
   %14 = getelementptr inbounds i8, ptr %13, i64 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %13, align 8
   %15 = getelementptr inbounds i8, ptr %13, i64 16
   store double 1.200000e+00, ptr %15, align 8
   %16 = fmul double %.035.i.i.i, 1.200000e+00
@@ -56314,7 +56314,7 @@ _ZN4CGAL20Aff_transformation_3INS_16Simple_cartesianIdEEEC2ERKdS5_S5_S5_S5_S5_S5
   %11 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #39
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 1, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   store double %7, ptr %13, align 8
   %.sroa.4.16..sroa_idx.i.i = getelementptr inbounds i8, ptr %11, i64 24
@@ -56349,7 +56349,7 @@ define linkonce_odr void @_ZNK4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEE7co
   %9 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #39
   %10 = getelementptr inbounds i8, ptr %9, i64 8
   store i32 1, ptr %10, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %9, i64 16
   store double %8, ptr %11, align 8
   store ptr %9, ptr %0, align 8
@@ -56382,7 +56382,7 @@ _ZN4CGAL20Aff_transformation_3INS_16Simple_cartesianIdEEEC2ERKdS5_S5_S5_S5_S5_S5
   %23 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #39
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 16
   %26 = load <2 x double>, ptr %5, align 8
   %27 = insertelement <2 x double> poison, double %4, i64 0
@@ -56421,7 +56421,7 @@ define linkonce_odr void @_ZNK4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEE7in
   %6 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #39
   %7 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 1, ptr %7, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %6, align 8
   %8 = getelementptr inbounds i8, ptr %6, i64 16
   store double %5, ptr %8, align 8
   store ptr %6, ptr %0, align 8
@@ -56435,7 +56435,7 @@ define linkonce_odr void @_ZNK4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEE9tr
   %5 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #39
   %6 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 1, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL13Scaling_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %5, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 16
   store double %4, ptr %7, align 8
   store ptr %5, ptr %0, align 8
@@ -57078,7 +57078,7 @@ _ZN4CGAL20Aff_transformation_3INS_16Simple_cartesianIdEEEC2ERKdS5_S5_S5_S5_S5_S5
   %27 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #39
   %28 = getelementptr inbounds i8, ptr %27, i64 8
   store i32 1, ptr %28, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %27, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %27, align 8
   %29 = getelementptr inbounds i8, ptr %27, i64 16
   %30 = load <2 x double>, ptr %3, align 8
   store <2 x double> %30, ptr %29, align 8
@@ -57118,7 +57118,7 @@ _ZN4CGAL20Aff_transformation_3INS_16Simple_cartesianIdEEEC2ERKdS5_S5_S5_S5_S5_S5
   %11 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #39
   %12 = getelementptr inbounds i8, ptr %11, i64 8
   store i32 1, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %11, align 8
   %13 = getelementptr inbounds i8, ptr %11, i64 16
   %14 = load <2 x double>, ptr %5, align 8
   %15 = insertelement <2 x double> poison, double %4, i64 0
@@ -57215,7 +57215,7 @@ _ZN4CGAL20Aff_transformation_3INS_16Simple_cartesianIdEEEC2ERKdS5_S5_S5_S5_S5_S5
   %63 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #39
   %64 = getelementptr inbounds i8, ptr %63, i64 8
   store i32 1, ptr %64, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %63, align 8
   %65 = getelementptr inbounds i8, ptr %63, i64 16
   %66 = load <2 x double>, ptr %5, align 8
   %67 = load <2 x double>, ptr %8, align 8
@@ -57371,7 +57371,7 @@ _ZN4CGAL20Aff_transformation_3INS_16Simple_cartesianIdEEEC2ERKdS5_S5_S5_S5_S5_S5
   %96 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #39
   %97 = getelementptr inbounds i8, ptr %96, i64 8
   store i32 1, ptr %97, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %96, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %96, align 8
   %98 = getelementptr inbounds i8, ptr %96, i64 16
   store <2 x double> %90, ptr %98, align 8
   %.sroa.5.16..sroa_idx.i.i = getelementptr inbounds i8, ptr %96, i64 32
@@ -57415,7 +57415,7 @@ _ZN4CGAL20Aff_transformation_3INS_16Simple_cartesianIdEEEC2ERKdS5_S5_S5_S5_S5_S5
   %23 = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #39
   %24 = getelementptr inbounds i8, ptr %23, i64 8
   store i32 1, ptr %24, align 8
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, inrange i32 0, i64 2), ptr %23, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTVN4CGAL24Aff_transformation_repC3INS_16Simple_cartesianIdEEEE, i64 0, i32 0, i64 2), ptr %23, align 8
   %25 = getelementptr inbounds i8, ptr %23, i64 16
   store double %13, ptr %25, align 8
   %.sroa.4.16..sroa_idx.i.i = getelementptr inbounds i8, ptr %23, i64 24
@@ -73730,7 +73730,7 @@ declare void @__gmpq_div(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS1_RKNS_15source_locationE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1) #22
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -73740,9 +73740,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS1_RKNS_
   store i32 -1, ptr %7, align 8
   %8 = getelementptr inbounds i8, ptr %0, i64 60
   store i32 -1, ptr %8, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, inrange i32 1, i64 2), ptr %4, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, inrange i32 2, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, i32 1, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, i32 2, i64 2), ptr %5, align 8
   %9 = load ptr, ptr %2, align 8
   %10 = getelementptr inbounds i8, ptr %0, i64 48
   store ptr %9, ptr %10, align 8
@@ -73762,7 +73762,7 @@ define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS1_RKNS_
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i = icmp eq ptr %4, null
@@ -73801,13 +73801,13 @@ declare void @_ZNSt14overflow_errorD2Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptISt14overflow_errorE5cloneEv(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #39
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt14overflow_error, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt14overflow_error, i64 0, i32 0, i64 2), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %2, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 32
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -73833,9 +73833,9 @@ define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptISt14overflow_errorE5clon
   %15 = getelementptr inbounds i8, ptr %2, i64 40
   %16 = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, inrange i32 2, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, i32 2, i64 2), ptr %5, align 8
   %17 = getelementptr inbounds i8, ptr %0, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %5, ptr noundef nonnull %17)
           to label %_ZN5boost10wrapexceptISt14overflow_errorE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptISt14overflow_errorE7deleterD2Ev.exit7
@@ -73877,7 +73877,7 @@ define linkonce_odr void @_ZNK5boost10wrapexceptISt14overflow_errorE7rethrowEv(p
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -73914,7 +73914,7 @@ _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %1, %.noexc.i.i.i,
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt14overflow_errorED1Ev(ptr noundef %0) unnamed_addr #26 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i = icmp eq ptr %4, null
@@ -73949,7 +73949,7 @@ _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %1, %.noexc.i.i.i,
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt14overflow_errorED0Ev(ptr noundef %0) unnamed_addr #26 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %.not.i.i.i.i.i = icmp eq ptr %4, null
@@ -73985,7 +73985,7 @@ _ZN5boost10wrapexceptISt14overflow_errorED0Ev.exit: ; preds = %1, %.noexc.i.i.i.
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt14overflow_errorED1Ev(ptr noundef %0) unnamed_addr #26 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -74020,7 +74020,7 @@ _ZN5boost10wrapexceptISt14overflow_errorED2Ev.exit: ; preds = %1, %.noexc.i.i.i,
 
 ; Function Attrs: nounwind uwtable
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt14overflow_errorED0Ev(ptr noundef %0) unnamed_addr #26 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i.i = icmp eq ptr %3, null
@@ -74071,13 +74071,13 @@ declare void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %1, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(16) %4) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt14overflow_error, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt14overflow_error, i64 0, i32 0, i64 2), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %0, i64 32
   %7 = getelementptr inbounds i8, ptr %1, i64 32
   %8 = load ptr, ptr %7, align 8
@@ -74096,9 +74096,9 @@ define linkonce_odr void @_ZN5boost10wrapexceptISt14overflow_errorEC2ERKS2_(ptr 
   %14 = getelementptr inbounds i8, ptr %0, i64 40
   %15 = getelementptr inbounds i8, ptr %1, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, inrange i32 2, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt14overflow_errorEE, i64 0, i32 2, i64 2), ptr %5, align 8
   ret void
 
 16:                                               ; preds = %9
@@ -145663,7 +145663,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i27:        ; preds = %66
   %99 = insertelement <2 x double> %98, double %96, i64 1
   %100 = getelementptr inbounds i8, ptr %46, i64 8
   store i32 1, ptr %100, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %46, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %46, align 16
   %101 = getelementptr inbounds i8, ptr %46, i64 16
   store <2 x double> %85, ptr %101, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %46, i64 32
@@ -145691,7 +145691,7 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
   store ptr %102, ptr %110, align 8
   %111 = getelementptr inbounds i8, ptr %46, i64 72
   store i32 0, ptr %111, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %46, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEEE, i64 0, i32 0, i64 2), ptr %46, align 16
   store ptr %46, ptr %0, align 8
   %112 = getelementptr inbounds i8, ptr %22, i64 96
   br label %113
@@ -145796,7 +145796,7 @@ define linkonce_odr void @_ZNK4CGAL19Cartesian_converterINS_13Alpha_wraps_38inte
   store ptr null, ptr %17, align 8, !noalias !2494
   %18 = getelementptr inbounds i8, ptr %11, i64 40
   store i32 0, ptr %18, align 4, !noalias !2494
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEdEE, i64 0, inrange i32 0, i64 2), ptr %11, align 16, !noalias !2494
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEdEE, i64 0, i32 0, i64 2), ptr %11, align 16, !noalias !2494
   %19 = getelementptr inbounds i8, ptr %11, i64 48
   store double %10, ptr %19, align 16, !noalias !2494
   store ptr %11, ptr %7, align 8, !alias.scope !2494
@@ -145818,7 +145818,7 @@ define linkonce_odr void @_ZNK4CGAL19Cartesian_converterINS_13Alpha_wraps_38inte
   store ptr null, ptr %29, align 8, !noalias !2497
   %30 = getelementptr inbounds i8, ptr %22, i64 40
   store i32 0, ptr %30, align 4, !noalias !2497
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEdEE, i64 0, inrange i32 0, i64 2), ptr %22, align 16, !noalias !2497
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEdEE, i64 0, i32 0, i64 2), ptr %22, align 16, !noalias !2497
   %31 = getelementptr inbounds i8, ptr %22, i64 48
   store double %21, ptr %31, align 16, !noalias !2497
   store ptr %22, ptr %8, align 8, !alias.scope !2497
@@ -145840,7 +145840,7 @@ define linkonce_odr void @_ZNK4CGAL19Cartesian_converterINS_13Alpha_wraps_38inte
   store ptr null, ptr %41, align 8, !noalias !2500
   %42 = getelementptr inbounds i8, ptr %34, i64 40
   store i32 0, ptr %42, align 4, !noalias !2500
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEdEE, i64 0, inrange i32 0, i64 2), ptr %34, align 16, !noalias !2500
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEdEE, i64 0, i32 0, i64 2), ptr %34, align 16, !noalias !2500
   %43 = getelementptr inbounds i8, ptr %34, i64 48
   store double %33, ptr %43, align 16, !noalias !2500
   store ptr %34, ptr %9, align 8, !alias.scope !2500
@@ -150689,7 +150689,7 @@ define linkonce_odr void @_ZNK4CGAL20Lazy_construction_ntINS_5EpeckENS_23Cartesi
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %19, i64 40
   store i32 0, ptr %26, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_x_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEE, i64 0, inrange i32 0, i64 2), ptr %19, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_x_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEE, i64 0, i32 0, i64 2), ptr %19, align 16
   %27 = getelementptr inbounds i8, ptr %19, i64 48
   store ptr %21, ptr %27, align 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
@@ -150796,7 +150796,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   %63 = extractvalue { double, double } %61, 1
   %64 = getelementptr inbounds i8, ptr %48, i64 8
   store i32 1, ptr %64, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %48, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %48, align 16
   %65 = getelementptr inbounds i8, ptr %48, i64 16
   %66 = fneg double %62
   %67 = insertelement <2 x double> poison, double %66, i64 0
@@ -150830,7 +150830,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   store ptr %69, ptr %76, align 8
   %77 = getelementptr inbounds i8, ptr %48, i64 40
   store i32 0, ptr %77, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEEE, i64 0, inrange i32 0, i64 2), ptr %48, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEEE, i64 0, i32 0, i64 2), ptr %48, align 16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store ptr %48, ptr %0, align 8
   br label %90
@@ -150936,7 +150936,7 @@ _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i.i.i:      ; preds = %23, %20, %17, %14, 
   br label %_ZNSt5tupleIJN4CGAL7Point_3INS0_5EpeckEEEEED2Ev.exit
 
 _ZNSt5tupleIJN4CGAL7Point_3INS0_5EpeckEEEEED2Ev.exit: ; preds = %1, %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = load atomic i64, ptr %27 monotonic, align 16
   %.0.i.i = inttoptr i64 %28 to ptr
@@ -150988,7 +150988,7 @@ define linkonce_odr void @_ZNK4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EED2Ev(ptr noundef nonnull align 16 dereferenceable(44) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 monotonic, align 16
   %.0.i = inttoptr i64 %3 to ptr
@@ -151237,7 +151237,7 @@ define linkonce_odr void @_ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIZ
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEED2Ev(ptr noundef nonnull align 16 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 monotonic, align 16
   %.0.i.i = inttoptr i64 %3 to ptr
@@ -151276,7 +151276,7 @@ _ZN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8bac
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEED0Ev(ptr noundef nonnull align 16 dereferenceable(48) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 monotonic, align 16
   %.0.i.i.i = inttoptr i64 %3 to ptr
@@ -151382,7 +151382,7 @@ define linkonce_odr void @_ZNK4CGAL20Lazy_construction_ntINS_5EpeckENS_23Cartesi
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %19, i64 40
   store i32 0, ptr %26, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_y_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEE, i64 0, inrange i32 0, i64 2), ptr %19, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_y_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEE, i64 0, i32 0, i64 2), ptr %19, align 16
   %27 = getelementptr inbounds i8, ptr %19, i64 48
   store ptr %21, ptr %27, align 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
@@ -151490,7 +151490,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   %64 = extractvalue { double, double } %62, 1
   %65 = getelementptr inbounds i8, ptr %48, i64 8
   store i32 1, ptr %65, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %48, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %48, align 16
   %66 = getelementptr inbounds i8, ptr %48, i64 16
   %67 = fneg double %63
   %68 = insertelement <2 x double> poison, double %67, i64 0
@@ -151524,7 +151524,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   store ptr %70, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %48, i64 40
   store i32 0, ptr %78, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEEE, i64 0, inrange i32 0, i64 2), ptr %48, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEEE, i64 0, i32 0, i64 2), ptr %48, align 16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store ptr %48, ptr %0, align 8
   br label %91
@@ -151630,7 +151630,7 @@ _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i.i.i:      ; preds = %23, %20, %17, %14, 
   br label %_ZNSt5tupleIJN4CGAL7Point_3INS0_5EpeckEEEEED2Ev.exit
 
 _ZNSt5tupleIJN4CGAL7Point_3INS0_5EpeckEEEEED2Ev.exit: ; preds = %1, %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = load atomic i64, ptr %27 monotonic, align 16
   %.0.i.i = inttoptr i64 %28 to ptr
@@ -151861,7 +151861,7 @@ define linkonce_odr void @_ZNK4CGAL20Lazy_construction_ntINS_5EpeckENS_23Cartesi
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %19, i64 40
   store i32 0, ptr %26, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_z_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEE, i64 0, inrange i32 0, i64 2), ptr %19, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_23CartesianKernelFunctors11Compute_z_3INS_16Simple_cartesianIS2_EEEENSB_INSC_IS9_EEEENS_11To_intervalIS9_EELb0EJNS_7Point_3INS_5EpeckEEEEEE, i64 0, i32 0, i64 2), ptr %19, align 16
   %27 = getelementptr inbounds i8, ptr %19, i64 48
   store ptr %21, ptr %27, align 8
   %28 = load i8, ptr @__libc_single_threaded, align 1
@@ -151969,7 +151969,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   %64 = extractvalue { double, double } %62, 1
   %65 = getelementptr inbounds i8, ptr %48, i64 8
   store i32 1, ptr %65, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %48, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %48, align 16
   %66 = getelementptr inbounds i8, ptr %48, i64 16
   %67 = fneg double %63
   %68 = insertelement <2 x double> poison, double %67, i64 0
@@ -152003,7 +152003,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i:          ; preds = %44
   store ptr %70, ptr %77, align 8
   %78 = getelementptr inbounds i8, ptr %48, i64 40
   store i32 0, ptr %78, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEEE, i64 0, inrange i32 0, i64 2), ptr %48, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EEEE, i64 0, i32 0, i64 2), ptr %48, align 16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   store ptr %48, ptr %0, align 8
   br label %91
@@ -152109,7 +152109,7 @@ _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i.i.i:      ; preds = %23, %20, %17, %14, 
   br label %_ZNSt5tupleIJN4CGAL7Point_3INS0_5EpeckEEEEED2Ev.exit
 
 _ZNSt5tupleIJN4CGAL7Point_3INS0_5EpeckEEEEED2Ev.exit: ; preds = %1, %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %27 = getelementptr inbounds i8, ptr %0, i64 32
   %28 = load atomic i64, ptr %27 monotonic, align 16
   %.0.i.i = inttoptr i64 %28 to ptr
@@ -152428,7 +152428,7 @@ _ZNK4CGAL23CartesianKernelFunctors24Construct_circumcenter_3INS_16Simple_cartesi
   store ptr null, ptr %108, align 16
   %109 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %109, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors24Construct_circumcenter_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS1_INS_5EpeckEEESP_SP_EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors24Construct_circumcenter_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS1_INS_5EpeckEEESP_SP_EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %110 = getelementptr inbounds i8, ptr %0, i64 80
   %111 = load ptr, ptr %5, align 8
   store ptr %111, ptr %110, align 16
@@ -152599,7 +152599,7 @@ _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_t
 define linkonce_odr void @_ZN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors24Construct_circumcenter_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS1_INS_5EpeckEEESP_SP_EED2Ev(ptr noundef nonnull align 16 dereferenceable(112) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt11_Tuple_implILm0EJN4CGAL7Point_3INS0_5EpeckEEES3_S3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load atomic i64, ptr %3 monotonic, align 16
   %.0.i.i = inttoptr i64 %4 to ptr
@@ -152650,7 +152650,7 @@ _ZN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEN
 define linkonce_odr void @_ZN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors24Construct_circumcenter_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS1_INS_5EpeckEEESP_SP_EED0Ev(ptr noundef nonnull align 16 dereferenceable(112) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt11_Tuple_implILm0EJN4CGAL7Point_3INS0_5EpeckEEES3_S3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load atomic i64, ptr %3 monotonic, align 16
   %.0.i.i.i = inttoptr i64 %4 to ptr
@@ -153323,7 +153323,7 @@ define linkonce_odr void @_ZN4CGAL31determinants_for_circumcenterC3INS_11Interva
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EED2Ev(ptr noundef nonnull align 16 dereferenceable(76) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load atomic i64, ptr %2 monotonic, align 16
   %.0.i = inttoptr i64 %3 to ptr
@@ -156015,7 +156015,7 @@ _ZN5boost14multiprecision8backends12gmp_rationalD2Ev.exit: ; preds = %_ZN5boost1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED2Ev(ptr noundef nonnull align 16 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load atomic i64, ptr %2 monotonic, align 16
   %.0.i.i = inttoptr i64 %3 to ptr
@@ -156064,7 +156064,7 @@ _ZN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEN
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEED0Ev(ptr noundef nonnull align 16 dereferenceable(80) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 64
   %3 = load atomic i64, ptr %2 monotonic, align 16
   %.0.i.i.i = inttoptr i64 %3 to ptr
@@ -156162,7 +156162,7 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEdED2Ev(ptr noundef nonnull align 16 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 monotonic, align 16
   %.0.i.i.i = inttoptr i64 %3 to ptr
@@ -156201,7 +156201,7 @@ _ZN4CGAL17Lazy_exact_nt_repIN5boost14multiprecision6numberINS2_8backends12gmp_ra
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4CGAL14Lazy_exact_CstIN5boost14multiprecision6numberINS2_8backends12gmp_rationalELNS2_26expression_template_optionE1EEEdED0Ev(ptr noundef nonnull align 16 dereferenceable(64) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_11Interval_ntILb0EEEN5boost14multiprecision6numberINS4_8backends12gmp_rationalELNS4_26expression_template_optionE1EEENS_11To_intervalIS9_EELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %2 = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load atomic i64, ptr %2 monotonic, align 16
   %.0.i.i.i.i = inttoptr i64 %3 to ptr
@@ -156341,7 +156341,7 @@ define linkonce_odr void @_ZNK4CGAL17Lazy_constructionINS_5EpeckENS_23CartesianK
   store ptr null, ptr %37, align 8
   %38 = getelementptr inbounds i8, ptr %27, i64 72
   store i32 0, ptr %38, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors17Construct_point_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS_15Return_base_tagENS_13Lazy_exact_ntISD_EESQ_SQ_EEE, i64 0, inrange i32 0, i64 2), ptr %27, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors17Construct_point_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS_15Return_base_tagENS_13Lazy_exact_ntISD_EESQ_SQ_EEE, i64 0, i32 0, i64 2), ptr %27, align 16
   %39 = getelementptr inbounds i8, ptr %27, i64 80
   store ptr %33, ptr %39, align 8
   %40 = load i8, ptr @__libc_single_threaded, align 1
@@ -156759,7 +156759,7 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
   %42 = insertelement <2 x double> %41, double %39, i64 1
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   store i32 1, ptr %43, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %44 = getelementptr inbounds i8, ptr %0, i64 16
   store <2 x double> %27, ptr %44, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds i8, ptr %0, i64 32
@@ -156818,7 +156818,7 @@ _ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_t
   br i1 %68, label %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit, label %57
 
 _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEED2Ev.exit: ; preds = %_ZN5boost14multiprecision6numberINS0_8backends12gmp_rationalELNS0_26expression_template_optionE1EED2Ev.exit.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEEE, i64 0, i32 0, i64 2), ptr %0, align 16
   ret void
 
 69:                                               ; preds = %32, %.noexc4, %.noexc, %_ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEEEC2ERKNS_7PointC3IS9_EE.exit
@@ -156832,7 +156832,7 @@ _ZN4CGAL7Point_3INS_16Simple_cartesianIN5boost14multiprecision6numberINS3_8backe
 define linkonce_odr void @_ZN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors17Construct_point_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS_15Return_base_tagENS_13Lazy_exact_ntISD_EESQ_SQ_EED2Ev(ptr noundef nonnull align 16 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt11_Tuple_implILm1EJN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEES9_S9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load atomic i64, ptr %3 monotonic, align 16
   %.0.i.i = inttoptr i64 %4 to ptr
@@ -156883,7 +156883,7 @@ _ZN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEEN
 define linkonce_odr void @_ZN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors17Construct_point_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS_15Return_base_tagENS_13Lazy_exact_ntISD_EESQ_SQ_EED0Ev(ptr noundef nonnull align 16 dereferenceable(128) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 80
   tail call void @_ZNSt11_Tuple_implILm1EJN4CGAL13Lazy_exact_ntIN5boost14multiprecision6numberINS3_8backends12gmp_rationalELNS3_26expression_template_optionE1EEEEES9_S9_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %2) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %3 = getelementptr inbounds i8, ptr %0, i64 64
   %4 = load atomic i64, ptr %3 monotonic, align 16
   %.0.i.i.i = inttoptr i64 %4 to ptr
@@ -158278,7 +158278,7 @@ _ZL14__gthread_oncePiPFvvE.exit.i.i.i.i35:        ; preds = %79
   %112 = insertelement <2 x double> %111, double %109, i64 1
   %113 = getelementptr inbounds i8, ptr %49, i64 8
   store i32 1, ptr %113, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %49, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %49, align 16
   %114 = getelementptr inbounds i8, ptr %49, i64 16
   store <2 x double> %98, ptr %114, align 16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds i8, ptr %49, i64 32
@@ -158306,7 +158306,7 @@ _ZN4CGAL4LazyINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_I
   store ptr %115, ptr %123, align 8
   %124 = getelementptr inbounds i8, ptr %49, i64 72
   store i32 0, ptr %124, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEEE, i64 0, inrange i32 0, i64 2), ptr %49, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_0INS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEEEE, i64 0, i32 0, i64 2), ptr %49, align 16
   store ptr %49, ptr %0, align 8
   %125 = getelementptr inbounds i8, ptr %25, i64 96
   br label %126
@@ -158431,7 +158431,7 @@ define linkonce_odr void @_ZN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesian
   store ptr null, ptr %28, align 16
   %29 = getelementptr inbounds i8, ptr %0, i64 72
   store i32 0, ptr %29, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors24Construct_circumcenter_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS1_INS_5EpeckEEESP_SP_SP_EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL10Lazy_rep_nINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_23CartesianKernelFunctors24Construct_circumcenter_3IS5_EENSH_ISE_EENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELb0EJNS1_INS_5EpeckEEESP_SP_SP_EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %30 = getelementptr inbounds i8, ptr %0, i64 80
   %31 = load ptr, ptr %6, align 8
   store ptr %31, ptr %30, align 16
@@ -158548,7 +158548,7 @@ _ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i.i.i:      ; preds = %24, %21, %18, %15, 
 
 _ZNSt5tupleIJN4CGAL7Point_3INS0_5EpeckEEES3_S3_S3_EED2Ev.exit: ; preds = %1, %_ZN4CGAL6Handle6decrefEv.exit.i.i.i.i.i.i.i
   tail call void @_ZNSt11_Tuple_implILm1EJN4CGAL7Point_3INS0_5EpeckEEES3_S3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %2) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, inrange i32 0, i64 2), ptr %0, align 16
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4CGAL8Lazy_repINS_7Point_3INS_16Simple_cartesianINS_11Interval_ntILb0EEEEEEENS1_INS2_IN5boost14multiprecision6numberINS8_8backends12gmp_rationalELNS8_26expression_template_optionE1EEEEEEENS_19Cartesian_converterISE_S5_NS_12NT_converterISD_S4_EEEELi1EEE, i64 0, i32 0, i64 2), ptr %0, align 16
   %28 = getelementptr inbounds i8, ptr %0, i64 64
   %29 = load atomic i64, ptr %28 monotonic, align 16
   %.0.i.i = inttoptr i64 %29 to ptr

@@ -1224,11 +1224,11 @@ define dso_local noundef i32 @_ZN15ModApiParticles14l_add_particleEP9lua_State(p
   %16 = getelementptr inbounds i8, ptr %5, i64 36
   store float 0.000000e+00, ptr %16, align 4, !tbaa !46
   %17 = getelementptr inbounds i8, ptr %5, i64 40
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %17, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %17, align 8, !tbaa !47
   %18 = getelementptr inbounds i8, ptr %5, i64 48
   store float 1.000000e+00, ptr %18, align 8, !tbaa !41
   %19 = getelementptr inbounds i8, ptr %5, i64 56
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %19, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %19, align 8, !tbaa !47
   %20 = getelementptr inbounds i8, ptr %5, i64 64
   store float 1.000000e+00, ptr %20, align 8, !tbaa !41
   %21 = getelementptr inbounds i8, ptr %5, i64 72
@@ -1240,11 +1240,11 @@ define dso_local noundef i32 @_ZN15ModApiParticles14l_add_particleEP9lua_State(p
   %24 = getelementptr inbounds i8, ptr %5, i64 80
   %25 = getelementptr inbounds i8, ptr %5, i64 88
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %25, align 8, !tbaa.struct !42
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %24, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %24, align 8, !tbaa !47
   %26 = getelementptr inbounds i8, ptr %5, i64 96
   %27 = getelementptr inbounds i8, ptr %5, i64 104
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %27, align 8, !tbaa.struct !42
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %26, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %26, align 8, !tbaa !47
   %28 = getelementptr inbounds i8, ptr %5, i64 112
   %29 = getelementptr inbounds i8, ptr %5, i64 128
   store ptr %29, ptr %28, align 8, !tbaa !4
@@ -1265,11 +1265,11 @@ define dso_local noundef i32 @_ZN15ModApiParticles14l_add_particleEP9lua_State(p
   %37 = getelementptr inbounds i8, ptr %5, i64 224
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %36, align 4, !tbaa !37
   %38 = getelementptr inbounds i8, ptr %5, i64 232
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %38, align 8, !tbaa !47
   %39 = getelementptr inbounds i8, ptr %5, i64 240
   store float 0.000000e+00, ptr %39, align 8, !tbaa !41
   %40 = getelementptr inbounds i8, ptr %5, i64 248
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %40, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %40, align 8, !tbaa !47
   %41 = getelementptr inbounds i8, ptr %5, i64 256
   store float 0.000000e+00, ptr %41, align 8, !tbaa !41
   %42 = getelementptr inbounds i8, ptr %5, i64 264
@@ -1279,13 +1279,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles14l_add_particleEP9lua_State(p
   store <2 x float> zeroinitializer, ptr %44, align 8, !tbaa !37
   %45 = getelementptr inbounds i8, ptr %5, i64 288
   store float 0.000000e+00, ptr %45, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %43, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %43, align 8, !tbaa !47
   %46 = getelementptr inbounds i8, ptr %5, i64 296
   %47 = getelementptr inbounds i8, ptr %5, i64 304
   store <2 x float> zeroinitializer, ptr %47, align 8, !tbaa !37
   %48 = getelementptr inbounds i8, ptr %5, i64 312
   store float 0.000000e+00, ptr %48, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %46, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %46, align 8, !tbaa !47
   %49 = getelementptr inbounds i8, ptr %5, i64 320
   store float 0.000000e+00, ptr %49, align 8, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #23
@@ -2483,11 +2483,11 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   %12 = getelementptr inbounds i8, ptr %3, i64 36
   store float 0.000000e+00, ptr %12, align 4, !tbaa !46
   %13 = getelementptr inbounds i8, ptr %3, i64 40
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %13, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %13, align 8, !tbaa !47
   %14 = getelementptr inbounds i8, ptr %3, i64 48
   store float 1.000000e+00, ptr %14, align 8, !tbaa !41
   %15 = getelementptr inbounds i8, ptr %3, i64 56
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %15, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %15, align 8, !tbaa !47
   %16 = getelementptr inbounds i8, ptr %3, i64 64
   store float 1.000000e+00, ptr %16, align 8, !tbaa !41
   %17 = getelementptr inbounds i8, ptr %3, i64 72
@@ -2499,11 +2499,11 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   %20 = getelementptr inbounds i8, ptr %3, i64 80
   %21 = getelementptr inbounds i8, ptr %3, i64 88
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %21, align 8, !tbaa.struct !42
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %20, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %20, align 8, !tbaa !47
   %22 = getelementptr inbounds i8, ptr %3, i64 96
   %23 = getelementptr inbounds i8, ptr %3, i64 104
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %23, align 8, !tbaa.struct !42
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %22, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %22, align 8, !tbaa !47
   %24 = getelementptr inbounds i8, ptr %3, i64 112
   %25 = getelementptr inbounds i8, ptr %3, i64 128
   store ptr %25, ptr %24, align 8, !tbaa !4
@@ -2533,13 +2533,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %37, align 8, !tbaa !37
   %38 = getelementptr inbounds i8, ptr %3, i64 224
   store float 0.000000e+00, ptr %38, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %36, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %36, align 8, !tbaa !47
   %39 = getelementptr inbounds i8, ptr %3, i64 232
   %40 = getelementptr inbounds i8, ptr %3, i64 240
   store <2 x float> zeroinitializer, ptr %40, align 8, !tbaa !37
   %41 = getelementptr inbounds i8, ptr %3, i64 248
   store float 0.000000e+00, ptr %41, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %39, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %39, align 8, !tbaa !47
   %42 = getelementptr inbounds i8, ptr %3, i64 256
   store float 0.000000e+00, ptr %42, align 8, !tbaa !63
   %43 = getelementptr inbounds i8, ptr %3, i64 264
@@ -2547,13 +2547,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %44, align 8, !tbaa !37
   %45 = getelementptr inbounds i8, ptr %3, i64 280
   store float 0.000000e+00, ptr %45, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %43, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %43, align 8, !tbaa !47
   %46 = getelementptr inbounds i8, ptr %3, i64 288
   %47 = getelementptr inbounds i8, ptr %3, i64 296
   store <2 x float> zeroinitializer, ptr %47, align 8, !tbaa !37
   %48 = getelementptr inbounds i8, ptr %3, i64 304
   store float 0.000000e+00, ptr %48, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %46, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %46, align 8, !tbaa !47
   %49 = getelementptr inbounds i8, ptr %3, i64 312
   store float 0.000000e+00, ptr %49, align 8, !tbaa !63
   %50 = getelementptr inbounds i8, ptr %3, i64 320
@@ -2567,13 +2567,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %54, align 8, !tbaa !37
   %55 = getelementptr inbounds i8, ptr %3, i64 344
   store float 0.000000e+00, ptr %55, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %53, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %53, align 8, !tbaa !47
   %56 = getelementptr inbounds i8, ptr %3, i64 352
   %57 = getelementptr inbounds i8, ptr %3, i64 360
   store <2 x float> zeroinitializer, ptr %57, align 8, !tbaa !37
   %58 = getelementptr inbounds i8, ptr %3, i64 368
   store float 0.000000e+00, ptr %58, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %56, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %56, align 8, !tbaa !47
   %59 = getelementptr inbounds i8, ptr %3, i64 376
   store float 0.000000e+00, ptr %59, align 8, !tbaa !63
   %60 = getelementptr inbounds i8, ptr %3, i64 384
@@ -2581,13 +2581,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %61, align 8, !tbaa !37
   %62 = getelementptr inbounds i8, ptr %3, i64 400
   store float 0.000000e+00, ptr %62, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %60, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %60, align 8, !tbaa !47
   %63 = getelementptr inbounds i8, ptr %3, i64 408
   %64 = getelementptr inbounds i8, ptr %3, i64 416
   store <2 x float> zeroinitializer, ptr %64, align 8, !tbaa !37
   %65 = getelementptr inbounds i8, ptr %3, i64 424
   store float 0.000000e+00, ptr %65, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %63, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %63, align 8, !tbaa !47
   %66 = getelementptr inbounds i8, ptr %3, i64 432
   store float 0.000000e+00, ptr %66, align 8, !tbaa !63
   %67 = getelementptr inbounds i8, ptr %3, i64 440
@@ -2601,13 +2601,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %71, align 8, !tbaa !37
   %72 = getelementptr inbounds i8, ptr %3, i64 464
   store float 0.000000e+00, ptr %72, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %70, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %70, align 8, !tbaa !47
   %73 = getelementptr inbounds i8, ptr %3, i64 472
   %74 = getelementptr inbounds i8, ptr %3, i64 480
   store <2 x float> zeroinitializer, ptr %74, align 8, !tbaa !37
   %75 = getelementptr inbounds i8, ptr %3, i64 488
   store float 0.000000e+00, ptr %75, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %73, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %73, align 8, !tbaa !47
   %76 = getelementptr inbounds i8, ptr %3, i64 496
   store float 0.000000e+00, ptr %76, align 8, !tbaa !63
   %77 = getelementptr inbounds i8, ptr %3, i64 504
@@ -2615,13 +2615,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %78, align 8, !tbaa !37
   %79 = getelementptr inbounds i8, ptr %3, i64 520
   store float 0.000000e+00, ptr %79, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %77, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %77, align 8, !tbaa !47
   %80 = getelementptr inbounds i8, ptr %3, i64 528
   %81 = getelementptr inbounds i8, ptr %3, i64 536
   store <2 x float> zeroinitializer, ptr %81, align 8, !tbaa !37
   %82 = getelementptr inbounds i8, ptr %3, i64 544
   store float 0.000000e+00, ptr %82, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %80, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %80, align 8, !tbaa !47
   %83 = getelementptr inbounds i8, ptr %3, i64 552
   store float 0.000000e+00, ptr %83, align 8, !tbaa !63
   %84 = getelementptr inbounds i8, ptr %3, i64 560
@@ -2635,13 +2635,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %88, align 8, !tbaa !37
   %89 = getelementptr inbounds i8, ptr %3, i64 584
   store float 0.000000e+00, ptr %89, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %87, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %87, align 8, !tbaa !47
   %90 = getelementptr inbounds i8, ptr %3, i64 592
   %91 = getelementptr inbounds i8, ptr %3, i64 600
   store <2 x float> zeroinitializer, ptr %91, align 8, !tbaa !37
   %92 = getelementptr inbounds i8, ptr %3, i64 608
   store float 0.000000e+00, ptr %92, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %90, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %90, align 8, !tbaa !47
   %93 = getelementptr inbounds i8, ptr %3, i64 616
   store float 0.000000e+00, ptr %93, align 8, !tbaa !63
   %94 = getelementptr inbounds i8, ptr %3, i64 624
@@ -2649,13 +2649,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %95, align 8, !tbaa !37
   %96 = getelementptr inbounds i8, ptr %3, i64 640
   store float 0.000000e+00, ptr %96, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %94, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %94, align 8, !tbaa !47
   %97 = getelementptr inbounds i8, ptr %3, i64 648
   %98 = getelementptr inbounds i8, ptr %3, i64 656
   store <2 x float> zeroinitializer, ptr %98, align 8, !tbaa !37
   %99 = getelementptr inbounds i8, ptr %3, i64 664
   store float 0.000000e+00, ptr %99, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %97, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %97, align 8, !tbaa !47
   %100 = getelementptr inbounds i8, ptr %3, i64 672
   store float 0.000000e+00, ptr %100, align 8, !tbaa !63
   %101 = getelementptr inbounds i8, ptr %3, i64 680
@@ -2669,13 +2669,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %105, align 8, !tbaa !37
   %106 = getelementptr inbounds i8, ptr %3, i64 704
   store float 0.000000e+00, ptr %106, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %104, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %104, align 8, !tbaa !47
   %107 = getelementptr inbounds i8, ptr %3, i64 712
   %108 = getelementptr inbounds i8, ptr %3, i64 720
   store <2 x float> zeroinitializer, ptr %108, align 8, !tbaa !37
   %109 = getelementptr inbounds i8, ptr %3, i64 728
   store float 0.000000e+00, ptr %109, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %107, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %107, align 8, !tbaa !47
   %110 = getelementptr inbounds i8, ptr %3, i64 736
   store float 0.000000e+00, ptr %110, align 8, !tbaa !63
   %111 = getelementptr inbounds i8, ptr %3, i64 744
@@ -2683,13 +2683,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %112, align 8, !tbaa !37
   %113 = getelementptr inbounds i8, ptr %3, i64 760
   store float 0.000000e+00, ptr %113, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %111, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %111, align 8, !tbaa !47
   %114 = getelementptr inbounds i8, ptr %3, i64 768
   %115 = getelementptr inbounds i8, ptr %3, i64 776
   store <2 x float> zeroinitializer, ptr %115, align 8, !tbaa !37
   %116 = getelementptr inbounds i8, ptr %3, i64 784
   store float 0.000000e+00, ptr %116, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %114, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %114, align 8, !tbaa !47
   %117 = getelementptr inbounds i8, ptr %3, i64 792
   store float 0.000000e+00, ptr %117, align 8, !tbaa !63
   %118 = getelementptr inbounds i8, ptr %3, i64 800
@@ -2703,13 +2703,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %122, align 8, !tbaa !37
   %123 = getelementptr inbounds i8, ptr %3, i64 824
   store float 0.000000e+00, ptr %123, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %121, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %121, align 8, !tbaa !47
   %124 = getelementptr inbounds i8, ptr %3, i64 832
   %125 = getelementptr inbounds i8, ptr %3, i64 840
   store <2 x float> zeroinitializer, ptr %125, align 8, !tbaa !37
   %126 = getelementptr inbounds i8, ptr %3, i64 848
   store float 0.000000e+00, ptr %126, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %124, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %124, align 8, !tbaa !47
   %127 = getelementptr inbounds i8, ptr %3, i64 856
   store float 0.000000e+00, ptr %127, align 8, !tbaa !63
   %128 = getelementptr inbounds i8, ptr %3, i64 864
@@ -2717,13 +2717,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %129, align 8, !tbaa !37
   %130 = getelementptr inbounds i8, ptr %3, i64 880
   store float 0.000000e+00, ptr %130, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %128, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %128, align 8, !tbaa !47
   %131 = getelementptr inbounds i8, ptr %3, i64 888
   %132 = getelementptr inbounds i8, ptr %3, i64 896
   store <2 x float> zeroinitializer, ptr %132, align 8, !tbaa !37
   %133 = getelementptr inbounds i8, ptr %3, i64 904
   store float 0.000000e+00, ptr %133, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %131, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %131, align 8, !tbaa !47
   %134 = getelementptr inbounds i8, ptr %3, i64 912
   store float 0.000000e+00, ptr %134, align 8, !tbaa !63
   %135 = getelementptr inbounds i8, ptr %3, i64 928
@@ -2737,13 +2737,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %139, align 8, !tbaa !37
   %140 = getelementptr inbounds i8, ptr %3, i64 952
   store float 0.000000e+00, ptr %140, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %138, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %138, align 8, !tbaa !47
   %141 = getelementptr inbounds i8, ptr %3, i64 960
   %142 = getelementptr inbounds i8, ptr %3, i64 968
   store <2 x float> zeroinitializer, ptr %142, align 8, !tbaa !37
   %143 = getelementptr inbounds i8, ptr %3, i64 976
   store float 0.000000e+00, ptr %143, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %141, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %141, align 8, !tbaa !47
   %144 = getelementptr inbounds i8, ptr %3, i64 984
   store i8 0, ptr %144, align 8, !tbaa !92
   %145 = getelementptr inbounds i8, ptr %3, i64 986
@@ -2755,13 +2755,13 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   store <2 x float> zeroinitializer, ptr %148, align 8, !tbaa !37
   %149 = getelementptr inbounds i8, ptr %3, i64 1008
   store float 0.000000e+00, ptr %149, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %147, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %147, align 8, !tbaa !47
   %150 = getelementptr inbounds i8, ptr %3, i64 1016
   %151 = getelementptr inbounds i8, ptr %3, i64 1024
   store <2 x float> zeroinitializer, ptr %151, align 8, !tbaa !37
   %152 = getelementptr inbounds i8, ptr %3, i64 1032
   store float 0.000000e+00, ptr %152, align 8, !tbaa !61
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, inrange i32 0, i64 2), ptr %150, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector3dIfEELm3EEE, i64 0, i32 0, i64 2), ptr %150, align 8, !tbaa !47
   %153 = getelementptr inbounds i8, ptr %3, i64 1040
   store i16 0, ptr %153, align 8, !tbaa !95
   %154 = getelementptr inbounds i8, ptr %3, i64 1042
@@ -2775,21 +2775,21 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   %158 = getelementptr inbounds i8, ptr %3, i64 1052
   store float 0.000000e+00, ptr %158, align 4, !tbaa !100
   %159 = getelementptr inbounds i8, ptr %3, i64 1056
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %159, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %159, align 8, !tbaa !47
   %160 = getelementptr inbounds i8, ptr %3, i64 1064
   store float 1.000000e+00, ptr %160, align 8, !tbaa !41
   %161 = getelementptr inbounds i8, ptr %3, i64 1072
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %161, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %161, align 8, !tbaa !47
   %162 = getelementptr inbounds i8, ptr %3, i64 1080
   store float 1.000000e+00, ptr %162, align 8, !tbaa !41
   %163 = getelementptr inbounds i8, ptr %3, i64 1088
   store float 0.000000e+00, ptr %163, align 8, !tbaa !59
   %164 = getelementptr inbounds i8, ptr %3, i64 1096
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %164, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %164, align 8, !tbaa !47
   %165 = getelementptr inbounds i8, ptr %3, i64 1104
   store float 1.000000e+00, ptr %165, align 8, !tbaa !41
   %166 = getelementptr inbounds i8, ptr %3, i64 1112
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %166, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %166, align 8, !tbaa !47
   %167 = getelementptr inbounds i8, ptr %3, i64 1120
   store float 1.000000e+00, ptr %167, align 8, !tbaa !41
   %168 = getelementptr inbounds i8, ptr %3, i64 1128
@@ -2801,21 +2801,21 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   %171 = getelementptr inbounds i8, ptr %3, i64 1140
   store float 0.000000e+00, ptr %171, align 4, !tbaa !100
   %172 = getelementptr inbounds i8, ptr %3, i64 1144
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %172, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %172, align 8, !tbaa !47
   %173 = getelementptr inbounds i8, ptr %3, i64 1152
   store float 1.000000e+00, ptr %173, align 8, !tbaa !41
   %174 = getelementptr inbounds i8, ptr %3, i64 1160
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %174, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %174, align 8, !tbaa !47
   %175 = getelementptr inbounds i8, ptr %3, i64 1168
   store float 1.000000e+00, ptr %175, align 8, !tbaa !41
   %176 = getelementptr inbounds i8, ptr %3, i64 1176
   store float 0.000000e+00, ptr %176, align 8, !tbaa !59
   %177 = getelementptr inbounds i8, ptr %3, i64 1184
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %177, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %177, align 8, !tbaa !47
   %178 = getelementptr inbounds i8, ptr %3, i64 1192
   store float 1.000000e+00, ptr %178, align 8, !tbaa !41
   %179 = getelementptr inbounds i8, ptr %3, i64 1200
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %179, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %179, align 8, !tbaa !47
   %180 = getelementptr inbounds i8, ptr %3, i64 1208
   store float 1.000000e+00, ptr %180, align 8, !tbaa !41
   %181 = getelementptr inbounds i8, ptr %3, i64 1216
@@ -2827,21 +2827,21 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   %184 = getelementptr inbounds i8, ptr %3, i64 1228
   store float 0.000000e+00, ptr %184, align 4, !tbaa !100
   %185 = getelementptr inbounds i8, ptr %3, i64 1232
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %185, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %185, align 8, !tbaa !47
   %186 = getelementptr inbounds i8, ptr %3, i64 1240
   store float 0.000000e+00, ptr %186, align 8, !tbaa !41
   %187 = getelementptr inbounds i8, ptr %3, i64 1248
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %187, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %187, align 8, !tbaa !47
   %188 = getelementptr inbounds i8, ptr %3, i64 1256
   store float 0.000000e+00, ptr %188, align 8, !tbaa !41
   %189 = getelementptr inbounds i8, ptr %3, i64 1264
   store float 0.000000e+00, ptr %189, align 8, !tbaa !59
   %190 = getelementptr inbounds i8, ptr %3, i64 1272
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %190, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %190, align 8, !tbaa !47
   %191 = getelementptr inbounds i8, ptr %3, i64 1280
   store float 0.000000e+00, ptr %191, align 8, !tbaa !41
   %192 = getelementptr inbounds i8, ptr %3, i64 1288
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %192, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %192, align 8, !tbaa !47
   %193 = getelementptr inbounds i8, ptr %3, i64 1296
   store float 0.000000e+00, ptr %193, align 8, !tbaa !41
   %194 = getelementptr inbounds i8, ptr %3, i64 1304
@@ -2853,21 +2853,21 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   %197 = getelementptr inbounds i8, ptr %3, i64 1316
   store float 0.000000e+00, ptr %197, align 4, !tbaa !100
   %198 = getelementptr inbounds i8, ptr %3, i64 1320
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %198, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %198, align 8, !tbaa !47
   %199 = getelementptr inbounds i8, ptr %3, i64 1328
   store float 0.000000e+00, ptr %199, align 8, !tbaa !41
   %200 = getelementptr inbounds i8, ptr %3, i64 1336
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %200, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %200, align 8, !tbaa !47
   %201 = getelementptr inbounds i8, ptr %3, i64 1344
   store float 0.000000e+00, ptr %201, align 8, !tbaa !41
   %202 = getelementptr inbounds i8, ptr %3, i64 1352
   store float 0.000000e+00, ptr %202, align 8, !tbaa !59
   %203 = getelementptr inbounds i8, ptr %3, i64 1360
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %203, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %203, align 8, !tbaa !47
   %204 = getelementptr inbounds i8, ptr %3, i64 1368
   store float 0.000000e+00, ptr %204, align 8, !tbaa !41
   %205 = getelementptr inbounds i8, ptr %3, i64 1376
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %205, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %205, align 8, !tbaa !47
   %206 = getelementptr inbounds i8, ptr %3, i64 1384
   store float 0.000000e+00, ptr %206, align 8, !tbaa !41
   %207 = getelementptr inbounds i8, ptr %3, i64 1392
@@ -3704,11 +3704,11 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %554, i8 0, i64 136, i1 false)
   store i16 1, ptr %558, align 2, !tbaa !45
   %559 = getelementptr inbounds i8, ptr %554, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %559, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %559, align 8, !tbaa !47
   %560 = getelementptr inbounds i8, ptr %554, i64 40
   store float 1.000000e+00, ptr %560, align 8, !tbaa !41
   %561 = getelementptr inbounds i8, ptr %554, i64 48
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %561, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %561, align 8, !tbaa !47
   %562 = getelementptr inbounds i8, ptr %554, i64 56
   store float 1.000000e+00, ptr %562, align 8, !tbaa !41
   %563 = getelementptr inbounds i8, ptr %554, i64 66
@@ -3716,11 +3716,11 @@ define dso_local noundef i32 @_ZN15ModApiParticles21l_add_particlespawnerEP9lua_
   %564 = getelementptr inbounds i8, ptr %554, i64 72
   %565 = getelementptr inbounds i8, ptr %554, i64 80
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %565, align 8, !tbaa.struct !42
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %564, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %564, align 8, !tbaa !47
   %566 = getelementptr inbounds i8, ptr %554, i64 88
   %567 = getelementptr inbounds i8, ptr %554, i64 96
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %567, align 8, !tbaa.struct !42
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %566, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %566, align 8, !tbaa !47
   %568 = getelementptr inbounds i8, ptr %554, i64 104
   %569 = getelementptr inbounds i8, ptr %554, i64 120
   store ptr %569, ptr %568, align 8, !tbaa !4
@@ -4567,13 +4567,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorI21ServerParticleTextureSaIS0_EE
   %26 = load i64, ptr %25, align 8, !alias.scope !115, !noalias !112
   store i64 %26, ptr %24, align 8, !alias.scope !112, !noalias !115
   %27 = getelementptr inbounds i8, ptr %22, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %27, align 8, !tbaa !47, !alias.scope !112, !noalias !115
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %27, align 8, !tbaa !47, !alias.scope !112, !noalias !115
   %28 = getelementptr inbounds i8, ptr %22, i64 40
   %29 = getelementptr inbounds i8, ptr %23, i64 40
   %30 = load float, ptr %29, align 8, !tbaa !41, !alias.scope !115, !noalias !112
   store float %30, ptr %28, align 8, !tbaa !41, !alias.scope !112, !noalias !115
   %31 = getelementptr inbounds i8, ptr %22, i64 48
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %31, align 8, !tbaa !47, !alias.scope !112, !noalias !115
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %31, align 8, !tbaa !47, !alias.scope !112, !noalias !115
   %32 = getelementptr inbounds i8, ptr %22, i64 56
   %33 = getelementptr inbounds i8, ptr %23, i64 56
   %34 = load float, ptr %33, align 8, !tbaa !41, !alias.scope !115, !noalias !112
@@ -4587,13 +4587,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorI21ServerParticleTextureSaIS0_EE
   %40 = getelementptr inbounds i8, ptr %23, i64 80
   %41 = load i64, ptr %40, align 8, !tbaa.struct !42, !alias.scope !115, !noalias !112
   store i64 %41, ptr %39, align 8, !tbaa.struct !42, !alias.scope !112, !noalias !115
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %38, align 8, !tbaa !47, !alias.scope !112, !noalias !115
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %38, align 8, !tbaa !47, !alias.scope !112, !noalias !115
   %42 = getelementptr inbounds i8, ptr %22, i64 88
   %43 = getelementptr inbounds i8, ptr %22, i64 96
   %44 = getelementptr inbounds i8, ptr %23, i64 96
   %45 = load i64, ptr %44, align 8, !tbaa.struct !42, !alias.scope !115, !noalias !112
   store i64 %45, ptr %43, align 8, !tbaa.struct !42, !alias.scope !112, !noalias !115
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %42, align 8, !tbaa !47, !alias.scope !112, !noalias !115
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %42, align 8, !tbaa !47, !alias.scope !112, !noalias !115
   %46 = getelementptr inbounds i8, ptr %22, i64 104
   %47 = getelementptr inbounds i8, ptr %23, i64 104
   %48 = getelementptr inbounds i8, ptr %22, i64 120
@@ -4863,7 +4863,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN8LuaErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !47
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
   store ptr %5, ptr %4, align 8, !tbaa !4
@@ -4916,13 +4916,13 @@ define linkonce_odr dso_local void @_ZN8LuaErrorC2ERKNSt7__cxx1112basic_stringIc
   %26 = getelementptr inbounds i8, ptr %25, i64 %23
   store i8 0, ptr %26, align 1, !tbaa !13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LuaError, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LuaError, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !47
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !47
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4951,7 +4951,7 @@ declare void @__cxa_free_exception(ptr) local_unnamed_addr
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8LuaErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !47
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -4995,7 +4995,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13BaseExceptionD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV13BaseException, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !47
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !11
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -5530,11 +5530,11 @@ define linkonce_odr dso_local void @_ZNSt6vectorI21ServerParticleTextureSaIS0_EE
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %27, i8 0, i64 136, i1 false)
   store i16 1, ptr %28, align 2, !tbaa !45
   %29 = getelementptr inbounds i8, ptr %27, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %29, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %29, align 8, !tbaa !47
   %30 = getelementptr inbounds i8, ptr %27, i64 40
   store float 1.000000e+00, ptr %30, align 8, !tbaa !41
   %31 = getelementptr inbounds i8, ptr %27, i64 48
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %31, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %31, align 8, !tbaa !47
   %32 = getelementptr inbounds i8, ptr %27, i64 56
   store float 1.000000e+00, ptr %32, align 8, !tbaa !41
   %33 = getelementptr inbounds i8, ptr %27, i64 66
@@ -5542,11 +5542,11 @@ define linkonce_odr dso_local void @_ZNSt6vectorI21ServerParticleTextureSaIS0_EE
   %34 = getelementptr inbounds i8, ptr %27, i64 72
   %35 = getelementptr inbounds i8, ptr %27, i64 80
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %35, align 8, !tbaa.struct !42
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %34, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %34, align 8, !tbaa !47
   %36 = getelementptr inbounds i8, ptr %27, i64 88
   %37 = getelementptr inbounds i8, ptr %27, i64 96
   store <2 x float> <float 1.000000e+00, float 1.000000e+00>, ptr %37, align 8, !tbaa.struct !42
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %36, align 8, !tbaa !47
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %36, align 8, !tbaa !47
   %38 = getelementptr inbounds i8, ptr %27, i64 104
   %39 = getelementptr inbounds i8, ptr %27, i64 120
   store ptr %39, ptr %38, align 8, !tbaa !4
@@ -5564,13 +5564,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorI21ServerParticleTextureSaIS0_EE
   %45 = load i64, ptr %44, align 8, !alias.scope !123, !noalias !120
   store i64 %45, ptr %43, align 8, !alias.scope !120, !noalias !123
   %46 = getelementptr inbounds i8, ptr %41, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %46, align 8, !tbaa !47, !alias.scope !120, !noalias !123
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %46, align 8, !tbaa !47, !alias.scope !120, !noalias !123
   %47 = getelementptr inbounds i8, ptr %41, i64 40
   %48 = getelementptr inbounds i8, ptr %42, i64 40
   %49 = load float, ptr %48, align 8, !tbaa !41, !alias.scope !123, !noalias !120
   store float %49, ptr %47, align 8, !tbaa !41, !alias.scope !120, !noalias !123
   %50 = getelementptr inbounds i8, ptr %41, i64 48
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %50, align 8, !tbaa !47, !alias.scope !120, !noalias !123
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %50, align 8, !tbaa !47, !alias.scope !120, !noalias !123
   %51 = getelementptr inbounds i8, ptr %41, i64 56
   %52 = getelementptr inbounds i8, ptr %42, i64 56
   %53 = load float, ptr %52, align 8, !tbaa !41, !alias.scope !123, !noalias !120
@@ -5584,13 +5584,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorI21ServerParticleTextureSaIS0_EE
   %59 = getelementptr inbounds i8, ptr %42, i64 80
   %60 = load i64, ptr %59, align 8, !tbaa.struct !42, !alias.scope !123, !noalias !120
   store i64 %60, ptr %58, align 8, !tbaa.struct !42, !alias.scope !120, !noalias !123
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %57, align 8, !tbaa !47, !alias.scope !120, !noalias !123
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %57, align 8, !tbaa !47, !alias.scope !120, !noalias !123
   %61 = getelementptr inbounds i8, ptr %41, i64 88
   %62 = getelementptr inbounds i8, ptr %41, i64 96
   %63 = getelementptr inbounds i8, ptr %42, i64 96
   %64 = load i64, ptr %63, align 8, !tbaa.struct !42, !alias.scope !123, !noalias !120
   store i64 %64, ptr %62, align 8, !tbaa.struct !42, !alias.scope !120, !noalias !123
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %61, align 8, !tbaa !47, !alias.scope !120, !noalias !123
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %61, align 8, !tbaa !47, !alias.scope !120, !noalias !123
   %65 = getelementptr inbounds i8, ptr %41, i64 104
   %66 = getelementptr inbounds i8, ptr %42, i64 104
   %67 = getelementptr inbounds i8, ptr %41, i64 120
@@ -5647,13 +5647,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorI21ServerParticleTextureSaIS0_EE
   %94 = load i64, ptr %93, align 8, !alias.scope !129, !noalias !126
   store i64 %94, ptr %92, align 8, !alias.scope !126, !noalias !129
   %95 = getelementptr inbounds i8, ptr %90, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %95, align 8, !tbaa !47, !alias.scope !126, !noalias !129
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %95, align 8, !tbaa !47, !alias.scope !126, !noalias !129
   %96 = getelementptr inbounds i8, ptr %90, i64 40
   %97 = getelementptr inbounds i8, ptr %91, i64 40
   %98 = load float, ptr %97, align 8, !tbaa !41, !alias.scope !129, !noalias !126
   store float %98, ptr %96, align 8, !tbaa !41, !alias.scope !126, !noalias !129
   %99 = getelementptr inbounds i8, ptr %90, i64 48
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, inrange i32 0, i64 2), ptr %99, align 8, !tbaa !47, !alias.scope !126, !noalias !129
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes9ParameterIfLm1EEE, i64 0, i32 0, i64 2), ptr %99, align 8, !tbaa !47, !alias.scope !126, !noalias !129
   %100 = getelementptr inbounds i8, ptr %90, i64 56
   %101 = getelementptr inbounds i8, ptr %91, i64 56
   %102 = load float, ptr %101, align 8, !tbaa !41, !alias.scope !129, !noalias !126
@@ -5667,13 +5667,13 @@ define linkonce_odr dso_local void @_ZNSt6vectorI21ServerParticleTextureSaIS0_EE
   %108 = getelementptr inbounds i8, ptr %91, i64 80
   %109 = load i64, ptr %108, align 8, !tbaa.struct !42, !alias.scope !129, !noalias !126
   store i64 %109, ptr %107, align 8, !tbaa.struct !42, !alias.scope !126, !noalias !129
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %106, align 8, !tbaa !47, !alias.scope !126, !noalias !129
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %106, align 8, !tbaa !47, !alias.scope !126, !noalias !129
   %110 = getelementptr inbounds i8, ptr %90, i64 88
   %111 = getelementptr inbounds i8, ptr %90, i64 96
   %112 = getelementptr inbounds i8, ptr %91, i64 96
   %113 = load i64, ptr %112, align 8, !tbaa.struct !42, !alias.scope !129, !noalias !126
   store i64 %113, ptr %111, align 8, !tbaa.struct !42, !alias.scope !126, !noalias !129
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, inrange i32 0, i64 2), ptr %110, align 8, !tbaa !47, !alias.scope !126, !noalias !129
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN18ParticleParamTypes15VectorParameterIN3irr4core8vector2dIfEELm2EEE, i64 0, i32 0, i64 2), ptr %110, align 8, !tbaa !47, !alias.scope !126, !noalias !129
   %114 = getelementptr inbounds i8, ptr %90, i64 104
   %115 = getelementptr inbounds i8, ptr %91, i64 104
   %116 = getelementptr inbounds i8, ptr %90, i64 120

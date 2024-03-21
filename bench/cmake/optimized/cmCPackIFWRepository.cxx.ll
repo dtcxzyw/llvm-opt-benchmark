@@ -725,7 +725,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
           to label %25 unwind label %43
 
 25:                                               ; preds = %24
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV25cmCPackeIFWUpdatesPatcher, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV25cmCPackeIFWUpdatesPatcher, i64 0, i32 0, i64 2), ptr %6, align 8
   %26 = getelementptr inbounds i8, ptr %6, i64 40
   store ptr %0, ptr %26, align 8
   %27 = getelementptr inbounds i8, ptr %6, i64 48

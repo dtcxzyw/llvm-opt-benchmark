@@ -4772,7 +4772,7 @@ define linkonce_odr dso_local void @_ZN11TextContentC2EPKcm(ptr noundef nonnull 
   store i64 %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN30cmGeneratorExpressionEvaluatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #11
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11TextContent, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11TextContent, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %struct.TextContent, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -4813,7 +4813,7 @@ define linkonce_odr dso_local void @_ZN30cmGeneratorExpressionEvaluatorC2Ev(ptr 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV30cmGeneratorExpressionEvaluator, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV30cmGeneratorExpressionEvaluator, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

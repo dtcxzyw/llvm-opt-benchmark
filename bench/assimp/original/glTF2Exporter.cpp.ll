@@ -8122,7 +8122,7 @@ entry:
   %reg = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26BufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26BufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %EncodedRegion_List = getelementptr inbounds %"struct.glTF2::Buffer", ptr %this1, i32 0, i32 7
   store ptr %EncodedRegion_List, ptr %__range1, align 8
   %0 = load ptr, ptr %__range1, align 8
@@ -24096,7 +24096,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6Assimp8IOSystemE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pathStack = getelementptr inbounds %"class.Assimp::IOSystem", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %m_pathStack) #18
   ret void
@@ -24786,7 +24786,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26ObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %extras = getelementptr inbounds %"struct.glTF2::Object", ptr %this1, i32 0, i32 6
   call void @_ZN5glTF26ExtrasD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %extras) #18
   %customExtensions = getelementptr inbounds %"struct.glTF2::Object", ptr %this1, i32 0, i32 5
@@ -25233,7 +25233,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8AccessorEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8AccessorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF28AccessorESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict", ptr %this1, i32 0, i32 2
@@ -25300,7 +25300,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_9AnimationEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_9AnimationEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF29AnimationESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.53", ptr %this1, i32 0, i32 2
@@ -25367,7 +25367,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6BufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6BufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF26BufferESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.59", ptr %this1, i32 0, i32 2
@@ -25434,7 +25434,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_10BufferViewEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_10BufferViewEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF210BufferViewESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.65", ptr %this1, i32 0, i32 2
@@ -25501,7 +25501,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6CameraEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6CameraEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF26CameraESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.71", ptr %this1, i32 0, i32 2
@@ -25568,7 +25568,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5LightEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5LightEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF25LightESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.77", ptr %this1, i32 0, i32 2
@@ -25635,7 +25635,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5ImageEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5ImageEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF25ImageESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.83", ptr %this1, i32 0, i32 2
@@ -25702,7 +25702,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8MaterialEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8MaterialEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF28MaterialESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.89", ptr %this1, i32 0, i32 2
@@ -25769,7 +25769,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4MeshEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4MeshEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF24MeshESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.95", ptr %this1, i32 0, i32 2
@@ -25836,7 +25836,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4NodeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4NodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF24NodeESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.101", ptr %this1, i32 0, i32 2
@@ -25903,7 +25903,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7SamplerEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7SamplerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF27SamplerESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.107", ptr %this1, i32 0, i32 2
@@ -25970,7 +25970,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5SceneEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5SceneEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF25SceneESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.113", ptr %this1, i32 0, i32 2
@@ -26037,7 +26037,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4SkinEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4SkinEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF24SkinESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.119", ptr %this1, i32 0, i32 2
@@ -26104,7 +26104,7 @@ entry:
   store ptr %extId, ptr %extId.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF212LazyDictBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7TextureEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7TextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mObjs = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIPN5glTF27TextureESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %mObjs) #18
   %mObjsByOIndex = getelementptr inbounds %"class.glTF2::LazyDict.125", ptr %this1, i32 0, i32 2
@@ -26210,7 +26210,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7TextureEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7TextureEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26265,7 +26265,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4SkinEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4SkinEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26320,7 +26320,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5SceneEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5SceneEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26375,7 +26375,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7SamplerEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_7SamplerEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26430,7 +26430,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4NodeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4NodeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26485,7 +26485,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4MeshEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_4MeshEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26540,7 +26540,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8MaterialEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8MaterialEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26595,7 +26595,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5ImageEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5ImageEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26650,7 +26650,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5LightEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_5LightEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26705,7 +26705,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6CameraEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6CameraEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26760,7 +26760,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_10BufferViewEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_10BufferViewEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26815,7 +26815,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6BufferEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_6BufferEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26870,7 +26870,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_9AnimationEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_9AnimationEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -26925,7 +26925,7 @@ entry:
   %i = alloca i64, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8AccessorEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF28LazyDictINS_8AccessorEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store i64 0, ptr %i, align 8
   br label %for.cond
 
@@ -27092,7 +27092,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF212LazyDictBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5glTF212LazyDictBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -29684,7 +29684,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, inrange i32 0, i32 2), ptr %this11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this11, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -30410,7 +30410,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, inrange i32 0, i32 2), ptr %this11, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this11, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -50704,7 +50704,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -50732,7 +50732,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26BufferE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26BufferE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %byteLength = getelementptr inbounds %"struct.glTF2::Buffer", ptr %this1, i32 0, i32 1
   store i64 0, ptr %byteLength, align 8
   %capacity = getelementptr inbounds %"struct.glTF2::Buffer", ptr %this1, i32 0, i32 2
@@ -51110,7 +51110,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26ObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF26ObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %id = getelementptr inbounds %"struct.glTF2::Object", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %id) #18
   %name = getelementptr inbounds %"struct.glTF2::Object", ptr %this1, i32 0, i32 4
@@ -55819,7 +55819,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -56203,7 +56203,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -56263,7 +56263,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -56361,7 +56361,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -56400,7 +56400,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -56439,7 +56439,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyExportError, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -64865,7 +64865,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF210BufferViewE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF210BufferViewE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buffer = getelementptr inbounds %"struct.glTF2::BufferView", ptr %this1, i32 0, i32 1
   invoke void @_ZN10glTFCommon3RefIN5glTF26BufferEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %buffer)
           to label %invoke.cont unwind label %lpad
@@ -65852,7 +65852,7 @@ entry:
   store ptr %__a, ptr %__a.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPhSt14default_deleteIA_hESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPhSt14default_deleteIA_hESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   %1 = load ptr, ptr %__a.addr, align 8
@@ -66033,7 +66033,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -67268,7 +67268,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28AccessorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28AccessorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bufferView = getelementptr inbounds %"struct.glTF2::Accessor", ptr %this1, i32 0, i32 1
   invoke void @_ZN10glTFCommon3RefIN5glTF210BufferViewEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %bufferView)
           to label %invoke.cont unwind label %lpad
@@ -67400,7 +67400,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28AccessorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28AccessorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %decodedBuffer = getelementptr inbounds %"struct.glTF2::Accessor", ptr %this1, i32 0, i32 9
   call void @_ZNSt10unique_ptrIN5glTF26BufferESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %decodedBuffer) #18
   %sparse = getelementptr inbounds %"struct.glTF2::Accessor", ptr %this1, i32 0, i32 8
@@ -70510,7 +70510,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #18
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -85836,7 +85836,7 @@ entry:
   store ptr %__p, ptr %__p.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5glTF25AssetELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN5glTF25AssetELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_ptr = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %__p.addr, align 8
   store ptr %0, ptr %_M_ptr, align 8
@@ -86046,7 +86046,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF27SamplerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF27SamplerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   invoke void @_ZN5glTF27Sampler11SetDefaultsEv(ptr noundef nonnull align 8 dereferenceable(280) %this1)
           to label %invoke.cont unwind label %lpad
 
@@ -87072,7 +87072,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF27TextureE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF27TextureE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sampler = getelementptr inbounds %"struct.glTF2::Texture", ptr %this1, i32 0, i32 1
   invoke void @_ZN10glTFCommon3RefIN5glTF27SamplerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %sampler)
           to label %invoke.cont unwind label %lpad
@@ -88862,7 +88862,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25ImageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25ImageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %uri = getelementptr inbounds %"struct.glTF2::Image", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %uri) #18
   %bufferView = getelementptr inbounds %"struct.glTF2::Image", ptr %this1, i32 0, i32 2
@@ -88964,7 +88964,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25ImageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25ImageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mData = getelementptr inbounds %"struct.glTF2::Image", ptr %this1, i32 0, i32 6
   call void @_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %mData) #18
   %mimeType = getelementptr inbounds %"struct.glTF2::Image", ptr %this1, i32 0, i32 3
@@ -89796,7 +89796,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28MaterialE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %pbrMetallicRoughness = getelementptr inbounds %"struct.glTF2::Material", ptr %this1, i32 0, i32 1
   invoke void @_ZN5glTF220PbrMetallicRoughnessC2Ev(ptr noundef nonnull align 8 dereferenceable(120) %pbrMetallicRoughness)
           to label %invoke.cont unwind label %lpad
@@ -90104,7 +90104,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28MaterialE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF28MaterialE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %alphaMode = getelementptr inbounds %"struct.glTF2::Material", ptr %this1, i32 0, i32 7
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %alphaMode) #18
   call void @_ZN5glTF26ObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1) #18
@@ -95982,7 +95982,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24SkinE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24SkinE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bindShapeMatrix = getelementptr inbounds %"struct.glTF2::Skin", ptr %this1, i32 0, i32 1
   invoke void @_ZN10glTFCommon8NullableIA16_fEC2Ev(ptr noundef nonnull align 4 dereferenceable(65) %bindShapeMatrix)
           to label %invoke.cont unwind label %lpad
@@ -96089,7 +96089,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24SkinE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24SkinE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name = getelementptr inbounds %"struct.glTF2::Skin", ptr %this1, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #18
   %jointNames = getelementptr inbounds %"struct.glTF2::Skin", ptr %this1, i32 0, i32 4
@@ -96982,7 +96982,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24MeshE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24MeshE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %primitives = getelementptr inbounds %"struct.glTF2::Mesh", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN5glTF24Mesh9PrimitiveESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %primitives) #18
   %weights = getelementptr inbounds %"struct.glTF2::Mesh", ptr %this1, i32 0, i32 2
@@ -97063,7 +97063,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24MeshE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24MeshE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %targetNames = getelementptr inbounds %"struct.glTF2::Mesh", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %targetNames) #18
   %weights = getelementptr inbounds %"struct.glTF2::Mesh", ptr %this1, i32 0, i32 2
@@ -106685,7 +106685,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %children = getelementptr inbounds %"struct.glTF2::Node", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN10glTFCommon3RefIN5glTF24NodeEEESaIS4_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %children) #18
   %meshes = getelementptr inbounds %"struct.glTF2::Node", ptr %this1, i32 0, i32 2
@@ -106919,7 +106919,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24NodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF24NodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %jointName = getelementptr inbounds %"struct.glTF2::Node", ptr %this1, i32 0, i32 11
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %jointName) #18
   %skeletons = getelementptr inbounds %"struct.glTF2::Node", ptr %this1, i32 0, i32 9
@@ -109187,7 +109187,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25SceneE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25SceneE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name = getelementptr inbounds %"struct.glTF2::Scene", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %name) #18
   %nodes = getelementptr inbounds %"struct.glTF2::Scene", ptr %this1, i32 0, i32 2
@@ -109246,7 +109246,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25SceneE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF25SceneE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %nodes = getelementptr inbounds %"struct.glTF2::Scene", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN10glTFCommon3RefIN5glTF24NodeEEESaIS4_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %nodes) #18
   %name = getelementptr inbounds %"struct.glTF2::Scene", ptr %this1, i32 0, i32 1
@@ -110221,7 +110221,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5glTF26ObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF29AnimationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF29AnimationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %samplers = getelementptr inbounds %"struct.glTF2::Animation", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIN5glTF29Animation7SamplerESaIS2_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %samplers) #18
   %channels = getelementptr inbounds %"struct.glTF2::Animation", ptr %this1, i32 0, i32 2
@@ -110300,7 +110300,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF29AnimationE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5glTF29AnimationE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %channels = getelementptr inbounds %"struct.glTF2::Animation", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorIN5glTF29Animation7ChannelESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %channels) #18
   %samplers = getelementptr inbounds %"struct.glTF2::Animation", ptr %this1, i32 0, i32 1

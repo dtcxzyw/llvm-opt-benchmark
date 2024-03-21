@@ -4114,7 +4114,7 @@ define linkonce_odr hidden void @_ZN4nori17PerspectiveCameraC2ERKNS_12PropertyLi
   store ptr %1, ptr %4, align 8
   %28 = load ptr, ptr %3, align 8
   call void @_ZN4nori6CameraC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %28)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori17PerspectiveCameraE, i32 0, inrange i32 0, i32 2), ptr %28, align 16
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori17PerspectiveCameraE, i32 0, i32 0, i32 2), ptr %28, align 16
   %29 = getelementptr inbounds %"class.nori::PerspectiveCamera", ptr %28, i32 0, i32 1
   invoke void @_ZN4nori7TVectorIfLi2EEC2Ef(ptr noundef nonnull align 4 dereferenceable(8) %29, float noundef 0.000000e+00)
           to label %30 unwind label %77
@@ -4483,7 +4483,7 @@ define linkonce_odr hidden void @_ZN4nori6CameraC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori6CameraE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN4nori6CameraE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.nori::Camera", ptr %5, i32 0, i32 1
   invoke void @_ZN4nori7TVectorIiLi2EEC2Ei(ptr noundef nonnull align 4 dereferenceable(8) %6, i32 noundef 0)
           to label %7 unwind label %8
@@ -5289,7 +5289,7 @@ define linkonce_odr hidden void @_ZN4nori10NoriObjectC2Ev(ptr noundef nonnull al
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4nori10NoriObjectE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -10008,7 +10008,7 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJEEEPKcDpRKT_(ptr nou
 
 10:                                               ; preds = %2
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %8, align 8
   ret void
 
 11:                                               ; preds = %2
@@ -10273,7 +10273,7 @@ define linkonce_odr hidden void @_ZN4nori13NoriExceptionC2IJNSt7__cxx1112basic_s
 
 13:                                               ; preds = %3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4nori13NoriExceptionE, i32 0, i32 0, i32 2), ptr %10, align 8
   ret void
 
 14:                                               ; preds = %3

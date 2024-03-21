@@ -389,7 +389,7 @@ define dso_local void @_ZN5sound17ProxySoundManagerD2Ev(ptr noundef nonnull alig
 
 94:                                               ; preds = %93, %85
   call void @_ZN5sound18OpenALSoundManagerD1Ev(ptr noundef nonnull align 8 dereferenceable(848) %4) #18
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %95 = getelementptr inbounds i8, ptr %0, i64 72
   %96 = load ptr, ptr %95, align 8, !tbaa !39
   %97 = icmp eq ptr %96, null
@@ -3036,7 +3036,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !37
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !37
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !39
   %4 = icmp eq ptr %3, null

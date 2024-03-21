@@ -873,7 +873,7 @@ entry:
   store ptr %tprefix, ptr %tprefix.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal5proof15AlfPrintChannelC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelOutE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelOutE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_out = getelementptr inbounds %"class.cvc5::internal::proof::AlfPrintChannelOut", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %out.addr, align 8
   store ptr %0, ptr %d_out, align 8
@@ -914,7 +914,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof15AlfPrintChannelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof15AlfPrintChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2286,7 +2286,7 @@ entry:
   store ptr %lbind, ptr %lbind.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4cvc58internal5proof15AlfPrintChannelC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelPreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelPreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_lbind = getelementptr inbounds %"class.cvc5::internal::proof::AlfPrintChannelPre", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %lbind.addr, align 8
   store ptr %0, ptr %d_lbind, align 8
@@ -2644,7 +2644,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelOutE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelOutE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_warnedRules = getelementptr inbounds %"class.cvc5::internal::proof::AlfPrintChannelOut", ptr %this1, i32 0, i32 4
   call void @_ZNSt13unordered_setIN4cvc59ProofRuleESt4hashIS1_ESt8equal_toIS1_ESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_warnedRules) #3
   %d_termLetPrefix = getelementptr inbounds %"class.cvc5::internal::proof::AlfPrintChannelOut", ptr %this1, i32 0, i32 3
@@ -2670,7 +2670,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelPreE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc58internal5proof18AlfPrintChannelPreE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_varsVisited = getelementptr inbounds %"class.cvc5::internal::proof::AlfPrintChannelPre", ptr %this1, i32 0, i32 4
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_varsVisited) #3
   %d_vars = getelementptr inbounds %"class.cvc5::internal::proof::AlfPrintChannelPre", ptr %this1, i32 0, i32 3

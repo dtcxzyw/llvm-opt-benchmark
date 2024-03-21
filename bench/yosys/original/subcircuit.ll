@@ -10632,7 +10632,7 @@ define void @_ZN10SubCircuit6SolverC2Ev(ptr noundef nonnull align 8 dereferencea
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10SubCircuit6SolverE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10SubCircuit6SolverE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = call noalias noundef nonnull ptr @_Znwm(i64 noundef 376) #18
   invoke void @_ZN10SubCircuit12SolverWorkerC2EPNS_6SolverE(ptr noundef nonnull align 8 dereferenceable(369) %6, ptr noundef %5)
           to label %7 unwind label %9
@@ -10698,7 +10698,7 @@ define void @_ZN10SubCircuit6SolverD2Ev(ptr noundef nonnull align 8 dereferencea
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10SubCircuit6SolverE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN10SubCircuit6SolverE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.SubCircuit::Solver", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

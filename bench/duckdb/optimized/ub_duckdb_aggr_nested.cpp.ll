@@ -863,7 +863,7 @@ $_ZTIN6duckdb22VariableReturnBindDataE = comdat any
 define void @_ZN6duckdb12ListBindDataC2ERKNS_11LogicalTypeE(ptr noundef nonnull align 8 dereferenceable(80) %this, ptr noundef nonnull align 8 dereferenceable(24) %stype_p) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type = alloca %"struct.duckdb::LogicalType", align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb12ListBindDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb12ListBindDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %stype = getelementptr inbounds i8, ptr %this, i64 8
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %stype, ptr noundef nonnull align 8 dereferenceable(24) %stype_p)
           to label %invoke.cont unwind label %lpad
@@ -971,7 +971,7 @@ declare void @_ZN6duckdb12FunctionDataD2Ev(ptr noundef nonnull align 8 dereferen
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6duckdb12ListBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb12ListBindDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb12ListBindDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %child_functions.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %child_functions.i, align 8, !tbaa !6
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 64
@@ -2713,7 +2713,7 @@ lpad.i:                                           ; preds = %call.i.noexc
   br label %ehcleanup49
 
 _ZNSt10unique_ptrIN6duckdb22VariableReturnBindDataESt14default_deleteIS1_EED2Ev.exit: ; preds = %call.i.noexc
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22VariableReturnBindDataE, i64 0, inrange i32 0, i64 2), ptr %call.i69, align 8, !tbaa !3, !noalias !97
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22VariableReturnBindDataE, i64 0, i32 0, i64 2), ptr %call.i69, align 8, !tbaa !3, !noalias !97
   %stype.i.i = getelementptr inbounds i8, ptr %call.i69, i64 8
   call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %stype.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i) #21, !noalias !97
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i) #21, !noalias !97
@@ -2900,7 +2900,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %if.
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !30
   %1 = getelementptr inbounds i8, ptr %this, i64 64
@@ -3012,7 +3012,7 @@ if.then.i.i.i:                                    ; preds = %invoke.cont2
           to label %.noexc unwind label %lpad3
 
 .noexc:                                           ; preds = %if.then.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i = getelementptr inbounds i8, ptr %0, i64 176
   %state_size2.i.i.i.i.i.i = getelementptr inbounds i8, ptr %agg.tmp, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i, i64 105, i1 false)
@@ -3049,7 +3049,7 @@ if.then.i.i.i281:                                 ; preds = %invoke.cont11
           to label %.noexc287 unwind label %lpad12
 
 .noexc287:                                        ; preds = %if.then.i.i.i281
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i282 = getelementptr inbounds i8, ptr %3, i64 176
   %state_size2.i.i.i.i.i.i283 = getelementptr inbounds i8, ptr %agg.tmp6, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i282, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i283, i64 105, i1 false)
@@ -3086,7 +3086,7 @@ if.then.i.i.i293:                                 ; preds = %invoke.cont22
           to label %.noexc299 unwind label %lpad23
 
 .noexc299:                                        ; preds = %if.then.i.i.i293
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %6, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i294 = getelementptr inbounds i8, ptr %6, i64 176
   %state_size2.i.i.i.i.i.i295 = getelementptr inbounds i8, ptr %agg.tmp17, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i294, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i295, i64 105, i1 false)
@@ -3123,7 +3123,7 @@ if.then.i.i.i305:                                 ; preds = %invoke.cont33
           to label %.noexc311 unwind label %lpad34
 
 .noexc311:                                        ; preds = %if.then.i.i.i305
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %9, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i306 = getelementptr inbounds i8, ptr %9, i64 176
   %state_size2.i.i.i.i.i.i307 = getelementptr inbounds i8, ptr %agg.tmp28, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i306, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i307, i64 105, i1 false)
@@ -3160,7 +3160,7 @@ if.then.i.i.i317:                                 ; preds = %invoke.cont44
           to label %.noexc323 unwind label %lpad45
 
 .noexc323:                                        ; preds = %if.then.i.i.i317
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %12, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i318 = getelementptr inbounds i8, ptr %12, i64 176
   %state_size2.i.i.i.i.i.i319 = getelementptr inbounds i8, ptr %agg.tmp39, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i318, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i319, i64 105, i1 false)
@@ -3197,7 +3197,7 @@ if.then.i.i.i329:                                 ; preds = %invoke.cont55
           to label %.noexc335 unwind label %lpad56
 
 .noexc335:                                        ; preds = %if.then.i.i.i329
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %15, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %15, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i330 = getelementptr inbounds i8, ptr %15, i64 176
   %state_size2.i.i.i.i.i.i331 = getelementptr inbounds i8, ptr %agg.tmp50, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i330, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i331, i64 105, i1 false)
@@ -3234,7 +3234,7 @@ if.then.i.i.i341:                                 ; preds = %invoke.cont66
           to label %.noexc347 unwind label %lpad67
 
 .noexc347:                                        ; preds = %if.then.i.i.i341
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %18, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %18, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i342 = getelementptr inbounds i8, ptr %18, i64 176
   %state_size2.i.i.i.i.i.i343 = getelementptr inbounds i8, ptr %agg.tmp61, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i342, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i343, i64 105, i1 false)
@@ -3271,7 +3271,7 @@ if.then.i.i.i353:                                 ; preds = %invoke.cont77
           to label %.noexc359 unwind label %lpad78
 
 .noexc359:                                        ; preds = %if.then.i.i.i353
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %21, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %21, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i354 = getelementptr inbounds i8, ptr %21, i64 176
   %state_size2.i.i.i.i.i.i355 = getelementptr inbounds i8, ptr %agg.tmp72, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i354, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i355, i64 105, i1 false)
@@ -3308,7 +3308,7 @@ if.then.i.i.i365:                                 ; preds = %invoke.cont88
           to label %.noexc371 unwind label %lpad89
 
 .noexc371:                                        ; preds = %if.then.i.i.i365
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %24, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %24, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i366 = getelementptr inbounds i8, ptr %24, i64 176
   %state_size2.i.i.i.i.i.i367 = getelementptr inbounds i8, ptr %agg.tmp83, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i366, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i367, i64 105, i1 false)
@@ -3345,7 +3345,7 @@ if.then.i.i.i377:                                 ; preds = %invoke.cont99
           to label %.noexc383 unwind label %lpad100
 
 .noexc383:                                        ; preds = %if.then.i.i.i377
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %27, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %27, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i378 = getelementptr inbounds i8, ptr %27, i64 176
   %state_size2.i.i.i.i.i.i379 = getelementptr inbounds i8, ptr %agg.tmp94, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i378, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i379, i64 105, i1 false)
@@ -3382,7 +3382,7 @@ if.then.i.i.i389:                                 ; preds = %invoke.cont110
           to label %.noexc395 unwind label %lpad111
 
 .noexc395:                                        ; preds = %if.then.i.i.i389
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %30, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %30, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i390 = getelementptr inbounds i8, ptr %30, i64 176
   %state_size2.i.i.i.i.i.i391 = getelementptr inbounds i8, ptr %agg.tmp105, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i390, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i391, i64 105, i1 false)
@@ -3419,7 +3419,7 @@ if.then.i.i.i401:                                 ; preds = %invoke.cont121
           to label %.noexc407 unwind label %lpad122
 
 .noexc407:                                        ; preds = %if.then.i.i.i401
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %33, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %33, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i402 = getelementptr inbounds i8, ptr %33, i64 176
   %state_size2.i.i.i.i.i.i403 = getelementptr inbounds i8, ptr %agg.tmp116, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i402, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i403, i64 105, i1 false)
@@ -3456,7 +3456,7 @@ if.then.i.i.i413:                                 ; preds = %invoke.cont132
           to label %.noexc419 unwind label %lpad133
 
 .noexc419:                                        ; preds = %if.then.i.i.i413
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %36, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %36, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i414 = getelementptr inbounds i8, ptr %36, i64 176
   %state_size2.i.i.i.i.i.i415 = getelementptr inbounds i8, ptr %agg.tmp127, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i414, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i415, i64 105, i1 false)
@@ -3493,7 +3493,7 @@ if.then.i.i.i425:                                 ; preds = %invoke.cont143
           to label %.noexc431 unwind label %lpad144
 
 .noexc431:                                        ; preds = %if.then.i.i.i425
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %39, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %39, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i426 = getelementptr inbounds i8, ptr %39, i64 176
   %state_size2.i.i.i.i.i.i427 = getelementptr inbounds i8, ptr %agg.tmp138, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i426, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i427, i64 105, i1 false)
@@ -3530,7 +3530,7 @@ if.then.i.i.i437:                                 ; preds = %invoke.cont154
           to label %.noexc443 unwind label %lpad155
 
 .noexc443:                                        ; preds = %if.then.i.i.i437
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %42, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %42, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i438 = getelementptr inbounds i8, ptr %42, i64 176
   %state_size2.i.i.i.i.i.i439 = getelementptr inbounds i8, ptr %agg.tmp149, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i438, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i439, i64 105, i1 false)
@@ -3567,7 +3567,7 @@ if.then.i.i.i449:                                 ; preds = %invoke.cont165
           to label %.noexc455 unwind label %lpad166
 
 .noexc455:                                        ; preds = %if.then.i.i.i449
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %45, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %45, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i450 = getelementptr inbounds i8, ptr %45, i64 176
   %state_size2.i.i.i.i.i.i451 = getelementptr inbounds i8, ptr %agg.tmp160, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i450, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i451, i64 105, i1 false)
@@ -3604,7 +3604,7 @@ if.then.i.i.i461:                                 ; preds = %invoke.cont176
           to label %.noexc467 unwind label %lpad177
 
 .noexc467:                                        ; preds = %if.then.i.i.i461
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %48, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %48, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i462 = getelementptr inbounds i8, ptr %48, i64 176
   %state_size2.i.i.i.i.i.i463 = getelementptr inbounds i8, ptr %agg.tmp171, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i462, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i463, i64 105, i1 false)
@@ -3641,7 +3641,7 @@ if.then.i.i.i473:                                 ; preds = %invoke.cont187
           to label %.noexc479 unwind label %lpad188
 
 .noexc479:                                        ; preds = %if.then.i.i.i473
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %51, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %51, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i474 = getelementptr inbounds i8, ptr %51, i64 176
   %state_size2.i.i.i.i.i.i475 = getelementptr inbounds i8, ptr %agg.tmp182, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i474, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i475, i64 105, i1 false)
@@ -3678,7 +3678,7 @@ if.then.i.i.i485:                                 ; preds = %invoke.cont198
           to label %.noexc491 unwind label %lpad199
 
 .noexc491:                                        ; preds = %if.then.i.i.i485
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %54, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %54, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i486 = getelementptr inbounds i8, ptr %54, i64 176
   %state_size2.i.i.i.i.i.i487 = getelementptr inbounds i8, ptr %agg.tmp193, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i486, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i487, i64 105, i1 false)
@@ -3715,7 +3715,7 @@ if.then.i.i.i497:                                 ; preds = %invoke.cont209
           to label %.noexc503 unwind label %lpad210
 
 .noexc503:                                        ; preds = %if.then.i.i.i497
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %57, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %57, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i498 = getelementptr inbounds i8, ptr %57, i64 176
   %state_size2.i.i.i.i.i.i499 = getelementptr inbounds i8, ptr %agg.tmp204, i64 176
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i498, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i499, i64 105, i1 false)
@@ -5322,7 +5322,7 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !57, !noalias !113
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !60, !noalias !113
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !3, !noalias !113
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN6duckdb21TemplatedValidityDataImEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i.i, align 8, !tbaa !3, !noalias !113
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i17.i.i.i.i.i, i64 16
   store ptr null, ptr %_M_impl.i.i.i.i.i.i.i, align 8, !tbaa !118, !noalias !113
   %add.i.i.i.i.i.i.i.i.i.i = add i64 %count, 63
@@ -6248,7 +6248,7 @@ if.then.i.i29:                                    ; preds = %_ZNSt6vectorIN6duck
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %state_size13 = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %state_size, ptr %state_size13, align 8, !tbaa !147
   %initialize14 = getelementptr inbounds i8, ptr %this, i64 184
@@ -6805,7 +6805,7 @@ declare void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 derefer
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb22VariableReturnBindDataD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22VariableReturnBindDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22VariableReturnBindDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %stype = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %stype) #21
   tail call void @_ZN6duckdb12FunctionDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
@@ -6815,7 +6815,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb22VariableReturnBindDataD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #4 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22VariableReturnBindDataE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22VariableReturnBindDataE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %stype.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %stype.i) #21
   tail call void @_ZN6duckdb12FunctionDataD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #21
@@ -6840,7 +6840,7 @@ lpad.i:                                           ; preds = %entry
   resume { ptr, i32 } %0
 
 _ZNSt10unique_ptrIN6duckdb22VariableReturnBindDataESt14default_deleteIS1_EED2Ev.exit: ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22VariableReturnBindDataE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !3, !noalias !173
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb22VariableReturnBindDataE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !3, !noalias !173
   %stype.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   call void @_ZN6duckdb11LogicalTypeC1EOS0_(ptr noundef nonnull align 8 dereferenceable(24) %stype.i.i, ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i) #21, !noalias !173
   call void @_ZN6duckdb11LogicalTypeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp.i) #21, !noalias !173
@@ -6899,7 +6899,7 @@ _ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE11_M_allocateEm.exit: ; 
           to label %invoke.cont unwind label %lpad.body
 
 invoke.cont:                                      ; preds = %_ZNSt12_Vector_baseIN6duckdb17AggregateFunctionESaIS1_EE11_M_allocateEm.exit
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %add.ptr, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %add.ptr, align 8, !tbaa !3
   %state_size.i.i.i = getelementptr inbounds %"class.duckdb::AggregateFunction", ptr %cond.i52, i64 %sub.ptr.div.i, i32 2
   %state_size2.i.i.i = getelementptr inbounds i8, ptr %__args, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i, i64 105, i1 false)
@@ -6913,7 +6913,7 @@ for.body.i.i.i.i.i:                               ; preds = %invoke.cont, %for.i
           to label %for.inc.i.i.i.i.i unwind label %lpad.i.i.i.i.i
 
 for.inc.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %__cur.016.i.i.i.i.i, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %__cur.016.i.i.i.i.i, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i, i64 176
   %state_size2.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i.i, i64 105, i1 false)
@@ -6978,7 +6978,7 @@ for.body.i.i.i.i.i54:                             ; preds = %invoke.cont10, %for
           to label %for.inc.i.i.i.i.i69 unwind label %lpad.i.i.i.i.i57
 
 for.inc.i.i.i.i.i69:                              ; preds = %for.body.i.i.i.i.i54
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %__cur.016.i.i.i.i.i55.ptr, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %__cur.016.i.i.i.i.i55.ptr, align 8, !tbaa !3
   %state_size.i.i.i.i.i.i.i70 = getelementptr inbounds i8, ptr %__cur.016.i.i.i.i.i55.ptr, i64 176
   %state_size2.i.i.i.i.i.i.i71 = getelementptr inbounds i8, ptr %__first.addr.015.i.i.i.i.i56, i64 176
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(105) %state_size.i.i.i.i.i.i.i70, ptr noundef nonnull align 8 dereferenceable(105) %state_size2.i.i.i.i.i.i.i71, i64 105, i1 false)
@@ -7127,7 +7127,7 @@ unreachable:                                      ; preds = %invoke.cont21
 define linkonce_odr void @_ZN6duckdb18BaseScalarFunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(170) %this, ptr noundef nonnull align 8 dereferenceable(170) %0) unnamed_addr #13 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(72) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb14SimpleFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %arguments.i = getelementptr inbounds i8, ptr %this, i64 72
   %arguments2.i = getelementptr inbounds i8, ptr %0, i64 72
   invoke void @_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %arguments.i, ptr noundef nonnull align 8 dereferenceable(24) %arguments2.i)
@@ -7176,7 +7176,7 @@ ehcleanup9.i:                                     ; preds = %ehcleanup.i, %lpad.
   br label %common.resume
 
 _ZN6duckdb14SimpleFunctionC2ERKS0_.exit:          ; preds = %invoke.cont5.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb18BaseScalarFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb18BaseScalarFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %return_type = getelementptr inbounds i8, ptr %this, i64 144
   %return_type2 = getelementptr inbounds i8, ptr %0, i64 144
   invoke void @_ZN6duckdb11LogicalTypeC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %return_type, ptr noundef nonnull align 8 dereferenceable(24) %return_type2)
@@ -7204,7 +7204,7 @@ define linkonce_odr void @_ZN6duckdb8FunctionC2ERKS0_(ptr noundef nonnull align 
 entry:
   %__dnew.i.i6 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb8FunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN6duckdb8FunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %name = getelementptr inbounds i8, ptr %this, i64 8
   %name2 = getelementptr inbounds i8, ptr %0, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -12748,7 +12748,7 @@ if.then.i.i29:                                    ; preds = %_ZNSt6vectorIN6duck
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.then.i.i29, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6duckdb17AggregateFunctionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %state_size13 = getelementptr inbounds i8, ptr %this, i64 176
   store ptr %state_size, ptr %state_size13, align 8, !tbaa !147
   %initialize14 = getelementptr inbounds i8, ptr %this, i64 184

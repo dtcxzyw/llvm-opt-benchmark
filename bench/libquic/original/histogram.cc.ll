@@ -4310,7 +4310,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
   call void @_ZN4base13HistogramBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base9HistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base9HistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bucket_ranges_ = getelementptr inbounds %"class.base::Histogram", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %ranges.addr, align 8
   store ptr %1, ptr %bucket_ranges_, align 8
@@ -4469,7 +4469,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %name.addr, align 8
   call void @_ZN4base13HistogramBaseC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(44) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base9HistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base9HistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bucket_ranges_ = getelementptr inbounds %"class.base::Histogram", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %ranges.addr, align 8
   store ptr %1, ptr %bucket_ranges_, align 8
@@ -4609,7 +4609,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base9HistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base9HistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %logged_samples_ = getelementptr inbounds %"class.base::Histogram", ptr %this1, i32 0, i32 6
   call void @_ZNSt10unique_ptrIN4base16HistogramSamplesESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %logged_samples_) #12
   %samples_ = getelementptr inbounds %"class.base::Histogram", ptr %this1, i32 0, i32 5
@@ -5635,7 +5635,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15LinearHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15LinearHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bucket_description_ = getelementptr inbounds %"class.base::LinearHistogram", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %bucket_description_) #12
   call void @_ZN4base9HistogramD2Ev(ptr noundef nonnull align 8 dereferenceable(81) %this1) #12
@@ -6048,7 +6048,7 @@ entry:
   %3 = load i32, ptr %bucket_count.addr, align 4
   %4 = load i32, ptr %flags.addr, align 4
   call void @_ZN4base9Histogram7FactoryC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13HistogramTypeEiiji(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base15LinearHistogram7FactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base15LinearHistogram7FactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %5 = load ptr, ptr %descriptions.addr, align 8
   %descriptions_ = getelementptr inbounds %"class.base::LinearHistogram::Factory", ptr %this1, i32 0, i32 1
   store ptr %5, ptr %descriptions_, align 8
@@ -6082,7 +6082,7 @@ entry:
   %2 = load i32, ptr %maximum.addr, align 4
   %3 = load ptr, ptr %ranges.addr, align 8
   call void @_ZN4base9HistogramC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(81) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15LinearHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15LinearHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bucket_description_ = getelementptr inbounds %"class.base::LinearHistogram", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %bucket_description_) #12
   ret void
@@ -6133,7 +6133,7 @@ entry:
   %7 = load ptr, ptr %meta.addr, align 8
   %8 = load ptr, ptr %logged_meta.addr, align 8
   call void @_ZN4base9HistogramC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr noundef nonnull align 8 dereferenceable(81) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15LinearHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15LinearHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bucket_description_ = getelementptr inbounds %"class.base::LinearHistogram", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIiNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIiESaISt4pairIKiS5_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %bucket_description_) #12
   ret void
@@ -6540,7 +6540,7 @@ entry:
   %0 = load ptr, ptr %name.addr, align 8
   %1 = load i32, ptr %flags.addr, align 4
   call void @_ZN4base9Histogram7FactoryC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13HistogramTypeEiiji(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 2, i32 noundef 1, i32 noundef 2, i32 noundef 3, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base16BooleanHistogram7FactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base16BooleanHistogram7FactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6753,7 +6753,7 @@ entry:
   %0 = load ptr, ptr %name.addr, align 8
   %1 = load ptr, ptr %ranges.addr, align 8
   call void @_ZN4base15LinearHistogramC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 2, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base16BooleanHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base16BooleanHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -6782,7 +6782,7 @@ entry:
   %4 = load ptr, ptr %meta.addr, align 8
   %5 = load ptr, ptr %logged_meta.addr, align 8
   call void @_ZN4base15LinearHistogramC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr noundef nonnull align 8 dereferenceable(136) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i32 noundef 2, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 2, ptr noundef %4, ptr noundef %5)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base16BooleanHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base16BooleanHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -7049,7 +7049,7 @@ entry:
   %0 = load ptr, ptr %name.addr, align 8
   %1 = load i32, ptr %flags.addr, align 4
   call void @_ZN4base9Histogram7FactoryC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13HistogramTypeEiiji(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 3, i32 noundef 0, i32 noundef 0, i32 noundef 0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base15CustomHistogram7FactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base15CustomHistogram7FactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %2 = load ptr, ptr %custom_ranges.addr, align 8
   %custom_ranges_ = getelementptr inbounds %"class.base::CustomHistogram::Factory", ptr %this1, i32 0, i32 1
   store ptr %2, ptr %custom_ranges_, align 8
@@ -7457,7 +7457,7 @@ entry:
   %call3 = call noundef i32 @_ZNK4base12BucketRanges5rangeEm(ptr noundef nonnull align 8 dereferenceable(28) %2, i64 noundef %sub)
   %4 = load ptr, ptr %ranges.addr, align 8
   call void @_ZN4base9HistogramC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesE(ptr noundef nonnull align 8 dereferenceable(81) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %call, i32 noundef %call3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15CustomHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15CustomHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -7496,7 +7496,7 @@ entry:
   %8 = load ptr, ptr %meta.addr, align 8
   %9 = load ptr, ptr %logged_meta.addr, align 8
   call void @_ZN4base9HistogramC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiiPKNS_12BucketRangesEPiSC_jPNS_16HistogramSamples8MetadataESF_(ptr noundef nonnull align 8 dereferenceable(81) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %call, i32 noundef %call3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15CustomHistogramE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN4base15CustomHistogramE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -8206,7 +8206,7 @@ entry:
   store i32 %bucket_count, ptr %bucket_count.addr, align 4
   store i32 %flags, ptr %flags.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base9Histogram7FactoryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4base9Histogram7FactoryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.base::Histogram::Factory", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %name.addr, align 8
   store ptr %0, ptr %name_, align 8

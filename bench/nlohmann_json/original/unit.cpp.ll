@@ -2820,7 +2820,7 @@ $_ZTIN7doctest14DiscardOStreamUt_E = comdat any
 @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive = private unnamed_addr constant [4 x [5 x i8]] [[5 x i8] c"1\00\00\00\00", [5 x i8] c"true\00", [5 x i8] c"on\00\00\00", [5 x i8] c"yes\00\00"], align 16
 @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative = private unnamed_addr constant [4 x [6 x i8]] [[6 x i8] c"0\00\00\00\00\00", [6 x i8] c"false\00", [6 x i8] c"off\00\00\00", [6 x i8] c"no\00\00\00\00"], align 16
 @_ZTVN7doctest14DiscardOStreamE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1096 to ptr), ptr null, ptr @_ZTIN7doctest14DiscardOStreamE, ptr @_ZN7doctest14DiscardOStreamD1Ev, ptr @_ZN7doctest14DiscardOStreamD0Ev], [5 x ptr] [ptr inttoptr (i64 -1096 to ptr), ptr inttoptr (i64 -1096 to ptr), ptr @_ZTIN7doctest14DiscardOStreamE, ptr @_ZTv0_n24_N7doctest14DiscardOStreamD1Ev, ptr @_ZTv0_n24_N7doctest14DiscardOStreamD0Ev] }, comdat, align 8
-@_ZTTN7doctest14DiscardOStreamE = linkonce_odr dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7doctest14DiscardOStreamE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7doctest14DiscardOStreamE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN7doctest14DiscardOStreamE = linkonce_odr dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7doctest14DiscardOStreamE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7doctest14DiscardOStreamE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN7doctest14DiscardOStreamE0_So = linkonce_odr dso_local unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1096 to ptr), ptr null, ptr @_ZTISo, ptr @_ZNSoD1Ev, ptr @_ZNSoD0Ev], [5 x ptr] [ptr inttoptr (i64 -1096 to ptr), ptr inttoptr (i64 -1096 to ptr), ptr @_ZTISo, ptr @_ZTv0_n24_NSoD1Ev, ptr @_ZTv0_n24_NSoD0Ev] }, comdat, align 8
 @_ZTISo = external constant ptr
 @_ZTSN7doctest14DiscardOStreamE = linkonce_odr dso_local constant [27 x i8] c"N7doctest14DiscardOStreamE\00", comdat, align 1
@@ -9537,7 +9537,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest13IContextScopeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
   store i8 1, ptr %need_to_destroy, align 8
   store ptr %this1, ptr %ref.tmp, align 8
@@ -9571,7 +9571,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest13IContextScopeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest13IContextScopeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9598,7 +9598,7 @@ entry:
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest13IContextScopeC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %need_to_destroy = getelementptr inbounds %"struct.doctest::detail::ContextScopeBase", ptr %this1, i32 0, i32 1
   store i8 1, ptr %need_to_destroy, align 8
   %0 = load ptr, ptr %other.addr, align 8
@@ -14763,17 +14763,17 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 1096
   call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 0, i32 3), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 0, i32 3), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 1096
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 1, i32 3), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 1, i32 3), ptr %add.ptr, align 8
   %discardBuf = getelementptr inbounds %"class.doctest::DiscardOStream", ptr %this1, i32 0, i32 1
   invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef getelementptr inbounds ([4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1), ptr noundef %discardBuf)
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 0, i32 3), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 0, i32 3), ptr %this1, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 1096
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 1, i32 3), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 1, i32 3), ptr %add.ptr2, align 8
   %discardBuf3 = getelementptr inbounds %"class.doctest::DiscardOStream", ptr %this1, i32 0, i32 1
   invoke void @_ZN7doctest14DiscardOStreamUt_C2Ev(ptr noundef nonnull align 8 dereferenceable(1088) %discardBuf3)
           to label %invoke.cont5 unwind label %lpad4
@@ -23814,7 +23814,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamUt_E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamUt_E, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -32477,7 +32477,7 @@ entry:
   store ptr %co, ptr %co.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest9IReporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %xml = getelementptr inbounds %"struct.doctest::(anonymous namespace)::XmlReporter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %co.addr, align 8
   %cout = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %0, i32 0, i32 0
@@ -32519,7 +32519,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest9IReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest9IReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -36411,7 +36411,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %xml = getelementptr inbounds %"struct.doctest::(anonymous namespace)::XmlReporter", ptr %this1, i32 0, i32 1
   call void @_ZN7doctest12_GLOBAL__N_19XmlWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %xml) #5
   call void @_ZN7doctest9IReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
@@ -40288,7 +40288,7 @@ entry:
   store ptr %co, ptr %co.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest9IReporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %xml = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %co.addr, align 8
   %cout = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %0, i32 0, i32 0
@@ -42213,7 +42213,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %testCaseData = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter", ptr %this1, i32 0, i32 5
   call void @_ZN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseDataD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %testCaseData) #5
   %deepestSubcaseStackNames = getelementptr inbounds %"struct.doctest::(anonymous namespace)::JUnitReporter", ptr %this1, i32 0, i32 4
@@ -46564,7 +46564,7 @@ entry:
   store ptr %co, ptr %co.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7doctest9IReporterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %s = getelementptr inbounds %"struct.doctest::(anonymous namespace)::ConsoleReporter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %co.addr, align 8
   %cout = getelementptr inbounds %"struct.doctest::ContextOptions", ptr %0, i32 0, i32 0
@@ -47879,7 +47879,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %subcasesStack = getelementptr inbounds %"struct.doctest::(anonymous namespace)::ConsoleReporter", ptr %this1, i32 0, i32 3
   call void @_ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %subcasesStack) #5
   call void @_ZN7doctest9IReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #5

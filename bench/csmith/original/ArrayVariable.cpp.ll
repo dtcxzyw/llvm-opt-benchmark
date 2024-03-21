@@ -1564,7 +1564,7 @@ define dso_local void @_ZN13ArrayVariableC2EP5BlockRKNSt7__cxx1112basic_stringIc
   %23 = load ptr, ptr %14, align 8
   %24 = load ptr, ptr %16, align 8
   call void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10ExpressionPK12CVQualifiersPKS_b(ptr noundef nonnull align 8 dereferenceable(200) %19, ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %24, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, i32 0, i32 2), ptr %19, align 8
   %25 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 1
   store ptr null, ptr %25, align 8
   %26 = getelementptr inbounds %class.ArrayVariable, ptr %19, i32 0, i32 2
@@ -1712,7 +1712,7 @@ define dso_local void @_ZN13ArrayVariableC2ERKS_(ptr noundef nonnull align 8 der
   %19 = getelementptr inbounds %class.Variable, ptr %18, i32 0, i32 11
   %20 = load ptr, ptr %19, align 8
   call void @_ZN8VariableC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPK4TypePK10ExpressionPK12CVQualifiersPKS_b(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef %12, ptr noundef %15, ptr noundef %17, ptr noundef %20, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, i32 0, i32 2), ptr %7, align 8
   %21 = getelementptr inbounds %class.ArrayVariable, ptr %7, i32 0, i32 1
   %22 = load ptr, ptr %4, align 8
   %23 = getelementptr inbounds %class.ArrayVariable, ptr %22, i32 0, i32 1
@@ -1898,7 +1898,7 @@ define dso_local void @_ZN13ArrayVariableD2Ev(ptr noundef nonnull align 8 derefe
   %3 = alloca i64, align 8
   store ptr %0, ptr %2, align 8
   %4 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, inrange i32 0, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTV13ArrayVariable, i32 0, i32 0, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.ArrayVariable, ptr %4, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null

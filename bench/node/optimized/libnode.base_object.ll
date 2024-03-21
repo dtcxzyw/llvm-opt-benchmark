@@ -85,7 +85,7 @@ entry:
   %cb.addr.i.i = alloca ptr, align 8
   %arg.addr.i.i = alloca ptr, align 8
   %ref.tmp.i.i = alloca i64, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i64 0, i32 0, i64 2), ptr %this, align 8
   %persistent_handle_ = getelementptr inbounds i8, ptr %this, i64 8
   %cmp.i.i = icmp eq ptr %object.coerce, null
   br i1 %cmp.i.i, label %do.body11, label %do.body13
@@ -203,7 +203,7 @@ define dso_local void @_ZN4node10BaseObjectD2Ev(ptr noundef nonnull align 8 dere
 entry:
   %search.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
   %handle_scope = alloca %"class.v8::HandleScope", align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN4node10BaseObjectE, i64 0, i32 0, i64 2), ptr %this, align 8
   %realm_.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %realm_.i, align 8
   %base_object_count_.i = getelementptr inbounds i8, ptr %0, i64 688

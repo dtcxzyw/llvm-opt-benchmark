@@ -7531,7 +7531,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v34nodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v34nodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %source_ = getelementptr inbounds %"class.toml::v3::node", ptr %this1, i32 0, i32 1
   %begin = getelementptr inbounds %"struct.toml::v3::source_region", ptr %source_, i32 0, i32 0
   %line = getelementptr inbounds %"struct.toml::v3::source_position", ptr %begin, i32 0, i32 0
@@ -7564,7 +7564,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v34nodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v34nodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %source_ = getelementptr inbounds %"class.toml::v3::node", ptr %this1, i32 0, i32 1
   call void @_ZN4toml2v313source_regionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %source_) #26
   ret void
@@ -7602,7 +7602,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %other, ptr %other.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v34nodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v34nodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %source_ = getelementptr inbounds %"class.toml::v3::node", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %other.addr, align 8
   %source_2 = getelementptr inbounds %"class.toml::v3::node", ptr %0, i32 0, i32 1
@@ -7656,7 +7656,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v34nodeE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v34nodeE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %source_ = getelementptr inbounds %"class.toml::v3::node", ptr %this1, i32 0, i32 1
   %begin = getelementptr inbounds %"struct.toml::v3::source_region", ptr %source_, i32 0, i32 0
   %line = getelementptr inbounds %"struct.toml::v3::source_position", ptr %begin, i32 0, i32 0
@@ -11615,7 +11615,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %elems_ = getelementptr inbounds %"class.toml::v3::array", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %elems_) #26
   ret void
@@ -11637,7 +11637,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %elems_ = getelementptr inbounds %"class.toml::v3::array", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %elems_) #26
   call void @_ZN4toml2v34nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
@@ -11701,7 +11701,7 @@ entry:
   store ptr %e, ptr %e.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %elems_ = getelementptr inbounds %"class.toml::v3::array", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %elems_) #26
   %0 = load ptr, ptr %b.addr, align 8
@@ -11956,7 +11956,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %elems_ = getelementptr inbounds %"class.toml::v3::array", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorISt10unique_ptrIN4toml2v34nodeESt14default_deleteIS3_EESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %elems_) #26
   %elems_2 = getelementptr inbounds %"class.toml::v3::array", ptr %this1, i32 0, i32 1
@@ -12220,7 +12220,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35arrayE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %elems_ = getelementptr inbounds %"class.toml::v3::array", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %elems_2 = getelementptr inbounds %"class.toml::v3::array", ptr %1, i32 0, i32 1
@@ -14230,7 +14230,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %map_ = getelementptr inbounds %"class.toml::v3::table", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN4toml2v33keyESt10unique_ptrINS1_4nodeESt14default_deleteIS4_EESt4lessIvESaISt4pairIKS2_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %map_) #26
   %inline_ = getelementptr inbounds %"class.toml::v3::table", ptr %this1, i32 0, i32 2
@@ -14255,7 +14255,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %map_ = getelementptr inbounds %"class.toml::v3::table", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN4toml2v33keyESt10unique_ptrINS1_4nodeESt14default_deleteIS4_EESt4lessIvESaISt4pairIKS2_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %map_) #26
   call void @_ZN4toml2v34nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
@@ -14298,7 +14298,7 @@ entry:
   store ptr %e, ptr %e.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %map_ = getelementptr inbounds %"class.toml::v3::table", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN4toml2v33keyESt10unique_ptrINS1_4nodeESt14default_deleteIS4_EESt4lessIvESaISt4pairIKS2_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %map_) #26
   %inline_ = getelementptr inbounds %"class.toml::v3::table", ptr %this1, i32 0, i32 2
@@ -14481,7 +14481,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %map_ = getelementptr inbounds %"class.toml::v3::table", ptr %this1, i32 0, i32 1
   call void @_ZNSt3mapIN4toml2v33keyESt10unique_ptrINS1_4nodeESt14default_deleteIS4_EESt4lessIvESaISt4pairIKS2_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %map_) #26
   %inline_ = getelementptr inbounds %"class.toml::v3::table", ptr %this1, i32 0, i32 2
@@ -14762,7 +14762,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2EOS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35tableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %map_ = getelementptr inbounds %"class.toml::v3::table", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %map_2 = getelementptr inbounds %"class.toml::v3::table", ptr %1, i32 0, i32 1
@@ -20527,7 +20527,7 @@ entry:
   store ptr %source_path, ptr %source_path.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_121utf8_reader_interfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #26
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 32
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 32
   %stream_ = getelementptr inbounds %"class.(anonymous namespace)::utf8_reader", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %source.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %0, i64 16, i1 false)
@@ -20647,7 +20647,7 @@ entry:
   store ptr %source_path, ptr %source_path.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_121utf8_reader_interfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #26
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 32
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111utf8_readerISt17basic_string_viewIcSt11char_traitsIcEEEE, i32 0, i32 0, i32 2), ptr %this1, align 32
   %stream_ = getelementptr inbounds %"class.(anonymous namespace)::utf8_reader", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %source.addr, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %0, i64 16, i1 false)
@@ -20756,7 +20756,7 @@ entry:
   store ptr %source_path, ptr %source_path.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_121utf8_reader_interfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #26
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111utf8_readerISiEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 32
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111utf8_readerISiEE, i32 0, i32 0, i32 2), ptr %this1, align 32
   %stream_ = getelementptr inbounds %"class.(anonymous namespace)::utf8_reader.65", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %source.addr, align 8
   invoke void @_ZN12_GLOBAL__N_116utf8_byte_streamISiEC2ERSi(ptr noundef nonnull align 8 dereferenceable(8) %stream_, ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -20896,7 +20896,7 @@ entry:
   store ptr %source_path, ptr %source_path.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN12_GLOBAL__N_121utf8_reader_interfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #26
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111utf8_readerISiEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 32
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_111utf8_readerISiEE, i32 0, i32 0, i32 2), ptr %this1, align 32
   %stream_ = getelementptr inbounds %"class.(anonymous namespace)::utf8_reader.65", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %source.addr, align 8
   invoke void @_ZN12_GLOBAL__N_116utf8_byte_streamISiEC2ERSi(ptr noundef nonnull align 8 dereferenceable(8) %stream_, ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -33686,7 +33686,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4toml2v32ex11parse_errorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4toml2v32ex11parse_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %source_ = getelementptr inbounds %"class.toml::v3::ex::parse_error", ptr %this1, i32 0, i32 1
   call void @_ZN4toml2v313source_regionD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %source_) #26
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #26
@@ -33721,7 +33721,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4toml2v32ex11parse_errorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4toml2v32ex11parse_errorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %source_ = getelementptr inbounds %"class.toml::v3::ex::parse_error", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %src.addr, align 8
   call void @_ZN4toml2v313source_regionC2EOS1_(ptr noundef nonnull align 8 dereferenceable(32) %source_, ptr noundef nonnull align 8 dereferenceable(32) %1) #26
@@ -34758,7 +34758,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIlEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.11", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %args.addr, align 8
   store ptr %0, ptr %val.addr.i, align 8
@@ -34857,7 +34857,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIdEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIdEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.13", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %args.addr, align 8
   store ptr %0, ptr %val.addr.i, align 8
@@ -37720,7 +37720,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIlEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.11", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %args.addr, align 8
   store ptr %0, ptr %val.addr.i, align 8
@@ -38977,7 +38977,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIlEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.11", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %args.addr, align 8
   %call = call noundef i64 @_ZN4toml2v34impl18native_value_makerIlJxEE4makeIJxEEElDpOT_(ptr noundef nonnull align 8 dereferenceable(8) %0) #26
@@ -41282,7 +41282,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_4timeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_4timeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.19", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %args.addr, align 8
   store ptr %0, ptr %val.addr.i, align 8
@@ -42062,7 +42062,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_4dateEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_4dateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.17", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %args.addr, align 8
   store ptr %0, ptr %val.addr.i, align 8
@@ -42874,7 +42874,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_6stdopt9date_timeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_6stdopt9date_timeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.21", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %args.addr, align 8
   store ptr %0, ptr %val.addr.i, align 8
@@ -44341,7 +44341,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %args.addr, align 8
   invoke void @_ZN4toml2v34impl18native_value_makerINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJSt17basic_string_viewIcS6_EEE4makeIJSA_EEES8_DpOT_(ptr sret(%"class.std::__cxx11::basic_string") align 8 %val_, ptr noundef nonnull align 8 dereferenceable(16) %0)
@@ -44604,7 +44604,7 @@ entry:
   store ptr %args, ptr %args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4toml2v34nodeC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIbEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.15", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %args.addr, align 8
   store ptr %0, ptr %val.addr.i, align 8
@@ -46778,7 +46778,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %val_) #26
   call void @_ZN4toml2v34nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this1) #26
@@ -60816,7 +60816,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #26
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl) #26
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #26
@@ -60991,7 +60991,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -70438,7 +70438,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %val_2 = getelementptr inbounds %"class.toml::v3::value", ptr %1, i32 0, i32 1
@@ -70505,7 +70505,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIlEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIlEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.11", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %val_2 = getelementptr inbounds %"class.toml::v3::value.11", ptr %1, i32 0, i32 1
@@ -70561,7 +70561,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIdEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIdEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.13", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %val_2 = getelementptr inbounds %"class.toml::v3::value.13", ptr %1, i32 0, i32 1
@@ -70617,7 +70617,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIbEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueIbEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.15", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %val_2 = getelementptr inbounds %"class.toml::v3::value.15", ptr %1, i32 0, i32 1
@@ -70675,7 +70675,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_4dateEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_4dateEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.17", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %val_2 = getelementptr inbounds %"class.toml::v3::value.17", ptr %1, i32 0, i32 1
@@ -70730,7 +70730,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_4timeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_4timeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.19", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %val_2 = getelementptr inbounds %"class.toml::v3::value.19", ptr %1, i32 0, i32 1
@@ -70785,7 +70785,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN4toml2v34nodeC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef nonnull align 8 dereferenceable(40) %0) #26
-  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_6stdopt9date_timeEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [38 x ptr] }, ptr @_ZTVN4toml2v35valueINS0_6stdopt9date_timeEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %val_ = getelementptr inbounds %"class.toml::v3::value.21", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %val_2 = getelementptr inbounds %"class.toml::v3::value.21", ptr %1, i32 0, i32 1
@@ -76219,7 +76219,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121utf8_reader_interfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121utf8_reader_interfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -76565,7 +76565,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #26
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES7_(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl) #26
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #26

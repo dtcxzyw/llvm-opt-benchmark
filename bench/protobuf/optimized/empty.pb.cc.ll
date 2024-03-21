@@ -21,7 +21,7 @@ $_ZNK6google8protobuf8internal14ZeroFieldsBase13IsInitializedEv = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN6google8protobuf5EmptyE = unnamed_addr constant { [13 x ptr] } { [13 x ptr] [ptr null, ptr @_ZTIN6google8protobuf5EmptyE, ptr @_ZN6google8protobuf5EmptyD2Ev, ptr @_ZN6google8protobuf5EmptyD0Ev, ptr @_ZNK6google8protobuf5Empty3NewEPNS0_5ArenaE, ptr @_ZN6google8protobuf8internal14ZeroFieldsBase5ClearEv, ptr @_ZNK6google8protobuf8internal14ZeroFieldsBase13IsInitializedEv, ptr @_ZN6google8protobuf7Message21CheckTypeAndMergeFromERKNS0_11MessageLiteE, ptr @_ZNK6google8protobuf8internal14ZeroFieldsBase12ByteSizeLongEv, ptr @_ZN6google8protobuf8internal14ZeroFieldsBase14_InternalParseEPKcPNS1_12ParseContextE, ptr @_ZNK6google8protobuf8internal14ZeroFieldsBase12GetClassDataEv, ptr @_ZNK6google8protobuf8internal14ZeroFieldsBase18_InternalSerializeEPhPNS0_2io19EpsCopyOutputStreamE, ptr @_ZNK6google8protobuf5Empty11GetMetadataEv] }, align 8
-@_ZN6google8protobuf24_Empty_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::CachedSize" } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::CachedSize" } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::CachedSize" } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5EmptyE, i32 0, inrange i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } }, align 8
+@_ZN6google8protobuf24_Empty_default_instance_E = global { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::CachedSize" } } } { { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::CachedSize" } } { { ptr, %"class.google::protobuf::internal::InternalMetadata", %"class.google::protobuf::internal::CachedSize" } { ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5EmptyE, i32 0, i32 0, i32 2), %"class.google::protobuf::internal::InternalMetadata" zeroinitializer, %"class.google::protobuf::internal::CachedSize" zeroinitializer } } }, align 8
 @_ZN45TableStruct_google_2fprotobuf_2fempty_2eproto7offsetsE = constant [8 x i32] [i32 -1, i32 8, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1, i32 -1], section "protodesc_cold", align 16
 @_ZL59descriptor_table_protodef_google_2fprotobuf_2fempty_2eproto = internal constant [191 x i8] c"\0A\1Bgoogle/protobuf/empty.proto\12\0Fgoogle.protobuf\22\07\0A\05EmptyB}\0A\13com.google.protobufB\0AEmptyProtoP\01Z.google.golang.org/protobuf/types/known/emptypb\F8\01\01\A2\02\03GPB\AA\02\1EGoogle.Protobuf.WellKnownTypesb\06proto3\00", section "protodesc_cold", align 16
 @.str = private unnamed_addr constant [28 x i8] c"google/protobuf/empty.proto\00", align 1
@@ -61,7 +61,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %_cached_size_.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5EmptyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5EmptyE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -73,7 +73,7 @@ entry:
   store i64 %0, ptr %_internal_metadata_.i.i.i, align 8
   %_cached_size_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 0, ptr %_cached_size_.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5EmptyE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6google8protobuf5EmptyE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
   %1 = load i64, ptr %_internal_metadata_2, align 8
   %and.i16 = and i64 %1, 1

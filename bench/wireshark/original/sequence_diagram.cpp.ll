@@ -1229,7 +1229,7 @@ define void @_ZN15SequenceDiagramC2EP7QCPAxisS1_S1_(ptr noundef nonnull align 8 
   %23 = load ptr, ptr %6, align 8
   %24 = load ptr, ptr %7, align 8
   call void @_ZN20QCPAbstractPlottableC2EP7QCPAxisS1_(ptr noundef nonnull align 8 dereferenceable(184) %22, ptr noundef %23, ptr noundef %24)
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i32 0, inrange i32 0, i32 2), ptr %22, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i32 0, i32 0, i32 2), ptr %22, align 8
   %25 = getelementptr inbounds %class.SequenceDiagram, ptr %22, i32 0, i32 1
   %26 = load ptr, ptr %6, align 8
   store ptr %26, ptr %25, align 8
@@ -1866,7 +1866,7 @@ define void @_ZN15SequenceDiagramD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [32 x ptr] }, ptr @_ZTV15SequenceDiagram, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.SequenceDiagram, ptr %3, i32 0, i32 4
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, null

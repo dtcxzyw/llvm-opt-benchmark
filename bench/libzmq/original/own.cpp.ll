@@ -778,7 +778,7 @@ entry:
   %0 = load ptr, ptr %parent_.addr, align 8
   %1 = load i32, ptr %tid_.addr, align 4
   call void @_ZN3zmq8object_tC2EPNS_5ctx_tEj(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN3zmq5own_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN3zmq5own_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %options = getelementptr inbounds %"class.zmq::own_t", ptr %this1, i32 0, i32 2
   invoke void @_ZN3zmq9options_tC1Ev(ptr noundef nonnull align 8 dereferenceable(1336) %options)
           to label %invoke.cont unwind label %lpad
@@ -864,7 +864,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %io_thread_.addr, align 8
   call void @_ZN3zmq8object_tC2EPS0_(ptr noundef nonnull align 8 dereferenceable(20) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN3zmq5own_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN3zmq5own_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %options = getelementptr inbounds %"class.zmq::own_t", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %options_.addr, align 8
   invoke void @_ZN3zmq9options_tC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(1336) %options, ptr noundef nonnull align 8 dereferenceable(1336) %1)
@@ -1394,7 +1394,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN3zmq5own_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [26 x ptr] }, ptr @_ZTVN3zmq5own_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_owned = getelementptr inbounds %"class.zmq::own_t", ptr %this1, i32 0, i32 8
   call void @_ZNSt3setIPN3zmq5own_tESt4lessIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %_owned) #11
   %options = getelementptr inbounds %"class.zmq::own_t", ptr %this1, i32 0, i32 2

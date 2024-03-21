@@ -20,7 +20,7 @@ $_ZNK4llvh11raw_ostream10has_colorsEv = comdat any
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh14raw_os_ostreamD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %OutBufCur.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %OutBufCur.i, align 8
   %OutBufStart.i = getelementptr inbounds i8, ptr %this, i64 8
@@ -43,7 +43,7 @@ declare void @_ZN4llvh11raw_ostreamD2Ev(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4llvh14raw_os_ostreamD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %this) unnamed_addr #0 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %OutBufCur.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %OutBufCur.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %this, i64 8

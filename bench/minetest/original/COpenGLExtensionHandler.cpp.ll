@@ -693,7 +693,7 @@ define void @_ZN3irr5video23COpenGLExtensionHandlerC2Ev(ptr nocapture noundef no
   %8 = getelementptr inbounds i8, ptr %0, i64 56
   %9 = getelementptr inbounds i8, ptr %0, i64 544
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %8, i8 0, i64 6, i1 false)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreFeatureE, i64 0, inrange i32 0, i64 2), ptr %9, align 8, !tbaa !18
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3irr5video18COpenGLCoreFeatureE, i64 0, i32 0, i64 2), ptr %9, align 8, !tbaa !18
   %10 = getelementptr inbounds i8, ptr %0, i64 552
   store <4 x i8> <i8 0, i8 0, i8 0, i8 1>, ptr %10, align 8, !tbaa !3
   %11 = getelementptr inbounds i8, ptr %0, i64 560

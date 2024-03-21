@@ -112,7 +112,7 @@ define void @_ZN12FilterScriptC2Ev(ptr noundef nonnull align 8 dereferenceable(2
   tail call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef null)
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr @_ZN9QListData11shared_nullE, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterScript, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV12FilterScript, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
@@ -1440,7 +1440,7 @@ _ZN9QtPrivate8RefCount5derefEv.exit.thread2.i126: ; preds = %253, %_ZN9QtPrivate
   br label %.body
 
 266:                                              ; preds = %229
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i64 0, i32 0, i64 2), ptr %38, align 8
   %267 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN7QStringaSERKS_(ptr noundef nonnull align 8 dereferenceable(8) %176, ptr noundef nonnull align 8 dereferenceable(8) %28) #10
   invoke void @_ZN17RichParameterListC1ERKS_(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %27)
           to label %268 unwind label %280
@@ -1868,7 +1868,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i:                    ; preds = %14, %.noexc
   br label %.body
 
 _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i64 0, i32 0, i64 2), ptr %8, align 8
   store ptr %8, ptr %7, align 8
   br label %52
 
@@ -1928,7 +1928,7 @@ _ZN7QStringC2ERKS_.exit.i.i.i11:                  ; preds = %37, %.noexc13
   br label %.body14
 
 _ZN5QListI29FilterNameParameterValuesPairE14node_constructEPNS1_4NodeERKS0_.exit16: ; preds = %_ZN7QStringC2ERKS_.exit.i.i.i11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i64 0, inrange i32 0, i64 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i64 0, i32 0, i64 2), ptr %31, align 8
   store ptr %31, ptr %30, align 8
   br label %52
 
@@ -2303,7 +2303,7 @@ _ZN7QStringC2ERKS_.exit.i.i:                      ; preds = %13, %6
   br label %24
 
 19:                                               ; preds = %_ZN7QStringC2ERKS_.exit.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV29FilterNameParameterValuesPair, i64 0, i32 0, i64 2), ptr %5, align 8
   store ptr %5, ptr %.01223, align 8
   %20 = getelementptr inbounds i8, ptr %.01223, i64 8
   %21 = getelementptr inbounds i8, ptr %.01322, i64 8

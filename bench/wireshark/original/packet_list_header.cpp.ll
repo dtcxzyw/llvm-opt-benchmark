@@ -577,9 +577,9 @@ define void @_ZN16PacketListHeaderC2EN2Qt11OrientationEP7QWidget(ptr noundef non
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void @_ZN11QHeaderViewC2EN2Qt11OrientationEP7QWidget(ptr noundef nonnull align 8 dereferenceable(40) %10, i32 noundef %11, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i32 0, i32 0, i32 2), ptr %10, align 8
   %13 = getelementptr inbounds i8, ptr %10, i64 16
-  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i32 0, inrange i32 1, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [102 x ptr], [10 x ptr] }, ptr @_ZTV16PacketListHeader, i32 0, i32 1, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.PacketListHeader, ptr %10, i32 0, i32 1
   store i32 -1, ptr %14, align 8
   invoke void @_ZN7QWidget14setAcceptDropsEb(ptr noundef nonnull align 8 dereferenceable(40) %10, i1 noundef zeroext true)

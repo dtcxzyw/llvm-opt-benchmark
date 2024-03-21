@@ -1361,7 +1361,7 @@ define void @_ZN13ATapDataModelC2ENS_13dataModelTypeEi7QStringP7QObject(ptr noun
   %14 = load ptr, ptr %6, align 8
   %15 = load ptr, ptr %10, align 8
   call void @_ZN18QAbstractListModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %14, ptr noundef %15)
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 3
   call void @_ZN7QStringC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %16) #11
   %17 = getelementptr inbounds %class.ATapDataModel, ptr %14, i32 0, i32 11
@@ -1483,7 +1483,7 @@ define void @_ZN13ATapDataModelD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV13ATapDataModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ATapDataModel, ptr %3, i32 0, i32 7
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -3311,7 +3311,7 @@ define void @_ZN17EndpointDataModelC2Ei7QStringP7QObject(ptr noundef nonnull ali
 
 15:                                               ; preds = %4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV17EndpointDataModel, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV17EndpointDataModel, i32 0, i32 0, i32 2), ptr %12, align 8
   ret void
 
 16:                                               ; preds = %4
@@ -5779,7 +5779,7 @@ define void @_ZN21ConversationDataModelC2Ei7QStringP7QObject(ptr noundef nonnull
 
 15:                                               ; preds = %4
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #11
-  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV21ConversationDataModel, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [52 x ptr] }, ptr @_ZTV21ConversationDataModel, i32 0, i32 0, i32 2), ptr %12, align 8
   ret void
 
 16:                                               ; preds = %4

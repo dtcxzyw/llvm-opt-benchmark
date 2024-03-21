@@ -698,7 +698,7 @@ define dso_local void @_ZN12CVQualifiersC2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 1
   store i8 0, ptr %4, align 8
   %5 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 2
@@ -730,7 +730,7 @@ define dso_local void @_ZN12CVQualifiersC2Ebb(ptr noundef nonnull align 8 derefe
   %8 = zext i1 %2 to i8
   store i8 %8, ptr %6, align 1
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 1
   %11 = load i8, ptr %5, align 1
   %12 = trunc i8 %11 to i1
@@ -759,7 +759,7 @@ define dso_local void @_ZN12CVQualifiersC2ERKSt6vectorIbSaIbEES4_(ptr noundef no
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 1
   store i8 0, ptr %10, align 8
   %11 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 2
@@ -916,7 +916,7 @@ define dso_local void @_ZN12CVQualifiersC2ERKS_(ptr noundef nonnull align 8 dere
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %7 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.CVQualifiers, ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %4, align 8
   %10 = getelementptr inbounds %class.CVQualifiers, ptr %9, i32 0, i32 1
@@ -988,7 +988,7 @@ define dso_local void @_ZN12CVQualifiersD2Ev(ptr noundef nonnull align 8 derefer
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12CVQualifiers, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 4
   call void @_ZNSt6vectorIbSaIbEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
   %5 = getelementptr inbounds %class.CVQualifiers, ptr %3, i32 0, i32 3

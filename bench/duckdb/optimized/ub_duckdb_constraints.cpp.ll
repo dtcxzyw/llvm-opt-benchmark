@@ -158,7 +158,7 @@ $_ZTIN6duckdb17InternalExceptionE = comdat any
 define void @_ZN6duckdb15CheckConstraintC2ENS_10unique_ptrINS_16ParsedExpressionESt14default_deleteIS2_ELb1EEE(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr nocapture noundef %expression) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6duckdb10ConstraintC2ENS_14ConstraintTypeE(ptr noundef nonnull align 8 dereferenceable(9) %this, i8 noundef zeroext 2)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb15CheckConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb15CheckConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %expression2 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load i64, ptr %expression, align 8, !tbaa !6
   store i64 %0, ptr %expression2, align 8, !tbaa !6
@@ -526,7 +526,7 @@ _ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit12
 define void @_ZN6duckdb17NotNullConstraintC2ENS_12LogicalIndexE(ptr noundef nonnull align 8 dereferenceable(24) %this, i64 %index.coerce) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6duckdb10ConstraintC2ENS_14ConstraintTypeE(ptr noundef nonnull align 8 dereferenceable(9) %this, i8 noundef zeroext 1)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb17NotNullConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb17NotNullConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %index2 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %index.coerce, ptr %index2, align 8, !tbaa.struct !28
   ret void
@@ -596,7 +596,7 @@ _ZNSt10unique_ptrIN6duckdb17NotNullConstraintESt14default_deleteIS1_EED2Ev.exit:
 define void @_ZN6duckdb16UniqueConstraintC2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6duckdb10ConstraintC2ENS_14ConstraintTypeE(ptr noundef nonnull align 8 dereferenceable(9) %this, i8 noundef zeroext 3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %index = getelementptr inbounds i8, ptr %this, i64 16
   store i64 -1, ptr %index, align 8, !tbaa !33
   %columns = getelementptr inbounds i8, ptr %this, i64 24
@@ -609,7 +609,7 @@ define void @_ZN6duckdb16UniqueConstraintC2ENS_12LogicalIndexEb(ptr noundef nonn
 entry:
   %frombool = zext i1 %is_primary_key to i8
   tail call void @_ZN6duckdb10ConstraintC2ENS_14ConstraintTypeE(ptr noundef nonnull align 8 dereferenceable(9) %this, i8 noundef zeroext 3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %index2 = getelementptr inbounds i8, ptr %this, i64 16
   store i64 %index.coerce, ptr %index2, align 8, !tbaa.struct !28
   %columns = getelementptr inbounds i8, ptr %this, i64 24
@@ -624,7 +624,7 @@ define void @_ZN6duckdb16UniqueConstraintC2ENS_6vectorINSt7__cxx1112basic_string
 entry:
   %frombool = zext i1 %is_primary_key to i8
   tail call void @_ZN6duckdb10ConstraintC2ENS_14ConstraintTypeE(ptr noundef nonnull align 8 dereferenceable(9) %this, i8 noundef zeroext 3)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %index = getelementptr inbounds i8, ptr %this, i64 16
   store i64 -1, ptr %index, align 8, !tbaa !33
   %columns2 = getelementptr inbounds i8, ptr %this, i64 24
@@ -1333,7 +1333,7 @@ _ZN6duckdb10unique_ptrINS_16UniqueConstraintESt14default_deleteIS1_ELb1EE13Asser
 define void @_ZN6duckdb20ForeignKeyConstraintC2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6duckdb10ConstraintC2ENS_14ConstraintTypeE(ptr noundef nonnull align 8 dereferenceable(9) %this, i8 noundef zeroext 4)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb20ForeignKeyConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb20ForeignKeyConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %pk_columns = getelementptr inbounds i8, ptr %this, i64 16
   %schema.i = getelementptr inbounds i8, ptr %this, i64 72
   %0 = getelementptr inbounds i8, ptr %this, i64 88
@@ -1357,7 +1357,7 @@ entry:
 define void @_ZN6duckdb20ForeignKeyConstraintC2ENS_6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_NS_14ForeignKeyInfoE(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr nocapture noundef %pk_columns, ptr nocapture noundef %fk_columns, ptr noundef %info) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6duckdb10ConstraintC2ENS_14ConstraintTypeE(ptr noundef nonnull align 8 dereferenceable(9) %this, i8 noundef zeroext 4)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb20ForeignKeyConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb20ForeignKeyConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %pk_columns2 = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load <2 x ptr>, ptr %pk_columns, align 8, !tbaa !6
   store <2 x ptr> %0, ptr %pk_columns2, align 8, !tbaa !6
@@ -2272,7 +2272,7 @@ cleanup.action:                                   ; preds = %ehcleanup13, %lpad,
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb15CheckConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb15CheckConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb15CheckConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %expression = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %expression, align 8, !tbaa !6
   %cmp.not.i = icmp eq ptr %0, null
@@ -2294,7 +2294,7 @@ _ZNSt10unique_ptrIN6duckdb16ParsedExpressionESt14default_deleteIS1_EED2Ev.exit: 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb15CheckConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb15CheckConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb15CheckConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %expression.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %expression.i, align 8, !tbaa !6
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -2321,7 +2321,7 @@ declare void @_ZNK6duckdb17NotNullConstraint9SerializeERNS_10SerializerE(ptr nou
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16UniqueConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %columns = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %columns, align 8, !tbaa !49
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2373,7 +2373,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb16UniqueConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(49) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb16UniqueConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %columns.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %columns.i, align 8, !tbaa !49
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -2428,7 +2428,7 @@ declare void @_ZNK6duckdb16UniqueConstraint9SerializeERNS_10SerializerE(ptr noun
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb20ForeignKeyConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(184) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb20ForeignKeyConstraintE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6duckdb20ForeignKeyConstraintE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %fk_keys.i = getelementptr inbounds i8, ptr %this, i64 160
   %0 = load ptr, ptr %fk_keys.i, align 8, !tbaa !77
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -3226,7 +3226,7 @@ declare void @_ZN6duckdb17InternalExceptionC1ERKNSt7__cxx1112basic_stringIcSt11c
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN6duckdb9ExceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %this) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6duckdb9ExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !3
   %raw_message_ = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %raw_message_, align 8, !tbaa !14
   %1 = getelementptr inbounds i8, ptr %this, i64 64

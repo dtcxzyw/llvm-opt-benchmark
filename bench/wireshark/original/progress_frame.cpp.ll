@@ -796,9 +796,9 @@ define void @_ZN13ProgressFrameC2EP7QWidget(ptr noundef nonnull align 8 derefere
   %18 = getelementptr inbounds %class.QFlags.1, ptr %5, i32 0, i32 0
   %19 = load i32, ptr %18, align 4
   call void @_ZN6QFrameC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %16, ptr noundef %17, i32 %19)
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 0, i32 2), ptr %16, align 8
   %20 = getelementptr inbounds i8, ptr %16, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, inrange i32 1, i32 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 1, i32 2), ptr %20, align 8
   %21 = getelementptr inbounds %class.ProgressFrame, ptr %16, i32 0, i32 1
   %22 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 32) #13
           to label %23 unwind label %82
@@ -1437,9 +1437,9 @@ define void @_ZN13ProgressFrameD2Ev(ptr noundef nonnull align 8 dereferenceable(
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [55 x ptr], [10 x ptr] }, ptr @_ZTV13ProgressFrame, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.ProgressFrame, ptr %3, i32 0, i32 1
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null

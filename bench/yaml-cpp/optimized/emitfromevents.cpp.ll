@@ -60,7 +60,7 @@ $_ZTIN4YAML12EventHandlerE = comdat any
 ; Function Attrs: mustprogress uwtable
 define void @_ZN4YAML14EmitFromEventsC2ERNS_7EmitterE(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull align 8 dereferenceable(72) %emitter) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_emitter = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %emitter, ptr %m_emitter, align 8
   %m_stateStack = getelementptr inbounds i8, ptr %this, i64 16
@@ -935,7 +935,7 @@ ehcleanup:                                        ; preds = %lpad2.body, %lpad
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML14EmitFromEventsD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_stateStack = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_stateStack, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -974,7 +974,7 @@ _ZNSt5stackIN4YAML14EmitFromEvents5State5valueESt5dequeIS3_SaIS3_EEED2Ev.exit: ;
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN4YAML14EmitFromEventsD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN4YAML14EmitFromEventsE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_stateStack.i = getelementptr inbounds i8, ptr %this, i64 16
   %0 = load ptr, ptr %m_stateStack.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

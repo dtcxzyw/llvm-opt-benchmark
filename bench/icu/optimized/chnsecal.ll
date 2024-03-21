@@ -93,7 +93,7 @@ define void @_ZN6icu_7515ChineseCalendarC2ERKNS_6LocaleER10UErrorCode(ptr nounde
 entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds i8, ptr %this, i64 618
   store i8 0, ptr %hasLeapMonthBetweenWinterSolstices, align 2
   %fEpochYear = getelementptr inbounds i8, ptr %this, i64 620
@@ -208,7 +208,7 @@ define void @_ZN6icu_7515ChineseCalendarC2ERKNS_6LocaleEiPKNS_8TimeZoneER10UErro
 entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds i8, ptr %this, i64 618
   store i8 0, ptr %hasLeapMonthBetweenWinterSolstices, align 2
   %fEpochYear = getelementptr inbounds i8, ptr %this, i64 620
@@ -236,7 +236,7 @@ lpad:                                             ; preds = %invoke.cont, %entry
 define void @_ZN6icu_7515ChineseCalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(632) %this, ptr noundef nonnull align 8 dereferenceable(632) %other) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN6icu_758CalendarC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef nonnull align 8 dereferenceable(618) %other)
-  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [66 x ptr] }, ptr @_ZTVN6icu_7515ChineseCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   %hasLeapMonthBetweenWinterSolstices = getelementptr inbounds i8, ptr %other, i64 618
   %0 = load i8, ptr %hasLeapMonthBetweenWinterSolstices, align 2
   %hasLeapMonthBetweenWinterSolstices2 = getelementptr inbounds i8, ptr %this, i64 618

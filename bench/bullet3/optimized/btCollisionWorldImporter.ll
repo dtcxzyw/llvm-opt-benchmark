@@ -157,7 +157,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN24btCollisionWorldImporterC2EP16btCollisionWorld(ptr noundef nonnull writeonly align 8 dereferenceable(1336) %this, ptr noundef %world) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont37:
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTV24btCollisionWorldImporter, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTV24btCollisionWorldImporter, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_collisionWorld = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %world, ptr %m_collisionWorld, align 8
   %m_verboseMode = getelementptr inbounds i8, ptr %this, i64 16
@@ -1353,7 +1353,7 @@ terminate.lpad:                                   ; preds = %if.then3.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN24btCollisionWorldImporterD2Ev(ptr noundef nonnull align 8 dereferenceable(1336) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTV24btCollisionWorldImporter, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [29 x ptr] }, ptr @_ZTV24btCollisionWorldImporter, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_bodyMap = getelementptr inbounds i8, ptr %this, i64 1208
   tail call void @_ZN9btHashMapI9btHashPtrP17btCollisionObjectED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %m_bodyMap) #23
   %m_shapeMap = getelementptr inbounds i8, ptr %this, i64 1080
@@ -8042,7 +8042,7 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btSphereShape, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV13btSphereShape, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %m_shapeType.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i32 8, ptr %m_shapeType.i, align 8
   %m_localScaling.i = getelementptr inbounds i8, ptr %call.i, i64 32
@@ -9187,7 +9187,7 @@ invoke.cont:
   %call.i = tail call noundef ptr @_Z22btAlignedAllocInternalmi(i64 noundef 104, i32 noundef 16)
   %m_scaling.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store <4 x float> <float 1.000000e+00, float 1.000000e+00, float 1.000000e+00, float 0.000000e+00>, ptr %m_scaling.i.i, align 4
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV26btTriangleIndexVertexArray, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV26btTriangleIndexVertexArray, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %m_ownsMemory.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 48
   store i8 1, ptr %m_ownsMemory.i.i.i, align 8
   %m_data.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 40
@@ -9430,7 +9430,7 @@ invoke.cont:
   store i32 0, ptr %m_size.i.i13.i.i, align 4
   %m_capacity.i.i14.i.i = getelementptr inbounds i8, ptr %call, i64 112
   store i32 0, ptr %m_capacity.i.i14.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17btTriangleInfoMap, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17btTriangleInfoMap, i64 0, i32 0, i64 2), ptr %call, align 8
   %m_convexEpsilon.i = getelementptr inbounds i8, ptr %call, i64 136
   store <4 x float> <float 0.000000e+00, float 0x3F1A36E2E0000000, float 0x3E45798EC0000000, float 0x3FB99999A0000000>, ptr %m_convexEpsilon.i, align 8
   %m_maxEdgeAngleThreshold.i = getelementptr inbounds i8, ptr %call, i64 152

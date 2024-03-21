@@ -45625,7 +45625,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %x, ptr %x.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mLargeObject12 = getelementptr inbounds %struct.LargePOD, ptr %this1, i32 0, i32 1
   %mData = getelementptr inbounds %struct.LargeObject, ptr %mLargeObject12, i32 0, i32 0
   %arraydecay = getelementptr inbounds [2048 x i32], ptr %mData, i64 0, i64 0

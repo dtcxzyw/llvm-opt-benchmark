@@ -134,7 +134,7 @@ $_ZTSN3irr2io15CFloatAttributeE = comdat any
 $_ZTIN3irr2io15CFloatAttributeE = comdat any
 
 @_ZTVN3irr2io11CAttributesE = unnamed_addr constant { [27 x ptr], [5 x ptr] } { [27 x ptr] [ptr inttoptr (i64 48 to ptr), ptr null, ptr @_ZTIN3irr2io11CAttributesE, ptr @_ZNK3irr2io11CAttributes17getAttributeCountEv, ptr @_ZNK3irr2io11CAttributes16getAttributeNameEi, ptr @_ZNK3irr2io11CAttributes16getAttributeTypeEPKc, ptr @_ZNK3irr2io11CAttributes16getAttributeTypeEi, ptr @_ZNK3irr2io11CAttributes15existsAttributeEPKc, ptr @_ZNK3irr2io11CAttributes13findAttributeEPKc, ptr @_ZN3irr2io11CAttributes5clearEv, ptr @_ZN3irr2io11CAttributes6addIntEPKci, ptr @_ZN3irr2io11CAttributes12setAttributeEPKci, ptr @_ZNK3irr2io11CAttributes17getAttributeAsIntEPKci, ptr @_ZNK3irr2io11CAttributes17getAttributeAsIntEi, ptr @_ZN3irr2io11CAttributes12setAttributeEii, ptr @_ZN3irr2io11CAttributes8addFloatEPKcf, ptr @_ZN3irr2io11CAttributes12setAttributeEPKcf, ptr @_ZNK3irr2io11CAttributes19getAttributeAsFloatEPKcf, ptr @_ZNK3irr2io11CAttributes19getAttributeAsFloatEi, ptr @_ZN3irr2io11CAttributes12setAttributeEif, ptr @_ZN3irr2io11CAttributes7addBoolEPKcb, ptr @_ZN3irr2io11CAttributes12setAttributeEPKcb, ptr @_ZNK3irr2io11CAttributes18getAttributeAsBoolEPKcb, ptr @_ZNK3irr2io11CAttributes18getAttributeAsBoolEi, ptr @_ZN3irr2io11CAttributes12setAttributeEib, ptr @_ZN3irr2io11CAttributesD1Ev, ptr @_ZN3irr2io11CAttributesD0Ev], [5 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN3irr2io11CAttributesE, ptr @_ZTv0_n24_N3irr2io11CAttributesD1Ev, ptr @_ZTv0_n24_N3irr2io11CAttributesD0Ev] }, align 8
-@_ZTTN3irr2io11CAttributesE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io11CAttributesE0_NS0_11IAttributesE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io11CAttributesE0_NS0_11IAttributesE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr2io11CAttributesE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io11CAttributesE0_NS0_11IAttributesE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io11CAttributesE0_NS0_11IAttributesE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN3irr2io11CAttributesE0_NS0_11IAttributesE = unnamed_addr constant { [27 x ptr], [5 x ptr] } { [27 x ptr] [ptr inttoptr (i64 48 to ptr), ptr null, ptr @_ZTIN3irr2io11IAttributesE, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @_ZN3irr2io11IAttributesD1Ev, ptr @_ZN3irr2io11IAttributesD0Ev], [5 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIN3irr2io11IAttributesE, ptr @_ZTv0_n24_N3irr2io11IAttributesD1Ev, ptr @_ZTv0_n24_N3irr2io11IAttributesD0Ev] }, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN3irr2io11IAttributesE = linkonce_odr constant [23 x i8] c"N3irr2io11IAttributesE\00", comdat, align 1
@@ -211,8 +211,8 @@ define void @_ZN3irr2io11CAttributesC1EPNS_5video12IVideoDriverE(ptr nocapture n
   store ptr null, ptr %4, align 8, !tbaa !21
   %5 = getelementptr inbounds i8, ptr %0, i64 64
   store i32 1, ptr %5, align 8, !tbaa !18
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   %7 = getelementptr inbounds i8, ptr %0, i64 32
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -291,9 +291,9 @@ define void @_ZN3irr2io11CAttributesD2Ev(ptr noundef nonnull align 8 dereference
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io11CAttributesD1Ev(ptr nocapture noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [27 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io11CAttributesE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !23
@@ -720,8 +720,8 @@ define linkonce_odr void @_ZN3irr2io14CBoolAttributeC1EPKcb(ptr noundef nonnull 
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8, !tbaa !35
   store i8 0, ptr %9, align 8, !tbaa !36
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CBoolAttributeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CBoolAttributeE, i64 0, inrange i32 1, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CBoolAttributeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io14CBoolAttributeE, i64 0, i32 1, i64 3), ptr %5, align 8, !tbaa !3
   %11 = icmp eq ptr %1, null
   br i1 %11, label %12, label %22
 
@@ -1007,8 +1007,8 @@ define linkonce_odr void @_ZN3irr2io13CIntAttributeC1EPKci(ptr noundef nonnull a
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8, !tbaa !35
   store i8 0, ptr %9, align 8, !tbaa !36
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io13CIntAttributeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io13CIntAttributeE, i64 0, inrange i32 1, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io13CIntAttributeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io13CIntAttributeE, i64 0, i32 1, i64 3), ptr %5, align 8, !tbaa !3
   %11 = icmp eq ptr %1, null
   br i1 %11, label %12, label %22
 
@@ -1294,8 +1294,8 @@ define linkonce_odr void @_ZN3irr2io15CFloatAttributeC1EPKcf(ptr noundef nonnull
   %10 = getelementptr inbounds i8, ptr %0, i64 16
   store i64 0, ptr %10, align 8, !tbaa !35
   store i8 0, ptr %9, align 8, !tbaa !36
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CFloatAttributeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CFloatAttributeE, i64 0, inrange i32 1, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CFloatAttributeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io15CFloatAttributeE, i64 0, i32 1, i64 3), ptr %5, align 8, !tbaa !3
   %11 = icmp eq ptr %1, null
   br i1 %11, label %12, label %22
 
@@ -2100,9 +2100,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr2io10IAttributeD0Ev(ptr noundef %0) unn
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io14CBoolAttributeD1Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2126,9 +2126,9 @@ define linkonce_odr void @_ZN3irr2io14CBoolAttributeD1Ev(ptr noundef nonnull ali
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io14CBoolAttributeD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2213,9 +2213,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr2io14CBoolAttributeD1Ev(ptr noundef %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds i8, ptr %5, i64 24
@@ -2243,9 +2243,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr2io14CBoolAttributeD0Ev(ptr noundef %0)
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io14CBoolAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds i8, ptr %5, i64 24
@@ -2281,9 +2281,9 @@ declare void @llvm.trap() #14
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io13CIntAttributeD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2307,9 +2307,9 @@ define linkonce_odr void @_ZN3irr2io13CIntAttributeD1Ev(ptr noundef nonnull alig
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io13CIntAttributeD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2373,9 +2373,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr2io13CIntAttributeD1Ev(ptr noundef %0) 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds i8, ptr %5, i64 24
@@ -2403,9 +2403,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr2io13CIntAttributeD0Ev(ptr noundef %0) 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io13CIntAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds i8, ptr %5, i64 24
@@ -2430,9 +2430,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr2io13CIntAttributeD0Ev(ptr noundef %0) 
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io15CFloatAttributeD1Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2456,9 +2456,9 @@ define linkonce_odr void @_ZN3irr2io15CFloatAttributeD1Ev(ptr noundef nonnull al
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr2io15CFloatAttributeD0Ev(ptr noundef nonnull align 8 dereferenceable(44) %0) unnamed_addr #9 comdat align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2522,9 +2522,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr2io15CFloatAttributeD1Ev(ptr noundef %0
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds i8, ptr %5, i64 24
@@ -2552,9 +2552,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr2io15CFloatAttributeD0Ev(ptr noundef %0
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 48
-  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io15CFloatAttributeE0_NS0_10IAttributeE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !27
   %9 = getelementptr inbounds i8, ptr %5, i64 24

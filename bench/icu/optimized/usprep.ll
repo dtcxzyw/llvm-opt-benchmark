@@ -706,7 +706,7 @@ if.then13:                                        ; preds = %if.end11
 
 if.end15:                                         ; preds = %if.then13, %if.end11
   %srcLength.addr.0 = phi i32 [ %call14, %if.then13 ], [ %srcLength, %if.end11 ]
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %s1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %s1, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %s1, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call16 = invoke noundef ptr @_ZN6icu_7513UnicodeString9getBufferEi(ptr noundef nonnull align 8 dereferenceable(64) %s1, i32 noundef %srcLength.addr.0)
@@ -786,7 +786,7 @@ if.end49:                                         ; preds = %invoke.cont39.if.en
   br i1 %cmp.i114, label %invoke.cont55, label %cleanup240
 
 invoke.cont55:                                    ; preds = %if.end49
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %s2, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %s2, align 8
   %fUnion2.i116 = getelementptr inbounds i8, ptr %s2, i64 8
   store i16 2, ptr %fUnion2.i116, align 8
   %doNFKC = getelementptr inbounds i8, ptr %profile, i64 125
@@ -803,7 +803,7 @@ invoke.cont59:                                    ; preds = %if.then57
           to label %invoke.cont61 unwind label %lpad58.loopexit.split-lp
 
 invoke.cont61:                                    ; preds = %invoke.cont59
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 0, inrange i32 0, i64 2), ptr %fn2, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN6icu_7519FilteredNormalizer2E, i64 0, i32 0, i64 2), ptr %fn2, align 8
   %norm2.i = getelementptr inbounds i8, ptr %fn2, i64 8
   store ptr %call60, ptr %norm2.i, align 8
   %set.i = getelementptr inbounds i8, ptr %fn2, i64 16

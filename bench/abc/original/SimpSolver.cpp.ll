@@ -608,7 +608,7 @@ define linkonce_odr void @_ZN5Gluco10BoolOptionC2EPKcS2_S2_b(ptr noundef nonnull
   %14 = load ptr, ptr %9, align 8
   %15 = load ptr, ptr %7, align 8
   call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef @.str.30)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco10BoolOptionE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco10BoolOptionE, i32 0, i32 0, i32 2), ptr %12, align 8
   %16 = getelementptr inbounds %"class.Gluco::BoolOption", ptr %12, i32 0, i32 1
   %17 = load i8, ptr %10, align 1
   %18 = trunc i8 %17 to i1
@@ -693,7 +693,7 @@ define linkonce_odr void @_ZN5Gluco9IntOptionC2EPKcS2_S2_iNS_8IntRangeE(ptr noun
   %15 = load ptr, ptr %11, align 8
   %16 = load ptr, ptr %9, align 8
   call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %13, ptr noundef %14, ptr noundef %15, ptr noundef %16, ptr noundef @.str.40)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco9IntOptionE, i32 0, i32 0, i32 2), ptr %13, align 8
   %17 = getelementptr inbounds %"class.Gluco::IntOption", ptr %13, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 4 %7, i64 8, i1 false)
   %18 = getelementptr inbounds %"class.Gluco::IntOption", ptr %13, i32 0, i32 2
@@ -794,7 +794,7 @@ define linkonce_odr void @_ZN5Gluco12DoubleOptionC2EPKcS2_S2_dNS_11DoubleRangeE(
   %14 = load ptr, ptr %10, align 8
   %15 = load ptr, ptr %8, align 8
   call void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(40) %12, ptr noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef @.str.50)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12DoubleOptionE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco12DoubleOptionE, i32 0, i32 0, i32 2), ptr %12, align 8
   %16 = getelementptr inbounds %"class.Gluco::DoubleOption", ptr %12, i32 0, i32 1
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %5, i64 24, i1 false)
   %17 = getelementptr inbounds %"class.Gluco::DoubleOption", ptr %12, i32 0, i32 2
@@ -823,7 +823,7 @@ define void @_ZN5Gluco10SimpSolverC2Ev(ptr noundef nonnull align 8 dereferenceab
   store ptr %0, ptr %2, align 8
   %8 = load ptr, ptr %2, align 8
   call void @_ZN5Gluco6SolverC2Ev(ptr noundef nonnull align 8 dereferenceable(1216) %8)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco10SimpSolverE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco10SimpSolverE, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %"class.Gluco::SimpSolver", ptr %8, i32 0, i32 2
   %10 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZN5Gluco9IntOptioncvRiEv(ptr noundef nonnull align 8 dereferenceable(52) @_ZL8opt_grow)
           to label %11 unwind label %79
@@ -1481,7 +1481,7 @@ define void @_ZN5Gluco10SimpSolverD2Ev(ptr noundef nonnull align 8 dereferenceab
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco10SimpSolverE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco10SimpSolverE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.Gluco::SimpSolver", ptr %3, i32 0, i32 24
   call void @_ZN5Gluco3vecIcED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #3
   %5 = getelementptr inbounds %"class.Gluco::SimpSolver", ptr %3, i32 0, i32 23
@@ -7999,7 +7999,7 @@ define linkonce_odr void @_ZN5Gluco6OptionC2EPKcS2_S2_S2_(ptr noundef nonnull al
   store ptr %3, ptr %9, align 8
   store ptr %4, ptr %10, align 8
   %12 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco6OptionE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5Gluco6OptionE, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %"class.Gluco::Option", ptr %12, i32 0, i32 1
   %14 = load ptr, ptr %7, align 8
   store ptr %14, ptr %13, align 8

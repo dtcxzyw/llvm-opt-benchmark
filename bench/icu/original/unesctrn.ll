@@ -1521,7 +1521,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %newID.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKNS_13UnicodeStringEPNS_13UnicodeFilterE(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef null)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load ptr, ptr %newSpec.addr, align 8
   %call = invoke noundef ptr @_ZN6icu_75L8copySpecEPKDs(ptr noundef %1)
           to label %invoke.cont unwind label %lpad
@@ -1625,7 +1625,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %o.addr, align 8
   call void @_ZN6icu_7514TransliteratorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(84) %this1, ptr noundef nonnull align 8 dereferenceable(84) %0)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %1 = load ptr, ptr %o.addr, align 8
   %spec = getelementptr inbounds %"class.icu_75::UnescapeTransliterator", ptr %1, i32 0, i32 1
   %2 = load ptr, ptr %spec, align 8
@@ -1663,7 +1663,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN6icu_7522UnescapeTransliteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %spec = getelementptr inbounds %"class.icu_75::UnescapeTransliterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %spec, align 8
   invoke void @uprv_free_75(ptr noundef %0)

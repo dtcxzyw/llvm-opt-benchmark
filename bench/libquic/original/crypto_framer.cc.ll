@@ -398,7 +398,7 @@ entry:
   %ref.tmp = alloca %"class.std::allocator", align 1
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %visitor_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this1, i32 0, i32 1
   store ptr null, ptr %visitor_, align 8
   %buffer_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this1, i32 0, i32 3
@@ -618,7 +618,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net12CryptoFramerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %tags_and_lengths_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this1, i32 0, i32 8
   call void @_ZNSt6vectorISt4pairIjmESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %tags_and_lengths_) #12
   %error_detail_ = getelementptr inbounds %"class.net::CryptoFramer", ptr %this1, i32 0, i32 6
@@ -752,7 +752,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net28CryptoFramerVisitorInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %out_ = getelementptr inbounds %"class.net::(anonymous namespace)::OneShotVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EEC2IS3_vEEv(ptr noundef nonnull align 8 dereferenceable(8) %out_) #12
   %error_ = getelementptr inbounds %"class.net::(anonymous namespace)::OneShotVisitor", ptr %this1, i32 0, i32 2
@@ -911,7 +911,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_114OneShotVisitorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %out_ = getelementptr inbounds %"class.net::(anonymous namespace)::OneShotVisitor", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN3net22CryptoHandshakeMessageESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %out_) #12
   call void @_ZN3net28CryptoFramerVisitorInterfaceD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #12
@@ -2418,7 +2418,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net28CryptoFramerVisitorInterfaceE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3net28CryptoFramerVisitorInterfaceE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

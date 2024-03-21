@@ -990,7 +990,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 0, ptr %len.i25, align 8
   %1 = load ptr, ptr %entryNameBuilder, align 8
   store i8 0, ptr %1, align 1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i64 0, inrange i32 0, i64 2), ptr %status, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_759ErrorCodeE, i64 0, i32 0, i64 2), ptr %status, align 8
   %errorCode.i = getelementptr inbounds i8, ptr %status, i64 8
   store i32 0, ptr %errorCode.i, align 8
   %cmp.not = icmp eq ptr %destdir, null

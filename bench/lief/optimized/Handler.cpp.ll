@@ -382,7 +382,7 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %12, %23
   br label %_ZNSt10unique_ptrIN4LIEF3ELF11DataHandler7HandlerESt14default_deleteIS3_EED2Ev.exit
 
 29:                                               ; preds = %.noexc
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4LIEF3ELF11DataHandler17DataHandlerStreamE, i64 0, inrange i32 0, i64 2), ptr %26, align 8, !noalias !6
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4LIEF3ELF11DataHandler17DataHandlerStreamE, i64 0, i32 0, i64 2), ptr %26, align 8, !noalias !6
   %30 = getelementptr inbounds i8, ptr %26, i64 24
   store ptr %6, ptr %30, align 8, !noalias !6
   %31 = getelementptr inbounds i8, ptr %26, i64 20
@@ -523,7 +523,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit28:                  ; preds = %63, %_ZNSt6vectorIh
   br label %_ZNSt10unique_ptrIN4LIEF3ELF11DataHandler7HandlerESt14default_deleteIS3_EED2Ev.exit
 
 75:                                               ; preds = %.noexc29
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4LIEF3ELF11DataHandler17DataHandlerStreamE, i64 0, inrange i32 0, i64 2), ptr %72, align 8, !noalias !9
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4LIEF3ELF11DataHandler17DataHandlerStreamE, i64 0, i32 0, i64 2), ptr %72, align 8, !noalias !9
   %76 = getelementptr inbounds i8, ptr %72, i64 24
   store ptr %6, ptr %76, align 8, !noalias !9
   %77 = getelementptr inbounds i8, ptr %72, i64 20
@@ -1973,7 +1973,7 @@ define linkonce_odr hidden void @_ZN6spdlog7details14log_msg_bufferC2ERKNS0_7log
   %5 = getelementptr inbounds i8, ptr %0, i64 104
   %6 = getelementptr inbounds i8, ptr %0, i64 120
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN3fmt2v919basic_memory_bufferIcLm250ESaIcEEE, i64 0, i32 0, i64 2), ptr %4, align 8
   %7 = getelementptr inbounds i8, ptr %0, i64 378
   call void @_ZNSaIcEC1ERKS_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 1 dereferenceable(1) %3) #21
   %8 = getelementptr inbounds i8, ptr %0, i64 128

@@ -879,7 +879,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %solver, ptr %solver.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc54main15CommandExecutorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc54main15CommandExecutorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_solver = getelementptr inbounds %"class.cvc5::main::CommandExecutor", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %solver.addr, align 8
   store ptr %0, ptr %d_solver, align 8
@@ -1021,7 +1021,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc54main15CommandExecutorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4cvc54main15CommandExecutorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_result = getelementptr inbounds %"class.cvc5::main::CommandExecutor", ptr %this1, i32 0, i32 3
   call void @_ZN4cvc56ResultD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %d_result) #3
   %d_symman = getelementptr inbounds %"class.cvc5::main::CommandExecutor", ptr %this1, i32 0, i32 2

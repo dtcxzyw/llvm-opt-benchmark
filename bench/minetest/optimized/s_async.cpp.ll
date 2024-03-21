@@ -139,7 +139,7 @@ $_ZZNSt8__detail18__to_chars_10_implIjEEvPcjT_E8__digits = comdat any
 @.str.33 = private unnamed_addr constant [6 x i8] c"async\00", align 1
 @.str.34 = private unnamed_addr constant [5 x i8] c"INIT\00", align 1
 @_ZTV17AsyncWorkerThread = dso_local unnamed_addr constant { [6 x ptr], [5 x ptr], [5 x ptr] } { [6 x ptr] [ptr inttoptr (i64 168 to ptr), ptr null, ptr @_ZTI17AsyncWorkerThread, ptr @_ZN17AsyncWorkerThreadD1Ev, ptr @_ZN17AsyncWorkerThreadD0Ev, ptr @_ZN17AsyncWorkerThread3runEv], [5 x ptr] [ptr inttoptr (i64 24 to ptr), ptr inttoptr (i64 -144 to ptr), ptr @_ZTI17AsyncWorkerThread, ptr @_ZThn144_N17AsyncWorkerThreadD1Ev, ptr @_ZThn144_N17AsyncWorkerThreadD0Ev], [5 x ptr] [ptr inttoptr (i64 -168 to ptr), ptr inttoptr (i64 -168 to ptr), ptr @_ZTI17AsyncWorkerThread, ptr @_ZTv0_n24_N17AsyncWorkerThreadD1Ev, ptr @_ZTv0_n24_N17AsyncWorkerThreadD0Ev] }, align 8
-@_ZTT17AsyncWorkerThread = dso_local unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC17AsyncWorkerThread144_17ScriptApiSecurity, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC17AsyncWorkerThread144_17ScriptApiSecurity, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTT17AsyncWorkerThread = dso_local unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC17AsyncWorkerThread144_17ScriptApiSecurity, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTC17AsyncWorkerThread144_17ScriptApiSecurity, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i32 0, inrange i32 1, i32 3)], align 8
 @.str.35 = private unnamed_addr constant [13 x i8] c"!isRunning()\00", align 1
 @__PRETTY_FUNCTION__._ZN17AsyncWorkerThreadD2Ev = private unnamed_addr constant [48 x i8] c"virtual AsyncWorkerThread::~AsyncWorkerThread()\00", align 1
 @.str.36 = private unnamed_addr constant [46 x i8] c"Unable to find core within async environment!\00", align 1
@@ -1487,9 +1487,9 @@ define dso_local void @_ZN17AsyncWorkerThreadC1EP11AsyncEngineRKNSt7__cxx1112bas
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !16
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 2, i64 3), ptr %6, align 8, !tbaa !16
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 1, i64 3), ptr %8, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 2, i64 3), ptr %6, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 1, i64 3), ptr %8, align 8, !tbaa !16
   %9 = getelementptr inbounds i8, ptr %0, i64 152
   store ptr %1, ptr %9, align 8, !tbaa !118
   %10 = getelementptr inbounds i8, ptr %0, i64 160
@@ -4455,11 +4455,11 @@ declare void @_Z15sanity_check_fnPKcS0_jS0_(ptr noundef, ptr noundef, i32 nounde
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17AsyncWorkerThreadD1Ev(ptr noundef nonnull align 8 dereferenceable(161) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 2, i64 3), ptr %2, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 2, i64 3), ptr %2, align 8, !tbaa !16
   %3 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !16
   %4 = getelementptr inbounds i8, ptr %0, i64 50
   %5 = load atomic i8, ptr %4 seq_cst, align 2
   %6 = and i8 %5, 1
@@ -4489,10 +4489,10 @@ define dso_local void @_ZN17AsyncWorkerThreadD1Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZThn144_N17AsyncWorkerThreadD1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -144
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 0, i64 3), ptr %2, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 0, i64 3), ptr %2, align 8, !tbaa !16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 2, i64 3), ptr %3, align 8, !tbaa !16
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 1, i64 3), ptr %0, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 2, i64 3), ptr %3, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !16
   %4 = getelementptr inbounds i8, ptr %0, i64 -94
   %5 = load atomic i8, ptr %4 seq_cst, align 1
   %6 = and i8 %5, 1
@@ -4525,11 +4525,11 @@ define dso_local void @_ZTv0_n24_N17AsyncWorkerThreadD1Ev(ptr noundef %0) unname
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !16
   %6 = getelementptr inbounds i8, ptr %5, i64 168
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 2, i64 3), ptr %6, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 2, i64 3), ptr %6, align 8, !tbaa !16
   %7 = getelementptr inbounds i8, ptr %5, i64 144
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds i8, ptr %5, i64 50
   %9 = load atomic i8, ptr %8 seq_cst, align 1
   %10 = and i8 %9, 1
@@ -4558,11 +4558,11 @@ define dso_local void @_ZTv0_n24_N17AsyncWorkerThreadD1Ev(ptr noundef %0) unname
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN17AsyncWorkerThreadD0Ev(ptr noundef nonnull align 8 dereferenceable(161) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !16
   %2 = getelementptr inbounds i8, ptr %0, i64 168
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 2, i64 3), ptr %2, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 2, i64 3), ptr %2, align 8, !tbaa !16
   %3 = getelementptr inbounds i8, ptr %0, i64 144
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !16
   %4 = getelementptr inbounds i8, ptr %0, i64 50
   %5 = load atomic i8, ptr %4 seq_cst, align 2
   %6 = and i8 %5, 1
@@ -4593,10 +4593,10 @@ define dso_local void @_ZN17AsyncWorkerThreadD0Ev(ptr noundef nonnull align 8 de
 ; Function Attrs: nounwind uwtable
 define dso_local void @_ZThn144_N17AsyncWorkerThreadD0Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -144
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 0, i64 3), ptr %2, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 0, i64 3), ptr %2, align 8, !tbaa !16
   %3 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 2, i64 3), ptr %3, align 8, !tbaa !16
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 1, i64 3), ptr %0, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 2, i64 3), ptr %3, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !16
   %4 = getelementptr inbounds i8, ptr %0, i64 -94
   %5 = load atomic i8, ptr %4 seq_cst, align 1
   %6 = and i8 %5, 1
@@ -4630,11 +4630,11 @@ define dso_local void @_ZTv0_n24_N17AsyncWorkerThreadD0Ev(ptr noundef %0) unname
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !16
   %6 = getelementptr inbounds i8, ptr %5, i64 168
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 2, i64 3), ptr %6, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 2, i64 3), ptr %6, align 8, !tbaa !16
   %7 = getelementptr inbounds i8, ptr %5, i64 144
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !16
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTV17AsyncWorkerThread, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !16
   %8 = getelementptr inbounds i8, ptr %5, i64 50
   %9 = load atomic i8, ptr %8 seq_cst, align 1
   %10 = and i8 %9, 1

@@ -27,7 +27,7 @@ $_ZTI7b2Shape = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN14b2PolygonShapeC2Ev(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(156) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14b2PolygonShape, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14b2PolygonShape, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_type = getelementptr inbounds i8, ptr %this, i64 8
   store i32 2, ptr %m_type, align 8
   %m_radius = getelementptr inbounds i8, ptr %this, i64 12

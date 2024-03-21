@@ -46,9 +46,9 @@ define void @_ZN3zmq14ws_connecter_tC2EPNS_11io_thread_tEPNS_14session_base_tERK
 entry:
   %frombool1 = zext i1 %wss_ to i8
   tail call void @_ZN3zmq23stream_connecter_base_tC2EPNS_11io_thread_tEPNS_14session_base_tERKNS_9options_tEPNS_9address_tEb(ptr noundef nonnull align 8 dereferenceable(1544) %this, ptr noundef %io_thread_, ptr noundef %session_, ptr noundef nonnull align 8 dereferenceable(1336) %options_, ptr noundef %addr_, i1 noundef zeroext %delayed_start_)
-  store ptr getelementptr inbounds ({ [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq14ws_connecter_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq14ws_connecter_tE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds ({ [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq14ws_connecter_tE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [31 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq14ws_connecter_tE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %_connect_timer_started = getelementptr inbounds i8, ptr %this, i64 1544
   store i8 0, ptr %_connect_timer_started, align 8
   %_wss = getelementptr inbounds i8, ptr %this, i64 1545

@@ -119,7 +119,7 @@ define hidden void @_ZN3ue214makeNFABuilderERNS_13ReportManagerERKNS_14CompileCo
 entry:
   %grey = getelementptr inbounds i8, ptr %cc, i64 24
   %call.i = tail call noalias noundef nonnull dereferenceable(120) ptr @_Znwm(i64 noundef 120) #24, !noalias !5
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !5
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !5
   %rm.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr %rm, ptr %rm.i.i, align 8, !noalias !5
   %grey.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -348,7 +348,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImplD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %id2vertex = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %id2vertex, align 8
   %tobool.not.i.i.i = icmp eq ptr %0, null
@@ -379,7 +379,7 @@ _ZNSt10unique_ptrIN3ue28NGHolderESt14default_deleteIS1_EED2Ev.exit: ; preds = %_
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3ue212_GLOBAL__N_114NFABuilderImplD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [20 x ptr] }, ptr @_ZTVN3ue212_GLOBAL__N_114NFABuilderImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %id2vertex.i = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %id2vertex.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %0, null

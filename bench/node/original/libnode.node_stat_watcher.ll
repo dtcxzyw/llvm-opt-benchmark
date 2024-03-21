@@ -2323,7 +2323,7 @@ entry:
   %frombool = zext i1 %use_bigint to i8
   store i8 %frombool, ptr %use_bigint.addr, align 1
   %this3 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %0 = load ptr, ptr %binding_data.addr, align 8
   %call = call noundef ptr @_ZNK4node10BaseObject3envEv(ptr noundef nonnull align 8 dereferenceable(32) %0)
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %wrap, i64 8, i1 false)
@@ -2333,7 +2333,7 @@ entry:
   %coerce.dive6 = getelementptr inbounds %"class.v8::IndirectHandleBase", ptr %coerce.dive5, i32 0, i32 0
   %1 = load ptr, ptr %coerce.dive6, align 8
   call void @_ZN4node10HandleWrapC2EPNS_11EnvironmentEN2v85LocalINS3_6ObjectEEEP11uv_handle_sNS_9AsyncWrap12ProviderTypeE(ptr noundef nonnull align 8 dereferenceable(88) %this3, ptr noundef %call, ptr %1, ptr noundef %watcher_, i32 noundef 36)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i32 0, i32 0, i32 2), ptr %this3, align 8
   %use_bigint_ = getelementptr inbounds %"class.node::StatWatcher", ptr %this3, i32 0, i32 2
   %2 = load i8, ptr %use_bigint.addr, align 1
   %tobool = trunc i8 %2 to i1
@@ -3186,7 +3186,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node11StatWatcherE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %binding_data_ = getelementptr inbounds %"class.node::StatWatcher", ptr %this1, i32 0, i32 3
   call void @_ZN4node17BaseObjectPtrImplINS_2fs11BindingDataELb0EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %binding_data_) #3
   call void @_ZN4node10HandleWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(88) %this1) #3
@@ -6925,7 +6925,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN4node10HandleWrapE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %handle_wrap_queue_ = getelementptr inbounds %"class.node::HandleWrap", ptr %this1, i32 0, i32 2
   call void @_ZN4node8ListNodeINS_10HandleWrapEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %handle_wrap_queue_) #3
   call void @_ZN4node9AsyncWrapD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this1) #3

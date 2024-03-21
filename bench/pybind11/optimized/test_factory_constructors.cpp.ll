@@ -22642,7 +22642,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %1, %3, %6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -22723,7 +22723,7 @@ _ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev.exit: ; pre
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -24595,7 +24595,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = invoke noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #27
           to label %4 unwind label %24
@@ -24644,7 +24644,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef
   store i32 1, ptr %20, align 8
   %21 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %21, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr @_ZN8pybind1117error_already_set23m_fetched_error_deleterEPNS_6detail25error_fetch_and_normalizeE, ptr %22, align 8
   %23 = getelementptr inbounds i8, ptr %7, i64 24
@@ -26163,7 +26163,7 @@ _ZNO8pybind116object4castINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE
           to label %17 unwind label %24
 
 17:                                               ; preds = %16
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #26
           to label %31 unwind label %24
 
@@ -26557,7 +26557,7 @@ define linkonce_odr hidden void @_ZN8pybind114moveINSt7__cxx1112basic_stringIcSt
           to label %21 unwind label %28
 
 21:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %12, align 8
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #26
           to label %37 unwind label %28
 
@@ -38923,7 +38923,7 @@ define linkonce_odr hidden void @_ZN8pybind1137cast_error_unable_to_convert_call
           to label %7 unwind label %10
 
 7:                                                ; preds = %6
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %3) #23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #23
   ret void
@@ -40106,7 +40106,7 @@ select.unfold:                                    ; preds = %19, %_ZN8pybind116d
 
 46:                                               ; preds = %._crit_edge
   %47 = tail call ptr @__cxa_allocate_exception(i64 8) #23
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, inrange i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i64 0, i32 0, i64 2), ptr %47, align 8
   tail call void @__cxa_throw(ptr nonnull %47, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #26
   unreachable
 
@@ -43916,7 +43916,7 @@ define linkonce_odr hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN8p
           to label %33 unwind label %40
 
 33:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %24, align 8
   invoke void @__cxa_throw(ptr nonnull %24, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #26
           to label %46 unwind label %40
 
@@ -48325,7 +48325,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN8pybind114moveIbEENSt9enable_i
           to label %20 unwind label %27
 
 20:                                               ; preds = %19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #26
           to label %38 unwind label %27
 
@@ -50353,7 +50353,7 @@ declare void @llvm.assume(i1 noundef) #17
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
@@ -51470,7 +51470,7 @@ _ZN8pybind116detail18values_and_holders5beginEv.exit: ; preds = %35, %31
 
 .invoke:                                          ; preds = %70, %60, %52
   %.sink = phi ptr [ %53, %52 ], [ %61, %60 ], [ %71, %70 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #26
           to label %.cont unwind label %38
 
@@ -58287,7 +58287,7 @@ declare i32 @PyIndex_Check(ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1110type_errorCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef %1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
@@ -58318,7 +58318,7 @@ define linkonce_odr hidden void @_ZNK8pybind1110type_error9set_errorEv(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind1120reference_cast_errorC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #1 comdat align 2 {
   tail call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull @.str.91)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %0, align 8
   ret void
 }
 
@@ -58677,7 +58677,7 @@ define linkonce_odr hidden void @_ZZNO8pybind116detail8initimpl7factoryIPFP12Tes
           to label %10 unwind label %11
 
 10:                                               ; preds = %8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #26
           to label %.noexc unwind label %16
 
@@ -59503,7 +59503,7 @@ _ZN8pybind116detail15argument_loaderIJR12TestFactory1RKNSt7__cxx1112basic_string
 
 .invoke:                                          ; preds = %48, %43
   %.sink = phi ptr [ %44, %43 ], [ %49, %48 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #26
           to label %.cont unwind label %33
 
@@ -61336,7 +61336,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_
           to label %44 unwind label %45
 
 44:                                               ; preds = %42
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %43, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %43, align 8
   invoke void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #26
           to label %.noexc unwind label %39
 
@@ -62256,7 +62256,7 @@ _ZN8pybind116detail15argument_loaderIJR12TestFactory2RKNSt7__cxx1112basic_string
 
 .invoke:                                          ; preds = %48, %43
   %.sink = phi ptr [ %44, %43 ], [ %49, %48 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #26
           to label %.cont unwind label %33
 
@@ -62859,7 +62859,7 @@ _ZNSt10shared_ptrI12TestFactory3EC2IS0_vEEPT_.exit: ; preds = %39
   store i32 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %45, i64 12
   store i32 1, ptr %64, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory3LN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory3LN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %45, align 8
   %65 = getelementptr inbounds i8, ptr %45, i64 16
   store ptr %43, ptr %65, align 8
   store ptr %45, ptr %44, align 8
@@ -63107,7 +63107,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %43 unwind label %44
 
 43:                                               ; preds = %41
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %42, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %42, align 8
   invoke void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #26
           to label %.noexc.i.i.i unwind label %89
 
@@ -63232,7 +63232,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_cold
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN17TestFactoryHelper10construct3Ei(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr.1054") align 8 %0, i32 noundef %1) local_unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %1) #23
   invoke void @_Z13print_createdI12TestFactory3JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -63289,7 +63289,7 @@ _ZNSt10shared_ptrI12TestFactory3EC2IS0_vEEPT_.exit: ; preds = %_ZN12TestFactory3
   store i32 1, ptr %21, align 8
   %22 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %22, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory3LN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory3LN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8
   %23 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %3, ptr %23, align 8
   store ptr %7, ptr %6, align 8
@@ -63347,7 +63347,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory3D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory3JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %4
 
@@ -63366,7 +63366,7 @@ define linkonce_odr hidden void @_ZN12TestFactory3D2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory3D0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory3JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN12TestFactory3D2Ev.exit unwind label %2
 
@@ -63847,7 +63847,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN12TestFactory3C2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %2) #23
   %4 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %3)
@@ -64941,7 +64941,7 @@ _ZN8pybind116detail15argument_loaderIJR12TestFactory3NSt7__cxx1112basic_stringIc
           to label %39 unwind label %40
 
 39:                                               ; preds = %37
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %38, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %38, align 8
   invoke void @__cxa_throw(ptr nonnull %38, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #26
           to label %.noexc unwind label %34
 
@@ -64958,7 +64958,7 @@ _ZN8pybind116detail7cast_opIR12TestFactory3EENS0_11type_casterINS0_14intrinsic_t
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5) #23
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2)
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) #23
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %36, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %36, align 8
   %42 = getelementptr inbounds i8, ptr %36, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %2) #23
   invoke void @_Z13print_createdI12TestFactory3JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_(ptr noundef nonnull %36, ptr noundef nonnull align 8 dereferenceable(32) %42)
@@ -65703,7 +65703,7 @@ define internal fastcc noundef nonnull ptr @"_ZZ35test_submodule_factory_constru
   %3 = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %0, ptr %2, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, i32 noundef %0) #23
   invoke void @_Z13print_createdI12TestFactory3JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_(ptr noundef nonnull %3, ptr noundef nonnull align 8 dereferenceable(32) %4)
@@ -65716,7 +65716,7 @@ define internal fastcc noundef nonnull ptr @"_ZZ35test_submodule_factory_constru
   br label %.body
 
 _ZN12TestFactory3C2Ei.exit.i:                     ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i64 0, i32 0, i64 2), ptr %3, align 8
   invoke void @_Z13print_createdI12TestFactory4JRiEEvPT_DpOT0_(ptr noundef nonnull %3, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %9 unwind label %7
 
@@ -65787,12 +65787,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory4D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory4JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %7
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory3JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN12TestFactory3D2Ev.exit unwind label %3
 
@@ -65818,12 +65818,12 @@ _ZN12TestFactory3D2Ev.exit:                       ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory4D0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory4JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %6
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory3JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN12TestFactory4D2Ev.exit unwind label %3
 
@@ -66762,7 +66762,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   %64 = call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %63, ptr %2, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %64, i64 8
   call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %65, i32 noundef %63) #23
   invoke void @_Z13print_createdI12TestFactory3JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_(ptr noundef nonnull %64, ptr noundef nonnull align 8 dereferenceable(32) %65)
@@ -66775,7 +66775,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   br label %.body.i.i.i.i
 
 _ZN12TestFactory3C2Ei.exit.i.i.i.i.i:             ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE7TF5_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i64 0, inrange i32 0, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i64 0, i32 0, i64 2), ptr %64, align 8
   invoke void @_Z13print_createdI12TestFactory5JRiEEvPT_DpOT0_(ptr noundef nonnull %64, ptr noundef nonnull align 4 dereferenceable(4) %2)
           to label %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE11pointer_tagZ35test_submodule_factory_constructorsS5_E7TF5_tagiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZ35test_submodule_factory_constructorsS5_E4$_10PFSA_vEFP12TestFactory5S6_S7_iESE_E7executeINS_6class_I12TestFactory3JSt10shared_ptrISM_EEEEJEEEvRT_DpRKT0_EUlS3_S6_S7_iE_EENSt9enable_ifIXsr3std7is_voidISQ_EE5valueESA_E4typeEOT1_.exit" unwind label %68
 
@@ -66857,12 +66857,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory5D2Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory5JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %7
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory3JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN12TestFactory3D2Ev.exit unwind label %3
 
@@ -66888,12 +66888,12 @@ _ZN12TestFactory3D2Ev.exit:                       ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory5D0Ev(ptr noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory5JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %6
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory3JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN12TestFactory5D2Ev.exit unwind label %3
 
@@ -67456,7 +67456,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %73 unwind label %74
 
 73:                                               ; preds = %71
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %72, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %72, align 8
   invoke void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #26
           to label %.noexc.i.i.i unwind label %153
 
@@ -67740,12 +67740,12 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load i32, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %9, ptr %4, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i32 noundef %9) #23
   invoke void @_Z13print_createdI12TestFactory3JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -67758,7 +67758,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
 _ZN12TestFactory3C2Ei.exit.i.i.i.i:               ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS8_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory4, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_Z13print_createdI12TestFactory4JRiEEvPT_DpOT0_(ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12TestFactory4SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %13
 
@@ -68012,7 +68012,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %73 unwind label %74
 
 73:                                               ; preds = %71
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %72, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %72, align 8
   invoke void @__cxa_throw(ptr nonnull %72, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #26
           to label %.noexc.i.i.i unwind label %153
 
@@ -68296,12 +68296,12 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__
   store i32 1, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %5, i64 12
   store i32 1, ptr %7, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %5, align 8
   %8 = getelementptr inbounds i8, ptr %5, i64 16
   %9 = load i32, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %9, ptr %4, align 4
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory3, i64 0, i32 0, i64 2), ptr %8, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 24
   tail call void @_ZNSt7__cxx119to_stringEi(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, i32 noundef %9) #23
   invoke void @_Z13print_createdI12TestFactory3JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_(ptr noundef nonnull %8, ptr noundef nonnull align 8 dereferenceable(32) %10)
@@ -68314,7 +68314,7 @@ _ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__
   br label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit10
 
 _ZN12TestFactory3C2Ei.exit.i.i.i.i:               ; preds = %_ZSt18__allocate_guardedISaISt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__gnu_cxx12_Lock_policyE2EEEESt15__allocated_ptrIT_ERS8_.exit
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i64 0, inrange i32 0, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV12TestFactory5, i64 0, i32 0, i64 2), ptr %8, align 8
   invoke void @_Z13print_createdI12TestFactory5JRiEEvPT_DpOT0_(ptr noundef nonnull %8, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %_ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI12TestFactory5SaIvELN9__gnu_cxx12_Lock_policyE2EEEED2Ev.exit unwind label %13
 
@@ -68608,7 +68608,7 @@ _ZNSt10shared_ptrI12TestFactory3EC2IS0_St14default_deleteIS0_EvEEOSt10unique_ptr
           to label %34 unwind label %35
 
 34:                                               ; preds = %32
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %33, align 8
   invoke void @__cxa_throw(ptr nonnull %33, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #26
           to label %.noexc.i.i.i unwind label %86
 
@@ -68781,7 +68781,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2I12TestFactory3St14default
   store i32 1, ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %7, i64 12
   store i32 1, ptr %9, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIP12TestFactory3St14default_deleteIS0_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIP12TestFactory3St14default_deleteIS0_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %7, align 8
   %10 = getelementptr inbounds i8, ptr %7, i64 16
   store ptr %5, ptr %10, align 8
   %11 = load ptr, ptr %4, align 8
@@ -69101,7 +69101,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %.noexc.i.i.i.i unwind label %34
 
 .noexc.i.i.i.i:                                   ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE19null_shared_ptr_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %28, align 8
   call void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #26
   unreachable
 
@@ -69131,7 +69131,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %.noexc.i.i.i21.i unwind label %41
 
 .noexc.i.i.i21.i:                                 ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE19null_shared_ptr_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i18.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %28, align 8
   call void @__cxa_throw(ptr nonnull %28, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #26
   unreachable
 
@@ -69540,7 +69540,7 @@ _ZN8pybind116detail15argument_loaderIJR12TestFactory3RKNSt7__cxx1112basic_string
 
 .invoke:                                          ; preds = %48, %43
   %.sink = phi ptr [ %44, %43 ], [ %49, %48 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %.sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %.sink, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #26
           to label %.cont unwind label %33
 
@@ -70143,7 +70143,7 @@ _ZNSt10shared_ptrI12TestFactory4EC2IS0_vEEPT_.exit: ; preds = %39
   store i32 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %45, i64 12
   store i32 1, ptr %64, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory4LN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory4LN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %45, align 8
   %65 = getelementptr inbounds i8, ptr %45, i64 16
   store ptr %43, ptr %65, align 8
   store ptr %45, ptr %44, align 8
@@ -71234,7 +71234,7 @@ _ZNSt10shared_ptrI12TestFactory5EC2IS0_vEEPT_.exit: ; preds = %39
   store i32 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %45, i64 12
   store i32 1, ptr %64, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory5LN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory5LN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %45, align 8
   %65 = getelementptr inbounds i8, ptr %45, i64 16
   store ptr %43, ptr %65, align 8
   store ptr %45, ptr %44, align 8
@@ -71770,7 +71770,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   call void @llvm.experimental.noalias.scope.decl(metadata !1946)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !1946
   store i32 %40, ptr %2, align 4, !noalias !1946
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !alias.scope !1946
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %3, align 8, !alias.scope !1946
   %41 = getelementptr inbounds i8, ptr %3, i64 8
   store i32 %40, ptr %41, align 8, !alias.scope !1946
   %42 = getelementptr inbounds i8, ptr %3, i64 12
@@ -71788,7 +71788,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %50 unwind label %54
 
 50:                                               ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE8base_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %3, align 8
   invoke void @_Z15print_destroyedI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %3)
           to label %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE8base_tagiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZ35test_submodule_factory_constructorsS5_E4$_16PFS9_vEF12TestFactory6S6_iESD_E7executeINS_6class_ISF_J5PyTF6EEEJEEEvRT_DpRKT0_EUlS3_S6_iE_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueES9_E4typeEOT1_.exit" unwind label %51
 
@@ -71821,7 +71821,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN8pybind116detail8initimpl9constructINS_6class_I12TestFactory6J5PyTF6EEEEEvRNS0_16value_and_holderEONT_4typeEb(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(13) %1, i1 noundef zeroext %2) local_unnamed_addr #1 comdat personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %4, i64 12
   store i8 0, ptr %5, align 4
   br i1 %2, label %6, label %14
@@ -71842,7 +71842,7 @@ _ZN12TestFactory6C2EOS_.exit.i.i:                 ; preds = %6
   %11 = load i32, ptr %10, align 8
   %12 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %11, ptr %12, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %4, align 8
   store i8 1, ptr %5, align 4
   invoke void @_Z13print_createdI5PyTF6JRA5_KcRiEEvPT_DpOT0_(ptr noundef nonnull %4, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, ptr noundef nonnull align 4 dereferenceable(4) %12)
           to label %_ZN8pybind116detail8initimpl24construct_alias_from_cppINS_6class_I12TestFactory6J5PyTF6EEEEEvSt17integral_constantIbLb1EERNS0_16value_and_holderEONT_4typeE.exit unwind label %.body.i
@@ -71885,7 +71885,7 @@ _ZN8pybind116detail8initimpl24construct_alias_from_cppINS_6class_I12TestFactory6
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory6D2Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %3
 
@@ -71951,12 +71951,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5PyTF6D2Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI5PyTF6JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %6
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN12TestFactory6D2Ev.exit unwind label %3
 
@@ -71980,12 +71980,12 @@ _ZN12TestFactory6D2Ev.exit:                       ; preds = %2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5PyTF6D0Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI5PyTF6JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %6
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN5PyTF6D2Ev.exit unwind label %3
 
@@ -72270,7 +72270,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory6D0Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN12TestFactory6D2Ev.exit unwind label %2
 
@@ -74139,7 +74139,7 @@ define linkonce_odr hidden void @_ZN8pybind118functionC2EONS_6objectE(ptr nounde
           to label %21 unwind label %28
 
 21:                                               ; preds = %20
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, inrange i32 0, i64 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110type_errorE, i64 0, i32 0, i64 2), ptr %12, align 8
   invoke void @__cxa_throw(ptr nonnull %12, ptr nonnull @_ZTIN8pybind1110type_errorE, ptr nonnull @_ZN8pybind1110type_errorD2Ev) #26
           to label %34 unwind label %28
 
@@ -74587,7 +74587,7 @@ define linkonce_odr hidden noundef i32 @_ZN8pybind114moveIiEENSt9enable_ifIXntsr
           to label %20 unwind label %27
 
 20:                                               ; preds = %19
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %11, align 8
   invoke void @__cxa_throw(ptr nonnull %11, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #26
           to label %36 unwind label %27
 
@@ -74689,7 +74689,7 @@ define linkonce_odr hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN8p
           to label %18 unwind label %25
 
 18:                                               ; preds = %17
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, inrange i32 0, i64 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i64 0, i32 0, i64 2), ptr %9, align 8
   invoke void @__cxa_throw(ptr nonnull %9, ptr nonnull @_ZTIN8pybind1110cast_errorE, ptr nonnull @_ZN8pybind1110cast_errorD2Ev) #26
           to label %32 unwind label %25
 
@@ -75082,14 +75082,14 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   store i32 %41, ptr %3, align 4, !noalias !2026
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !2026
   store i32 %41, ptr %2, align 4, !noalias !2026
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !2026
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !2026
   %42 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %41, ptr %42, align 8, !alias.scope !2026
   %43 = getelementptr inbounds i8, ptr %4, i64 12
   store i8 0, ptr %43, align 4, !alias.scope !2026
   call void @_Z13print_createdI12TestFactory6JRiEEvPT_DpOT0_(ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !2026
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !2026
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !2026
   store i8 1, ptr %43, align 4, !alias.scope !2026
   invoke void @_Z13print_createdI5PyTF6JRiEEvPT_DpOT0_(ptr noundef nonnull %4, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_17clEZ35test_submodule_factory_constructorsS1_E9alias_tagi.exit.i.i.i" unwind label %44
@@ -75106,7 +75106,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %.noexc.i.i.i unwind label %68
 
 .noexc.i.i.i:                                     ; preds = %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_17clEZ35test_submodule_factory_constructorsS1_E9alias_tagi.exit.i.i.i"
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %46, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 12
   store i8 0, ptr %47, align 4
   invoke void @_Z18print_move_createdI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %46)
@@ -75126,7 +75126,7 @@ _ZN12TestFactory6C2EOS_.exit.i.i.i.i.i:           ; preds = %.noexc.i.i.i
   %53 = load i8, ptr %43, align 4
   %54 = and i8 %53, 1
   store i8 %54, ptr %47, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %46, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %46, align 8
   invoke void @_Z18print_move_createdI5PyTF6JEEvPT_DpOT0_(ptr noundef nonnull %46)
           to label %58 unwind label %55
 
@@ -75141,12 +75141,12 @@ _ZN12TestFactory6C2EOS_.exit.i.i.i.i.i:           ; preds = %.noexc.i.i.i
   %59 = getelementptr inbounds i8, ptr %35, i64 24
   %60 = load ptr, ptr %59, align 8
   store ptr %46, ptr %60, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_Z15print_destroyedI5PyTF6JEEvPT_DpOT0_(ptr noundef nonnull %4)
           to label %61 unwind label %65
 
 61:                                               ; preds = %58
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_Z15print_destroyedI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %4)
           to label %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE9alias_tagiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZ35test_submodule_factory_constructorsS5_E4$_17PFS9_vEF5PyTF6S6_iESD_E7executeINS_6class_I12TestFactory6JSF_EEEJEEEvRT_DpRKT0_EUlS3_S6_iE_EENSt9enable_ifIXsr3std7is_voidISM_EE5valueES9_E4typeEOT1_.exit" unwind label %62
 
@@ -75670,7 +75670,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_
           to label %44 unwind label %45
 
 44:                                               ; preds = %42
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %43, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %43, align 8
   invoke void @__cxa_throw(ptr nonnull %43, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #26
           to label %.noexc unwind label %39
 
@@ -75695,7 +75695,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   %48 = trunc i64 %47 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !2035
   store i32 %48, ptr %2, align 4, !noalias !2035
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !2035
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !2035
   %49 = getelementptr inbounds i8, ptr %4, i64 8
   store i32 %48, ptr %49, align 8, !alias.scope !2035
   %50 = getelementptr inbounds i8, ptr %4, i64 12
@@ -75705,7 +75705,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 
 .noexc.i.i.i.i:                                   ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE9alias_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !2035
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !alias.scope !2035
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %4, align 8, !alias.scope !2035
   store i8 1, ptr %50, align 4, !alias.scope !2035
   invoke void @_Z13print_createdI5PyTF6JRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEvPT_DpOT0_(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(32) %3)
           to label %55 unwind label %51
@@ -75733,7 +75733,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %.noexc.i.i.i unwind label %78
 
 .noexc.i.i.i:                                     ; preds = %55
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %56, i64 12
   store i8 0, ptr %57, align 4
   invoke void @_Z18print_move_createdI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %56)
@@ -75753,7 +75753,7 @@ _ZN12TestFactory6C2EOS_.exit.i.i.i.i.i:           ; preds = %.noexc.i.i.i
   %63 = load i8, ptr %50, align 4
   %64 = and i8 %63, 1
   store i8 %64, ptr %57, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %56, align 8
   invoke void @_Z18print_move_createdI5PyTF6JEEvPT_DpOT0_(ptr noundef nonnull %56)
           to label %68 unwind label %65
 
@@ -75768,12 +75768,12 @@ _ZN12TestFactory6C2EOS_.exit.i.i.i.i.i:           ; preds = %.noexc.i.i.i
   %69 = getelementptr inbounds i8, ptr %41, i64 24
   %70 = load ptr, ptr %69, align 8
   store ptr %56, ptr %70, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_Z15print_destroyedI5PyTF6JEEvPT_DpOT0_(ptr noundef nonnull %4)
           to label %71 unwind label %75
 
 71:                                               ; preds = %68
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %4, align 8
   invoke void @_Z15print_destroyedI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %4)
           to label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE9alias_tagNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split.i unwind label %72
 
@@ -76159,7 +76159,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   store i32 %46, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %46, ptr %2, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %47, i64 8
   store i32 %46, ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %47, i64 12
@@ -76169,7 +76169,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 
 .noexc.i.i.i.i:                                   ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE11pointer_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %47, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %47, align 8
   store i8 1, ptr %49, align 4
   invoke void @_Z13print_createdI5PyTF6JRiEEvPT_DpOT0_(ptr noundef nonnull %47, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE9alias_tagZ35test_submodule_factory_constructorsS5_E11pointer_tagiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZ35test_submodule_factory_constructorsS5_E4$_19PFSA_vEFP5PyTF6S6_S7_iESE_E7executeINS_6class_I12TestFactory6JSG_EEEJEEEvRT_DpRKT0_EUlS3_S6_S7_iE_EENSt9enable_ifIXsr3std7is_voidISO_EE5valueESA_E4typeEOT1_.exit" unwind label %50
@@ -76367,7 +76367,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   %46 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %45, ptr %2, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %46, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %46, align 8
   %47 = getelementptr inbounds i8, ptr %46, i64 8
   store i32 %45, ptr %47, align 8
   %48 = getelementptr inbounds i8, ptr %46, i64 12
@@ -76572,7 +76572,7 @@ _ZN8pybind116detail16value_and_holder23set_instance_registeredEb.exit19: ; preds
           to label %.noexc unwind label %68
 
 .noexc:                                           ; preds = %_ZN8pybind116detail16value_and_holder23set_instance_registeredEb.exit19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %54, align 8
   %55 = getelementptr inbounds i8, ptr %54, i64 12
   store i8 0, ptr %55, align 4
   invoke void @_Z18print_move_createdI12TestFactory6JEEvPT_DpOT0_(ptr noundef nonnull %54)
@@ -76590,7 +76590,7 @@ _ZN12TestFactory6C2EOS_.exit.i.i:                 ; preds = %.noexc
   %60 = load i32, ptr %59, align 8
   %61 = getelementptr inbounds i8, ptr %54, i64 8
   store i32 %60, ptr %61, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %54, align 8
   store i8 1, ptr %55, align 4
   invoke void @_Z13print_createdI5PyTF6JRA5_KcRiEEvPT_DpOT0_(ptr noundef nonnull %54, ptr noundef nonnull align 1 dereferenceable(5) @.str.7, ptr noundef nonnull align 4 dereferenceable(4) %61)
           to label %63 unwind label %.body.i
@@ -76850,7 +76850,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   store i32 %88, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %88, ptr %2, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, inrange i32 0, i64 2), ptr %89, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory6, i64 0, i32 0, i64 2), ptr %89, align 8
   %90 = getelementptr inbounds i8, ptr %89, i64 8
   store i32 %88, ptr %90, align 8
   %91 = getelementptr inbounds i8, ptr %89, i64 12
@@ -76860,7 +76860,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 
 .noexc.i.i.i.i:                                   ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE11pointer_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, inrange i32 0, i64 2), ptr %89, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF6, i64 0, i32 0, i64 2), ptr %89, align 8
   store i8 1, ptr %91, align 4
   invoke void @_Z13print_createdI5PyTF6JRiEEvPT_DpOT0_(ptr noundef nonnull %89, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE8base_tagZ35test_submodule_factory_constructorsS5_E9alias_tagZ35test_submodule_factory_constructorsS5_E11pointer_tagiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZ35test_submodule_factory_constructorsS5_E4$_21PFSB_vEFP12TestFactory6S6_S7_S8_iESF_E7executeINS_6class_ISH_J5PyTF6EEEJEEEvRT_DpRKT0_EUlS3_S6_S7_S8_iE_EENSt9enable_ifIXsr3std7is_voidISP_EE5valueESB_E4typeEOT1_.exit" unwind label %92
@@ -78181,7 +78181,7 @@ _ZNSt10shared_ptrI12TestFactory7EC2IS0_vEEPT_.exit: ; preds = %39
   store i32 1, ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %45, i64 12
   store i32 1, ptr %64, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory7LN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %45, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP12TestFactory7LN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %45, align 8
   %65 = getelementptr inbounds i8, ptr %45, i64 16
   store ptr %43, ptr %65, align 8
   store ptr %45, ptr %44, align 8
@@ -78374,7 +78374,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZN
   call void @llvm.experimental.noalias.scope.decl(metadata !2055)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !2055
   store i32 %.val16.i, ptr %4, align 4, !noalias !2055
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !2055
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !2055
   %27 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %.val16.i, ptr %27, align 8, !alias.scope !2055
   %28 = getelementptr inbounds i8, ptr %5, i64 12
@@ -78385,7 +78385,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZN
           to label %.noexc.i.i.i unwind label %44
 
 .noexc.i.i.i:                                     ; preds = %26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %29, align 8
   %30 = getelementptr inbounds i8, ptr %29, i64 12
   store i8 0, ptr %30, align 4
   invoke void @_Z18print_move_createdI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %29)
@@ -78408,7 +78408,7 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZN
   %39 = getelementptr inbounds i8, ptr %.val17.i, i64 24
   %40 = load ptr, ptr %39, align 8
   store ptr %29, ptr %40, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %5, align 8
   invoke void @_Z15print_destroyedI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %5)
           to label %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZ35test_submodule_factory_constructorsRNS_7module_EE4$_22Z35test_submodule_factory_constructorsSA_E4$_23F12TestFactory7iEF5PyTF7iEE7executeINS_6class_ISD_JSF_St10shared_ptrISD_EEEEJEEEvRT_DpRKT0_EUlS3_iE_EENSt9enable_ifIXsr3std7is_voidISN_EE5valueES6_E4typeEOT1_.exit" unwind label %41
 
@@ -78431,14 +78431,14 @@ define internal noundef nonnull ptr @"_ZZN8pybind1112cpp_function10initializeIZN
   store i32 %.val16.i, ptr %3, align 4, !noalias !2058
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !2058
   store i32 %.val16.i, ptr %2, align 4, !noalias !2058
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !2058
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !2058
   %47 = getelementptr inbounds i8, ptr %6, i64 8
   store i32 %.val16.i, ptr %47, align 8, !alias.scope !2058
   %48 = getelementptr inbounds i8, ptr %6, i64 12
   store i8 0, ptr %48, align 4, !alias.scope !2058
   call void @_Z13print_createdI12TestFactory7JRiEEvPT_DpOT0_(ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !2058
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %6, align 8, !alias.scope !2058
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %6, align 8, !alias.scope !2058
   store i8 1, ptr %48, align 4, !alias.scope !2058
   invoke void @_Z13print_createdI5PyTF7JRiEEvPT_DpOT0_(ptr noundef nonnull %6, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_23clEi.exit.i.i.i" unwind label %49
@@ -78459,7 +78459,7 @@ common.resume.i.i.i:                              ; preds = %73, %49, %44
           to label %.noexc10.i.i.i unwind label %73
 
 .noexc10.i.i.i:                                   ; preds = %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_23clEi.exit.i.i.i"
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 12
   store i8 0, ptr %52, align 4
   invoke void @_Z18print_move_createdI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %51)
@@ -78479,7 +78479,7 @@ _ZN12TestFactory7C2EOS_.exit.i.i.i.i.i:           ; preds = %.noexc10.i.i.i
   %58 = load i8, ptr %48, align 4
   %59 = and i8 %58, 1
   store i8 %59, ptr %52, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %51, align 8
   invoke void @_Z18print_move_createdI5PyTF7JEEvPT_DpOT0_(ptr noundef nonnull %51)
           to label %63 unwind label %60
 
@@ -78494,12 +78494,12 @@ _ZN12TestFactory7C2EOS_.exit.i.i.i.i.i:           ; preds = %.noexc10.i.i.i
   %64 = getelementptr inbounds i8, ptr %.val17.i, i64 24
   %65 = load ptr, ptr %64, align 8
   store ptr %51, ptr %65, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %6, align 8
   invoke void @_Z15print_destroyedI5PyTF7JEEvPT_DpOT0_(ptr noundef nonnull %6)
           to label %66 unwind label %70
 
 66:                                               ; preds = %63
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %6, align 8
   invoke void @_Z15print_destroyedI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %6)
           to label %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZ35test_submodule_factory_constructorsRNS_7module_EE4$_22Z35test_submodule_factory_constructorsSA_E4$_23F12TestFactory7iEF5PyTF7iEE7executeINS_6class_ISD_JSF_St10shared_ptrISD_EEEEJEEEvRT_DpRKT0_EUlS3_iE_EENSt9enable_ifIXsr3std7is_voidISN_EE5valueES6_E4typeEOT1_.exit" unwind label %67
 
@@ -78539,7 +78539,7 @@ _ZN12TestFactory7C2EOS_.exit.i.i.i.i.i:           ; preds = %.noexc10.i.i.i
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory7D2Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %3
 
@@ -78556,12 +78556,12 @@ define linkonce_odr hidden void @_ZN12TestFactory7D2Ev(ptr noundef nonnull align
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5PyTF7D2Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI5PyTF7JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %6
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN12TestFactory7D2Ev.exit unwind label %3
 
@@ -78651,7 +78651,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN12TestFactory7D0Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN12TestFactory7D2Ev.exit unwind label %2
 
@@ -79229,12 +79229,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit: ; pr
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN5PyTF7D0Ev(ptr noundef nonnull align 8 dereferenceable(13) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI5PyTF7JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %2 unwind label %6
 
 2:                                                ; preds = %1
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %0, align 8
   invoke void @_Z15print_destroyedI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %0)
           to label %_ZN5PyTF7D2Ev.exit unwind label %3
 
@@ -80073,7 +80073,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 50:                                               ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE11pointer_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %41, ptr %4, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %49, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %49, align 8
   %51 = getelementptr inbounds i8, ptr %49, i64 8
   store i32 %41, ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %49, i64 12
@@ -80100,7 +80100,7 @@ common.resume.i.i.i:                              ; preds = %60, %58, %53
   store i32 %41, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %41, ptr %2, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %49, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %49, align 8
   %56 = getelementptr inbounds i8, ptr %49, i64 8
   store i32 %41, ptr %56, align 8
   %57 = getelementptr inbounds i8, ptr %49, i64 12
@@ -80110,7 +80110,7 @@ common.resume.i.i.i:                              ; preds = %60, %58, %53
 
 .noexc.i.i.i.i:                                   ; preds = %55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %49, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %49, align 8
   store i8 1, ptr %57, align 4
   invoke void @_Z13print_createdI5PyTF7JRiEEvPT_DpOT0_(ptr noundef nonnull %49, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_25clEZ35test_submodule_factory_constructorsS1_E11pointer_tagi.exit.i.i.i" unwind label %58
@@ -80372,7 +80372,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   %51 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %42, ptr %4, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %51, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %51, align 8
   %52 = getelementptr inbounds i8, ptr %51, i64 8
   store i32 %42, ptr %52, align 8
   %53 = getelementptr inbounds i8, ptr %51, i64 12
@@ -80399,14 +80399,14 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   store i32 %42, ptr %3, align 4, !noalias !2088
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !2088
   store i32 %42, ptr %2, align 4, !noalias !2088
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !2088
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !2088
   %59 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %42, ptr %59, align 8, !alias.scope !2088
   %60 = getelementptr inbounds i8, ptr %5, i64 12
   store i8 0, ptr %60, align 4, !alias.scope !2088
   call void @_Z13print_createdI12TestFactory7JRiEEvPT_DpOT0_(ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !2088
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !2088
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !2088
   store i8 1, ptr %60, align 4, !alias.scope !2088
   invoke void @_Z13print_createdI5PyTF7JRiEEvPT_DpOT0_(ptr noundef nonnull %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_27clEZ35test_submodule_factory_constructorsS1_E9mixed_tagi.exit.i.i.i" unwind label %61
@@ -80423,7 +80423,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %.noexc.i.i.i unwind label %85
 
 .noexc.i.i.i:                                     ; preds = %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_27clEZ35test_submodule_factory_constructorsS1_E9mixed_tagi.exit.i.i.i"
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %63, align 8
   %64 = getelementptr inbounds i8, ptr %63, i64 12
   store i8 0, ptr %64, align 4
   invoke void @_Z18print_move_createdI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %63)
@@ -80443,7 +80443,7 @@ _ZN12TestFactory7C2EOS_.exit.i.i.i.i.i:           ; preds = %.noexc.i.i.i
   %70 = load i8, ptr %60, align 4
   %71 = and i8 %70, 1
   store i8 %71, ptr %64, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %63, align 8
   invoke void @_Z18print_move_createdI5PyTF7JEEvPT_DpOT0_(ptr noundef nonnull %63)
           to label %75 unwind label %72
 
@@ -80458,12 +80458,12 @@ _ZN12TestFactory7C2EOS_.exit.i.i.i.i.i:           ; preds = %.noexc.i.i.i
   %76 = getelementptr inbounds i8, ptr %36, i64 24
   %77 = load ptr, ptr %76, align 8
   store ptr %63, ptr %77, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %5, align 8
   invoke void @_Z15print_destroyedI5PyTF7JEEvPT_DpOT0_(ptr noundef nonnull %5)
           to label %78 unwind label %82
 
 78:                                               ; preds = %75
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %5, align 8
   invoke void @_Z15print_destroyedI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %5)
           to label %"_ZNO8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE9mixed_tagiEE4callIvNS0_9void_typeERZNOS0_8initimpl7factoryIZ35test_submodule_factory_constructorsS5_E4$_26Z35test_submodule_factory_constructorsS5_E4$_27FP12TestFactory7S6_iEF5PyTF7S6_iEE7executeINS_6class_ISE_JSH_St10shared_ptrISE_EEEEJEEEvRT_DpRKT0_EUlS3_S6_iE_EENSt9enable_ifIXsr3std7is_voidISP_EE5valueES9_E4typeEOT1_.exit" unwind label %79
 
@@ -80607,7 +80607,7 @@ _ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_
           to label %43 unwind label %44
 
 43:                                               ; preds = %41
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %42, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %42, align 8
   invoke void @__cxa_throw(ptr nonnull %42, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #26
           to label %.noexc unwind label %38
 
@@ -80637,7 +80637,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   %55 = trunc i64 %54 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !2091
   store i32 %55, ptr %4, align 4, !noalias !2091
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %5, align 8, !alias.scope !2091
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %5, align 8, !alias.scope !2091
   %56 = getelementptr inbounds i8, ptr %5, i64 8
   store i32 %55, ptr %56, align 8, !alias.scope !2091
   %57 = getelementptr inbounds i8, ptr %5, i64 12
@@ -80651,7 +80651,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
           to label %.noexc.i.i.i unwind label %73
 
 .noexc.i.i.i:                                     ; preds = %.noexc2
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %58, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %58, i64 12
   store i8 0, ptr %59, align 4
   invoke void @_Z18print_move_createdI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %58)
@@ -80674,7 +80674,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   %68 = getelementptr inbounds i8, ptr %40, i64 24
   %69 = load ptr, ptr %68, align 8
   store ptr %58, ptr %69, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %5, align 8
   invoke void @_Z15print_destroyedI12TestFactory7JEEvPT_DpOT0_(ptr noundef nonnull %5)
           to label %_ZN8pybind116detail15argument_loaderIJRNS0_16value_and_holderEZ35test_submodule_factory_constructorsRNS_7module_EE9mixed_tagRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9load_argsERNS0_13function_callE.exit.thread.sink.split.i unwind label %70
 
@@ -80702,7 +80702,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   store i32 %78, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %78, ptr %2, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %76, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %76, align 8
   %79 = getelementptr inbounds i8, ptr %76, i64 8
   store i32 %78, ptr %79, align 8
   %80 = getelementptr inbounds i8, ptr %76, i64 12
@@ -80712,7 +80712,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 
 .noexc.i.i.i.i:                                   ; preds = %.noexc3
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %76, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %76, align 8
   store i8 1, ptr %80, align 4
   invoke void @_Z13print_createdI5PyTF7JRiEEvPT_DpOT0_(ptr noundef nonnull %76, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_29clEZ35test_submodule_factory_constructorsS1_E9mixed_tagRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i.i.i" unwind label %81
@@ -80863,7 +80863,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 56:                                               ; preds = %_ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE11pointer_tagEENS0_11type_casterINS0_14intrinsic_typeIT_E4typeEvE12cast_op_typeINSt20add_rvalue_referenceIS7_E4typeEEEOSA_.exit.i.i
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %47, ptr %4, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %55, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %55, align 8
   %57 = getelementptr inbounds i8, ptr %55, i64 8
   store i32 %47, ptr %57, align 8
   %58 = getelementptr inbounds i8, ptr %55, i64 12
@@ -80893,7 +80893,7 @@ common.resume.i.i.i:                              ; preds = %68, %66, %59
   store i32 %47, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %47, ptr %2, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %55, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %55, align 8
   %64 = getelementptr inbounds i8, ptr %55, i64 8
   store i32 %47, ptr %64, align 8
   %65 = getelementptr inbounds i8, ptr %55, i64 12
@@ -80903,7 +80903,7 @@ common.resume.i.i.i:                              ; preds = %68, %66, %59
 
 .noexc.i.i.i.i:                                   ; preds = %63
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %55, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %55, align 8
   store i8 1, ptr %65, align 4
   invoke void @_Z13print_createdI5PyTF7JRiEEvPT_DpOT0_(ptr noundef nonnull %55, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_31clEZ35test_submodule_factory_constructorsS1_E8base_tagZ35test_submodule_factory_constructorsS1_E11pointer_tagi.exit.i.i.i" unwind label %66
@@ -81048,7 +81048,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   store i32 %48, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   store i32 %48, ptr %4, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %56, align 8
   %58 = getelementptr inbounds i8, ptr %56, i64 8
   store i32 %48, ptr %58, align 8
   %59 = getelementptr inbounds i8, ptr %56, i64 12
@@ -81058,7 +81058,7 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
 
 .noexc.i.i.i.i:                                   ; preds = %57
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %56, align 8
   store i8 1, ptr %59, align 4
   invoke void @_Z13print_createdI5PyTF7JRiEEvPT_DpOT0_(ptr noundef nonnull %56, ptr noundef nonnull align 4 dereferenceable(4) %5)
           to label %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_32clEZ35test_submodule_factory_constructorsS1_E9alias_tagZ35test_submodule_factory_constructorsS1_E11pointer_tagi.exit.i.i.i" unwind label %60
@@ -81089,7 +81089,7 @@ common.resume.i.i.i:                              ; preds = %70, %68, %62, %60
   store i32 %65, ptr %3, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
   store i32 %65, ptr %2, align 4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %56, align 8
   %66 = getelementptr inbounds i8, ptr %56, i64 8
   store i32 %65, ptr %66, align 8
   %67 = getelementptr inbounds i8, ptr %56, i64 12
@@ -81099,7 +81099,7 @@ common.resume.i.i.i:                              ; preds = %70, %68, %62, %60
 
 .noexc.i8.i.i.i:                                  ; preds = %64
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %56, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %56, align 8
   store i8 1, ptr %67, align 4
   invoke void @_Z13print_createdI5PyTF7JRiEEvPT_DpOT0_(ptr noundef nonnull %56, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %"_ZZ35test_submodule_factory_constructorsRN8pybind117module_EENK4$_33clEZ35test_submodule_factory_constructorsS1_E9alias_tagZ35test_submodule_factory_constructorsS1_E11pointer_tagi.exit.i.i.i" unwind label %68
@@ -81301,11 +81301,11 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   store i32 1, ptr %77, align 8, !noalias !2100
   %78 = getelementptr inbounds i8, ptr %76, i64 12
   store i32 1, ptr %78, align 4, !noalias !2100
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %76, align 8, !noalias !2100
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %76, align 8, !noalias !2100
   %79 = getelementptr inbounds i8, ptr %76, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4), !noalias !2100
   store i32 %67, ptr %4, align 4, !noalias !2100
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %79, align 8, !noalias !2100
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %79, align 8, !noalias !2100
   %80 = getelementptr inbounds i8, ptr %76, i64 24
   store i32 %67, ptr %80, align 8, !noalias !2100
   %81 = getelementptr inbounds i8, ptr %76, i64 28
@@ -81403,7 +81403,7 @@ _ZN8pybind116detail8initimpl9constructINS_6class_I12TestFactory7J5PyTF7St10share
   store i32 %67, ptr %3, align 4, !noalias !2101
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !2101
   store i32 %67, ptr %2, align 4, !noalias !2101
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %119, align 8, !noalias !2101
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %119, align 8, !noalias !2101
   %120 = getelementptr inbounds i8, ptr %119, i64 8
   store i32 %67, ptr %120, align 8, !noalias !2101
   %121 = getelementptr inbounds i8, ptr %119, i64 12
@@ -81413,7 +81413,7 @@ _ZN8pybind116detail8initimpl9constructINS_6class_I12TestFactory7J5PyTF7St10share
 
 .noexc.i.i.i.i:                                   ; preds = %118
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2), !noalias !2101
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, inrange i32 0, i64 2), ptr %119, align 8, !noalias !2101
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV5PyTF7, i64 0, i32 0, i64 2), ptr %119, align 8, !noalias !2101
   store i8 1, ptr %121, align 4, !noalias !2101
   invoke void @_Z13print_createdI5PyTF7JRiEEvPT_DpOT0_(ptr noundef nonnull %119, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %124 unwind label %122, !noalias !2101
@@ -81475,7 +81475,7 @@ _ZN8pybind116detail8initimpl9constructINS_6class_I12TestFactory7J5PyTF7St10share
   store i32 1, ptr %142, align 8, !noalias !2101
   %143 = getelementptr inbounds i8, ptr %126, i64 12
   store i32 1, ptr %143, align 4, !noalias !2101
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP5PyTF7LN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %126, align 8, !noalias !2101
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIP5PyTF7LN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %126, align 8, !noalias !2101
   %144 = getelementptr inbounds i8, ptr %126, i64 16
   store ptr %119, ptr %144, align 8, !noalias !2101
   store ptr %126, ptr %125, align 8, !alias.scope !2101
@@ -81903,11 +81903,11 @@ _ZN8pybind116detail7cast_opIZ35test_submodule_factory_constructorsRNS_7module_EE
   store i32 1, ptr %76, align 8, !noalias !2110
   %77 = getelementptr inbounds i8, ptr %75, i64 12
   store i32 1, ptr %77, align 4, !noalias !2110
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %75, align 8, !noalias !2110
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %75, align 8, !noalias !2110
   %78 = getelementptr inbounds i8, ptr %75, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3), !noalias !2110
   store i32 %66, ptr %3, align 4, !noalias !2110
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %78, align 8, !noalias !2110
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %78, align 8, !noalias !2110
   %79 = getelementptr inbounds i8, ptr %75, i64 24
   store i32 %66, ptr %79, align 8, !noalias !2110
   %80 = getelementptr inbounds i8, ptr %75, i64 28
@@ -82006,11 +82006,11 @@ _ZN8pybind116detail8initimpl9constructINS_6class_I12TestFactory7J5PyTF7St10share
   store i32 1, ptr %119, align 8, !noalias !2117
   %120 = getelementptr inbounds i8, ptr %118, i64 12
   store i32 1, ptr %120, align 4, !noalias !2117
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %118, align 8, !noalias !2117
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceI12TestFactory7SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %118, align 8, !noalias !2117
   %121 = getelementptr inbounds i8, ptr %118, i64 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2), !noalias !2117
   store i32 %66, ptr %2, align 4, !noalias !2117
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, inrange i32 0, i64 2), ptr %121, align 8, !noalias !2117
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV12TestFactory7, i64 0, i32 0, i64 2), ptr %121, align 8, !noalias !2117
   %122 = getelementptr inbounds i8, ptr %118, i64 24
   store i32 %66, ptr %122, align 8, !noalias !2117
   %123 = getelementptr inbounds i8, ptr %118, i64 28
@@ -87420,7 +87420,7 @@ _ZN8pybind116detail7cast_opIRZ35test_submodule_factory_constructorsRNS_7module_E
 
 .invoke.i:                                        ; preds = %56, %49
   %.sink.i = phi ptr [ %50, %49 ], [ %57, %56 ]
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, inrange i32 0, i64 2), ptr %.sink.i, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i64 0, i32 0, i64 2), ptr %.sink.i, align 8
   invoke void @__cxa_throw(ptr nonnull %.sink.i, ptr nonnull @_ZTIN8pybind1120reference_cast_errorE, ptr nonnull @_ZN8pybind1120reference_cast_errorD2Ev) #26
           to label %.cont.i unwind label %41
 

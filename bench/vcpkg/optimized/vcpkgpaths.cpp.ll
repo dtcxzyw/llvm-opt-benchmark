@@ -16997,7 +16997,7 @@ _ZNSt10shared_ptrIN5vcpkg15DownloadManagerEED2Ev.exit.i: ; preds = %_ZNO5vcpkg9E
   store i32 1, ptr %177, align 8, !noalias !322
   %178 = getelementptr inbounds i8, ptr %176, i64 12
   store i32 1, ptr %178, align 4, !noalias !322
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5vcpkg15DownloadManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %176, align 8, !noalias !322
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5vcpkg15DownloadManagerESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %176, align 8, !noalias !322
   %179 = getelementptr inbounds i8, ptr %176, i64 16
   call void @_ZN5vcpkg21DownloadManagerConfigC2EOS0_(ptr noundef nonnull align 8 dereferenceable(200) %179, ptr noundef nonnull align 8 dereferenceable(200) %45) #23, !noalias !322
   store ptr %179, ptr %163, align 8

@@ -17,7 +17,7 @@ define dso_local void @_ZN4i18n12phonenumbers17DefaultMapStorageC2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17DefaultMapStorageE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4i18n12phonenumbers17DefaultMapStorageE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

@@ -1360,7 +1360,7 @@ define dso_local void @_ZN16cmCursesMainFormC2ESt6vectorINSt7__cxx1112basic_stri
   store i32 %2, ptr %6, align 4
   %14 = load ptr, ptr %4, align 8
   call void @_ZN12cmCursesFormC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmCursesMainForm, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmCursesMainForm, i32 0, i32 0, i32 2), ptr %14, align 8
   %15 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 1
   call void @_ZNSt6vectorI27cmCursesCacheEntryCompositeSaIS0_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #3
   %16 = getelementptr inbounds %class.cmCursesMainForm, ptr %14, i32 0, i32 2
@@ -2036,7 +2036,7 @@ define dso_local void @_ZN16cmCursesMainFormD2Ev(ptr noundef nonnull align 8 der
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmCursesMainForm, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV16cmCursesMainForm, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCursesForm, ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null

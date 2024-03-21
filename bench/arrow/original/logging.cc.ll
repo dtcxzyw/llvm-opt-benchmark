@@ -320,7 +320,7 @@ entry:
   store i32 %severity, ptr %severity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5arrow4util12ArrowLogBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %logging_provider_ = getelementptr inbounds %"class.arrow::util::ArrowLog", ptr %this1, i32 0, i32 1
   store ptr null, ptr %logging_provider_, align 8
   %is_enabled_ = getelementptr inbounds %"class.arrow::util::ArrowLog", ptr %this1, i32 0, i32 2
@@ -398,7 +398,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util12ArrowLogBaseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util12ArrowLogBaseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -410,7 +410,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i32 %severity, ptr %severity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %severity_ = getelementptr inbounds %"class.arrow::util::CerrLog", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %severity.addr, align 4
   store i32 %0, ptr %severity_, align 8
@@ -563,7 +563,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5arrow4util8ArrowLogE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %logging_provider_ = getelementptr inbounds %"class.arrow::util::ArrowLog", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %logging_provider_, align 8
   %cmp = icmp ne ptr %0, null
@@ -639,7 +639,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5arrow4util7CerrLogE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %has_logged_ = getelementptr inbounds %"class.arrow::util::CerrLog", ptr %this1, i32 0, i32 2
   %0 = load i8, ptr %has_logged_, align 4
   %tobool = trunc i8 %0 to i1

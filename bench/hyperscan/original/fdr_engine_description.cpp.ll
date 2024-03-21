@@ -224,7 +224,7 @@ entry:
   %numBuckets = getelementptr inbounds %"struct.ue2::FDREngineDef", ptr %8, i32 0, i32 2
   %9 = load i32, ptr %numBuckets, align 8
   call void @_ZN3ue217EngineDescriptionC2EjRKNS_8target_tEj(ptr noundef nonnull align 8 dereferenceable(36) %this1, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue220FDREngineDescriptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue220FDREngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %schemeWidth = getelementptr inbounds %"class.ue2::FDREngineDescription", ptr %this1, i32 0, i32 1
   %10 = load ptr, ptr %def.addr, align 8
   %schemeWidth2 = getelementptr inbounds %"struct.ue2::FDREngineDef", ptr %10, i32 0, i32 1
@@ -251,7 +251,7 @@ entry:
   store ptr %code_target_in, ptr %code_target_in.addr, align 8
   store i32 %numBuckets_in, ptr %numBuckets_in.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217EngineDescriptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217EngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %id = getelementptr inbounds %"class.ue2::EngineDescription", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %id_in.addr, align 4
   store i32 %0, ptr %id, align 8
@@ -2193,7 +2193,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3ue217EngineDescriptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(36) %1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue220FDREngineDescriptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue220FDREngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %schemeWidth = getelementptr inbounds %"class.ue2::FDREngineDescription", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %schemeWidth2 = getelementptr inbounds %"class.ue2::FDREngineDescription", ptr %2, i32 0, i32 1
@@ -2209,7 +2209,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217EngineDescriptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue217EngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %id = getelementptr inbounds %"class.ue2::EngineDescription", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %.addr, align 8
   %id2 = getelementptr inbounds %"class.ue2::EngineDescription", ptr %1, i32 0, i32 1
@@ -2368,7 +2368,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZN3ue217EngineDescriptionC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(36) %this1, ptr noundef nonnull align 8 dereferenceable(36) %1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue220FDREngineDescriptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3ue220FDREngineDescriptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %schemeWidth = getelementptr inbounds %"class.ue2::FDREngineDescription", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %schemeWidth2 = getelementptr inbounds %"class.ue2::FDREngineDescription", ptr %2, i32 0, i32 1

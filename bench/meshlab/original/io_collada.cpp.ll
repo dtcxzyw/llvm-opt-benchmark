@@ -14051,7 +14051,7 @@ define linkonce_odr void @_ZN3vcg3tri2io7InfoDAEC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN14AdditionalInfoC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %5)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io7InfoDAEE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io7InfoDAEE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.vcg::tri::io::InfoDAE", ptr %5, i32 0, i32 2
   call void @_ZN4QMapI7QStringiEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   %7 = getelementptr inbounds %"class.vcg::tri::io::InfoDAE", ptr %5, i32 0, i32 1
@@ -17853,7 +17853,7 @@ define linkonce_odr void @_ZN11MLExceptionC2ERK7QString(ptr noundef nonnull alig
   store ptr %1, ptr %4, align 8
   %8 = load ptr, ptr %3, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %8, align 8
   %9 = getelementptr inbounds %class.MLException, ptr %8, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %10) #3
@@ -17894,7 +17894,7 @@ define linkonce_odr void @_ZN11MLExceptionD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV11MLException, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 2
   call void @_ZN10QByteArrayD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.MLException, ptr %3, i32 0, i32 1
@@ -19033,7 +19033,7 @@ define linkonce_odr void @_ZN3vcg3tri2io7InfoDAED2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io7InfoDAEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io7InfoDAEE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.vcg::tri::io::InfoDAE", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null
@@ -19378,7 +19378,7 @@ define linkonce_odr void @_ZN14AdditionalInfoC2Ev(ptr noundef nonnull align 8 de
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14AdditionalInfo, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV14AdditionalInfo, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21058,7 +21058,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -21269,7 +21269,7 @@ define linkonce_odr void @_ZN3vcg3tri2io11ImporterDAEI6CMeshOE11ColladaMeshC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EC2Ev(ptr noundef nonnull align 8 dereferenceable(628) %3)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io11ImporterDAEI6CMeshOE11ColladaMeshE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri2io11ImporterDAEI6CMeshOE11ColladaMeshE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -23319,7 +23319,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CM
   %4 = alloca i32, align 4
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.vcg::tri::TriMesh.141", ptr %5, i32 0, i32 1
   call void @_ZNSt6vectorIN3vcg3tri2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS6_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #3
   %7 = getelementptr inbounds %"class.vcg::tri::TriMesh.141", ptr %5, i32 0, i32 4
@@ -23940,7 +23940,7 @@ define linkonce_odr void @_ZN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CM
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_EE, i32 0, i32 0, i32 2), ptr %3, align 8
   invoke void @_ZN3vcg3tri7TriMeshISt6vectorINS0_2io11ImporterDAEI6CMeshOE13ColladaVertexESaIS7_EES2_INS6_11ColladaFaceESaISA_EENS0_14DummyContainerESD_SD_E5ClearEv(ptr noundef nonnull align 8 dereferenceable(628) %3)
           to label %4 unwind label %19
 
@@ -47783,7 +47783,7 @@ define linkonce_odr void @_ZN3vcg25MissingComponentExceptionC2ERKNSt7__cxx1112ba
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(32) %8)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg25MissingComponentExceptionE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3vcg25MissingComponentExceptionE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef @.str.104)
           to label %10 unwind label %16
 
@@ -98058,7 +98058,7 @@ define linkonce_odr void @_ZN17XMLDocumentWriterC2EPKcb(ptr noundef nonnull alig
   store i8 %11, ptr %6, align 1
   %12 = load ptr, ptr %4, align 8
   call void @_ZN10XMLVisitorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17XMLDocumentWriter, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17XMLDocumentWriter, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %class.XMLDocumentWriter, ptr %12, i32 0, i32 1
   call void @_ZN16QXmlStreamWriterC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13)
   %14 = getelementptr inbounds %class.XMLDocumentWriter, ptr %12, i32 0, i32 2
@@ -105422,7 +105422,7 @@ define linkonce_odr void @_ZN17XMLDocumentWriterD2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17XMLDocumentWriter, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV17XMLDocumentWriter, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.XMLDocumentWriter, ptr %3, i32 0, i32 2
   invoke void @_ZN11QFileDevice5closeEv(ptr noundef nonnull align 8 dereferenceable(16) %4)
           to label %5 unwind label %8
@@ -105447,7 +105447,7 @@ define linkonce_odr void @_ZN10XMLVisitorC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLVisitor, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLVisitor, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -107524,7 +107524,7 @@ define linkonce_odr void @_ZN7Collada4Tags10ColladaTagC2Ev(ptr noundef nonnull a
 10:                                               ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10ColladaTagE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10ColladaTagE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.XMLTag, ptr %9, i32 0, i32 2
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA6_KcRA45_S3_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 1 dereferenceable(6) @.str.167, ptr noundef nonnull align 1 dereferenceable(45) @.str.168)
           to label %12 unwind label %21
@@ -107618,7 +107618,7 @@ define linkonce_odr void @_ZN7Collada4Tags8AssetTagC2Ev(ptr noundef nonnull alig
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8AssetTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8AssetTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -107657,7 +107657,7 @@ define linkonce_odr void @_ZN7Collada4Tags14ContributorTagC2Ev(ptr noundef nonnu
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags14ContributorTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags14ContributorTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -107709,7 +107709,7 @@ define linkonce_odr void @_ZN7Collada4Tags9AuthorTagC2Ev(ptr noundef nonnull ali
 9:                                                ; preds = %1
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9AuthorTagE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9AuthorTagE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %class.XMLLeafTag, ptr %8, i32 0, i32 1
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.174)
           to label %11 unwind label %17
@@ -107784,7 +107784,7 @@ define linkonce_odr void @_ZN7Collada4Tags16AuthoringToolTagC2Ev(ptr noundef non
 9:                                                ; preds = %1
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags16AuthoringToolTagE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags16AuthoringToolTagE, i32 0, i32 0, i32 2), ptr %8, align 8
   %10 = getelementptr inbounds %class.XMLLeafTag, ptr %8, i32 0, i32 1
   invoke void @_ZN7QStringC2EPKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef @.str.176)
           to label %11 unwind label %17
@@ -107859,7 +107859,7 @@ define linkonce_odr void @_ZN7Collada4Tags10CreatedTagC2Ev(ptr noundef nonnull a
 11:                                               ; preds = %1
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10CreatedTagE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10CreatedTagE, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN9QDateTime15currentDateTimeEv(ptr dead_on_unwind writable sret(%class.QDateTime) align 8 %8)
           to label %12 unwind label %21
 
@@ -107967,7 +107967,7 @@ define linkonce_odr void @_ZN7Collada4Tags11ModifiedTagC2Ev(ptr noundef nonnull 
 11:                                               ; preds = %1
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11ModifiedTagE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11ModifiedTagE, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN9QDateTime15currentDateTimeEv(ptr dead_on_unwind writable sret(%class.QDateTime) align 8 %8)
           to label %12 unwind label %21
 
@@ -108074,7 +108074,7 @@ define linkonce_odr void @_ZN7Collada4Tags9UpAxisTagC2ERK7QString(ptr noundef no
 10:                                               ; preds = %2
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9UpAxisTagE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9UpAxisTagE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.XMLLeafTag, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   invoke void @_ZN7QVectorI7QStringE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -108129,7 +108129,7 @@ define linkonce_odr void @_ZN7Collada4Tags16LibraryImagesTagC2Ev(ptr noundef non
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags16LibraryImagesTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags16LibraryImagesTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -108176,7 +108176,7 @@ define linkonce_odr void @_ZN7Collada4Tags8ImageTagC2ERK7QStringS4_(ptr noundef 
 14:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8ImageTagE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8ImageTagE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.XMLTag, ptr %13, i32 0, i32 2
   %16 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -108287,7 +108287,7 @@ define linkonce_odr void @_ZN7Collada4Tags11InitFromTagC2ERK7QString(ptr noundef
 10:                                               ; preds = %2
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11InitFromTagE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11InitFromTagE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.XMLLeafTag, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   invoke void @_ZN7QVectorI7QStringE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -108342,7 +108342,7 @@ define linkonce_odr void @_ZN7Collada4Tags19LibraryMaterialsTagC2Ev(ptr noundef 
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags19LibraryMaterialsTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags19LibraryMaterialsTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -108387,7 +108387,7 @@ define linkonce_odr void @_ZN7Collada4Tags11MaterialTagC2ERK7QStringS4_(ptr noun
 14:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11MaterialTagE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11MaterialTagE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.XMLTag, ptr %13, i32 0, i32 2
   %16 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -108552,7 +108552,7 @@ define linkonce_odr void @_ZN7Collada4Tags17InstanceEffectTagC2ERK7QString(ptr n
 12:                                               ; preds = %2
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags17InstanceEffectTagE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags17InstanceEffectTagE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.XMLTag, ptr %11, i32 0, i32 2
   %14 = load ptr, ptr %4, align 8
   invoke void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -108643,7 +108643,7 @@ define linkonce_odr void @_ZN7Collada4Tags17LibraryEffectsTagC2Ev(ptr noundef no
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags17LibraryEffectsTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags17LibraryEffectsTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -108685,7 +108685,7 @@ define linkonce_odr void @_ZN7Collada4Tags9EffectTagC2ERK7QString(ptr noundef no
 11:                                               ; preds = %2
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9EffectTagE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9EffectTagE, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.XMLTag, ptr %10, i32 0, i32 2
   %13 = load ptr, ptr %4, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -108758,7 +108758,7 @@ define linkonce_odr void @_ZN7Collada4Tags16ProfileCommonTagC2Ev(ptr noundef non
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags16ProfileCommonTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags16ProfileCommonTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -108800,7 +108800,7 @@ define linkonce_odr void @_ZN7Collada4Tags11NewParamTagC2ERK7QString(ptr noundef
 11:                                               ; preds = %2
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11NewParamTagE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11NewParamTagE, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.XMLTag, ptr %10, i32 0, i32 2
   %13 = load ptr, ptr %4, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA4_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(4) @.str.183, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -108876,7 +108876,7 @@ define linkonce_odr void @_ZN7Collada4Tags10SurfaceTagC2ERK7QString(ptr noundef 
 11:                                               ; preds = %2
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10SurfaceTagE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10SurfaceTagE, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.XMLTag, ptr %10, i32 0, i32 2
   %13 = load ptr, ptr %4, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(5) @.str.185, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -108970,7 +108970,7 @@ define linkonce_odr void @_ZN7Collada4Tags9FormatTagC2ERK7QString(ptr noundef no
 10:                                               ; preds = %2
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9FormatTagE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9FormatTagE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.XMLLeafTag, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   invoke void @_ZN7QVectorI7QStringE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -109025,7 +109025,7 @@ define linkonce_odr void @_ZN7Collada4Tags12Sampler2DTagC2Ev(ptr noundef nonnull
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12Sampler2DTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12Sampler2DTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -109066,7 +109066,7 @@ define linkonce_odr void @_ZN7Collada4Tags9SourceTagC2ERK7QString(ptr noundef no
 10:                                               ; preds = %2
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9SourceTagE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9SourceTagE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.XMLLeafTag, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   invoke void @_ZN7QVectorI7QStringE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -109123,7 +109123,7 @@ define linkonce_odr void @_ZN7Collada4Tags12MinFilterTagC2ERK7QString(ptr nounde
 10:                                               ; preds = %2
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12MinFilterTagE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12MinFilterTagE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.XMLLeafTag, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   invoke void @_ZN7QVectorI7QStringE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -109180,7 +109180,7 @@ define linkonce_odr void @_ZN7Collada4Tags12MagFilterTagC2ERK7QString(ptr nounde
 10:                                               ; preds = %2
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12MagFilterTagE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12MagFilterTagE, i32 0, i32 0, i32 2), ptr %9, align 8
   %11 = getelementptr inbounds %class.XMLLeafTag, ptr %9, i32 0, i32 1
   %12 = load ptr, ptr %4, align 8
   invoke void @_ZN7QVectorI7QStringE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -109238,7 +109238,7 @@ define linkonce_odr void @_ZN7Collada4Tags12TechniqueTagC2ERK7QString(ptr nounde
 11:                                               ; preds = %2
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12TechniqueTagE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12TechniqueTagE, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.XMLTag, ptr %10, i32 0, i32 2
   %13 = load ptr, ptr %4, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA4_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(4) @.str.183, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -109311,7 +109311,7 @@ define linkonce_odr void @_ZN7Collada4Tags8BlinnTagC2Ev(ptr noundef nonnull alig
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8BlinnTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8BlinnTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -109350,7 +109350,7 @@ define linkonce_odr void @_ZN7Collada4Tags10DiffuseTagC2Ev(ptr noundef nonnull a
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10DiffuseTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10DiffuseTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -109395,7 +109395,7 @@ define linkonce_odr void @_ZN7Collada4Tags10TextureTagC2ERK7QStringS4_(ptr nound
 14:                                               ; preds = %3
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10TextureTagE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags10TextureTagE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.XMLTag, ptr %13, i32 0, i32 2
   %16 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA8_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(8) @.str.127, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -109538,7 +109538,7 @@ define linkonce_odr void @_ZN7Collada4Tags20LibraryGeometriesTagC2Ev(ptr noundef
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags20LibraryGeometriesTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags20LibraryGeometriesTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -109583,7 +109583,7 @@ define linkonce_odr void @_ZN7Collada4Tags11GeometryTagC2ERK7QStringS4_(ptr noun
 14:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11GeometryTagE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11GeometryTagE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.XMLTag, ptr %13, i32 0, i32 2
   %16 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -109677,7 +109677,7 @@ define linkonce_odr void @_ZN7Collada4Tags7MeshTagC2Ev(ptr noundef nonnull align
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags7MeshTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags7MeshTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -109722,7 +109722,7 @@ define linkonce_odr void @_ZN7Collada4Tags9SourceTagC2ERK7QStringS4_(ptr noundef
 14:                                               ; preds = %3
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9SourceTagE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags9SourceTagE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.XMLTag, ptr %13, i32 0, i32 2
   %16 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -109849,7 +109849,7 @@ define linkonce_odr void @_ZN7Collada4Tags13FloatArrayTagC2I6CMeshOEERK7QStringi
 36:                                               ; preds = %6
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags13FloatArrayTagE, i32 0, inrange i32 0, i32 2), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags13FloatArrayTagE, i32 0, i32 0, i32 2), ptr %35, align 8
   %37 = getelementptr inbounds %class.XMLTag, ptr %35, i32 0, i32 2
   %38 = load ptr, ptr %8, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %38)
@@ -110302,7 +110302,7 @@ define linkonce_odr void @_ZN7Collada4Tags18TechniqueCommonTagC2Ev(ptr noundef n
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags18TechniqueCommonTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags18TechniqueCommonTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -110353,7 +110353,7 @@ define linkonce_odr void @_ZN7Collada4Tags11AccessorTagC2EiRK7QStringi(ptr nound
 20:                                               ; preds = %4
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11AccessorTagE, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11AccessorTagE, i32 0, i32 0, i32 2), ptr %19, align 8
   %21 = getelementptr inbounds %class.XMLTag, ptr %19, i32 0, i32 2
   %22 = load i32, ptr %6, align 4
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, i32 noundef %22, i32 noundef 10)
@@ -110528,7 +110528,7 @@ define linkonce_odr void @_ZN7Collada4Tags8ParamTagC2ERK7QStringS4_(ptr noundef 
 14:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8ParamTagE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8ParamTagE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.XMLTag, ptr %13, i32 0, i32 2
   %16 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA5_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(5) @.str.180, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -110630,7 +110630,7 @@ define linkonce_odr void @_ZN7Collada4Tags11VerticesTagC2ERK7QString(ptr noundef
 11:                                               ; preds = %2
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11VerticesTagE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags11VerticesTagE, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.XMLTag, ptr %10, i32 0, i32 2
   %13 = load ptr, ptr %4, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -110710,7 +110710,7 @@ define linkonce_odr void @_ZN7Collada4Tags8InputTagC2ERK7QStringS4_(ptr noundef 
 15:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8InputTagE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8InputTagE, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.XMLTag, ptr %14, i32 0, i32 2
   %17 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA9_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(9) @.str.22, ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -110905,7 +110905,7 @@ define linkonce_odr void @_ZN7Collada4Tags12TrianglesTagC2Ei(ptr noundef nonnull
 12:                                               ; preds = %2
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12TrianglesTagE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12TrianglesTagE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.XMLTag, ptr %11, i32 0, i32 2
   %14 = load i32, ptr %4, align 4
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, i32 noundef %14, i32 noundef 10)
@@ -111031,7 +111031,7 @@ define linkonce_odr void @_ZN7Collada4Tags12TrianglesTagC2EiRK7QString(ptr nound
 15:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12TrianglesTagE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags12TrianglesTagE, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.XMLTag, ptr %14, i32 0, i32 2
   %17 = load i32, ptr %5, align 4
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind writable sret(%class.QString) align 8 %12, i32 noundef %17, i32 noundef 10)
@@ -111154,7 +111154,7 @@ define linkonce_odr void @_ZN7Collada4Tags8InputTagC2EiRK7QStringS4_(ptr noundef
 19:                                               ; preds = %4
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8InputTagE, i32 0, inrange i32 0, i32 2), ptr %18, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8InputTagE, i32 0, i32 0, i32 2), ptr %18, align 8
   %20 = getelementptr inbounds %class.XMLTag, ptr %18, i32 0, i32 2
   %21 = load i32, ptr %6, align 4
   invoke void @_ZN7QString6numberEii(ptr dead_on_unwind writable sret(%class.QString) align 8 %14, i32 noundef %21, i32 noundef 10)
@@ -111339,7 +111339,7 @@ define linkonce_odr void @_ZN7Collada4Tags4PTagC2I6CMeshOEERKT_jbbb(ptr noundef 
 30:                                               ; preds = %6
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags4PTagE, i32 0, inrange i32 0, i32 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags4PTagE, i32 0, i32 0, i32 2), ptr %29, align 8
   store i32 0, ptr %17, align 4
   %31 = load ptr, ptr %8, align 8
   %32 = getelementptr inbounds %"class.vcg::tri::TriMesh", ptr %31, i32 0, i32 7
@@ -111585,7 +111585,7 @@ define linkonce_odr void @_ZN7Collada4Tags4PTagC2I6CMeshOEERKT_jR7QVectorIiEbbb(
 33:                                               ; preds = %7
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags4PTagE, i32 0, inrange i32 0, i32 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags4PTagE, i32 0, i32 0, i32 2), ptr %32, align 8
   store i32 0, ptr %19, align 4
   %34 = load ptr, ptr %11, align 8
   %35 = invoke noundef ptr @_ZN7QVectorIiE5beginEv(ptr noundef nonnull align 8 dereferenceable(8) %34)
@@ -111824,7 +111824,7 @@ define linkonce_odr void @_ZN7Collada4Tags22LibraryVisualScenesTagC2Ev(ptr nound
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags22LibraryVisualScenesTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags22LibraryVisualScenesTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -111869,7 +111869,7 @@ define linkonce_odr void @_ZN7Collada4Tags14VisualSceneTagC2ERK7QStringS4_(ptr n
 14:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags14VisualSceneTagE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags14VisualSceneTagE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.XMLTag, ptr %13, i32 0, i32 2
   %16 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -111969,7 +111969,7 @@ define linkonce_odr void @_ZN7Collada4Tags7NodeTagC2ERK7QStringS4_(ptr noundef n
 14:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags7NodeTagE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags7NodeTagE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.XMLTag, ptr %13, i32 0, i32 2
   %16 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA3_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(3) @.str.16, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -112067,7 +112067,7 @@ define linkonce_odr void @_ZN7Collada4Tags19InstanceGeometryTagC2ERK7QString(ptr
 12:                                               ; preds = %2
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags19InstanceGeometryTagE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags19InstanceGeometryTagE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.XMLTag, ptr %11, i32 0, i32 2
   %14 = load ptr, ptr %4, align 8
   invoke void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -112158,7 +112158,7 @@ define linkonce_odr void @_ZN7Collada4Tags15BindMaterialTagC2Ev(ptr noundef nonn
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags15BindMaterialTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags15BindMaterialTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -112204,7 +112204,7 @@ define linkonce_odr void @_ZN7Collada4Tags19InstanceMaterialTagC2ERK7QStringS4_(
 15:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags19InstanceMaterialTagE, i32 0, inrange i32 0, i32 2), ptr %14, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags19InstanceMaterialTagE, i32 0, i32 0, i32 2), ptr %14, align 8
   %16 = getelementptr inbounds %class.XMLTag, ptr %14, i32 0, i32 2
   %17 = load ptr, ptr %5, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA7_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 1 dereferenceable(7) @.str.66, ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -112324,7 +112324,7 @@ define linkonce_odr void @_ZN7Collada4Tags18BindVertexInputTagC2ERK7QStringS4_S4
 16:                                               ; preds = %4
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags18BindVertexInputTagE, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags18BindVertexInputTagE, i32 0, i32 0, i32 2), ptr %15, align 8
   %17 = getelementptr inbounds %class.XMLTag, ptr %15, i32 0, i32 2
   %18 = load ptr, ptr %6, align 8
   invoke void @_ZNSt4pairI7QStringS0_EC2IRA9_KcRKS0_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairIS9_SA_EEEbE4typeELb1EEEOS9_OSA_(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 1 dereferenceable(9) @.str.22, ptr noundef nonnull align 8 dereferenceable(8) %18)
@@ -112454,7 +112454,7 @@ define linkonce_odr void @_ZN7Collada4Tags8SceneTagC2Ev(ptr noundef nonnull alig
 8:                                                ; preds = %1
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8SceneTagE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags8SceneTagE, i32 0, i32 0, i32 2), ptr %7, align 8
   ret void
 
 9:                                                ; preds = %1
@@ -112497,7 +112497,7 @@ define linkonce_odr void @_ZN7Collada4Tags22InstanceVisualSceneTagC2ERK7QString(
 12:                                               ; preds = %2
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #3
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags22InstanceVisualSceneTagE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7Collada4Tags22InstanceVisualSceneTagE, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.XMLTag, ptr %11, i32 0, i32 2
   %14 = load ptr, ptr %4, align 8
   invoke void @_ZN7Collada4TagsL9testSharpERK7QString(ptr dead_on_unwind writable sret(%class.QString) align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -112637,7 +112637,7 @@ define linkonce_odr void @_ZN6XMLTagC2ERK7QStringRK7QVectorISt4pairIS0_S0_EE(ptr
   store ptr %1, ptr %5, align 8
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.XMLTag, ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %5, align 8
   call void @_ZN7QStringC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %11) #3
@@ -112968,7 +112968,7 @@ define linkonce_odr void @_ZN6XMLTagD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV6XMLTag, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.XMLTag, ptr %3, i32 0, i32 2
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.XMLTag, ptr %3, i32 0, i32 1
@@ -113245,7 +113245,7 @@ define linkonce_odr void @_ZN10XMLLeafTagC2ERK7QStringRK7QVectorIS0_E(ptr nounde
 
 12:                                               ; preds = %3
   call void @_ZN7QVectorISt4pairI7QStringS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i32 0, i32 0, i32 2), ptr %10, align 8
   %13 = getelementptr inbounds %class.XMLLeafTag, ptr %10, i32 0, i32 1
   %14 = load ptr, ptr %6, align 8
   invoke void @_ZN7QVectorI7QStringEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -113499,7 +113499,7 @@ define linkonce_odr void @_ZN10XMLLeafTagD2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV10XMLLeafTag, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.XMLLeafTag, ptr %3, i32 0, i32 1
   call void @_ZN7QVectorI7QStringED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   call void @_ZN6XMLTagD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #3

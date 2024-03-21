@@ -28,9 +28,9 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7517StringEnumerationC2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7517StringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7517StringEnumerationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %unistr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %unistr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %unistr, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i, align 8
   %chars = getelementptr inbounds i8, ptr %this, i64 104
@@ -49,7 +49,7 @@ declare void @_ZN6icu_757UObjectD2Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7517StringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7517StringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7517StringEnumerationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %chars = getelementptr inbounds i8, ptr %this, i64 104
   %0 = load ptr, ptr %chars, align 8
   %cmp.not = icmp eq ptr %0, null
@@ -495,7 +495,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #1
 define void @_ZN6icu_7518UStringEnumerationC2EP12UEnumeration(ptr noundef nonnull align 8 dereferenceable(128) %this, ptr noundef %_uenum) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %unistr.i = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %unistr.i, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %unistr.i, align 8
   %fUnion2.i.i = getelementptr inbounds i8, ptr %this, i64 16
   store i16 2, ptr %fUnion2.i.i, align 8
   %chars.i = getelementptr inbounds i8, ptr %this, i64 104
@@ -503,7 +503,7 @@ entry:
   store ptr %charsBuffer.i, ptr %chars.i, align 8
   %charsCapacity.i = getelementptr inbounds i8, ptr %this, i64 112
   store i32 32, ptr %charsCapacity.i, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518UStringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518UStringEnumerationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %uenum = getelementptr inbounds i8, ptr %this, i64 120
   store ptr %_uenum, ptr %uenum, align 8
   ret void
@@ -512,14 +512,14 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7518UStringEnumerationD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518UStringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7518UStringEnumerationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %uenum = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %uenum, align 8
   invoke void @uenum_close_75(ptr noundef %0)
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7517StringEnumerationE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7517StringEnumerationE, i64 0, i32 0, i64 2), ptr %this, align 8
   %chars.i = getelementptr inbounds i8, ptr %this, i64 104
   %1 = load ptr, ptr %chars.i, align 8
   %cmp.not.i = icmp eq ptr %1, null

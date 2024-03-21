@@ -388,7 +388,7 @@ define internal void @__cxx_global_array_dtor.20(ptr nocapture readnone %0) #4 s
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16MapgenCarpathianC2EP22MapgenCarpathianParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(596) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN11MapgenBasicC2EiP12MapgenParamsP12EmergeParams(ptr noundef nonnull align 8 dereferenceable(474) %0, i32 noundef 2, ptr noundef %1, ptr noundef %2)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16MapgenCarpathian, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16MapgenCarpathian, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 576
   store ptr null, ptr %4, align 8, !tbaa !14
   %5 = getelementptr inbounds i8, ptr %1, i64 56
@@ -778,7 +778,7 @@ declare void @_ZN11MapgenBasicD2Ev(ptr noundef nonnull align 8 dereferenceable(4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16MapgenCarpathianD2Ev(ptr noundef nonnull align 8 dereferenceable(596) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16MapgenCarpathian, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV16MapgenCarpathian, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 208
   %3 = load ptr, ptr %2, align 8, !tbaa !56
   %4 = icmp eq ptr %3, null
@@ -967,7 +967,7 @@ define dso_local void @_ZN22MapgenCarpathianParamsC2Ev(ptr noundef nonnull write
   store i16 31007, ptr %11, align 2, !tbaa !78
   %12 = getelementptr inbounds i8, ptr %0, i64 52
   store i8 0, ptr %12, align 4, !tbaa !79
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV22MapgenCarpathianParams, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV22MapgenCarpathianParams, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %13 = getelementptr inbounds i8, ptr %0, i64 56
   store <4 x float> <float 1.200000e+01, float 0x3FA99999A0000000, float 2.400000e+01, float 2.500000e-01>, ptr %13, align 8, !tbaa !35
   %14 = getelementptr inbounds i8, ptr %0, i64 72

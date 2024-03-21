@@ -648,7 +648,7 @@ entry:
 
 if.end:                                           ; preds = %entry
   %proto_file_to_framework_name_ = getelementptr inbounds i8, ptr %this, i64 96
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8compiler10objectivec12_GLOBAL__N_123ProtoFrameworkCollectorE, i64 0, inrange i32 0, i64 2), ptr %collector, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8compiler10objectivec12_GLOBAL__N_123ProtoFrameworkCollectorE, i64 0, i32 0, i64 2), ptr %collector, align 8
   %map_.i = getelementptr inbounds i8, ptr %collector, i64 8
   store ptr %proto_file_to_framework_name_, ptr %map_.i, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %parse_error) #21

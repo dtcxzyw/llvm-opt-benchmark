@@ -1730,9 +1730,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 5976
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %d_variables = getelementptr inbounds %"class.cvc5::internal::theory::bv::NodeBitblaster", ptr %this1, i32 0, i32 2
   call void @_ZNSt13unordered_setIN4cvc58internal12NodeTemplateILb0EEESt4hashIS3_ESt8equal_toIS3_ESaIS3_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_variables) #3
   %d_bbAtoms = getelementptr inbounds %"class.cvc5::internal::theory::bv::NodeBitblaster", ptr %this1, i32 0, i32 3
@@ -1768,7 +1768,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_termCache = getelementptr inbounds %"class.cvc5::internal::theory::bv::TBitblaster", ptr %this1, i32 0, i32 1
   call void @llvm.memset.p0.i64(ptr align 8 %d_termCache, i8 0, i64 56, i1 false)
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEESt6vectorIS3_SaIS3_EESt4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S6_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_termCache) #3
@@ -4163,9 +4163,9 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 5976
-  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr], [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv14NodeBitblasterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %d_bbAtoms = getelementptr inbounds %"class.cvc5::internal::theory::bv::NodeBitblaster", ptr %this1, i32 0, i32 3
   call void @_ZNSt13unordered_mapIN4cvc58internal12NodeTemplateILb1EEES3_St4hashIS3_ESt8equal_toIS3_ESaISt4pairIKS3_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %d_bbAtoms) #3
   %d_variables = getelementptr inbounds %"class.cvc5::internal::theory::bv::NodeBitblaster", ptr %this1, i32 0, i32 2
@@ -6172,7 +6172,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4cvc58internal6theory2bv11TBitblasterINS0_12NodeTemplateILb1EEEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_cnfStream = getelementptr inbounds %"class.cvc5::internal::theory::bv::TBitblaster", ptr %this1, i32 0, i32 4
   call void @_ZNSt10unique_ptrIN4cvc58internal4prop9CnfStreamESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_cnfStream) #3
   %d_nullContext = getelementptr inbounds %"class.cvc5::internal::theory::bv::TBitblaster", ptr %this1, i32 0, i32 3

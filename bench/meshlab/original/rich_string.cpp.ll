@@ -371,7 +371,7 @@ define void @_ZN10RichStringC2ERK7QStringS2_S2_S2_bS2_(ptr noundef nonnull align
 
 27:                                               ; preds = %7
   call void @_ZN11StringValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %15) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10RichString, i32 0, inrange i32 0, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10RichString, i32 0, i32 0, i32 2), ptr %19, align 8
   ret void
 
 28:                                               ; preds = %7
@@ -403,7 +403,7 @@ define linkonce_odr void @_ZN11StringValueD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTV11StringValue, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.StringValue, ptr %3, i32 0, i32 1
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #5
   call void @_ZN5ValueD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
@@ -681,7 +681,7 @@ define linkonce_odr void @_ZN10RichStringC2ERKS_(ptr noundef nonnull align 8 der
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10RichString, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV10RichString, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 

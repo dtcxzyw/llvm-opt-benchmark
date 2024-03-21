@@ -267,7 +267,7 @@ land.lhs.true43:                                  ; preds = %if.end41
   br i1 %cmp45.not, label %return, label %if.then46
 
 if.then46:                                        ; preds = %land.lhs.true43
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tempEscape, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tempEscape, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tempEscape, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   store i32 0, ptr %offset, align 4

@@ -298,7 +298,7 @@ define void @_ZN5draco15StdioFileWriterD2Ev(ptr noundef nonnull align 8 derefere
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco15StdioFileWriterE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco15StdioFileWriterE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::StdioFileWriter", ptr %3, i32 0, i32 1
   %5 = load ptr, ptr %4, align 8
   %6 = invoke i32 @fclose(ptr noundef %5)
@@ -378,7 +378,7 @@ define linkonce_odr void @_ZN5draco15StdioFileWriterC2EP8_IO_FILE(ptr noundef no
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5draco19FileWriterInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco15StdioFileWriterE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco15StdioFileWriterE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.draco::StdioFileWriter", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -592,7 +592,7 @@ define linkonce_odr void @_ZN5draco19FileWriterInterfaceC2Ev(ptr noundef nonnull
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco19FileWriterInterfaceE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5draco19FileWriterInterfaceE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

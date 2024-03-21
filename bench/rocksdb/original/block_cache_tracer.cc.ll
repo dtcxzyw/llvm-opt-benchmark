@@ -1660,7 +1660,7 @@ entry:
   store ptr %trace_writer, ptr %trace_writer.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN7rocksdb21BlockCacheTraceWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb25BlockCacheTraceWriterImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb25BlockCacheTraceWriterImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %clock_ = getelementptr inbounds %"class.rocksdb::BlockCacheTraceWriterImpl", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %clock.addr, align 8
   store ptr %0, ptr %clock_, align 8
@@ -1679,7 +1679,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb21BlockCacheTraceWriterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb21BlockCacheTraceWriterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -2160,7 +2160,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %reader, ptr %reader.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb21BlockCacheTraceReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb21BlockCacheTraceReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trace_reader_ = getelementptr inbounds %"class.rocksdb::BlockCacheTraceReader", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %reader.addr, align 8
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceReaderESt14default_deleteIS1_EEC2EOS4_(ptr noundef nonnull align 8 dereferenceable(8) %trace_reader_, ptr noundef nonnull align 8 dereferenceable(8) %0) #3
@@ -3889,7 +3889,7 @@ entry:
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceReaderESt14default_deleteIS1_EEC2IS3_vEEDn(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, ptr null) #3
   call void @_ZN7rocksdb21BlockCacheTraceReaderC2EOSt10unique_ptrINS_11TraceReaderESt14default_deleteIS2_EE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb34BlockCacheHumanReadableTraceReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb34BlockCacheHumanReadableTraceReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %human_readable_trace_reader_ = getelementptr inbounds %"class.rocksdb::BlockCacheHumanReadableTraceReader", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(256) %human_readable_trace_reader_)
           to label %invoke.cont unwind label %lpad
@@ -3999,7 +3999,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb34BlockCacheHumanReadableTraceReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb34BlockCacheHumanReadableTraceReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %human_readable_trace_reader_ = getelementptr inbounds %"class.rocksdb::BlockCacheHumanReadableTraceReader", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEE5closeEv(ptr noundef nonnull align 8 dereferenceable(256) %human_readable_trace_reader_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -5502,7 +5502,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb25BlockCacheTraceWriterImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb25BlockCacheTraceWriterImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trace_writer_ = getelementptr inbounds %"class.rocksdb::BlockCacheTraceWriterImpl", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceWriterESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %trace_writer_) #3
   call void @_ZN7rocksdb21BlockCacheTraceWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -5526,7 +5526,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb21BlockCacheTraceReaderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN7rocksdb21BlockCacheTraceReaderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trace_reader_ = getelementptr inbounds %"class.rocksdb::BlockCacheTraceReader", ptr %this1, i32 0, i32 1
   call void @_ZNSt10unique_ptrIN7rocksdb11TraceReaderESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %trace_reader_) #3
   ret void

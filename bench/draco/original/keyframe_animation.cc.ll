@@ -614,7 +614,7 @@ define void @_ZN5draco17KeyframeAnimationC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5draco10PointCloudC2Ev(ptr noundef nonnull align 8 dereferenceable(164) %3)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco17KeyframeAnimationE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco17KeyframeAnimationE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2325,7 +2325,7 @@ define linkonce_odr void @_ZN5draco10PointCloudD2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco10PointCloudE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5draco10PointCloudE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.draco::PointCloud", ptr %3, i32 0, i32 3
   %5 = getelementptr inbounds [5 x %"class.std::vector.2"], ptr %4, i32 0, i32 0
   %6 = getelementptr inbounds %"class.std::vector.2", ptr %5, i64 5

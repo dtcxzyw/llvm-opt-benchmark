@@ -572,7 +572,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %env.addr, align 8
   call void @_ZN4cvc58internal6EnvObjC2ERNS0_3EnvE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(576) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop18TheoryPreregistrarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop18TheoryPreregistrarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_theoryEngine = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrar", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %te.addr, align 8
   store ptr %1, ptr %d_theoryEngine, align 8
@@ -653,7 +653,7 @@ entry:
   %0 = load ptr, ptr %env.addr, align 8
   %call = call noundef ptr @_ZN4cvc58internal3Env14getUserContextEv(ptr noundef nonnull align 8 dereferenceable(576) %0)
   call void @_ZN4cvc57context16ContextNotifyObjC2EPNS0_7ContextEb(ptr noundef nonnull align 8 dereferenceable(24) %this1, ptr noundef %call, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal4prop24TheoryPreregistrarNotifyE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4cvc58internal4prop24TheoryPreregistrarNotifyE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_prr = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrarNotify", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %prr.addr, align 8
   store ptr %1, ptr %d_prr, align 8
@@ -729,7 +729,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop18TheoryPreregistrarE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal4prop18TheoryPreregistrarE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_notify = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrar", ptr %this1, i32 0, i32 3
   call void @_ZNSt10unique_ptrIN4cvc58internal4prop24TheoryPreregistrarNotifyESt14default_deleteIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_notify) #3
   %d_sat_literals = getelementptr inbounds %"class.cvc5::internal::prop::TheoryPreregistrar", ptr %this1, i32 0, i32 2

@@ -34,7 +34,7 @@ if.end:                                           ; preds = %entry
   store i32 %compress_format_version, ptr %compress_format_version_.i.i, align 8
   %max_output_len_.i.i = getelementptr inbounds i8, ptr %call1, i64 80
   store i64 %max_output_len, ptr %max_output_len_.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb21ZSTDStreamingCompressE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb21ZSTDStreamingCompressE, i64 0, i32 0, i64 2), ptr %call1, align 8
   %call.i1 = invoke ptr @ZSTD_createCCtx()
           to label %call.i.noexc unwind label %lpad
 
@@ -82,7 +82,7 @@ if.end:                                           ; preds = %entry
   store i32 %compress_format_version, ptr %compress_format_version_.i.i, align 4
   %max_output_len_.i.i = getelementptr inbounds i8, ptr %call1, i64 16
   store i64 %max_output_len, ptr %max_output_len_.i.i, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb23ZSTDStreamingUncompressE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7rocksdb23ZSTDStreamingUncompressE, i64 0, i32 0, i64 2), ptr %call1, align 8
   %call.i1 = invoke ptr @ZSTD_createDCtx()
           to label %_ZN7rocksdb23ZSTDStreamingUncompressC2Ejm.exit unwind label %lpad
 

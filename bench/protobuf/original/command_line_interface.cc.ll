@@ -7710,7 +7710,7 @@ entry:
   store ptr %parsed_files, ptr %parsed_files.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf8compiler16GeneratorContextC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %files_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %this1, i32 0, i32 1
   invoke void @_ZN4absl12lts_202308029btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %files_)
           to label %invoke.cont unwind label %lpad
@@ -7747,7 +7747,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler16GeneratorContextE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler16GeneratorContextE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9245,7 +9245,7 @@ entry:
   store i8 %frombool, ptr %append_mode.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %directory_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %directory.addr, align 8
   store ptr %0, ptr %directory_, align 8
@@ -9344,7 +9344,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf2io20ZeroCopyOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9450,7 +9450,7 @@ entry:
   store ptr %insertion_point, ptr %insertion_point.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %directory_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %directory.addr, align 8
   store ptr %0, ptr %directory_, align 8
@@ -9571,7 +9571,7 @@ entry:
   store ptr %info, ptr %info.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf2io20ZeroCopyOutputStreamC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %directory_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %directory.addr, align 8
   store ptr %0, ptr %directory_, align 8
@@ -10619,7 +10619,7 @@ entry:
   %agg.tmp157 = alloca %"class.std::basic_string_view", align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %inner_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 6
   call void @_ZNSt10unique_ptrIN6google8protobuf2io18StringOutputStreamESt14default_deleteIS3_EE5resetEPS3_(ptr noundef nonnull align 8 dereferenceable(8) %inner_, ptr noundef null) #3
   %directory_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::MemoryOutputStream", ptr %this1, i32 0, i32 1
@@ -15546,11 +15546,11 @@ invoke.cont:                                      ; preds = %entry
           to label %invoke.cont3 unwind label %lpad2
 
 invoke.cont3:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, inrange i32 2, i32 2), ptr %add.ptr4, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i32 0, i32 2, i32 2), ptr %add.ptr4, align 8
   %format_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::ErrorPrinter", ptr %this1, i32 0, i32 3
   %2 = load i32, ptr %format.addr, align 4
   store i32 %2, ptr %format_, align 8
@@ -28915,7 +28915,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %files_ = getelementptr inbounds %"class.google::protobuf::compiler::CommandLineInterface::GeneratorContextImpl", ptr %this1, i32 0, i32 1
   call void @_ZN4absl12lts_202308029btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_St4lessIS7_ESaISt4pairIKS7_S7_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %files_) #3
   call void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -32630,7 +32630,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler23MultiFileErrorCollectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler23MultiFileErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -32640,7 +32640,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io14ErrorCollectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf2io14ErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -32650,7 +32650,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf14DescriptorPool14ErrorCollectorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6google8protobuf14DescriptorPool14ErrorCollectorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

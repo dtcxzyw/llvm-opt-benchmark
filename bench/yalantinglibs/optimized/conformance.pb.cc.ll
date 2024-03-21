@@ -168,7 +168,7 @@ define internal void @_ZL73InitDefaultsscc_info_ConformanceRequest_conformance_2
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.conformance::ConformanceRequestDefaultTypeInternal", ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, inrange i32 0, i64 2), ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, i32 0, i64 2), ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.conformance::ConformanceRequestDefaultTypeInternal", ptr @_ZN11conformance37_ConformanceRequest_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 48), align 8
   %0 = load atomic i32, ptr @scc_info_ConformanceRequest_conformance_2fconformance_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -196,7 +196,7 @@ define internal void @_ZL74InitDefaultsscc_info_ConformanceResponse_conformance_
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, inrange i32 0, i64 2), ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, i32 0, i64 2), ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.conformance::ConformanceResponseDefaultTypeInternal", ptr @_ZN11conformance38_ConformanceResponse_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 16), align 8
   %0 = load atomic i32, ptr @scc_info_ConformanceResponse_conformance_2fconformance_2eproto acquire, align 8
   %cmp.not.i.i.i.i = icmp eq i32 %0, 0
@@ -226,7 +226,7 @@ define internal void @_ZL65InitDefaultsscc_info_FailureSet_conformance_2fconform
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.conformance::FailureSetDefaultTypeInternal", ptr @_ZN11conformance29_FailureSet_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, inrange i32 0, i64 2), ptr @_ZN11conformance29_FailureSet_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, i32 0, i64 2), ptr @_ZN11conformance29_FailureSet_default_instance_E, align 8
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) getelementptr inbounds (%"class.conformance::FailureSetDefaultTypeInternal", ptr @_ZN11conformance29_FailureSet_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), ptr noundef null)
   store i32 0, ptr getelementptr inbounds (%"class.conformance::FailureSetDefaultTypeInternal", ptr @_ZN11conformance29_FailureSet_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 32), align 8
   %0 = load atomic i32, ptr @scc_info_FailureSet_conformance_2fconformance_2eproto acquire, align 8
@@ -253,7 +253,7 @@ define internal void @_ZL73InitDefaultsscc_info_JspbEncodingConfig_conformance_2
 entry:
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3012004, i32 noundef 3012000, ptr noundef nonnull @.str.4)
   store ptr null, ptr getelementptr inbounds (%"class.conformance::JspbEncodingConfigDefaultTypeInternal", ptr @_ZN11conformance37_JspbEncodingConfig_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 0), align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, inrange i32 0, i64 2), ptr @_ZN11conformance37_JspbEncodingConfig_default_instance_E, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, i32 0, i64 2), ptr @_ZN11conformance37_JspbEncodingConfig_default_instance_E, align 8
   store i32 0, ptr getelementptr inbounds (%"class.conformance::JspbEncodingConfigDefaultTypeInternal", ptr @_ZN11conformance37_JspbEncodingConfig_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 12), align 4
   store i8 0, ptr getelementptr inbounds (%"class.conformance::JspbEncodingConfigDefaultTypeInternal", ptr @_ZN11conformance37_JspbEncodingConfig_default_instance_E, i64 0, i32 0, i32 0, i32 1, i64 8), align 8
   tail call void @_ZN6google8protobuf8internal13OnShutdownRunEPFvPKvES3_(ptr noundef nonnull @_ZN6google8protobuf8internal14DestroyMessageEPKv, ptr noundef nonnull @_ZN11conformance37_JspbEncodingConfig_default_instance_E)
@@ -305,7 +305,7 @@ define dso_local void @_ZN11conformance10FailureSetC2EPN6google8protobuf5ArenaE(
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, i32 0, i64 2), ptr %this, align 8
   %failure_ = getelementptr inbounds i8, ptr %this, i64 16
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %failure_, ptr noundef %arena)
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 40
@@ -340,7 +340,7 @@ define dso_local void @_ZN11conformance10FailureSetC2ERKS0_(ptr noundef nonnull 
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, i32 0, i64 2), ptr %this, align 8
   %failure_ = getelementptr inbounds i8, ptr %this, i64 16
   %failure_2 = getelementptr inbounds i8, ptr %from, i64 16
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1ERKS8_(ptr noundef nonnull align 8 dereferenceable(24) %failure_, ptr noundef nonnull align 8 dereferenceable(24) %failure_2)
@@ -1290,7 +1290,7 @@ define dso_local void @_ZN11conformance18ConformanceRequestC2EPN6google8protobuf
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %_cached_size_, align 8
   %0 = load atomic i32, ptr @scc_info_ConformanceRequest_conformance_2fconformance_2eproto acquire, align 8
@@ -1316,7 +1316,7 @@ define dso_local void @_ZN11conformance18ConformanceRequestC2ERKS0_(ptr noundef 
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 56
   store i32 0, ptr %_cached_size_, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -1380,7 +1380,7 @@ if.then20:                                        ; preds = %invoke.cont18
   %call22 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
   %_internal_metadata_.i.i.i = getelementptr inbounds i8, ptr %call22, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, inrange i32 0, i64 2), ptr %call22, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, i32 0, i64 2), ptr %call22, align 8
   %_cached_size_.i = getelementptr inbounds i8, ptr %call22, i64 20
   store i32 0, ptr %_cached_size_.i, align 4
   %_internal_metadata_2.i = getelementptr inbounds i8, ptr %11, i64 8
@@ -2468,7 +2468,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11conformance18JspbEncodin
   %call.i.sink10.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 8
   store ptr %retval.i.0.i.i76, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %_cached_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i, align 4
   %use_jspb_array_any_format_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 16
@@ -3679,7 +3679,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11conformance18JspbEncodin
   %call.i.sink10.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i.i ], [ %call2.i8.i.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i.i ]
   %_internal_metadata_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 8
   store ptr %retval.i.0.i.i24, ptr %_internal_metadata_.i.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i.i, align 8
   %_cached_size_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i.i, align 4
   %use_jspb_array_any_format_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i.i, i64 16
@@ -4200,7 +4200,7 @@ define dso_local void @_ZN11conformance19ConformanceResponseC2EPN6google8protobu
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_cached_size_, align 8
   %0 = load atomic i32, ptr @scc_info_ConformanceResponse_conformance_2fconformance_2eproto acquire, align 8
@@ -4222,7 +4222,7 @@ define dso_local void @_ZN11conformance19ConformanceResponseC2ERKS0_(ptr noundef
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 24
   store i32 0, ptr %_cached_size_, align 8
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -6937,7 +6937,7 @@ define dso_local void @_ZN11conformance18JspbEncodingConfigC2EPN6google8protobuf
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_, align 4
   %use_jspb_array_any_format_.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -6950,7 +6950,7 @@ define dso_local void @_ZN11conformance18JspbEncodingConfigC2ERKS0_(ptr nocaptur
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_cached_size_ = getelementptr inbounds i8, ptr %this, i64 20
   store i32 0, ptr %_cached_size_, align 4
   %_internal_metadata_2 = getelementptr inbounds i8, ptr %from, i64 8
@@ -7698,7 +7698,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %failure_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %failure_.i.i, ptr noundef null)
           to label %.noexc unwind label %lpad.i
@@ -7748,7 +7748,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 48)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %failure_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 16
   tail call void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %failure_.i.i6, ptr noundef nonnull %arena)
   %_cached_size_.i.i7 = getelementptr inbounds i8, ptr %call2.i8, i64 40
@@ -7782,7 +7782,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 56
   store i32 0, ptr %_cached_size_.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_ConformanceRequest_conformance_2fconformance_2eproto acquire, align 8
@@ -7813,7 +7813,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 64)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %_cached_size_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 56
   store i32 0, ptr %_cached_size_.i.i6, align 4
   %3 = load atomic i32, ptr @scc_info_ConformanceRequest_conformance_2fconformance_2eproto acquire, align 8
@@ -7845,7 +7845,7 @@ if.then.i:                                        ; preds = %entry
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store i32 0, ptr %_cached_size_.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_ConformanceResponse_conformance_2fconformance_2eproto acquire, align 8
@@ -7876,7 +7876,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit: ; preds = %if.else.i,
   %call2.i8 = tail call noundef ptr @_ZN6google8protobuf5Arena21AllocateAlignedNoHookEm(ptr noundef nonnull align 8 dereferenceable(120) %arena, i64 noundef 32)
   %_internal_metadata_.i.i.i.i5 = getelementptr inbounds i8, ptr %call2.i8, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i5, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, inrange i32 0, i64 2), ptr %call2.i8, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, i32 0, i64 2), ptr %call2.i8, align 8
   %_cached_size_.i.i6 = getelementptr inbounds i8, ptr %call2.i8, i64 24
   store i32 0, ptr %_cached_size_.i.i6, align 4
   %3 = load atomic i32, ptr @scc_info_ConformanceResponse_conformance_2fconformance_2eproto acquire, align 8
@@ -7923,7 +7923,7 @@ _ZN6google8protobuf5Arena21CreateMessageInternalIN11conformance18JspbEncodingCon
   %.sink = phi ptr [ null, %if.then.i ], [ %arena, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit ]
   %_internal_metadata_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 8
   store ptr %.sink, ptr %_internal_metadata_.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, i32 0, i64 2), ptr %call.i.sink10, align 8
   %_cached_size_.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 20
   store i32 0, ptr %_cached_size_.i.i, align 4
   %use_jspb_array_any_format_.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10, i64 16
@@ -7939,7 +7939,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #22
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance10FailureSetE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %failure_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 16
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC1EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %failure_.i.i.i, ptr noundef null)
           to label %.noexc.i unwind label %lpad.i.i
@@ -8010,7 +8010,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #22
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18ConformanceRequestE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 56
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_ConformanceRequest_conformance_2fconformance_2eproto acquire, align 8
@@ -8058,7 +8058,7 @@ entry:
   %call.i.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
   %_internal_metadata_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance19ConformanceResponseE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8
   %_cached_size_.i.i.i = getelementptr inbounds i8, ptr %call.i.i, i64 24
   store i32 0, ptr %_cached_size_.i.i.i, align 4
   %0 = load atomic i32, ptr @scc_info_ConformanceResponse_conformance_2fconformance_2eproto acquire, align 8
@@ -8102,7 +8102,7 @@ entry:
   %call.i.i.i = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #22
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 8
   store ptr null, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, i32 0, i64 2), ptr %call.i.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   %use_jspb_array_any_format_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.i.i, i64 16
@@ -8138,7 +8138,7 @@ _ZN6google8protobuf11MessageLite18CreateMaybeMessageIN11conformance18JspbEncodin
   %call.i.sink10.i.i = phi ptr [ %call.i.i.i, %if.then.i.i.i ], [ %call2.i8.i.i, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ]
   %_internal_metadata_.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 8
   store ptr %arena, ptr %_internal_metadata_.i.i.i.i.i.i, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, inrange i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN11conformance18JspbEncodingConfigE, i64 0, i32 0, i64 2), ptr %call.i.sink10.i.i, align 8
   %_cached_size_.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 20
   store i32 0, ptr %_cached_size_.i.i.i.i, align 4
   %use_jspb_array_any_format_.i.i.i.i.i = getelementptr inbounds i8, ptr %call.i.sink10.i.i, i64 16

@@ -8508,7 +8508,7 @@ call5.i.i.i.i2.i.i.noexc:                         ; preds = %entry
 for.inc.i.i.i.i.i:                                ; preds = %for.inc.i.i.i.i.i, %call5.i.i.i.i2.i.i.noexc
   %__cur.08.i.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ %call5.i.i.i.i2.i.i25, %call5.i.i.i.i2.i.i.noexc ]
   %__n.addr.07.i.i.i.i.i = phi i64 [ %dec.i.i.i.i.i, %for.inc.i.i.i.i.i ], [ 100, %call5.i.i.i.i2.i.i.noexc ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i64 0, inrange i32 0, i64 2), ptr %__cur.08.i.i.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i.i.i, align 8
   %mLargeObject12.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 8
   %mpName1.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i, i64 16392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %mLargeObject12.i.i.i.i.i.i.i, i8 0, i64 16384, i1 false)
@@ -8538,7 +8538,7 @@ call5.i.i.i.i2.i.i.noexc38:                       ; preds = %invoke.cont
 for.inc.i.i.i.i.i28:                              ; preds = %for.inc.i.i.i.i.i28, %call5.i.i.i.i2.i.i.noexc38
   %__cur.08.i.i.i.i.i29 = phi ptr [ %incdec.ptr.i.i.i.i.i35, %for.inc.i.i.i.i.i28 ], [ %call5.i.i.i.i2.i.i39, %call5.i.i.i.i2.i.i.noexc38 ]
   %__n.addr.07.i.i.i.i.i30 = phi i64 [ %dec.i.i.i.i.i34, %for.inc.i.i.i.i.i28 ], [ 100, %call5.i.i.i.i2.i.i.noexc38 ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i64 0, inrange i32 0, i64 2), ptr %__cur.08.i.i.i.i.i29, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i64 0, i32 0, i64 2), ptr %__cur.08.i.i.i.i.i29, align 8
   %mLargeObject12.i.i.i.i.i.i.i31 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i29, i64 8
   %mpName1.i.i.i.i.i.i.i32 = getelementptr inbounds i8, ptr %__cur.08.i.i.i.i.i29, i64 16392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %mLargeObject12.i.i.i.i.i.i.i31, i8 0, i64 16384, i1 false)
@@ -8567,7 +8567,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %invoke.cont4
 for.body.i.i:                                     ; preds = %for.body.i.i, %call.i.i.i.i.i.noexc
   %currentDest.06.i.i = phi ptr [ %incdec.ptr.i.i, %for.body.i.i ], [ %call.i.i.i.i.i41, %call.i.i.i.i.i.noexc ]
   %n.addr.05.i.i = phi i64 [ %dec.i.i, %for.body.i.i ], [ 100, %call.i.i.i.i.i.noexc ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i64 0, inrange i32 0, i64 2), ptr %currentDest.06.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i64 0, i32 0, i64 2), ptr %currentDest.06.i.i, align 8
   %mLargeObject12.i.i.i = getelementptr inbounds i8, ptr %currentDest.06.i.i, i64 8
   %mpName1.i.i.i = getelementptr inbounds i8, ptr %currentDest.06.i.i, i64 16392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %mLargeObject12.i.i.i, i8 0, i64 16384, i1 false)
@@ -8598,7 +8598,7 @@ call.i.i.i.i.i.noexc56:                           ; preds = %invoke.cont13
 for.body.i.i44:                                   ; preds = %for.body.i.i44, %call.i.i.i.i.i.noexc56
   %currentDest.06.i.i45 = phi ptr [ %incdec.ptr.i.i51, %for.body.i.i44 ], [ %call.i.i.i.i.i57, %call.i.i.i.i.i.noexc56 ]
   %n.addr.05.i.i46 = phi i64 [ %dec.i.i50, %for.body.i.i44 ], [ 100, %call.i.i.i.i.i.noexc56 ]
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i64 0, inrange i32 0, i64 2), ptr %currentDest.06.i.i45, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV8LargePOD, i64 0, i32 0, i64 2), ptr %currentDest.06.i.i45, align 8
   %mLargeObject12.i.i.i47 = getelementptr inbounds i8, ptr %currentDest.06.i.i45, i64 8
   %mpName1.i.i.i48 = getelementptr inbounds i8, ptr %currentDest.06.i.i45, i64 16392
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16384) %mLargeObject12.i.i.i47, i8 0, i64 16384, i1 false)

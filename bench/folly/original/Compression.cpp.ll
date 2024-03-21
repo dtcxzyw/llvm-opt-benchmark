@@ -1210,7 +1210,7 @@ entry:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN5folly2io5CodecC2ENS0_9CodecTypeENS_8OptionalIiEENS_5RangeIPKcEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(12) %this, i32 noundef %type, ptr nocapture noundef readnone %0, ptr nocapture readnone %.coerce0, ptr nocapture readnone %.coerce1) unnamed_addr #5 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io5CodecE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io5CodecE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   %type_ = getelementptr inbounds %"class.folly::io::Codec", ptr %this, i64 0, i32 1
   store i32 %type, ptr %type_, align 8, !tbaa !70
   ret void
@@ -1500,7 +1500,7 @@ entry:
   %ref.tmp = alloca %"class.folly::OptionalEmptyException", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #30
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.4)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #33
           to label %invoke.cont unwind label %lpad
 
@@ -1531,7 +1531,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 define linkonce_odr void @_ZN5folly22OptionalEmptyExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -3376,7 +3376,7 @@ entry:
   store i32 %level, ptr %level.addr.i.i, align 4, !tbaa !101, !noalias !98
   %type_.i.i.i = getelementptr inbounds %"class.folly::io::Codec", ptr %call.i, i64 0, i32 1
   store i32 %type, ptr %type_.i.i.i, align 8, !tbaa !70, !noalias !98
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_118NoCompressionCodecE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !7, !noalias !98
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_118NoCompressionCodecE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !7, !noalias !98
   switch i32 %level, label %if.then.i.i [
     i32 -1, label %_ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_118NoCompressionCodecESt14default_deleteIS3_EED2Ev.exit
     i32 -2, label %_ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_118NoCompressionCodecESt14default_deleteIS3_EED2Ev.exit
@@ -3455,7 +3455,7 @@ entry:
 call.i.noexc.i:                                   ; preds = %entry
   %type_.i.i.i = getelementptr inbounds %"class.folly::io::Codec", ptr %call.i, i64 0, i32 1
   store i32 %type, ptr %type_.i.i.i, align 8, !tbaa !70, !noalias !105
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_18LZ4CodecE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !7, !noalias !105
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_18LZ4CodecE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !7, !noalias !105
   %call3.i5.i = invoke fastcc noundef i32 @_ZN5folly2io12_GLOBAL__N_115lz4ConvertLevelEi(i32 noundef %level)
           to label %_ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_18LZ4CodecESt14default_deleteIS3_EED2Ev.exit unwind label %lpad.i, !noalias !105
 
@@ -3484,7 +3484,7 @@ entry:
   store i32 %level, ptr %level.addr.i.i, align 4, !tbaa !101, !noalias !110
   %type_.i.i.i = getelementptr inbounds %"class.folly::io::Codec", ptr %call.i, i64 0, i32 1
   store i32 %type, ptr %type_.i.i.i, align 8, !tbaa !70, !noalias !110
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_111SnappyCodecE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !7, !noalias !110
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_111SnappyCodecE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !7, !noalias !110
   switch i32 %level, label %if.then.i.i [
     i32 -1, label %_ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_111SnappyCodecESt14default_deleteIS3_EED2Ev.exit
     i32 -2, label %_ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_111SnappyCodecESt14default_deleteIS3_EED2Ev.exit
@@ -3701,7 +3701,7 @@ _ZNSt10unique_ptrIN5folly2io12_GLOBAL__N_113LZ4FrameCodecESt14default_deleteIS3_
   %retval.0.i30.i.i = select i1 %cond.i.i, i32 16, i32 %spec.select.i.i
   %0 = getelementptr inbounds %"class.folly::io::Codec", ptr %call.i, i64 0, i32 1
   store i32 %type, ptr %0, align 8, !noalias !115
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_113LZ4FrameCodecE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !115
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_113LZ4FrameCodecE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !115
   %level_38.i.i = getelementptr inbounds %"class.folly::io::(anonymous namespace)::LZ4FrameCodec", ptr %call.i, i64 0, i32 1
   store i32 %retval.0.i30.i.i, ptr %level_38.i.i, align 4, !tbaa !118, !noalias !115
   %dctx_.i.i = getelementptr inbounds %"class.folly::io::(anonymous namespace)::LZ4FrameCodec", ptr %call.i, i64 0, i32 2
@@ -5605,7 +5605,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !7
   ret void
 }
 
@@ -5768,7 +5768,7 @@ entry:
   %ref.tmp13 = alloca i64, align 8
   %ref.tmp22 = alloca %"class.google::LogMessageFatal", align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %source) #30
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_117IOBufSnappySourceE, i64 0, inrange i32 0, i64 2), ptr %source, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_117IOBufSnappySourceE, i64 0, i32 0, i64 2), ptr %source, align 8, !tbaa !7
   %call.i = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data)
           to label %_ZN5folly2io12_GLOBAL__N_117IOBufSnappySourceC2EPKNS_5IOBufE.exit unwind label %lpad.i
 
@@ -5820,7 +5820,7 @@ invoke.cont8:                                     ; preds = %invoke.cont2
   %6 = load ptr, ptr %data_.i, align 8, !tbaa !38
   %7 = load i64, ptr %5, align 8, !tbaa !39
   %add.ptr.i = getelementptr inbounds i8, ptr %6, i64 %7
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 0, inrange i32 0, i64 2), ptr %sink, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN6snappy22UncheckedByteArraySinkE, i64 0, i32 0, i64 2), ptr %sink, align 8, !tbaa !7
   %dest_.i = getelementptr inbounds %"class.snappy::UncheckedByteArraySink", ptr %sink, i64 0, i32 1
   store ptr %add.ptr.i, ptr %dest_.i, align 8, !tbaa !145
   %call11 = invoke noundef i64 @_ZN6snappy8CompressEPNS_6SourceEPNS_4SinkE(ptr noundef nonnull %source, ptr noundef nonnull %sink)
@@ -5940,7 +5940,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %actualUncompressedLength) #30
   store i32 0, ptr %actualUncompressedLength, align 4, !tbaa !101
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %source) #30
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_117IOBufSnappySourceE, i64 0, inrange i32 0, i64 2), ptr %source, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_117IOBufSnappySourceE, i64 0, i32 0, i64 2), ptr %source, align 8, !tbaa !7
   %call.i = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data)
           to label %_ZN5folly2io12_GLOBAL__N_117IOBufSnappySourceC2EPKNS_5IOBufE.exit unwind label %lpad.i
 
@@ -6036,7 +6036,7 @@ if.end11:                                         ; preds = %invoke.cont5, %if.e
   %conv13 = zext i32 %11 to i64
   call void @_ZN5folly5IOBuf6createEm(ptr sret(%"class.std::unique_ptr") align 8 %agg.result, i64 noundef %conv13)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %source14) #30
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_117IOBufSnappySourceE, i64 0, inrange i32 0, i64 2), ptr %source14, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_117IOBufSnappySourceE, i64 0, i32 0, i64 2), ptr %source14, align 8, !tbaa !7
   %call.i45 = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data)
           to label %invoke.cont16 unwind label %lpad.i46
 
@@ -6150,7 +6150,7 @@ entry:
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %actualUncompressedLength) #30
   store i32 0, ptr %actualUncompressedLength, align 4, !tbaa !101
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %source) #30
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_117IOBufSnappySourceE, i64 0, inrange i32 0, i64 2), ptr %source, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_117IOBufSnappySourceE, i64 0, i32 0, i64 2), ptr %source, align 8, !tbaa !7
   %call.i = invoke noundef i64 @_ZNK5folly5IOBuf22computeChainDataLengthEv(ptr noundef nonnull align 8 dereferenceable(56) %data)
           to label %_ZN5folly2io12_GLOBAL__N_117IOBufSnappySourceC2EPKNS_5IOBufE.exit unwind label %lpad.i
 
@@ -6753,7 +6753,7 @@ entry:
   %progressMade_.i.i = getelementptr inbounds %"class.folly::io::StreamCodec", ptr %call, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %state_.i.i, i8 0, i64 21, i1 false)
   store i8 1, ptr %progressMade_.i.i, align 8, !tbaa !45
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_116LZMA2StreamCodecE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_116LZMA2StreamCodecE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !7
   %cstream_.i = getelementptr inbounds %"class.folly::io::(anonymous namespace)::LZMA2StreamCodec", ptr %call, i64 0, i32 2
   store i8 0, ptr %cstream_.i, align 8, !tbaa !21
   %hasValue.i.i42.i = getelementptr inbounds %"class.folly::io::(anonymous namespace)::LZMA2StreamCodec", ptr %call, i64 0, i32 2, i32 0, i32 1
@@ -8743,7 +8743,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.77", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !7
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #33
           to label %invoke.cont unwind label %lpad
 
@@ -8762,7 +8762,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #10 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !7
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessIvEE, ptr nonnull @_ZNSt9exceptionD2Ev) #32
   unreachable
 }
@@ -10381,7 +10381,7 @@ call.i.i.noexc:                                   ; preds = %entry
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %agg.tmp, i8 0, i64 24, i1 false), !noalias !252
   %type_.i.i.i.i = getelementptr inbounds %"class.folly::io::Codec", ptr %call.i.i3, i64 0, i32 1
   store i32 0, ptr %type_.i.i.i.i, align 8, !tbaa !70, !noalias !252
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_114AutomaticCodecE, i64 0, inrange i32 0, i64 2), ptr %call.i.i3, align 8, !tbaa !7, !noalias !252
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTVN5folly2io12_GLOBAL__N_114AutomaticCodecE, i64 0, i32 0, i64 2), ptr %call.i.i3, align 8, !tbaa !7, !noalias !252
   %codecs_.i.i.i = getelementptr inbounds %"class.folly::io::(anonymous namespace)::AutomaticCodec", ptr %call.i.i3, i64 0, i32 1
   store ptr %0, ptr %codecs_.i.i.i, align 8, !tbaa !245, !noalias !252
   %_M_finish.i.i.i.i.i.i.i = getelementptr inbounds %"class.folly::io::(anonymous namespace)::AutomaticCodec", ptr %call.i.i3, i64 0, i32 1, i32 0, i32 0, i32 0, i32 1
@@ -11790,7 +11790,7 @@ catch:                                            ; preds = %lpad
 
 if.then17:                                        ; preds = %catch
   %exception = call ptr @__cxa_allocate_exception(i64 8) #30
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !7
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !7
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt9exception, ptr nonnull @_ZNSt9exceptionD1Ev) #32
           to label %unreachable unwind label %lpad18
 

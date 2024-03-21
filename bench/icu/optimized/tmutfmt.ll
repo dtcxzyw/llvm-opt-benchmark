@@ -577,7 +577,7 @@ entry:
 define void @_ZN6icu_7514TimeUnitFormatC2ER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(428) %this, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513MeasureFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756Locale10getDefaultEv()
           to label %invoke.cont unwind label %lpad
 
@@ -648,7 +648,7 @@ declare void @_ZN6icu_7513MeasureFormatD2Ev(ptr noundef nonnull align 8 derefere
 define void @_ZN6icu_7514TimeUnitFormatC2ERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(428) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513MeasureFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   invoke void @_ZN6icu_7513MeasureFormat17initMeasureFormatERKNS_6LocaleE19UMeasureFormatWidthPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef 0, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
           to label %invoke.cont unwind label %lpad
 
@@ -679,7 +679,7 @@ lpad:                                             ; preds = %if.end.i, %entry
 define void @_ZN6icu_7514TimeUnitFormatC2ERKNS_6LocaleE20UTimeUnitFormatStyleR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(428) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %style, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7513MeasureFormatC2Ev(ptr noundef nonnull align 8 dereferenceable(368) %this)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %switch.selectcmp = icmp eq i32 %style, 1
   %switch.select = zext i1 %switch.selectcmp to i32
   invoke void @_ZN6icu_7513MeasureFormat17initMeasureFormatERKNS_6LocaleE19UMeasureFormatWidthPNS_12NumberFormatER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 8 dereferenceable(217) %locale, i32 noundef %switch.select, ptr noundef null, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -721,7 +721,7 @@ define void @_ZN6icu_7514TimeUnitFormatC2ERKS0_(ptr noundef nonnull align 8 dere
 entry:
   %status = alloca i32, align 4
   tail call void @_ZN6icu_7513MeasureFormatC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(368) %this, ptr noundef nonnull align 8 dereferenceable(368) %other)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fStyle = getelementptr inbounds i8, ptr %this, i64 424
   %fStyle2 = getelementptr inbounds i8, ptr %other, i64 424
   %0 = load i32, ptr %fStyle2, align 8
@@ -987,7 +987,7 @@ declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN6icu_7514TimeUnitFormatD2Ev(ptr noundef nonnull align 8 dereferenceable(428) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6icu_7514TimeUnitFormatE, i64 0, i32 0, i64 2), ptr %this, align 8
   %fTimeUnitToCountToPatterns = getelementptr inbounds i8, ptr %this, i64 368
   br label %for.body
 
@@ -1341,7 +1341,7 @@ invoke.cont29:                                    ; preds = %if.then26
   br i1 %cmp31, label %invoke.cont33, label %if.else
 
 invoke.cont33:                                    ; preds = %invoke.cont29
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tmpString, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tmpString, align 8
   store i16 2, ptr %fUnion2.i, align 8
   store i32 0, ptr %pStatus, align 4
   %call36 = invoke noundef nonnull align 8 dereferenceable(356) ptr @_ZNK6icu_7513MeasureFormat23getNumberFormatInternalEv(ptr noundef nonnull align 8 dereferenceable(368) %this)
@@ -1866,7 +1866,7 @@ lpad8:                                            ; preds = %invoke.cont7
   br label %ehcleanup
 
 invoke.cont20:                                    ; preds = %invoke.cont13
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522TimeUnitFormatReadSinkE, i64 0, inrange i32 0, i64 2), ptr %sink, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7522TimeUnitFormatReadSinkE, i64 0, i32 0, i64 2), ptr %sink, align 8
   %timeUnitFormatObj2.i = getelementptr inbounds i8, ptr %sink, i64 8
   store ptr %this, ptr %timeUnitFormatObj2.i, align 8
   %pluralCounts3.i = getelementptr inbounds i8, ptr %sink, i64 16

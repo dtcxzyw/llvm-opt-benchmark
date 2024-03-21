@@ -42,8 +42,8 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 0, i32 1, i64 2), ptr %0, align 8
   %_addr = getelementptr inbounds i8, ptr %this, i64 1464
   store ptr %addr_, ptr %_addr, align 8
   %_s = getelementptr inbounds i8, ptr %this, i64 1472
@@ -141,9 +141,9 @@ declare void @_ZN3zmq5own_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1444
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3zmq23stream_connecter_base_tD2Ev(ptr noundef nonnull align 8 dereferenceable(1544) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 1448
-  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [30 x ptr], [7 x ptr] }, ptr @_ZTVN3zmq23stream_connecter_base_tE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %_reconnect_timer_started = getelementptr inbounds i8, ptr %this, i64 1529
   %0 = load i8, ptr %_reconnect_timer_started, align 1
   %1 = and i8 %0, 1

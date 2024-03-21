@@ -188,7 +188,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN8TestBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !7
   %4 = getelementptr inbounds i8, ptr %0, i64 32
@@ -442,7 +442,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr nocapture) #5
 define dso_local void @_ZN16TestEventManager12testRegisterEv(ptr nocapture noundef nonnull readnone align 8 dereferenceable(48) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.EventManager, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #20
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %2, i64 32
@@ -460,7 +460,7 @@ define dso_local void @_ZN16TestEventManager12testRegisterEv(ptr nocapture nound
           to label %9 unwind label %16
 
 9:                                                ; preds = %8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   invoke void @_ZNSt8_Rb_treeIN7MtEvent4TypeESt4pairIKS1_N12EventManager4DestEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %11)
@@ -693,7 +693,7 @@ define linkonce_odr dso_local void @_ZN12EventManager3regEN7MtEvent4TypeEPFvPS0_
 define dso_local void @_ZN16TestEventManager14testDeregisterEv(ptr nocapture nonnull readnone align 8 %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.EventManager, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #20
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %2, i64 32
@@ -774,7 +774,7 @@ define dso_local void @_ZN16TestEventManager14testDeregisterEv(ptr nocapture non
 
 44:                                               ; preds = %42, %27, %24, %22, %9
   %45 = phi ptr [ %43, %42 ], [ %10, %27 ], [ %10, %24 ], [ %10, %22 ], [ null, %9 ]
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   invoke void @_ZNSt8_Rb_treeIN7MtEvent4TypeESt4pairIKS1_N12EventManager4DestEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %45)
           to label %49 unwind label %46
 
@@ -900,7 +900,7 @@ define dso_local void @_ZN16TestEventManager13testRealEventEv(ptr nocapture nonn
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #20
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %2, i64 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   %7 = getelementptr inbounds i8, ptr %2, i64 32
@@ -922,7 +922,7 @@ define dso_local void @_ZN16TestEventManager13testRealEventEv(ptr nocapture nonn
   store ptr %12, ptr %14, align 8, !tbaa !23, !noalias !46
   %15 = getelementptr inbounds i8, ptr %10, i64 48
   store i64 0, ptr %15, align 8, !tbaa !24, !noalias !46
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16EventManagerTest, i64 0, inrange i32 0, i64 2), ptr %10, align 8, !tbaa !4, !noalias !46
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16EventManagerTest, i64 0, i32 0, i64 2), ptr %10, align 8, !tbaa !4, !noalias !46
   %16 = getelementptr inbounds i8, ptr %10, i64 56
   store i64 0, ptr %16, align 8, !tbaa !49, !noalias !46
   invoke void @_ZN12EventManager3regEN7MtEvent4TypeEPFvPS0_PvES3_(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 noundef zeroext 7, ptr noundef nonnull @_ZN16EventManagerTest9eventTestEP7MtEventPv, ptr noundef nonnull %10)
@@ -933,7 +933,7 @@ define dso_local void @_ZN16TestEventManager13testRealEventEv(ptr nocapture nonn
           to label %19 unwind label %66
 
 19:                                               ; preds = %17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %18, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %18, align 8, !tbaa !4
   %20 = getelementptr inbounds i8, ptr %18, i64 8
   store i8 7, ptr %20, align 8, !tbaa !58
   %21 = getelementptr inbounds i8, ptr %2, i64 24
@@ -991,7 +991,7 @@ define dso_local void @_ZN16TestEventManager13testRealEventEv(ptr nocapture nonn
   br label %52
 
 52:                                               ; preds = %50, %39, %36, %34, %19
-  %53 = phi ptr [ %51, %50 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %39 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %36 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %34 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %19 ]
+  %53 = phi ptr [ %51, %50 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), %39 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %36 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %34 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %19 ]
   %54 = getelementptr inbounds i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8
   call void %55(ptr noundef nonnull align 8 dereferenceable(8) %18) #20
@@ -1066,7 +1066,7 @@ define dso_local void @_ZN16TestEventManager13testRealEventEv(ptr nocapture nonn
   %85 = getelementptr inbounds i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8
   call void %86(ptr noundef nonnull align 8 dereferenceable(64) %10) #20
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %87 = load ptr, ptr %21, align 8, !tbaa !25
   invoke void @_ZNSt8_Rb_treeIN7MtEvent4TypeESt4pairIKS1_N12EventManager4DestEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %87)
           to label %91 unwind label %88
@@ -1478,7 +1478,7 @@ define dso_local void @_ZN16TestEventManager23testRealEventAfterDeregEv(ptr noca
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator", align 1
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #20
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %7 = getelementptr inbounds i8, ptr %2, i64 8
   %8 = getelementptr inbounds i8, ptr %2, i64 16
   %9 = getelementptr inbounds i8, ptr %2, i64 32
@@ -1500,7 +1500,7 @@ define dso_local void @_ZN16TestEventManager23testRealEventAfterDeregEv(ptr noca
   store ptr %14, ptr %16, align 8, !tbaa !23, !noalias !67
   %17 = getelementptr inbounds i8, ptr %12, i64 48
   store i64 0, ptr %17, align 8, !tbaa !24, !noalias !67
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16EventManagerTest, i64 0, inrange i32 0, i64 2), ptr %12, align 8, !tbaa !4, !noalias !67
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV16EventManagerTest, i64 0, i32 0, i64 2), ptr %12, align 8, !tbaa !4, !noalias !67
   %18 = getelementptr inbounds i8, ptr %12, i64 56
   store i64 0, ptr %18, align 8, !tbaa !49, !noalias !67
   invoke void @_ZN12EventManager3regEN7MtEvent4TypeEPFvPS0_PvES3_(ptr noundef nonnull align 8 dereferenceable(56) %2, i8 noundef zeroext 7, ptr noundef nonnull @_ZN16EventManagerTest9eventTestEP7MtEventPv, ptr noundef nonnull %12)
@@ -1511,7 +1511,7 @@ define dso_local void @_ZN16TestEventManager23testRealEventAfterDeregEv(ptr noca
           to label %21 unwind label %70
 
 21:                                               ; preds = %19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %20, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %20, align 8, !tbaa !4
   %22 = getelementptr inbounds i8, ptr %20, i64 8
   store i8 7, ptr %22, align 8, !tbaa !58
   %23 = getelementptr inbounds i8, ptr %2, i64 24
@@ -1569,7 +1569,7 @@ define dso_local void @_ZN16TestEventManager23testRealEventAfterDeregEv(ptr noca
   br label %54
 
 54:                                               ; preds = %52, %41, %38, %36, %21
-  %55 = phi ptr [ %53, %52 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %41 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %38 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %36 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %21 ]
+  %55 = phi ptr [ %53, %52 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), %41 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %38 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %36 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %21 ]
   %56 = getelementptr inbounds i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8
   call void %57(ptr noundef nonnull align 8 dereferenceable(8) %20) #20
@@ -1722,7 +1722,7 @@ define dso_local void @_ZN16TestEventManager23testRealEventAfterDeregEv(ptr noca
           to label %128 unwind label %70
 
 128:                                              ; preds = %.loopexit
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %127, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %127, align 8, !tbaa !4
   %129 = getelementptr inbounds i8, ptr %127, i64 8
   store i8 7, ptr %129, align 8, !tbaa !58
   %130 = load ptr, ptr %23, align 8, !tbaa !25
@@ -1779,7 +1779,7 @@ define dso_local void @_ZN16TestEventManager23testRealEventAfterDeregEv(ptr noca
   br label %160
 
 160:                                              ; preds = %158, %147, %144, %142, %128
-  %161 = phi ptr [ %159, %158 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %147 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %144 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %142 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %128 ]
+  %161 = phi ptr [ %159, %158 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), %147 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %144 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %142 ], [ getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), %128 ]
   %162 = getelementptr inbounds i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8
   call void %163(ptr noundef nonnull align 8 dereferenceable(8) %127) #20
@@ -1839,7 +1839,7 @@ define dso_local void @_ZN16TestEventManager23testRealEventAfterDeregEv(ptr noca
   %187 = getelementptr inbounds i8, ptr %186, i64 8
   %188 = load ptr, ptr %187, align 8
   call void %188(ptr noundef nonnull align 8 dereferenceable(64) %12) #20
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %189 = load ptr, ptr %23, align 8, !tbaa !25
   invoke void @_ZNSt8_Rb_treeIN7MtEvent4TypeESt4pairIKS1_N12EventManager4DestEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef %189)
           to label %193 unwind label %190
@@ -2011,7 +2011,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12EventManagerD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !25
@@ -2513,7 +2513,7 @@ declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_cr
 define internal void @"_ZNSt17_Function_handlerIFvvEZN16TestEventManager8runTestsEP8IGameDefE3$_0E9_M_invokeERKSt9_Any_data"(ptr nocapture nonnull readnone align 8 %0) #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %class.EventManager, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #20
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %3 = getelementptr inbounds i8, ptr %2, i64 8
   %4 = getelementptr inbounds i8, ptr %2, i64 16
   %5 = getelementptr inbounds i8, ptr %2, i64 32
@@ -2531,7 +2531,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN16TestEventManager8runTest
           to label %9 unwind label %15
 
 9:                                                ; preds = %8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !4
   %10 = getelementptr inbounds i8, ptr %2, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   invoke void @_ZNSt8_Rb_treeIN7MtEvent4TypeESt4pairIKS1_N12EventManager4DestEESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %11)
@@ -2676,7 +2676,7 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFvvEZN16TestEventM
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12EventManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #8 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !25
@@ -2696,7 +2696,7 @@ define linkonce_odr dso_local void @_ZN12EventManagerD2Ev(ptr noundef nonnull al
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN16EventManagerTestD0Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTV12EventManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !4
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = getelementptr inbounds i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !25
@@ -2722,14 +2722,14 @@ define internal void @_GLOBAL__sub_I_test_eventmanager.cpp() #16 section ".text.
   store ptr getelementptr inbounds (%class.TestEventManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), ptr getelementptr inbounds (%class.TestEventManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !61
   store i64 0, ptr getelementptr inbounds (%class.TestEventManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 1), align 8, !tbaa !13
   store i8 0, ptr getelementptr inbounds (%class.TestEventManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0), align 8, !tbaa !63
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16TestEventManager, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV16TestEventManager, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   invoke void @_ZN11TestManager18registerTestModuleEP8TestBase(ptr noundef nonnull @_ZL15g_test_instance)
           to label %11 unwind label %2
 
 2:                                                ; preds = %0
   %3 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, inrange i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV8TestBase, i64 0, i32 0, i64 2), ptr @_ZL15g_test_instance, align 8, !tbaa !4
   %4 = load ptr, ptr getelementptr inbounds (%class.TestEventManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 0, i32 0), align 8, !tbaa !7
   %5 = icmp eq ptr %4, getelementptr inbounds (%class.TestEventManager, ptr @_ZL15g_test_instance, i64 0, i32 0, i32 3, i32 2, i32 0)
   br i1 %5, label %6, label %9

@@ -799,7 +799,7 @@ $_ZTVN7openvdb5v11_09ExceptionE = comdat any
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
 @_ZTVN7openvdb5v11_02io8TempFileE = unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIN7openvdb5v11_02io8TempFileE, ptr @_ZN7openvdb5v11_02io8TempFileD1Ev, ptr @_ZN7openvdb5v11_02io8TempFileD0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN7openvdb5v11_02io8TempFileE, ptr @_ZTv0_n24_N7openvdb5v11_02io8TempFileD1Ev, ptr @_ZTv0_n24_N7openvdb5v11_02io8TempFileD0Ev] }, align 8
-@_ZTTN7openvdb5v11_02io8TempFileE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io8TempFileE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7openvdb5v11_02io8TempFileE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7openvdb5v11_02io8TempFileE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io8TempFileE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN7openvdb5v11_02io8TempFileE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io8TempFileE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7openvdb5v11_02io8TempFileE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7openvdb5v11_02io8TempFileE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io8TempFileE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCN7openvdb5v11_02io8TempFileE0_So = unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTISo, ptr @_ZNSoD1Ev, ptr @_ZNSoD0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTISo, ptr @_ZTv0_n24_NSoD1Ev, ptr @_ZTv0_n24_NSoD0Ev] }, align 8
 @_ZTISo = external constant ptr
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -816,7 +816,7 @@ $_ZTVN7openvdb5v11_09ExceptionE = comdat any
 @_ZTVN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE = linkonce_odr unnamed_addr constant { [25 x ptr] } { [25 x ptr] [ptr null, ptr @_ZTIN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEED2Ev, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEED0Ev, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE5imbueERKSt6locale, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6setbufEPcl, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE7seekoffElSt12_Ios_SeekdirSt13_Ios_Openmode, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE7seekposESt4fposI11__mbstate_tESt13_Ios_Openmode, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE4syncEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9showmanycEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsgetnEPcl, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE9underflowEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE5uflowEv, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE9pbackfailEi, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsputnEPKcl, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE8overflowEi, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE8set_nextEPNS1_16linked_streambufIcS5_EE, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE10close_implESt13_Ios_Openmode, ptr @_ZNK5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE10auto_closeEv, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE14set_auto_closeEb, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE11strict_syncEv, ptr @_ZNK5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE14component_typeEv, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE14component_implEv, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE13init_get_areaEv, ptr @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE13init_put_areaEv] }, comdat, align 8
 @_ZTVN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEEE = linkonce_odr unnamed_addr constant { [23 x ptr] } { [23 x ptr] [ptr null, ptr @_ZTIN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEEE, ptr @_ZN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEED2Ev, ptr @_ZN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEED0Ev, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE5imbueERKSt6locale, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6setbufEPcl, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekoffElSt12_Ios_SeekdirSt13_Ios_Openmode, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE7seekposESt4fposI11__mbstate_tESt13_Ios_Openmode, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE4syncEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9showmanycEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsgetnEPcl, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9underflowEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE5uflowEv, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE9pbackfailEi, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE6xsputnEPKcl, ptr @_ZNSt15basic_streambufIcSt11char_traitsIcEE8overflowEi, ptr @_ZN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEE8set_nextEPS5_, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, comdat, align 8
 @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE = linkonce_odr unnamed_addr constant { [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] } { [5 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr null, ptr null, ptr @_ZTIN5boost9iostreams20file_descriptor_sink8categoryE], [3 x ptr] [ptr inttoptr (i64 -8 to ptr), ptr inttoptr (i64 -8 to ptr), ptr @_ZTIN5boost9iostreams20file_descriptor_sink8categoryE], [3 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5boost9iostreams20file_descriptor_sink8categoryE], [3 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN5boost9iostreams20file_descriptor_sink8categoryE] }, comdat, align 8
-@_ZTTN5boost9iostreams20file_descriptor_sink8categoryE = linkonce_odr unnamed_addr constant [12 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE0_NS0_15output_seekableE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE0_NS0_15output_seekableE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE0_NS0_15output_seekableE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE8_NS0_10device_tagE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE16_NS0_12closable_tagE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE0_NS0_6outputE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE24_NS0_6detail13random_accessE, i32 0, inrange i32 0, i32 3)], comdat, align 8
+@_ZTTN5boost9iostreams20file_descriptor_sink8categoryE = linkonce_odr unnamed_addr constant [12 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE0_NS0_15output_seekableE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE0_NS0_15output_seekableE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE0_NS0_15output_seekableE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE8_NS0_10device_tagE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE16_NS0_12closable_tagE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE0_NS0_6outputE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE24_NS0_6detail13random_accessE, i32 0, inrange i32 0, i32 3)], comdat, align 8
 @_ZTCN5boost9iostreams20file_descriptor_sink8categoryE0_NS0_15output_seekableE = linkonce_odr unnamed_addr constant { [5 x ptr], [3 x ptr] } { [5 x ptr] [ptr inttoptr (i64 24 to ptr), ptr null, ptr null, ptr null, ptr @_ZTIN5boost9iostreams15output_seekableE], [3 x ptr] [ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -24 to ptr), ptr @_ZTIN5boost9iostreams15output_seekableE] }, comdat, align 8
 @_ZTVN10__cxxabiv121__vmi_class_type_infoE = external global [0 x ptr]
 @_ZTSN5boost9iostreams15output_seekableE = linkonce_odr constant [36 x i8] c"N5boost9iostreams15output_seekableE\00", comdat, align 1
@@ -839,7 +839,7 @@ $_ZTVN7openvdb5v11_09ExceptionE = comdat any
 @_ZTSN5boost9iostreams20file_descriptor_sink8categoryE = linkonce_odr constant [50 x i8] c"N5boost9iostreams20file_descriptor_sink8categoryE\00", comdat, align 1
 @_ZTIN5boost9iostreams20file_descriptor_sink8categoryE = linkonce_odr constant { ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSN5boost9iostreams20file_descriptor_sink8categoryE, i32 2, i32 3, ptr @_ZTIN5boost9iostreams15output_seekableE, i64 2, ptr @_ZTIN5boost9iostreams10device_tagE, i64 2050, ptr @_ZTIN5boost9iostreams12closable_tagE, i64 4098 }, comdat, align 8
 @_ZTVN5boost9iostreams6detail13random_accessE = linkonce_odr unnamed_addr constant { [3 x ptr] } { [3 x ptr] [ptr null, ptr null, ptr @_ZTIN5boost9iostreams6detail13random_accessE] }, comdat, align 8
-@_ZTTN5boost9iostreams6detail13random_accessE = linkonce_odr unnamed_addr constant [1 x ptr] [ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5boost9iostreams6detail13random_accessE, i32 0, inrange i32 0, i32 3)], comdat, align 8
+@_ZTTN5boost9iostreams6detail13random_accessE = linkonce_odr unnamed_addr constant [1 x ptr] [ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5boost9iostreams6detail13random_accessE, i32 0, i32 0, i32 3)], comdat, align 8
 @_ZTSN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE = linkonce_odr constant [51 x i8] c"N5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE\00", comdat, align 1
 @_ZTSN5boost16exception_detail10clone_baseE = linkonce_odr constant [39 x i8] c"N5boost16exception_detail10clone_baseE\00", comdat, align 1
 @_ZTIN5boost16exception_detail10clone_baseE = linkonce_odr constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN5boost16exception_detail10clone_baseE }, comdat, align 8
@@ -1091,9 +1091,9 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io8TempFileE, i32 0, inrange i32 0, i32 3), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io8TempFileE, i32 0, i32 0, i32 3), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io8TempFileE, i32 0, inrange i32 1, i32 3), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7openvdb5v11_02io8TempFileE, i32 0, i32 1, i32 3), ptr %add.ptr, align 8
   %mImpl = getelementptr inbounds %"class.openvdb::v11_0::io::TempFile", ptr %this1, i32 0, i32 1
   %call = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 192) #16
           to label %invoke.cont3 unwind label %lpad2
@@ -1414,7 +1414,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEC2Ev(ptr noundef nonnull align 8 dereferenceable(132) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams13stream_bufferINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams13stream_bufferINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1731,7 +1731,7 @@ entry:
   %ehselector.slot = alloca i32, align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams13stream_bufferINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams13stream_bufferINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %call = call noundef zeroext i1 @_ZNK5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEE7is_openEv(ptr noundef nonnull align 8 dereferenceable(132) %this1)
   br i1 %call, label %land.lhs.true, label %if.end
 
@@ -1809,7 +1809,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(68) %this1)
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %storage_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this1, i32 0, i32 2
   invoke void @_ZN5boost9iostreams6detail8optionalINS1_15concept_adapterINS0_20file_descriptor_sinkEEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(17) %storage_)
           to label %invoke.cont unwind label %lpad
@@ -2587,7 +2587,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this1)
-  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [23 x ptr] }, ptr @_ZTVN5boost9iostreams6detail16linked_streambufIcSt11char_traitsIcEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %flags_ = getelementptr inbounds %"class.boost::iostreams::detail::linked_streambuf", ptr %this1, i32 0, i32 1
   store i32 0, ptr %flags_, align 8
   ret void
@@ -2640,7 +2640,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [25 x ptr] }, ptr @_ZTVN5boost9iostreams6detail18indirect_streambufINS0_20file_descriptor_sinkESt11char_traitsIcESaIcENS0_15output_seekableEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this1, i32 0, i32 4
   call void @_ZN5boost9iostreams6detail13double_objectINS1_12basic_bufferIcSaIcEEENS_14is_convertibleINS0_15output_seekableENS1_12two_sequenceEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %buffer_) #3
   %storage_ = getelementptr inbounds %"class.boost::iostreams::detail::indirect_streambuf", ptr %this1, i32 0, i32 2
@@ -3383,14 +3383,14 @@ entry:
   call void @_ZN5boost9iostreams10device_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef getelementptr inbounds ([12 x ptr], ptr @_ZTTN5boost9iostreams20file_descriptor_sink8categoryE, i64 0, i64 4)) #3
   %2 = getelementptr inbounds i8, ptr %this1, i64 16
   call void @_ZN5boost9iostreams12closable_tagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef getelementptr inbounds ([12 x ptr], ptr @_ZTTN5boost9iostreams20file_descriptor_sink8categoryE, i64 0, i64 5)) #3
-  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 0, i32 5), ptr %this1, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 0, i32 5), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, i32 0, i32 5), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, i32 0, i32 5), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 3, i32 3), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, i32 3, i32 3), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 1, i32 3), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, i32 1, i32 3), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, inrange i32 2, i32 3), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [3 x ptr], [3 x ptr], [3 x ptr] }, ptr @_ZTVN5boost9iostreams20file_descriptor_sink8categoryE, i32 0, i32 2, i32 3), ptr %add.ptr3, align 8
   ret void
 }
 
@@ -3402,7 +3402,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5boost9iostreams6detail13random_accessE, i32 0, inrange i32 0, i32 3), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [3 x ptr] }, ptr @_ZTVN5boost9iostreams6detail13random_accessE, i32 0, i32 0, i32 3), ptr %this1, align 8
   ret void
 }
 
@@ -3594,11 +3594,11 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %3 = load ptr, ptr %e.addr, align 8
   invoke void @_ZN5boost10wrapexceptINSt8ios_base7failureB5cxx11EE9copy_fromEPKv(ptr noundef nonnull align 8 dereferenceable(76) %this1, ptr noundef %3)
           to label %invoke.cont4 unwind label %lpad3
@@ -3664,7 +3664,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3678,7 +3678,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this1, ptr noundef nonnull align 8 dereferenceable(32) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt8ios_base7failureB5cxx11E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVNSt8ios_base7failureB5cxx11E, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3688,7 +3688,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.boost::exception", ptr %this1, i32 0, i32 1
   call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data_)
   %throw_function_ = getelementptr inbounds %"class.boost::exception", ptr %this1, i32 0, i32 2
@@ -3716,7 +3716,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.boost::exception", ptr %this1, i32 0, i32 1
   call void @_ZN5boost16exception_detail12refcount_ptrINS0_20error_info_containerEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %data_) #3
   ret void
@@ -3912,7 +3912,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %2, i32 0, i32 1
@@ -4006,11 +4006,11 @@ entry:
           to label %invoke.cont unwind label %lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, i32 1, i32 2), ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this1, i64 40
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, inrange i32 2, i32 2), ptr %add.ptr4, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptINSt8ios_base7failureB5cxx11EEE, i32 0, i32 2, i32 2), ptr %add.ptr4, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -4162,7 +4162,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -4174,7 +4174,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data_ = getelementptr inbounds %"class.boost::exception", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %.addr, align 8
   %data_2 = getelementptr inbounds %"class.boost::exception", ptr %1, i32 0, i32 1
@@ -5498,7 +5498,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %msg.addr, align 8
   call void @_ZN7openvdb5v11_09ExceptionC2EPKcPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(40) %this1, ptr noundef @.str.14, ptr noundef %0) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_07IoErrorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_07IoErrorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -7212,7 +7212,7 @@ entry:
   store ptr %msg, ptr %msg.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #3
   %0 = load ptr, ptr %eType.addr, align 8
@@ -7317,7 +7317,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -7331,7 +7331,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7openvdb5v11_09ExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %mMessage = getelementptr inbounds %"class.openvdb::v11_0::Exception", ptr %this1, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %mMessage) #3
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3

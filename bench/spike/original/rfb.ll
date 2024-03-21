@@ -480,7 +480,7 @@ define void @_ZN5rfb_tC2Ei(ptr noundef nonnull align 8 dereferenceable(168) %0, 
   store i32 %1, ptr %4, align 4
   %15 = load ptr, ptr %3, align 8
   call void @_ZN8device_tC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %15)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5rfb_t, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5rfb_t, i32 0, i32 0, i32 2), ptr %15, align 8
   %16 = getelementptr inbounds %class.rfb_t, ptr %15, i32 0, i32 1
   store i32 -1, ptr %16, align 8
   %17 = getelementptr inbounds %class.rfb_t, ptr %15, i32 0, i32 2
@@ -2579,7 +2579,7 @@ define void @_ZN5rfb_tD2Ev(ptr noundef nonnull align 8 dereferenceable(168) %0) 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5rfb_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV5rfb_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.rfb_t, ptr %3, i32 0, i32 3
   store ptr null, ptr %4, align 8
   %5 = call i64 @pthread_self() #13
@@ -3469,7 +3469,7 @@ define linkonce_odr void @_ZN8device_tD2Ev(ptr noundef nonnull align 8 dereferen
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV8device_t, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = getelementptr inbounds %class.device_t, ptr %3, i32 0, i32 1

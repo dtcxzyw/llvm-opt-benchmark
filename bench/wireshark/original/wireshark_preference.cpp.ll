@@ -828,7 +828,7 @@ define void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 de
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV19WiresharkPreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV19WiresharkPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   %7 = getelementptr inbounds %class.WiresharkPreference, ptr %5, i32 0, i32 1
   store ptr null, ptr %7, align 8
   ret void
@@ -911,7 +911,7 @@ define linkonce_odr void @_ZN30BoolPreferencePREF_BOOLFactoryC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV30BoolPreferencePREF_BOOLFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV30BoolPreferencePREF_BOOLFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -967,7 +967,7 @@ define linkonce_odr void @_ZN34StringPreferencePREF_STRINGFactoryC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_STRINGFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_STRINGFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1020,7 +1020,7 @@ define linkonce_odr void @_ZN34StringPreferencePREF_CUSTOMFactoryC2Ev(ptr nounde
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_CUSTOMFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV34StringPreferencePREF_CUSTOMFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1073,7 +1073,7 @@ define linkonce_odr void @_ZN37StringPreferencePREF_DISSECTORFactoryC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV37StringPreferencePREF_DISSECTORFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV37StringPreferencePREF_DISSECTORFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1126,7 +1126,7 @@ define linkonce_odr void @_ZN38PasswordPreferencePREF_PASSWORDFactoryC2Ev(ptr no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV38PasswordPreferencePREF_PASSWORDFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV38PasswordPreferencePREF_PASSWORDFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1179,7 +1179,7 @@ define linkonce_odr void @_ZN30UIntPreferencePREF_UINTFactoryC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV30UIntPreferencePREF_UINTFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV30UIntPreferencePREF_UINTFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1232,7 +1232,7 @@ define linkonce_odr void @_ZN30EnumPreferencePREF_ENUMFactoryC2Ev(ptr noundef no
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV30EnumPreferencePREF_ENUMFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV30EnumPreferencePREF_ENUMFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1285,7 +1285,7 @@ define linkonce_odr void @_ZN32RangePreferencePREF_RANGEFactoryC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV32RangePreferencePREF_RANGEFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV32RangePreferencePREF_RANGEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1338,7 +1338,7 @@ define linkonce_odr void @_ZN42RangePreferencePREF_DECODE_AS_RANGEFactoryC2Ev(pt
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV42RangePreferencePREF_DECODE_AS_RANGEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1391,7 +1391,7 @@ define linkonce_odr void @_ZN32ColorPreferencePREF_COLORFactoryC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV32ColorPreferencePREF_COLORFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV32ColorPreferencePREF_COLORFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1444,7 +1444,7 @@ define linkonce_odr void @_ZN43SaveFilePreferencePREF_SAVE_FILENAMEFactoryC2Ev(p
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV43SaveFilePreferencePREF_SAVE_FILENAMEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1497,7 +1497,7 @@ define linkonce_odr void @_ZN43OpenFilePreferencePREF_OPEN_FILENAMEFactoryC2Ev(p
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV43OpenFilePreferencePREF_OPEN_FILENAMEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1550,7 +1550,7 @@ define linkonce_odr void @_ZN36DirNamePreferencePREF_DIRNAMEFactoryC2Ev(ptr noun
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV36DirNamePreferencePREF_DIRNAMEFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV36DirNamePreferencePREF_DIRNAMEFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1603,7 +1603,7 @@ define linkonce_odr void @_ZN28UatPreferencePREF_UATFactoryC2Ev(ptr noundef nonn
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV28UatPreferencePREF_UATFactory, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV28UatPreferencePREF_UATFactory, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = invoke noundef ptr @_ZN17PreferenceManager8instanceEv()
           to label %7 unwind label %9
 
@@ -1686,7 +1686,7 @@ define linkonce_odr void @_ZN17PreferenceFactoryC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV17PreferenceFactory, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV17PreferenceFactory, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1761,7 +1761,7 @@ define linkonce_odr void @_ZN14BoolPreferenceC2EP7QObject(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV14BoolPreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV14BoolPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2290,7 +2290,7 @@ define linkonce_odr void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull 
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16StringPreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16StringPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2642,7 +2642,7 @@ define linkonce_odr void @_ZN18PasswordPreferenceC2EP7QObject(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV18PasswordPreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV18PasswordPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2746,7 +2746,7 @@ define linkonce_odr void @_ZN14UIntPreferenceC2EP7QObject(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN16StringPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV14UIntPreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV14UIntPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2825,7 +2825,7 @@ define linkonce_odr void @_ZN14EnumPreferenceC2EP7QObject(ptr noundef nonnull al
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV14EnumPreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV14EnumPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -3676,7 +3676,7 @@ define linkonce_odr void @_ZN15RangePreferenceC2EP7QObject(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV15RangePreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV15RangePreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -3975,7 +3975,7 @@ define linkonce_odr void @_ZN15ColorPreferenceC2EP7QObject(ptr noundef nonnull a
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV15ColorPreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV15ColorPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -4374,7 +4374,7 @@ define linkonce_odr void @_ZN18SaveFilePreferenceC2EP7QObject(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV18SaveFilePreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV18SaveFilePreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -6937,7 +6937,7 @@ define linkonce_odr void @_ZN18OpenFilePreferenceC2EP7QObject(ptr noundef nonnul
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV18OpenFilePreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV18OpenFilePreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -7205,7 +7205,7 @@ define linkonce_odr void @_ZN17DirNamePreferenceC2EP7QObject(ptr noundef nonnull
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV17DirNamePreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV17DirNamePreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -7482,7 +7482,7 @@ define linkonce_odr void @_ZN13UatPreferenceC2EP7QObject(ptr noundef nonnull ali
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN19WiresharkPreferenceC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13UatPreference, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13UatPreference, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 

@@ -516,7 +516,7 @@ define dso_local noundef nonnull ptr @_ZN11FactPointTo9make_factEPK8VariableRKSt
           to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2366,7 +2366,7 @@ define dso_local noundef nonnull ptr @_ZNK11FactPointTo5cloneEv(ptr nocapture no
 
 .noexc:                                           ; preds = %1
   %5 = getelementptr inbounds i8, ptr %0, i64 24
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %2, align 8
   %6 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %4, ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %2, i64 24
@@ -2518,7 +2518,7 @@ define dso_local noundef nonnull ptr @_ZN11FactPointTo9make_factEPK8Variable(ptr
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %1
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %2, i64 16
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %2, i64 24
@@ -2629,7 +2629,7 @@ define dso_local noundef nonnull ptr @_ZN11FactPointTo9make_factEPK8VariableS2_(
           to label %.noexc unwind label %40
 
 .noexc:                                           ; preds = %2
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -2735,7 +2735,7 @@ _ZNSt6vectorIP4FactSaIS1_EE9push_backEOS1_.exit:  ; preds = %14, %_ZNSt6vectorIP
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11FactPointToC2EPK8Variable(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %0, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2769,7 +2769,7 @@ declare void @_ZN4FactD2Ev(ptr noundef nonnull align 8 dereferenceable(12)) unna
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11FactPointToC2EPK8VariableRKSt6vectorIS2_SaIS2_EE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr nocapture noundef nonnull readonly align 8 dereferenceable(24) %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2834,7 +2834,7 @@ _ZNSt16allocator_traitsISaIPK8VariableEE8allocateERS3_m.exit.i.i.i.i: ; preds = 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11FactPointToC2EPK8VariableS2_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %0, align 8
   %4 = getelementptr inbounds i8, ptr %0, i64 16
   store ptr %1, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 24
@@ -2861,7 +2861,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %3
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11FactPointToD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i = icmp eq ptr %3, null
@@ -2878,7 +2878,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit:        ; preds = %1, %4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN11FactPointToD0Ev(ptr noundef nonnull align 8 dereferenceable(48) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %.not.i.i.i.i = icmp eq ptr %3, null
@@ -2940,7 +2940,7 @@ declare noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef nonnull 
 define dso_local noundef zeroext i1 @_ZN11FactPointTo12is_valid_ptrEPK8VariableRKSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.FactPointTo, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -3037,7 +3037,7 @@ _ZNK11FactPointTo7is_nullEv.exit.thread:          ; preds = %18, %_ZNK11FactPoin
 
 .critedge:                                        ; preds = %.lr.ph.i, %37, %43, %_ZNK11FactPointTo7is_nullEv.exit, %13
   %44 = phi i1 [ false, %_ZNK11FactPointTo7is_nullEv.exit ], [ false, %13 ], [ true, %37 ], [ %.not8, %43 ], [ false, %.lr.ph.i ]
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %3, align 8
   %45 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i, label %_ZN11FactPointToD2Ev.exit, label %46
@@ -3166,7 +3166,7 @@ define dso_local noundef i32 @_ZN11FactPointTo22opportunistic_validateEPK8Variab
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noundef ptr %12(ptr noundef nonnull align 8 dereferenceable(200) %0)
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %4, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %4, align 8
   %14 = getelementptr inbounds i8, ptr %4, i64 16
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds i8, ptr %4, i64 24
@@ -3281,7 +3281,7 @@ _ZNK11FactPointTo7is_nullEv.exit.thread:          ; preds = %30, %_ZNK11FactPoin
 
 .thread:                                          ; preds = %23, %59, %54, %51, %27
   %.010 = phi i32 [ 0, %27 ], [ 0, %51 ], [ %.0, %54 ], [ %spec.select, %59 ], [ 0, %23 ]
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %4, align 8
   %60 = load ptr, ptr %15, align 8
   %.not.i.i.i.i = icmp eq ptr %60, null
   br i1 %.not.i.i.i.i, label %_ZN11FactPointToD2Ev.exit, label %61
@@ -3307,7 +3307,7 @@ declare noundef zeroext i1 @_Z12rnd_flipcoinjPK6FilterPKNSt7__cxx1112basic_strin
 define dso_local noundef zeroext i1 @_ZN11FactPointTo15is_dangling_ptrEPK8VariableRKSt6vectorIPK4FactSaIS6_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.FactPointTo, align 8
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %3, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   store ptr %0, ptr %4, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 24
@@ -3361,7 +3361,7 @@ _ZN11FactPointToC2EPK8Variable.exit:              ; preds = %2
 
 23:                                               ; preds = %18, %21, %13
   %24 = phi i1 [ false, %13 ], [ false, %18 ], [ %22, %21 ]
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %3, align 8
   %25 = load ptr, ptr %5, align 8
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZN11FactPointToD2Ev.exit, label %26
@@ -3432,7 +3432,7 @@ _ZNK8Variable10is_pointerEv.exit:                 ; preds = %14
 
 .noexc:                                           ; preds = %30
   call void @_ZN4FactC2E13eFactCategory(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %5, align 8
   %32 = getelementptr inbounds i8, ptr %5, i64 16
   store ptr %.038, ptr %32, align 8
   %33 = getelementptr inbounds i8, ptr %5, i64 24
@@ -3525,7 +3525,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPK8VariableSt6vectorIS4_SaIS4_EEEENS1
 _ZNSt6vectorIPK8VariableSaIS2_EEaSERKS4_.exit:    ; preds = %42, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPK8VariableSt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, %46
   %.sroa.0.1 = phi ptr [ null, %42 ], [ null, %46 ], [ %.sroa.0.0, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPK8VariableSt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ]
   %.sroa.10.0 = phi ptr [ null, %42 ], [ null, %46 ], [ %61, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPK8VariableSt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ]
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %5, align 8
   %62 = load ptr, ptr %33, align 8
   %.not.i.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i.i.i.i, label %_ZN11FactPointToD2Ev.exit, label %63
@@ -4526,7 +4526,7 @@ define dso_local void @_ZN11FactPointTo26merge_pointees_of_pointersERKSt6vectorI
           to label %.noexc unwind label %23
 
 .noexc:                                           ; preds = %25
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %4, align 8
   store ptr %19, ptr %8, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %26 = invoke noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #22
@@ -4595,7 +4595,7 @@ _ZNSt6vectorIPK8VariableSaIS2_EED2Ev.exit.i:      ; preds = %.noexc
   br label %.body
 
 .loopexit:                                        ; preds = %41, %.preheader, %32
-  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, inrange i32 0, i64 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [21 x ptr] }, ptr @_ZTV11FactPointTo, i64 0, i32 0, i64 2), ptr %4, align 8
   %51 = load ptr, ptr %9, align 8
   %.not.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i, label %_ZN11FactPointToD2Ev.exit, label %52

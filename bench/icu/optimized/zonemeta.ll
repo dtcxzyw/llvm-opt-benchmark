@@ -413,7 +413,7 @@ if.then:                                          ; preds = %entry
 
 if.end:                                           ; preds = %entry
   store i32 0, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %tzID, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %tzID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %tzID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %fID.i = getelementptr inbounds i8, ptr %tz, i64 8
@@ -905,7 +905,7 @@ lpad:                                             ; preds = %if.then56
   br label %common.resume
 
 if.else61:                                        ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %canonicalID, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %canonicalID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %canonicalID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call64 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758TimeZone14getCanonicalIDERKNS_13UnicodeStringERS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %tzid, ptr noundef nonnull align 8 dereferenceable(64) %canonicalID, ptr noundef nonnull align 4 dereferenceable(4) %status)
@@ -1207,7 +1207,7 @@ invoke.cont:
   %canonicalID = alloca %"class.icu_75::UnicodeString", align 8
   %tzKey = alloca [129 x i8], align 16
   store i32 0, ptr %status, align 4
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %canonicalID, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %canonicalID, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %canonicalID, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke ptr @ures_openDirect_75(ptr noundef null, ptr noundef nonnull @_ZN6icu_75L10gMetaZonesE, ptr noundef nonnull %status)
@@ -2200,7 +2200,7 @@ entry:
   %conv3 = trunc i16 %rem210 to i8
   %div4 = udiv i32 %spec.select, 3600000
   %conv5 = trunc i32 %div4 to i8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, inrange i32 0, i64 2), ptr %zid, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i64 0, i32 0, i64 2), ptr %zid, align 8
   %fUnion2.i = getelementptr inbounds i8, ptr %zid, i64 8
   store i16 2, ptr %fUnion2.i, align 8
   %call = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_758ZoneMeta14formatCustomIDEhhhaRNS_13UnicodeStringE(i8 noundef zeroext %conv5, i8 noundef zeroext %conv3, i8 noundef zeroext %conv, i8 noundef signext %spec.select9, ptr noundef nonnull align 8 dereferenceable(64) %zid)

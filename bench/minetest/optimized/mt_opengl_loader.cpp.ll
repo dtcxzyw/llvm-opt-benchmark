@@ -35175,7 +35175,7 @@ define void @_ZN16OpenGLProcedures17LoadAllProceduresEPN3irr5video15IContextMana
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #17
   %17267 = getelementptr inbounds i8, ptr %1328, i64 128
   call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(216) %17267) #17
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %17267, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %17267, align 8, !tbaa !26
   %17268 = getelementptr inbounds i8, ptr %1328, i64 344
   store ptr null, ptr %17268, align 8, !tbaa !754
   %17269 = getelementptr inbounds i8, ptr %1328, i64 352
@@ -35218,9 +35218,9 @@ define void @_ZN16OpenGLProcedures17LoadAllProceduresEPN3irr5video15IContextMana
   %17295 = load i64, ptr %17294, align 8
   %17296 = getelementptr inbounds i8, ptr %1328, i64 %17295
   store ptr %17293, ptr %17296, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 3), ptr %1328, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 2, i64 3), ptr %17267, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 1, i64 3), ptr %17282, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 3), ptr %1328, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 2, i64 3), ptr %17267, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i32 1, i64 3), ptr %17282, align 8, !tbaa !26
   %17297 = getelementptr inbounds i8, ptr %1328, i64 24
   call void @_ZNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEC2ERKNS_12basic_stringIcS2_S3_EESt13_Ios_Openmode(ptr noundef nonnull align 8 dereferenceable(104) %17297, ptr noundef nonnull align 8 dereferenceable(32) %1329, i32 noundef 24)
   %17298 = load ptr, ptr %1328, align 8, !tbaa !26
@@ -35300,7 +35300,7 @@ define void @_ZN16OpenGLProcedures17LoadAllProceduresEPN3irr5video15IContextMana
   store ptr %17338, ptr %17341, align 8, !tbaa !26
   %17342 = load ptr, ptr getelementptr inbounds ([10 x ptr], ptr @_ZTTNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEE, i64 0, i64 9), align 8
   store ptr %17342, ptr %17282, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, inrange i32 0, i64 2), ptr %17297, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVNSt7__cxx1115basic_stringbufIcSt11char_traitsIcESaIcEEE, i64 0, i32 0, i64 2), ptr %17297, align 8, !tbaa !26
   %17343 = getelementptr inbounds i8, ptr %1328, i64 96
   %17344 = load ptr, ptr %17343, align 8, !tbaa !13
   %17345 = getelementptr inbounds i8, ptr %1328, i64 112
@@ -35319,7 +35319,7 @@ define void @_ZN16OpenGLProcedures17LoadAllProceduresEPN3irr5video15IContextMana
   br label %17352
 
 17352:                                            ; preds = %17351, %17347
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %17297, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %17297, align 8, !tbaa !26
   %17353 = getelementptr inbounds i8, ptr %1328, i64 80
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17353) #17
   store ptr %17272, ptr %1328, align 8, !tbaa !26

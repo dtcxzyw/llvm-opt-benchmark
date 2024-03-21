@@ -23804,7 +23804,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorage
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %10, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(40) %11) #8
   %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114GcsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #8
@@ -23989,7 +23989,7 @@ define linkonce_odr dso_local void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -24193,7 +24193,7 @@ define internal void @_ZN12_GLOBAL__N_114GcsStorageToolC2ERKN5vcpkg9ToolCacheERN
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"struct.(anonymous namespace)::GcsStorageTool", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 @_ZN5vcpkg5ToolsL6GSUTILE, i64 16, i1 false)
@@ -24238,7 +24238,7 @@ define internal void @_ZN12_GLOBAL__N_118IObjectStorageToolC2Ev(ptr noundef nonn
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118IObjectStorageToolE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_118IObjectStorageToolE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -24247,7 +24247,7 @@ define internal void @_ZN12_GLOBAL__N_114GcsStorageToolD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114GcsStorageToolE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::GcsStorageTool", ptr %3, i32 0, i32 1
   call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
@@ -33288,7 +33288,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorage
   store ptr %3, ptr %9, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %12) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.458", ptr %12, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(48) %13) #8
   %14 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114AwsStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(64) %12) #8
@@ -33618,7 +33618,7 @@ define internal void @_ZN12_GLOBAL__N_114AwsStorageToolC2ERKN5vcpkg9ToolCacheERN
   store i8 %12, ptr %8, align 1
   %13 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"struct.(anonymous namespace)::AwsStorageTool", ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %6, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %9, ptr align 8 @_ZN5vcpkg5ToolsL6AWSCLIE, i64 16, i1 false)
@@ -33668,7 +33668,7 @@ define internal void @_ZN12_GLOBAL__N_114AwsStorageToolD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114AwsStorageToolE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::AwsStorageTool", ptr %3, i32 0, i32 1
   call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
@@ -34671,7 +34671,7 @@ define internal void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorage
   store ptr %2, ptr %7, align 8
   %10 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %10) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.466", ptr %10, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(40) %11) #8
   %12 = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_114CosStorageToolESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(56) %10) #8
@@ -34989,7 +34989,7 @@ define internal void @_ZN12_GLOBAL__N_114CosStorageToolC2ERKN5vcpkg9ToolCacheERN
   store ptr %2, ptr %6, align 8
   %10 = load ptr, ptr %4, align 8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"struct.(anonymous namespace)::CosStorageTool", ptr %10, i32 0, i32 1
   %12 = load ptr, ptr %5, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %7, ptr align 8 @_ZN5vcpkg5ToolsL6COSCLIE, i64 16, i1 false)
@@ -35034,7 +35034,7 @@ define internal void @_ZN12_GLOBAL__N_114CosStorageToolD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114CosStorageToolE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::CosStorageTool", ptr %3, i32 0, i32 1
   call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   call void @_ZN12_GLOBAL__N_118IObjectStorageToolD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
@@ -37086,7 +37086,7 @@ define internal void @_ZN12_GLOBAL__N_123FilesReadBinaryProviderC2EN5vcpkg7ZipTo
   %7 = load ptr, ptr %4, align 8
   %8 = load ptr, ptr %5, align 8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipToolERKNS1_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %"struct.(anonymous namespace)::FilesReadBinaryProvider", ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %6, align 8
   call void @_ZN5vcpkg4PathC2EOS0_(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %10) #8
@@ -37124,7 +37124,7 @@ define internal void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipTool
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZN5vcpkg19IReadBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ZipReadBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ZipReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.(anonymous namespace)::ZipReadBinaryProvider", ptr %5, i32 0, i32 2
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -37150,7 +37150,7 @@ define internal void @_ZN12_GLOBAL__N_123FilesReadBinaryProviderD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123FilesReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::FilesReadBinaryProvider", ptr %3, i32 0, i32 1
   call void @_ZN5vcpkg4PathD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #8
@@ -37784,7 +37784,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg19IReadBinaryProviderC2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg19IReadBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg19IReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -41756,7 +41756,7 @@ define internal void @_ZN12_GLOBAL__N_121HttpGetBinaryProviderC2EN5vcpkg7ZipTool
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipToolERKNS1_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %13, i32 0, i32 1
   %16 = load ptr, ptr %8, align 8
   invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
@@ -41939,7 +41939,7 @@ define internal void @_ZN12_GLOBAL__N_121HttpGetBinaryProviderD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HttpGetBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::HttpGetBinaryProvider", ptr %3, i32 0, i32 2
@@ -45303,7 +45303,7 @@ define internal void @_ZN12_GLOBAL__N_121ObjectStorageProviderC2EN5vcpkg7ZipTool
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipToolERKNS1_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %13, i32 0, i32 1
   %16 = load ptr, ptr %8, align 8
   invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
@@ -45490,7 +45490,7 @@ define internal void @_ZN12_GLOBAL__N_121ObjectStorageProviderD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121ObjectStorageProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStorageProvider", ptr %3, i32 0, i32 2
@@ -46368,7 +46368,7 @@ define internal void @_ZN12_GLOBAL__N_117GHABinaryProviderC2EN5vcpkg7ZipToolERKN
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %7, align 8
   call void @_ZN12_GLOBAL__N_121ZipReadBinaryProviderC2EN5vcpkg7ZipToolERKNS1_10FilesystemE(ptr noundef nonnull align 8 dereferenceable(24) %13, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %13, i32 0, i32 1
   %16 = load ptr, ptr %8, align 8
   invoke void @_ZN5vcpkg4PathC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %16)
@@ -46546,7 +46546,7 @@ define internal void @_ZN12_GLOBAL__N_117GHABinaryProviderD2Ev(ptr noundef nonnu
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_117GHABinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryProvider", ptr %3, i32 0, i32 2
@@ -48875,7 +48875,7 @@ define internal void @_ZN12_GLOBAL__N_124FilesWriteBinaryProviderC2ERKN5vcpkg10F
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.(anonymous namespace)::FilesWriteBinaryProvider", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   store ptr %9, ptr %8, align 8
@@ -48913,7 +48913,7 @@ define linkonce_odr dso_local void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg20IWriteBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5vcpkg20IWriteBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -48934,7 +48934,7 @@ define internal void @_ZN12_GLOBAL__N_124FilesWriteBinaryProviderD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_124FilesWriteBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::FilesWriteBinaryProvider", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   call void @_ZN5vcpkg20IWriteBinaryProviderD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #8
@@ -50014,7 +50014,7 @@ define internal void @_ZN12_GLOBAL__N_121HTTPPutBinaryProviderC2ERKN5vcpkg10File
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %6, align 8
   store ptr %13, ptr %12, align 8
@@ -50115,7 +50115,7 @@ define internal void @_ZN12_GLOBAL__N_121HTTPPutBinaryProviderD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121HTTPPutBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::HTTPPutBinaryProvider", ptr %3, i32 0, i32 2
@@ -51025,7 +51025,7 @@ define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderC2EOSt6vectorI
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %7, i32 0, i32 1
   %9 = load ptr, ptr %5, align 8
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %9) #8
@@ -51074,7 +51074,7 @@ define internal void @_ZN12_GLOBAL__N_125ObjectStoragePushProviderD2Ev(ptr nound
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_125ObjectStoragePushProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %3, i32 0, i32 2
   call void @_ZNSt10shared_ptrIKN12_GLOBAL__N_118IObjectStorageToolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #8
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::ObjectStoragePushProvider", ptr %3, i32 0, i32 1
@@ -51630,7 +51630,7 @@ define internal void @_ZN12_GLOBAL__N_121GHABinaryPushProviderC2ERKN5vcpkg10File
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN5vcpkg20IWriteBinaryProviderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %6, align 8
   store ptr %13, ptr %12, align 8
@@ -51707,7 +51707,7 @@ define internal void @_ZN12_GLOBAL__N_121GHABinaryPushProviderD2Ev(ptr noundef n
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_121GHABinaryPushProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #8
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::GHABinaryPushProvider", ptr %3, i32 0, i32 2
@@ -53820,7 +53820,7 @@ define internal void @_ZN12_GLOBAL__N_123NugetReadBinaryProviderC2ERKNS_23NugetB
           to label %12 unwind label %14
 
 12:                                               ; preds = %3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %9, align 8
   %13 = getelementptr inbounds %"struct.(anonymous namespace)::NugetReadBinaryProvider", ptr %9, i32 0, i32 2
   call void @_ZN12_GLOBAL__N_111NuGetSourceC2EOS0_(ptr noundef nonnull align 8 dereferenceable(48) %13, ptr noundef nonnull align 8 dereferenceable(48) %2) #8
   ret void
@@ -53956,7 +53956,7 @@ define internal void @_ZN12_GLOBAL__N_123NugetReadBinaryProviderD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetReadBinaryProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::NugetReadBinaryProvider", ptr %3, i32 0, i32 2
   call void @_ZN12_GLOBAL__N_111NuGetSourceD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %4) #8
   %5 = getelementptr inbounds i8, ptr %3, i64 8
@@ -57988,7 +57988,7 @@ define internal void @_ZN12_GLOBAL__N_123NugetBinaryPushProviderC2ERKNS_23NugetB
           to label %14 unwind label %19
 
 14:                                               ; preds = %4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i32 0, i32 0, i32 2), ptr %11, align 8
   %15 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %11, i32 0, i32 2
   %16 = load ptr, ptr %7, align 8
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EOS7_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %16) #8
@@ -58043,7 +58043,7 @@ define internal void @_ZN12_GLOBAL__N_123NugetBinaryPushProviderD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN12_GLOBAL__N_123NugetBinaryPushProviderE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %3, i32 0, i32 3
   call void @_ZNSt6vectorIN5vcpkg4PathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #8
   %5 = getelementptr inbounds %"struct.(anonymous namespace)::NugetBinaryPushProvider", ptr %3, i32 0, i32 2

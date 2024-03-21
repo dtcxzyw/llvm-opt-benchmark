@@ -403,7 +403,7 @@ define void @_ZN18InterfaceTreeModelC2EP7QObject(ptr noundef nonnull align 8 der
   %13 = load ptr, ptr %3, align 8
   %14 = load ptr, ptr %4, align 8
   call void @_ZN19QAbstractTableModelC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18InterfaceTreeModel, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18InterfaceTreeModel, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.InterfaceTreeModel, ptr %13, i32 0, i32 1
   call void @_ZN4QMapI7QString5QListIiEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #3
   %16 = getelementptr inbounds %class.InterfaceTreeModel, ptr %13, i32 0, i32 2
@@ -604,7 +604,7 @@ define void @_ZN18InterfaceTreeModelD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18InterfaceTreeModel, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [51 x ptr] }, ptr @_ZTV18InterfaceTreeModel, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.InterfaceTreeModel, ptr %3, i32 0, i32 2
   call void @_ZN4QMapI7QStringbED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #3
   %5 = getelementptr inbounds %class.InterfaceTreeModel, ptr %3, i32 0, i32 1

@@ -1350,7 +1350,7 @@ invoke.cont310:                                   ; preds = %invoke.cont307
   store i32 0, ptr %fCount.i.i, align 8
   %fFirst.i.i = getelementptr inbounds i8, ptr %call308, i64 64
   store ptr null, ptr %fFirst.i.i, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18PseudoListResource, i64 0, inrange i32 0, i64 2), ptr %call308, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18PseudoListResource, i64 0, i32 0, i64 2), ptr %call308, align 8
   store ptr %call308, ptr getelementptr inbounds (%struct.ResFile, ptr @_ZL10poolBundle, i64 0, i32 5), align 8
   %idx.ext318 = sext i32 %114 to i64
   %add.ptr319 = getelementptr inbounds i32, ptr %add.ptr, i64 %idx.ext318
@@ -1477,7 +1477,7 @@ lpad391:                                          ; preds = %invoke.cont389
   br label %ehcleanup
 
 if.end399:                                        ; preds = %invoke.cont389
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i64 0, inrange i32 0, i64 2), ptr %call390, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV14StringResource, i64 0, i32 0, i64 2), ptr %call390, align 8
   %fSame.i = getelementptr inbounds i8, ptr %call390, i64 120
   %fNumCharsForLength.i = getelementptr inbounds i8, ptr %call390, i64 140
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %fSame.i, i8 0, i64 20, i1 false)
@@ -2175,7 +2175,7 @@ lpad118:                                          ; preds = %invoke.cont119, %in
   br label %ehcleanup186
 
 if.end126:                                        ; preds = %invoke.cont120
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 0, inrange i32 0, i64 2), ptr %filter, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 0, i32 0, i64 2), ptr %filter, align 8
   %fRoot.i = getelementptr inbounds i8, ptr %filter, i64 8
   store i32 1, ptr %fRoot.i, align 8
   %32 = getelementptr inbounds i8, ptr %filter, i64 24
@@ -2811,7 +2811,7 @@ declare void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN25SimpleRuleBasedPathFilterD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV25SimpleRuleBasedPathFilter, i64 0, i32 0, i64 2), ptr %this, align 8
   %fWildcard.i = getelementptr inbounds i8, ptr %this, i64 64
   %0 = load ptr, ptr %fWildcard.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

@@ -156,7 +156,7 @@ if.end:                                           ; preds = %entry
   tail call void @_ZN6google8protobuf8internal13VerifyVersionEiiPKc(i32 noundef 3000000, i32 noundef 3000000, ptr noundef nonnull @.str)
   tail call void @_ZN3net54protobuf_AddDesc_cached_5fnetwork_5fparameters_2eprotoEv()
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, i32 0, i64 2), ptr %call, align 8
   %_arena_ptr_.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
@@ -181,7 +181,7 @@ invoke.cont:                                      ; preds = %if.end
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %timestamp_.i.i, i8 0, i64 16, i1 false)
   store ptr %call, ptr @_ZN3net18SourceAddressToken17default_instance_E, align 8
   %call1 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, inrange i32 0, i64 2), ptr %call1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, i32 0, i64 2), ptr %call1, align 8
   %_arena_ptr_.i3 = getelementptr inbounds i8, ptr %call1, i64 16
   store ptr null, ptr %_arena_ptr_.i3, align 8
   %tokens_.i = getelementptr inbounds i8, ptr %call1, i64 32
@@ -254,7 +254,7 @@ declare void @_ZN6google8protobuf8internal10OnShutdownEPFvvE(ptr noundef) local_
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18SourceAddressTokenC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
@@ -307,7 +307,7 @@ declare noundef nonnull align 8 dereferenceable(72) ptr @_ZN3net23CachedNetworkP
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net18SourceAddressTokenC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %from) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
   %call.i1 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
@@ -466,7 +466,7 @@ declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #7
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net18SourceAddressTokenD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i, ptr noundef nonnull %0)
@@ -552,7 +552,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net18SourceAddressTokenD0Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_unknown_fields_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i.i, ptr noundef nonnull %0)
@@ -626,7 +626,7 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local noundef nonnull ptr @_ZNK3net18SourceAddressToken3NewEPN6google8protobuf5ArenaE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %arena) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, i32 0, i64 2), ptr %call, align 8
   %_arena_ptr_.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
@@ -730,7 +730,7 @@ entry:
   %unknown_fields_string = alloca %"class.google::protobuf::io::LazyStringOutputStream", align 8
   %unknown_fields_stream = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net18SourceAddressTokenEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net18SourceAddressTokenEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %function_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @_ZN3netL41MutableUnknownFieldsForSourceAddressTokenB5cxx11EPNS_18SourceAddressTokenE, ptr %function_.i.i, align 8
   %self_deleting_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -1522,7 +1522,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19SourceAddressTokensC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
   %tokens_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -1623,7 +1623,7 @@ invoke.cont:                                      ; preds = %delete.notnull.i, %
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN3net19SourceAddressTokensC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef nonnull align 8 dereferenceable(56) %from) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_arena_ptr_ = getelementptr inbounds i8, ptr %this, i64 16
   store ptr null, ptr %_arena_ptr_, align 8
   %tokens_ = getelementptr inbounds i8, ptr %this, i64 32
@@ -1712,7 +1712,7 @@ if.end8:                                          ; preds = %if.then4, %if.end
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net19SourceAddressTokensD2Ev(ptr noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_unknown_fields_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr @_ZN6google8protobuf8internal13empty_string_B5cxx11E, align 8
   invoke void @_ZN6google8protobuf8internal14ArenaStringPtr14DestroyNoArenaEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %_unknown_fields_.i, ptr noundef nonnull %0)
@@ -1829,7 +1829,7 @@ if.end:                                           ; preds = %if.then, %entry
 define dso_local noundef nonnull ptr @_ZNK3net19SourceAddressTokens3NewEPN6google8protobuf5ArenaE(ptr nocapture nonnull readnone align 8 %this, ptr noundef %arena) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net19SourceAddressTokensE, i64 0, i32 0, i64 2), ptr %call, align 8
   %_arena_ptr_.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
   %tokens_.i = getelementptr inbounds i8, ptr %call, i64 32
@@ -1918,7 +1918,7 @@ entry:
   %unknown_fields_string = alloca %"class.google::protobuf::io::LazyStringOutputStream", align 8
   %unknown_fields_stream = alloca %"class.google::protobuf::io::CodedOutputStream", align 8
   %call.i = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #15
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net19SourceAddressTokensEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6google8protobuf8internal26FunctionResultCallback_1_0IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3net19SourceAddressTokensEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %function_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store ptr @_ZN3netL42MutableUnknownFieldsForSourceAddressTokensB5cxx11EPNS_19SourceAddressTokensE, ptr %function_.i.i, align 8
   %self_deleting_.i.i = getelementptr inbounds i8, ptr %call.i, i64 16
@@ -2582,7 +2582,7 @@ entry:
 
 if.then.i:                                        ; preds = %entry
   %call.i2 = tail call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #15
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, inrange i32 0, i64 2), ptr %call.i2, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, i32 0, i64 2), ptr %call.i2, align 8
   %_arena_ptr_.i = getelementptr inbounds i8, ptr %call.i2, i64 16
   store ptr null, ptr %_arena_ptr_.i, align 8
   %call.i1.i = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()
@@ -2615,7 +2615,7 @@ common.resume:                                    ; preds = %lpad.i6, %lpad.i3
 
 if.else.i:                                        ; preds = %entry
   %call.i = tail call noundef ptr @_ZN6google8protobuf5Arena15AllocateAlignedEPKSt9type_infom(ptr noundef nonnull align 8 dereferenceable(136) %arena, ptr noundef nonnull @_ZTIN3net18SourceAddressTokenE, i64 noundef 56)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN3net18SourceAddressTokenE, i64 0, i32 0, i64 2), ptr %call.i, align 8
   %_arena_ptr_.i4 = getelementptr inbounds i8, ptr %call.i, i64 16
   store ptr null, ptr %_arena_ptr_.i4, align 8
   %call.i1.i5 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google8protobuf8internal14GetEmptyStringB5cxx11Ev()

@@ -89,7 +89,7 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9UPerfTestC2EiPPKcR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %argc, ptr noundef %argv, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, i32 0, i64 2), ptr %this, align 8
   %_argc = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %argc, ptr %_argc, align 8
   %_argv = getelementptr inbounds i8, ptr %this, i64 16
@@ -368,7 +368,7 @@ if.end86:                                         ; preds = %if.end71, %if.then8
 ; Function Attrs: mustprogress uwtable
 define void @_ZN9UPerfTestC2EiPPKcP7UOptioniS1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(160) %this, i32 noundef %argc, ptr noundef %argv, ptr nocapture noundef %addOptions, i32 noundef %addOptionsCount, ptr noundef %addUsage, ptr noundef nonnull align 4 dereferenceable(4) %status) unnamed_addr #3 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, i32 0, i64 2), ptr %this, align 8
   %_argc = getelementptr inbounds i8, ptr %this, i64 8
   store i32 %argc, ptr %_argc, align 8
   %_argv = getelementptr inbounds i8, ptr %this, i64 16
@@ -1227,7 +1227,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9UPerfTestD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(160) %this) unnamed_addr #16 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9UPerfTest, i64 0, i32 0, i64 2), ptr %this, align 8
   %lines = getelementptr inbounds i8, ptr %this, i64 88
   %0 = load ptr, ptr %lines, align 8
   %cmp.not = icmp eq ptr %0, null

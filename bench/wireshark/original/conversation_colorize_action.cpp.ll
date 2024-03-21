@@ -138,7 +138,7 @@ define void @_ZN18ConversationActionC2EP7QObjectP21conversation_filter_s(ptr nou
   %10 = load ptr, ptr %4, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN7QActionC2EP7QObject(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef %11)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18ConversationAction, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV18ConversationAction, i32 0, i32 0, i32 2), ptr %10, align 8
   %12 = getelementptr inbounds %class.ConversationAction, ptr %10, i32 0, i32 2
   call void @_ZN10QByteArrayC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %12) #5
   %13 = getelementptr inbounds %class.ConversationAction, ptr %10, i32 0, i32 3

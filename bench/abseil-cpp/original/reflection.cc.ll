@@ -4193,7 +4193,7 @@ entry:
   store ptr %type_id, ptr %type_id.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4absl15CommandLineFlagC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl14flags_internal12_GLOBAL__N_114RetiredFlagObjE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl14flags_internal12_GLOBAL__N_114RetiredFlagObjE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %name_ = getelementptr inbounds %"class.absl::flags_internal::(anonymous namespace)::RetiredFlagObj", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %name.addr, align 8
   store ptr %0, ptr %name_, align 8
@@ -5257,7 +5257,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl15CommandLineFlagE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTVN4absl15CommandLineFlagE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

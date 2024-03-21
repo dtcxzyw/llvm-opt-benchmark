@@ -48,7 +48,7 @@ $_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE = comdat any
 define void @_ZN3zmq12ws_encoder_tC2Emb(ptr noundef nonnull align 8 dereferenceable(168) %this, i64 noundef %bufsize_, i1 noundef zeroext %must_mask_) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %frombool = zext i1 %must_mask_ to i8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_write_pos.i = getelementptr inbounds i8, ptr %this, i64 8
   %_buf_size.i = getelementptr inbounds i8, ptr %this, i64 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(33) %_write_pos.i, i8 0, i64 33, i1 false)
@@ -70,7 +70,7 @@ if.then.i:                                        ; preds = %entry
   br label %_ZN3zmq14encoder_base_tINS_12ws_encoder_tEEC2Em.exit
 
 _ZN3zmq14encoder_base_tINS_12ws_encoder_tEEC2Em.exit: ; preds = %entry, %if.then.i
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq12ws_encoder_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq12ws_encoder_tE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_must_mask = getelementptr inbounds i8, ptr %this, i64 88
   store i8 %frombool, ptr %_must_mask, align 8
   %_next.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -90,7 +90,7 @@ invoke.cont4:                                     ; preds = %_ZN3zmq14encoder_ba
 lpad:                                             ; preds = %_ZN3zmq14encoder_base_tINS_12ws_encoder_tEEC2Em.exit
   %2 = landingpad { ptr, i32 }
           cleanup
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %3 = load ptr, ptr %_buf.i, align 8
   tail call void @free(ptr noundef %3) #15
   resume { ptr, i32 } %2
@@ -367,7 +367,7 @@ entry:
           to label %invoke.cont unwind label %terminate.lpad
 
 invoke.cont:                                      ; preds = %entry
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_buf.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_buf.i, align 8
   tail call void @free(ptr noundef %0) #15
@@ -733,7 +733,7 @@ declare void @_ZN3zmq9zmq_abortEPKc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEED2Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_buf = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_buf, align 8
   tail call void @free(ptr noundef %0) #15
@@ -743,7 +743,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3zmq14encoder_base_tINS_12ws_encoder_tEED0Ev(ptr noundef nonnull align 8 dereferenceable(72) %this) unnamed_addr #2 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_12ws_encoder_tEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_buf.i = getelementptr inbounds i8, ptr %this, i64 56
   %0 = load ptr, ptr %_buf.i, align 8
   tail call void @free(ptr noundef %0) #15

@@ -295,7 +295,7 @@ define void @_ZN9RichColorC2ERK7QStringRK6QColorS2_S2_bS2_(ptr noundef nonnull a
 
 28:                                               ; preds = %7
   call void @_ZN10ColorValueD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %15) #5
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9RichColor, i32 0, inrange i32 0, i32 2), ptr %20, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9RichColor, i32 0, i32 0, i32 2), ptr %20, align 8
   ret void
 
 29:                                               ; preds = %7
@@ -421,7 +421,7 @@ define linkonce_odr void @_ZN9RichColorC2ERKS_(ptr noundef nonnull align 8 deref
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN13RichParameterC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef nonnull align 8 dereferenceable(56) %6)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9RichColor, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV9RichColor, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 

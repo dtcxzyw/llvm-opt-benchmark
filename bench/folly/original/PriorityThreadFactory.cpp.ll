@@ -141,7 +141,7 @@ entry:
   %0 = load <2 x ptr>, ptr %factory, align 8, !tbaa !7
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %factory, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %ref.tmp.sroa.6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly17InitThreadFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly17InitThreadFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !11
   store ptr null, ptr %_M_refcount.i.i, align 8, !tbaa !13
   store <2 x ptr> %0, ptr %threadFactory_.i, align 8, !tbaa !7
   store ptr null, ptr %agg.tmp, align 8, !tbaa !15
@@ -158,7 +158,7 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i.i, align 8, !tbaa !22, !noalias !17
   %_M_weak_count.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i19.i.i.i.i3.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i.i, align 4, !tbaa !25, !noalias !17
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly17InitThreadFactory14ThreadInitFiniESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i3.i, align 16, !tbaa !11, !noalias !17
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly17InitThreadFactory14ThreadInitFiniESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i19.i.i.i.i3.i, align 16, !tbaa !11, !noalias !17
   %_M_impl.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i19.i.i.i.i3.i, i64 0, i32 1
   %call_.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i19.i.i.i.i3.i, i64 0, i32 1, i32 0, i32 0, i32 0, i64 48
   store ptr @"_ZN5folly6detail8function14FunctionTraitsIFvvEE9callSmallIZNS_21PriorityThreadFactoryC1ESt10shared_ptrINS_13ThreadFactoryEEiE3$_0EEvRNS1_4DataE", ptr %call_.i.i.i.i.i.i.i.i.i.i, align 16, !tbaa !26, !noalias !17
@@ -178,7 +178,7 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
   store ptr %call5.i.i.i19.i.i.i.i3.i, ptr %_M_refcount.i.i.i.i, align 8, !tbaa !13, !alias.scope !17
   store ptr %_M_impl.i.i.i.i.i.i.i, ptr %threadInitFini_.i, align 8, !tbaa !7, !alias.scope !17
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %ref.tmp.sroa.6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly21PriorityThreadFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly21PriorityThreadFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !11
   ret void
 
 _ZN5folly8FunctionIFvvEED2Ev.exit22:              ; preds = %entry
@@ -257,7 +257,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %if.the
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly17InitThreadFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly17InitThreadFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly17InitThreadFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !11
   %_M_refcount.i = getelementptr inbounds %"class.folly::InitThreadFactory", ptr %this, i64 0, i32 2, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !13
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -364,7 +364,7 @@ _ZNSt12__shared_ptrIN5folly13ThreadFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.ex
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly21PriorityThreadFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly17InitThreadFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly17InitThreadFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !11
   %_M_refcount.i.i = getelementptr inbounds %"class.folly::InitThreadFactory", ptr %this, i64 0, i32 2, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !13
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -807,7 +807,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !11
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !11
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #19
           to label %invoke.cont unwind label %lpad
 
@@ -826,7 +826,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #5 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #17
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !11
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !11
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #21
   unreachable
 }
@@ -883,7 +883,7 @@ entry:
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly17InitThreadFactoryD0Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly17InitThreadFactoryE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !11
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5folly17InitThreadFactoryE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !11
   %_M_refcount.i.i = getelementptr inbounds %"class.folly::InitThreadFactory", ptr %this, i64 0, i32 2, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i.i, align 8, !tbaa !13
   %cmp.not.i.i.i = icmp eq ptr %0, null

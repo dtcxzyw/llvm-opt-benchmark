@@ -42,7 +42,7 @@ $__clang_call_terminate = comdat any
 define dso_local void @_ZN22btMultiBodyPoint2PointC2EP11btMultiBodyiP11btRigidBodyRK9btVector3S6_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %body, i32 noundef %link, ptr noundef %bodyB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pivotInA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pivotInB) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %body, ptr noundef null, i32 noundef %link, i32 noundef -1, i32 noundef 3, i1 noundef zeroext false, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_rigidBodyA = getelementptr inbounds i8, ptr %this, i64 96
   store ptr null, ptr %m_rigidBodyA, align 8
   %m_rigidBodyB = getelementptr inbounds i8, ptr %this, i64 104
@@ -150,7 +150,7 @@ declare void @_ZN21btMultiBodyConstraintD2Ev(ptr noundef nonnull align 8 derefer
 define dso_local void @_ZN22btMultiBodyPoint2PointC2EP11btMultiBodyiS1_iRK9btVector3S4_(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef %bodyA, i32 noundef %linkA, ptr noundef %bodyB, i32 noundef %linkB, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pivotInA, ptr nocapture noundef nonnull readonly align 4 dereferenceable(16) %pivotInB) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN21btMultiBodyConstraintC2EP11btMultiBodyS1_iiibi(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef %bodyA, ptr noundef %bodyB, i32 noundef %linkA, i32 noundef %linkB, i32 noundef 3, i1 noundef zeroext false, i32 noundef 6)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV22btMultiBodyPoint2Point, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_rigidBodyA = getelementptr inbounds i8, ptr %this, i64 96
   %m_pivotInA = getelementptr inbounds i8, ptr %this, i64 112
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %m_rigidBodyA, i8 0, i64 16, i1 false)

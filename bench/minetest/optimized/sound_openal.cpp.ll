@@ -104,7 +104,7 @@ define dso_local void @_Z27createSoundManagerSingletonv(ptr dead_on_unwind noali
   store i32 1, ptr %4, align 8, !tbaa !7, !noalias !4
   %5 = getelementptr inbounds i8, ptr %3, i64 12
   store i32 1, ptr %5, align 4, !tbaa !12, !noalias !4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound21SoundManagerSingletonESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !13, !noalias !4
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5sound21SoundManagerSingletonESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !13, !noalias !4
   %6 = getelementptr inbounds i8, ptr %3, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !noalias !4
   store ptr %3, ptr %2, align 8, !tbaa !15, !alias.scope !4
@@ -411,7 +411,7 @@ define linkonce_odr dso_local void @_ZN5sound17ProxySoundManagerC2EPNS_21SoundMa
   store i32 1, ptr %11, align 8, !tbaa !37
   %12 = getelementptr inbounds i8, ptr %0, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN5sound17ProxySoundManagerE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN5sound17ProxySoundManagerE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !13
   %13 = getelementptr inbounds i8, ptr %0, i64 96
   %14 = load i64, ptr %2, align 8, !tbaa !18
   store i64 %14, ptr %4, align 8, !tbaa !18
@@ -542,7 +542,7 @@ declare void @_ZN5sound18OpenALSoundManagerD1Ev(ptr noundef nonnull align 8 dere
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN13ISoundManagerD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !13
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV13ISoundManager, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !55
   %4 = icmp eq ptr %3, null

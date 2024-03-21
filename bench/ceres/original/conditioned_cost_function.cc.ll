@@ -720,7 +720,7 @@ define hidden void @_ZN5ceres23ConditionedCostFunctionC2EPNS_12CostFunctionERKSt
   store i32 %3, ptr %8, align 4
   %24 = load ptr, ptr %5, align 8
   call void @_ZN5ceres12CostFunctionC2Ev(ptr noundef nonnull align 8 dereferenceable(36) %24)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres23ConditionedCostFunctionE, i32 0, inrange i32 0, i32 2), ptr %24, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres23ConditionedCostFunctionE, i32 0, i32 0, i32 2), ptr %24, align 8
   %25 = getelementptr inbounds %"class.ceres::ConditionedCostFunction", ptr %24, i32 0, i32 2
   %26 = load ptr, ptr %6, align 8
   call void @_ZNSt10unique_ptrIN5ceres12CostFunctionESt14default_deleteIS1_EEC2IS3_vEEPS1_(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %26) #14

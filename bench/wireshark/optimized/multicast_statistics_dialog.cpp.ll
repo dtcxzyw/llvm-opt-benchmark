@@ -211,9 +211,9 @@ define void @_ZN25MulticastStatisticsDialogC2ER7QWidgetR11CaptureFilePKc(ptr nou
   %46 = alloca %class.QString, align 16
   %47 = alloca %"class.QMetaObject::Connection", align 8
   tail call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(48) %2, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %48 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i64 0, inrange i32 1, i64 2), ptr %48, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i64 0, i32 1, i64 2), ptr %48, align 8
   %49 = getelementptr inbounds i8, ptr %0, i64 272
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
   invoke void @_ZNK11QMetaObject2trEPKcS1_i(ptr dead_on_unwind nonnull writable sret(%class.QString) align 8 %17, ptr noundef nonnull align 8 dereferenceable(56) @_ZN25MulticastStatisticsDialog16staticMetaObjectE, ptr noundef nonnull @.str, ptr noundef null, i32 noundef -1)
@@ -2191,7 +2191,7 @@ define void @_ZN25MulticastStatisticsDialog7tapDrawEP20_mcaststream_tapinfo(ptr 
           to label %_ZN27MulticastStatTreeWidgetItemC2EP11QTreeWidget.exit unwind label %26
 
 _ZN27MulticastStatTreeWidgetItemC2EP11QTreeWidget.exit: ; preds = %18
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV27MulticastStatTreeWidgetItem, i64 0, inrange i32 0, i64 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV27MulticastStatTreeWidgetItem, i64 0, i32 0, i64 2), ptr %16, align 8
   %19 = getelementptr inbounds i8, ptr %16, i64 96
   %20 = getelementptr inbounds i8, ptr %16, i64 128
   %21 = getelementptr inbounds i8, ptr %16, i64 156
@@ -2731,9 +2731,9 @@ declare void @_ZN18TapParameterDialogD2Ev(ptr noundef nonnull align 8 dereferenc
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN25MulticastStatisticsDialogD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i64 0, inrange i32 0, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i64 0, i32 0, i64 2), ptr %0, align 8
   %2 = getelementptr inbounds i8, ptr %0, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i64 0, inrange i32 1, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV25MulticastStatisticsDialog, i64 0, i32 1, i64 2), ptr %2, align 8
   %3 = getelementptr inbounds i8, ptr %0, i64 224
   %4 = load ptr, ptr %3, align 8
   invoke void @remove_tap_listener_mcast_stream(ptr noundef %4)

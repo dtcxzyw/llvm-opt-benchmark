@@ -173,7 +173,7 @@ declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev10RangeOpCPUC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_scale = getelementptr inbounds i8, ptr %this, i64 8
   %m_offset = getelementptr inbounds i8, ptr %this, i64 12
   %m_lowerBound = getelementptr inbounds i8, ptr %this, i64 16
@@ -210,7 +210,7 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_scale.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -236,7 +236,7 @@ entry:
   %7 = load double, ptr %m_maxOutValue.i.i, align 8
   %conv17.i = fptrunc double %7 to float
   store float %conv17.i, ptr %m_upperBound.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -310,7 +310,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #6
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev19RangeMinMaxRendererC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_scale.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -336,7 +336,7 @@ entry:
   %7 = load double, ptr %m_maxOutValue.i.i, align 8
   %conv17.i = fptrunc double %7 to float
   store float %conv17.i, ptr %m_upperBound.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev19RangeMinMaxRendererE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev19RangeMinMaxRendererE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -400,7 +400,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev16RangeMinRendererC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_scale.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -426,7 +426,7 @@ entry:
   %7 = load double, ptr %m_maxOutValue.i.i, align 8
   %conv17.i = fptrunc double %7 to float
   store float %conv17.i, ptr %m_upperBound.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMinRendererE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMinRendererE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -480,7 +480,7 @@ for.end:                                          ; preds = %for.body, %entry
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define hidden void @_ZN19OpenColorIO_v2_4dev16RangeMaxRendererC2ERSt10shared_ptrIKNS_11RangeOpDataEE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(24) %this, ptr nocapture noundef nonnull readonly align 8 dereferenceable(16) %range) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev10RangeOpCPUE, i64 0, i32 0, i64 2), ptr %this, align 8
   %m_scale.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_offset.i = getelementptr inbounds i8, ptr %this, i64 12
   %m_lowerBound.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -506,7 +506,7 @@ entry:
   %7 = load double, ptr %m_maxOutValue.i.i, align 8
   %conv17.i = fptrunc double %7 to float
   store float %conv17.i, ptr %m_upperBound.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMaxRendererE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMaxRendererE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -630,7 +630,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit: ; preds =
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !9
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !9
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i3, align 8, !noalias !9
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i3, align 8, !noalias !9
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 16
   %m_scale.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 24
   %m_offset.i.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i3, i64 28
@@ -652,7 +652,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit: ; preds =
   %13 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i, align 8, !noalias !9
   %conv17.i.i.i.i.i.i.i.i.i = fptrunc double %13 to float
   store float %conv17.i.i.i.i.i.i.i.i.i, ptr %m_upperBound.i.i.i.i.i.i.i.i.i, align 4, !noalias !9
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMaxRendererE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !9
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMaxRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !9
   br label %cleanup
 
 if.else:                                          ; preds = %invoke.cont4
@@ -671,7 +671,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit: ; preds =
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i14, align 8, !noalias !12
   %_M_weak_count.i.i.i.i.i.i15 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i15, align 4, !noalias !12
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i29, align 8, !noalias !12
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev16RangeMinRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i29, align 8, !noalias !12
   %_M_impl.i.i.i.i.i.i16 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 16
   %m_scale.i.i.i.i.i.i.i.i.i17 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 24
   %m_offset.i.i.i.i.i.i.i.i.i18 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i29, i64 28
@@ -693,7 +693,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit: ; preds =
   %17 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i27, align 8, !noalias !12
   %conv17.i.i.i.i.i.i.i.i.i28 = fptrunc double %17 to float
   store float %conv17.i.i.i.i.i.i.i.i.i28, ptr %m_upperBound.i.i.i.i.i.i.i.i.i20, align 4, !noalias !12
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMinRendererE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16, align 8, !noalias !12
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev16RangeMinRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i16, align 8, !noalias !12
   br label %cleanup
 
 if.end15:                                         ; preds = %invoke.cont9
@@ -712,7 +712,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit: ; pred
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i64, align 8, !noalias !15
   %_M_weak_count.i.i.i.i.i.i65 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i65, align 4, !noalias !15
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19RangeMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i79, align 8, !noalias !15
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev19RangeMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i79, align 8, !noalias !15
   %_M_impl.i.i.i.i.i.i66 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 16
   %m_scale.i.i.i.i.i.i.i.i.i67 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 24
   %m_offset.i.i.i.i.i.i.i.i.i68 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i79, i64 28
@@ -734,7 +734,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit: ; pred
   %21 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i77, align 8, !noalias !15
   %conv17.i.i.i.i.i.i.i.i.i78 = fptrunc double %21 to float
   store float %conv17.i.i.i.i.i.i.i.i.i78, ptr %m_upperBound.i.i.i.i.i.i.i.i.i70, align 4, !noalias !15
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev19RangeMinMaxRendererE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i66, align 8, !noalias !15
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev19RangeMinMaxRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i66, align 8, !noalias !15
   br label %cleanup
 
 if.end22:                                         ; preds = %invoke.cont17
@@ -746,7 +746,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit: ;
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i114, align 8, !noalias !18
   %_M_weak_count.i.i.i.i.i.i115 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i115, align 4, !noalias !18
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i129, align 8, !noalias !18
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i.i.i.i129, align 8, !noalias !18
   %_M_impl.i.i.i.i.i.i116 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 16
   %m_scale.i.i.i.i.i.i.i.i.i117 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 24
   %m_offset.i.i.i.i.i.i.i.i.i118 = getelementptr inbounds i8, ptr %call5.i.i.i3.i.i.i.i129, i64 28
@@ -768,7 +768,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit: ;
   %25 = load double, ptr %m_maxOutValue.i.i.i.i.i.i.i.i.i.i127, align 8, !noalias !18
   %conv17.i.i.i.i.i.i.i.i.i128 = fptrunc double %25 to float
   store float %conv17.i.i.i.i.i.i.i.i.i128, ptr %m_upperBound.i.i.i.i.i.i.i.i.i120, align 4, !noalias !18
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i116, align 8, !noalias !18
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i116, align 8, !noalias !18
   br label %cleanup
 
 cleanup:                                          ; preds = %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev24RangeScaleMinMaxRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev19RangeMinMaxRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMinRendererEED2Ev.exit, %_ZNSt10shared_ptrIN19OpenColorIO_v2_4dev16RangeMaxRendererEED2Ev.exit

@@ -442,9 +442,9 @@ define void @_ZN29ScsiServiceResponseTimeDialogC2ER7QWidgetR11CaptureFileP12regi
 
 32:                                               ; preds = %5
   call void @_ZN7QStringD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %11) #11
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV29ScsiServiceResponseTimeDialog, i32 0, inrange i32 0, i32 2), ptr %28, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV29ScsiServiceResponseTimeDialog, i32 0, i32 0, i32 2), ptr %28, align 8
   %33 = getelementptr inbounds i8, ptr %28, i64 16
-  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV29ScsiServiceResponseTimeDialog, i32 0, inrange i32 1, i32 2), ptr %33, align 8
+  store ptr getelementptr inbounds ({ [69 x ptr], [10 x ptr] }, ptr @_ZTV29ScsiServiceResponseTimeDialog, i32 0, i32 1, i32 2), ptr %33, align 8
   invoke void @_ZN18TapParameterDialog14setRetapOnShowEb(ptr noundef nonnull align 8 dereferenceable(224) %28, i1 noundef zeroext false)
           to label %34 unwind label %85
 

@@ -138,7 +138,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = getelementptr inbounds i8, ptr %this1, i64 8
   call void @_ZN4base10RefCountedIN3net11ProofSource5ChainEEC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net11ProofSource5ChainE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net11ProofSource5ChainE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %certs2 = getelementptr inbounds %"struct.net::ProofSource::Chain", ptr %this1, i32 0, i32 2
   %1 = load ptr, ptr %certs.addr, align 8
   invoke void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %certs2, ptr noundef nonnull align 8 dereferenceable(24) %1)
@@ -270,7 +270,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net11ProofSource5ChainE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net11ProofSource5ChainE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %certs = getelementptr inbounds %"struct.net::ProofSource::Chain", ptr %this1, i32 0, i32 2
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %certs) #10
   %0 = getelementptr inbounds i8, ptr %this1, i64 8

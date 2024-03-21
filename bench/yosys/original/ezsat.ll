@@ -1735,7 +1735,7 @@ define void @_ZN5ezSATC2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) 
   %8 = alloca %"class.std::allocator.26", align 1
   store ptr %0, ptr %2, align 8
   %9 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV5ezSAT, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV5ezSAT, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %class.ezSAT, ptr %9, i32 0, i32 5
   call void @_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSt4lessIS5_ESaISt4pairIKS5_iEEEC2Ev(ptr noundef nonnull align 8 dereferenceable(48) %10) #14
   %11 = getelementptr inbounds %class.ezSAT, ptr %9, i32 0, i32 6
@@ -2095,7 +2095,7 @@ define void @_ZN5ezSATD2Ev(ptr noundef nonnull align 8 dereferenceable(284) %0) 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV5ezSAT, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV5ezSAT, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.ezSAT, ptr %3, i32 0, i32 17
   call void @_ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #14
   %5 = getelementptr inbounds %class.ezSAT, ptr %3, i32 0, i32 16

@@ -2336,8 +2336,8 @@ entry:
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23)
   %call.i = tail call noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #40, !noalias !23
   %0 = getelementptr inbounds i8, ptr %call.i, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !26, !noalias !23
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !26, !noalias !23
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !26, !noalias !23
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !26, !noalias !23
   %validators_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i, i8 0, i64 24, i1 false), !noalias !23
   store ptr %call.i, ptr %v, align 8, !tbaa !22, !alias.scope !23
@@ -2816,7 +2816,7 @@ invoke.cont:                                      ; preds = %cond.false.i.i.i, %
   %creating_thread_.i.i = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %call, i64 0, i32 4
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(44) %mutex_.i.i, i8 0, i64 44, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(2224) %creating_thread_.i.i, i8 0, i64 2224, i1 false)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEE4ImplINS0_10DefaultTagES6_EE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEE4ImplINS0_10DefaultTagES6_EE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !26
   ret ptr %call
 
 lpad:                                             ; preds = %cond.false.i.i.i
@@ -2829,7 +2829,7 @@ lpad:                                             ; preds = %cond.false.i.i.i
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEED2Ev(ptr noundef nonnull align 8 dereferenceable(2304) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly6detail15SingletonHolderINS_10jsonschema9ValidatorEEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %_M_refcount.i = getelementptr inbounds %"struct.folly::detail::SingletonHolder", ptr %this, i64 0, i32 15, i32 0, i32 1
   %0 = load ptr, ptr %_M_refcount.i, align 8, !tbaa !56
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -3642,7 +3642,7 @@ invoke.cont111:                                   ; preds = %if.end109
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !58, !noalias !163
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i16.i.i.i.i265, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !61, !noalias !163
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i265, align 8, !tbaa !26, !noalias !163
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5folly5BatonILb1ESt6atomicEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i265, align 8, !tbaa !26, !noalias !163
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %call5.i.i.i16.i.i.i.i265, i64 0, i32 1
   store i32 0, ptr %_M_impl.i.i.i.i.i.i, align 4, !tbaa !166, !noalias !163
   store ptr %call5.i.i.i16.i.i.i.i265, ptr %_M_refcount.i.i.i, align 8, !tbaa !56, !alias.scope !163
@@ -3658,7 +3658,7 @@ invoke.cont114:                                   ; preds = %invoke.cont111
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i267, align 8, !tbaa !58, !noalias !167
   %_M_weak_count.i.i.i.i.i.i268 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i16.i.i.i.i270, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i268, align 4, !tbaa !61, !noalias !167
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i270, align 8, !tbaa !26, !noalias !167
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt6atomicIbESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i16.i.i.i.i270, align 8, !tbaa !26, !noalias !167
   %_M_impl.i.i.i.i.i.i269 = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.165", ptr %call5.i.i.i16.i.i.i.i270, i64 0, i32 1
   store i8 0, ptr %_M_impl.i.i.i.i.i.i269, align 1, !tbaa !170, !noalias !167
   store ptr %call5.i.i.i16.i.i.i.i270, ptr %_M_refcount.i.i.i266, align 8, !tbaa !56, !alias.scope !167
@@ -6185,7 +6185,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #12 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
   %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %0, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !273
@@ -6344,7 +6344,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa.struct !273
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1, i32 1
@@ -6459,7 +6459,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_ISt17bad_function_ca
 entry:
   %ref.tmp = alloca %"class.std::bad_function_call", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !26
   invoke void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #43
           to label %invoke.cont unwind label %lpad
 
@@ -6478,7 +6478,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionISt17bad_function_callEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #18 comdat {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !26
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTISt17bad_function_call, ptr nonnull @_ZNSt17bad_function_callD1Ev) #37
   unreachable
 }
@@ -10651,7 +10651,7 @@ _ZNSt15__allocated_ptrISaISt19_Sp_counted_deleterIPN5folly10jsonschema9Validator
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
   store i32 1, ptr %_M_use_count.i.i, align 8, !tbaa !58
   store i32 1, ptr %_M_weak_count.i.i, align 4, !tbaa !61
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly10jsonschema9ValidatorEZNS0_6detail15SingletonHolderIS2_E14createInstanceEvEUlS3_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly10jsonschema9ValidatorEZNS0_6detail15SingletonHolderIS2_E14createInstanceEvEUlS3_E_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17, align 8, !tbaa !26
   store <2 x ptr> %2, ptr %_M_impl.i, align 8, !tbaa !22
   store <2 x ptr> %4, ptr %3, align 8, !tbaa !22
   %5 = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %call5.i.i.i17, i64 0, i32 1, i32 0, i32 0, i32 2
@@ -10979,7 +10979,7 @@ invoke.cont:                                      ; preds = %for.body
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !58, !noalias !361
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call.i.i.i16.i.i.i.i31, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !61, !noalias !361
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt10shared_ptrIN5folly10jsonschema9ValidatorEENS1_13CoreAllocatorIS4_EELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i16.i.i.i.i31, align 8, !tbaa !26, !noalias !361
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceISt10shared_ptrIN5folly10jsonschema9ValidatorEENS1_13CoreAllocatorIS4_EELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call.i.i.i16.i.i.i.i31, align 8, !tbaa !26, !noalias !361
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.197", ptr %call.i.i.i16.i.i.i.i31, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_impl.i.i.i.i.i.i, i8 0, i64 16, i1 false), !noalias !361
   %0 = load ptr, ptr %p, align 8, !tbaa !176
@@ -11488,7 +11488,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !tbaa !58
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 2
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !tbaa !61
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly10TLRefCountEZNS1_C1EvEUlPvE_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN5folly10TLRefCountEZNS1_C1EvEUlPvE_SaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i17.i.i.i.i, align 8, !tbaa !26
   %_M_impl.i.i.i.i.i = getelementptr inbounds %"class.std::_Sp_counted_deleter.209", ptr %call5.i.i.i17.i.i.i.i, i64 0, i32 1
   store ptr %this, ptr %_M_impl.i.i.i.i.i, align 8, !tbaa !369
   store ptr %call5.i.i.i17.i.i.i.i, ptr %_M_refcount.i.i, align 8, !tbaa !56
@@ -13843,7 +13843,7 @@ if.then18:                                        ; preds = %land.rhs.i.i.i.i.i.
   %second.val = load ptr, ptr %second, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !429)
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40, !noalias !429
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_112RefValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !26, !noalias !429
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_112RefValidatorE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !26, !noalias !429
   %validator_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::RefValidator", ptr %call.i, i64 0, i32 1
   store ptr %second.val, ptr %validator_.i.i, align 8, !tbaa !432, !noalias !429
   store ptr %call.i, ptr %ref.tmp19, align 8, !tbaa !22, !alias.scope !429
@@ -14202,8 +14202,8 @@ if.then67:                                        ; preds = %catch, %invoke.cont
 
 invoke.cont69:                                    ; preds = %if.then67
   %70 = getelementptr inbounds i8, ptr %call.i596597, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i596597, align 8, !tbaa !26, !noalias !446
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %70, align 8, !tbaa !26, !noalias !446
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i596597, align 8, !tbaa !26, !noalias !446
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %70, align 8, !tbaa !26, !noalias !446
   %validators_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i596597, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i, i8 0, i64 24, i1 false), !noalias !446
   store ptr %call.i596597, ptr %v, align 8, !tbaa !22, !alias.scope !446
@@ -14290,7 +14290,7 @@ lpad.i607:                                        ; preds = %if.then107
   br label %common.resume
 
 _ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_119MultipleOfValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %if.then107
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119MultipleOfValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i606, align 8, !tbaa !26, !noalias !449
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119MultipleOfValidatorE, i64 0, i32 0, i64 2), ptr %call.i606, align 8, !tbaa !26, !noalias !449
   %schema_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::MultipleOfValidator", ptr %call.i606, i64 0, i32 1
   call void @_ZN5folly7dynamicC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %schema_.i.i, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i) #39, !noalias !449
   store ptr %call.i606, ptr %ref.tmp109, align 8, !tbaa !22, !alias.scope !449
@@ -14454,7 +14454,7 @@ if.then121:                                       ; preds = %if.end115
           to label %invoke.cont.i unwind label %lpad.i628, !noalias !467
 
 invoke.cont.i:                                    ; preds = %if.then121
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119ComparisonValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i627, align 8, !tbaa !26, !noalias !467
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119ComparisonValidatorE, i64 0, i32 0, i64 2), ptr %call.i627, align 8, !tbaa !26, !noalias !467
   %schema_.i.i629 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::ComparisonValidator", ptr %call.i627, i64 0, i32 1
   call void @_ZN5folly7dynamicC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %schema_.i.i629, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i626) #39, !noalias !467
   %exclusive_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::ComparisonValidator", ptr %call.i627, i64 0, i32 2
@@ -14643,7 +14643,7 @@ if.then141:                                       ; preds = %if.end135
           to label %invoke.cont.i687 unwind label %lpad.i686, !noalias !480
 
 invoke.cont.i687:                                 ; preds = %if.then141
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119ComparisonValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i685, align 8, !tbaa !26, !noalias !480
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119ComparisonValidatorE, i64 0, i32 0, i64 2), ptr %call.i685, align 8, !tbaa !26, !noalias !480
   %schema_.i.i688 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::ComparisonValidator", ptr %call.i685, i64 0, i32 1
   call void @_ZN5folly7dynamicC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %schema_.i.i688, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i684) #39, !noalias !480
   %exclusive_.i.i689 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::ComparisonValidator", ptr %call.i685, i64 0, i32 2
@@ -14827,7 +14827,7 @@ if.then161:                                       ; preds = %if.end155
   %136 = getelementptr i8, ptr %call159, i64 8
   %call159.val530 = load i64, ptr %136, align 8
   %call.i751 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #40, !noalias !490
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEE, i64 0, inrange i32 0, i64 2), ptr %call.i751, align 8, !tbaa !26, !noalias !490
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEE, i64 0, i32 0, i64 2), ptr %call.i751, align 8, !tbaa !26, !noalias !490
   %length_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator", ptr %call.i751, i64 0, i32 1
   store i64 -1, ptr %length_.i.i, align 8, !tbaa !493, !noalias !490
   %type_.i.i752 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator", ptr %call.i751, i64 0, i32 2
@@ -14988,7 +14988,7 @@ if.then177:                                       ; preds = %if.end171
   %155 = getelementptr i8, ptr %call175, i64 8
   %call175.val533 = load i64, ptr %155, align 8
   %call.i808 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #40, !noalias !503
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEE, i64 0, inrange i32 0, i64 2), ptr %call.i808, align 8, !tbaa !26, !noalias !503
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEE, i64 0, i32 0, i64 2), ptr %call.i808, align 8, !tbaa !26, !noalias !503
   %length_.i.i809 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator.532", ptr %call.i808, i64 0, i32 1
   store i64 -1, ptr %length_.i.i809, align 8, !tbaa !506, !noalias !503
   %type_.i.i810 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator.532", ptr %call.i808, i64 0, i32 2
@@ -15148,7 +15148,7 @@ if.then193:                                       ; preds = %if.end187
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp195) #39
   call void @llvm.experimental.noalias.scope.decl(metadata !516)
   %call.i867 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #40, !noalias !516
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_122StringPatternValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i867, align 8, !tbaa !26, !noalias !516
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_122StringPatternValidatorE, i64 0, i32 0, i64 2), ptr %call.i867, align 8, !tbaa !26, !noalias !516
   %regex_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::StringPatternValidator", ptr %call.i867, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %regex_.i.i, i8 0, i64 16, i1 false), !noalias !516
   %174 = load i32, ptr %call191, align 8, !tbaa !421, !noalias !516
@@ -15426,7 +15426,7 @@ if.then210:                                       ; preds = %if.end201
   %validators_211 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %this, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp212) #39
   %call.i936 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #40, !noalias !530
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119ArrayItemsValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i936, align 8, !tbaa !26, !noalias !530
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119ArrayItemsValidatorE, i64 0, i32 0, i64 2), ptr %call.i936, align 8, !tbaa !26, !noalias !530
   %itemsValidator_.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::ArrayItemsValidator", ptr %call.i936, i64 0, i32 1
   %itemsValidators_.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::ArrayItemsValidator", ptr %call.i936, i64 0, i32 2
   %additionalItemsValidator_.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::ArrayItemsValidator", ptr %call.i936, i64 0, i32 3
@@ -15451,8 +15451,8 @@ if.then.i1896:                                    ; preds = %land.lhs.true.i
 
 .noexc.i:                                         ; preds = %if.then.i1896
   %214 = getelementptr inbounds i8, ptr %call.i23262328, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23262328, align 8, !tbaa !26, !noalias !546
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %214, align 8, !tbaa !26, !noalias !546
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23262328, align 8, !tbaa !26, !noalias !546
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %214, align 8, !tbaa !26, !noalias !546
   %validators_.i.i2327 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23262328, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2327, i8 0, i64 24, i1 false), !noalias !546
   store ptr %call.i23262328, ptr %ref.tmp.i1883, align 8, !tbaa !22, !alias.scope !543, !noalias !530
@@ -15514,8 +15514,8 @@ for.body.i:                                       ; preds = %_ZNSt10unique_ptrIN
 
 .noexc95.i:                                       ; preds = %for.body.i
   %221 = getelementptr inbounds i8, ptr %call.i23222324, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23222324, align 8, !tbaa !26, !noalias !553
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %221, align 8, !tbaa !26, !noalias !553
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23222324, align 8, !tbaa !26, !noalias !553
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %221, align 8, !tbaa !26, !noalias !553
   %validators_.i.i2323 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23222324, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2323, i8 0, i64 24, i1 false), !noalias !553
   store ptr %call.i23222324, ptr %ref.tmp18.i, align 8, !tbaa !22, !alias.scope !550, !noalias !530
@@ -15701,8 +15701,8 @@ if.else29.i:                                      ; preds = %land.lhs.true.i, %i
 
 .noexc129.i:                                      ; preds = %if.else29.i
   %239 = getelementptr inbounds i8, ptr %call.i23182320, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23182320, align 8, !tbaa !26, !noalias !574
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %239, align 8, !tbaa !26, !noalias !574
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23182320, align 8, !tbaa !26, !noalias !574
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %239, align 8, !tbaa !26, !noalias !574
   %validators_.i.i2319 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23182320, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2319, i8 0, i64 24, i1 false), !noalias !574
   store ptr %call.i23182320, ptr %ref.tmp30.i, align 8, !tbaa !22, !alias.scope !571, !noalias !530
@@ -15771,8 +15771,8 @@ if.then52.i:                                      ; preds = %if.then43.i
 
 .noexc168.i:                                      ; preds = %if.then52.i
   %246 = getelementptr inbounds i8, ptr %call.i23142316, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23142316, align 8, !tbaa !26, !noalias !581
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %246, align 8, !tbaa !26, !noalias !581
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23142316, align 8, !tbaa !26, !noalias !581
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %246, align 8, !tbaa !26, !noalias !581
   %validators_.i.i2315 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23142316, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2315, i8 0, i64 24, i1 false), !noalias !581
   store ptr %call.i23142316, ptr %ref.tmp53.i, align 8, !tbaa !22, !alias.scope !578, !noalias !530
@@ -15996,7 +15996,7 @@ if.then223:                                       ; preds = %if.end218
   %271 = getelementptr i8, ptr %call221, i64 8
   %call221.val529 = load i64, ptr %271, align 8
   %call.i992 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #40, !noalias !592
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEE, i64 0, inrange i32 0, i64 2), ptr %call.i992, align 8, !tbaa !26, !noalias !592
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEE, i64 0, i32 0, i64 2), ptr %call.i992, align 8, !tbaa !26, !noalias !592
   %length_.i.i993 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator", ptr %call.i992, i64 0, i32 1
   store i64 -1, ptr %length_.i.i993, align 8, !tbaa !493, !noalias !592
   %type_.i.i994 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator", ptr %call.i992, i64 0, i32 2
@@ -16155,7 +16155,7 @@ if.then239:                                       ; preds = %if.end233
   %288 = getelementptr i8, ptr %call237, i64 8
   %call237.val532 = load i64, ptr %288, align 8
   %call.i1056 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #40, !noalias !602
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEE, i64 0, inrange i32 0, i64 2), ptr %call.i1056, align 8, !tbaa !26, !noalias !602
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEE, i64 0, i32 0, i64 2), ptr %call.i1056, align 8, !tbaa !26, !noalias !602
   %length_.i.i1057 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator.532", ptr %call.i1056, i64 0, i32 1
   store i64 -1, ptr %length_.i.i1057, align 8, !tbaa !506, !noalias !602
   %type_.i.i1058 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator.532", ptr %call.i1056, i64 0, i32 2
@@ -16314,7 +16314,7 @@ if.then255:                                       ; preds = %if.end249
   %305 = getelementptr i8, ptr %call253, i64 8
   %call253.val534 = load i8, ptr %305, align 1
   %call.i1121 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40, !noalias !612
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_120ArrayUniqueValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i1121, align 8, !tbaa !26, !noalias !612
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_120ArrayUniqueValidatorE, i64 0, i32 0, i64 2), ptr %call.i1121, align 8, !tbaa !26, !noalias !612
   %cmp.not.i.i.i.i.i1122 = icmp eq i32 %call253.val, 2
   %tobool.i.i.i = icmp ne i8 %call253.val534, 0
   %narrow.i.i = select i1 %cmp.not.i.i.i.i.i1122, i1 %tobool.i.i.i, i1 false
@@ -16471,7 +16471,7 @@ if.then276:                                       ; preds = %if.end263
   %validators_277 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %this, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp278) #39
   %call.i1182 = call noalias noundef nonnull dereferenceable(104) ptr @_Znwm(i64 noundef 104) #40, !noalias !624
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119PropertiesValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i1182, align 8, !tbaa !26, !noalias !624
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119PropertiesValidatorE, i64 0, i32 0, i64 2), ptr %call.i1182, align 8, !tbaa !26, !noalias !624
   %propertyValidators_.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::PropertiesValidator", ptr %call.i1182, i64 0, i32 1
   %_M_single_bucket.i.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::PropertiesValidator", ptr %call.i1182, i64 0, i32 1, i32 0, i32 5
   store ptr %_M_single_bucket.i.i.i, ptr %propertyValidators_.i, align 8, !tbaa !627, !noalias !624
@@ -16529,8 +16529,8 @@ if.then13.i:                                      ; preds = %for.body.i1965
 .noexc147.i:                                      ; preds = %if.then13.i
   %second.i = getelementptr inbounds %"struct.std::pair.759", ptr %325, i64 0, i32 1
   %327 = getelementptr inbounds i8, ptr %call.i23382340, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23382340, align 8, !tbaa !26, !noalias !644
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %327, align 8, !tbaa !26, !noalias !644
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23382340, align 8, !tbaa !26, !noalias !644
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %327, align 8, !tbaa !26, !noalias !644
   %validators_.i.i2339 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23382340, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2339, i8 0, i64 24, i1 false), !noalias !644
   store ptr %call.i23382340, ptr %ref.tmp14.i, align 8, !tbaa !22, !alias.scope !641, !noalias !624
@@ -17097,8 +17097,8 @@ _ZN5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC2ISt11ch
 .noexc187.i:                                      ; preds = %_ZN5boost11basic_regexIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEC2ISt11char_traitsIcESaIcEEERKNSt7__cxx1112basic_stringIcT_T0_EEj.exit.i
   %second69.i = getelementptr inbounds %"struct.std::pair.759", ptr %399, i64 0, i32 1
   %404 = getelementptr inbounds i8, ptr %call.i23342336, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23342336, align 8, !tbaa !26, !noalias !667
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %404, align 8, !tbaa !26, !noalias !667
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23342336, align 8, !tbaa !26, !noalias !667
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %404, align 8, !tbaa !26, !noalias !667
   %validators_.i.i2335 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23342336, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2335, i8 0, i64 24, i1 false), !noalias !667
   store ptr %call.i23342336, ptr %ref.tmp68.i, align 8, !tbaa !22, !alias.scope !664, !noalias !624
@@ -17505,8 +17505,8 @@ if.then99.i:                                      ; preds = %if.then91.i
 
 .noexc272.i:                                      ; preds = %if.then99.i
   %446 = getelementptr inbounds i8, ptr %call.i23302332, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23302332, align 8, !tbaa !26, !noalias !682
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %446, align 8, !tbaa !26, !noalias !682
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23302332, align 8, !tbaa !26, !noalias !682
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %446, align 8, !tbaa !26, !noalias !682
   %validators_.i.i2331 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23302332, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2331, i8 0, i64 24, i1 false), !noalias !682
   store ptr %call.i23302332, ptr %ref.tmp100.i, align 8, !tbaa !22, !alias.scope !679, !noalias !624
@@ -17719,7 +17719,7 @@ if.then289:                                       ; preds = %if.end284
   %469 = getelementptr i8, ptr %call287, i64 8
   %call287.val528 = load i64, ptr %469, align 8
   %call.i1234 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #40, !noalias !693
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEE, i64 0, inrange i32 0, i64 2), ptr %call.i1234, align 8, !tbaa !26, !noalias !693
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt13greater_equalIlEEE, i64 0, i32 0, i64 2), ptr %call.i1234, align 8, !tbaa !26, !noalias !693
   %length_.i.i1235 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator", ptr %call.i1234, i64 0, i32 1
   store i64 -1, ptr %length_.i.i1235, align 8, !tbaa !493, !noalias !693
   %type_.i.i1236 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator", ptr %call.i1234, i64 0, i32 2
@@ -17878,7 +17878,7 @@ if.then305:                                       ; preds = %if.end299
   %486 = getelementptr i8, ptr %call303, i64 8
   %call303.val531 = load i64, ptr %486, align 8
   %call.i1298 = call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #40, !noalias !703
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEE, i64 0, inrange i32 0, i64 2), ptr %call.i1298, align 8, !tbaa !26, !noalias !703
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113SizeValidatorISt10less_equalIlEEE, i64 0, i32 0, i64 2), ptr %call.i1298, align 8, !tbaa !26, !noalias !703
   %length_.i.i1299 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator.532", ptr %call.i1298, i64 0, i32 1
   store i64 -1, ptr %length_.i.i1299, align 8, !tbaa !506, !noalias !703
   %type_.i.i1300 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SizeValidator.532", ptr %call.i1298, i64 0, i32 2
@@ -18036,7 +18036,7 @@ if.then321:                                       ; preds = %if.end315
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp323) #39
   call void @llvm.experimental.noalias.scope.decl(metadata !713)
   %call.i1362 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40, !noalias !713
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_117RequiredValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i1362, align 8, !tbaa !26, !noalias !713
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_117RequiredValidatorE, i64 0, i32 0, i64 2), ptr %call.i1362, align 8, !tbaa !26, !noalias !713
   %properties_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::RequiredValidator", ptr %call.i1362, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %properties_.i.i, i8 0, i64 24, i1 false), !noalias !713
   %503 = load i32, ptr %call319, align 8, !tbaa !421, !noalias !713
@@ -18286,7 +18286,7 @@ if.then335:                                       ; preds = %if.end329
   %validators_336 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %this, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp337) #39
   %call.i1436 = call noalias noundef nonnull dereferenceable(56) ptr @_Znwm(i64 noundef 56) #40, !noalias !724
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i1436, align 8, !tbaa !26, !noalias !724
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_119DependencyValidatorE, i64 0, i32 0, i64 2), ptr %call.i1436, align 8, !tbaa !26, !noalias !724
   %propertyDep_.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::DependencyValidator", ptr %call.i1436, i64 0, i32 1
   %schemaDep_.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::DependencyValidator", ptr %call.i1436, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %propertyDep_.i, i8 0, i64 48, i1 false)
@@ -18652,8 +18652,8 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit155.i: ; preds = %if.then58.i
 
 .noexc156.i:                                      ; preds = %_ZNKR5folly7dynamic9getStringB5cxx11Ev.exit155.i
   %588 = getelementptr inbounds i8, ptr %call.i23422344, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23422344, align 8, !tbaa !26, !noalias !741
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %588, align 8, !tbaa !26, !noalias !741
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23422344, align 8, !tbaa !26, !noalias !741
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %588, align 8, !tbaa !26, !noalias !741
   %validators_.i.i2343 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23422344, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2343, i8 0, i64 24, i1 false), !noalias !741
   store ptr %call.i23422344, ptr %ref.tmp63.i, align 8, !tbaa !22, !alias.scope !738, !noalias !724
@@ -19154,7 +19154,7 @@ lpad.i1490:                                       ; preds = %if.then349
   br label %common.resume
 
 _ZSt11make_uniqueIN5folly10jsonschema12_GLOBAL__N_113EnumValidatorEJRKNS0_7dynamicEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit: ; preds = %if.then349
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113EnumValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i1489, align 8, !tbaa !26, !noalias !766
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113EnumValidatorE, i64 0, i32 0, i64 2), ptr %call.i1489, align 8, !tbaa !26, !noalias !766
   %schema_.i.i1492 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::EnumValidator", ptr %call.i1489, i64 0, i32 1
   call void @_ZN5folly7dynamicC1EOS0_(ptr noundef nonnull align 8 dereferenceable(40) %schema_.i.i1492, ptr noundef nonnull align 8 dereferenceable(40) %agg.tmp.i1488) #39, !noalias !766
   store ptr %call.i1489, ptr %ref.tmp351, align 8, !tbaa !22, !alias.scope !766
@@ -19310,7 +19310,7 @@ if.then363:                                       ; preds = %if.end357
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp365) #39
   call void @llvm.experimental.noalias.scope.decl(metadata !776)
   %call.i1543 = call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #40, !noalias !776
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113TypeValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i1543, align 8, !tbaa !26, !noalias !776
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_113TypeValidatorE, i64 0, i32 0, i64 2), ptr %call.i1543, align 8, !tbaa !26, !noalias !776
   %allowedTypes_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::TypeValidator", ptr %call.i1543, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %allowedTypes_.i.i, i8 0, i64 24, i1 false), !noalias !776
   %typeStr_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::TypeValidator", ptr %call.i1543, i64 0, i32 2
@@ -19552,7 +19552,7 @@ if.then377:                                       ; preds = %if.end371
   %validators_378 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %this, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp379) #39
   %call.i1611 = call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40, !noalias !788
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i1611, align 8, !tbaa !26, !noalias !788
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_114AllOfValidatorE, i64 0, i32 0, i64 2), ptr %call.i1611, align 8, !tbaa !26, !noalias !788
   %validators_.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::AllOfValidator", ptr %call.i1611, i64 0, i32 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i, i8 0, i64 24, i1 false), !noalias !788
   %694 = load i32, ptr %call375, align 8, !tbaa !421, !noalias !788
@@ -19581,8 +19581,8 @@ for.body.i2206:                                   ; preds = %_ZNSt10unique_ptrIN
 
 .noexc31.i:                                       ; preds = %for.body.i2206
   %697 = getelementptr inbounds i8, ptr %call.i23462348, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23462348, align 8, !tbaa !26, !noalias !794
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %697, align 8, !tbaa !26, !noalias !794
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23462348, align 8, !tbaa !26, !noalias !794
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %697, align 8, !tbaa !26, !noalias !794
   %validators_.i.i2347 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23462348, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2347, i8 0, i64 24, i1 false), !noalias !794
   store ptr %call.i23462348, ptr %ref.tmp.i2189, align 8, !tbaa !22, !alias.scope !791, !noalias !788
@@ -20227,7 +20227,7 @@ if.then423:                                       ; preds = %if.end417
   %validators_424 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %this, i64 0, i32 2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp425) #39
   %call.i1828 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #40, !noalias !834
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_112NotValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i1828, align 8, !tbaa !26, !noalias !834
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_112NotValidatorE, i64 0, i32 0, i64 2), ptr %call.i1828, align 8, !tbaa !26, !noalias !834
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp.i2281) #39, !noalias !834
   call void @llvm.experimental.noalias.scope.decl(metadata !837)
   %call.i23502352 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #40
@@ -20235,8 +20235,8 @@ if.then423:                                       ; preds = %if.end417
 
 .noexc.i2285:                                     ; preds = %if.then423
   %765 = getelementptr inbounds i8, ptr %call.i23502352, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i23502352, align 8, !tbaa !26, !noalias !840
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %765, align 8, !tbaa !26, !noalias !840
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i23502352, align 8, !tbaa !26, !noalias !840
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %765, align 8, !tbaa !26, !noalias !840
   %validators_.i.i2351 = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i23502352, i64 0, i32 2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i2351, i8 0, i64 24, i1 false), !noalias !840
   store ptr %call.i23502352, ptr %ref.tmp.i2281, align 8, !tbaa !22, !alias.scope !837, !noalias !834
@@ -20721,7 +20721,7 @@ if.then.i.i.i:                                    ; preds = %if.then
 
 invoke.cont3:                                     ; preds = %if.then
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %exception, ptr noundef nonnull align 8 dereferenceable(16) %se) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !26
   invoke void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, ptr nonnull @_ZNSt13runtime_errorD2Ev) #37
           to label %unreachable unwind label %lpad5
 
@@ -20844,11 +20844,11 @@ cleanup:                                          ; preds = %.noexc
   %2 = getelementptr inbounds i8, ptr %se, i64 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !870
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %se) #39, !noalias !870
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.tmp.i.i.i, align 8, !tbaa !26, !noalias !870
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.tmp.i.i.i, align 8, !tbaa !26, !noalias !870
   %call.i.i.i.i = call ptr @__cxa_allocate_exception(i64 noundef 16) #39, !noalias !873
   %call1.i.i.i.i = call ptr @__cxa_init_primary_exception(ptr noundef %call.i.i.i.i, ptr noundef nonnull @_ZTIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, ptr noundef nonnull @_ZNSt15__exception_ptr12__dest_thunkIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorEEEvPv) #39, !noalias !873
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %call.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i) #39, !noalias !873
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %call.i.i.i.i, align 8, !tbaa !26, !noalias !873
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %call.i.i.i.i, align 8, !tbaa !26, !noalias !873
   call void @_ZNSt15__exception_ptr13exception_ptrC1EPv(ptr noundef nonnull align 8 dereferenceable(8) %agg.result, ptr noundef nonnull %call.i.i.i.i) #39
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %agg.tmp.i.i.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %agg.tmp.i.i.i), !noalias !870
@@ -21450,7 +21450,7 @@ entry:
   %ref.tmp = alloca %"class.folly::OptionalEmptyException", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #39
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp, ptr noundef nonnull @.str.24)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !26
   invoke void @_ZN5folly15throw_exceptionINS_22OptionalEmptyExceptionEEEvOT_(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #43
           to label %invoke.cont unwind label %lpad
 
@@ -21478,7 +21478,7 @@ entry:
 define linkonce_odr void @_ZN5folly22OptionalEmptyExceptionC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   ret void
 }
 
@@ -22907,7 +22907,7 @@ declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceab
 define linkonce_odr void @_ZN5folly9TypeErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9TypeErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly9TypeErrorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   ret void
 }
 
@@ -23510,7 +23510,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %ref.tmp) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !26
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #43
           to label %invoke.cont unwind label %lpad
 
@@ -23529,7 +23529,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessIvEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(8) %ex) local_unnamed_addr #18 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 8) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessIvEE, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !26
   tail call void @__cxa_throw(ptr nonnull %exception, ptr nonnull @_ZTIN5folly17BadExpectedAccessIvEE, ptr nonnull @_ZNSt9exceptionD2Ev) #37
   unreachable
 }
@@ -23566,7 +23566,7 @@ declare void @_ZNSt11range_errorD2Ev(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr void @_ZN5folly15ConversionErrorC2EOS0_(ptr noundef nonnull align 8 dereferenceable(17) %this, ptr noundef nonnull align 8 dereferenceable(17) %0) unnamed_addr #11 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly15ConversionErrorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %code_ = getelementptr inbounds %"class.folly::ConversionError", ptr %this, i64 0, i32 1
   %code_2 = getelementptr inbounds %"class.folly::ConversionError", ptr %0, i64 0, i32 1
   %1 = load i8, ptr %code_2, align 8, !tbaa !962
@@ -23587,7 +23587,7 @@ define linkonce_odr void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAcc
 entry:
   %ref.tmp = alloca %"class.folly::BadExpectedAccess.476", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, i32 0, i64 2), ptr %ref.tmp, align 8, !tbaa !26
   %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.476", ptr %ref.tmp, i64 0, i32 1
   store i8 %args, ptr %error_.i, align 8, !tbaa !970
   invoke void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ref.tmp) #43
@@ -23608,7 +23608,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5folly15throw_exceptionINS_17BadExpectedAccessINS_14ConversionCodeEEEEEvOT_(ptr noundef nonnull align 8 dereferenceable(9) %ex) local_unnamed_addr #18 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %exception = tail call ptr @__cxa_allocate_exception(i64 16) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, inrange i32 0, i64 2), ptr %exception, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly17BadExpectedAccessINS_14ConversionCodeEEE, i64 0, i32 0, i64 2), ptr %exception, align 8, !tbaa !26
   %error_.i = getelementptr inbounds %"class.folly::BadExpectedAccess.476", ptr %exception, i64 0, i32 1
   %error_2.i = getelementptr inbounds %"class.folly::BadExpectedAccess.476", ptr %ex, i64 0, i32 1
   %0 = load i8, ptr %error_2.i, align 8, !tbaa !970
@@ -23851,7 +23851,7 @@ declare void @_ZNSt12out_of_rangeD1Ev(ptr noundef nonnull align 8 dereferenceabl
 define linkonce_odr void @_ZNSt12out_of_rangeC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #12 comdat align 2 {
 entry:
   tail call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12out_of_range, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   ret void
 }
 
@@ -27483,7 +27483,7 @@ cleanup:                                          ; preds = %_ZNK5folly7dynamic8
   %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !855, !alias.scope !1312
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1312
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1312
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !863, !alias.scope !1312
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !1312
@@ -27505,7 +27505,7 @@ if.then22:                                        ; preds = %_ZNKR5folly7dynamic
   %hasValue.i.i.i53 = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i53, align 8, !tbaa !855, !alias.scope !1315
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i52) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1315
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1315
   store i8 1, ptr %hasValue.i.i.i53, align 8, !tbaa !863, !alias.scope !1315
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i52) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i52) #39, !noalias !1315
@@ -28345,7 +28345,7 @@ if.then.i.i22:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %if.then.i.i22, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i23
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   ret void
 
 lpad:                                             ; preds = %entry
@@ -28617,7 +28617,7 @@ if.then4.i:                                       ; preds = %if.then2.i
   %hasValue.i.i.i.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i.i, align 8, !tbaa !855, !alias.scope !1358
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1358
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1358
   store i8 1, ptr %hasValue.i.i.i.i, align 8, !tbaa !863, !alias.scope !1358
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i) #39, !noalias !1358
@@ -28634,7 +28634,7 @@ if.then6.i:                                       ; preds = %if.else.i
   %hasValue.i.i.i39.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i39.i, align 8, !tbaa !855, !alias.scope !1362
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i38.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1362
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1362
   store i8 1, ptr %hasValue.i.i.i39.i, align 8, !tbaa !863, !alias.scope !1362
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i38.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i38.i) #39, !noalias !1362
@@ -28657,7 +28657,7 @@ if.then18.i:                                      ; preds = %if.then16.i
   %hasValue.i.i.i41.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i41.i, align 8, !tbaa !855, !alias.scope !1366
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i40.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1366
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1366
   store i8 1, ptr %hasValue.i.i.i41.i, align 8, !tbaa !863, !alias.scope !1366
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i40.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i40.i) #39, !noalias !1366
@@ -28674,7 +28674,7 @@ if.then23.i:                                      ; preds = %if.else21.i
   %hasValue.i.i.i43.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i43.i, align 8, !tbaa !855, !alias.scope !1370
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i42.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1370
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1370
   store i8 1, ptr %hasValue.i.i.i43.i, align 8, !tbaa !863, !alias.scope !1370
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i42.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i42.i) #39, !noalias !1370
@@ -28714,7 +28714,7 @@ if.then4.i84:                                     ; preds = %if.then2.i83
   %hasValue.i.i.i.i86 = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i.i86, align 8, !tbaa !855, !alias.scope !1377
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i64) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1377
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1377
   store i8 1, ptr %hasValue.i.i.i.i86, align 8, !tbaa !863, !alias.scope !1377
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i64) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i64) #39, !noalias !1377
@@ -28731,7 +28731,7 @@ if.then6.i89:                                     ; preds = %if.else.i87
   %hasValue.i.i.i39.i91 = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i39.i91, align 8, !tbaa !855, !alias.scope !1381
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i38.i63) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1381
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1381
   store i8 1, ptr %hasValue.i.i.i39.i91, align 8, !tbaa !863, !alias.scope !1381
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i38.i63) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i38.i63) #39, !noalias !1381
@@ -28754,7 +28754,7 @@ if.then18.i70:                                    ; preds = %if.then16.i69
   %hasValue.i.i.i41.i72 = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i41.i72, align 8, !tbaa !855, !alias.scope !1385
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i40.i62) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1385
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1385
   store i8 1, ptr %hasValue.i.i.i41.i72, align 8, !tbaa !863, !alias.scope !1385
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i40.i62) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i40.i62) #39, !noalias !1385
@@ -28771,7 +28771,7 @@ if.then23.i77:                                    ; preds = %if.else21.i75
   %hasValue.i.i.i43.i79 = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i43.i79, align 8, !tbaa !855, !alias.scope !1389
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i42.i61) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1389
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1389
   store i8 1, ptr %hasValue.i.i.i43.i79, align 8, !tbaa !863, !alias.scope !1389
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i42.i61) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i42.i61) #39, !noalias !1389
@@ -28832,7 +28832,7 @@ if.then9:                                         ; preds = %if.end4
   %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !855, !alias.scope !1390
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1390
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1390
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !863, !alias.scope !1390
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !1390
@@ -28939,7 +28939,7 @@ if.then.i.i10:                                    ; preds = %_ZNSt7__cxx1112basi
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %if.then.i.i10, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i11
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #39
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   ret void
 
 lpad3:                                            ; preds = %invoke.cont
@@ -29091,7 +29091,7 @@ if.then9:                                         ; preds = %if.end4
   %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !855, !alias.scope !1396
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1396
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1396
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !863, !alias.scope !1396
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !1396
@@ -29283,7 +29283,7 @@ if.then6:                                         ; preds = %_ZNKR5folly7dynamic
   %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !855, !alias.scope !1412
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1412
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !1412
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !863, !alias.scope !1412
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !1412
@@ -29444,7 +29444,7 @@ _ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12re
   store i32 1, ptr %use_count_.i.i.i.i99, align 8, !tbaa !1417
   %weak_count_.i.i.i.i100 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %call.i.i, i64 0, i32 2
   store i32 1, ptr %weak_count_.i.i.i.i100, align 4, !tbaa !1419
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i, align 8, !tbaa !26
   %px_.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_impl_p.619", ptr %call.i.i, i64 0, i32 1
   store ptr %call2, ptr %px_.i.i.i, align 8, !tbaa !1420
   store ptr %call2, ptr %temp, align 8, !tbaa !22
@@ -29541,7 +29541,7 @@ _ZN5boost10shared_ptrINS_16re_detail_10740026basic_regex_implementationIcNS_12re
   store i32 1, ptr %use_count_.i.i.i.i121, align 8, !tbaa !1417
   %weak_count_.i.i.i.i122 = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %call.i.i114, i64 0, i32 2
   store i32 1, ptr %weak_count_.i.i.i.i122, align 4, !tbaa !1419
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i.i114, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740026basic_regex_implementationIcNS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i64 0, i32 0, i64 2), ptr %call.i.i114, align 8, !tbaa !26
   %px_.i.i.i123 = getelementptr inbounds %"class.boost::detail::sp_counted_impl_p.619", ptr %call.i.i114, i64 0, i32 1
   store ptr %call10, ptr %px_.i.i.i123, align 8, !tbaa !1420
   store ptr %call10, ptr %temp, align 8, !tbaa !22
@@ -33556,7 +33556,7 @@ _ZN5boost6detail12shared_countC2INS_16re_detail_10740031cpp_regex_traits_impleme
   store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !1417
   %weak_count_.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %call.i, i64 0, i32 2
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !1419
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740031cpp_regex_traits_implementationIcEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_16re_detail_10740031cpp_regex_traits_implementationIcEEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !26
   %px_.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_impl_p", ptr %call.i, i64 0, i32 1
   store ptr %p, ptr %px_.i.i, align 8, !tbaa !1551
   %5 = load ptr, ptr %pn, align 8, !tbaa !522
@@ -34667,7 +34667,7 @@ declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull al
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt13runtime_errorEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #39
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -34675,9 +34675,9 @@ invoke.cont:
   %throw_line_.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %throw_line_.i, align 8, !tbaa !1562
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, inrange i32 2, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !26
   ret void
 }
 
@@ -34685,7 +34685,7 @@ invoke.cont:
 define linkonce_odr void @_ZN5boost10wrapexceptISt13runtime_errorED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i, align 8, !tbaa !1565
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -34722,12 +34722,12 @@ _ZN5boost9exceptionD2Ev.exit:                     ; preds = %if.then.i.i.i, %cal
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptISt13runtime_errorE5cloneEv(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #39
   %1 = getelementptr inbounds i8, ptr %call, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %data_2.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %data_2.i.i, align 8, !tbaa !1565
@@ -34753,9 +34753,9 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i, %e
   %throw_function_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %throw_function_3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %throw_function_.i.i, ptr noundef nonnull align 8 dereferenceable(20) %throw_function_3.i.i, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, inrange i32 2, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !26
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr2)
           to label %_ZN5boost10wrapexceptISt13runtime_errorE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptISt13runtime_errorE7deleterD2Ev.exit14
@@ -34799,7 +34799,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5boost10wrapexceptISt13runtime_errorED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -34837,7 +34837,7 @@ _ZN5boost10wrapexceptISt13runtime_errorED2Ev.exit: ; preds = %if.then.i.i.i.i, %
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt13runtime_errorED1Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -34873,7 +34873,7 @@ _ZN5boost10wrapexceptISt13runtime_errorED2Ev.exit: ; preds = %if.then.i.i.i.i, %
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt13runtime_errorED0Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -34910,7 +34910,7 @@ _ZN5boost10wrapexceptISt13runtime_errorED0Ev.exit: ; preds = %if.then.i.i.i.i.i,
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt13runtime_errorED1Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -34946,7 +34946,7 @@ _ZN5boost10wrapexceptISt13runtime_errorED2Ev.exit: ; preds = %if.then.i.i.i.i, %
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt13runtime_errorED0Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -34997,12 +34997,12 @@ entry:
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt13runtime_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #39
   %2 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !26
   %data_.i = getelementptr inbounds i8, ptr %this, i64 32
   %data_2.i = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %data_2.i, align 8, !tbaa !1565
@@ -35021,9 +35021,9 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %ent
   %throw_function_.i = getelementptr inbounds i8, ptr %this, i64 40
   %throw_function_3.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %throw_function_.i, ptr noundef nonnull align 8 dereferenceable(20) %throw_function_3.i, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, inrange i32 1, i64 2), ptr %1, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, inrange i32 2, i64 2), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt13runtime_errorEE, i64 0, i32 2, i64 2), ptr %2, align 8, !tbaa !26
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i
@@ -35236,7 +35236,7 @@ _ZN5boost6detail12shared_countC2INS_20regex_traits_wrapperINS_12regex_traitsIcNS
   store i32 1, ptr %use_count_.i.i.i, align 8, !tbaa !1417
   %weak_count_.i.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_base", ptr %call.i, i64 0, i32 2
   store i32 1, ptr %weak_count_.i.i.i, align 4, !tbaa !1419
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_20regex_traits_wrapperINS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN5boost6detail17sp_counted_impl_pINS_20regex_traits_wrapperINS_12regex_traitsIcNS_16cpp_regex_traitsIcEEEEEEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !tbaa !26
   %px_.i.i = getelementptr inbounds %"class.boost::detail::sp_counted_impl_p.618", ptr %call.i, i64 0, i32 1
   store ptr %p, ptr %px_.i.i, align 8, !tbaa !1566
   %6 = load ptr, ptr %pn, align 8, !tbaa !522
@@ -49235,12 +49235,12 @@ entry:
   %ref.tmp2 = alloca %"class.std::locale", align 8
   %val = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %sbuf) #39
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %sbuf, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %sbuf, align 8, !tbaa !26
   %_M_in_beg.i.i = getelementptr inbounds %"class.std::basic_streambuf", ptr %sbuf, i64 0, i32 1
   %_M_buf_locale.i.i = getelementptr inbounds %"class.std::basic_streambuf", ptr %sbuf, i64 0, i32 7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %_M_in_beg.i.i, i8 0, i64 48, i1 false)
   call void @_ZNSt6localeC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i) #39
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost16re_detail_10740010parser_bufIcSt11char_traitsIcEEE, i64 0, inrange i32 0, i64 2), ptr %sbuf, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN5boost16re_detail_10740010parser_bufIcSt11char_traitsIcEEE, i64 0, i32 0, i64 2), ptr %sbuf, align 8, !tbaa !26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %_M_in_beg.i.i, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %is) #39
   %0 = getelementptr inbounds i8, ptr %is, i64 16
@@ -49253,11 +49253,11 @@ entry:
   store i8 0, ptr %_M_fill_init.i.i, align 1, !tbaa !1832
   %_M_streambuf.i.i = getelementptr inbounds i8, ptr %is, i64 248
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %_M_streambuf.i.i, i8 0, i64 32, i1 false)
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVSi, i64 0, inrange i32 0, i64 3), ptr %is, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVSi, i64 0, inrange i32 1, i64 3), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVSi, i64 0, i32 0, i64 3), ptr %is, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVSi, i64 0, i32 1, i64 3), ptr %0, align 8, !tbaa !26
   %_M_gcount.i = getelementptr inbounds %"class.std::basic_istream", ptr %is, i64 0, i32 1
   store i64 0, ptr %_M_gcount.i, align 8, !tbaa !1833
-  %vbase.offset.i = load i64, ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVSi, i64 0, inrange i32 0, i64 0), align 8
+  %vbase.offset.i = load i64, ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVSi, i64 0, i32 0, i64 0), align 8
   %add.ptr2.i = getelementptr inbounds i8, ptr %is, i64 %vbase.offset.i
   invoke void @_ZNSt9basic_iosIcSt11char_traitsIcEE4initEPSt15basic_streambufIcS1_E(ptr noundef nonnull align 8 dereferenceable(264) %add.ptr2.i, ptr noundef nonnull %sbuf)
           to label %invoke.cont unwind label %lpad.i
@@ -49496,7 +49496,7 @@ cleanup:                                          ; preds = %invoke.cont43, %inv
   store i64 0, ptr %_M_gcount.i, align 8, !tbaa !1833
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) #39
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %is) #39
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %sbuf, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %sbuf, align 8, !tbaa !26
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i) #39
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %sbuf) #39
   ret i64 %retval.0
@@ -49517,7 +49517,7 @@ ehcleanup51:                                      ; preds = %ehcleanup49, %lpad.
   %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup49 ], [ %1, %lpad.i ]
   call void @_ZNSt8ios_baseD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %0) #39
   call void @llvm.lifetime.end.p0(i64 280, ptr nonnull %is) #39
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %sbuf, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %sbuf, align 8, !tbaa !26
   call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i.i) #39
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %sbuf) #39
   resume { ptr, i32 } %.pn.pn
@@ -50154,7 +50154,7 @@ declare void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnul
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN5boost16re_detail_10740010parser_bufIcSt11char_traitsIcEED0Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #11 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVSt15basic_streambufIcSt11char_traitsIcEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %_M_buf_locale.i = getelementptr inbounds %"class.std::basic_streambuf", ptr %this, i64 0, i32 7
   tail call void @_ZNSt6localeD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %_M_buf_locale.i) #39
   tail call void @_ZdlPv(ptr noundef nonnull %this) #41
@@ -64868,7 +64868,7 @@ declare void @_ZNSt16invalid_argumentD1Ev(ptr noundef nonnull align 8 dereferenc
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt16invalid_argumentEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #39
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -64876,9 +64876,9 @@ invoke.cont:
   %throw_line_.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %throw_line_.i, align 8, !tbaa !1562
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, inrange i32 2, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !26
   ret void
 }
 
@@ -64886,7 +64886,7 @@ invoke.cont:
 define linkonce_odr void @_ZN5boost10wrapexceptISt16invalid_argumentED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i, align 8, !tbaa !1565
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -64926,13 +64926,13 @@ declare void @_ZNSt16invalid_argumentD2Ev(ptr noundef nonnull align 8 dereferenc
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptISt16invalid_argumentE5cloneEv(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %1 = getelementptr inbounds i8, ptr %call, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %data_2.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %data_2.i.i, align 8, !tbaa !1565
@@ -64958,9 +64958,9 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i, %e
   %throw_function_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %throw_function_3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %throw_function_.i.i, ptr noundef nonnull align 8 dereferenceable(20) %throw_function_3.i.i, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, inrange i32 2, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !26
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr2)
           to label %_ZN5boost10wrapexceptISt16invalid_argumentE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptISt16invalid_argumentE7deleterD2Ev.exit14
@@ -65004,7 +65004,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5boost10wrapexceptISt16invalid_argumentED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -65042,7 +65042,7 @@ _ZN5boost10wrapexceptISt16invalid_argumentED2Ev.exit: ; preds = %if.then.i.i.i.i
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt16invalid_argumentED1Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -65078,7 +65078,7 @@ _ZN5boost10wrapexceptISt16invalid_argumentED2Ev.exit: ; preds = %if.then.i.i.i.i
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt16invalid_argumentED0Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -65115,7 +65115,7 @@ _ZN5boost10wrapexceptISt16invalid_argumentED0Ev.exit: ; preds = %if.then.i.i.i.i
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt16invalid_argumentED1Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -65151,7 +65151,7 @@ _ZN5boost10wrapexceptISt16invalid_argumentED2Ev.exit: ; preds = %if.then.i.i.i.i
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt16invalid_argumentED0Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -65192,13 +65192,13 @@ declare void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferencea
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt16invalid_argumentEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i64 0, inrange i32 0, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt16invalid_argument, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !26
   %2 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !26
   %data_.i = getelementptr inbounds i8, ptr %this, i64 32
   %data_2.i = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %data_2.i, align 8, !tbaa !1565
@@ -65217,9 +65217,9 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %ent
   %throw_function_.i = getelementptr inbounds i8, ptr %this, i64 40
   %throw_function_3.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %throw_function_.i, ptr noundef nonnull align 8 dereferenceable(20) %throw_function_3.i, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, inrange i32 1, i64 2), ptr %1, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, inrange i32 2, i64 2), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt16invalid_argumentEE, i64 0, i32 2, i64 2), ptr %2, align 8, !tbaa !26
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i
@@ -76089,7 +76089,7 @@ declare void @_ZNSt11logic_errorD1Ev(ptr noundef nonnull align 8 dereferenceable
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt11logic_errorEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(16) %e) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %e) #39
   %1 = getelementptr inbounds i8, ptr %this, i64 24
@@ -76097,9 +76097,9 @@ invoke.cont:
   %throw_line_.i = getelementptr inbounds i8, ptr %this, i64 56
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %data_.i, i8 0, i64 24, i1 false)
   store i32 -1, ptr %throw_line_.i, align 8, !tbaa !1562
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, inrange i32 2, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !26
   ret void
 }
 
@@ -76107,7 +76107,7 @@ invoke.cont:
 define linkonce_odr void @_ZN5boost10wrapexceptISt11logic_errorED2Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i, align 8, !tbaa !1565
   %tobool.not.i.i.i = icmp eq ptr %1, null
@@ -76147,12 +76147,12 @@ declare void @_ZNSt11logic_errorD2Ev(ptr noundef nonnull align 8 dereferenceable
 define linkonce_odr noundef ptr @_ZNK5boost10wrapexceptISt11logic_errorE5cloneEv(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(64) ptr @_Znwm(i64 noundef 64) #40
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !26
   %0 = getelementptr inbounds i8, ptr %call, i64 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i) #39
   %1 = getelementptr inbounds i8, ptr %call, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %1, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %call, i64 32
   %data_2.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %2 = load ptr, ptr %data_2.i.i, align 8, !tbaa !1565
@@ -76178,9 +76178,9 @@ invoke.cont:                                      ; preds = %if.then.i.i.i.i, %e
   %throw_function_.i.i = getelementptr inbounds i8, ptr %call, i64 40
   %throw_function_3.i.i = getelementptr inbounds i8, ptr %this, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %throw_function_.i.i, ptr noundef nonnull align 8 dereferenceable(20) %throw_function_3.i.i, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, inrange i32 0, i64 2), ptr %call, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, inrange i32 1, i64 2), ptr %0, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, inrange i32 2, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, i32 0, i64 2), ptr %call, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, i32 1, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, i32 2, i64 2), ptr %1, align 8, !tbaa !26
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 24
   invoke void @_ZN5boost16exception_detail20copy_boost_exceptionEPNS_9exceptionEPKS1_(ptr noundef nonnull %1, ptr noundef nonnull %add.ptr2)
           to label %_ZN5boost10wrapexceptISt11logic_errorE7deleterD2Ev.exit unwind label %_ZN5boost10wrapexceptISt11logic_errorE7deleterD2Ev.exit14
@@ -76224,7 +76224,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr void @_ZN5boost10wrapexceptISt11logic_errorED0Ev(ptr noundef nonnull align 8 dereferenceable(60) %this) unnamed_addr #11 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 32
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -76262,7 +76262,7 @@ _ZN5boost10wrapexceptISt11logic_errorED2Ev.exit:  ; preds = %if.then.i.i.i.i, %c
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt11logic_errorED1Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i = icmp eq ptr %1, null
@@ -76298,7 +76298,7 @@ _ZN5boost10wrapexceptISt11logic_errorED2Ev.exit:  ; preds = %if.then.i.i.i.i, %c
 define linkonce_odr void @_ZThn8_N5boost10wrapexceptISt11logic_errorED0Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !26
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %1 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i.i = icmp eq ptr %1, null
@@ -76335,7 +76335,7 @@ _ZN5boost10wrapexceptISt11logic_errorED0Ev.exit:  ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt11logic_errorED1Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %data_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i = icmp eq ptr %0, null
@@ -76371,7 +76371,7 @@ _ZN5boost10wrapexceptISt11logic_errorED2Ev.exit:  ; preds = %if.then.i.i.i.i, %c
 ; Function Attrs: inlinehint nounwind uwtable
 define linkonce_odr void @_ZThn24_N5boost10wrapexceptISt11logic_errorED0Ev(ptr noundef %this) unnamed_addr #25 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %data_.i.i.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %data_.i.i.i, align 8, !tbaa !1565
   %tobool.not.i.i.i.i.i = icmp eq ptr %0, null
@@ -76409,12 +76409,12 @@ _ZN5boost10wrapexceptISt11logic_errorED0Ev.exit:  ; preds = %if.then.i.i.i.i.i, 
 ; Function Attrs: inlinehint mustprogress uwtable
 define linkonce_odr void @_ZN5boost10wrapexceptISt11logic_errorEC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(60) %this, ptr noundef nonnull align 8 dereferenceable(60) %0) unnamed_addr #20 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN5boost16exception_detail10clone_baseE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %1 = getelementptr inbounds i8, ptr %this, i64 8
   %add.ptr = getelementptr inbounds i8, ptr %0, i64 8
   tail call void @_ZNSt11logic_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr) #39
   %2 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN5boost9exceptionE, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !26
   %data_.i = getelementptr inbounds i8, ptr %this, i64 32
   %data_2.i = getelementptr inbounds i8, ptr %0, i64 32
   %3 = load ptr, ptr %data_2.i, align 8, !tbaa !1565
@@ -76433,9 +76433,9 @@ invoke.cont:                                      ; preds = %if.then.i.i.i, %ent
   %throw_function_.i = getelementptr inbounds i8, ptr %this, i64 40
   %throw_function_3.i = getelementptr inbounds i8, ptr %0, i64 40
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %throw_function_.i, ptr noundef nonnull align 8 dereferenceable(20) %throw_function_3.i, i64 20, i1 false)
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, inrange i32 1, i64 2), ptr %1, align 8, !tbaa !26
-  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, inrange i32 2, i64 2), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, i32 1, i64 2), ptr %1, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr], [4 x ptr] }, ptr @_ZTVN5boost10wrapexceptISt11logic_errorEE, i64 0, i32 2, i64 2), ptr %2, align 8, !tbaa !26
   ret void
 
 lpad:                                             ; preds = %if.then.i.i.i
@@ -79269,7 +79269,7 @@ if.then46:                                        ; preds = %land.lhs.true
   %hasValue.i.i.i105 = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i105, align 8, !tbaa !855, !alias.scope !2250
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2250
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2250
   store i8 1, ptr %hasValue.i.i.i105, align 8, !tbaa !863, !alias.scope !2250
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !2250
@@ -79416,7 +79416,7 @@ cleanup29:                                        ; preds = %land.lhs.true
   %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !855, !alias.scope !2254
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2254
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2254
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !863, !alias.scope !2254
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !2254
@@ -80001,7 +80001,7 @@ if.then64:                                        ; preds = %if.end62
   call fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_111SchemaErrorC2ENS_5RangeIPKcEERKNS_7dynamicE(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, ptr nonnull @.str.134, ptr nonnull getelementptr inbounds ([30 x i8], ptr @.str.134, i64 0, i64 29), ptr noundef nonnull align 8 dereferenceable(40) %value), !noalias !2268
   store i8 0, ptr %6, align 8, !tbaa !855, !alias.scope !2268
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2268
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2268
   store i8 1, ptr %6, align 8, !tbaa !863, !alias.scope !2268
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !2268
@@ -80591,7 +80591,7 @@ invoke.cont8:                                     ; preds = %invoke.cont
   %hasValue.i.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i, align 8, !tbaa !855
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26
   store i8 1, ptr %hasValue.i.i, align 8, !tbaa !863
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp) #39
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5) #39
@@ -81780,7 +81780,7 @@ for.end:                                          ; preds = %for.cond, %_ZNK5fol
   %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !855, !alias.scope !2318
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2318
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2318
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !863, !alias.scope !2318
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !2318
@@ -82873,7 +82873,7 @@ invoke.cont8.i:                                   ; preds = %invoke.cont.i
   %hasValue.i.i.i = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i, align 8, !tbaa !855, !alias.scope !2335
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2335
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2335
   store i8 1, ptr %hasValue.i.i.i, align 8, !tbaa !863, !alias.scope !2335
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @_ZN5folly7dynamic7destroyEv(ptr noundef nonnull align 8 dereferenceable(40) %ref.tmp5.i) #39
@@ -83177,7 +83177,7 @@ return:                                           ; preds = %for.end, %for.body
 define internal fastcc void @_ZN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorC2ERNS1_22SchemaValidatorContextERKNS_7dynamicENS2_4TypeE(ptr nocapture noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull align 8 dereferenceable(64) %context, ptr nocapture noundef nonnull readonly align 8 dereferenceable(40) %schema, i32 noundef %type) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::unique_ptr.240", align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_114AnyOfValidatorE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !26
   %type_ = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::AnyOfValidator", ptr %this, i64 0, i32 1
   store i32 %type, ptr %type_, align 8, !tbaa !2341
   %validators_ = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::AnyOfValidator", ptr %this, i64 0, i32 2
@@ -83208,8 +83208,8 @@ for.body:                                         ; preds = %_ZNSt10unique_ptrIN
 
 .noexc31:                                         ; preds = %for.body
   %3 = getelementptr inbounds i8, ptr %call.i37, i64 8
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 0, i64 2), ptr %call.i37, align 8, !tbaa !26, !noalias !2343
-  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, inrange i32 1, i64 2), ptr %3, align 8, !tbaa !26, !noalias !2343
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 0, i64 2), ptr %call.i37, align 8, !tbaa !26, !noalias !2343
+  store ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_115SchemaValidatorE, i64 0, i32 1, i64 2), ptr %3, align 8, !tbaa !26, !noalias !2343
   %validators_.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaValidator", ptr %call.i37, i64 0, i32 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %validators_.i.i, i8 0, i64 24, i1 false), !noalias !2343
   store ptr %call.i37, ptr %ref.tmp, align 8, !tbaa !22, !alias.scope !2343
@@ -83543,7 +83543,7 @@ invoke.cont9:                                     ; preds = %invoke.cont
 
 if.then.i:                                        ; preds = %invoke.cont9
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %se) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %2, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %2, align 8, !tbaa !26
   %incdec.ptr.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", ptr %2, i64 1
   store ptr %incdec.ptr.i, ptr %_M_finish.i, align 8, !tbaa !2361
   br label %if.end
@@ -83584,7 +83584,7 @@ _ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_
   %cond.i33.i.i = phi ptr [ null, %_ZNKSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE12_M_check_lenEmPKc.exit.i.i ], [ %call5.i.i.i.i.i55, %_ZNSt16allocator_traitsISaIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorEEE8allocateERS4_m.exit.i.i.i ]
   %add.ptr.i.i = getelementptr inbounds %"struct.folly::jsonschema::(anonymous namespace)::SchemaError", ptr %cond.i33.i.i, i64 %sub.ptr.div.i.i.i.i
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(16) %se) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %add.ptr.i.i, align 8, !tbaa !26
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %add.ptr.i.i, align 8, !tbaa !26
   br i1 %cmp.i.i.i.i, label %_ZNSt6vectorIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit43.i.i, label %for.body.i.i.i.i.i
 
 for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i, %_ZNSt12_Vector_baseIN5folly10jsonschema12_GLOBAL__N_111SchemaErrorESaIS3_EE11_M_allocateEm.exit.i.i
@@ -83593,7 +83593,7 @@ for.body.i.i.i.i.i:                               ; preds = %for.body.i.i.i.i.i,
   call void @llvm.experimental.noalias.scope.decl(metadata !2362)
   call void @llvm.experimental.noalias.scope.decl(metadata !2365)
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %__cur.03.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %__cur.03.i.i.i.i.i, align 8, !tbaa !26, !alias.scope !2362, !noalias !2365
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %__cur.03.i.i.i.i.i, align 8, !tbaa !26, !alias.scope !2362, !noalias !2365
   %vtable.i.i.i.i.i.i.i.i = load ptr, ptr %__first.addr.02.i.i.i.i.i, align 8, !tbaa !26, !alias.scope !2365, !noalias !2362
   %4 = load ptr, ptr %vtable.i.i.i.i.i.i.i.i, align 8
   call void %4(ptr noundef nonnull align 8 dereferenceable(16) %__first.addr.02.i.i.i.i.i) #39
@@ -83675,7 +83675,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA26_KcRKNS_7dynamicEEEENS_8Optio
   %hasValue.i.i.i63 = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i63, align 8, !tbaa !855, !alias.scope !2368
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2368
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2368
   store i8 1, ptr %hasValue.i.i.i63, align 8, !tbaa !863, !alias.scope !2368
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !2368
@@ -83705,7 +83705,7 @@ _ZN5folly10jsonschema12_GLOBAL__N_19makeErrorIJRA25_KcRKNS_7dynamicEEEENS_8Optio
   %hasValue.i.i.i67 = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i67, align 8, !tbaa !855, !alias.scope !2371
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2371
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2371
   store i8 1, ptr %hasValue.i.i.i67, align 8, !tbaa !863, !alias.scope !2371
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i65) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i65) #39, !noalias !2371
@@ -83853,7 +83853,7 @@ if.end:                                           ; preds = %entry
   %hasValue.i.i.i4 = getelementptr inbounds %"struct.folly::Optional<folly::jsonschema::(anonymous namespace)::SchemaError>::StorageNonTriviallyDestructible", ptr %agg.result, i64 0, i32 1
   store i8 0, ptr %hasValue.i.i.i4, align 8, !tbaa !855, !alias.scope !2376
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %agg.result, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, inrange i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2376
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly10jsonschema12_GLOBAL__N_111SchemaErrorE, i64 0, i32 0, i64 2), ptr %agg.result, align 8, !tbaa !26, !alias.scope !2376
   store i8 1, ptr %hasValue.i.i.i4, align 8, !tbaa !863, !alias.scope !2376
   call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i) #39, !noalias !2376

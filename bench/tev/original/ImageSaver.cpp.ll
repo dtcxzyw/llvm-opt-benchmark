@@ -708,7 +708,7 @@ define linkonce_odr dso_local void @_ZN3tev13ExrImageSaverC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev15TypedImageSaverIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev13ExrImageSaverE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev13ExrImageSaverE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -758,7 +758,7 @@ define linkonce_odr dso_local void @_ZN3tev13QoiImageSaverC2Ev(ptr noundef nonnu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev15TypedImageSaverIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev13QoiImageSaverE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev13QoiImageSaverE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -808,7 +808,7 @@ define linkonce_odr dso_local void @_ZN3tev17StbiHdrImageSaverC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev15TypedImageSaverIfEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev17StbiHdrImageSaverE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev17StbiHdrImageSaverE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -858,7 +858,7 @@ define linkonce_odr dso_local void @_ZN3tev17StbiLdrImageSaverC2Ev(ptr noundef n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev15TypedImageSaverIcEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev17StbiLdrImageSaverE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev17StbiLdrImageSaverE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1678,7 +1678,7 @@ define linkonce_odr hidden void @_ZNSt12length_errorC2B8ne190000EPKc(ptr noundef
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt11logic_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -2348,7 +2348,7 @@ define linkonce_odr dso_local void @_ZN3tev15TypedImageSaverIfEC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev10ImageSaverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev15TypedImageSaverIfEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev15TypedImageSaverIfEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2357,7 +2357,7 @@ define linkonce_odr dso_local void @_ZN3tev10ImageSaverC2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tev10ImageSaverE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3tev10ImageSaverE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2550,7 +2550,7 @@ define linkonce_odr dso_local void @_ZN3tev15TypedImageSaverIcEC2Ev(ptr noundef 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN3tev10ImageSaverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #6
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev15TypedImageSaverIcEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN3tev15TypedImageSaverIcEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

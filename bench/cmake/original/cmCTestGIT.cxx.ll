@@ -833,7 +833,7 @@ define dso_local void @_ZN10cmCTestGITC2EP7cmCTestRSo(ptr noundef nonnull align 
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   call void @_ZN15cmCTestGlobalVCC2EP7cmCTestRSo(ptr noundef nonnull align 8 dereferenceable(784) %9, ptr noundef %10, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10cmCTestGIT, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV10cmCTestGIT, i32 0, i32 0, i32 2), ptr %9, align 8
   %12 = getelementptr inbounds %class.cmCTestVC, ptr %9, i32 0, i32 6
   %13 = getelementptr inbounds %class.cmCTestGlobalVC, ptr %9, i32 0, i32 4
   %14 = invoke noundef nonnull align 8 dereferenceable(256) ptr @_ZN9cmCTestVC8RevisionaSERKS0_(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 8 dereferenceable(256) %12)
@@ -1386,7 +1386,7 @@ define linkonce_odr dso_local void @_ZN10cmCTestGIT13OneLineParserC2EPS_PKcRNSt7
   store ptr %3, ptr %8, align 8
   %11 = load ptr, ptr %5, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %11, i8 noundef signext 10, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT13OneLineParserE, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT13OneLineParserE, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %"class.cmCTestGIT::OneLineParser", ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %8, align 8
   store ptr %13, ptr %12, align 8
@@ -1430,7 +1430,7 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools12OutputLoggerC2ERSoPKc(p
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %9, i8 noundef signext 10, i1 noundef zeroext true)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputLoggerE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools12OutputLoggerE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = load ptr, ptr %5, align 8
   %11 = load ptr, ptr %6, align 8
   invoke void @_ZN14cmProcessTools10LineParser6SetLogEPSoPKc(ptr noundef nonnull align 8 dereferenceable(59) %9, ptr noundef %10, ptr noundef %11)
@@ -5456,7 +5456,7 @@ define linkonce_odr dso_local void @_ZN10cmCTestGIT12CommitParserC2EPS_PKc(ptr n
   %8 = load ptr, ptr %5, align 8
   %9 = load ptr, ptr %6, align 8
   call void @_ZN10cmCTestGIT10DiffParserC2EPS_PKc(ptr noundef nonnull align 8 dereferenceable(144) %7, ptr noundef %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT12CommitParserE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT12CommitParserE, i32 0, i32 0, i32 2), ptr %7, align 8
   %10 = getelementptr inbounds %"class.cmCTestGIT::CommitParser", ptr %7, i32 0, i32 1
   store i32 0, ptr %10, align 8
   %11 = getelementptr inbounds %"class.cmCTestGIT::CommitParser", ptr %7, i32 0, i32 2
@@ -5523,7 +5523,7 @@ define linkonce_odr dso_local void @_ZN10cmCTestGIT12CommitParserD2Ev(ptr nounde
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT12CommitParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT12CommitParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCTestGIT::CommitParser", ptr %3, i32 0, i32 2
   call void @_ZN9cmCTestVC8RevisionD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %4) #3
   call void @_ZN10cmCTestGIT10DiffParserD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %3) #3
@@ -6111,7 +6111,7 @@ define linkonce_odr dso_local void @_ZN10cmCTestGIT10DiffParserC2EPS_PKc(ptr nou
   store ptr %2, ptr %6, align 8
   %9 = load ptr, ptr %4, align 8
   call void @_ZN14cmProcessTools10LineParserC2Ecb(ptr noundef nonnull align 8 dereferenceable(59) %9, i8 noundef signext 0, i1 noundef zeroext false)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT10DiffParserE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT10DiffParserE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.cmCTestGIT::DiffParser", ptr %9, i32 0, i32 1
   call void @_ZNSt6vectorIN15cmCTestGlobalVC6ChangeESaIS1_EEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %10) #3
   %11 = getelementptr inbounds %"class.cmCTestGIT::DiffParser", ptr %9, i32 0, i32 2
@@ -6237,7 +6237,7 @@ define linkonce_odr dso_local void @_ZN10cmCTestGIT10DiffParserD2Ev(ptr noundef 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT10DiffParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN10cmCTestGIT10DiffParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmCTestGIT::DiffParser", ptr %3, i32 0, i32 4
   call void @_ZN15cmCTestGlobalVC6ChangeD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #3
   %5 = getelementptr inbounds %"class.cmCTestGIT::DiffParser", ptr %3, i32 0, i32 1
@@ -6269,7 +6269,7 @@ define linkonce_odr dso_local void @_ZN14cmProcessTools10LineParserD2Ev(ptr noun
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN14cmProcessTools10LineParserE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.cmProcessTools::LineParser", ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   call void @_ZN14cmProcessTools12OutputParserD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3

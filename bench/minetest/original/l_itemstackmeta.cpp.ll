@@ -354,7 +354,7 @@ define linkonce_odr dso_local void @_ZN13WearBarParamsD2Ev(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @_ZN16ItemStackMetaRefC2EP12LuaItemStack(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %0, ptr noundef %1) unnamed_addr #8 align 2 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !10
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %1, i64 8
@@ -366,7 +366,7 @@ define dso_local void @_ZN16ItemStackMetaRefC2EP12LuaItemStack(ptr nocapture nou
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16ItemStackMetaRefD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !10
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -389,7 +389,7 @@ define dso_local void @_ZN16ItemStackMetaRefD2Ev(ptr nocapture noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN16ItemStackMetaRefD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 align 2 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !10
   %2 = getelementptr inbounds i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %3, i64 8
@@ -417,7 +417,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #10
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN16ItemStackMetaRef6createEP9lua_StateP12LuaItemStack(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #19
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !10
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV16ItemStackMetaRef, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !10
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store ptr %1, ptr %4, align 8, !tbaa !4
   %5 = getelementptr inbounds i8, ptr %1, i64 8

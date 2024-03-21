@@ -36,7 +36,7 @@ entry:
   %ref.tmp3 = alloca %"union.zmq::ip_addr_t", align 4
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq13udp_address_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq13udp_address_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_bind_interface = getelementptr inbounds %"class.zmq::udp_address_t", ptr %this1, i32 0, i32 2
   store i32 -1, ptr %_bind_interface, align 4
   %_is_multicast = getelementptr inbounds %"class.zmq::udp_address_t", ptr %this1, i32 0, i32 4
@@ -94,7 +94,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq13udp_address_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3zmq13udp_address_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_address = getelementptr inbounds %"class.zmq::udp_address_t", ptr %this1, i32 0, i32 5
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_address) #8
   ret void

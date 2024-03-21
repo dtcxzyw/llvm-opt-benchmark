@@ -531,7 +531,7 @@ $_ZTIN7doctest14DiscardOStreamUt_E = comdat any
 @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive = private unnamed_addr constant [4 x [5 x i8]] [[5 x i8] c"1\00\00\00\00", [5 x i8] c"true\00", [5 x i8] c"on\00\00\00", [5 x i8] c"yes\00\00"], align 16
 @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative = private unnamed_addr constant [4 x [6 x i8]] [[6 x i8] c"0\00\00\00\00\00", [6 x i8] c"false\00", [6 x i8] c"off\00\00\00", [6 x i8] c"no\00\00\00\00"], align 16
 @_ZTVN7doctest14DiscardOStreamE = linkonce_odr dso_local unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1096 to ptr), ptr null, ptr @_ZTIN7doctest14DiscardOStreamE, ptr @_ZN7doctest14DiscardOStreamD1Ev, ptr @_ZN7doctest14DiscardOStreamD0Ev], [5 x ptr] [ptr inttoptr (i64 -1096 to ptr), ptr inttoptr (i64 -1096 to ptr), ptr @_ZTIN7doctest14DiscardOStreamE, ptr @_ZTv0_n24_N7doctest14DiscardOStreamD1Ev, ptr @_ZTv0_n24_N7doctest14DiscardOStreamD0Ev] }, comdat, align 8
-@_ZTTN7doctest14DiscardOStreamE = linkonce_odr dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7doctest14DiscardOStreamE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7doctest14DiscardOStreamE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 1, i32 3)], comdat, align 8
+@_ZTTN7doctest14DiscardOStreamE = linkonce_odr dso_local unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7doctest14DiscardOStreamE0_So, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCN7doctest14DiscardOStreamE0_So, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i32 0, inrange i32 1, i32 3)], comdat, align 8
 @_ZTCN7doctest14DiscardOStreamE0_So = linkonce_odr dso_local unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 1096 to ptr), ptr null, ptr @_ZTISo, ptr @_ZNSoD1Ev, ptr @_ZNSoD0Ev], [5 x ptr] [ptr inttoptr (i64 -1096 to ptr), ptr inttoptr (i64 -1096 to ptr), ptr @_ZTISo, ptr @_ZTv0_n24_NSoD1Ev, ptr @_ZTv0_n24_NSoD0Ev] }, comdat, align 8
 @_ZTISo = external constant ptr
 @_ZTSN7doctest14DiscardOStreamE = linkonce_odr dso_local constant [27 x i8] c"N7doctest14DiscardOStreamE\00", comdat, align 1
@@ -7055,7 +7055,7 @@ _ZNSt12_Vector_baseIPN7doctest13IContextScopeESaIS2_EED2Ev.exit: ; preds = %invo
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7doctest6detail16ContextScopeBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(9) %this) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %need_to_destroy, align 8
   %0 = load ptr, ptr getelementptr inbounds (%"class.std::vector.52", ptr @_ZN7doctest6detail14g_infoContextsE, i64 0, i32 0, i32 0, i32 0, i32 1), align 8
@@ -7132,7 +7132,7 @@ invoke.cont:                                      ; preds = %_ZNSt6vectorIPN7doc
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN7doctest6detail16ContextScopeBaseC2EOS1_(ptr noundef nonnull align 8 dereferenceable(9) %this, ptr noundef nonnull align 8 dereferenceable(9) %other) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7doctest6detail16ContextScopeBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %need_to_destroy = getelementptr inbounds i8, ptr %this, i64 8
   store i8 1, ptr %need_to_destroy, align 8
   %need_to_destroy2 = getelementptr inbounds i8, ptr %other, i64 8
@@ -12345,9 +12345,9 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7doctest14DiscardOStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(1096) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 0, i64 3), ptr %this, align 8
   %add.ptr.i = getelementptr inbounds i8, ptr %this, i64 1096
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 1, i64 3), ptr %add.ptr.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 1, i64 3), ptr %add.ptr.i, align 8
   %discardBuf.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %discardBuf.i) #41
   tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1)) #41
@@ -15819,9 +15819,9 @@ declare void @_ZTv0_n24_NSoD0Ev(ptr noundef) unnamed_addr #4
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN7doctest14DiscardOStreamD0Ev(ptr noundef nonnull align 8 dereferenceable(1096) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 0, i64 3), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 0, i64 3), ptr %this, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %this, i64 1096
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 1, i64 3), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8
   %discardBuf.i.i = getelementptr inbounds i8, ptr %this, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %discardBuf.i.i) #41
   tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1)) #41
@@ -15837,9 +15837,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 0, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 0, i64 3), ptr %3, align 8
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 1096
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 1, i64 3), ptr %add.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i, align 8
   %discardBuf.i.i = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %discardBuf.i.i) #41
   tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1)) #41
@@ -15854,9 +15854,9 @@ entry:
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
   %2 = load i64, ptr %1, align 8
   %3 = getelementptr inbounds i8, ptr %this, i64 %2
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 0, i64 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 0, i64 3), ptr %3, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %3, i64 1096
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 1, i64 3), ptr %add.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 1, i64 3), ptr %add.ptr.i.i.i, align 8
   %discardBuf.i.i.i = getelementptr inbounds i8, ptr %3, i64 8
   tail call void @_ZNSt15basic_streambufIcSt11char_traitsIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %discardBuf.i.i.i) #41
   tail call void @_ZNSoD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1)) #41
@@ -17901,7 +17901,7 @@ declare noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef
 define internal noundef nonnull ptr @_ZN7doctest6detail15reporterCreatorINS_12_GLOBAL__N_111XmlReporterEEEPNS_9IReporterERKNS_14ContextOptionsE(ptr noundef nonnull align 8 dereferenceable(135) %o) #7 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #44
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %xml.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %o, align 8
   store i8 0, ptr %xml.i, align 8
@@ -22757,7 +22757,7 @@ if.end:                                           ; preds = %invoke.cont4, %entr
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest12_GLOBAL__N_111XmlReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %xml = getelementptr inbounds i8, ptr %this, i64 8
   %m_tags.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -22815,7 +22815,7 @@ _ZN7doctest12_GLOBAL__N_19XmlWriterD2Ev.exit:     ; preds = %invoke.cont.i.i, %i
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest12_GLOBAL__N_111XmlReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(136) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_111XmlReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %xml.i = getelementptr inbounds i8, ptr %this, i64 8
   %m_tags.i.i = getelementptr inbounds i8, ptr %this, i64 16
   %_M_finish.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -24652,7 +24652,7 @@ declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strERK
 define internal noundef nonnull ptr @_ZN7doctest6detail15reporterCreatorINS_12_GLOBAL__N_113JUnitReporterEEEPNS_9IReporterERKNS_14ContextOptionsE(ptr noundef nonnull align 8 dereferenceable(135) %o) #7 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %call = tail call noalias noundef nonnull dereferenceable(208) ptr @_Znwm(i64 noundef 208) #44
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %xml.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %o, align 8
   store i8 0, ptr %xml.i, align 8
@@ -27810,7 +27810,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest12_GLOBAL__N_113JUnitReporterD2Ev(ptr noundef nonnull align 8 dereferenceable(208) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_113JUnitReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %testCaseData = getelementptr inbounds i8, ptr %this, i64 152
   %0 = load ptr, ptr %testCaseData, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 160
@@ -29299,7 +29299,7 @@ _ZNSt6vectorIN7doctest12_GLOBAL__N_113JUnitReporter17JUnitTestCaseData16JUnitTes
 define internal noalias noundef nonnull ptr @_ZN7doctest6detail15reporterCreatorINS_12_GLOBAL__N_115ConsoleReporterEEEPNS_9IReporterERKNS_14ContextOptionsE(ptr noundef nonnull align 8 dereferenceable(135) %o) #7 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(112) ptr @_Znwm(i64 noundef 112) #44
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i64 0, i32 0, i64 2), ptr %call, align 8
   %s.i = getelementptr inbounds i8, ptr %call, i64 8
   %0 = load ptr, ptr %o, align 8
   store ptr %0, ptr %s.i, align 8
@@ -32147,7 +32147,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporterD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %subcasesStack = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %subcasesStack, align 8
   %_M_finish.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -32196,7 +32196,7 @@ _ZNSt6vectorIN7doctest16SubcaseSignatureESaIS1_EED2Ev.exit: ; preds = %invoke.co
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN7doctest12_GLOBAL__N_115ConsoleReporterD0Ev(ptr noundef nonnull align 8 dereferenceable(112) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTVN7doctest12_GLOBAL__N_115ConsoleReporterE, i64 0, i32 0, i64 2), ptr %this, align 8
   %subcasesStack.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %subcasesStack.i, align 8
   %_M_finish.i.i = getelementptr inbounds i8, ptr %this, i64 32
@@ -34304,14 +34304,14 @@ __cxx_global_var_init.2.exit:                     ; preds = %entry
   tail call void @_ZN7doctest6detail20registerReporterImplEPKciPFPNS_9IReporterERKNS_14ContextOptionsEEb(ptr noundef nonnull @.str.69, i32 noundef 0, ptr noundef nonnull @_ZN7doctest6detail15reporterCreatorINS_12_GLOBAL__N_113JUnitReporterEEEPNS_9IReporterERKNS_14ContextOptionsE, i1 noundef zeroext true)
   tail call void @_ZN7doctest6detail20registerReporterImplEPKciPFPNS_9IReporterERKNS_14ContextOptionsEEb(ptr noundef nonnull @.str.71, i32 noundef 0, ptr noundef nonnull @_ZN7doctest6detail15reporterCreatorINS_12_GLOBAL__N_115ConsoleReporterEEEPNS_9IReporterERKNS_14ContextOptionsE, i1 noundef zeroext true)
   tail call void @_ZNSt9basic_iosIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(264) getelementptr inbounds (%"class.doctest::DiscardOStream", ptr @_ZN7doctestL10discardOutE, i64 0, i32 2, i32 0, i32 0))
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 0, i64 3), ptr @_ZN7doctestL10discardOutE, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 1, i64 3), ptr getelementptr inbounds (%"class.doctest::DiscardOStream", ptr @_ZN7doctestL10discardOutE, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 0, i64 3), ptr @_ZN7doctestL10discardOutE, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 1, i64 3), ptr getelementptr inbounds (%"class.doctest::DiscardOStream", ptr @_ZN7doctestL10discardOutE, i64 0, i32 2, i32 0, i32 0), align 8
   invoke void @_ZNSoC2EPSt15basic_streambufIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) @_ZN7doctestL10discardOutE, ptr noundef nonnull getelementptr inbounds ([4 x ptr], ptr @_ZTTN7doctest14DiscardOStreamE, i64 0, i64 1), ptr noundef nonnull getelementptr inbounds (%"class.doctest::DiscardOStream", ptr @_ZN7doctestL10discardOutE, i64 0, i32 1, i32 0, i32 0))
           to label %invoke.cont.i.i unwind label %lpad.i.i1
 
 invoke.cont.i.i:                                  ; preds = %__cxx_global_var_init.2.exit
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 0, i64 3), ptr @_ZN7doctestL10discardOutE, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, inrange i32 1, i64 3), ptr getelementptr inbounds (%"class.doctest::DiscardOStream", ptr @_ZN7doctestL10discardOutE, i64 0, i32 2, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 0, i64 3), ptr @_ZN7doctestL10discardOutE, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamE, i64 0, i32 1, i64 3), ptr getelementptr inbounds (%"class.doctest::DiscardOStream", ptr @_ZN7doctestL10discardOutE, i64 0, i32 2, i32 0, i32 0), align 8
   invoke void @_ZNSt15basic_streambufIcSt11char_traitsIcEEC2Ev(ptr noundef nonnull align 8 dereferenceable(64) getelementptr inbounds (%"class.doctest::DiscardOStream", ptr @_ZN7doctestL10discardOutE, i64 0, i32 1, i32 0, i32 0))
           to label %__cxx_global_var_init.204.exit unwind label %lpad4.i.i
 
@@ -34332,7 +34332,7 @@ ehcleanup.i.i:                                    ; preds = %lpad4.i.i, %lpad.i.
   br label %common.resume
 
 __cxx_global_var_init.204.exit:                   ; preds = %invoke.cont.i.i
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamUt_E, i64 0, inrange i32 0, i64 2), ptr getelementptr inbounds (%"class.doctest::DiscardOStream", ptr @_ZN7doctestL10discardOutE, i64 0, i32 1, i32 0, i32 0), align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN7doctest14DiscardOStreamUt_E, i64 0, i32 0, i64 2), ptr getelementptr inbounds (%"class.doctest::DiscardOStream", ptr @_ZN7doctestL10discardOutE, i64 0, i32 1, i32 0, i32 0), align 8
   %7 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN7doctest14DiscardOStreamD1Ev, ptr nonnull @_ZN7doctestL10discardOutE, ptr nonnull @__dso_handle) #41
   ret void
 }

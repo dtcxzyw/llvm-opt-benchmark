@@ -94,7 +94,7 @@ new.notnull:                                      ; preds = %entry
           to label %_ZN6icu_7515IslamicCalendarC2ERKS0_.exit unwind label %lpad
 
 _ZN6icu_7515IslamicCalendarC2ERKS0_.exit:         ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, i32 0, i64 2), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7515IslamicCalendarC2ERKS0_.exit, %entry
@@ -120,7 +120,7 @@ define void @_ZN6icu_7515IslamicCalendarC2ERKNS_6LocaleER10UErrorCode(ptr nounde
 entry:
   %call = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call2 = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont unwind label %lpad
 
@@ -836,7 +836,7 @@ define void @_ZN6icu_7520IslamicCivilCalendarC2ERKNS_6LocaleER10UErrorCode(ptr n
 entry:
   %call.i = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call.i, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call2.i = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -851,7 +851,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %ent
   resume { ptr, i32 } %0
 
 _ZN6icu_7515IslamicCalendarC2ERKNS_6LocaleER10UErrorCode.exit: ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7520IslamicCivilCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7520IslamicCivilCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -888,7 +888,7 @@ new.notnull:                                      ; preds = %entry
           to label %_ZN6icu_7520IslamicCivilCalendarC2ERKS0_.exit unwind label %lpad
 
 _ZN6icu_7520IslamicCivilCalendarC2ERKS0_.exit:    ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7520IslamicCivilCalendarE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7520IslamicCivilCalendarE, i64 0, i32 0, i64 2), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7520IslamicCivilCalendarC2ERKS0_.exit, %entry
@@ -1065,7 +1065,7 @@ define void @_ZN6icu_7519IslamicTBLACalendarC2ERKNS_6LocaleER10UErrorCode(ptr no
 entry:
   %call.i.i = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call.i.i, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call2.i.i = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
@@ -1080,7 +1080,7 @@ lpad.i.i:                                         ; preds = %invoke.cont.i.i, %e
   resume { ptr, i32 } %0
 
 _ZN6icu_7520IslamicCivilCalendarC2ERKNS_6LocaleER10UErrorCode.exit: ; preds = %invoke.cont.i.i
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7519IslamicTBLACalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7519IslamicTBLACalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -1117,7 +1117,7 @@ new.notnull:                                      ; preds = %entry
           to label %_ZN6icu_7519IslamicTBLACalendarC2ERKS0_.exit unwind label %lpad
 
 _ZN6icu_7519IslamicTBLACalendarC2ERKS0_.exit:     ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7519IslamicTBLACalendarE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7519IslamicTBLACalendarE, i64 0, i32 0, i64 2), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7519IslamicTBLACalendarC2ERKS0_.exit, %entry
@@ -1141,7 +1141,7 @@ define void @_ZN6icu_7523IslamicUmalquraCalendarC2ERKNS_6LocaleER10UErrorCode(pt
 entry:
   %call.i = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call.i, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call2.i = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1156,7 +1156,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %ent
   resume { ptr, i32 } %0
 
 _ZN6icu_7515IslamicCalendarC2ERKNS_6LocaleER10UErrorCode.exit: ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7523IslamicUmalquraCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7523IslamicUmalquraCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -1193,7 +1193,7 @@ new.notnull:                                      ; preds = %entry
           to label %_ZN6icu_7523IslamicUmalquraCalendarC2ERKS0_.exit unwind label %lpad
 
 _ZN6icu_7523IslamicUmalquraCalendarC2ERKS0_.exit: ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7523IslamicUmalquraCalendarE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7523IslamicUmalquraCalendarE, i64 0, i32 0, i64 2), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7523IslamicUmalquraCalendarC2ERKS0_.exit, %entry
@@ -1503,7 +1503,7 @@ define void @_ZN6icu_7519IslamicRGSACalendarC2ERKNS_6LocaleER10UErrorCode(ptr no
 entry:
   %call.i = tail call noundef ptr @_ZN6icu_758TimeZone18forLocaleOrDefaultERKNS_6LocaleE(ptr noundef nonnull align 8 dereferenceable(217) %aLocale)
   tail call void @_ZN6icu_758CalendarC2EPNS_8TimeZoneERKNS_6LocaleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(618) %this, ptr noundef %call.i, ptr noundef nonnull align 8 dereferenceable(217) %aLocale, ptr noundef nonnull align 4 dereferenceable(4) %success)
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7515IslamicCalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   %call2.i = invoke noundef double @_ZN6icu_758Calendar6getNowEv()
           to label %invoke.cont.i unwind label %lpad.i
 
@@ -1518,7 +1518,7 @@ lpad.i:                                           ; preds = %invoke.cont.i, %ent
   resume { ptr, i32 } %0
 
 _ZN6icu_7515IslamicCalendarC2ERKNS_6LocaleER10UErrorCode.exit: ; preds = %invoke.cont.i
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7519IslamicRGSACalendarE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7519IslamicRGSACalendarE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -1555,7 +1555,7 @@ new.notnull:                                      ; preds = %entry
           to label %_ZN6icu_7519IslamicRGSACalendarC2ERKS0_.exit unwind label %lpad
 
 _ZN6icu_7519IslamicRGSACalendarC2ERKS0_.exit:     ; preds = %new.notnull
-  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7519IslamicRGSACalendarE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [60 x ptr] }, ptr @_ZTVN6icu_7519IslamicRGSACalendarE, i64 0, i32 0, i64 2), ptr %call, align 8
   br label %new.cont
 
 new.cont:                                         ; preds = %_ZN6icu_7519IslamicRGSACalendarC2ERKS0_.exit, %entry

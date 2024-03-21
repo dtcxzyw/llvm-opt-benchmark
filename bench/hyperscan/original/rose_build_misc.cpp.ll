@@ -396,7 +396,7 @@ declare void @llvm.trap() #2
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN3ue213RoseBuildImplC2ERNS_13ReportManagerERNS_14SomSlotManagerERNS_15SmallWriteBuildERKNS_14CompileContextERKNS_15BoundaryReportsE(ptr noundef nonnull align 8 dereferenceable(780) %this, ptr noundef nonnull align 8 dereferenceable(505) %rm_in, ptr noundef nonnull align 1 %ssm_in, ptr noundef nonnull align 8 dereferenceable(8) %smwr_in, ptr noundef nonnull align 8 dereferenceable(320) %cc_in, ptr noundef nonnull align 8 dereferenceable(144) %boundary_in) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3ue213RoseBuildImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3ue213RoseBuildImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %cc = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %this, i64 0, i32 1
   store ptr %cc_in, ptr %cc, align 8
   %g = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %this, i64 0, i32 2
@@ -706,7 +706,7 @@ _ZN5boost9intrusive9list_implINS0_8bhtraitsIN3ue29ue2_graphINS3_9RoseGraphENS3_1
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN3ue213RoseBuildImplD2Ev(ptr noundef nonnull align 8 dereferenceable(780) %this) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3ue213RoseBuildImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN3ue213RoseBuildImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %mpv_outfix = getelementptr inbounds %"class.ue2::RoseBuildImpl", ptr %this, i64 0, i32 19
   %0 = load ptr, ptr %mpv_outfix, align 8
   %cmp.not.i = icmp eq ptr %0, null

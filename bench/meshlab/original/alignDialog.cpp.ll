@@ -6734,9 +6734,9 @@ define void @_ZN11AlignDialogC2EP7QWidgetP15EditAlignPlugin(ptr noundef nonnull 
   %17 = getelementptr inbounds %class.QFlags.77, ptr %7, i32 0, i32 0
   %18 = load i32, ptr %17, align 4
   call void @_ZN11QDockWidgetC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef %16, i32 %18)
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV11AlignDialog, i32 0, inrange i32 0, i32 2), ptr %15, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV11AlignDialog, i32 0, i32 0, i32 2), ptr %15, align 8
   %19 = getelementptr inbounds i8, ptr %15, i64 16
-  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV11AlignDialog, i32 0, inrange i32 1, i32 2), ptr %19, align 8
+  store ptr getelementptr inbounds ({ [54 x ptr], [10 x ptr] }, ptr @_ZTV11AlignDialog, i32 0, i32 1, i32 2), ptr %19, align 8
   %20 = getelementptr inbounds %class.AlignDialog, ptr %15, i32 0, i32 6
   call void @_ZN4QMapIPN3vcg8MeshTreeI9MeshModelfE8MeshNodeEP18MeshTreeWidgetItemEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #3
   %21 = getelementptr inbounds %class.AlignDialog, ptr %15, i32 0, i32 7
@@ -12735,7 +12735,7 @@ define void @_ZN18MeshTreeWidgetItemC2EPN3vcg8MeshTreeI9MeshModelfE8MeshNodeE(pt
   store ptr %1, ptr %4, align 8
   %16 = load ptr, ptr %3, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(60) %16, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18MeshTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %16, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18MeshTreeWidgetItem, i32 0, i32 0, i32 2), ptr %16, align 8
   %17 = load ptr, ptr %4, align 8
   %18 = getelementptr inbounds %"class.vcg::MeshTree<MeshModel, float>::MeshNode", ptr %17, i32 0, i32 1
   %19 = load ptr, ptr %18, align 8
@@ -13407,7 +13407,7 @@ define void @_ZN18MeshTreeWidgetItemC2EPN3vcg8MeshTreeI9MeshModelfEEPNS0_9AlignP
   store ptr %3, ptr %8, align 8
   %35 = load ptr, ptr %5, align 8
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(60) %35, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18MeshTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV18MeshTreeWidgetItem, i32 0, i32 0, i32 2), ptr %35, align 8
   %36 = getelementptr inbounds %class.MeshTreeWidgetItem, ptr %35, i32 0, i32 1
   store ptr null, ptr %36, align 8
   %37 = load ptr, ptr %7, align 8

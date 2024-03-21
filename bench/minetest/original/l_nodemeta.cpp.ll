@@ -1078,7 +1078,7 @@ declare noundef ptr @_ZN10ModApiBase9getServerEP9lua_State(ptr noundef) local_un
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN11NodeMetaRefC2EN3irr4core8vector3dIsEEP17ServerEnvironment(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, i48 %1, ptr noundef %2) unnamed_addr #11 align 2 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11NodeMetaRef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !93
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11NodeMetaRef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !93
   %4 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 0, ptr %4, align 8, !tbaa !12
   %5 = getelementptr inbounds i8, ptr %0, i64 10
@@ -1092,7 +1092,7 @@ define dso_local void @_ZN11NodeMetaRefC2EN3irr4core8vector3dIsEEP17ServerEnviro
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @_ZN11NodeMetaRefC2EP9IMetadata(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #11 align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11NodeMetaRef, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !93
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11NodeMetaRef, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !93
   %3 = getelementptr inbounds i8, ptr %0, i64 8
   store i8 1, ptr %3, align 8, !tbaa !12
   %4 = getelementptr inbounds i8, ptr %0, i64 10
@@ -1105,7 +1105,7 @@ define dso_local void @_ZN11NodeMetaRefC2EP9IMetadata(ptr nocapture noundef nonn
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11NodeMetaRef6createEP9lua_StateN3irr4core8vector3dIsEEP17ServerEnvironment(ptr noundef %0, i48 %1, ptr noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11NodeMetaRef, i64 0, inrange i32 0, i64 2), ptr %4, align 8, !tbaa !93
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11NodeMetaRef, i64 0, i32 0, i64 2), ptr %4, align 8, !tbaa !93
   %5 = getelementptr inbounds i8, ptr %4, i64 8
   store i8 0, ptr %5, align 8, !tbaa !12
   %6 = getelementptr inbounds i8, ptr %4, i64 10
@@ -1128,7 +1128,7 @@ declare i32 @lua_setmetatable(ptr noundef, i32 noundef) local_unnamed_addr #0
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN11NodeMetaRef12createClientEP9lua_StateP9IMetadata(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #22
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11NodeMetaRef, i64 0, inrange i32 0, i64 2), ptr %3, align 8, !tbaa !93
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV11NodeMetaRef, i64 0, i32 0, i64 2), ptr %3, align 8, !tbaa !93
   %4 = getelementptr inbounds i8, ptr %3, i64 8
   store i8 1, ptr %4, align 8, !tbaa !12
   %5 = getelementptr inbounds i8, ptr %3, i64 10

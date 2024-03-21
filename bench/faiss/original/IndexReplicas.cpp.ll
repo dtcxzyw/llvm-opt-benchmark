@@ -4159,7 +4159,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEEC2Eb(ptr nound
   %7 = load i8, ptr %4, align 1
   %8 = trunc i8 %7 to i1
   call void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %6, i1 noundef zeroext %8)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %6, align 8
   ret void
 }
 
@@ -4190,7 +4190,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eib(ptr noundef 
   %9 = load i32, ptr %5, align 4
   %10 = sext i32 %9 to i64
   call void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(36) %8, i64 noundef %10, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %8, align 8
   %11 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 1
   store i8 0, ptr %11, align 4
   %12 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %8, i32 0, i32 3
@@ -4212,7 +4212,7 @@ define linkonce_odr void @_ZN5faiss5IndexC2ElNS_10MetricTypeE(ptr noundef nonnul
   store i64 %1, ptr %5, align 8
   store i32 %2, ptr %6, align 4
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [24 x ptr] }, ptr @_ZTVN5faiss5IndexE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.faiss::Index", ptr %7, i32 0, i32 1
   %9 = load i64, ptr %5, align 8
   %10 = trunc i64 %9 to i32
@@ -4249,7 +4249,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_5IndexEED2Ev(ptr noundef n
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.faiss::ThreadedIndex", ptr %7, i32 0, i32 3
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr %3, align 8
@@ -5058,7 +5058,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEEC2Elb(ptr noun
   %13 = load i8, ptr %6, align 1
   %14 = trunc i8 %13 to i1
   call void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %10, i32 noundef %12, i1 noundef zeroext %14)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_5IndexE(ptr noundef %10)
           to label %15 unwind label %16
 
@@ -5104,7 +5104,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_5IndexEEC2Eib(ptr noun
   %10 = load i8, ptr %6, align 1
   %11 = trunc i8 %10 to i1
   call void @_ZN5faiss13ThreadedIndexINS_5IndexEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %8, i32 noundef %9, i1 noundef zeroext %11)
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_5IndexEEE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_5IndexEEE, i32 0, i32 0, i32 2), ptr %8, align 8
   call void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_5IndexE(ptr noundef %8)
   ret void
 }
@@ -5468,7 +5468,7 @@ define linkonce_odr void @_ZN5faiss14FaissExceptionD2Ev(ptr noundef nonnull alig
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss14FaissExceptionE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.faiss::FaissException", ptr %3, i32 0, i32 1
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #5
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #5
@@ -12375,7 +12375,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC2Eb(pt
   %7 = load i8, ptr %4, align 1
   %8 = trunc i8 %7 to i1
   call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eb(ptr noundef nonnull align 8 dereferenceable(65) %6, i1 noundef zeroext %8)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %6, align 8
   ret void
 }
 
@@ -12406,7 +12406,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr n
   %9 = load i32, ptr %5, align 4
   %10 = sext i32 %9 to i64
   call void @_ZN5faiss11IndexBinaryC2ElNS_10MetricTypeE(ptr noundef nonnull align 8 dereferenceable(32) %8, i64 noundef %10, i32 noundef 1)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %8, align 8
   %11 = getelementptr inbounds %"class.faiss::ThreadedIndex.44", ptr %8, i32 0, i32 1
   store i8 0, ptr %11, align 8
   %12 = getelementptr inbounds %"class.faiss::ThreadedIndex.44", ptr %8, i32 0, i32 3
@@ -12439,7 +12439,7 @@ define linkonce_odr void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEED2Ev(ptr no
   %6 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss13ThreadedIndexINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.faiss::ThreadedIndex.44", ptr %7, i32 0, i32 3
   store ptr %8, ptr %3, align 8
   %9 = load ptr, ptr %3, align 8
@@ -12980,7 +12980,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC2Elb(p
   %13 = load i8, ptr %6, align 1
   %14 = trunc i8 %13 to i1
   call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %10, i32 noundef %12, i1 noundef zeroext %14)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %10)
           to label %15 unwind label %16
 
@@ -13117,7 +13117,7 @@ define weak_odr void @_ZN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEC2Eib(p
   %12 = load i8, ptr %6, align 1
   %13 = trunc i8 %12 to i1
   call void @_ZN5faiss13ThreadedIndexINS_11IndexBinaryEEC2Eib(ptr noundef nonnull align 8 dereferenceable(65) %10, i32 noundef %11, i1 noundef zeroext %13)
-  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [19 x ptr] }, ptr @_ZTVN5faiss21IndexReplicasTemplateINS_11IndexBinaryEEE, i32 0, i32 0, i32 2), ptr %10, align 8
   invoke void @_ZN5faiss12_GLOBAL__N_16sync_dEPNS_11IndexBinaryE(ptr noundef %10)
           to label %14 unwind label %15
 

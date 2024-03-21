@@ -2475,7 +2475,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN16btSoftBodySolverC2Ev(ptr noundef nonnull align 8 dereferenceable(20) %this1)
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV22btDeformableBodySolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV22btDeformableBodySolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_numNodes = getelementptr inbounds %class.btDeformableBodySolver, ptr %this1, i32 0, i32 1
   store i32 0, ptr %m_numNodes, align 4
   %m_dv = getelementptr inbounds %class.btDeformableBodySolver, ptr %this1, i32 0, i32 2
@@ -2683,7 +2683,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16btSoftBodySolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [17 x ptr] }, ptr @_ZTV16btSoftBodySolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_numberOfPositionIterations = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 1
   store i32 10, ptr %m_numberOfPositionIterations, align 8
   %m_timeScale = getelementptr inbounds %class.btSoftBodySolver, ptr %this1, i32 0, i32 3
@@ -2731,7 +2731,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %max_it_in.addr, align 4
   call void @_ZN14btKrylovSolverI34btDeformableBackwardEulerObjectiveEC2Eif(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0, float noundef 0x3E80000000000000)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateGradientI34btDeformableBackwardEulerObjectiveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateGradientI34btDeformableBackwardEulerObjectiveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %r = getelementptr inbounds %class.btConjugateGradient, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayI9btVector3EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %r)
           to label %invoke.cont unwind label %lpad
@@ -2823,7 +2823,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %max_it_in.addr, align 4
   call void @_ZN14btKrylovSolverI34btDeformableBackwardEulerObjectiveEC2Eif(ptr noundef nonnull align 8 dereferenceable(16) %this1, i32 noundef %0, float noundef 0x3E45798EE0000000)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateResidualI34btDeformableBackwardEulerObjectiveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateResidualI34btDeformableBackwardEulerObjectiveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %r = getelementptr inbounds %class.btConjugateResidual, ptr %this1, i32 0, i32 1
   invoke void @_ZN20btAlignedObjectArrayI9btVector3EC2Ev(ptr noundef nonnull align 8 dereferenceable(25) %r)
           to label %invoke.cont unwind label %lpad
@@ -2953,7 +2953,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateResidualI34btDeformableBackwardEulerObjectiveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateResidualI34btDeformableBackwardEulerObjectiveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %best_x = getelementptr inbounds %class.btConjugateResidual, ptr %this1, i32 0, i32 6
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %best_x) #4
   %temp_r = getelementptr inbounds %class.btConjugateResidual, ptr %this1, i32 0, i32 5
@@ -2976,7 +2976,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateGradientI34btDeformableBackwardEulerObjectiveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV19btConjugateGradientI34btDeformableBackwardEulerObjectiveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %temp = getelementptr inbounds %class.btConjugateGradient, ptr %this1, i32 0, i32 4
   call void @_ZN20btAlignedObjectArrayI9btVector3ED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %temp) #4
   %z = getelementptr inbounds %class.btConjugateGradient, ptr %this1, i32 0, i32 3
@@ -3035,7 +3035,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV22btDeformableBodySolver, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [34 x ptr] }, ptr @_ZTV22btDeformableBodySolver, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_objective = getelementptr inbounds %class.btDeformableBodySolver, ptr %this1, i32 0, i32 19
   %0 = load ptr, ptr %m_objective, align 8
   %isnull = icmp eq ptr %0, null
@@ -10714,7 +10714,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV17btTypedConstraint, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -15523,7 +15523,7 @@ entry:
   store i32 %maxIterations, ptr %maxIterations.addr, align 4
   store float %tolerance, ptr %tolerance.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV14btKrylovSolverI34btDeformableBackwardEulerObjectiveE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTV14btKrylovSolverI34btDeformableBackwardEulerObjectiveE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_maxIterations = getelementptr inbounds %class.btKrylovSolver, ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %maxIterations.addr, align 4
   store i32 %0, ptr %m_maxIterations, align 8

@@ -449,7 +449,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store i64 %timestamp, ptr %timestamp.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb11TraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb11TraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %timestamp_ = getelementptr inbounds %"class.rocksdb::TraceRecord", ptr %this1, i32 0, i32 1
   %0 = load i64, ptr %timestamp.addr, align 8
   store i64 %0, ptr %timestamp_, align 8
@@ -523,7 +523,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb11TraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb16QueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN7rocksdb16QueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -541,7 +541,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rep_ = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %write_batch_rep.addr, align 8
   invoke void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %rep_, ptr noundef nonnull align 8 dereferenceable(89) %1)
@@ -585,7 +585,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rep_ = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this1, i32 0, i32 1
   invoke void @_ZN7rocksdb13PinnableSliceC2Ev(ptr noundef nonnull align 8 dereferenceable(89) %rep_)
           to label %invoke.cont unwind label %lpad
@@ -719,7 +719,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN7rocksdb21WriteQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rep_ = getelementptr inbounds %"class.rocksdb::WriteQueryTraceRecord", ptr %this1, i32 0, i32 1
   invoke void @_ZN7rocksdb5Slice5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %rep_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -826,7 +826,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cf_id_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %column_family_id.addr, align 4
   store i32 %1, ptr %cf_id_, align 8
@@ -873,7 +873,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cf_id_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %column_family_id.addr, align 4
   store i32 %1, ptr %cf_id_, align 8
@@ -931,7 +931,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb19GetQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.rocksdb::GetQueryTraceRecord", ptr %this1, i32 0, i32 3
   invoke void @_ZN7rocksdb5Slice5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %key_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1018,7 +1018,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this1, i32 0, i32 1
   invoke void @_ZN7rocksdb13PinnableSliceC2Ev(ptr noundef nonnull align 8 dereferenceable(89) %lower_)
           to label %invoke.cont unwind label %lpad
@@ -1078,7 +1078,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %lower_bound.addr, align 8
   invoke void @_ZN7rocksdb13PinnableSliceC1EOS0_(ptr noundef nonnull align 8 dereferenceable(89) %lower_, ptr noundef nonnull align 8 dereferenceable(89) %1)
@@ -1142,7 +1142,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %lower_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this1, i32 0, i32 1
   invoke void @_ZN7rocksdb13PinnableSliceC2Ev(ptr noundef nonnull align 8 dereferenceable(89) %lower_)
           to label %invoke.cont unwind label %lpad
@@ -1225,7 +1225,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24IteratorQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %upper_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this1, i32 0, i32 2
   call void @_ZN7rocksdb13PinnableSliceD2Ev(ptr noundef nonnull align 8 dereferenceable(89) %upper_) #12
   %lower_ = getelementptr inbounds %"class.rocksdb::IteratorQueryTraceRecord", ptr %this1, i32 0, i32 1
@@ -1290,7 +1290,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb24IteratorQueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(208) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %seek_type.addr, align 4
   store i32 %1, ptr %type_, align 8
@@ -1342,7 +1342,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb24IteratorQueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(208) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this1, i32 0, i32 1
   %1 = load i32, ptr %seek_type.addr, align 4
   store i32 %1, ptr %type_, align 8
@@ -1421,7 +1421,7 @@ entry:
   %1 = load ptr, ptr %upper_bound.addr, align 8
   %2 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb24IteratorQueryTraceRecordC2EONS_13PinnableSliceES2_m(ptr noundef nonnull align 8 dereferenceable(208) %this1, ptr noundef nonnull align 8 dereferenceable(89) %0, ptr noundef nonnull align 8 dereferenceable(89) %1, i64 noundef %2)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this1, i32 0, i32 1
   %3 = load i32, ptr %seek_type.addr, align 4
   store i32 %3, ptr %type_, align 8
@@ -1479,7 +1479,7 @@ entry:
   %1 = load ptr, ptr %upper_bound.addr, align 8
   %2 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb24IteratorQueryTraceRecordC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_m(ptr noundef nonnull align 8 dereferenceable(208) %this1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2)
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this1, i32 0, i32 1
   %3 = load i32, ptr %seek_type.addr, align 4
   store i32 %3, ptr %type_, align 8
@@ -1540,7 +1540,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN7rocksdb28IteratorSeekQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.rocksdb::IteratorSeekQueryTraceRecord", ptr %this1, i32 0, i32 3
   invoke void @_ZN7rocksdb5Slice5clearEv(ptr noundef nonnull align 8 dereferenceable(16) %key_)
           to label %invoke.cont unwind label %terminate.lpad
@@ -1654,7 +1654,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cf_ids_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cf_ids_, ptr noundef nonnull align 8 dereferenceable(24) %column_family_ids)
           to label %invoke.cont unwind label %lpad
@@ -1794,7 +1794,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %timestamp.addr, align 8
   call void @_ZN7rocksdb16QueryTraceRecordC2Em(ptr noundef nonnull align 8 dereferenceable(16) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cf_ids_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this1, i32 0, i32 1
   invoke void @_ZNSt6vectorIjSaIjEEC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(24) %cf_ids_, ptr noundef nonnull align 8 dereferenceable(24) %column_family_ids)
           to label %invoke.cont unwind label %lpad
@@ -2171,7 +2171,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN7rocksdb24MultiGetQueryTraceRecordE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cf_ids_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this1, i32 0, i32 1
   call void @_ZNSt6vectorIjSaIjEE5clearEv(ptr noundef nonnull align 8 dereferenceable(24) %cf_ids_) #12
   %keys_ = getelementptr inbounds %"class.rocksdb::MultiGetQueryTraceRecord", ptr %this1, i32 0, i32 2

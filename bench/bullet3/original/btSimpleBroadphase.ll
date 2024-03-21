@@ -226,7 +226,7 @@ entry:
   store ptr %overlappingPairCache, ptr %overlappingPairCache.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN21btBroadphaseInterfaceC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18btSimpleBroadphase, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18btSimpleBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pairCache = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 7
   %0 = load ptr, ptr %overlappingPairCache.addr, align 8
   store ptr %0, ptr %m_pairCache, align 8
@@ -410,7 +410,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV21btBroadphaseInterface, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -495,7 +495,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18btSimpleBroadphase, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTV18btSimpleBroadphase, i32 0, i32 0, i32 2), ptr %this1, align 8
   %m_pHandlesRawPtr = getelementptr inbounds %class.btSimpleBroadphase, ptr %this1, i32 0, i32 5
   %0 = load ptr, ptr %m_pHandlesRawPtr, align 8
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef %0)

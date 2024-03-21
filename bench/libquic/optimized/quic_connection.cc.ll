@@ -240,10 +240,10 @@ entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 8
   %1 = getelementptr inbounds i8, ptr %this, i64 16
   %2 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 2, i64 2), ptr %1, align 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 3, i64 2), ptr %2, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, i32 2, i64 2), ptr %1, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, i32 3, i64 2), ptr %2, align 8
   %framer_ = getelementptr inbounds i8, ptr %this, i64 32
   %vtable = load ptr, ptr %helper, align 8
   %vfn = getelementptr inbounds i8, ptr %vtable, i64 16
@@ -376,7 +376,7 @@ invoke.cont41:                                    ; preds = %invoke.cont30
   %offset_.i = getelementptr inbounds i8, ptr %this, i64 2328
   %ack_alarm_ = getelementptr inbounds i8, ptr %this, i64 2336
   %8 = load ptr, ptr %alarm_factory_, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_116AckAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arena_, align 8, !noalias !5
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_116AckAlarmDelegateE, i64 0, i32 0, i64 2), ptr %arena_, align 8, !noalias !5
   %connection_.i5.i = getelementptr inbounds i8, ptr %this, i64 1312
   store ptr %this, ptr %connection_.i5.i, align 8, !noalias !5
   store i32 16, ptr %offset_.i, align 8, !noalias !5
@@ -482,7 +482,7 @@ cleanup.done.i54:                                 ; preds = %cleanup.action.i74,
           to label %call34.i.noexc78 unwind label %lpad54
 
 call34.i.noexc78:                                 ; preds = %cleanup.done.i54
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34.i79, align 8, !noalias !8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i64 0, i32 0, i64 2), ptr %call34.i79, align 8, !noalias !8
   %connection_.i.i55 = getelementptr inbounds i8, ptr %call34.i79, i64 8
   store ptr %this, ptr %connection_.i.i55, align 8, !noalias !8
   br label %invoke.cont55
@@ -490,7 +490,7 @@ call34.i.noexc78:                                 ; preds = %cleanup.done.i54
 if.end37.i46:                                     ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_116AckAlarmDelegateEED2Ev.exit
   %idxprom.i47 = zext nneg i32 %17 to i64
   %arrayidx.i48 = getelementptr inbounds [1024 x i8], ptr %arena_, i64 0, i64 %idxprom.i47
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx.i48, align 8, !noalias !8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_127RetransmissionAlarmDelegateE, i64 0, i32 0, i64 2), ptr %arrayidx.i48, align 8, !noalias !8
   %connection_.i5.i49 = getelementptr inbounds i8, ptr %arrayidx.i48, i64 8
   store ptr %this, ptr %connection_.i5.i49, align 8, !noalias !8
   %19 = load i32, ptr %offset_.i, align 8, !noalias !8
@@ -703,7 +703,7 @@ cleanup.done.i174:                                ; preds = %cleanup.action.i194
           to label %call34.i.noexc198 unwind label %lpad102
 
 call34.i.noexc198:                                ; preds = %cleanup.done.i174
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34.i199, align 8, !noalias !11
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i64 0, i32 0, i64 2), ptr %call34.i199, align 8, !noalias !11
   %connection_.i.i175 = getelementptr inbounds i8, ptr %call34.i199, i64 8
   store ptr %this, ptr %connection_.i.i175, align 8, !noalias !11
   br label %invoke.cont103
@@ -711,7 +711,7 @@ call34.i.noexc198:                                ; preds = %cleanup.done.i174
 if.end37.i166:                                    ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117SendAlarmDelegateEED2Ev.exit162
   %idxprom.i167 = zext nneg i32 %43 to i64
   %arrayidx.i168 = getelementptr inbounds [1024 x i8], ptr %arena_, i64 0, i64 %idxprom.i167
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx.i168, align 8, !noalias !11
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_120TimeoutAlarmDelegateE, i64 0, i32 0, i64 2), ptr %arrayidx.i168, align 8, !noalias !11
   %connection_.i5.i169 = getelementptr inbounds i8, ptr %arrayidx.i168, i64 8
   store ptr %this, ptr %connection_.i5.i169, align 8, !noalias !11
   %45 = load i32, ptr %offset_.i, align 8, !noalias !11
@@ -830,7 +830,7 @@ cleanup.done.i239:                                ; preds = %cleanup.action.i259
           to label %call34.i.noexc263 unwind label %lpad118
 
 call34.i.noexc263:                                ; preds = %cleanup.done.i239
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34.i264, align 8, !noalias !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i64 0, i32 0, i64 2), ptr %call34.i264, align 8, !noalias !14
   %connection_.i.i240 = getelementptr inbounds i8, ptr %call34.i264, i64 8
   store ptr %this, ptr %connection_.i.i240, align 8, !noalias !14
   br label %invoke.cont119
@@ -838,7 +838,7 @@ call34.i.noexc263:                                ; preds = %cleanup.done.i239
 if.end37.i231:                                    ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_120TimeoutAlarmDelegateEED2Ev.exit
   %idxprom.i232 = zext nneg i32 %55 to i64
   %arrayidx.i233 = getelementptr inbounds [1024 x i8], ptr %arena_, i64 0, i64 %idxprom.i232
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx.i233, align 8, !noalias !14
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117PingAlarmDelegateE, i64 0, i32 0, i64 2), ptr %arrayidx.i233, align 8, !noalias !14
   %connection_.i5.i234 = getelementptr inbounds i8, ptr %arrayidx.i233, i64 8
   store ptr %this, ptr %connection_.i5.i234, align 8, !noalias !14
   %57 = load i32, ptr %offset_.i, align 8, !noalias !14
@@ -957,7 +957,7 @@ cleanup.done.i304:                                ; preds = %cleanup.action.i324
           to label %call34.i.noexc328 unwind label %lpad134
 
 call34.i.noexc328:                                ; preds = %cleanup.done.i304
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34.i329, align 8, !noalias !17
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i64 0, i32 0, i64 2), ptr %call34.i329, align 8, !noalias !17
   %connection_.i.i305 = getelementptr inbounds i8, ptr %call34.i329, i64 8
   store ptr %this, ptr %connection_.i.i305, align 8, !noalias !17
   br label %invoke.cont135
@@ -965,7 +965,7 @@ call34.i.noexc328:                                ; preds = %cleanup.done.i304
 if.end37.i296:                                    ; preds = %_ZN3net18QuicArenaScopedPtrINS_12_GLOBAL__N_117PingAlarmDelegateEED2Ev.exit
   %idxprom.i297 = zext nneg i32 %67 to i64
   %arrayidx.i298 = getelementptr inbounds [1024 x i8], ptr %arena_, i64 0, i64 %idxprom.i297
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx.i298, align 8, !noalias !17
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_125MtuDiscoveryAlarmDelegateE, i64 0, i32 0, i64 2), ptr %arrayidx.i298, align 8, !noalias !17
   %connection_.i5.i299 = getelementptr inbounds i8, ptr %arrayidx.i298, i64 8
   store ptr %this, ptr %connection_.i5.i299, align 8, !noalias !17
   %69 = load i32, ptr %offset_.i, align 8, !noalias !17
@@ -1948,7 +1948,7 @@ cleanup.action:                                   ; preds = %invoke.cont26
 cleanup.done:                                     ; preds = %if.then6, %cleanup.action
   %call34 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   %2 = load ptr, ptr %args, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %call34, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 0, i32 0, i64 2), ptr %call34, align 8
   %connection_.i = getelementptr inbounds i8, ptr %call34, i64 8
   store ptr %2, ptr %connection_.i, align 8
   br label %return
@@ -1957,7 +1957,7 @@ if.end37:                                         ; preds = %if.end
   %idxprom = zext nneg i32 %0 to i64
   %arrayidx = getelementptr inbounds [1024 x i8], ptr %this, i64 0, i64 %idxprom
   %3 = load ptr, ptr %args, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 0, inrange i32 0, i64 2), ptr %arrayidx, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3net12_GLOBAL__N_117SendAlarmDelegateE, i64 0, i32 0, i64 2), ptr %arrayidx, align 8
   %connection_.i5 = getelementptr inbounds i8, ptr %arrayidx, i64 8
   store ptr %3, ptr %connection_.i5, align 8
   %4 = load i32, ptr %offset_, align 8
@@ -2146,13 +2146,13 @@ declare void @_ZN3net10QuicFramerD1Ev(ptr noundef nonnull align 8 dereferenceabl
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN3net14QuicConnectionD2Ev(ptr noundef nonnull align 8 dereferenceable(3372) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 2, i64 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, i32 2, i64 2), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this, i64 24
-  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, inrange i32 3, i64 2), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds ({ [50 x ptr], [5 x ptr], [9 x ptr], [7 x ptr] }, ptr @_ZTVN3net14QuicConnectionE, i64 0, i32 3, i64 2), ptr %add.ptr3, align 8
   %owns_writer_ = getelementptr inbounds i8, ptr %this, i64 472
   %0 = load i8, ptr %owns_writer_, align 8
   %1 = and i8 %0, 1

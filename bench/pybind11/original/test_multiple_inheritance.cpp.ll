@@ -6738,19 +6738,19 @@ $_ZTIPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE = comdat any
 @"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_30PZ35test_submodule_multiple_inheritanceS3_E2C0JS6_EJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_E9signature" = internal constant %"struct.pybind11::detail::descr.1557" { [11 x i8] c"({%}) -> %\00" }, align 1
 @"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_30PZ35test_submodule_multiple_inheritanceS3_E2C0JS6_EJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_E5types" = internal constant %"struct.std::array.1220" { [3 x ptr] [ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, ptr null] }, align 8
 @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0 = internal unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D0Ev] }, align 8
-@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0 = internal unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0 = internal unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTSZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1 = internal constant [63 x i8] c"Z35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1\00", align 1
 @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1 = internal constant { ptr, ptr, i32, i32, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, i32 1, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1B, i64 -6141 }, align 8
 @"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_31PZ35test_submodule_multiple_inheritanceS3_E2C1JS6_EJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_E9signature" = internal constant %"struct.pybind11::detail::descr.1586" { [11 x i8] c"({%}) -> %\00" }, align 1
 @"_ZZN8pybind1112cpp_function10initializeIZ35test_submodule_multiple_inheritanceRNS_7module_EE4$_31PZ35test_submodule_multiple_inheritanceS3_E2C1JS6_EJNS_4nameENS_9is_methodENS_7siblingEEEEvOT_PFT0_DpT1_EDpRKT2_E5types" = internal constant %"struct.std::array.1220" { [3 x ptr] [ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, ptr null] }, align 8
 @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1 = internal unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D0Ev] }, align 8
-@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1 = internal unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1 = internal unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTSZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D = internal constant [62 x i8] c"Z35test_submodule_multiple_inheritanceRN8pybind117module_EE1D\00", align 1
 @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D = internal constant { ptr, ptr, i32, i32, ptr, i64, ptr, i64 } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv121__vmi_class_type_infoE, i64 2), ptr @_ZTSZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 2, i32 2, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i64 2, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i64 4098 }, align 8
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE1DJZ35test_submodule_multiple_inheritanceS9_E2C0Z35test_submodule_multiple_inheritanceS9_E2C1EEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSF_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSF_PFT0_DpT1_EDpRKT2_E9signature = internal constant %"struct.pybind11::detail::descr.1147" { [14 x i8] c"({%}) -> None\00" }, align 1
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE1DJZ35test_submodule_multiple_inheritanceS9_E2C0Z35test_submodule_multiple_inheritanceS9_E2C1EEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSF_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSF_PFT0_DpT1_EDpRKT2_E5types = internal constant %"struct.std::array" { [2 x ptr] [ptr @_ZTIN8pybind116detail16value_and_holderE, ptr null] }, align 8
 @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D = internal unnamed_addr constant { [5 x ptr], [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 32 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN1DD1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN1DD0Ev], [5 x ptr] [ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, ptr @_ZThn16_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN1DD1Ev, ptr @_ZThn16_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN1DD0Ev], [5 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN1DD1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN1DD0Ev] }, align 8
-@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D = internal unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D0_Z35test_submodule_multiple_inheritanceS1_E2C0, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D0_Z35test_submodule_multiple_inheritanceS1_E2C0, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D16_Z35test_submodule_multiple_inheritanceS1_E2C1, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D16_Z35test_submodule_multiple_inheritanceS1_E2C1, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D = internal unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D0_Z35test_submodule_multiple_inheritanceS1_E2C0, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D0_Z35test_submodule_multiple_inheritanceS1_E2C0, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D16_Z35test_submodule_multiple_inheritanceS1_E2C1, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D16_Z35test_submodule_multiple_inheritanceS1_E2C1, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D0_Z35test_submodule_multiple_inheritanceS1_E2C0 = internal unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 32 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D0Ev], [5 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0D0Ev] }, align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D16_Z35test_submodule_multiple_inheritanceS1_E2C1 = internal unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1D0Ev] }, align 8
 @_ZTSZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVB = internal constant [64 x i8] c"Z35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVB\00", align 1
@@ -6769,7 +6769,7 @@ $_ZTIPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE = comdat any
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE3MVCJZ35test_submodule_multiple_inheritanceS9_E3MVBEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSN_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_E9signature = internal constant %"struct.pybind11::detail::descr.1147" { [14 x i8] c"({%}) -> None\00" }, align 1
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE3MVCJZ35test_submodule_multiple_inheritanceS9_E3MVBEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSN_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_E5types = internal constant %"struct.std::array" { [2 x ptr] [ptr @_ZTIN8pybind116detail16value_and_holderE, ptr null] }, align 8
 @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC = internal unnamed_addr constant { [5 x ptr], [5 x ptr] } { [5 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev] }, align 8
-@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC = internal unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC = internal unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i32 0, inrange i32 1, i32 3)], align 8
 @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IiZ35test_submodule_multiple_inheritanceRNS_7module_EE3MVCJEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_KFT_DpT1_EDpRKT2_EUlPKS5_E_iJSK_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_E9signature = internal constant %"struct.pybind11::detail::descr.1685" { [13 x i8] c"({%}) -> int\00" }, align 1
 @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IiZ35test_submodule_multiple_inheritanceRNS_7module_EE3MVCJEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_KFT_DpT1_EDpRKT2_EUlPKS5_E_iJSK_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_E5types = internal constant %"struct.std::array" { [2 x ptr] [ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr null] }, align 8
 @_ZZN8pybind1112cpp_function10initializeIZNS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE3MVCJZ35test_submodule_multiple_inheritanceS4_E3MVBEE13def_readwriteIS5_iJEEERS7_PKcMT_T0_DpRKT1_EUlRKS5_E_RKiJSK_EJNS_9is_methodEEEEvOSC_PFSD_DpSF_EDpRKT2_E9signature = internal constant %"struct.pybind11::detail::descr.1685" { [13 x i8] c"({%}) -> int\00" }, align 1
@@ -6781,7 +6781,7 @@ $_ZTIPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE = comdat any
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE4MVD0JZ35test_submodule_multiple_inheritanceS9_E3MVCEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSN_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_E9signature = internal constant %"struct.pybind11::detail::descr.1147" { [14 x i8] c"({%}) -> None\00" }, align 1
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE4MVD0JZ35test_submodule_multiple_inheritanceS9_E3MVCEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSN_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_E5types = internal constant %"struct.std::array" { [2 x ptr] [ptr @_ZTIN8pybind116detail16value_and_holderE, ptr null] }, align 8
 @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0 = internal unnamed_addr constant { [6 x ptr], [6 x ptr], [5 x ptr] } { [6 x ptr] [ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D0Ev], [6 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D0Ev], [5 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D0Ev] }, align 8
-@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0 = internal unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD016_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD016_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0 = internal unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD016_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD016_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD016_Z35test_submodule_multiple_inheritanceS1_E3MVC = internal unnamed_addr constant { [6 x ptr], [5 x ptr] } { [6 x ptr] [ptr null, ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev] }, align 8
 @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IiZ35test_submodule_multiple_inheritanceRNS_7module_EE4MVD0JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_KFT_DpT1_EDpRKT2_EUlPKS5_E_iJSK_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_E9signature = internal constant %"struct.pybind11::detail::descr.1729" { [13 x i8] c"({%}) -> int\00" }, align 1
 @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IiZ35test_submodule_multiple_inheritanceRNS_7module_EE4MVD0JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_KFT_DpT1_EDpRKT2_EUlPKS5_E_iJSK_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_E5types = internal constant %"struct.std::array" { [2 x ptr] [ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr null] }, align 8
@@ -6794,7 +6794,7 @@ $_ZTIPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE = comdat any
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE4MVD1JZ35test_submodule_multiple_inheritanceS9_E3MVCEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSN_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_E9signature = internal constant %"struct.pybind11::detail::descr.1147" { [14 x i8] c"({%}) -> None\00" }, align 1
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE4MVD1JZ35test_submodule_multiple_inheritanceS9_E3MVCEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSN_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_E5types = internal constant %"struct.std::array" { [2 x ptr] [ptr @_ZTIN8pybind116detail16value_and_holderE, ptr null] }, align 8
 @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1 = internal unnamed_addr constant { [6 x ptr], [6 x ptr], [5 x ptr] } { [6 x ptr] [ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D0Ev], [6 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D1Ev, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D0Ev], [5 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D0Ev] }, align 8
-@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1 = internal unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD116_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD116_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1 = internal unnamed_addr constant [5 x ptr] [ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD116_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD116_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD116_Z35test_submodule_multiple_inheritanceS1_E3MVC = internal unnamed_addr constant { [6 x ptr], [5 x ptr] } { [6 x ptr] [ptr null, ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev] }, align 8
 @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IiZ35test_submodule_multiple_inheritanceRNS_7module_EE4MVD1JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_KFT_DpT1_EDpRKT2_EUlPKS5_E_iJSK_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_E9signature = internal constant %"struct.pybind11::detail::descr.1773" { [13 x i8] c"({%}) -> int\00" }, align 1
 @_ZZN8pybind1112cpp_function10initializeIZNS0_C1IiZ35test_submodule_multiple_inheritanceRNS_7module_EE4MVD1JEJNS_4nameENS_9is_methodENS_7siblingEEEEMT0_KFT_DpT1_EDpRKT2_EUlPKS5_E_iJSK_EJS6_S7_S8_EEEvOSA_PFS9_SC_ESI_E5types = internal constant %"struct.std::array" { [2 x ptr] [ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, ptr null] }, align 8
@@ -6807,7 +6807,7 @@ $_ZTIPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE = comdat any
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE3MVEJZ35test_submodule_multiple_inheritanceS9_E4MVD0Z35test_submodule_multiple_inheritanceS9_E4MVD1EEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSF_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSF_PFT0_DpT1_EDpRKT2_E9signature = internal constant %"struct.pybind11::detail::descr.1147" { [14 x i8] c"({%}) -> None\00" }, align 1
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE3MVEJZ35test_submodule_multiple_inheritanceS9_E4MVD0Z35test_submodule_multiple_inheritanceS9_E4MVD1EEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSF_DpRKT0_EUlRNS2_16value_and_holderEE_vJSO_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSF_PFT0_DpT1_EDpRKT2_E5types = internal constant %"struct.std::array" { [2 x ptr] [ptr @_ZTIN8pybind116detail16value_and_holderE, ptr null] }, align 8
 @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE = internal unnamed_addr constant { [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] } { [8 x ptr] [ptr inttoptr (i64 64 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev], [7 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev], [6 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev], [5 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev], [7 x ptr] [ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev] }, align 8
-@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE = internal unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 0, i32 6), ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 2, i32 4), ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 4, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE16_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE16_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE16_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE32_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE32_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE64_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE64_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE64_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 2, i32 3)], align 8
+@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE = internal unnamed_addr constant [13 x ptr] [ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, i32 0, i32 6), ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 2, i32 4), ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 4, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE16_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE16_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE16_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE32_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE32_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE64_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE64_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE64_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 2, i32 3)], align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE16_Z35test_submodule_multiple_inheritanceS1_E4MVD0 = internal unnamed_addr constant { [7 x ptr], [6 x ptr], [5 x ptr] } { [7 x ptr] [ptr null, ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D0Ev], [6 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D0Ev], [5 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D0Ev] }, align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE32_Z35test_submodule_multiple_inheritanceS1_E3MVC = internal unnamed_addr constant { [6 x ptr], [5 x ptr] } { [6 x ptr] [ptr null, ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev] }, align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE64_Z35test_submodule_multiple_inheritanceS1_E4MVD1 = internal unnamed_addr constant { [7 x ptr], [6 x ptr], [5 x ptr] } { [7 x ptr] [ptr null, ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -32 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D0Ev], [6 x ptr] [ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D1Ev, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D0Ev], [5 x ptr] [ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1D0Ev] }, align 8
@@ -6822,7 +6822,7 @@ $_ZTIPFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE = comdat any
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE3MVFJZ35test_submodule_multiple_inheritanceS9_E3MVEEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSN_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_E9signature = internal constant %"struct.pybind11::detail::descr.1147" { [14 x i8] c"({%}) -> None\00" }, align 1
 @_ZZN8pybind1112cpp_function10initializeIZNS_6detail8initimpl11constructorIJEE7executeINS_6class_IZ35test_submodule_multiple_inheritanceRNS_7module_EE3MVFJZ35test_submodule_multiple_inheritanceS9_E3MVEEEEJETnNSt9enable_ifIXntsrT_9has_aliasEiE4typeELi0EEEvRSE_DpRKT0_EUlRNS2_16value_and_holderEE_vJSN_EJNS_4nameENS_9is_methodENS_7siblingENS2_24is_new_style_constructorEEEEvOSE_PFT0_DpT1_EDpRKT2_E5types = internal constant %"struct.std::array" { [2 x ptr] [ptr @_ZTIN8pybind116detail16value_and_holderE, ptr null] }, align 8
 @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF = internal unnamed_addr constant { [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] } { [9 x ptr] [ptr inttoptr (i64 80 to ptr), ptr inttoptr (i64 64 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD0Ev], [9 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 64 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, ptr @_ZTv0_n56_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD1Ev, ptr @_ZTv0_n56_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD0Ev], [7 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD1Ev, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD0Ev], [6 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD1Ev, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD0Ev], [5 x ptr] [ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD0Ev], [7 x ptr] [ptr inttoptr (i64 -80 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -80 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD1Ev, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVFD0Ev] }, align 8
-@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF = internal unnamed_addr constant [19 x ptr] [ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 2, i32 5), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 3, i32 4), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 4, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 5, i32 5), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 2, i32 4), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 4, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF32_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF32_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF32_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF48_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF48_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF80_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF80_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF80_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 2, i32 3)], align 8
+@_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF = internal unnamed_addr constant [19 x ptr] [ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, i32 0, i32 7), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 1, i32 7), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 2, i32 5), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 3, i32 4), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 4, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 5, i32 5), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 0, i32 7), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 1, i32 5), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 2, i32 4), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 3, i32 3), ptr getelementptr inbounds ({ [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE, i32 0, inrange i32 4, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF32_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF32_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF32_Z35test_submodule_multiple_inheritanceS1_E4MVD0, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF48_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF48_Z35test_submodule_multiple_inheritanceS1_E3MVC, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF80_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF80_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 1, i32 4), ptr getelementptr inbounds ({ [7 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF80_Z35test_submodule_multiple_inheritanceS1_E4MVD1, i32 0, inrange i32 2, i32 3)], align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF16_Z35test_submodule_multiple_inheritanceS1_E3MVE = internal unnamed_addr constant { [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] } { [9 x ptr] [ptr null, ptr inttoptr (i64 64 to ptr), ptr inttoptr (i64 48 to ptr), ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev], [7 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev], [6 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev], [5 x ptr] [ptr inttoptr (i64 -48 to ptr), ptr inttoptr (i64 -48 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev], [7 x ptr] [ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED1Ev, ptr @_ZTv0_n40_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVED0Ev] }, align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF32_Z35test_submodule_multiple_inheritanceS1_E4MVD0 = internal unnamed_addr constant { [7 x ptr], [6 x ptr], [5 x ptr] } { [7 x ptr] [ptr null, ptr inttoptr (i64 32 to ptr), ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D0Ev], [6 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev, ptr @_ZTv0_n32_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D0Ev], [5 x ptr] [ptr inttoptr (i64 -32 to ptr), ptr inttoptr (i64 -32 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0D0Ev] }, align 8
 @_ZTCZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF48_Z35test_submodule_multiple_inheritanceS1_E3MVC = internal unnamed_addr constant { [6 x ptr], [5 x ptr] } { [6 x ptr] [ptr null, ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD1Ev, ptr @_ZTv0_n24_Z35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCD0Ev] }, align 8
@@ -19912,7 +19912,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setD2Ev(ptr noundef
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %3, i32 0, i32 1
   call void @_ZNSt10shared_ptrIN8pybind116detail25error_fetch_and_normalizeEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %4) #16
   call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
@@ -22057,7 +22057,7 @@ define linkonce_odr hidden void @_ZN8pybind1117error_already_setC2Ev(ptr noundef
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8pybind1117error_already_setE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.pybind11::error_already_set", ptr %5, i32 0, i32 1
   %7 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 64) #23
           to label %8 unwind label %11
@@ -22234,7 +22234,7 @@ define linkonce_odr void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 derefe
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -24562,7 +24562,7 @@ define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorERK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -25025,7 +25025,7 @@ define linkonce_odr hidden void @_ZN8pybind1117builtin_exceptionCI2St13runtime_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -25565,7 +25565,7 @@ define linkonce_odr hidden void @_ZNSt19_Sp_counted_deleterIPN8pybind116detail25
   store ptr %3, ptr %8, align 8
   %9 = load ptr, ptr %5, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN8pybind116detail25error_fetch_and_normalizeEPFvS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %9, align 8
   %10 = getelementptr inbounds %"class.std::_Sp_counted_deleter", ptr %9, i32 0, i32 1
   %11 = load ptr, ptr %6, align 8
   %12 = load ptr, ptr %7, align 8
@@ -25728,7 +25728,7 @@ define linkonce_odr void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   %5 = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %3, i32 0, i32 2
@@ -60357,7 +60357,7 @@ define linkonce_odr void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8 derefe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -75233,7 +75233,7 @@ define linkonce_odr hidden void @_ZN8pybind1110cast_errorCI2St13runtime_errorEPK
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1110cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -75267,7 +75267,7 @@ define linkonce_odr hidden void @_ZN8pybind1117builtin_exceptionCI2St13runtime_e
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1117builtin_exceptionE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -85776,7 +85776,7 @@ define linkonce_odr hidden void @_ZN8pybind1120reference_cast_errorCI2St13runtim
   %5 = load ptr, ptr %3, align 8
   %6 = load ptr, ptr %4, align 8
   call void @_ZN8pybind1117builtin_exceptionCI2St13runtime_errorEPKc(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef %6)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8pybind1120reference_cast_errorE, i32 0, i32 0, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -110727,7 +110727,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base1aELN9__gnu_cx
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base1aELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base1aELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -112191,7 +112191,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base2aELN9__gnu_cx
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base2aELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16Base2aELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1092", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -113673,7 +113673,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_17Base12aELN9__gnu_c
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_17Base12aELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_17Base12aELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1115", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -116893,7 +116893,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B1ELN9__gnu_cx
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B1ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B1ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1141", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -117559,7 +117559,7 @@ define internal void @_ZN12_GLOBAL__N_16I801B1C2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::I801B1", ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   ret void
@@ -119849,7 +119849,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B2ELN9__gnu_cx
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B2ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_16I801B2ELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1169", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -120393,7 +120393,7 @@ define internal void @_ZN12_GLOBAL__N_16I801B2C2Ev(ptr noundef nonnull align 8 d
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::I801B2", ptr %3, i32 0, i32 1
   store i32 2, ptr %4, align 8
   ret void
@@ -121689,7 +121689,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801CELN9__gnu_cxx
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801CELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801CELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1192", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -122299,9 +122299,9 @@ define internal void @_ZN12_GLOBAL__N_15I801CC2Ev(ptr noundef nonnull align 8 de
   call void @_ZN12_GLOBAL__N_16I801B1C2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #16
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN12_GLOBAL__N_16I801B2C2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, i32 0, i32 2), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, inrange i32 1, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, i32 1, i32 2), ptr %5, align 8
   ret void
 }
 
@@ -122701,7 +122701,7 @@ define internal void @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801DELN9__gnu_cxx
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #16
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801DELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN12_GLOBAL__N_15I801DELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"class.std::_Sp_counted_ptr.1208", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   store ptr %7, ptr %6, align 8
@@ -123273,9 +123273,9 @@ define internal void @_ZN12_GLOBAL__N_15I801DC2Ev(ptr noundef nonnull align 8 de
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_15I801CC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %3) #16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801DE, i32 0, i32 1, i32 2), ptr %4, align 8
   ret void
 }
 
@@ -127000,7 +127000,7 @@ define internal void @_ZN12_GLOBAL__N_16I801B1C2ERKS0_(ptr noundef nonnull align
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B1E, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.(anonymous namespace)::I801B1", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"struct.(anonymous namespace)::I801B1", ptr %7, i32 0, i32 1
@@ -127579,7 +127579,7 @@ define internal void @_ZN12_GLOBAL__N_16I801B2C2ERKS0_(ptr noundef nonnull align
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_16I801B2E, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.(anonymous namespace)::I801B2", ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %"struct.(anonymous namespace)::I801B2", ptr %7, i32 0, i32 1
@@ -130074,11 +130074,11 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN6I801B3C2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3) #16
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZN12_GLOBAL__N_15I801DC2Ev(ptr noundef nonnull align 8 dereferenceable(28) %4) #16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i32 0, i32 0, i32 2), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i32 0, inrange i32 1, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i32 0, i32 1, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i32 0, inrange i32 2, i32 2), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr], [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE5I801E, i32 0, i32 2, i32 2), ptr %6, align 8
   ret void
 }
 
@@ -130087,7 +130087,7 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE6I801B3, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE6I801B3, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.I801B3, ptr %3, i32 0, i32 1
   store i32 3, ptr %4, align 8
   ret void
@@ -130339,9 +130339,9 @@ define internal void @_ZN12_GLOBAL__N_15I801CC2ERKS0_(ptr noundef nonnull align 
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN12_GLOBAL__N_16I801B2C2ERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %9) #16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, i32 0, i32 2), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, i32 1, i32 2), ptr %10, align 8
   ret void
 }
 
@@ -130387,9 +130387,9 @@ define internal void @_ZN12_GLOBAL__N_15I801CC2EOS0_(ptr noundef nonnull align 8
   %8 = load ptr, ptr %4, align 8
   %9 = getelementptr inbounds i8, ptr %8, i64 16
   call void @_ZN12_GLOBAL__N_16I801B2C2ERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef nonnull align 8 dereferenceable(12) %9) #16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, i32 0, i32 2), ptr %5, align 8
   %10 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, inrange i32 1, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr], [4 x ptr] }, ptr @_ZTVN12_GLOBAL__N_15I801CE, i32 0, i32 1, i32 2), ptr %10, align 8
   ret void
 }
 
@@ -145469,7 +145469,7 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1B, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1B, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %struct.B, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %struct.B, ptr %7, i32 0, i32 1
@@ -146797,9 +146797,9 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN1BC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %11) #16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, i32 0, i32 3), ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, inrange i32 1, i32 3), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, i32 1, i32 3), ptr %12, align 8
   %13 = getelementptr inbounds %struct.C0, ptr %5, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds %struct.C0, ptr %14, i32 0, i32 1
@@ -146907,9 +146907,9 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN1BC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %11) #16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, i32 0, i32 3), ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, inrange i32 1, i32 3), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C0, i32 0, i32 1, i32 3), ptr %12, align 8
   %13 = getelementptr inbounds %struct.C0, ptr %5, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds %struct.C0, ptr %14, i32 0, i32 1
@@ -148191,9 +148191,9 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN1BC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %11) #16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, i32 0, i32 3), ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, inrange i32 1, i32 3), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, i32 1, i32 3), ptr %12, align 8
   %13 = getelementptr inbounds %struct.C1, ptr %5, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds %struct.C1, ptr %14, i32 0, i32 1
@@ -148301,9 +148301,9 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   %10 = load i64, ptr %9, align 8
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN1BC2ERKS2_(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef nonnull align 8 dereferenceable(12) %11) #16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, inrange i32 0, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, i32 0, i32 3), ptr %5, align 8
   %12 = getelementptr inbounds i8, ptr %5, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, inrange i32 1, i32 3), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE2C1, i32 0, i32 1, i32 3), ptr %12, align 8
   %13 = getelementptr inbounds %struct.C1, ptr %5, i32 0, i32 1
   %14 = load ptr, ptr %4, align 8
   %15 = getelementptr inbounds %struct.C1, ptr %14, i32 0, i32 1
@@ -149361,11 +149361,11 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C0C2Ev(ptr noundef nonnull align 8 dereferenceable(12) %3, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i64 0, i64 1)) #16
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN2C1C2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef getelementptr inbounds ([7 x ptr], ptr @_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i64 0, i64 3)) #16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, inrange i32 0, i32 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, i32 0, i32 3), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, inrange i32 2, i32 3), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, i32 2, i32 3), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, inrange i32 1, i32 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1D, i32 0, i32 1, i32 3), ptr %7, align 8
   ret void
 }
 
@@ -149374,7 +149374,7 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1B, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE1B, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -150460,7 +150460,7 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVB, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVB, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %struct.MVB, ptr %3, i32 0, i32 1
   store i32 1, ptr %4, align 8
   ret void
@@ -153249,9 +153249,9 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVBC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i32 0, inrange i32 0, i32 3), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i32 0, i32 0, i32 3), ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i32 0, inrange i32 1, i32 3), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVC, i32 0, i32 1, i32 3), ptr %5, align 8
   %6 = getelementptr inbounds %struct.MVC, ptr %3, i32 0, i32 1
   store i32 2, ptr %6, align 8
   ret void
@@ -156081,11 +156081,11 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVBC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #16
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef getelementptr inbounds ([5 x ptr], ptr @_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i64 0, i64 3)) #16
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, inrange i32 0, i32 4), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, i32 0, i32 4), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, inrange i32 1, i32 4), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, i32 1, i32 4), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, inrange i32 2, i32 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD0, i32 0, i32 2, i32 3), ptr %7, align 8
   %8 = getelementptr inbounds %struct.MVD0, ptr %3, i32 0, i32 1
   store i32 3, ptr %8, align 8
   ret void
@@ -158965,11 +158965,11 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVBC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %4) #16
   %5 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVCC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %5, ptr noundef getelementptr inbounds ([5 x ptr], ptr @_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i64 0, i64 3)) #16
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, inrange i32 0, i32 4), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, i32 0, i32 4), ptr %3, align 8
   %6 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, inrange i32 1, i32 4), ptr %6, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, i32 1, i32 4), ptr %6, align 8
   %7 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, inrange i32 2, i32 3), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr], [5 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE4MVD1, i32 0, i32 2, i32 3), ptr %7, align 8
   %8 = getelementptr inbounds %struct.MVD1, ptr %3, i32 0, i32 1
   store i32 4, ptr %8, align 8
   ret void
@@ -161881,15 +161881,15 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD0C2Ev(ptr noundef nonnull align 8 dereferenceable(12) %6, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 0, i64 5)) #16
   %7 = getelementptr inbounds i8, ptr %3, i64 64
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1C2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef getelementptr inbounds ([13 x ptr], ptr @_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i64 0, i64 10)) #16
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 0, i32 6), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, i32 0, i32 6), ptr %3, align 8
   %8 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 1, i32 5), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, i32 1, i32 5), ptr %8, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 2, i32 4), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, i32 2, i32 4), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 3, i32 3), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, i32 3, i32 3), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, inrange i32 4, i32 5), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVE, i32 0, i32 4, i32 5), ptr %11, align 8
   %12 = getelementptr inbounds %struct.MVE, ptr %3, i32 0, i32 1
   store i32 5, ptr %12, align 8
   ret void
@@ -164841,17 +164841,17 @@ define internal void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN4MVD1C2Ev(ptr noundef nonnull align 8 dereferenceable(12) %7, ptr noundef getelementptr inbounds ([19 x ptr], ptr @_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 0, i64 16)) #16
   %8 = getelementptr inbounds i8, ptr %3, i64 16
   call void @_ZZ35test_submodule_multiple_inheritanceRN8pybind117module_EEN3MVEC2Ev(ptr noundef nonnull align 8 dereferenceable(12) %8, ptr noundef getelementptr inbounds ([19 x ptr], ptr @_ZTTZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i64 0, i64 6)) #16
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 0, i32 7), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, i32 0, i32 7), ptr %3, align 8
   %9 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 1, i32 7), ptr %9, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, i32 1, i32 7), ptr %9, align 8
   %10 = getelementptr inbounds i8, ptr %3, i64 32
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 2, i32 5), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, i32 2, i32 5), ptr %10, align 8
   %11 = getelementptr inbounds i8, ptr %3, i64 48
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 3, i32 4), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, i32 3, i32 4), ptr %11, align 8
   %12 = getelementptr inbounds i8, ptr %3, i64 64
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 4, i32 3), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, i32 4, i32 3), ptr %12, align 8
   %13 = getelementptr inbounds i8, ptr %3, i64 80
-  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, inrange i32 5, i32 5), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr], [9 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVZ35test_submodule_multiple_inheritanceRN8pybind117module_EE3MVF, i32 0, i32 5, i32 5), ptr %13, align 8
   %14 = getelementptr inbounds %struct.MVF, ptr %3, i32 0, i32 1
   store i32 6, ptr %14, align 8
   ret void

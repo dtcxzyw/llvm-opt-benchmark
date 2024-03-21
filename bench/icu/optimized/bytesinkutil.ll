@@ -880,7 +880,7 @@ return:                                           ; preds = %if.then2.i, %if.end
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6icu_7518CharStringByteSinkC2EPNS_10CharStringE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(16) %this, ptr noundef %dest) unnamed_addr #6 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7518CharStringByteSinkE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_7518CharStringByteSinkE, i64 0, i32 0, i64 2), ptr %this, align 8
   %dest_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %dest, ptr %dest_, align 8
   ret void

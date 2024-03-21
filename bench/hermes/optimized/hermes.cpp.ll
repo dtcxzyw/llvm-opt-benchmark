@@ -1085,7 +1085,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_code = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %__ec.coerce0, ptr %_M_code, align 8
   %__ec.sroa.31.0._M_code.sroa_idx = getelementptr inbounds i8, ptr %this, i64 24
@@ -1121,7 +1121,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %stream, ptr %OS.i, align 8
   invoke void @_ZN6hermes2vm16SamplingProfiler21dumpChromeTraceGlobalERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(36) %os)
@@ -1192,7 +1192,7 @@ if.end:                                           ; preds = %entry
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh14raw_os_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %stream, ptr %OS.i, align 8
   invoke void @_ZN6hermes2vm16SamplingProfiler25serializeInDevToolsFormatERN4llvh11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(256) %1, ptr noundef nonnull align 8 dereferenceable(36) %os)
@@ -1255,11 +1255,11 @@ define linkonce_odr void @_ZN8facebook3jsi18JSINativeExceptionC2ENSt7__cxx1112ba
 entry:
   %agg.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %what) #37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi12JSIExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %what_.i = getelementptr inbounds i8, ptr %this, i64 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %what_.i, ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #37
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #37
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook3jsi18JSINativeExceptionE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -1598,7 +1598,7 @@ entry:
 invoke.cont.i:                                    ; preds = %entry
   %data_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i8 0, i64 16, i1 false), !noalias !14
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8facebook6hermes12_GLOBAL__N_113BufferAdapterE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !14
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8facebook6hermes12_GLOBAL__N_113BufferAdapterE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !14
   %buf_.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   %0 = load ptr, ptr %agg.tmp.i, align 8, !noalias !14
   store ptr %0, ptr %buf_.i.i, align 8, !noalias !14
@@ -2654,7 +2654,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %strstrm, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %strstrm, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, i32 0, i64 2), ptr %strstrm, align 8
   %OS.i = getelementptr inbounds i8, ptr %strstrm, i64 40
   store ptr %agg.result, ptr %OS.i, align 8
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 128
@@ -3331,7 +3331,7 @@ _ZNSt10shared_ptrIKN8facebook3jsi6BufferEEC2ERKS4_.exit.i: ; preds = %if.else.i.
   %5 = phi ptr [ %jsiBuffer.val, %call.i.noexc ], [ %jsiBuffer.val, %if.then.i.i.i.i.i.i ], [ %.pre.i, %if.else.i.i.i.i.i.i ]
   %data_.i.i.i = getelementptr inbounds i8, ptr %call.i20, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %data_.i.i.i, i8 0, i64 16, i1 false), !noalias !26
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8facebook6hermes12_GLOBAL__N_113BufferAdapterE, i64 0, inrange i32 0, i64 2), ptr %call.i20, align 8, !noalias !26
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8facebook6hermes12_GLOBAL__N_113BufferAdapterE, i64 0, i32 0, i64 2), ptr %call.i20, align 8, !noalias !26
   %buf_.i.i = getelementptr inbounds i8, ptr %call.i20, i64 24
   store ptr %5, ptr %buf_.i.i, align 8, !noalias !26
   %_M_refcount.i.i.i.i = getelementptr inbounds i8, ptr %call.i20, i64 32
@@ -3495,7 +3495,7 @@ if.then31:                                        ; preds = %if.end29
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %storage, ptr %OS.i, align 8
   %call36 = invoke noundef nonnull align 8 dereferenceable(36) ptr @_ZN4llvh11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(36) %os, ptr noundef nonnull @.str.7)
@@ -3699,14 +3699,14 @@ call5.i.i.i5.i.i.i.i.noexc:                       ; preds = %if.end96
   store i32 1, ptr %_M_use_count.i.i.i.i.i.i, align 8, !noalias !33
   %_M_weak_count.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i43, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i.i, align 4, !noalias !33
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i43, align 8, !noalias !33
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIKN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i5.i.i.i.i43, align 8, !noalias !33
   %_M_impl.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i43, i64 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %agg.tmp.i.i.i.i.i.i.i), !noalias !33
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %agg.tmp6.i.i.i.i.i.i.i), !noalias !33
   store i64 %25, ptr %agg.tmp.i.i.i.i.i.i.i, align 8, !noalias !33
   store ptr null, ptr %bcErr, align 8, !noalias !33
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp6.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %sourceURL) #37, !noalias !33
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !33
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN8facebook6hermes12_GLOBAL__N_124HermesPreparedJavaScriptE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i.i.i.i, align 8, !noalias !33
   %bcProvider_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i5.i.i.i.i43, i64 24
   invoke void @_ZNSt12__shared_ptrIN6hermes3hbc20BCProviderFromBufferELN9__gnu_cxx12_Lock_policyE2EEC2IS2_St14default_deleteIS2_EvEEOSt10unique_ptrIT_T0_E(ptr noundef nonnull align 8 dereferenceable(16) %bcProvider_.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp.i.i.i.i.i.i.i)
           to label %invoke.cont.i.i.i.i.i.i.i unwind label %lpad.i.i.i.i.i.i.i.i, !noalias !33
@@ -5386,7 +5386,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %s, ptr %OS.i, align 8
   %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #38
@@ -6009,7 +6009,7 @@ if.then.i.i.i.i.thread:                           ; preds = %if.then.i.i.i
   %3 = load i32, ptr %_M_use_count.i.i.i.i, align 4
   %add.i.i.i.i.i = add nsw i32 %3, 1
   store i32 %add.i.i.i.i.i, ptr %_M_use_count.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl8JsiProxyE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl8JsiProxyE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %__args, ptr %rt_.i10, align 8
   store ptr %0, ptr %ho_.i11, align 8
   store ptr %1, ptr %_M_refcount.i.i.i, align 8
@@ -6019,7 +6019,7 @@ if.then.i.i.i.i:                                  ; preds = %if.then.i.i.i
   %4 = atomicrmw volatile add ptr %_M_use_count.i.i.i.i, i32 1 acq_rel, align 4
   %.pre = load i8, ptr @__libc_single_threaded, align 1
   %5 = icmp eq i8 %.pre, 0
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl8JsiProxyE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl8JsiProxyE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %__args, ptr %rt_.i10, align 8
   store ptr %0, ptr %ho_.i11, align 8
   store ptr %1, ptr %_M_refcount.i.i.i, align 8
@@ -6036,7 +6036,7 @@ if.else.i.i.i.i.i.i:                              ; preds = %if.then.i.i.i.i
   br label %if.then.i.i.i3
 
 _ZN8facebook6hermes17HermesRuntimeImpl8JsiProxyC2ERS1_St10shared_ptrINS_3jsi10HostObjectEE.exit: ; preds = %entry
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl8JsiProxyE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl8JsiProxyE, i64 0, i32 0, i64 2), ptr %call, align 8
   %rt_.i = getelementptr inbounds i8, ptr %call, i64 8
   store ptr %__args, ptr %rt_.i, align 8
   %ho_.i = getelementptr inbounds i8, ptr %call, i64 16
@@ -7835,7 +7835,7 @@ invoke.cont39:                                    ; preds = %invoke.cont23
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %s) #37
   store i32 1, ptr %BufferMode.i.i, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
   store ptr %s, ptr %OS.i, align 8
   %16 = bitcast i64 %retval.sroa.0.0.i to double
   %conv41 = fptoui double %16 to i64
@@ -8571,7 +8571,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %s, ptr %OS.i, align 8
   %call.i.i.i = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %args) #38
@@ -10430,8 +10430,8 @@ entry:
   store ptr %unsafe_.i.i, ptr %plain_.i.i.i.i, align 8, !noalias !173
   %with_.i.i.i = getelementptr inbounds i8, ptr %call.i, i64 24
   store ptr %lock_.i.i, ptr %with_.i.i.i, align 8, !noalias !173
-  store ptr getelementptr inbounds ({ [88 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook3jsi6detail21ThreadSafeRuntimeImplINS_6hermes17HermesRuntimeImplENS3_12_GLOBAL__N_111HermesMutexEEE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !173
-  store ptr getelementptr inbounds ({ [88 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook3jsi6detail21ThreadSafeRuntimeImplINS_6hermes17HermesRuntimeImplENS3_12_GLOBAL__N_111HermesMutexEEE, i64 0, inrange i32 1, i64 2), ptr %add.ptr.i.i, align 8, !noalias !173
+  store ptr getelementptr inbounds ({ [88 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook3jsi6detail21ThreadSafeRuntimeImplINS_6hermes17HermesRuntimeImplENS3_12_GLOBAL__N_111HermesMutexEEE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !173
+  store ptr getelementptr inbounds ({ [88 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook3jsi6detail21ThreadSafeRuntimeImplINS_6hermes17HermesRuntimeImplENS3_12_GLOBAL__N_111HermesMutexEEE, i64 0, i32 1, i64 2), ptr %add.ptr.i.i, align 8, !noalias !173
   invoke void @_ZN8facebook6hermes17HermesRuntimeImplC2ERKN6hermes2vm13RuntimeConfigE(ptr noundef nonnull align 8 dereferenceable(184) %unsafe_.i.i, ptr noundef nonnull align 8 dereferenceable(373) %runtimeConfig)
           to label %_ZSt11make_uniqueIN8facebook3jsi6detail21ThreadSafeRuntimeImplINS0_6hermes17HermesRuntimeImplENS4_12_GLOBAL__N_111HermesMutexEEEJRKN6hermes2vm13RuntimeConfigEEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %lpad.i.i, !noalias !173
 
@@ -10666,7 +10666,7 @@ arraydestroy.body.i.i.i:                          ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i.i.i = phi i64 [ 392, %while.body.i.i ], [ %arraydestroy.elementPast.add.i.i.i, %arraydestroy.body.i.i.i ]
   %arraydestroy.elementPast.add.i.i.i = add nsw i64 %arraydestroy.elementPast.idx.i.i.i, -24
   %arraydestroy.element.ptr.i.i.i = getelementptr inbounds i8, ptr %16, i64 %arraydestroy.elementPast.add.i.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, inrange i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i.i, align 8
   %arraydestroy.done.i.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i.i, 8
   br i1 %arraydestroy.done.i.i.i, label %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE5ChunkD2Ev.exit.i.i, label %arraydestroy.body.i.i.i
 
@@ -10692,7 +10692,7 @@ arraydestroy.body.i.i.i3:                         ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i.i.i4 = phi i64 [ 392, %while.body.i.i2 ], [ %arraydestroy.elementPast.add.i.i.i5, %arraydestroy.body.i.i.i3 ]
   %arraydestroy.elementPast.add.i.i.i5 = add nsw i64 %arraydestroy.elementPast.idx.i.i.i4, -24
   %arraydestroy.element.ptr.i.i.i6 = getelementptr inbounds i8, ptr %20, i64 %arraydestroy.elementPast.add.i.i.i5
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, inrange i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i.i6, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i.i6, align 8
   %arraydestroy.done.i.i.i7 = icmp eq i64 %arraydestroy.elementPast.add.i.i.i5, 8
   br i1 %arraydestroy.done.i.i.i7, label %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE5ChunkD2Ev.exit.i.i, label %arraydestroy.body.i.i.i3
 
@@ -10725,7 +10725,7 @@ entry:
   store i32 1, ptr %BufferMode.i.i, align 8
   %OutBufStart.i.i = getelementptr inbounds i8, ptr %os, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %OutBufStart.i.i, i8 0, i64 24, i1 false)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, inrange i32 0, i64 2), ptr %os, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN4llvh18raw_string_ostreamE, i64 0, i32 0, i64 2), ptr %os, align 8
   %OS.i = getelementptr inbounds i8, ptr %os, i64 40
   store ptr %s, ptr %OS.i, align 8
   %runtime_ = getelementptr inbounds i8, ptr %this, i64 128
@@ -12547,7 +12547,7 @@ _ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i: ; preds = %_ZN4llvh8Opt
 
 _ZNSt10unique_ptrIKN6hermes6BufferESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZN4llvh8OptionalISt6threadED2Ev.exit, %_ZNKSt14default_deleteIKN6hermes6BufferEEclEPS2_.exit.i
   store ptr null, ptr %buffer_, align 8
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %errstr_.i = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr_.i) #37
   ret void
@@ -12583,7 +12583,7 @@ entry:
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes3hbc14BCProviderBaseD2Ev(ptr noundef nonnull align 8 dereferenceable(280) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6hermes3hbc14BCProviderBaseE, i64 0, i32 0, i64 2), ptr %this, align 8
   %errstr_ = getelementptr inbounds i8, ptr %this, i64 248
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %errstr_) #37
   ret void
@@ -12767,7 +12767,7 @@ if.then2:                                         ; preds = %if.then
 arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i, %if.then2
   %arrayctor.cur.idx.i.i = phi i64 [ 8, %if.then2 ], [ %arrayctor.cur.add.i.i, %arrayctor.loop.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.i.i, align 8
   %refCount_.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i, i64 8
   store i32 0, ptr %refCount_.i.i.i, align 4
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 24
@@ -12853,7 +12853,7 @@ arraydestroy.body.i.i:                            ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i.i = phi i64 [ 392, %if.then11.i ], [ %arraydestroy.elementPast.add.i.i, %arraydestroy.body.i.i ]
   %arraydestroy.elementPast.add.i.i = add nsw i64 %arraydestroy.elementPast.idx.i.i, -24
   %arraydestroy.element.ptr.i.i = getelementptr inbounds i8, ptr %chunk.022.i, i64 %arraydestroy.elementPast.add.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, inrange i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i, align 8
   %arraydestroy.done.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i, 8
   br i1 %arraydestroy.done.i.i, label %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE5ChunkD2Ev.exit.i, label %arraydestroy.body.i.i
 
@@ -12901,7 +12901,7 @@ if.then5:                                         ; preds = %_ZN6hermes18Managed
 arrayctor.loop.i.i10:                             ; preds = %arrayctor.loop.i.i10, %if.then5
   %arrayctor.cur.idx.i.i11 = phi i64 [ 8, %if.then5 ], [ %arrayctor.cur.add.i.i14, %arrayctor.loop.i.i10 ]
   %arrayctor.cur.ptr.i.i12 = getelementptr inbounds i8, ptr %call.i9, i64 %arrayctor.cur.idx.i.i11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.i.i12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.i.i12, align 8
   %refCount_.i.i.i13 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i12, i64 8
   store i32 0, ptr %refCount_.i.i.i13, align 4
   %arrayctor.cur.add.i.i14 = add nuw nsw i64 %arrayctor.cur.idx.i.i11, 24
@@ -12948,7 +12948,7 @@ if.end7:                                          ; preds = %if.end7.sink.split,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -13282,7 +13282,7 @@ if.then2:                                         ; preds = %if.then
 arrayctor.loop.i.i:                               ; preds = %arrayctor.loop.i.i, %if.then2
   %arrayctor.cur.idx.i.i = phi i64 [ 8, %if.then2 ], [ %arrayctor.cur.add.i.i, %arrayctor.loop.i.i ]
   %arrayctor.cur.ptr.i.i = getelementptr inbounds i8, ptr %call.i, i64 %arrayctor.cur.idx.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.i.i, align 8
   %refCount_.i.i.i = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i, i64 8
   store i32 0, ptr %refCount_.i.i.i, align 4
   %arrayctor.cur.add.i.i = add nuw nsw i64 %arrayctor.cur.idx.i.i, 24
@@ -13368,7 +13368,7 @@ arraydestroy.body.i.i:                            ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i.i = phi i64 [ 392, %if.then11.i ], [ %arraydestroy.elementPast.add.i.i, %arraydestroy.body.i.i ]
   %arraydestroy.elementPast.add.i.i = add nsw i64 %arraydestroy.elementPast.idx.i.i, -24
   %arraydestroy.element.ptr.i.i = getelementptr inbounds i8, ptr %chunk.022.i, i64 %arraydestroy.elementPast.add.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, inrange i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i, align 8
   %arraydestroy.done.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i, 8
   br i1 %arraydestroy.done.i.i, label %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE5ChunkD2Ev.exit.i, label %arraydestroy.body.i.i
 
@@ -13416,7 +13416,7 @@ if.then5:                                         ; preds = %_ZN6hermes18Managed
 arrayctor.loop.i.i10:                             ; preds = %arrayctor.loop.i.i10, %if.then5
   %arrayctor.cur.idx.i.i11 = phi i64 [ 8, %if.then5 ], [ %arrayctor.cur.add.i.i14, %arrayctor.loop.i.i10 ]
   %arrayctor.cur.ptr.i.i12 = getelementptr inbounds i8, ptr %call.i9, i64 %arrayctor.cur.idx.i.i11
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, inrange i32 0, i64 2), ptr %arrayctor.cur.ptr.i.i12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, i32 0, i64 2), ptr %arrayctor.cur.ptr.i.i12, align 8
   %refCount_.i.i.i13 = getelementptr inbounds i8, ptr %arrayctor.cur.ptr.i.i12, i64 8
   store i32 0, ptr %refCount_.i.i.i13, align 4
   %arrayctor.cur.add.i.i14 = add nuw nsw i64 %arrayctor.cur.idx.i.i11, 24
@@ -13463,7 +13463,7 @@ if.end7:                                          ; preds = %if.end7.sink.split,
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this) unnamed_addr #6 comdat align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, i32 0, i64 2), ptr %this, align 8
   ret void
 }
 
@@ -13740,7 +13740,7 @@ invoke.cont4:                                     ; preds = %.noexc9
 
 invoke.cont6:                                     ; preds = %invoke.cont4
   %CrashMgr_ = getelementptr inbounds i8, ptr %this, i64 352
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6hermes2vm15NopCrashManagerE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6hermes2vm15NopCrashManagerE, i64 0, i32 0, i64 2), ptr %call, align 8
   store ptr %call, ptr %CrashMgr_, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 360
   invoke void @_ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EEC2IPN6hermes2vm15NopCrashManagerEEET_(ptr noundef nonnull align 8 dereferenceable(8) %_M_refcount.i.i, ptr noundef nonnull %call)
@@ -13945,7 +13945,7 @@ invoke.cont:                                      ; preds = %entry
   store i32 1, ptr %_M_use_count.i.i, align 8
   %_M_weak_count.i.i = getelementptr inbounds i8, ptr %call, i64 12
   store i32 1, ptr %_M_weak_count.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6hermes2vm15NopCrashManagerELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt15_Sp_counted_ptrIPN6hermes2vm15NopCrashManagerELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call, align 8
   %_M_ptr.i = getelementptr inbounds i8, ptr %call, i64 16
   store ptr %__p, ptr %_M_ptr.i, align 8
   store ptr %call, ptr %this, align 8
@@ -14593,7 +14593,7 @@ arraydestroy.body.i.i:                            ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i.i = phi i64 [ 392, %while.body.i ], [ %arraydestroy.elementPast.add.i.i, %arraydestroy.body.i.i ]
   %arraydestroy.elementPast.add.i.i = add nsw i64 %arraydestroy.elementPast.idx.i.i, -24
   %arraydestroy.element.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %arraydestroy.elementPast.add.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, inrange i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm8WeakRootINS4_8JSObjectEEEEE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i, align 8
   %arraydestroy.done.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i, 8
   br i1 %arraydestroy.done.i.i, label %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm8WeakRootINS5_8JSObjectEEEEELm16EE5ChunkD2Ev.exit.i, label %arraydestroy.body.i.i
 
@@ -14624,7 +14624,7 @@ arraydestroy.body.i.i:                            ; preds = %arraydestroy.body.i
   %arraydestroy.elementPast.idx.i.i = phi i64 [ 392, %while.body.i ], [ %arraydestroy.elementPast.add.i.i, %arraydestroy.body.i.i ]
   %arraydestroy.elementPast.add.i.i = add nsw i64 %arraydestroy.elementPast.idx.i.i, -24
   %arraydestroy.element.ptr.i.i = getelementptr inbounds i8, ptr %1, i64 %arraydestroy.elementPast.add.i.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, inrange i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImpl12ManagedValueIN6hermes2vm17PinnedHermesValueEEE, i64 0, i32 0, i64 2), ptr %arraydestroy.element.ptr.i.i, align 8
   %arraydestroy.done.i.i = icmp eq i64 %arraydestroy.elementPast.add.i.i, 8
   br i1 %arraydestroy.done.i.i, label %_ZN6hermes18ManagedChunkedListIN8facebook6hermes17HermesRuntimeImpl12ManagedValueINS_2vm17PinnedHermesValueEEELm16EE5ChunkD2Ev.exit.i, label %arraydestroy.body.i.i
 
@@ -15682,7 +15682,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPKN8facebook3jsi6BufferESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPKN8facebook3jsi6BufferESt14default_deleteIS3_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -16129,7 +16129,7 @@ invoke.cont:                                      ; preds = %if.end.i
   store i32 1, ptr %_M_use_count.i.i.i.i.i, align 8
   %_M_weak_count.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i4.i3, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt19_Sp_counted_deleterIPN6hermes3hbc20BCProviderFromBufferESt14default_deleteIS2_ESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i4.i3, align 8
   %_M_impl.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i4.i3, i64 16
   store ptr %1, ptr %_M_impl.i.i.i.i, align 8
   %2 = load ptr, ptr %_M_refcount, align 8
@@ -19015,7 +19015,7 @@ entry:
   %ref.tmp7 = alloca %"class.hermes::vm::GCConfig", align 8
   %agg.tmp = alloca %"class.std::function.642", align 8
   %agg.tmp57 = alloca %"class.std::function.646", align 8
-  store ptr getelementptr inbounds ({ [73 x ptr] }, ptr @_ZTVN8facebook6hermes13HermesRuntimeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [73 x ptr] }, ptr @_ZTVN8facebook6hermes13HermesRuntimeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %0 = load atomic i8, ptr @_ZGVZN8facebook6hermes12_GLOBAL__N_130InstallHermesFatalErrorHandlerC1EvE5dummy acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %0, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont, !prof !228
@@ -19041,8 +19041,8 @@ lpad.i:                                           ; preds = %init.i
 
 invoke.cont:                                      ; preds = %invoke.cont.i, %init.check.i, %entry
   %3 = getelementptr inbounds i8, ptr %this, i64 8
-  store ptr getelementptr inbounds ({ [85 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [85 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImplE, i64 0, inrange i32 1, i64 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [85 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImplE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [85 x ptr], [16 x ptr] }, ptr @_ZTVN8facebook6hermes17HermesRuntimeImplE, i64 0, i32 1, i64 2), ptr %3, align 8
   %hermesValues_ = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN6hermes2vm8GCConfigC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(200) %ref.tmp, ptr noundef nonnull align 8 dereferenceable(200) %runtimeConfig)
           to label %invoke.cont6 unwind label %lpad2
@@ -23109,13 +23109,13 @@ entry:
   store i32 1, ptr %_M_use_count.i.i.i, align 8
   %_M_weak_count.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 12
   store i32 1, ptr %_M_weak_count.i.i.i, align 4
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook3jsi19DecoratedHostObjectESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, inrange i32 0, i64 2), ptr %call5.i.i.i3.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN8facebook3jsi19DecoratedHostObjectESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 0, i32 0, i64 2), ptr %call5.i.i.i3.i, align 8
   %_M_impl.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 16
   %1 = load ptr, ptr %ho, align 8
   %_M_refcount4.i.i.i.i.i.i = getelementptr inbounds i8, ptr %ho, i64 8
   %2 = load ptr, ptr %_M_refcount4.i.i.i.i.i.i, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ho, i8 0, i64 16, i1 false)
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, inrange i32 0, i64 2), ptr %_M_impl.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, i32 0, i64 2), ptr %_M_impl.i.i.i, align 8
   %drt_.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 24
   store ptr %this, ptr %drt_.i.i.i.i.i, align 8
   %plainHO_.i.i.i.i.i = getelementptr inbounds i8, ptr %call5.i.i.i3.i, i64 32
@@ -23963,7 +23963,7 @@ return:                                           ; preds = %if.end.i, %_ZNKSt9t
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi19DecoratedHostObjectD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i, align 8
   %cmp.not.i.i.i = icmp eq ptr %0, null
@@ -24045,7 +24045,7 @@ _ZNSt10shared_ptrIN8facebook3jsi10HostObjectEED2Ev.exit: ; preds = %entry, %_ZN9
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN8facebook3jsi19DecoratedHostObjectD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #6 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN8facebook3jsi19DecoratedHostObjectE, i64 0, i32 0, i64 2), ptr %this, align 8
   %_M_refcount.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_refcount.i.i.i, align 8
   %cmp.not.i.i.i.i = icmp eq ptr %0, null

@@ -85,7 +85,7 @@ entry:
   store i64 %nonce_prefix_size, ptr %nonce_prefix_size.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3net13QuicDecrypterC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net17AeadBaseDecrypterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net17AeadBaseDecrypterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %aead_alg_ = getelementptr inbounds %"class.net::AeadBaseDecrypter", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %aead_alg.addr, align 8
   store ptr %0, ptr %aead_alg_, align 8
@@ -347,7 +347,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net13QuicDecrypterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net13QuicDecrypterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -417,7 +417,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net17AeadBaseDecrypterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN3net17AeadBaseDecrypterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %ctx_ = getelementptr inbounds %"class.net::AeadBaseDecrypter", ptr %this1, i32 0, i32 8
   call void @_ZN3net16ScopedEVPAEADCtxD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %ctx_) #6
   call void @_ZN3net13QuicDecrypterD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #6

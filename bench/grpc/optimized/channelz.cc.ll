@@ -377,7 +377,7 @@ define void @_ZN9grpc_core8channelz8BaseNodeC2ENS1_10EntityTypeENSt7__cxx1112bas
 entry:
   %refs_.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_ = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %type, ptr %type_, align 8
   %uuid_ = getelementptr inbounds i8, ptr %this, i64 24
@@ -412,7 +412,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core8channelz8BaseNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %uuid_ = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %uuid_, align 8
   %call.i1 = invoke noundef ptr @_ZN9grpc_core8channelz16ChannelzRegistry7DefaultEv()
@@ -2149,7 +2149,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %target)
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %cond, ptr %type_.i, align 8
   %uuid_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -2172,7 +2172,7 @@ lpad.i:                                           ; preds = %call.i.noexc.i, %en
 
 invoke.cont:                                      ; preds = %call.i.noexc.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz11ChannelNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz11ChannelNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %target_ = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %target_, ptr noundef nonnull align 8 dereferenceable(32) %target) #22
   %call_counter_ = getelementptr inbounds i8, ptr %this, i64 96
@@ -2727,7 +2727,7 @@ invoke.cont83:                                    ; preds = %if.end
 
 if.then.i.i:                                      ; preds = %invoke.cont83
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.51, ptr %_M_reason.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #24
@@ -5506,7 +5506,7 @@ lpad.i:                                           ; preds = %.noexc
 invoke.cont:                                      ; preds = %.noexc
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 3, ptr %type_.i, align 8
   %uuid_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -5530,7 +5530,7 @@ lpad.i6:                                          ; preds = %call.i.noexc.i, %in
 invoke.cont3:                                     ; preds = %call.i.noexc.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10ServerNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10ServerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %options.i.i)
   store i64 4, ptr %options.i.i, align 8
   %2 = getelementptr inbounds i8, ptr %options.i.i, i64 8
@@ -5638,7 +5638,7 @@ eh.resume:                                        ; preds = %ehcleanup12, %ehcle
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN9grpc_core8channelz10ServerNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10ServerNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10ServerNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_listen_sockets_ = getelementptr inbounds i8, ptr %this, i64 208
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 224
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -5682,7 +5682,7 @@ _ZNKSt14default_deleteIA_N9grpc_core8channelz24PerCpuCallCountingHelper10PerCpuD
 
 _ZN9grpc_core8channelz24PerCpuCallCountingHelperD2Ev.exit: ; preds = %_ZNSt3mapIlN9grpc_core13RefCountedPtrINS0_8channelz10SocketNodeEEESt4lessIlESaISt4pairIKlS4_EEED2Ev.exit, %_ZNKSt14default_deleteIA_N9grpc_core8channelz24PerCpuCallCountingHelper10PerCpuDataEEclIS3_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS4_EE5valueEvE4typeEPS8_.exit.i.i.i
   store ptr null, ptr %data_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %uuid_.i = getelementptr inbounds i8, ptr %this, i64 24
   %7 = load i64, ptr %uuid_.i, align 8
   %call.i1.i = invoke noundef ptr @_ZN9grpc_core8channelz16ChannelzRegistry7DefaultEv()
@@ -7340,7 +7340,7 @@ invoke.cont:                                      ; preds = %entry
 
 if.then.i.i:                                      ; preds = %invoke.cont
   %exception.i.i.i = call ptr @__cxa_allocate_exception(i64 16) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, inrange i32 0, i64 2), ptr %exception.i.i.i, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt18bad_variant_access, i64 0, i32 0, i64 2), ptr %exception.i.i.i, align 8
   %_M_reason.i.i.i.i = getelementptr inbounds i8, ptr %exception.i.i.i, i64 8
   store ptr @.str.51, ptr %_M_reason.i.i.i.i, align 8
   invoke void @__cxa_throw(ptr nonnull %exception.i.i.i, ptr nonnull @_ZTISt18bad_variant_access, ptr nonnull @_ZNSt18bad_variant_accessD2Ev) #24
@@ -9546,7 +9546,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name) #22
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 4, ptr %type_.i, align 8
   %uuid_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -9569,7 +9569,7 @@ lpad.i:                                           ; preds = %call.i.noexc.i, %en
 
 invoke.cont:                                      ; preds = %call.i.noexc.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %streams_started_ = getelementptr inbounds i8, ptr %this, i64 64
   %local_ = getelementptr inbounds i8, ptr %this, i64 144
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %streams_started_, i8 0, i64 80, i1 false)
@@ -13671,7 +13671,7 @@ entry:
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp, ptr noundef nonnull align 8 dereferenceable(32) %name) #22
   %refs_.i.i = getelementptr inbounds i8, ptr %this, i64 8
   store i64 1, ptr %refs_.i.i, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %type_.i = getelementptr inbounds i8, ptr %this, i64 16
   store i32 4, ptr %type_.i, align 8
   %uuid_.i = getelementptr inbounds i8, ptr %this, i64 24
@@ -13694,7 +13694,7 @@ lpad.i:                                           ; preds = %call.i.noexc.i, %en
 
 invoke.cont:                                      ; preds = %call.i.noexc.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %agg.tmp) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz16ListenSocketNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz16ListenSocketNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %local_addr_ = getelementptr inbounds i8, ptr %this, i64 64
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(32) %local_addr_, ptr noundef nonnull align 8 dereferenceable(32) %local_addr) #22
   ret void
@@ -14158,7 +14158,7 @@ eh.resume:                                        ; preds = %arraydestroy.body65
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core8channelz10SocketNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %security_ = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %security_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -14182,7 +14182,7 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit: ; pre
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote_) #22
   %local_ = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %uuid_.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %uuid_.i, align 8
   %call.i1.i = invoke noundef ptr @_ZN9grpc_core8channelz16ChannelzRegistry7DefaultEv()
@@ -14208,7 +14208,7 @@ _ZN9grpc_core8channelz8BaseNodeD2Ev.exit:         ; preds = %call.i.noexc.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core8channelz10SocketNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(216) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz10SocketNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %security_.i = getelementptr inbounds i8, ptr %this, i64 208
   %0 = load ptr, ptr %security_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null
@@ -14232,7 +14232,7 @@ _ZN9grpc_core13RefCountedPtrINS_8channelz10SocketNode8SecurityEED2Ev.exit.i: ; p
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %remote_.i) #22
   %local_.i = getelementptr inbounds i8, ptr %this, i64 144
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_.i) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %uuid_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %3 = load i64, ptr %uuid_.i.i, align 8
   %call.i1.i.i = invoke noundef ptr @_ZN9grpc_core8channelz16ChannelzRegistry7DefaultEv()
@@ -14259,10 +14259,10 @@ _ZN9grpc_core8channelz10SocketNodeD2Ev.exit:      ; preds = %call.i.noexc.i.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core8channelz16ListenSocketNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz16ListenSocketNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz16ListenSocketNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %local_addr_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_addr_) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %uuid_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %uuid_.i, align 8
   %call.i1.i = invoke noundef ptr @_ZN9grpc_core8channelz16ChannelzRegistry7DefaultEv()
@@ -14288,10 +14288,10 @@ _ZN9grpc_core8channelz8BaseNodeD2Ev.exit:         ; preds = %call.i.noexc.i
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core8channelz16ListenSocketNodeD0Ev(ptr noundef nonnull align 8 dereferenceable(96) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz16ListenSocketNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz16ListenSocketNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %local_addr_.i = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %local_addr_.i) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %uuid_.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %uuid_.i.i, align 8
   %call.i1.i.i = invoke noundef ptr @_ZN9grpc_core8channelz16ChannelzRegistry7DefaultEv()
@@ -14320,7 +14320,7 @@ declare void @__cxa_pure_virtual() unnamed_addr
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr void @_ZN9grpc_core8channelz11ChannelNodeD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %this) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz11ChannelNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz11ChannelNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %child_subchannels_ = getelementptr inbounds i8, ptr %this, i64 256
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 272
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -14355,7 +14355,7 @@ _ZNSt3setIlSt4lessIlESaIlEED2Ev.exit3:            ; preds = %_ZNSt3setIlSt4lessI
   tail call void @_ZN9grpc_core8channelz12ChannelTraceD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %trace_) #22
   %target_ = getelementptr inbounds i8, ptr %this, i64 64
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %target_) #22
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN9grpc_core8channelz8BaseNodeE, i64 0, i32 0, i64 2), ptr %this, align 8
   %uuid_.i = getelementptr inbounds i8, ptr %this, i64 24
   %6 = load i64, ptr %uuid_.i, align 8
   %call.i1.i = invoke noundef ptr @_ZN9grpc_core8channelz16ChannelzRegistry7DefaultEv()

@@ -3840,7 +3840,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal15SteepestDescentC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN5ceres8internal19LineSearchDirectionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal15SteepestDescentE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal15SteepestDescentE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3872,7 +3872,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal19LineSearchDirectionC2Ev(ptr
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal19LineSearchDirectionE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal19LineSearchDirectionE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4745,7 +4745,7 @@ define linkonce_odr hidden void @_ZNSt9bad_allocC2Ev(ptr noundef nonnull align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4759,7 +4759,7 @@ define linkonce_odr hidden void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5648,7 +5648,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal26NonlinearConjugateGradientC
   store double %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8internal19LineSearchDirectionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal26NonlinearConjugateGradientE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal26NonlinearConjugateGradientE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"class.ceres::internal::NonlinearConjugateGradient", ptr %7, i32 0, i32 1
   %9 = load i32, ptr %5, align 4
   store i32 %9, ptr %8, align 8
@@ -9648,7 +9648,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal5LBFGSC2Eiib(ptr noundef nonn
   store i8 %11, ptr %8, align 1
   %12 = load ptr, ptr %5, align 8
   call void @_ZN5ceres8internal19LineSearchDirectionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal5LBFGSE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal5LBFGSE, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %"class.ceres::internal::LBFGS", ptr %12, i32 0, i32 1
   %14 = load i32, ptr %6, align 4
   %15 = load i32, ptr %7, align 4
@@ -12485,7 +12485,7 @@ define linkonce_odr hidden void @_ZN5ceres8internal4BFGSC2Eib(ptr noundef nonnul
   store i8 %11, ptr %6, align 1
   %12 = load ptr, ptr %4, align 8
   call void @_ZN5ceres8internal19LineSearchDirectionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #16
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal4BFGSE, i32 0, inrange i32 0, i32 2), ptr %12, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5ceres8internal4BFGSE, i32 0, i32 0, i32 2), ptr %12, align 8
   %13 = getelementptr inbounds %"class.ceres::internal::BFGS", ptr %12, i32 0, i32 1
   %14 = load i32, ptr %5, align 4
   store i32 %14, ptr %13, align 8

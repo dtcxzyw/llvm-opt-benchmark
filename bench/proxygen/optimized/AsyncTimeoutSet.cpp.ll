@@ -72,7 +72,7 @@ init.check:                                       ; preds = %entry
   br i1 %tobool.not, label %init.end, label %invoke.cont
 
 invoke.cont:                                      ; preds = %init.check
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen18SimpleTimeoutClockE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen18SimpleTimeoutClockE, i64 0, i32 0, i64 2), ptr @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8proxygen15getTimeoutClockEvE12timeoutClock) #14
   br label %init.end
 
@@ -97,7 +97,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen15AsyncTimeoutSet8CallbackD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(56) %this) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSet8CallbackE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSet8CallbackE, i64 0, i32 0, i64 2), ptr %this, align 8
   %timeoutSet_.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load ptr, ptr %timeoutSet_.i, align 8
   %cmp.i.not = icmp eq ptr %0, null
@@ -538,8 +538,8 @@ invoke.cont:
   store i32 0, ptr %guardCount_.i.i, align 8
   %destroyPending_.i = getelementptr inbounds i8, ptr %this, i64 204
   store i8 0, ptr %destroyPending_.i, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, i32 1, i64 2), ptr %0, align 8
   %tobool.not = icmp eq ptr %timeoutClock, null
   br i1 %tobool.not, label %cond.false, label %cond.end
 
@@ -554,7 +554,7 @@ init.check.i:                                     ; preds = %cond.false
   br i1 %tobool.not.i, label %cond.end, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %init.check.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen18SimpleTimeoutClockE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen18SimpleTimeoutClockE, i64 0, i32 0, i64 2), ptr @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8proxygen15getTimeoutClockEvE12timeoutClock) #14
   br label %cond.end
 
@@ -590,8 +590,8 @@ invoke.cont:
   store i32 0, ptr %guardCount_.i.i, align 8
   %destroyPending_.i = getelementptr inbounds i8, ptr %this, i64 204
   store i8 0, ptr %destroyPending_.i, align 4
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, i32 1, i64 2), ptr %0, align 8
   %1 = load atomic i8, ptr @_ZGVZN8proxygen15getTimeoutClockEvE12timeoutClock acquire, align 8
   %guard.uninitialized.i = icmp eq i8 %1, 0
   br i1 %guard.uninitialized.i, label %init.check.i, label %invoke.cont4, !prof !4
@@ -602,7 +602,7 @@ init.check.i:                                     ; preds = %invoke.cont
   br i1 %tobool.not.i, label %invoke.cont4, label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %init.check.i
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen18SimpleTimeoutClockE, i64 0, inrange i32 0, i64 2), ptr @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN8proxygen18SimpleTimeoutClockE, i64 0, i32 0, i64 2), ptr @_ZZN8proxygen15getTimeoutClockEvE12timeoutClock, align 8
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN8proxygen15getTimeoutClockEvE12timeoutClock) #14
   br label %invoke.cont4
 
@@ -625,9 +625,9 @@ declare void @_ZN5folly12AsyncTimeoutC2EPNS_14TimeoutManagerENS1_12InternalEnumE
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN8proxygen15AsyncTimeoutSetD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %this) unnamed_addr #2 align 2 {
 entry:
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, i32 0, i64 2), ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this, i64 192
-  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, inrange i32 1, i64 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr], [6 x ptr] }, ptr @_ZTVN8proxygen15AsyncTimeoutSetE, i64 0, i32 1, i64 2), ptr %add.ptr, align 8
   tail call void @_ZN5folly18DelayedDestructionD2Ev(ptr noundef nonnull align 8 dereferenceable(13) %add.ptr) #14
   tail call void @_ZN5folly12AsyncTimeoutD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %this) #14
   ret void

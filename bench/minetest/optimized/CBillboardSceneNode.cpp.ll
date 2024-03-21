@@ -209,7 +209,7 @@ $_ZTSN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE = comdat any
 $_ZTIN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE = comdat any
 
 @_ZTVN3irr5scene19CBillboardSceneNodeE = unnamed_addr constant { [23 x ptr], [94 x ptr], [5 x ptr] } { [23 x ptr] [ptr inttoptr (i64 280 to ptr), ptr inttoptr (i64 56 to ptr), ptr null, ptr @_ZTIN3irr5scene19CBillboardSceneNodeE, ptr @_ZN3irr5scene19CBillboardSceneNodeD1Ev, ptr @_ZN3irr5scene19CBillboardSceneNodeD0Ev, ptr @_ZN3irr5scene19CBillboardSceneNode19OnRegisterSceneNodeEv, ptr @_ZN3irr5scene19CBillboardSceneNode6renderEv, ptr @_ZNK3irr5scene19CBillboardSceneNode14getBoundingBoxEv, ptr @_ZN3irr5scene19CBillboardSceneNode7setSizeERKNS_4core11dimension2dIfEE, ptr @_ZN3irr5scene19CBillboardSceneNode7setSizeEfff, ptr @_ZNK3irr5scene19CBillboardSceneNode7getSizeEv, ptr @_ZNK3irr5scene19CBillboardSceneNode7getSizeERfS2_S2_, ptr @_ZN3irr5scene19CBillboardSceneNode11getMaterialEj, ptr @_ZNK3irr5scene19CBillboardSceneNode16getMaterialCountEv, ptr @_ZN3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorE, ptr @_ZN3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorES5_, ptr @_ZNK3irr5scene19CBillboardSceneNode8getColorERNS_5video6SColorES4_, ptr @_ZN3irr5scene19CBillboardSceneNode34getTransformedBillboardBoundingBoxEPKNS0_16ICameraSceneNodeE, ptr @_ZNK3irr5scene19CBillboardSceneNode18getMeshBufferCountEv, ptr @_ZNK3irr5scene19CBillboardSceneNode13getMeshBufferEj, ptr @_ZNK3irr5scene19CBillboardSceneNode7getTypeEv, ptr @_ZN3irr5scene19CBillboardSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE], [94 x ptr] [ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr null, ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -56 to ptr), ptr null, ptr null, ptr inttoptr (i64 -56 to ptr), ptr null, ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 -56 to ptr), ptr inttoptr (i64 224 to ptr), ptr inttoptr (i64 -56 to ptr), ptr @_ZTIN3irr5scene19CBillboardSceneNodeE, ptr @_ZTv0_n32_N3irr5scene19CBillboardSceneNodeD1Ev, ptr @_ZTv0_n32_N3irr5scene19CBillboardSceneNodeD0Ev, ptr @_ZTv0_n40_N3irr5scene19CBillboardSceneNode19OnRegisterSceneNodeEv, ptr @_ZN3irr5scene10ISceneNode9OnAnimateEj, ptr @_ZTv0_n56_N3irr5scene19CBillboardSceneNode6renderEv, ptr @_ZNK3irr5scene10ISceneNode7getNameB5cxx11Ev, ptr @_ZN3irr5scene10ISceneNode7setNameERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE, ptr @_ZTv0_n80_NK3irr5scene19CBillboardSceneNode14getBoundingBoxEv, ptr @_ZNK3irr5scene10ISceneNode25getTransformedBoundingBoxEv, ptr @_ZNK3irr5scene10ISceneNode30getTransformedBoundingBoxEdgesERNS_4core5arrayINS2_8vector3dIfEEEE, ptr @_ZNK3irr5scene10ISceneNode25getAbsoluteTransformationEv, ptr @_ZNK3irr5scene10ISceneNode25getRelativeTransformationEv, ptr @_ZNK3irr5scene10ISceneNode9isVisibleEv, ptr @_ZNK3irr5scene10ISceneNode14isTrulyVisibleEv, ptr @_ZN3irr5scene10ISceneNode10setVisibleEb, ptr @_ZNK3irr5scene10ISceneNode5getIDEv, ptr @_ZN3irr5scene10ISceneNode5setIDEi, ptr @_ZN3irr5scene10ISceneNode8addChildEPS1_, ptr @_ZN3irr5scene10ISceneNode11removeChildEPS1_, ptr @_ZN3irr5scene10ISceneNode9removeAllEv, ptr @_ZN3irr5scene10ISceneNode6removeEv, ptr @_ZTv0_n192_N3irr5scene19CBillboardSceneNode11getMaterialEj, ptr @_ZTv0_n200_NK3irr5scene19CBillboardSceneNode16getMaterialCountEv, ptr @_ZNK3irr5scene10ISceneNode8getScaleEv, ptr @_ZN3irr5scene10ISceneNode8setScaleERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode11getRotationEv, ptr @_ZN3irr5scene10ISceneNode11setRotationERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode11getPositionEv, ptr @_ZN3irr5scene10ISceneNode11setPositionERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode19getAbsolutePositionEv, ptr @_ZN3irr5scene10ISceneNode19setDebugDataVisibleEj, ptr @_ZN3irr5scene10ISceneNode9setParentEPS1_, ptr @_ZN3irr5scene10ISceneNode22updateAbsolutePositionEv, ptr @_ZTv0_n288_NK3irr5scene19CBillboardSceneNode7getTypeEv, ptr @_ZTv0_n296_N3irr5scene19CBillboardSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE, ptr @_ZNK3irr5scene10ISceneNode15getSceneManagerEv, ptr @_ZTv0_n312_N3irr5scene19CBillboardSceneNode7setSizeERKNS_4core11dimension2dIfEE, ptr @_ZTv0_n320_N3irr5scene19CBillboardSceneNode7setSizeEfff, ptr @_ZTv0_n328_NK3irr5scene19CBillboardSceneNode7getSizeEv, ptr @_ZTv0_n336_NK3irr5scene19CBillboardSceneNode7getSizeERfS2_S2_, ptr @_ZTv0_n344_N3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorE, ptr @_ZTv0_n352_N3irr5scene19CBillboardSceneNode8setColorERKNS_5video6SColorES5_, ptr @_ZTv0_n360_NK3irr5scene19CBillboardSceneNode8getColorERNS_5video6SColorES4_, ptr @_ZTv0_n368_N3irr5scene19CBillboardSceneNode34getTransformedBillboardBoundingBoxEPKNS0_16ICameraSceneNodeE, ptr @_ZTv0_n376_NK3irr5scene19CBillboardSceneNode18getMeshBufferCountEv, ptr @_ZTv0_n384_NK3irr5scene19CBillboardSceneNode13getMeshBufferEj], [5 x ptr] [ptr inttoptr (i64 -280 to ptr), ptr inttoptr (i64 -280 to ptr), ptr @_ZTIN3irr5scene19CBillboardSceneNodeE, ptr @_ZTv0_n24_N3irr5scene19CBillboardSceneNodeD1Ev, ptr @_ZTv0_n24_N3irr5scene19CBillboardSceneNodeD0Ev] }, align 8
-@_ZTTN3irr5scene19CBillboardSceneNodeE = unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i32 0, inrange i32 0, i32 4), ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i32 0, inrange i32 1, i32 48), ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [94 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_19IBillboardSceneNodeE, i32 0, inrange i32 0, i32 48), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [94 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_19IBillboardSceneNodeE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr5scene19CBillboardSceneNodeE = unnamed_addr constant [7 x ptr] [ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i32 0, i32 0, i32 4), ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i32 0, inrange i32 1, i32 48), ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [94 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_19IBillboardSceneNodeE, i32 0, inrange i32 0, i32 48), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [94 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_19IBillboardSceneNodeE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZN3irr4core14IdentityMatrixE = external global %"class.irr::core::CMatrix4", align 4
 @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_19IBillboardSceneNodeE = unnamed_addr constant { [94 x ptr], [5 x ptr] } { [94 x ptr] [ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 224 to ptr), ptr null, ptr @_ZTIN3irr5scene19IBillboardSceneNodeE, ptr @_ZN3irr5scene19IBillboardSceneNodeD1Ev, ptr @_ZN3irr5scene19IBillboardSceneNodeD0Ev, ptr @_ZN3irr5scene10ISceneNode19OnRegisterSceneNodeEv, ptr @_ZN3irr5scene10ISceneNode9OnAnimateEj, ptr @__cxa_pure_virtual, ptr @_ZNK3irr5scene10ISceneNode7getNameB5cxx11Ev, ptr @_ZN3irr5scene10ISceneNode7setNameERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE, ptr @__cxa_pure_virtual, ptr @_ZNK3irr5scene10ISceneNode25getTransformedBoundingBoxEv, ptr @_ZNK3irr5scene10ISceneNode30getTransformedBoundingBoxEdgesERNS_4core5arrayINS2_8vector3dIfEEEE, ptr @_ZNK3irr5scene10ISceneNode25getAbsoluteTransformationEv, ptr @_ZNK3irr5scene10ISceneNode25getRelativeTransformationEv, ptr @_ZNK3irr5scene10ISceneNode9isVisibleEv, ptr @_ZNK3irr5scene10ISceneNode14isTrulyVisibleEv, ptr @_ZN3irr5scene10ISceneNode10setVisibleEb, ptr @_ZNK3irr5scene10ISceneNode5getIDEv, ptr @_ZN3irr5scene10ISceneNode5setIDEi, ptr @_ZN3irr5scene10ISceneNode8addChildEPS1_, ptr @_ZN3irr5scene10ISceneNode11removeChildEPS1_, ptr @_ZN3irr5scene10ISceneNode9removeAllEv, ptr @_ZN3irr5scene10ISceneNode6removeEv, ptr @_ZN3irr5scene10ISceneNode11getMaterialEj, ptr @_ZNK3irr5scene10ISceneNode16getMaterialCountEv, ptr @_ZNK3irr5scene10ISceneNode8getScaleEv, ptr @_ZN3irr5scene10ISceneNode8setScaleERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode11getRotationEv, ptr @_ZN3irr5scene10ISceneNode11setRotationERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode11getPositionEv, ptr @_ZN3irr5scene10ISceneNode11setPositionERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode19getAbsolutePositionEv, ptr @_ZN3irr5scene10ISceneNode19setDebugDataVisibleEj, ptr @_ZN3irr5scene10ISceneNode9setParentEPS1_, ptr @_ZN3irr5scene10ISceneNode22updateAbsolutePositionEv, ptr @_ZNK3irr5scene10ISceneNode7getTypeEv, ptr @_ZN3irr5scene10ISceneNode5cloneEPS1_PNS0_13ISceneManagerE, ptr @_ZNK3irr5scene10ISceneNode15getSceneManagerEv, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual], [5 x ptr] [ptr inttoptr (i64 -224 to ptr), ptr inttoptr (i64 -224 to ptr), ptr @_ZTIN3irr5scene19IBillboardSceneNodeE, ptr @_ZTv0_n24_N3irr5scene19IBillboardSceneNodeD1Ev, ptr @_ZTv0_n24_N3irr5scene19IBillboardSceneNodeD0Ev] }, align 8
 @_ZTVN10__cxxabiv120__si_class_type_infoE = external global [0 x ptr]
@@ -263,8 +263,8 @@ define void @_ZN3irr5scene19CBillboardSceneNodeC2EPNS0_10ISceneNodeEPNS0_13IScen
   store ptr null, ptr %28, align 8, !tbaa !9
   %29 = getelementptr inbounds i8, ptr %26, i64 328
   store i32 1, ptr %29, align 8, !tbaa !13
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %26, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %27, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %26, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %27, align 8, !tbaa !3
   %30 = getelementptr inbounds i8, ptr %26, i64 8
   store i32 1, ptr %30, align 8, !tbaa !14
   %31 = getelementptr inbounds i8, ptr %26, i64 12
@@ -458,8 +458,8 @@ define void @_ZN3irr5scene19CBillboardSceneNodeC1EPNS0_10ISceneNodeEPNS0_13IScen
   %11 = getelementptr inbounds i8, ptr %0, i64 296
   store i32 1, ptr %11, align 8, !tbaa !13
   %12 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %12, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %9, align 8, !tbaa !3
   %13 = getelementptr inbounds i8, ptr %0, i64 96
   store i8 0, ptr %13, align 8, !tbaa !65
   %14 = getelementptr inbounds i8, ptr %0, i64 104
@@ -512,13 +512,13 @@ define void @_ZN3irr5scene19CBillboardSceneNodeC1EPNS0_10ISceneNodeEPNS0_13IScen
   br label %39
 
 39:                                               ; preds = %34, %8
-  %40 = phi ptr [ getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), %8 ], [ %38, %34 ]
+  %40 = phi ptr [ getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), %8 ], [ %38, %34 ]
   %41 = getelementptr inbounds i8, ptr %40, i64 256
   %42 = load ptr, ptr %41, align 8
   tail call void %42(ptr noundef nonnull align 8 dereferenceable(222) %12) #25
-  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, inrange i32 0, i64 4), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, inrange i32 1, i64 48), ptr %12, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, inrange i32 2, i64 3), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, i32 0, i64 4), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, i32 1, i64 48), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, i32 2, i64 3), ptr %9, align 8, !tbaa !3
   %43 = getelementptr inbounds i8, ptr %0, i64 8
   %44 = getelementptr inbounds i8, ptr %0, i64 12
   store <2 x float> zeroinitializer, ptr %43, align 8, !tbaa !6
@@ -537,8 +537,8 @@ define void @_ZN3irr5scene19CBillboardSceneNodeC1EPNS0_10ISceneNodeEPNS0_13IScen
   store ptr null, ptr %54, align 8, !tbaa !9
   %55 = getelementptr inbounds i8, ptr %52, i64 328
   store i32 1, ptr %55, align 8, !tbaa !13
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %52, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %53, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %52, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %53, align 8, !tbaa !3
   %56 = getelementptr inbounds i8, ptr %52, i64 8
   store i32 1, ptr %56, align 8, !tbaa !14
   %57 = getelementptr inbounds i8, ptr %52, i64 12
@@ -766,11 +766,11 @@ define void @_ZN3irr5scene19CBillboardSceneNodeD2Ev(ptr nocapture noundef nonnul
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr5scene19CBillboardSceneNodeD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 {
-  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, inrange i32 0, i64 4), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, i32 0, i64 4), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 56
-  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, inrange i32 1, i64 48), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, i32 1, i64 48), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 280
-  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, inrange i32 2, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [23 x ptr], [94 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene19CBillboardSceneNodeE, i64 0, i32 2, i64 3), ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !55
   %6 = load ptr, ptr %5, align 8, !tbaa !3
@@ -792,8 +792,8 @@ define void @_ZN3irr5scene19CBillboardSceneNodeD1Ev(ptr noundef nonnull align 8 
   br label %18
 
 18:                                               ; preds = %14, %1
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %2, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene19CBillboardSceneNodeE56_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %19 = getelementptr inbounds i8, ptr %0, i64 208
   %20 = load ptr, ptr %19, align 8, !tbaa !70
   %21 = icmp eq ptr %20, %19
@@ -4743,9 +4743,9 @@ define linkonce_odr noundef i32 @_ZNK3irr5scene11CMeshBufferINS_5video9S3DVertex
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) unnamed_addr #15 comdat align 2 {
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = icmp eq ptr %4, null
@@ -4811,9 +4811,9 @@ define linkonce_odr void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED1Ev(p
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr void @_ZN3irr5scene11CMeshBufferINS_5video9S3DVertexEED0Ev(ptr noundef nonnull align 8 dereferenceable(308) %0) unnamed_addr #15 comdat align 2 {
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 312
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 248
   %4 = load ptr, ptr %3, align 8, !tbaa !61
   %5 = icmp eq ptr %4, null
@@ -4884,9 +4884,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr5scene11CMeshBufferINS_5video9S3DVertex
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 312
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !61
   %9 = icmp eq ptr %8, null
@@ -4956,9 +4956,9 @@ define linkonce_odr void @_ZTv0_n24_N3irr5scene11CMeshBufferINS_5video9S3DVertex
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 0, i64 3), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 0, i64 3), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 312
-  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, inrange i32 1, i64 3), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [36 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene11CMeshBufferINS_5video9S3DVertexEEE, i64 0, i32 1, i64 3), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 248
   %8 = load ptr, ptr %7, align 8, !tbaa !61
   %9 = icmp eq ptr %8, null

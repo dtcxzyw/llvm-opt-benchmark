@@ -271,7 +271,7 @@ invoke.cont:                                      ; preds = %_ZNK5folly5RangeIPK
           to label %invoke.cont4 unwind label %lpad3
 
 invoke.cont4:                                     ; preds = %invoke.cont
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly15AsyncFileWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly15AsyncFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
   %file_.i = getelementptr inbounds %"class.folly::AsyncFileWriter", ptr %this, i64 0, i32 1
   call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %file_.i, ptr noundef nonnull align 4 dereferenceable(5) %ref.tmp) #19
   call void @_ZN5folly4FileD1Ev(ptr noundef nonnull align 4 dereferenceable(5) %ref.tmp) #19
@@ -338,7 +338,7 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN5folly15AsyncFileWriterC2EONS_4FileE(ptr noundef nonnull align 8 dereferenceable(264) %this, ptr noundef nonnull align 4 dereferenceable(5) %file) unnamed_addr #2 align 2 {
 entry:
   tail call void @_ZN5folly14AsyncLogWriterC2Ev(ptr noundef nonnull align 8 dereferenceable(256) %this)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly15AsyncFileWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly15AsyncFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
   %file_ = getelementptr inbounds %"class.folly::AsyncFileWriter", ptr %this, i64 0, i32 1
   tail call void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(5) %file_, ptr noundef nonnull align 4 dereferenceable(5) %file) #19
   ret void
@@ -380,7 +380,7 @@ declare void @_ZN5folly4FileC1EOS0_(ptr noundef nonnull align 4 dereferenceable(
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN5folly15AsyncFileWriterD2Ev(ptr noundef nonnull align 8 dereferenceable(264) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly15AsyncFileWriterE, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN5folly15AsyncFileWriterE, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
   invoke void @_ZN5folly14AsyncLogWriter7cleanupEv(ptr noundef nonnull align 8 dereferenceable(256) %this)
           to label %invoke.cont unwind label %terminate.lpad
 
@@ -657,7 +657,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 define linkonce_odr void @_ZNSt12system_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #0 comdat align 2 {
 entry:
   tail call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %0) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
   %_M_code2 = getelementptr inbounds %"class.std::system_error", ptr %0, i64 0, i32 1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %_M_code, ptr noundef nonnull align 8 dereferenceable(16) %_M_code2, i64 16, i1 false), !tbaa.struct !53
@@ -813,7 +813,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45: ; preds = %if.
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp3) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp2) #19
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %ref.tmp) #19
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, inrange i32 0, i64 2), ptr %this, align 8, !tbaa !15
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12system_error, i64 0, i32 0, i64 2), ptr %this, align 8, !tbaa !15
   %_M_code = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1
   store i32 %__ec.coerce0, ptr %_M_code, align 8, !tbaa.struct !53
   %__ec.sroa.364.0._M_code.sroa_idx = getelementptr inbounds %"class.std::system_error", ptr %this, i64 0, i32 1, i32 1

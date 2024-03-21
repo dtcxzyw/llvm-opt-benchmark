@@ -1245,7 +1245,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %other.addr, align 8
   call void @_ZN6icu_758CollatorC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %other.addr, align 8
   %data2 = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %1, i32 0, i32 1
@@ -1362,7 +1362,7 @@ entry:
   store ptr %errorCode, ptr %errorCode.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758CollatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %data = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this1, i32 0, i32 1
   store ptr null, ptr %data, align 8
   %settings = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this1, i32 0, i32 2
@@ -1863,7 +1863,7 @@ entry:
   store ptr %entry1, ptr %entry.addr, align 8
   %this2 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758CollatorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this2)
-  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i32 0, inrange i32 0, i32 2), ptr %this2, align 8
+  store ptr getelementptr inbounds ({ [43 x ptr] }, ptr @_ZTVN6icu_7517RuleBasedCollatorE, i32 0, i32 0, i32 2), ptr %this2, align 8
   %data = getelementptr inbounds %"class.icu_75::RuleBasedCollator", ptr %this2, i32 0, i32 1
   %0 = load ptr, ptr %entry.addr, align 8
   %tailoring = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %0, i32 0, i32 2
@@ -2041,7 +2041,7 @@ entry:
   store ptr %t, ptr %t.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512SharedObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %this1)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7519CollationCacheEntryE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7519CollationCacheEntryE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %validLocale = getelementptr inbounds %"struct.icu_75::CollationCacheEntry", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %loc.addr, align 8
   invoke void @_ZN6icu_756LocaleC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) %validLocale, ptr noundef nonnull align 8 dereferenceable(217) %0)
@@ -4784,7 +4784,7 @@ entry:
   %0 = load ptr, ptr %d.addr, align 8
   %1 = load i8, ptr %numeric.addr, align 1
   call void @_ZN6icu_7517CollationIteratorC2EPKNS_13CollationDataEa(ptr noundef nonnull align 8 dereferenceable(389) %this1, ptr noundef %0, i8 noundef signext %1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7522UTF16CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %start = getelementptr inbounds %"class.icu_75::UTF16CollationIterator", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %s.addr, align 8
   store ptr %2, ptr %start, align 8
@@ -5007,7 +5007,7 @@ entry:
   %3 = load ptr, ptr %p.addr, align 8
   %4 = load ptr, ptr %lim.addr, align 8
   call void @_ZN6icu_7522UTF16CollationIteratorC2EPKNS_13CollationDataEaPKDsS5_S5_(ptr noundef nonnull align 8 dereferenceable(416) %this1, ptr noundef %0, i8 noundef signext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7525FCDUTF16CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rawStart = getelementptr inbounds %"class.icu_75::FCDUTF16CollationIterator", ptr %this1, i32 0, i32 1
   %5 = load ptr, ptr %s.addr, align 8
   store ptr %5, ptr %rawStart, align 8
@@ -7773,7 +7773,7 @@ entry:
   store ptr %textLimit, ptr %textLimit.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512_GLOBAL__N_111NFDIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_116UTF16NFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_116UTF16NFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %s = getelementptr inbounds %"class.icu_75::(anonymous namespace)::UTF16NFDIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %text.addr, align 8
   store ptr %0, ptr %s, align 8
@@ -7938,7 +7938,7 @@ entry:
   store ptr %textLimit, ptr %textLimit.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512_GLOBAL__N_116UTF16NFDIteratorC2EPKDsS3_(ptr noundef nonnull align 8 dereferenceable(48) %this1, ptr noundef null, ptr noundef null)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %str = getelementptr inbounds %"class.icu_75::(anonymous namespace)::FCDUTF16NFDIterator", ptr %this1, i32 0, i32 1
   invoke void @_ZN6icu_7513UnicodeStringC2Ev(ptr noundef nonnull align 8 dereferenceable(64) %str)
           to label %invoke.cont unwind label %lpad
@@ -8114,7 +8114,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUTF16NFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %str = getelementptr inbounds %"class.icu_75::(anonymous namespace)::FCDUTF16NFDIterator", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %str) #10
   call void @_ZN6icu_7512_GLOBAL__N_116UTF16NFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %this1) #10
@@ -8144,7 +8144,7 @@ entry:
   %0 = load ptr, ptr %d.addr, align 8
   %1 = load i8, ptr %numeric.addr, align 1
   call void @_ZN6icu_7517CollationIteratorC2EPKNS_13CollationDataEa(ptr noundef nonnull align 8 dereferenceable(389) %this1, ptr noundef %0, i8 noundef signext %1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7521UTF8CollationIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7521UTF8CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %u8 = getelementptr inbounds %"class.icu_75::UTF8CollationIterator", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %s.addr, align 8
   store ptr %2, ptr %u8, align 8
@@ -8184,7 +8184,7 @@ entry:
   %3 = load i32, ptr %p.addr, align 4
   %4 = load i32, ptr %len.addr, align 4
   call void @_ZN6icu_7521UTF8CollationIteratorC2EPKNS_13CollationDataEaPKhii(ptr noundef nonnull align 8 dereferenceable(408) %this1, ptr noundef %0, i8 noundef signext %1, ptr noundef %2, i32 noundef %3, i32 noundef %4)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7524FCDUTF8CollationIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7524FCDUTF8CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %state = getelementptr inbounds %"class.icu_75::FCDUTF8CollationIterator", ptr %this1, i32 0, i32 1
   store i32 0, ptr %state, align 8
   %start = getelementptr inbounds %"class.icu_75::FCDUTF8CollationIterator", ptr %this1, i32 0, i32 2
@@ -8234,7 +8234,7 @@ entry:
   store i32 %textLength, ptr %textLength.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512_GLOBAL__N_111NFDIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_115UTF8NFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_115UTF8NFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %s = getelementptr inbounds %"class.icu_75::(anonymous namespace)::UTF8NFDIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %text.addr, align 8
   store ptr %0, ptr %s, align 8
@@ -8271,7 +8271,7 @@ entry:
   store i32 %textLength, ptr %textLength.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512_GLOBAL__N_111NFDIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %u8ci = getelementptr inbounds %"class.icu_75::(anonymous namespace)::FCDUTF8NFDIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %data.addr, align 8
   %1 = load ptr, ptr %text.addr, align 8
@@ -8306,7 +8306,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_118FCDUTF8NFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %u8ci = getelementptr inbounds %"class.icu_75::(anonymous namespace)::FCDUTF8NFDIterator", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7524FCDUTF8CollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(496) %u8ci) #10
   call void @_ZN6icu_7512_GLOBAL__N_111NFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #10
@@ -8770,7 +8770,7 @@ entry:
   %0 = load ptr, ptr %d.addr, align 8
   %1 = load i8, ptr %numeric.addr, align 1
   call void @_ZN6icu_7517CollationIteratorC2EPKNS_13CollationDataEa(ptr noundef nonnull align 8 dereferenceable(389) %this1, ptr noundef %0, i8 noundef signext %1)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7522UIterCollationIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7522UIterCollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %iter = getelementptr inbounds %"class.icu_75::UIterCollationIterator", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %ui.addr, align 8
   store ptr %2, ptr %iter, align 8
@@ -8800,7 +8800,7 @@ entry:
   %1 = load i8, ptr %numeric.addr, align 1
   %2 = load ptr, ptr %ui.addr, align 8
   call void @_ZN6icu_7522UIterCollationIteratorC2EPKNS_13CollationDataEaR13UCharIterator(ptr noundef nonnull align 8 dereferenceable(400) %this1, ptr noundef %0, i8 noundef signext %1, ptr noundef nonnull align 8 dereferenceable(112) %2)
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7525FCDUIterCollationIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7525FCDUIterCollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %state = getelementptr inbounds %"class.icu_75::FCDUIterCollationIterator", ptr %this1, i32 0, i32 1
   store i32 0, ptr %state, align 8
   %start = getelementptr inbounds %"class.icu_75::FCDUIterCollationIterator", ptr %this1, i32 0, i32 2
@@ -8848,7 +8848,7 @@ entry:
   store ptr %it, ptr %it.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512_GLOBAL__N_111NFDIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_116UIterNFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_116UIterNFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %iter = getelementptr inbounds %"class.icu_75::(anonymous namespace)::UIterNFDIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %it.addr, align 8
   store ptr %0, ptr %iter, align 8
@@ -8880,7 +8880,7 @@ entry:
   store i32 %startIndex, ptr %startIndex.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7512_GLOBAL__N_111NFDIteratorC2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %uici = getelementptr inbounds %"class.icu_75::(anonymous namespace)::FCDUIterNFDIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %data.addr, align 8
   %1 = load ptr, ptr %it.addr, align 8
@@ -8915,7 +8915,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_119FCDUIterNFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %uici = getelementptr inbounds %"class.icu_75::(anonymous namespace)::FCDUIterNFDIterator", ptr %this1, i32 0, i32 1
   call void @_ZN6icu_7525FCDUIterCollationIteratorD1Ev(ptr noundef nonnull align 8 dereferenceable(488) %uici) #10
   call void @_ZN6icu_7512_GLOBAL__N_111NFDIteratorD2Ev(ptr noundef nonnull align 8 dereferenceable(32) %this1) #10
@@ -9095,7 +9095,7 @@ entry:
   %1 = load ptr, ptr %key.addr, align 8
   %call2 = call noundef i32 @_ZNK6icu_7512CollationKey11getCapacityEv(ptr noundef nonnull align 8 dereferenceable(48) %1)
   call void @_ZN6icu_7515SortKeyByteSinkC2EPci(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %call, i32 noundef %call2)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7520CollationKeyByteSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7520CollationKeyByteSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %key_ = getelementptr inbounds %"class.icu_75::CollationKeyByteSink", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %key.addr, align 8
   store ptr %2, ptr %key_, align 8
@@ -9474,7 +9474,7 @@ entry:
   %0 = load ptr, ptr %dest.addr, align 8
   %1 = load i32, ptr %destCapacity.addr, align 4
   call void @_ZN6icu_7515SortKeyByteSinkC2EPci(ptr noundef nonnull align 8 dereferenceable(28) %this1, ptr noundef %0, i32 noundef %1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_120FixedSortKeyByteSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_120FixedSortKeyByteSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9505,7 +9505,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513CollationKeys13LevelCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7513CollationKeys13LevelCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9739,7 +9739,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7511ReplaceableC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7513UnicodeStringE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %fUnion2 = getelementptr inbounds %"class.icu_75::UnicodeString", ptr %this1, i32 0, i32 1
   %fLengthAndFlags = getelementptr inbounds %struct.anon.0, ptr %fUnion2, i32 0, i32 0
   store i16 2, ptr %fLengthAndFlags, align 8
@@ -10257,7 +10257,7 @@ entry:
   store ptr %s, ptr %s.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_7513CollationKeys13LevelCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117PartLevelCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_117PartLevelCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %sink = getelementptr inbounds %"class.icu_75::(anonymous namespace)::PartLevelCallback", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %s.addr, align 8
   store ptr %0, ptr %sink, align 8
@@ -11548,7 +11548,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_7512SharedObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %softRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 1
   store i32 0, ptr %softRefCount, align 8
   %hardRefCount = getelementptr inbounds %"class.icu_75::SharedObject", ptr %this1, i32 0, i32 2
@@ -11567,7 +11567,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN6icu_757UObjectE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -11672,7 +11672,7 @@ entry:
   store i8 %numeric, ptr %numeric.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517CollationIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [18 x ptr] }, ptr @_ZTVN6icu_7517CollationIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %trie = getelementptr inbounds %"class.icu_75::CollationIterator", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %d.addr, align 8
   %trie2 = getelementptr inbounds %"struct.icu_75::CollationData", ptr %0, i32 0, i32 0
@@ -11982,7 +11982,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_111NFDIteratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN6icu_7512_GLOBAL__N_111NFDIteratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %index = getelementptr inbounds %"class.icu_75::(anonymous namespace)::NFDIterator", ptr %this1, i32 0, i32 3
   store i32 -1, ptr %index, align 8
   %length = getelementptr inbounds %"class.icu_75::(anonymous namespace)::NFDIterator", ptr %this1, i32 0, i32 4
@@ -12815,7 +12815,7 @@ entry:
   store i32 %destCapacity, ptr %destCapacity.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_758ByteSinkC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7515SortKeyByteSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN6icu_7515SortKeyByteSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buffer_ = getelementptr inbounds %"class.icu_75::SortKeyByteSink", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %dest.addr, align 8
   store ptr %0, ptr %buffer_, align 8
@@ -12835,7 +12835,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758ByteSinkE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN6icu_758ByteSinkE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -12913,7 +12913,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6icu_757UObjectC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #10
-  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [13 x ptr] }, ptr @_ZTVN6icu_7511ReplaceableE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

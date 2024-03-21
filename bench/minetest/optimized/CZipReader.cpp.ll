@@ -77,9 +77,9 @@ $_ZTSN3irr2io9IFileListE = comdat any
 $_ZTIN3irr2io9IFileListE = comdat any
 
 @_ZTVN3irr2io17CArchiveLoaderZIPE = unnamed_addr constant { [10 x ptr], [5 x ptr] } { [10 x ptr] [ptr inttoptr (i64 16 to ptr), ptr null, ptr @_ZTIN3irr2io17CArchiveLoaderZIPE, ptr @_ZNK3irr2io17CArchiveLoaderZIP21isALoadableFileFormatERKNS_4core6stringIcEE, ptr @_ZNK3irr2io17CArchiveLoaderZIP21isALoadableFileFormatEPNS0_9IReadFileE, ptr @_ZNK3irr2io17CArchiveLoaderZIP21isALoadableFileFormatENS0_19E_FILE_ARCHIVE_TYPEE, ptr @_ZNK3irr2io17CArchiveLoaderZIP13createArchiveERKNS_4core6stringIcEEbb, ptr @_ZNK3irr2io17CArchiveLoaderZIP13createArchiveEPNS0_9IReadFileEbb, ptr @_ZN3irr2io17CArchiveLoaderZIPD1Ev, ptr @_ZN3irr2io17CArchiveLoaderZIPD0Ev], [5 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN3irr2io17CArchiveLoaderZIPE, ptr @_ZTv0_n24_N3irr2io17CArchiveLoaderZIPD1Ev, ptr @_ZTv0_n24_N3irr2io17CArchiveLoaderZIPD0Ev] }, align 8
-@_ZTTN3irr2io17CArchiveLoaderZIPE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io17CArchiveLoaderZIPE0_NS0_14IArchiveLoaderE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io17CArchiveLoaderZIPE0_NS0_14IArchiveLoaderE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr2io17CArchiveLoaderZIPE = unnamed_addr constant [4 x ptr] [ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io17CArchiveLoaderZIPE0_NS0_14IArchiveLoaderE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io17CArchiveLoaderZIPE0_NS0_14IArchiveLoaderE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZTVN3irr2io10CZipReaderE = unnamed_addr constant { [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] } { [12 x ptr] [ptr inttoptr (i64 128 to ptr), ptr inttoptr (i64 104 to ptr), ptr inttoptr (i64 64 to ptr), ptr null, ptr @_ZTIN3irr2io10CZipReaderE, ptr @_ZN3irr2io10CZipReaderD1Ev, ptr @_ZN3irr2io10CZipReaderD0Ev, ptr @_ZN3irr2io10CZipReader17createAndOpenFileERKNS_4core6stringIcEE, ptr @_ZN3irr2io10CZipReader17createAndOpenFileEj, ptr @_ZNK3irr2io10CZipReader11getFileListEv, ptr @_ZNK3irr2io10CZipReader7getTypeEv, ptr @_ZNK3irr2io10CZipReader14getArchiveNameEv], [18 x ptr] [ptr inttoptr (i64 -64 to ptr), ptr null, ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 -64 to ptr), ptr inttoptr (i64 40 to ptr), ptr inttoptr (i64 -64 to ptr), ptr @_ZTIN3irr2io10CZipReaderE, ptr @_ZTv0_n32_N3irr2io10CZipReader17createAndOpenFileERKNS_4core6stringIcEE, ptr @_ZTv0_n40_N3irr2io10CZipReader17createAndOpenFileEj, ptr @_ZTv0_n48_NK3irr2io10CZipReader11getFileListEv, ptr @_ZTv0_n56_NK3irr2io10CZipReader7getTypeEv, ptr @_ZTv0_n64_NK3irr2io10CZipReader14getArchiveNameEv, ptr @_ZN3irr2io12IFileArchive22addDirectoryToFileListERKNS_4core6stringIcEE, ptr @_ZTv0_n80_N3irr2io10CZipReaderD1Ev, ptr @_ZTv0_n80_N3irr2io10CZipReaderD0Ev], [5 x ptr] [ptr inttoptr (i64 -104 to ptr), ptr inttoptr (i64 -104 to ptr), ptr @_ZTIN3irr2io10CZipReaderE, ptr @_ZTv0_n24_N3irr2io10CZipReaderD1Ev, ptr @_ZTv0_n24_N3irr2io10CZipReaderD0Ev], [28 x ptr] [ptr inttoptr (i64 -128 to ptr), ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr inttoptr (i64 -24 to ptr), ptr inttoptr (i64 -128 to ptr), ptr @_ZTIN3irr2io10CZipReaderE, ptr @_ZNK3irr2io9CFileList12getFileCountEv, ptr @_ZNK3irr2io9CFileList11getFileNameEj, ptr @_ZNK3irr2io9CFileList15getFullFileNameEj, ptr @_ZNK3irr2io9CFileList11getFileSizeEj, ptr @_ZNK3irr2io9CFileList13getFileOffsetEj, ptr @_ZNK3irr2io9CFileList5getIDEj, ptr @_ZNK3irr2io9CFileList11isDirectoryEj, ptr @_ZNK3irr2io9CFileList8findFileERKNS_4core6stringIcEEb, ptr @_ZNK3irr2io9CFileList7getPathEv, ptr @_ZN3irr2io9CFileList7addItemERKNS_4core6stringIcEEjjbj, ptr @_ZN3irr2io9CFileList4sortEv, ptr @_ZTv0_n120_N3irr2io10CZipReaderD1Ev, ptr @_ZTv0_n120_N3irr2io10CZipReaderD0Ev] }, align 8
-@_ZTTN3irr2io10CZipReaderE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i32 0, inrange i32 0, i32 5), ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i32 0, inrange i32 3, i32 15), ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE128_NS0_9CFileListE, i32 0, inrange i32 0, i32 15), ptr getelementptr inbounds ({ [16 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE128_NS0_9IFileListE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [16 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE128_NS0_9IFileListE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE128_NS0_9CFileListE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr2io10CZipReaderE = unnamed_addr constant [10 x ptr] [ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i32 0, i32 0, i32 5), ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i32 0, inrange i32 1, i32 10), ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i32 0, inrange i32 2, i32 3), ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i32 0, inrange i32 3, i32 15), ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i32 0, inrange i32 0, i32 10), ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE128_NS0_9CFileListE, i32 0, inrange i32 0, i32 15), ptr getelementptr inbounds ({ [16 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE128_NS0_9IFileListE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [16 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE128_NS0_9IFileListE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [28 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE128_NS0_9CFileListE, i32 0, inrange i32 1, i32 3)], align 8
 @.str.6 = private unnamed_addr constant [7 x i8] c"1.2.13\00", align 1
 @.str.7 = private unnamed_addr constant [23 x i8] c"Error decompressing %s\00", align 1
 @.str.8 = private unnamed_addr constant [56 x i8] c"bzip2 decompression not supported. File cannot be read.\00", align 1
@@ -140,8 +140,8 @@ define void @_ZN3irr2io17CArchiveLoaderZIPC1EPNS0_11IFileSystemE(ptr nocapture n
   store ptr null, ptr %4, align 8, !tbaa !11
   %5 = getelementptr inbounds i8, ptr %0, i64 32
   store i32 1, ptr %5, align 8, !tbaa !14
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [10 x ptr], [5 x ptr] }, ptr @_ZTVN3irr2io17CArchiveLoaderZIPE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %6, align 8, !tbaa !6
   ret void
@@ -438,8 +438,8 @@ define void @_ZN3irr2io10CZipReaderC1EPNS0_11IFileSystemEPNS0_9IReadFileEbbb(ptr
   %11 = getelementptr inbounds i8, ptr %0, i64 120
   store i32 1, ptr %11, align 8, !tbaa !14
   %12 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 0, i64 10), ptr %12, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 1, i64 3), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %9, align 8, !tbaa !3
   %13 = getelementptr inbounds i8, ptr %0, i64 72
   %14 = getelementptr inbounds i8, ptr %0, i64 88
   store ptr %14, ptr %13, align 8, !tbaa !15
@@ -497,10 +497,10 @@ define void @_ZN3irr2io10CZipReaderC1EPNS0_11IFileSystemEPNS0_9IReadFileEbbb(ptr
 
 39:                                               ; preds = %38, %34
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 1, i64 10), ptr %12, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 2, i64 3), ptr %9, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 3, i64 15), ptr %16, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %16, align 8, !tbaa !3
   %40 = getelementptr inbounds i8, ptr %0, i64 8
   store ptr %1, ptr %40, align 8, !tbaa !24
   %41 = getelementptr inbounds i8, ptr %0, i64 16
@@ -1806,13 +1806,13 @@ define void @_ZN3irr2io10CZipReaderD2Ev(ptr nocapture noundef nonnull align 8 de
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CZipReaderD1Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 1, i64 10), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 2, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 3, i64 15), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = icmp eq ptr %6, null
@@ -1849,8 +1849,8 @@ define void @_ZN3irr2io10CZipReaderD1Ev(ptr noundef nonnull align 8 dereferencea
 
 26:                                               ; preds = %25, %21
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 0, i64 10), ptr %2, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   %28 = load ptr, ptr %27, align 8, !tbaa !21
   %29 = getelementptr inbounds i8, ptr %0, i64 88
@@ -1881,13 +1881,13 @@ define void @_ZTv0_n80_N3irr2io10CZipReaderD1Ev(ptr noundef %0) unnamed_addr #8 
   %3 = getelementptr inbounds i8, ptr %2, i64 -80
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 0, i64 5), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 1, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 2, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 3, i64 15), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = icmp eq ptr %10, null
@@ -1924,8 +1924,8 @@ define void @_ZTv0_n80_N3irr2io10CZipReaderD1Ev(ptr noundef %0) unnamed_addr #8 
 
 30:                                               ; preds = %29, %25
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 0, i64 10), ptr %6, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !3
   %31 = getelementptr inbounds i8, ptr %5, i64 72
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds i8, ptr %5, i64 88
@@ -1953,13 +1953,13 @@ define void @_ZTv0_n24_N3irr2io10CZipReaderD1Ev(ptr noundef %0) unnamed_addr #8 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 0, i64 5), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 1, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 2, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 3, i64 15), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = icmp eq ptr %10, null
@@ -1996,8 +1996,8 @@ define void @_ZTv0_n24_N3irr2io10CZipReaderD1Ev(ptr noundef %0) unnamed_addr #8 
 
 30:                                               ; preds = %29, %25
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 0, i64 10), ptr %6, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !3
   %31 = getelementptr inbounds i8, ptr %5, i64 72
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds i8, ptr %5, i64 88
@@ -2025,13 +2025,13 @@ define void @_ZTv0_n120_N3irr2io10CZipReaderD1Ev(ptr noundef %0) unnamed_addr #8
   %3 = getelementptr inbounds i8, ptr %2, i64 -120
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 0, i64 5), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 1, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 2, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 3, i64 15), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = icmp eq ptr %10, null
@@ -2068,8 +2068,8 @@ define void @_ZTv0_n120_N3irr2io10CZipReaderD1Ev(ptr noundef %0) unnamed_addr #8
 
 30:                                               ; preds = %29, %25
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 0, i64 10), ptr %6, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !3
   %31 = getelementptr inbounds i8, ptr %5, i64 72
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds i8, ptr %5, i64 88
@@ -2093,13 +2093,13 @@ define void @_ZTv0_n120_N3irr2io10CZipReaderD1Ev(ptr noundef %0) unnamed_addr #8
 
 ; Function Attrs: mustprogress nounwind uwtable
 define void @_ZN3irr2io10CZipReaderD0Ev(ptr noundef nonnull align 8 dereferenceable(57) %0) unnamed_addr #2 align 2 {
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 0, i64 5), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds i8, ptr %0, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 1, i64 10), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %2, align 8, !tbaa !3
   %3 = getelementptr inbounds i8, ptr %0, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 2, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %3, align 8, !tbaa !3
   %4 = getelementptr inbounds i8, ptr %0, i64 128
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 3, i64 15), ptr %4, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %4, align 8, !tbaa !3
   %5 = getelementptr inbounds i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = icmp eq ptr %6, null
@@ -2136,8 +2136,8 @@ define void @_ZN3irr2io10CZipReaderD0Ev(ptr noundef nonnull align 8 dereferencea
 
 26:                                               ; preds = %25, %21
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %4, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 0, i64 10), ptr %2, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 1, i64 3), ptr %3, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %2, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %3, align 8, !tbaa !3
   %27 = getelementptr inbounds i8, ptr %0, i64 72
   %28 = load ptr, ptr %27, align 8, !tbaa !21
   %29 = getelementptr inbounds i8, ptr %0, i64 88
@@ -2169,13 +2169,13 @@ define void @_ZTv0_n80_N3irr2io10CZipReaderD0Ev(ptr noundef %0) unnamed_addr #8 
   %3 = getelementptr inbounds i8, ptr %2, i64 -80
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 0, i64 5), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 1, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 2, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 3, i64 15), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = icmp eq ptr %10, null
@@ -2212,8 +2212,8 @@ define void @_ZTv0_n80_N3irr2io10CZipReaderD0Ev(ptr noundef %0) unnamed_addr #8 
 
 30:                                               ; preds = %29, %25
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 0, i64 10), ptr %6, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !3
   %31 = getelementptr inbounds i8, ptr %5, i64 72
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds i8, ptr %5, i64 88
@@ -2242,13 +2242,13 @@ define void @_ZTv0_n24_N3irr2io10CZipReaderD0Ev(ptr noundef %0) unnamed_addr #8 
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 0, i64 5), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 1, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 2, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 3, i64 15), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = icmp eq ptr %10, null
@@ -2285,8 +2285,8 @@ define void @_ZTv0_n24_N3irr2io10CZipReaderD0Ev(ptr noundef %0) unnamed_addr #8 
 
 30:                                               ; preds = %29, %25
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 0, i64 10), ptr %6, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !3
   %31 = getelementptr inbounds i8, ptr %5, i64 72
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds i8, ptr %5, i64 88
@@ -2315,13 +2315,13 @@ define void @_ZTv0_n120_N3irr2io10CZipReaderD0Ev(ptr noundef %0) unnamed_addr #8
   %3 = getelementptr inbounds i8, ptr %2, i64 -120
   %4 = load i64, ptr %3, align 8
   %5 = getelementptr inbounds i8, ptr %0, i64 %4
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 0, i64 5), ptr %5, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 0, i64 5), ptr %5, align 8, !tbaa !3
   %6 = getelementptr inbounds i8, ptr %5, i64 64
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 1, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 1, i64 10), ptr %6, align 8, !tbaa !3
   %7 = getelementptr inbounds i8, ptr %5, i64 104
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 2, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 2, i64 3), ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds i8, ptr %5, i64 128
-  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, inrange i32 3, i64 15), ptr %8, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [12 x ptr], [18 x ptr], [5 x ptr], [28 x ptr] }, ptr @_ZTVN3irr2io10CZipReaderE, i64 0, i32 3, i64 15), ptr %8, align 8, !tbaa !3
   %9 = getelementptr inbounds i8, ptr %5, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = icmp eq ptr %10, null
@@ -2358,8 +2358,8 @@ define void @_ZTv0_n120_N3irr2io10CZipReaderD0Ev(ptr noundef %0) unnamed_addr #8
 
 30:                                               ; preds = %29, %25
   tail call void @_ZN3irr2io9CFileListD2Ev(ptr noundef nonnull align 8 dereferenceable(80) %8, ptr noundef nonnull getelementptr inbounds ([10 x ptr], ptr @_ZTTN3irr2io10CZipReaderE, i64 0, i64 6)) #22
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 0, i64 10), ptr %6, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, inrange i32 1, i64 3), ptr %7, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 0, i64 10), ptr %6, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [18 x ptr], [5 x ptr] }, ptr @_ZTCN3irr2io10CZipReaderE64_NS0_12IFileArchiveE, i64 0, i32 1, i64 3), ptr %7, align 8, !tbaa !3
   %31 = getelementptr inbounds i8, ptr %5, i64 72
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = getelementptr inbounds i8, ptr %5, i64 88

@@ -1147,7 +1147,7 @@ declare void @_ZNK6google8protobuf14FileDescriptor14CopyJsonNameToEPNS0_19FileDe
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplC2ERKSt6vectorIPKNS0_14FileDescriptorESaIS7_EE(ptr nocapture noundef nonnull writeonly align 8 dereferenceable(41) %this, ptr noundef nonnull align 8 dereferenceable(24) %parsed_files) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %files_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr @_ZZN4absl12lts_2023080218container_internal5btreeINS1_10map_paramsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_St4lessIS9_ESaISt4pairIKS9_S9_EELi256ELb0EEEE9EmptyNodeEvE10empty_nodeB5cxx11, ptr %files_, align 8
   %rightmost_.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 16
@@ -2195,7 +2195,7 @@ lpad:                                             ; preds = %entry
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %append_mode) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %directory_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %directory, ptr %directory_, align 8
   %filename_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2268,7 +2268,7 @@ declare void @_ZN6google8protobuf2io18StringOutputStreamC1EPNSt7__cxx1112basic_s
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %directory_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %directory, ptr %directory_, align 8
   %filename_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2343,7 +2343,7 @@ ehcleanup12:                                      ; preds = %ehcleanup, %lpad2
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamC2EPNS2_20GeneratorContextImplERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESD_RKNS0_17GeneratedCodeInfoE(ptr noundef nonnull align 8 dereferenceable(176) %this, ptr noundef %directory, ptr noundef nonnull align 8 dereferenceable(32) %filename, ptr noundef nonnull align 8 dereferenceable(32) %insertion_point, ptr noundef nonnull align 8 dereferenceable(48) %info) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %directory_ = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %directory, ptr %directory_, align 8
   %filename_ = getelementptr inbounds i8, ptr %this, i64 16
@@ -2910,7 +2910,7 @@ entry:
   %ref.tmp74 = alloca %"class.std::__cxx11::basic_string", align 8
   %indent_ = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp156 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface18MemoryOutputStreamE, i64 0, i32 0, i64 2), ptr %this, align 8
   %inner_ = getelementptr inbounds i8, ptr %this, i64 120
   %0 = load ptr, ptr %inner_, align 8
   store ptr null, ptr %inner_, align 8
@@ -4886,9 +4886,9 @@ invoke.cont50:                                    ; preds = %if.end46
   %52 = load i32, ptr %error_format_, align 8
   %53 = getelementptr inbounds i8, ptr %call48, i64 8
   %54 = getelementptr inbounds i8, ptr %call48, i64 16
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, inrange i32 0, i64 2), ptr %call48, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, inrange i32 1, i64 2), ptr %53, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, inrange i32 2, i64 2), ptr %54, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, i32 0, i64 2), ptr %call48, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, i32 1, i64 2), ptr %53, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, i32 2, i64 2), ptr %54, align 8
   %format_.i = getelementptr inbounds i8, ptr %call48, i64 24
   store i32 %52, ptr %format_.i, align 8
   %tree_.i = getelementptr inbounds i8, ptr %call48, i64 32
@@ -4963,9 +4963,9 @@ invoke.cont75:                                    ; preds = %if.end69
   %62 = load i32, ptr %error_format_72, align 8
   %63 = getelementptr inbounds i8, ptr %call71, i64 8
   %64 = getelementptr inbounds i8, ptr %call71, i64 16
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, inrange i32 0, i64 2), ptr %call71, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, inrange i32 1, i64 2), ptr %63, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, inrange i32 2, i64 2), ptr %64, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, i32 0, i64 2), ptr %call71, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, i32 1, i64 2), ptr %63, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, i32 2, i64 2), ptr %64, align 8
   %format_.i87 = getelementptr inbounds i8, ptr %call71, i64 24
   store i32 %62, ptr %format_.i87, align 8
   %tree_.i88 = getelementptr inbounds i8, ptr %call71, i64 32
@@ -10856,9 +10856,9 @@ invoke.cont25:                                    ; preds = %invoke.cont20
   %6 = load i32, ptr %error_format_, align 8
   %7 = getelementptr inbounds i8, ptr %error_collector, i64 8
   %8 = getelementptr inbounds i8, ptr %error_collector, i64 16
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, inrange i32 0, i64 2), ptr %error_collector, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, inrange i32 1, i64 2), ptr %7, align 8
-  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, inrange i32 2, i64 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, i32 0, i64 2), ptr %error_collector, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, i32 1, i64 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr], [6 x ptr], [6 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface12ErrorPrinterE, i64 0, i32 2, i64 2), ptr %8, align 8
   %format_.i = getelementptr inbounds i8, ptr %error_collector, i64 24
   store i32 %6, ptr %format_.i, align 8
   %tree_.i = getelementptr inbounds i8, ptr %error_collector, i64 32
@@ -16335,7 +16335,7 @@ declare void @_ZNK6google8protobuf14DescriptorPool17FindAllExtensionsEPKNS0_10De
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplD2Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %files_ = getelementptr inbounds i8, ptr %this, i64 8
   %size_.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %size_.i.i.i.i.i.i.i, align 8
@@ -16367,7 +16367,7 @@ _ZN4absl12lts_202308029btree_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplD0Ev(ptr noundef nonnull align 8 dereferenceable(41) %this) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTVN6google8protobuf8compiler20CommandLineInterface20GeneratorContextImplE, i64 0, i32 0, i64 2), ptr %this, align 8
   %files_.i = getelementptr inbounds i8, ptr %this, i64 8
   %size_.i.i.i.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 24
   %0 = load i64, ptr %size_.i.i.i.i.i.i.i.i, align 8

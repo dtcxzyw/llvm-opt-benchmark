@@ -1455,7 +1455,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this1, i32 0, i32 4
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   invoke void @_ZN6mygame4Vec310SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
@@ -1497,7 +1497,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -1571,7 +1571,7 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame4Vec3E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::Vec3", ptr %this1, i32 0, i32 4
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
@@ -1678,7 +1678,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf11MessageLiteC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6google8protobuf7MessageE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -3476,7 +3476,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this1, i32 0, i32 3
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   invoke void @_ZN6mygame6Weapon10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(32) %this1)
@@ -3553,7 +3553,7 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6WeaponE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::Weapon", ptr %this1, i32 0, i32 3
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
@@ -5288,7 +5288,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %weapons_ = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6WeaponEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %weapons_, ptr noundef %1)
@@ -5480,7 +5480,7 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7MonsterE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %weapons_ = getelementptr inbounds %"class.mygame::Monster", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %from.addr, align 8
   %weapons_2 = getelementptr inbounds %"class.mygame::Monster", ptr %0, i32 0, i32 1
@@ -8906,7 +8906,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %monsters_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame7MonsterEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %monsters_, ptr noundef %1)
@@ -9030,7 +9030,7 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame8MonstersE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %monsters_ = getelementptr inbounds %"class.mygame::Monsters", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %from.addr, align 8
   %monsters_2 = getelementptr inbounds %"class.mygame::Monsters", ptr %0, i32 0, i32 1
@@ -10485,7 +10485,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::rect32", ptr %this1, i32 0, i32 5
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   invoke void @_ZN6mygame6rect3210SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(40) %this1)
@@ -10564,7 +10564,7 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6rect32E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::rect32", ptr %this1, i32 0, i32 5
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
@@ -12147,7 +12147,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rect32_list_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6rect32EEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %rect32_list_, ptr noundef %1)
@@ -12271,7 +12271,7 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7rect32sE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %rect32_list_ = getelementptr inbounds %"class.mygame::rect32s", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %from.addr, align 8
   %rect32_list_2 = getelementptr inbounds %"class.mygame::rect32s", ptr %0, i32 0, i32 1
@@ -13714,7 +13714,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::person", ptr %this1, i32 0, i32 5
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   invoke void @_ZN6mygame6person10SharedCtorEv(ptr noundef nonnull align 8 dereferenceable(48) %this1)
@@ -13797,7 +13797,7 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame6personE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_cached_size_ = getelementptr inbounds %"class.mygame::person", ptr %this1, i32 0, i32 5
   call void @_ZN6google8protobuf8internal10CachedSizeC2Ev(ptr noundef nonnull align 4 dereferenceable(4) %_cached_size_) #3
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
@@ -15447,7 +15447,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf7MessageC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef %0)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %person_list_ = getelementptr inbounds %"class.mygame::persons", ptr %this1, i32 0, i32 1
   %1 = load ptr, ptr %arena.addr, align 8
   invoke void @_ZN6google8protobuf16RepeatedPtrFieldIN6mygame6personEEC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(24) %person_list_, ptr noundef %1)
@@ -15571,7 +15571,7 @@ entry:
   store ptr %from, ptr %from.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN6google8protobuf7MessageC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1)
-  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [22 x ptr] }, ptr @_ZTVN6mygame7personsE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %person_list_ = getelementptr inbounds %"class.mygame::persons", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %from.addr, align 8
   %person_list_2 = getelementptr inbounds %"class.mygame::persons", ptr %0, i32 0, i32 1
@@ -18038,7 +18038,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %arena, ptr %arena.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %arena.addr, align 8
   call void @_ZN6google8protobuf8internal16InternalMetadataC2EPNS0_5ArenaE(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_, ptr noundef %0)
@@ -18100,7 +18100,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [16 x ptr] }, ptr @_ZTVN6google8protobuf11MessageLiteE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_internal_metadata_ = getelementptr inbounds %"class.google::protobuf::MessageLite", ptr %this1, i32 0, i32 1
   call void @_ZN6google8protobuf8internal16InternalMetadataC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %_internal_metadata_)
   ret void

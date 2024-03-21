@@ -4980,7 +4980,7 @@ define dso_local void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlag
   store i32 %1, ptr %5, align 4
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 1
   %9 = load i32, ptr %5, align 4
   store i32 %9, ptr %8, align 8
@@ -5018,7 +5018,7 @@ define dso_local void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %11 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, i32 0, i32 2), ptr %11, align 8
   %12 = getelementptr inbounds %class.FunctionInvocation, ptr %11, i32 0, i32 1
   %13 = load ptr, ptr %4, align 8
   %14 = getelementptr inbounds %class.FunctionInvocation, ptr %13, i32 0, i32 1
@@ -5241,7 +5241,7 @@ define dso_local void @_ZN18FunctionInvocationD2Ev(ptr noundef nonnull align 8 d
   %6 = alloca %"class.__gnu_cxx::__normal_iterator.98", align 8
   store ptr %0, ptr %2, align 8
   %7 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV18FunctionInvocation, i32 0, i32 0, i32 2), ptr %7, align 8
   call void @_ZN9__gnu_cxx17__normal_iteratorIPKPK10ExpressionSt6vectorIS3_SaIS3_EEEC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3) #3
   %8 = getelementptr inbounds %class.FunctionInvocation, ptr %7, i32 0, i32 2
   %9 = call ptr @_ZNSt6vectorIPK10ExpressionSaIS2_EE5beginEv(ptr noundef nonnull align 8 dereferenceable(24) %8) #3

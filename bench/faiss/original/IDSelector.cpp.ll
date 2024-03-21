@@ -666,7 +666,7 @@ define linkonce_odr void @_ZN5faiss15IDSelectorBatchD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss15IDSelectorBatchE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss15IDSelectorBatchE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.faiss::IDSelectorBatch", ptr %3, i32 0, i32 2
   call void @_ZNSt6vectorIhSaIhEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %4) #12
   %5 = getelementptr inbounds %"struct.faiss::IDSelectorBatch", ptr %3, i32 0, i32 1
@@ -761,7 +761,7 @@ define void @_ZN5faiss15IDSelectorRangeC2Ellb(ptr noundef nonnull align 8 derefe
   store i8 %9, ptr %8, align 1
   %10 = load ptr, ptr %5, align 8
   call void @_ZN5faiss10IDSelectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss15IDSelectorRangeE, i32 0, inrange i32 0, i32 2), ptr %10, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss15IDSelectorRangeE, i32 0, i32 0, i32 2), ptr %10, align 8
   %11 = getelementptr inbounds %"struct.faiss::IDSelectorRange", ptr %10, i32 0, i32 1
   %12 = load i64, ptr %6, align 8
   store i64 %12, ptr %11, align 8
@@ -781,7 +781,7 @@ define linkonce_odr void @_ZN5faiss10IDSelectorC2Ev(ptr noundef nonnull align 8 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss10IDSelectorE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss10IDSelectorE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1028,7 +1028,7 @@ define void @_ZN5faiss15IDSelectorArrayC2EmPKl(ptr noundef nonnull align 8 deref
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5faiss10IDSelectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss15IDSelectorArrayE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss15IDSelectorArrayE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.faiss::IDSelectorArray", ptr %7, i32 0, i32 1
   %9 = load i64, ptr %5, align 8
   store i64 %9, ptr %8, align 8
@@ -1054,7 +1054,7 @@ define void @_ZN5faiss15IDSelectorBatchC2EmPKl(ptr noundef nonnull align 8 deref
   store ptr %2, ptr %6, align 8
   %13 = load ptr, ptr %4, align 8
   call void @_ZN5faiss10IDSelectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss15IDSelectorBatchE, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss15IDSelectorBatchE, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %"struct.faiss::IDSelectorBatch", ptr %13, i32 0, i32 1
   call void @_ZNSt13unordered_setIlSt4hashIlESt8equal_toIlESaIlEEC2Ev(ptr noundef nonnull align 8 dereferenceable(56) %14) #12
   %15 = getelementptr inbounds %"struct.faiss::IDSelectorBatch", ptr %13, i32 0, i32 2
@@ -5508,7 +5508,7 @@ define void @_ZN5faiss16IDSelectorBitmapC2EmPKh(ptr noundef nonnull align 8 dere
   store ptr %2, ptr %6, align 8
   %7 = load ptr, ptr %4, align 8
   call void @_ZN5faiss10IDSelectorC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %7) #12
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss16IDSelectorBitmapE, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5faiss16IDSelectorBitmapE, i32 0, i32 0, i32 2), ptr %7, align 8
   %8 = getelementptr inbounds %"struct.faiss::IDSelectorBitmap", ptr %7, i32 0, i32 1
   %9 = load i64, ptr %5, align 8
   store i64 %9, ptr %8, align 8

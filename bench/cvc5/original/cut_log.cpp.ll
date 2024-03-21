@@ -2966,7 +2966,7 @@ entry:
   store i32 %eid, ptr %eid.addr, align 4
   store i32 %o, ptr %o.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_klass = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %kl.addr, align 4
   store i32 %0, ptr %d_klass, align 8
@@ -3029,7 +3029,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear7CutInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_explanation = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 11
   call void @_ZNSt10unique_ptrISt6vectorIPKN4cvc58internal6theory5arith6linear10ConstraintESaIS8_EESt14default_deleteISA_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %d_explanation) #3
   %d_exactPrecision = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 10
@@ -9445,7 +9445,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %execOrd.addr, align 4
   call void @_ZN4cvc58internal6theory5arith6linear7CutInfoC2ENS3_12CutInfoKlassEii(ptr noundef nonnull align 8 dereferenceable(88) %this1, i32 noundef 3, i32 noundef %0, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear11RowsDeletedE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear11RowsDeletedE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_cutVec = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 6
   %1 = load i32, ptr %nrows.addr, align 4
   invoke void @_ZN4cvc58internal6theory5arith6linear12PrimitiveVec5setupEi(ptr noundef nonnull align 8 dereferenceable(24) %d_cutVec, i32 noundef %1)
@@ -9528,7 +9528,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i32, ptr %execOrd.addr, align 4
   call void @_ZN4cvc58internal6theory5arith6linear7CutInfoC2ENS3_12CutInfoKlassEii(ptr noundef nonnull align 8 dereferenceable(88) %this1, i32 noundef 2, i32 noundef %0, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear13BranchCutInfoE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc58internal6theory5arith6linear13BranchCutInfoE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_cutVec = getelementptr inbounds %"class.cvc5::internal::theory::arith::linear::CutInfo", ptr %this1, i32 0, i32 6
   invoke void @_ZN4cvc58internal6theory5arith6linear12PrimitiveVec5setupEi(ptr noundef nonnull align 8 dereferenceable(24) %d_cutVec, i32 noundef 1)
           to label %invoke.cont unwind label %lpad

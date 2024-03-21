@@ -85,7 +85,7 @@ entry:
   %frombool = zext i1 %pLinear to i8
   store i8 %frombool, ptr %pLinear.addr, align 1
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Imf_3_212ImageChannelE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN7Imf_3_212ImageChannelE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_level = getelementptr inbounds %"class.Imf_3_2::ImageChannel", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %level.addr, align 8
   store ptr %0, ptr %_level, align 8

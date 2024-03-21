@@ -95,8 +95,8 @@ define void @_ZN3zmq12udp_engine_tC2ERKNS_9options_tE(ptr noundef nonnull align 
 entry:
   tail call void @_ZN3zmq11io_object_tC2EPNS_11io_thread_tE(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef null)
   %0 = getelementptr inbounds i8, ptr %this, i64 16
-  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
-  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i64 0, inrange i32 1, i64 2), ptr %0, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i64 0, i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr], [11 x ptr] }, ptr @_ZTVN3zmq12udp_engine_tE, i64 0, i32 1, i64 2), ptr %0, align 8
   %_empty_endpoint = getelementptr inbounds i8, ptr %this, i64 24
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %_empty_endpoint) #18
   %remote.i = getelementptr inbounds i8, ptr %this, i64 56

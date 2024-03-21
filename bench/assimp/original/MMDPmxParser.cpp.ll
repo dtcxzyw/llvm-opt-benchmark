@@ -3011,7 +3011,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -6782,7 +6782,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN6Assimp9Formatter15basic_formatterIcSt11char_traitsIcESaIcEED2Ev(ptr noundef nonnull align 8 dereferenceable(376) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, inrange i32 0, i32 2), ptr %this3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV17DeadlyImportError, i32 0, i32 0, i32 2), ptr %this3, align 8
   ret void
 
 lpad:                                             ; preds = %entry
@@ -13754,7 +13754,7 @@ entry:
   store i16 %u, ptr %u.addr, align 2
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4utf89exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf813invalid_utf16E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %u16 = getelementptr inbounds %"class.utf8::invalid_utf16", ptr %this1, i32 0, i32 1
   %0 = load i16, ptr %u.addr, align 2
   store i16 %0, ptr %u16, align 8
@@ -13825,7 +13825,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf89exceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf89exceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13854,7 +13854,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -13914,7 +13914,7 @@ entry:
   store i32 %codepoint, ptr %codepoint.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4utf89exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4utf818invalid_code_pointE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %cp = getelementptr inbounds %"class.utf8::invalid_code_point", ptr %this1, i32 0, i32 1
   %0 = load i32, ptr %codepoint.addr, align 4
   store i32 %0, ptr %cp, align 8
@@ -14324,7 +14324,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF1E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF1E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bone_index = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF1", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index, align 8
   ret void
@@ -14360,7 +14360,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx17PmxVertexSkinningE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx17PmxVertexSkinningE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -14691,7 +14691,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF2E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF2E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index1, align 8
   %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF2", ptr %this1, i32 0, i32 2
@@ -14992,7 +14992,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF4E, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxVertexSkinningBDEF4E, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index1, align 8
   %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningBDEF4", ptr %this1, i32 0, i32 2
@@ -15304,7 +15304,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningSDEFE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningSDEFE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index1, align 8
   %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningSDEF", ptr %this1, i32 0, i32 2
@@ -15638,7 +15638,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx17PmxVertexSkinningC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningQDEFE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx21PmxVertexSkinningQDEFE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bone_index1 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index1, align 8
   %bone_index2 = getelementptr inbounds %"class.pmx::PmxVertexSkinningQDEF", ptr %this1, i32 0, i32 2
@@ -16236,7 +16236,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx19PmxMorphGroupOffsetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx19PmxMorphGroupOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %morph_index = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %this1, i32 0, i32 1
   store i32 0, ptr %morph_index, align 8
   %morph_weight = getelementptr inbounds %"class.pmx::PmxMorphGroupOffset", ptr %this1, i32 0, i32 2
@@ -16274,7 +16274,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx14PmxMorphOffsetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx14PmxMorphOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -16455,7 +16455,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx20PmxMorphVertexOffsetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx20PmxMorphVertexOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %vertex_index = getelementptr inbounds %"class.pmx::PmxMorphVertexOffset", ptr %this1, i32 0, i32 1
   store i32 0, ptr %vertex_index, align 8
   store i32 0, ptr %i, align 4
@@ -16669,7 +16669,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx18PmxMorphBoneOffsetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx18PmxMorphBoneOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %bone_index = getelementptr inbounds %"class.pmx::PmxMorphBoneOffset", ptr %this1, i32 0, i32 1
   store i32 0, ptr %bone_index, align 8
   store i32 0, ptr %i, align 4
@@ -16906,7 +16906,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxMorphMaterialOffsetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx22PmxMorphMaterialOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %specularity = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 5
   store float 0.000000e+00, ptr %specularity, align 4
   %edge_size = getelementptr inbounds %"class.pmx::PmxMorphMaterialOffset", ptr %this1, i32 0, i32 8
@@ -17169,7 +17169,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3pmx14PmxMorphOffsetC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx16PmxMorphUVOffsetE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3pmx16PmxMorphUVOffsetE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %vertex_index = getelementptr inbounds %"class.pmx::PmxMorphUVOffset", ptr %this1, i32 0, i32 1
   store i32 0, ptr %vertex_index, align 8
   store i32 0, ptr %i, align 4

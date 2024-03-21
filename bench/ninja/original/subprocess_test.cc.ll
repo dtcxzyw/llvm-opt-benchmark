@@ -1366,7 +1366,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI36Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36SubprocessTest_BadCommandStderr_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI36SubprocessTest_BadCommandStderr_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -1961,7 +1961,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33SubprocessTest_NoSuchCommand_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33SubprocessTest_NoSuchCommand_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2389,7 +2389,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI34Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34SubprocessTest_InterruptChild_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI34SubprocessTest_InterruptChild_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -2743,7 +2743,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI35Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35SubprocessTest_InterruptParent_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI35SubprocessTest_InterruptParent_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3154,7 +3154,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI45Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45SubprocessTest_InterruptChildWithSigTerm_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45SubprocessTest_InterruptChildWithSigTerm_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3508,7 +3508,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI46Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI46SubprocessTest_InterruptParentWithSigTerm_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI46SubprocessTest_InterruptParentWithSigTerm_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -3894,7 +3894,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI44Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44SubprocessTest_InterruptChildWithSigHup_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI44SubprocessTest_InterruptChildWithSigHup_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4248,7 +4248,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI45Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45SubprocessTest_InterruptParentWithSigHup_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI45SubprocessTest_InterruptParentWithSigHup_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -4634,7 +4634,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI27Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27SubprocessTest_Console_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI27SubprocessTest_Console_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5006,7 +5006,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI33Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33SubprocessTest_SetWithSingle_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI33SubprocessTest_SetWithSingle_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -5577,7 +5577,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI32Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32SubprocessTest_SetWithMulti_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI32SubprocessTest_SetWithMulti_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -6776,7 +6776,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI31Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31SubprocessTest_SetWithLots_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI31SubprocessTest_SetWithLots_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -7651,7 +7651,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryImplI29Subp
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7testing8internal15TestFactoryBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %3)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29SubprocessTest_ReadStdin_TestEE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryImplI29SubprocessTest_ReadStdin_TestEE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8175,7 +8175,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal15TestFactoryBaseC2Ev(pt
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN7testing8internal15TestFactoryBaseE, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8255,7 +8255,7 @@ define linkonce_odr dso_local void @_ZN36SubprocessTest_BadCommandStderr_TestC2E
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36SubprocessTest_BadCommandStderr_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV36SubprocessTest_BadCommandStderr_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8267,7 +8267,7 @@ define internal void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %5 = load ptr, ptr %2, align 8
   call void @_ZN7testing4TestC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114SubprocessTestE, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114SubprocessTestE, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %"struct.(anonymous namespace)::SubprocessTest", ptr %5, i32 0, i32 1
   invoke void @_ZN13SubprocessSetC1Ev(ptr noundef nonnull align 8 dereferenceable(688) %6)
           to label %7 unwind label %8
@@ -8305,7 +8305,7 @@ define internal void @_ZN12_GLOBAL__N_114SubprocessTestD2Ev(ptr noundef nonnull 
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114SubprocessTestE, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_114SubprocessTestE, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %"struct.(anonymous namespace)::SubprocessTest", ptr %3, i32 0, i32 1
   call void @_ZN13SubprocessSetD1Ev(ptr noundef nonnull align 8 dereferenceable(688) %4) #3
   call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %3) #3
@@ -8796,7 +8796,7 @@ define linkonce_odr dso_local void @_ZN33SubprocessTest_NoSuchCommand_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33SubprocessTest_NoSuchCommand_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33SubprocessTest_NoSuchCommand_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8856,7 +8856,7 @@ define linkonce_odr dso_local void @_ZN34SubprocessTest_InterruptChild_TestC2Ev(
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34SubprocessTest_InterruptChild_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV34SubprocessTest_InterruptChild_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8916,7 +8916,7 @@ define linkonce_odr dso_local void @_ZN35SubprocessTest_InterruptParent_TestC2Ev
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35SubprocessTest_InterruptParent_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV35SubprocessTest_InterruptParent_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -8976,7 +8976,7 @@ define linkonce_odr dso_local void @_ZN45SubprocessTest_InterruptChildWithSigTer
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV45SubprocessTest_InterruptChildWithSigTerm_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV45SubprocessTest_InterruptChildWithSigTerm_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9036,7 +9036,7 @@ define linkonce_odr dso_local void @_ZN46SubprocessTest_InterruptParentWithSigTe
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV46SubprocessTest_InterruptParentWithSigTerm_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV46SubprocessTest_InterruptParentWithSigTerm_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9096,7 +9096,7 @@ define linkonce_odr dso_local void @_ZN44SubprocessTest_InterruptChildWithSigHup
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44SubprocessTest_InterruptChildWithSigHup_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV44SubprocessTest_InterruptChildWithSigHup_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9156,7 +9156,7 @@ define linkonce_odr dso_local void @_ZN45SubprocessTest_InterruptParentWithSigHu
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV45SubprocessTest_InterruptParentWithSigHup_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV45SubprocessTest_InterruptParentWithSigHup_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9216,7 +9216,7 @@ define linkonce_odr dso_local void @_ZN27SubprocessTest_Console_TestC2Ev(ptr nou
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27SubprocessTest_Console_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV27SubprocessTest_Console_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9276,7 +9276,7 @@ define linkonce_odr dso_local void @_ZN33SubprocessTest_SetWithSingle_TestC2Ev(p
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33SubprocessTest_SetWithSingle_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV33SubprocessTest_SetWithSingle_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9336,7 +9336,7 @@ define linkonce_odr dso_local void @_ZN32SubprocessTest_SetWithMulti_TestC2Ev(pt
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32SubprocessTest_SetWithMulti_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV32SubprocessTest_SetWithMulti_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9396,7 +9396,7 @@ define linkonce_odr dso_local void @_ZN31SubprocessTest_SetWithLots_TestC2Ev(ptr
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31SubprocessTest_SetWithLots_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV31SubprocessTest_SetWithLots_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -9506,7 +9506,7 @@ define linkonce_odr dso_local void @_ZN29SubprocessTest_ReadStdin_TestC2Ev(ptr n
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN12_GLOBAL__N_114SubprocessTestC2Ev(ptr noundef nonnull align 8 dereferenceable(704) %3)
-  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29SubprocessTest_ReadStdin_Test, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [8 x ptr] }, ptr @_ZTV29SubprocessTest_ReadStdin_Test, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 

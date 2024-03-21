@@ -521,7 +521,7 @@ entry:
   store ptr %errorPage, ptr %errorPage.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen22HTTPTransactionHandlerC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %txn_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this1, i32 0, i32 1
   store ptr null, ptr %txn_, align 8
   %errorPage_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this1, i32 0, i32 2
@@ -578,7 +578,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN8proxygen18TraceEventObserverC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen22HTTPTransactionHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen22HTTPTransactionHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -592,7 +592,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [27 x ptr] }, ptr @_ZTVN8proxygen25HTTPDirectResponseHandlerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %statusMessage_ = getelementptr inbounds %"class.proxygen::HTTPDirectResponseHandler", ptr %this1, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %statusMessage_) #3
   call void @_ZN8proxygen22HTTPTransactionHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
@@ -2039,7 +2039,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen18TraceEventObserverE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN8proxygen18TraceEventObserverE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 

@@ -519,7 +519,7 @@ define dso_local void @_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFla
   %11 = load ptr, ptr %4, align 8
   %12 = load ptr, ptr %6, align 8
   call void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %11, i32 noundef 0, ptr noundef %12)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, inrange i32 0, i32 2), ptr %11, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, i32 0, i32 2), ptr %11, align 8
   %13 = getelementptr inbounds %class.FunctionInvocationBinary, ptr %11, i32 0, i32 1
   %14 = load i32, ptr %5, align 4
   store i32 %14, ptr %13, align 8
@@ -602,7 +602,7 @@ define dso_local void @_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK11SafeOpFla
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %8, align 8
   call void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef 0, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.FunctionInvocationBinary, ptr %13, i32 0, i32 1
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %15, align 8
@@ -664,7 +664,7 @@ define dso_local void @_ZN24FunctionInvocationBinaryC2ERKS_(ptr noundef nonnull 
   %7 = load ptr, ptr %3, align 8
   %8 = load ptr, ptr %4, align 8
   call void @_ZN18FunctionInvocationC2ERKS_(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %8)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, inrange i32 0, i32 2), ptr %7, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, i32 0, i32 2), ptr %7, align 8
   %9 = getelementptr inbounds %class.FunctionInvocationBinary, ptr %7, i32 0, i32 1
   %10 = load ptr, ptr %4, align 8
   %11 = getelementptr inbounds %class.FunctionInvocationBinary, ptr %10, i32 0, i32 1
@@ -736,7 +736,7 @@ define dso_local void @_ZN24FunctionInvocationBinaryC2E10eBinaryOpsPK10Expressio
   %13 = load ptr, ptr %6, align 8
   %14 = load ptr, ptr %10, align 8
   call void @_ZN18FunctionInvocationC2E15eInvocationTypePK11SafeOpFlags(ptr noundef nonnull align 8 dereferenceable(56) %13, i32 noundef 0, ptr noundef %14)
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, i32 0, i32 2), ptr %13, align 8
   %15 = getelementptr inbounds %class.FunctionInvocationBinary, ptr %13, i32 0, i32 1
   %16 = load i32, ptr %7, align 4
   store i32 %16, ptr %15, align 8
@@ -797,7 +797,7 @@ define dso_local void @_ZN24FunctionInvocationBinaryD2Ev(ptr noundef nonnull ali
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [15 x ptr] }, ptr @_ZTV24FunctionInvocationBinary, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.FunctionInvocationBinary, ptr %3, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %4) #3
   %5 = getelementptr inbounds %class.FunctionInvocationBinary, ptr %3, i32 0, i32 2

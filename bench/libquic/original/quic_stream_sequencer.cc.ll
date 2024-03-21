@@ -105,7 +105,7 @@ entry:
   store ptr %quic_stream, ptr %quic_stream.addr, align 8
   store ptr %clock, ptr %clock.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %stream_ = getelementptr inbounds %"class.net::QuicStreamSequencer", ptr %this1, i32 0, i32 1
   %0 = load ptr, ptr %quic_stream.addr, align 8
   store ptr %0, ptr %stream_, align 8
@@ -142,7 +142,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN3net19QuicStreamSequencerE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %buffered_frames_ = getelementptr inbounds %"class.net::QuicStreamSequencer", ptr %this1, i32 0, i32 2
   call void @_ZN3net25QuicStreamSequencerBufferD1Ev(ptr noundef nonnull align 8 dereferenceable(120) %buffered_frames_) #5
   ret void

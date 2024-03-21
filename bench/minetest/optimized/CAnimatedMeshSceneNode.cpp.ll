@@ -145,7 +145,7 @@ $_ZTIN3irr5scene10ISceneNodeE = comdat any
 $_ZTIN3irr5scene22IAnimatedMeshSceneNodeE = comdat any
 
 @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE = unnamed_addr constant { [60 x ptr], [5 x ptr] } { [60 x ptr] [ptr inttoptr (i64 408 to ptr), ptr null, ptr @_ZTIN3irr5scene22CAnimatedMeshSceneNodeE, ptr @_ZN3irr5scene22CAnimatedMeshSceneNodeD1Ev, ptr @_ZN3irr5scene22CAnimatedMeshSceneNodeD0Ev, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode19OnRegisterSceneNodeEv, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode9OnAnimateEj, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode6renderEv, ptr @_ZNK3irr5scene10ISceneNode7getNameB5cxx11Ev, ptr @_ZN3irr5scene10ISceneNode7setNameERKSt8optionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode14getBoundingBoxEv, ptr @_ZNK3irr5scene10ISceneNode25getTransformedBoundingBoxEv, ptr @_ZNK3irr5scene10ISceneNode30getTransformedBoundingBoxEdgesERNS_4core5arrayINS2_8vector3dIfEEEE, ptr @_ZNK3irr5scene10ISceneNode25getAbsoluteTransformationEv, ptr @_ZNK3irr5scene10ISceneNode25getRelativeTransformationEv, ptr @_ZNK3irr5scene10ISceneNode9isVisibleEv, ptr @_ZNK3irr5scene10ISceneNode14isTrulyVisibleEv, ptr @_ZN3irr5scene10ISceneNode10setVisibleEb, ptr @_ZNK3irr5scene10ISceneNode5getIDEv, ptr @_ZN3irr5scene10ISceneNode5setIDEi, ptr @_ZN3irr5scene10ISceneNode8addChildEPS1_, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode11removeChildEPNS0_10ISceneNodeE, ptr @_ZN3irr5scene10ISceneNode9removeAllEv, ptr @_ZN3irr5scene10ISceneNode6removeEv, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode11getMaterialEj, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode16getMaterialCountEv, ptr @_ZNK3irr5scene10ISceneNode8getScaleEv, ptr @_ZN3irr5scene10ISceneNode8setScaleERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode11getRotationEv, ptr @_ZN3irr5scene10ISceneNode11setRotationERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode11getPositionEv, ptr @_ZN3irr5scene10ISceneNode11setPositionERKNS_4core8vector3dIfEE, ptr @_ZNK3irr5scene10ISceneNode19getAbsolutePositionEv, ptr @_ZN3irr5scene10ISceneNode19setDebugDataVisibleEj, ptr @_ZN3irr5scene10ISceneNode9setParentEPS1_, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode22updateAbsolutePositionEv, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode7getTypeEv, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode5cloneEPNS0_10ISceneNodeEPNS0_13ISceneManagerE, ptr @_ZNK3irr5scene10ISceneNode15getSceneManagerEv, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode15setCurrentFrameEf, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode12setFrameLoopEii, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode17setAnimationSpeedEf, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode17getAnimationSpeedEv, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode12getJointNodeEPKc, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode12getJointNodeEj, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode13getJointCountEv, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode10getFrameNrEv, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode13getStartFrameEv, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode11getEndFrameEv, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode11setLoopModeEb, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode11getLoopModeEv, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode23setAnimationEndCallbackEPNS0_21IAnimationEndCallBackE, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode20setReadOnlyMaterialsEb, ptr @_ZNK3irr5scene22CAnimatedMeshSceneNode19isReadOnlyMaterialsEv, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode7setMeshEPNS0_13IAnimatedMeshE, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode7getMeshEv, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode12setJointModeENS0_24E_JOINT_UPDATE_ON_RENDERE, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode17setTransitionTimeEf, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode13animateJointsEb, ptr @_ZN3irr5scene22CAnimatedMeshSceneNode21setRenderFromIdentityEb], [5 x ptr] [ptr inttoptr (i64 -408 to ptr), ptr inttoptr (i64 -408 to ptr), ptr @_ZTIN3irr5scene22CAnimatedMeshSceneNodeE, ptr @_ZTv0_n24_N3irr5scene22CAnimatedMeshSceneNodeD1Ev, ptr @_ZTv0_n24_N3irr5scene22CAnimatedMeshSceneNodeD0Ev] }, align 8
-@_ZTTN3irr5scene22CAnimatedMeshSceneNodeE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_22IAnimatedMeshSceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_22IAnimatedMeshSceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i32 0, inrange i32 1, i32 3)], align 8
+@_ZTTN3irr5scene22CAnimatedMeshSceneNodeE = unnamed_addr constant [6 x ptr] [ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i32 0, i32 0, i32 3), ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_22IAnimatedMeshSceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i32 0, inrange i32 0, i32 3), ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_22IAnimatedMeshSceneNodeE, i32 0, inrange i32 1, i32 3), ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i32 0, inrange i32 1, i32 3)], align 8
 @_ZN3irr4core14IdentityMatrixE = external global %"class.irr::core::CMatrix4", align 4
 @.str = private unnamed_addr constant [42 x i8] c"No mesh, or mesh not of skinned mesh type\00", align 1
 @.str.1 = private unnamed_addr constant [52 x i8] c"Joint with specified name not found in skinned mesh\00", align 1
@@ -293,8 +293,8 @@ define void @_ZN3irr5scene22CAnimatedMeshSceneNodeC1EPNS0_13IAnimatedMeshEPNS0_1
   store ptr null, ptr %10, align 8, !tbaa !67
   %11 = getelementptr inbounds i8, ptr %0, i64 424
   store i32 1, ptr %11, align 8, !tbaa !69
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %9, align 8, !tbaa !3
   %12 = getelementptr inbounds i8, ptr %0, i64 40
   store i8 0, ptr %12, align 8, !tbaa !6
   %13 = getelementptr inbounds i8, ptr %0, i64 48
@@ -347,12 +347,12 @@ define void @_ZN3irr5scene22CAnimatedMeshSceneNodeC1EPNS0_13IAnimatedMeshEPNS0_1
   br label %38
 
 38:                                               ; preds = %33, %8
-  %39 = phi ptr [ getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), %8 ], [ %37, %33 ]
+  %39 = phi ptr [ getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), %8 ], [ %37, %33 ]
   %40 = getelementptr inbounds i8, ptr %39, i64 256
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef nonnull align 8 dereferenceable(222) %0) #21
-  store ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, inrange i32 0, i64 3), ptr %0, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, inrange i32 1, i64 3), ptr %9, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 0, i64 3), ptr %0, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 1, i64 3), ptr %9, align 8, !tbaa !3
   %42 = getelementptr inbounds i8, ptr %0, i64 224
   %43 = getelementptr inbounds i8, ptr %0, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %42, i8 0, i64 24, i1 false)
@@ -4447,8 +4447,8 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   store ptr null, ptr %21, align 8, !tbaa !67
   %22 = getelementptr inbounds i8, ptr %12, i64 424
   store i32 1, ptr %22, align 8, !tbaa !69
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 0, i64 3), ptr %12, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, inrange i32 1, i64 3), ptr %20, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 0, i64 3), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [39 x ptr], [5 x ptr] }, ptr @_ZTCN3irr5scene22CAnimatedMeshSceneNodeE0_NS0_10ISceneNodeE, i64 0, i32 1, i64 3), ptr %20, align 8, !tbaa !3
   %23 = getelementptr inbounds i8, ptr %12, i64 40
   store i8 0, ptr %23, align 8, !tbaa !6
   %24 = getelementptr inbounds i8, ptr %12, i64 48
@@ -4493,8 +4493,8 @@ _ZN3irr5scene10ISceneNode22updateAbsolutePositionEv.exit:
   call void @_ZNK3irr5scene10ISceneNode25getRelativeTransformationEv(ptr dead_on_unwind nonnull writable sret(%"class.irr::core::CMatrix4") align 4 %3, ptr noundef nonnull align 8 dereferenceable(222) %12) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 4 dereferenceable(64) %3, i64 64, i1 false), !tbaa.struct !97
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #21
-  store ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, inrange i32 0, i64 3), ptr %12, align 8, !tbaa !3
-  store ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, inrange i32 1, i64 3), ptr %20, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 0, i64 3), ptr %12, align 8, !tbaa !3
+  store ptr getelementptr inbounds ({ [60 x ptr], [5 x ptr] }, ptr @_ZTVN3irr5scene22CAnimatedMeshSceneNodeE, i64 0, i32 1, i64 3), ptr %20, align 8, !tbaa !3
   %43 = getelementptr inbounds i8, ptr %12, i64 224
   %44 = getelementptr inbounds i8, ptr %12, i64 248
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %43, i8 0, i64 24, i1 false)

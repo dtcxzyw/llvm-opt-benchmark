@@ -46,7 +46,7 @@ define dso_local void @_ZN7CFGEdgeC2EPK9StatementS2_bb(ptr noundef nonnull align
   %12 = zext i1 %4 to i8
   store i8 %12, ptr %10, align 1
   %13 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.CFGEdge, ptr %13, i32 0, i32 1
   %15 = load ptr, ptr %7, align 8
   store ptr %15, ptr %14, align 8
@@ -73,7 +73,7 @@ define dso_local void @_ZN7CFGEdgeC2ERKS_(ptr noundef nonnull align 8 dereferenc
   store ptr %0, ptr %3, align 8
   store ptr %1, ptr %4, align 8
   %5 = load ptr, ptr %3, align 8
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, inrange i32 0, i32 2), ptr %5, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTV7CFGEdge, i32 0, i32 0, i32 2), ptr %5, align 8
   %6 = getelementptr inbounds %class.CFGEdge, ptr %5, i32 0, i32 1
   %7 = load ptr, ptr %4, align 8
   %8 = getelementptr inbounds %class.CFGEdge, ptr %7, i32 0, i32 1

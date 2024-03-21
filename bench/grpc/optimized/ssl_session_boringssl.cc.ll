@@ -36,7 +36,7 @@ _ZNSt10unique_ptrIN3tsi12_GLOBAL__N_122BoringSslCachedSessionESt14default_delete
   %call.i = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #6, !noalias !4
   %0 = load i64, ptr %session, align 8, !noalias !4
   store ptr null, ptr %session, align 8, !noalias !4
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 0, inrange i32 0, i64 2), ptr %call.i, align 8, !noalias !4
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 0, i32 0, i64 2), ptr %call.i, align 8, !noalias !4
   %session_.i.i = getelementptr inbounds i8, ptr %call.i, i64 8
   store i64 %0, ptr %session_.i.i, align 8, !noalias !4
   store ptr %call.i, ptr %agg.result, align 8
@@ -54,7 +54,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3tsi12_GLOBAL__N_122BoringSslCachedSessionD2Ev(ptr nocapture noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_ = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_, align 8
   %cmp.not.i = icmp eq ptr %0, null
@@ -79,7 +79,7 @@ _ZNSt10unique_ptrI14ssl_session_stN3tsi17SslSessionDeleterEED2Ev.exit: ; preds =
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN3tsi12_GLOBAL__N_122BoringSslCachedSessionD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN3tsi12_GLOBAL__N_122BoringSslCachedSessionE, i64 0, i32 0, i64 2), ptr %this, align 8
   %session_.i = getelementptr inbounds i8, ptr %this, i64 8
   %0 = load ptr, ptr %session_.i, align 8
   %cmp.not.i.i = icmp eq ptr %0, null

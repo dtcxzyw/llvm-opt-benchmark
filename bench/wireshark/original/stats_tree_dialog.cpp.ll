@@ -457,9 +457,9 @@ define void @_ZN15StatsTreeDialogC2ER7QWidgetR11CaptureFilePKc(ptr noundef nonnu
   %30 = load ptr, ptr %6, align 8
   %31 = load ptr, ptr %7, align 8
   call void @_ZN18TapParameterDialogC2ER7QWidgetR11CaptureFilei(ptr noundef nonnull align 8 dereferenceable(224) %29, ptr noundef nonnull align 8 dereferenceable(40) %30, ptr noundef nonnull align 8 dereferenceable(48) %31, i32 noundef 0)
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i32 0, inrange i32 0, i32 2), ptr %29, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i32 0, i32 0, i32 2), ptr %29, align 8
   %32 = getelementptr inbounds i8, ptr %29, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i32 0, inrange i32 1, i32 2), ptr %32, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i32 0, i32 1, i32 2), ptr %32, align 8
   %33 = getelementptr inbounds %class.StatsTreeDialog, ptr %29, i32 0, i32 2
   store ptr null, ptr %33, align 8
   %34 = getelementptr inbounds %class.StatsTreeDialog, ptr %29, i32 0, i32 3
@@ -852,9 +852,9 @@ define void @_ZN15StatsTreeDialogD2Ev(ptr noundef nonnull align 8 dereferenceabl
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [68 x ptr], [10 x ptr] }, ptr @_ZTV15StatsTreeDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.StatsTreeDialog, ptr %3, i32 0, i32 2
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null
@@ -1128,7 +1128,7 @@ define linkonce_odr void @_ZN19StatsTreeWidgetItemC2Ei(ptr noundef nonnull align
   %8 = load ptr, ptr %3, align 8
   %9 = load i32, ptr %4, align 4
   call void @_ZN15QTreeWidgetItemC2Ei(ptr noundef nonnull align 8 dereferenceable(92) %8, i32 noundef %9)
-  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19StatsTreeWidgetItem, i32 0, inrange i32 0, i32 2), ptr %8, align 8
+  store ptr getelementptr inbounds ({ [10 x ptr] }, ptr @_ZTV19StatsTreeWidgetItem, i32 0, i32 0, i32 2), ptr %8, align 8
   store i32 1, ptr %5, align 4
   br label %10
 

@@ -73,7 +73,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %0 = load i64, ptr %bufsize_.addr, align 8
   call void @_ZN3zmq14encoder_base_tINS_13raw_encoder_tEEC2Em(ptr noundef nonnull align 8 dereferenceable(72) %this1, i64 noundef %0)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq13raw_encoder_tE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq13raw_encoder_tE, i32 0, i32 0, i32 2), ptr %this1, align 8
   store { i64, i64 } { i64 ptrtoint (ptr @_ZN3zmq13raw_encoder_t17raw_message_readyEv to i64), i64 0 }, ptr %coerce, align 8
   %1 = getelementptr inbounds { i64, i64 }, ptr %coerce, i32 0, i32 0
   %2 = load i64, ptr %1, align 8
@@ -114,7 +114,7 @@ entry:
   store i64 %bufsize_, ptr %bufsize_.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN3zmq9i_encoderC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #9
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_write_pos = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 1
   store ptr null, ptr %_write_pos, align 8
   %_to_write = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 2
@@ -601,7 +601,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq9i_encoderE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq9i_encoderE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -620,7 +620,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN3zmq14encoder_base_tINS_13raw_encoder_tEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_buf = getelementptr inbounds %"class.zmq::encoder_base_t", ptr %this1, i32 0, i32 6
   %0 = load ptr, ptr %_buf, align 8
   call void @free(ptr noundef %0) #9

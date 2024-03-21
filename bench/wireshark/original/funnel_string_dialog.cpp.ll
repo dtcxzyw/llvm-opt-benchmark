@@ -596,7 +596,7 @@ define linkonce_odr void @_ZN24FunnelStringDialogHelperC2Ev(ptr noundef nonnull 
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
   call void @_ZN7QObjectC2EPS_(ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef null)
-  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV24FunnelStringDialogHelper, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [14 x ptr] }, ptr @_ZTV24FunnelStringDialogHelper, i32 0, i32 0, i32 2), ptr %3, align 8
   ret void
 }
 
@@ -650,9 +650,9 @@ define void @_ZN18FunnelStringDialogC2EP7QWidget7QString5QListISt4pairIS2_S2_EEP
   %33 = getelementptr inbounds %class.QFlags, ptr %15, i32 0, i32 0
   %34 = load i32, ptr %33, align 4
   call void @_ZN7QDialogC2EP7QWidget6QFlagsIN2Qt10WindowTypeEE(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef %32, i32 %34)
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18FunnelStringDialog, i32 0, inrange i32 0, i32 2), ptr %31, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18FunnelStringDialog, i32 0, i32 0, i32 2), ptr %31, align 8
   %35 = getelementptr inbounds i8, ptr %31, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18FunnelStringDialog, i32 0, inrange i32 1, i32 2), ptr %35, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18FunnelStringDialog, i32 0, i32 1, i32 2), ptr %35, align 8
   %36 = getelementptr inbounds %class.FunnelStringDialog, ptr %31, i32 0, i32 1
   %37 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef 24) #15
           to label %38 unwind label %65
@@ -1490,9 +1490,9 @@ define void @_ZN18FunnelStringDialogD2Ev(ptr noundef nonnull align 8 dereference
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18FunnelStringDialog, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18FunnelStringDialog, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds i8, ptr %3, i64 16
-  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18FunnelStringDialog, i32 0, inrange i32 1, i32 2), ptr %4, align 8
+  store ptr getelementptr inbounds ({ [59 x ptr], [10 x ptr] }, ptr @_ZTV18FunnelStringDialog, i32 0, i32 1, i32 2), ptr %4, align 8
   %5 = getelementptr inbounds %class.FunnelStringDialog, ptr %3, i32 0, i32 4
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ne ptr %6, null

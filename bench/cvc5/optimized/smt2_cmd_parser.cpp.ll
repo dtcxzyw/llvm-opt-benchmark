@@ -582,7 +582,7 @@ entry:
   %ref.tmp606 = alloca %"class.std::allocator", align 1
   %ref.tmp615 = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp616 = alloca %"class.std::allocator", align 1
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_lex = getelementptr inbounds i8, ptr %this, i64 8
   store ptr %lex, ptr %d_lex, align 8
   %d_state = getelementptr inbounds i8, ptr %this, i64 16
@@ -7199,7 +7199,7 @@ invoke.cont937:                                   ; preds = %sw.bb936
           to label %invoke.cont940 unwind label %lpad939
 
 invoke.cont940:                                   ; preds = %invoke.cont937
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser11QuitCommandE, i64 0, inrange i32 0, i64 2), ptr %call938, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser11QuitCommandE, i64 0, i32 0, i64 2), ptr %call938, align 8
   %463 = load ptr, ptr %agg.result, align 8
   store ptr %call938, ptr %agg.result, align 8
   %tobool.not.i.i740 = icmp eq ptr %463, null
@@ -8868,7 +8868,7 @@ invoke.cont1388:                                  ; preds = %sw.bb1387
           to label %invoke.cont1391 unwind label %lpad1390
 
 invoke.cont1391:                                  ; preds = %invoke.cont1388
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser12ResetCommandE, i64 0, inrange i32 0, i64 2), ptr %call1389, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser12ResetCommandE, i64 0, i32 0, i64 2), ptr %call1389, align 8
   %670 = load ptr, ptr %agg.result, align 8
   store ptr %call1389, ptr %agg.result, align 8
   %tobool.not.i.i971 = icmp eq ptr %670, null
@@ -8905,7 +8905,7 @@ invoke.cont1396:                                  ; preds = %sw.bb1395
           to label %invoke.cont1399 unwind label %lpad1398
 
 invoke.cont1399:                                  ; preds = %invoke.cont1396
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser22ResetAssertionsCommandE, i64 0, inrange i32 0, i64 2), ptr %call1397, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser22ResetAssertionsCommandE, i64 0, i32 0, i64 2), ptr %call1397, align 8
   %675 = load ptr, ptr %agg.result, align 8
   store ptr %call1397, ptr %agg.result, align 8
   %tobool.not.i.i977 = icmp eq ptr %675, null
@@ -9993,7 +9993,7 @@ define linkonce_odr hidden void @_ZN4cvc56parser17CheckSynthCommandC2Eb(ptr noun
 entry:
   %frombool = zext i1 %isNext to i8
   tail call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser17CheckSynthCommandE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser17CheckSynthCommandE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_isNext = getelementptr inbounds i8, ptr %this, i64 16
   store i8 %frombool, ptr %d_isNext, align 8
   %d_result = getelementptr inbounds i8, ptr %this, i64 24
@@ -11057,7 +11057,7 @@ declare noundef ptr @_ZN4cvc56parser14Smt2TermParser18parseGrammarOrNullERKSt6ve
 define linkonce_odr hidden void @_ZN4cvc56parser16FindSynthCommandC2ENS_5modes15FindSynthTargetEPNS_7GrammarE(ptr noundef nonnull align 8 dereferenceable(56) %this, i32 noundef %fst, ptr noundef %g) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser16FindSynthCommandE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser16FindSynthCommandE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_fst = getelementptr inbounds i8, ptr %this, i64 16
   store i32 %fst, ptr %d_fst, align 8
   %d_grammar = getelementptr inbounds i8, ptr %this, i64 24
@@ -11080,7 +11080,7 @@ lpad:                                             ; preds = %entry
 define linkonce_odr hidden void @_ZN4cvc56parser20FindSynthNextCommandC2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN4cvc56parser3CmdC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this)
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser20FindSynthNextCommandE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTVN4cvc56parser20FindSynthNextCommandE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_result = getelementptr inbounds i8, ptr %this, i64 16
   invoke void @_ZN4cvc54TermC1Ev(ptr noundef nonnull align 8 dereferenceable(24) %d_result)
           to label %invoke.cont unwind label %lpad
@@ -11191,7 +11191,7 @@ declare void @_ZN4cvc56parser5Lexer20unexpectedTokenErrorENS0_5TokenERKNSt7__cxx
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc56parser13Smt2CmdParserD2Ev(ptr noundef nonnull align 8 dereferenceable(82) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_table = getelementptr inbounds i8, ptr %this, i64 32
   %_M_parent.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -11212,7 +11212,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4cvc56parser5Toke
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4cvc56parser13Smt2CmdParserD0Ev(ptr noundef nonnull align 8 dereferenceable(82) %this) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
 entry:
-  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 0, inrange i32 0, i64 2), ptr %this, align 8
+  store ptr getelementptr inbounds ({ [4 x ptr] }, ptr @_ZTVN4cvc56parser13Smt2CmdParserE, i64 0, i32 0, i64 2), ptr %this, align 8
   %d_table.i = getelementptr inbounds i8, ptr %this, i64 32
   %_M_parent.i.i.i.i.i = getelementptr inbounds i8, ptr %this, i64 48
   %0 = load ptr, ptr %_M_parent.i.i.i.i.i, align 8

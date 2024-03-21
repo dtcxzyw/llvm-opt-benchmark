@@ -353,7 +353,7 @@ define dso_local void @_ZN11LocalPlayerC2EP6ClientPKc(ptr noundef nonnull align 
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef ptr %6(ptr noundef nonnull align 8 dereferenceable(8) %4)
   tail call void @_ZN6PlayerC2EPKcP15IItemDefManager(ptr noundef nonnull align 8 dereferenceable(696) %0, ptr noundef %2, ptr noundef %7)
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11LocalPlayer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11LocalPlayer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %8 = getelementptr inbounds i8, ptr %0, i64 696
   %9 = getelementptr inbounds i8, ptr %0, i64 708
   %10 = getelementptr inbounds i8, ptr %0, i64 752
@@ -2268,7 +2268,7 @@ define dso_local void @_ZN11LocalPlayer4moveEfP11EnvironmentfPSt6vectorI13Collis
           to label %749 unwind label %732
 
 749:                                              ; preds = %747
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %748, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %748, align 8, !tbaa !12
   %750 = getelementptr inbounds i8, ptr %748, i64 8
   store i8 7, ptr %750, align 8, !tbaa !187
   %751 = load ptr, ptr %746, align 8, !tbaa !12
@@ -4239,7 +4239,7 @@ define dso_local void @_ZN11LocalPlayer8old_moveEfP11EnvironmentfPSt6vectorI13Co
           to label %915 unwind label %848
 
 915:                                              ; preds = %913
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %914, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %914, align 8, !tbaa !12
   %916 = getelementptr inbounds i8, ptr %914, i64 8
   store i8 7, ptr %916, align 8, !tbaa !187
   %917 = load ptr, ptr %912, align 8, !tbaa !12
@@ -5569,7 +5569,7 @@ define dso_local void @_ZN11LocalPlayer12applyControlEfP11Environment(ptr nounde
   %271 = load ptr, ptr %30, align 8, !tbaa !61
   %272 = call noundef ptr @_ZN6Client15getEventManagerEv(ptr noundef nonnull align 8 dereferenceable(1746) %271)
   %273 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #26
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, inrange i32 0, i64 2), ptr %273, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTV18SimpleTriggerEvent, i64 0, i32 0, i64 2), ptr %273, align 8, !tbaa !12
   %274 = getelementptr inbounds i8, ptr %273, i64 8
   store i8 6, ptr %274, align 8, !tbaa !187
   %275 = load ptr, ptr %272, align 8, !tbaa !12
@@ -6407,7 +6407,7 @@ declare noundef zeroext i1 @_ZNK10GenericCAO10isImmortalEv(ptr noundef nonnull a
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11LocalPlayerD2Ev(ptr noundef nonnull align 8 dereferenceable(1068) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11LocalPlayer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11LocalPlayer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 928
@@ -6468,7 +6468,7 @@ define linkonce_odr dso_local void @_ZN11LocalPlayerD2Ev(ptr noundef nonnull ali
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN11LocalPlayerD0Ev(ptr noundef nonnull align 8 dereferenceable(1068) %0) unnamed_addr #15 comdat align 2 personality ptr @__gxx_personality_v0 {
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11LocalPlayer, i64 0, inrange i32 0, i64 2), ptr %0, align 8, !tbaa !12
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTV11LocalPlayer, i64 0, i32 0, i64 2), ptr %0, align 8, !tbaa !12
   %2 = getelementptr inbounds i8, ptr %0, i64 912
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds i8, ptr %0, i64 928

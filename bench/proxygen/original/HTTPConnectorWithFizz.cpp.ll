@@ -5129,21 +5129,21 @@ invoke.cont4:                                     ; preds = %invoke.cont
   call void @_ZNSt10unique_ptrIN5folly11AsyncSocketENS0_18DelayedDestruction10DestructorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp) #3
   %1 = getelementptr inbounds i8, ptr %this1, i64 576
   call void @_ZN5folly20AsyncSocketTransport15ConnectCallbackC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 2, i32 2), ptr %add.ptr5, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 2, i32 2), ptr %add.ptr5, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 3, i32 2), ptr %add.ptr6, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 3, i32 2), ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 4, i32 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 4, i32 2), ptr %add.ptr7, align 8
   %add.ptr8 = getelementptr inbounds i8, ptr %this1, i64 64
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 5, i32 2), ptr %add.ptr8, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 5, i32 2), ptr %add.ptr8, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 6, i32 2), ptr %add.ptr9, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 6, i32 2), ptr %add.ptr9, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %this1, i64 576
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 7, i32 2), ptr %add.ptr10, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 7, i32 2), ptr %add.ptr10, align 8
   %callback_ = getelementptr inbounds %"class.fizz::client::AsyncFizzClientT", ptr %this1, i32 0, i32 2
   call void @_ZN5folly8OptionalIN4fizz6client16AsyncFizzClientTINS2_18ClientStateMachineEE22AsyncClientCallbackPtrEEC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %callback_) #3
   %fizzContext_ = getelementptr inbounds %"class.fizz::client::AsyncFizzClientT", ptr %this1, i32 0, i32 3
@@ -6019,29 +6019,29 @@ entry:
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt10unique_ptrIN8proxygen9HTTPCodecESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp2) #3
   call void @_ZNSt10unique_ptrIN5folly14AsyncTransportENS0_18DelayedDestruction10DestructorEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 64
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 1584
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 2, i32 2), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 2, i32 2), ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this1, i64 1592
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 3, i32 2), ptr %add.ptr4, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 3, i32 2), ptr %add.ptr4, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %this1, i64 1600
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 4, i32 2), ptr %add.ptr5, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 4, i32 2), ptr %add.ptr5, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this1, i64 1608
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 5, i32 2), ptr %add.ptr6, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 5, i32 2), ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this1, i64 1616
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 6, i32 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 6, i32 2), ptr %add.ptr7, align 8
   %add.ptr8 = getelementptr inbounds i8, ptr %this1, i64 1624
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 7, i32 2), ptr %add.ptr8, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 7, i32 2), ptr %add.ptr8, align 8
   %add.ptr9 = getelementptr inbounds i8, ptr %this1, i64 1632
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 8, i32 2), ptr %add.ptr9, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 8, i32 2), ptr %add.ptr9, align 8
   %add.ptr10 = getelementptr inbounds i8, ptr %this1, i64 1672
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 9, i32 2), ptr %add.ptr10, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 9, i32 2), ptr %add.ptr10, align 8
   %add.ptr11 = getelementptr inbounds i8, ptr %this1, i64 1688
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 10, i32 2), ptr %add.ptr11, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 10, i32 2), ptr %add.ptr11, align 8
   %add.ptr12 = getelementptr inbounds i8, ptr %this1, i64 1696
-  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, inrange i32 11, i32 2), ptr %add.ptr12, align 8
+  store ptr getelementptr inbounds ({ [138 x ptr], [6 x ptr], [58 x ptr], [7 x ptr], [6 x ptr], [5 x ptr], [6 x ptr], [32 x ptr], [5 x ptr], [15 x ptr], [5 x ptr], [8 x ptr] }, ptr @_ZTVN8proxygen19HTTPUpstreamSessionE, i32 0, i32 11, i32 2), ptr %add.ptr12, align 8
   %maxVirtualPriorityLevel_ = getelementptr inbounds %"class.proxygen::HTTPUpstreamSession", ptr %this1, i32 0, i32 1
   %call = call noundef zeroext i1 @_ZNKSt12__shared_ptrIKN8proxygen15HTTPSessionBase18PriorityMapFactoryELN9__gnu_cxx12_Lock_policyE2EEcvbEv(ptr noundef nonnull align 8 dereferenceable(16) %priorityMapFactory) #3
   br i1 %call, label %cond.true, label %cond.false
@@ -7410,7 +7410,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef @.str.2)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -7436,7 +7436,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly22OptionalEmptyExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9740,7 +9740,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly20AsyncSocketTransport15ConnectCallbackE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN5folly20AsyncSocketTransport15ConnectCallbackE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -9937,7 +9937,7 @@ entry:
   %8 = load ptr, ptr %.addr3, align 8
   %9 = load ptr, ptr %.addr4, align 8
   call void @_ZN4fizz8FizzBaseINS_6client10FizzClientINS1_16AsyncFizzClientTINS1_18ClientStateMachineEE17ActionMoveVisitorES4_EES6_S4_EC2ERKNS1_5StateERN5folly10IOBufQueueERNS_4Aead11AeadOptionsERS6_PNSC_22DelayedDestructionBaseE(ptr noundef nonnull align 8 dereferenceable(163) %this5, ptr noundef nonnull align 8 dereferenceable(1096) %5, ptr noundef nonnull align 8 dereferenceable(72) %6, ptr noundef nonnull align 4 dereferenceable(8) %7, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %9)
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4fizz6client10FizzClientINS0_16AsyncFizzClientTINS0_18ClientStateMachineEE17ActionMoveVisitorES3_EE, i32 0, inrange i32 0, i32 2), ptr %this5, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4fizz6client10FizzClientINS0_16AsyncFizzClientTINS0_18ClientStateMachineEE17ActionMoveVisitorES3_EE, i32 0, i32 0, i32 2), ptr %this5, align 8
   ret void
 }
 
@@ -10071,21 +10071,21 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %add.ptr = getelementptr inbounds i8, ptr %this1, i64 16
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 1, i32 2), ptr %add.ptr, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 1, i32 2), ptr %add.ptr, align 8
   %add.ptr2 = getelementptr inbounds i8, ptr %this1, i64 24
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 2, i32 2), ptr %add.ptr2, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 2, i32 2), ptr %add.ptr2, align 8
   %add.ptr3 = getelementptr inbounds i8, ptr %this1, i64 32
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 3, i32 2), ptr %add.ptr3, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 3, i32 2), ptr %add.ptr3, align 8
   %add.ptr4 = getelementptr inbounds i8, ptr %this1, i64 56
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 4, i32 2), ptr %add.ptr4, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 4, i32 2), ptr %add.ptr4, align 8
   %add.ptr5 = getelementptr inbounds i8, ptr %this1, i64 64
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 5, i32 2), ptr %add.ptr5, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 5, i32 2), ptr %add.ptr5, align 8
   %add.ptr6 = getelementptr inbounds i8, ptr %this1, i64 80
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 6, i32 2), ptr %add.ptr6, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 6, i32 2), ptr %add.ptr6, align 8
   %add.ptr7 = getelementptr inbounds i8, ptr %this1, i64 576
-  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, inrange i32 7, i32 2), ptr %add.ptr7, align 8
+  store ptr getelementptr inbounds ({ [91 x ptr], [6 x ptr], [8 x ptr], [12 x ptr], [8 x ptr], [15 x ptr], [5 x ptr], [7 x ptr] }, ptr @_ZTVN4fizz6client16AsyncFizzClientTINS0_18ClientStateMachineEEE, i32 0, i32 7, i32 2), ptr %add.ptr7, align 8
   %pendingHandshakeAppWrites_ = getelementptr inbounds %"class.fizz::client::AsyncFizzClientT", ptr %this1, i32 0, i32 14
   call void @_ZNSt5dequeIN4fizz8AppWriteESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %pendingHandshakeAppWrites_) #3
   %verifier_ = getelementptr inbounds %"class.fizz::client::AsyncFizzClientT", ptr %this1, i32 0, i32 13
@@ -15041,7 +15041,7 @@ entry:
   store ptr %visitor, ptr %visitor.addr, align 8
   store ptr %owner, ptr %owner.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4fizz8FizzBaseINS_6client10FizzClientINS1_16AsyncFizzClientTINS1_18ClientStateMachineEE17ActionMoveVisitorES4_EES6_S4_EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4fizz8FizzBaseINS_6client10FizzClientINS1_16AsyncFizzClientTINS1_18ClientStateMachineEE17ActionMoveVisitorES4_EES6_S4_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %machine_ = getelementptr inbounds %"class.fizz::FizzBase", ptr %this1, i32 0, i32 1
   call void @_ZN4fizz6client18ClientStateMachineC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %machine_) #3
   %state_ = getelementptr inbounds %"class.fizz::FizzBase", ptr %this1, i32 0, i32 2
@@ -15259,7 +15259,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4fizz6client18ClientStateMachineE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [12 x ptr] }, ptr @_ZTVN4fizz6client18ClientStateMachineE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -15308,7 +15308,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4fizz8FizzBaseINS_6client10FizzClientINS1_16AsyncFizzClientTINS1_18ClientStateMachineEE17ActionMoveVisitorES4_EES6_S4_EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN4fizz8FizzBaseINS_6client10FizzClientINS1_16AsyncFizzClientTINS1_18ClientStateMachineEE17ActionMoveVisitorES4_EES6_S4_EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %actionGuard_ = getelementptr inbounds %"class.fizz::FizzBase", ptr %this1, i32 0, i32 10
   call void @_ZN5folly8OptionalINS_22DelayedDestructionBase15DestructorGuardEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %actionGuard_) #3
   %pendingEvents_ = getelementptr inbounds %"class.fizz::FizzBase", ptr %this1, i32 0, i32 7
@@ -24654,7 +24654,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -24671,7 +24671,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt17bad_function_call, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -24683,7 +24683,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   store ptr %0, ptr %.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -24693,7 +24693,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9exception, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -25369,7 +25369,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this1, i32 0, i32 1
   %3 = load i32, ptr %type.addr, align 4
   store i32 %3, ptr %type_, align 8
@@ -25825,7 +25825,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %type_2 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %2, i32 0, i32 1
@@ -29493,7 +29493,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt13runtime_errorC2ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVN5folly20AsyncSocketExceptionE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %type_ = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %this1, i32 0, i32 1
   %2 = load ptr, ptr %.addr, align 8
   %type_2 = getelementptr inbounds %"class.folly::AsyncSocketException", ptr %2, i32 0, i32 1
@@ -32555,7 +32555,7 @@ entry:
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt9exceptionC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -32572,7 +32572,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt9exceptionC2ERKS_(ptr noundef nonnull align 8 dereferenceable(8) %this1, ptr noundef nonnull align 8 dereferenceable(8) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt9bad_alloc, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -32698,7 +32698,7 @@ entry:
   %this1 = load ptr, ptr %this.addr, align 8
   %1 = load ptr, ptr %.addr, align 8
   call void @_ZNSt11logic_errorC2EOS_(ptr noundef nonnull align 8 dereferenceable(16) %this1, ptr noundef nonnull align 8 dereferenceable(16) %1) #3
-  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [5 x ptr] }, ptr @_ZTVSt12length_error, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -42760,7 +42760,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4fizz26DefaultCertificateVerifierESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN4fizz26DefaultCertificateVerifierESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceIN4fizz26DefaultCertificateVerifierESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES2_(ptr noundef nonnull align 8 dereferenceable(56) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN4fizz26DefaultCertificateVerifierESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(72) %this1) #3
@@ -42955,7 +42955,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_use_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 1
   store i32 1, ptr %_M_use_count, align 8
   %_M_weak_count = getelementptr inbounds %"class.std::_Sp_counted_base", ptr %this1, i32 0, i32 2
@@ -43159,7 +43159,7 @@ entry:
   store i32 %context, ptr %context.addr, align 4
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZN4fizz19CertificateVerifierC2Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1) #3
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4fizz26DefaultCertificateVerifierE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4fizz26DefaultCertificateVerifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %authorities_ = getelementptr inbounds %"class.fizz::DefaultCertificateVerifier", ptr %this1, i32 0, i32 1
   call void @_ZN4fizz22CertificateAuthoritiesC2Ev(ptr noundef nonnull align 8 dereferenceable(24) %authorities_) #3
   %context_ = getelementptr inbounds %"class.fizz::DefaultCertificateVerifier", ptr %this1, i32 0, i32 2
@@ -43201,7 +43201,7 @@ entry:
   %this.addr = alloca ptr, align 8
   store ptr %this, ptr %this.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
-  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4fizz19CertificateVerifierE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [6 x ptr] }, ptr @_ZTVN4fizz19CertificateVerifierE, i32 0, i32 0, i32 2), ptr %this1, align 8
   ret void
 }
 
@@ -44289,7 +44289,7 @@ entry:
   store ptr %__args, ptr %__args.addr, align 8
   %this1 = load ptr, ptr %this.addr, align 8
   call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EEC2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this1) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %_M_impl = getelementptr inbounds %"class.std::_Sp_counted_ptr_inplace.598", ptr %this1, i32 0, i32 1
   call void @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE5_ImplC2ES6_(ptr noundef nonnull align 8 dereferenceable(32) %_M_impl) #3
   %call = call noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvELN9__gnu_cxx12_Lock_policyE2EE6_M_ptrEv(ptr noundef nonnull align 8 dereferenceable(48) %this1) #3

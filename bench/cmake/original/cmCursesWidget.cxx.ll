@@ -32,7 +32,7 @@ define dso_local void @_ZN14cmCursesWidgetC2Eiiii(ptr noundef nonnull align 8 de
   store i32 %3, ptr %9, align 4
   store i32 %4, ptr %10, align 4
   %13 = load ptr, ptr %6, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14cmCursesWidget, i32 0, inrange i32 0, i32 2), ptr %13, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14cmCursesWidget, i32 0, i32 0, i32 2), ptr %13, align 8
   %14 = getelementptr inbounds %class.cmCursesWidget, ptr %13, i32 0, i32 3
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %14) #6
   %15 = load i32, ptr %8, align 4
@@ -98,7 +98,7 @@ define dso_local void @_ZN14cmCursesWidgetD2Ev(ptr noundef nonnull align 8 deref
   %2 = alloca ptr, align 8
   store ptr %0, ptr %2, align 8
   %3 = load ptr, ptr %2, align 8
-  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14cmCursesWidget, i32 0, inrange i32 0, i32 2), ptr %3, align 8
+  store ptr getelementptr inbounds ({ [9 x ptr] }, ptr @_ZTV14cmCursesWidget, i32 0, i32 0, i32 2), ptr %3, align 8
   %4 = getelementptr inbounds %class.cmCursesWidget, ptr %3, i32 0, i32 4
   %5 = load ptr, ptr %4, align 8
   %6 = icmp ne ptr %5, null

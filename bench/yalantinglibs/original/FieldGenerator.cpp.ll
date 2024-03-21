@@ -3360,7 +3360,7 @@ entry:
 
 invoke.cont:                                      ; preds = %entry
   call void @_ZN7OptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(48) %agg.tmp) #3
-  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i32 0, inrange i32 0, i32 2), ptr %this1, align 8
+  store ptr getelementptr inbounds ({ [7 x ptr] }, ptr @_ZTVN9struct_pb8compiler14FieldGeneratorE, i32 0, i32 0, i32 2), ptr %this1, align 8
   %d_ = getelementptr inbounds %"class.struct_pb::compiler::FieldGenerator", ptr %this1, i32 0, i32 2
   %2 = load ptr, ptr %d.addr, align 8
   store ptr %2, ptr %d_, align 8
